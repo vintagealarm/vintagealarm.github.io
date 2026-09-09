@@ -17,7 +17,7 @@ const {
   schema
 } = Astro.props;
 
-const siteRoot = 'https://orima1995-create.github.io/orima1995-creator.github.io/';
+const siteRoot = 'https://vintagealarm.github.io/';
 const canonical = new URL(path.replace(/^\//, ''), siteRoot).toString();
 const ogImage = image
   ? (image.startsWith('http') ? image : new URL(image.replace(/^\//, ''), siteRoot).toString())
@@ -65,7 +65,7 @@ const ogImage = image
     const beacon = document.createElement('script');
     beacon.defer = true;
     beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-    beacon.dataset.cfBeacon = '{"token":"3f7f9454e132415ebf8ffa04122e16e3"}';
+    beacon.dataset.cfBeacon = '{"token":"862adb1fcab1439f899cccf093361ee9"}';
     document.head.appendChild(beacon);
   })();
 </script>

@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://orima1995-create.github.io/orima1995-creator.github.io/sitemap.xml
+Sitemap: https://vintagealarm.github.io/sitemap.xml
 
-Sitemap: https://orima1995-create.github.io/orima1995-creator.github.io/sitemap-vintage.xml
+Sitemap: https://vintagealarm.github.io/sitemap-vintage.xml

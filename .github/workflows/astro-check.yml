@@ -124,7 +124,7 @@ jobs:
           preview_pid=$!
           trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
           for attempt in {1..20}; do
-            if curl -fsS http://127.0.0.1:4321/orima1995-creator.github.io/ >/dev/null; then
+            if curl -fsS http://127.0.0.1:4321/ >/dev/null; then
               break
             fi
             sleep 1

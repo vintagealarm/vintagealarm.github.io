@@ -11,7 +11,7 @@ assert.equal(campaignWindow(start, 24, Date.parse(start) + 48 * 3600000).elapsed
 assert.throws(() => campaignWindow(start, 2));
 assert.throws(() => campaignWindow('invalid', 24));
 assert.throws(() => campaignWindow(start, 24, Date.parse(start) - 1));
-const flow = (destination, source, count) => ({ count, dimensions: { requestPath: destination, refererHost: 'orima1995-create.github.io', refererPath: source }, sum: { visits: 0 } });
+const flow = (destination, source, count) => ({ count, dimensions: { requestPath: destination, refererHost: 'vintagealarm.github.io', refererPath: source }, sum: { visits: 0 } });
 const summary = campaignSummary({ viewer: { accounts: [{ entries: [], flows: [flow('/cyma-time-o-vox/', '/cyma-time-o-vox/', 9), flow('/pierce-duofon/', '/cyma-time-o-vox/', 2)] }] } }, '/cyma-time-o-vox/');
 assert.equal(summary.nextPages, 2);
 assert.equal(summary.xEntries, 0);
@@ -27,7 +27,7 @@ const aggregated = aggregateSnsEntries([
   entry("/unknown/", "t.co", 1),
   entry("/basis-alarm/", "google.com", 9),
   entry("/basis-alarm/", "", 8),
-  entry("/basis-alarm/", "orima1995-create.github.io", 7),
+  entry("/basis-alarm/", "vintagealarm.github.io", 7),
 ]);
 assert.equal(aggregated.total, 12);
 assert.deepEqual(aggregated.pages.map(p => p.total), [5, 6, 0, 1]);

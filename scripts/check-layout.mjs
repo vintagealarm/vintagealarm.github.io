@@ -1,6 +1,6 @@
 import { chromium } from 'playwright';
 
-const root = process.env.LAYOUT_BASE_URL || 'http://127.0.0.1:4321/orima1995-creator.github.io/';
+const root = process.env.LAYOUT_BASE_URL || 'http://127.0.0.1:4321/';
 const routes = [
   '',
   'history/',

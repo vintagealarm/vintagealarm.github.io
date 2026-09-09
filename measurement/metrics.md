@@ -2,6 +2,14 @@
 
 更新日: 2026-09-09
 
+## 公開URL移行
+
+- 2026-09-10以降の正規URL: `https://vintagealarm.github.io/`
+- 旧URL: `https://orima1995-create.github.io/orima1995-creator.github.io/`
+- 旧GitHub Pages URLはリポジトリ移管では転送されないため、旧リポジトリを転送専用サイトとして残す。
+- 新旧は別のCloudflare Web Analyticsサイトとして保持する。2026-09-10をまたぐ比較では、ホスト変更と計測タグ変更を注記する。
+- 管理ダッシュボードの正規集計ホストは`vintagealarm.github.io`とし、旧base pathは過去データの正規化対象として残す。
+
 ## 原則
 
 数字を増やすことより、何が増えたかを区別できることを優先する。
