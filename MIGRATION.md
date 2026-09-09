@@ -47,6 +47,7 @@ GitHub does not redirect a GitHub Pages site when its repository is transferred 
 - Cloudflare Web Analytics: new-host site and beacon configured; historical legacy-host data remains in the former site
 - Analytics dashboard Worker: deployed for `vintagealarm.github.io`; legacy-host referrals remain classified as internal navigation
 - Pages CMS: configuration file is present in the canonical repository; GitHub App installation for the Organization is still required
-- Search Console: verification file is published; new URL-prefix property and sitemap submission still require Google sign-in
+- Search Console: new URL-prefix property verified by HTML file; sitemap submitted; live URL test passed and the home page was added to the priority crawl queue
+- Search Console follow-up: the initial sitemap processing status was `Couldn't fetch` even though the public XML returned HTTP 200 to a Googlebot user agent; recheck after Google's next processing pass
 - Council Worker: source origin is updated, but no `council-api` Worker is currently deployed; the public lab remains in its existing local-demo mode
 - Outcome observation: monitor indexing and traffic after Search Console submission
