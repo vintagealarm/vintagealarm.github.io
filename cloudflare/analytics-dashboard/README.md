@@ -57,6 +57,12 @@ WorkerはBasic Authで保護する。
 はCloudflare Worker Secretにのみ保存する。
 API token・Account ID・パスワードをGitHubへコミットしない。
 
+## ホスト移行基準線
+
+2026-09-10を旧GitHub Pagesから `https://vintagealarm.github.io/` への移行日として固定する。
+Traffic Trend / Acquisition Trendには `HOST MIGRATION` マーカーを表示し、既存のX / YouTube施策マーカーと同じ時間軸で判別できるようにする。
+これはJSTの日単位の基準線であり、正確な切替時刻を示すものではない。旧ホストと新ホストは別計測として保持し、移行をまたぐ数値を同条件の連続データとして比較しない。
+
 ## ChatGPT / AI向け read-only export
 
 ダッシュボード本体のBasic AuthやCloudflare API tokenを共有せず、集計データだけを一時的に読み出すための経路を用意する。
@@ -133,6 +139,7 @@ Worker内のPAGE_NAMESで管理する。
 - YouTube Views / Likes / 平均視聴率とCloudflare YouTube Visitsも同一指標ではない。
 - YouTubeアプリやWebViewでRefererが失われるアクセスはDirect / Unknownになり得る。
 - Page viewsとVisitsは別定義。
+- Cloudflare GraphQLのAdaptive datasetは長期間・複雑なqueryほどsampling解像度が変わり得るため、30D集計は最大7日単位に分割してWorker側で合算する。
 - Search Consoleの表示回数 / Click / CTR / QueryとCloudflare訪問データを混同しない。
 - Campaign Funnel内のCloudflare側数値は選択期間の比較値であり、投稿単位の完全帰属ではない。
 - LOW SAMPLE中は数件差を傾向として断定しない。
