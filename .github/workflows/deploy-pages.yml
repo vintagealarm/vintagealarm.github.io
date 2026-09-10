@@ -32,6 +32,10 @@ jobs:
         run: npm ci
       - name: Build Astro site
         run: npm run build
+      - name: Verify internal links and SEO
+        run: npm run check:quality
+      - name: Verify quality gates reject regressions
+        run: npm run test:quality
       - name: Verify OWNER'S NOTES directory
         run: node scripts/check-owner-directory.mjs
       - name: Verify build output

@@ -93,6 +93,29 @@ scripts.forEach((script, index) => {
 });
 
 const dashboardScript = scripts.join("\n");
+// Exercise the actual generated chart function without the dashboard's DOM boot.
+const chartSource = dashboardScript.slice(dashboardScript.indexOf('const HOST_MIGRATION ='), dashboardScript.indexOf('function entryBars('));
+assert.ok(chartSource.includes('function lineChart('));
+const chartContext = vm.createContext({
+  window: { __vaWindowStart: '2026-09-09T00:00:00Z', __vaWindowEnd: '2026-09-11T00:00:00Z' },
+  bucketTime: v => Date.parse(v), bucketLabel: v => v, esc: v => String(v),
+  COLORS: { X: '#111', YouTube: '#f00' }
+});
+vm.runInContext(chartSource, chartContext);
+const chart = vm.runInContext('lineChart', chartContext);
+const points = [{ bucket: '2026-09-09T00:00:00Z', visits: 1 }, { bucket: '2026-09-11T00:00:00Z', visits: 2 }];
+const series = [{ key: 'visits', label: 'Visits', color: '#111' }];
+const campaigns = [{ linkAddedAt: '2026-09-10T06:00:00Z', platform: 'YouTube', label: 'VIDEO' }, { linkAddedAt: '2026-09-10T07:00:00Z', platform: 'X', label: 'POST' }];
+const marked = chart(points, series, campaigns, true);
+assert.ok(marked.includes('HOST MIGRATION'));
+assert.ok(marked.includes('YT · VIDEO'));
+assert.ok(marked.includes('X · POST'));
+assert.equal(campaigns.length, 2); // Fixed events must never enter saved campaign records.
+assert.ok(!chart(points, series, campaigns).includes('HOST MIGRATION')); // Discovery charts are separate.
+chartContext.window.__vaWindowStart = '2026-09-11T00:00:00Z';
+chartContext.window.__vaWindowEnd = '2026-09-12T00:00:00Z';
+assert.ok(!chart(points, series, [], true).includes('HOST MIGRATION'));
+assert.ok(chart([], series, [], true).includes('時系列データなし'));
 const requiredFragments = [
   "/^\\d{4}-\\d{2}-\\d{2}$/",
   "/\\s+/g",
