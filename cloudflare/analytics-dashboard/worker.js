@@ -1,5 +1,13 @@
 const GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql";
 const DEFAULT_HOST = "vintagealarm.github.io";
+export const HOST_MIGRATION = Object.freeze({
+  date: "2026-09-10",
+  markerAt: "2026-09-10T00:00:00+09:00",
+  precision: "day",
+  oldHost: "orima1995-create.github.io",
+  newHost: "vintagealarm.github.io",
+  note: "2026-09-10 HOST MIGRATION · 日付基準線（JST、切替時刻ではありません）。新旧ホストは別計測。移行前を含む期間の増減は同条件比較ではありません。"
+});
 const LEGACY_HOST = "orima1995-create.github.io";
 const LEGACY_BASE_PATH = "/orima1995-creator.github.io";
 
@@ -283,6 +291,7 @@ async function aiExportResponse(request, url, env) {
       windowStart: payload.windowStart,
       windowEnd: payload.windowEnd,
       host: payload.host,
+      hostMigration: payload.hostMigration,
       current: aiExportPeriod(payload.current),
       previous: aiExportPeriod(payload.previous),
       trend: payload.trend,
@@ -397,6 +406,7 @@ async function analyticsResponse(url, env) {
       windowStart: currentStart.toISOString(),
       windowEnd: now.toISOString(),
       host,
+      hostMigration: HOST_MIGRATION,
       current: normalizePeriod(current),
       previous: normalizePeriod(previous),
       trend: trendResult.points,
@@ -1090,7 +1100,8 @@ function bucketLabel(value){
     :{month:"numeric",day:"numeric",timeZone:"Asia/Tokyo"};
   return new Intl.DateTimeFormat("ja-JP",opts).format(new Date(t));
 }
-function lineChart(points,series,campaigns=[]){
+const HOST_MIGRATION = ${JSON.stringify(HOST_MIGRATION)};
+function lineChart(points,series,campaigns=[],hostMigration=false){
   if(!points?.length)return '<div class="muted">時系列データなし</div>';
   const w=900,h=220,l=42,r=18,t=16,b=30,iw=w-l-r,ih=h-t-b;
   const start=new Date(window.__vaWindowStart||points[0].bucket).getTime();
@@ -1115,15 +1126,16 @@ function lineChart(points,series,campaigns=[]){
   }).join("");
   const tickIdx=[0,Math.floor((points.length-1)/4),Math.floor((points.length-1)/2),Math.floor((points.length-1)*3/4),points.length-1].filter((v,i,a)=>v>=0&&a.indexOf(v)===i);
   const ticks=tickIdx.map(i=>'<text x="'+xFor(points[i].bucket,i)+'" y="'+(h-8)+'" text-anchor="middle" font-size="9" fill="#706d67">'+esc(bucketLabel(points[i].bucket))+'</text>').join("");
-  const markers=campaigns.map(item=>{
+  const events=hostMigration ? [...campaigns,{linkAddedAt:HOST_MIGRATION.markerAt,label:"HOST MIGRATION",migration:true}] : campaigns;
+  const markers=events.map(item=>{
     if(!item.linkAddedAt)return "";
     const mt=new Date(item.linkAddedAt).getTime();
     if(!Number.isFinite(mt)||!Number.isFinite(start)||!Number.isFinite(end)||end<=start||mt<start||mt>end)return "";
     const x=l+((mt-start)/(end-start))*iw;
     const platform=item.platform==="YouTube"?"YouTube":"X";
-    const color=platform==="YouTube"?COLORS.YouTube:COLORS.X;
+    const color=item.migration?"#706d67":platform==="YouTube"?COLORS.YouTube:COLORS.X;
     const prefix=platform==="YouTube"?"YT":"X";
-    return '<line x1="'+x+'" y1="'+t+'" x2="'+x+'" y2="'+(t+ih)+'" stroke="'+color+'" stroke-width="1" stroke-dasharray="4 4"/><text x="'+Math.min(w-r-4,x+4)+'" y="'+(t+11)+'" font-size="9" fill="'+color+'">'+esc(prefix+" · "+(item.label||"POST"))+'</text>';
+    return '<line x1="'+x+'" y1="'+t+'" x2="'+x+'" y2="'+(t+ih)+'" stroke="'+color+'" stroke-width="1" stroke-dasharray="4 4"/><text x="'+Math.min(w-r-4,x+4)+'" y="'+(t+11)+'" font-size="9" fill="'+color+'">'+esc(item.migration?item.label:prefix+" · "+(item.label||"POST"))+'</text>';
   }).join("");
   const legend='<div class="chart-legend">'+series.map(s=>'<span><i class="legend-dot" style="background:'+s.color+'"></i>'+esc(s.label)+'</span>').join("")+'</div>';
   return '<div class="chart-wrap"><svg viewBox="0 0 '+w+' '+h+'" width="100%" role="img">'+grid+lines+markers+ticks+'</svg></div>'+legend;
@@ -1395,6 +1407,7 @@ function render(data){
   const trafficSeries=[{key:"pageviews",label:"Page views",color:COLORS.pageviews},{key:"visits",label:"Visits",color:COLORS.visits}];
   const acquisitionSeries=[{key:"x",label:"X",color:COLORS.X},{key:"youtube",label:"YouTube",color:COLORS.YouTube},{key:"search",label:"Search",color:COLORS.Search},{key:"direct",label:"Direct",color:COLORS.Direct},{key:"instagram",label:"Instagram",color:channelColor("Instagram")},{key:"facebook",label:"Facebook",color:channelColor("Facebook")},{key:"otherSns",label:"Other SNS",color:channelColor("Other SNS")}];
   document.getElementById("content").innerHTML=
+  '<div class="path">'+esc(HOST_MIGRATION.note)+' 集計ホスト: '+esc(data.host)+'</div>'+
   '<div class="grid analytics-grid">'+audit+lowSample+
     '<section class="card kpi"><div class="label">VISITS</div><div class="value">'+n(c.visits)+'</div>'+delta(c.visits,p.visits)+'</section>'+
     '<section class="card kpi"><div class="label">PAGE VIEWS</div><div class="value">'+n(c.pageviews)+'</div>'+delta(c.pageviews,p.pageviews)+'</section>'+
@@ -1402,9 +1415,9 @@ function render(data){
     '<section class="card kpi"><div class="label">ORGANIC SEARCH</div><div class="value">'+n(searchNow)+'</div>'+delta(searchNow,searchPrev)+'</section>'+
     '<section class="card kpi"><div class="label">PAGES / VISIT</div><div class="value">'+pagesPerVisit.toFixed(2)+'</div><div class="delta">回遊の粗い指標</div></section>'+
     '<section class="card kpi"><div class="label">WATCH ENTRY SHARE</div><div class="value">'+watchShare.toFixed(0)+'%</div><div class="delta">全流入 '+n(c.visits)+'件中 '+n(watchEntry)+'件</div></section>'+
-    '<section class="card primary-chart"><div class="section-head"><div class="section-title">TRAFFIC TREND</div><span>'+esc(data.trendBucket||"no bucket")+'</span></div>'+lineChart(trend,trafficSeries,campaigns)+(data.trendWarning?'<div class="path">'+esc(data.trendWarning)+'</div>':'')+'</section>'+
+    '<section class="card primary-chart"><div class="section-head"><div class="section-title">TRAFFIC TREND</div><span>'+esc(data.trendBucket||"no bucket")+'</span></div>'+lineChart(trend,trafficSeries,campaigns,true)+(data.trendWarning?'<div class="path">'+esc(data.trendWarning)+'</div>':'')+'</section>'+
     '<section class="card summary-chart"><div class="section-head"><div class="section-title">TRAFFIC MIX</div><span>Visits構成</span></div>'+trafficMix(c.channels)+'</section>'+
-    '<section class="card primary-chart"><div class="section-head"><div class="section-title">ACQUISITION TREND</div><span>流入元別の入口回数</span></div>'+lineChart(trend,acquisitionSeries,campaigns)+'</section>'+
+    '<section class="card primary-chart"><div class="section-head"><div class="section-title">ACQUISITION TREND</div><span>流入元別の入口回数</span></div>'+lineChart(trend,acquisitionSeries,campaigns,true)+'</section>'+
     '<section class="card summary-chart"><div class="section-head"><div class="section-title">ENTRY PAGES</div><span>入口回数</span></div>'+entryBars(c.pages)+'</section>'+
     '<section class="card flow"><div class="section-head"><div class="section-title">SNS → WATCH ENTRY</div><span>判別できたSNS流入の着地先</span></div>'+snsEntryChart(c.snsEntries)+'</section>'+
     '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>内部遷移</span></div>'+flowVisual(internalFlows)+'</section>'+
