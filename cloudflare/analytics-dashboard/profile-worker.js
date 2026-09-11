@@ -1,5 +1,8 @@
 import baseWorker from "./worker.js";
 
+const AI_READABLE_RELAY = "https://vintage-alarm-ai-relay.pages.dev/";
+const AI_READABLE_TTL_SECONDS = 15 * 60;
+
 export const X_PROFILE_TRACKING = Object.freeze({
   path: "/x/",
   name: "X Profile",
@@ -84,7 +87,37 @@ export function patchDashboardHtml(html) {
     system: true,
   });
 
+  const aiReadableHandler = `
+document.getElementById("aiReadable")?.addEventListener("click",async()=>{
+  const button=document.getElementById("aiReadable");
+  const original=button.textContent;
+  button.disabled=true;
+  button.textContent="ISSUING…";
+  try{
+    const response=await fetch('/api/ai-readable-link?window='+encodeURIComponent(windowKey),{cache:"no-store"});
+    const data=await response.json();
+    if(!response.ok||data.error)throw new Error(data.error||("HTTP "+response.status));
+    try{
+      await navigator.clipboard.writeText(data.url);
+      button.textContent="COPIED";
+    }catch{
+      window.prompt("Copy AI readable URL",data.url);
+      button.textContent="READY";
+    }
+  }catch(error){
+    button.textContent="ERROR";
+    alert("AI URL: "+error.message);
+  }finally{
+    setTimeout(()=>{button.textContent=original;button.disabled=false;},1800);
+  }
+});
+`;
+
   return String(html)
+    .replace(
+      '<button class="refresh" id="aiShare">AI COPY</button>',
+      '<button class="refresh" id="aiShare">AI COPY</button>\n<button class="refresh" id="aiReadable">AI URL</button>',
+    )
     .replace(
       "const campaigns=getCampaigns();",
       `const campaigns=[...getCampaigns(),${systemEvent}];`,
@@ -104,6 +137,10 @@ export function patchDashboardHtml(html) {
     .replace(
       "eventIndex(campaigns)+",
       'eventIndex(campaigns)+\'<section class="card kpi"><div class="label">X PROFILE ENTRY</div><div class="value">\'+n(c.xProfileEntries||0)+\'</div><div class="delta">専用URL /x/ の入口</div></section>\'+',
+    )
+    .replace(
+      'document.getElementById("refresh").addEventListener("click",()=>{load();renderDiscoveryInbox();});',
+      aiReadableHandler+'document.getElementById("refresh").addEventListener("click",()=>{load();renderDiscoveryInbox();});',
     );
 }
 
@@ -117,12 +154,60 @@ function cloneResponse(response, body) {
   });
 }
 
+function jsonResponse(payload, status = 200) {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "no-store",
+      "X-Robots-Tag": "noindex, nofollow, noarchive",
+    },
+  });
+}
+
+async function aiReadableLinkResponse(request, url, env, ctx) {
+  if (request.method !== "GET") return jsonResponse({ error: "GET only." }, 405);
+
+  const shareUrl = new URL("/api/ai-share-link", url.origin);
+  shareUrl.searchParams.set("window", url.searchParams.get("window") || "7d");
+  shareUrl.searchParams.set("ttl", String(AI_READABLE_TTL_SECONDS));
+
+  const headers = new Headers();
+  const authorization = request.headers.get("Authorization");
+  if (authorization) headers.set("Authorization", authorization);
+
+  const signedResponse = await baseWorker.fetch(
+    new Request(shareUrl.toString(), { method: "GET", headers }),
+    env,
+    ctx,
+  );
+  if (!signedResponse.ok) return signedResponse;
+
+  const signed = await signedResponse.json();
+  if (!signed?.url) return jsonResponse({ error: "Signed export URL was not returned." }, 502);
+
+  const relayUrl = new URL(AI_READABLE_RELAY);
+  relayUrl.searchParams.set("source", signed.url);
+
+  return jsonResponse({
+    url: relayUrl.toString(),
+    expiresAt: signed.expiresAt,
+    ttlSeconds: AI_READABLE_TTL_SECONDS,
+    format: "text/markdown",
+    scope: "aggregate analytics read-only",
+  });
+}
+
 export default {
   async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    if (url.pathname === "/api/ai-readable-link") {
+      return aiReadableLinkResponse(request, url, env, ctx);
+    }
+
     const response = await baseWorker.fetch(request, env, ctx);
     if (!response.ok) return response;
 
-    const url = new URL(request.url);
     if (url.pathname === "/" || url.pathname === "/index.html") {
       return cloneResponse(response, patchDashboardHtml(await response.text()));
     }
