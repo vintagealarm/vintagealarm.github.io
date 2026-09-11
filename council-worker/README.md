@@ -100,7 +100,6 @@ Worker URLが確定したら、COUNCIL LABのENGINE API URLへ一度設定する
 
 短い共有URLを使う場合だけ、`schema.sql` を適用し `DB` bindingを追加する。現状のハッシュ共有はD1なしでも動く。
 
-
 ## Remote MCP / ChatGPT接続
 
 Workerは通常のCOUNCIL LAB APIに加えて、Streamable HTTP互換のMCPエンドポイントを公開する。
@@ -120,7 +119,21 @@ Workerは通常のCOUNCIL LAB APIに加えて、Streamable HTTP互換のMCPエ�
 
 ChatGPT側でカスタムMCPアプリを作成できる環境では、この `/mcp` URLを接続先として登録し、Tool Scanで `run_council` を確認する。
 
-Tool descriptionには「スレ民」「Council」「自律思考バトル」「2ch/5ch民で焼く」「DEEP WEB ×10」が明記されているため、接続後はこれらの呼び方から同じCouncilを使う前提。
+### ChatGPTからのCouncil実行ルール
+
+「焼いて」「2ch民で焼いて」「5ch民で焼いて」「スレ民で焼いて」「Councilで」などの呼び方は、MCP接続の有無にかかわらず、上記Councilの議論フローを実行する要求を意味する。
+
+- `run_council` が利用可能なら、同ツールを使用する。
+- `run_council` が利用不可・未接続でも、MCP未接続を理由に停止しない。
+- 未接続時は、このREADMEと `src/index.ts` の最新仕様を読み込み、現在のチャット内でCouncilを実行する。
+- 「MCPが使えないため再現する」「PROJECT相当で代用する」といった断り書きを挟んで簡略化しない。
+- 単なる2ch / 5ch風の口調、一言煽り、通常の箇条書きはCouncilではない。
+- 少なくとも、独立した初手、他レスを読んだ返信、反証、維持 / 修正 / 撤回、複数波の継続議論、議長による裁定を含める。
+- 時計案件では、参照可能なProject資料、PDF、画像、既存実装を一般論より先に確認し、確認済み・資料記載・推論・未確認を混ぜない。
+
+つまり、MCPはCouncilを実行するための一つの実装経路であり、Councilそのものの意味や実行可否を決める前提条件ではない。
+
+Tool descriptionには「スレ民」「Council」「自律思考バトル」「2ch/5ch民で焼く」「DEEP WEB ×10」が明記されている。これらの呼び方は、接続中なら `run_council`、未接続なら現在のチャット内実行という違いだけで、同じCouncil仕様を指す。
 
 ### デプロイ前提
 
