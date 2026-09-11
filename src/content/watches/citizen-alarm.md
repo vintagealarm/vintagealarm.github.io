@@ -6,7 +6,7 @@ model: ALARM
 catch:
   - 国産初のベル腕時計、そして伝説へ。
 ownersNote:
-  image: /images/citizen-alarm/owners-note.jpg
+  image: /images/citizen-alarm/owners-note.webp
   lead:
     - 1958年、国産初のベル腕時計。
     - 中央の回転ディスクに、2つのリューズ。
