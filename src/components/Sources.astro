@@ -7,6 +7,16 @@ const typeLabel = {
   owner: 'OWNER OBSERVATION'
 };
 const structured = Array.isArray(meta) && meta.length === sources.length;
+const parseInlineLink = (source: string) => {
+  const match = source.match(/^(.*?)\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)(.*)$/);
+  if (!match) return null;
+  return {
+    before: match[1],
+    label: match[2],
+    href: match[3],
+    after: match[4]
+  };
+};
 ---
 <section class="section shell sources" aria-label="参考資料・出典">
   <details>
@@ -17,13 +27,22 @@ const structured = Array.isArray(meta) && meta.length === sources.length;
           const itemMeta = meta[index];
           const id = itemMeta?.id || String(index + 1);
           const label = typeLabel[itemMeta?.type as keyof typeof typeLabel];
+          const linkedSource = parseInlineLink(source);
 
           return (
             <li id={`source-${id}`}>
               <span class="source-no" aria-hidden="true">{id}</span>
               <div class="source-copy">
                 {label && <span class="source-kind">{label}</span>}
-                <span>{source}</span>
+                <span>
+                  {linkedSource ? (
+                    <>
+                      {linkedSource.before}
+                      <a href={linkedSource.href} target="_blank" rel="noopener noreferrer">{linkedSource.label}</a>
+                      {linkedSource.after}
+                    </>
+                  ) : source}
+                </span>
               </div>
             </li>
           );
@@ -43,6 +62,7 @@ const structured = Array.isArray(meta) && meta.length === sources.length;
   .source-list li:last-child{border-bottom:0}
   .source-no{color:var(--red,#934932);font:600 12px/1.5 var(--sans,sans-serif);padding-top:3px}
   .source-copy{min-width:0;color:var(--soft,#58634e);font-size:14px;line-height:1.9}
+  .source-copy a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
   .source-kind{display:inline-block;margin:0 8px 6px 0;padding:2px 7px;border:1px solid var(--rule,#bcc5b2);font:600 10px/1.5 var(--sans,sans-serif);letter-spacing:.06em;color:var(--soft,#58634e);vertical-align:.08em}
   @media(max-width:480px){
     .source-list li{grid-template-columns:24px minmax(0,1fr);gap:10px;padding:16px 0}
