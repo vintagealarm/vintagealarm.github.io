@@ -48,11 +48,13 @@ const watches = defineCollection({
       citationRefs: z.array(z.string()).optional(),
       linkLabel: z.string().optional(),
       linkUrl: z.string().url().optional(),
+      mediaStyle: z.enum(['default', 'compact-sequence']).optional(),
       images: z.array(z.object({
         src: z.string(),
         caption: z.string().optional(),
         alt: z.string().optional(),
-        afterParagraph: z.number().int().min(1).optional()
+        afterParagraph: z.number().int().min(1).optional(),
+        fullRow: z.boolean().optional()
       })).optional()
     })),
     sourceMeta: z.array(z.object({

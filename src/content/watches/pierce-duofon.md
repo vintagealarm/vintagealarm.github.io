@@ -67,12 +67,35 @@ deepDive:
     subtitle: "なぜ赤／白で鳴り方が変わるのか"
     paragraphs:
       - "Duofonでは、4時位置のリューズ兼プッシャーを操作してWECKERとSIGNALを切り替える。選択された状態は、6時位置下の小窓に赤または白で表示される。"
-      - "WECKERでは、ハンマーがムーブメント外周に配置された音響体を打つことで音を発生させる。SIGNALでは音響体を機構から外し、通常のWECKERとは異なる控えめな通知へ切り替える。1955年のPierce技術資料では、この切り替えを4時位置の操作部を4分の1回転させて行うと説明されている。"
+      - "WECKERでは、ハンマーがムーブメント外周に配置された音響体（ゴング）を打つことでベル音を発生させる。SIGNALでは打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体を打たずに自由振動する。1955年のPierce技術資料では、この切り替えを4時位置の操作部を4分の1回転させて行うと説明されている。"
       - "同資料では、アラーム腕時計の用途として「起床」と、決めた時刻を所有者に知らせることの二つを挙げている。会議や社交の場など、大きな音を周囲に聞かせる必要がない場合にはSIGNALを使用することが想定されていた。"
     citationRefs:
       - "1"
       - "1"
       - "1"
+    mediaStyle: "compact-sequence"
+    images:
+      - src: "/images/pierce-duofon/mechanism/05-crown-linkage.webp"
+        caption: "⑤ 4時位置のリューズを回すと、連動するバーと打撃ピンの位置が動く。"
+        alt: "Pierce Cal.135 4時位置リューズ操作に連動するバーと打撃ピン"
+        afterParagraph: 2
+        fullRow: true
+      - src: "/images/pierce-duofon/mechanism/01-signal-hammer.webp"
+        caption: "① SIGNAL（白・静音側）。打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体（ゴング）を打たずに自由振動する。"
+        alt: "Pierce Cal.135 SIGNAL状態 打撃ピンがハンマーの打撃位置から外れた状態"
+        afterParagraph: 2
+      - src: "/images/pierce-duofon/mechanism/02-wecker-hammer.webp"
+        caption: "② WECKER（赤・ベル音側）。打撃ピンがハンマーの打撃位置へ入り、ハンマーが音響体（ゴング）を打つ状態になる。"
+        alt: "Pierce Cal.135 WECKER状態 打撃ピンがハンマーの打撃位置に入った状態"
+        afterParagraph: 2
+      - src: "/images/pierce-duofon/mechanism/03-signal-indicator.webp"
+        caption: "③ SIGNAL（白）。バーの移動に連動して、6時位置の表示窓が白へ切り替わる。"
+        alt: "Pierce Cal.135 SIGNAL 白表示へ切り替わる可動バー"
+        afterParagraph: 2
+      - src: "/images/pierce-duofon/mechanism/04-wecker-indicator.webp"
+        caption: "④ WECKER（赤）。同じバーの移動に連動して、6時位置の表示窓が赤へ切り替わる。"
+        alt: "Pierce Cal.135 WECKER 赤表示へ切り替わる可動バー"
+        afterParagraph: 2
   - number: "03"
     title: "Duofonのモデル変遷"
     paragraphs:
