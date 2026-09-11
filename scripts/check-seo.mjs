@@ -20,6 +20,13 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
     if (!nodes.some(n => n.tagName === 'title' && content(n).trim())) fail('missing title');
     continue;
   }
+  // X profile tracking alias deliberately mirrors TOP, is noindex, and canonicals back to TOP.
+  if (page === '/x/') {
+    if (!nodes.some(n => n.tagName === 'meta' && attr(n, 'name') === 'robots' && attr(n, 'content') === 'noindex,follow')) fail('X profile alias must remain noindex,follow');
+    if (canonicalNodes.length !== 1 || attr(canonicalNodes[0], 'href') !== origin + '/') fail(`X profile alias canonical must be ${origin + '/'}`);
+    if (!nodes.some(n => n.tagName === 'title' && content(n).trim())) fail('missing title');
+    continue;
+  }
   const meta = key => nodes.filter(n => n.tagName === 'meta' && (attr(n, 'name') === key || attr(n, 'property') === key));
   const value = key => {
     const matches = meta(key);
