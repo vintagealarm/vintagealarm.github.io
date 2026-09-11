@@ -131,9 +131,12 @@ sourceMeta:
     type: reference
   - id: "4"
     type: reference
+  - id: "5"
+    type: provenance
 sources:
   - "Pierce AG, Biel, “Die Wecker-Armbanduhr Duofon mit zwei Lautstärken” (30.8.1955), Leonhard Beitl『Alarm am Arm』(2009) pp.353–355収録"
   - "Leonhard Beitl, 『Alarm am Arm』(2009), pp.356–358（Pierce Duo Fonのモデル例・Cal.135）"
   - "Leonhard Beitl, 『Alarm am Arm』(2009), pp.198–199（Gruen Duo-Tone Precision / Cal.920 SS）"
   - "Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007), pp.20, 130–131, 189–190, 218–221（Duofon / Pierce Cal.135 / 可変アラーム音量）"
+  - "機構画像5点（①〜⑤）：[森（時計狂）](https://x.com/ad19200610?s=11&t=3m8xXI66ZgB96VPG9PtQgw)さんより画像提供"
 ---
