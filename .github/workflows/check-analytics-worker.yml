@@ -24,3 +24,5 @@ jobs:
           node --check cloudflare/analytics-dashboard/profile-worker.js
       - name: Check generated dashboard JavaScript
         run: node cloudflare/analytics-dashboard/check-generated-html.mjs
+      - name: Check X profile attribution wrapper
+        run: node cloudflare/analytics-dashboard/check-profile-wrapper.mjs
