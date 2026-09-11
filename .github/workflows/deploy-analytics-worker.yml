@@ -30,10 +30,15 @@ jobs:
         run: npm install
 
       - name: Check worker JavaScript
-        run: node --check worker.js
+        run: |
+          node --check worker.js
+          node --check profile-worker.js
 
       - name: Check generated dashboard JavaScript
         run: node check-generated-html.mjs
+
+      - name: Check X profile attribution wrapper
+        run: node check-profile-wrapper.mjs
 
       - name: Check deployment credentials
         id: deploy_config
