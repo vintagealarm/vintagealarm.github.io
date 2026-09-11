@@ -37,6 +37,9 @@ jobs:
       - name: Check generated dashboard JavaScript
         run: node check-generated-html.mjs
 
+      - name: Check X profile attribution wrapper
+        run: node check-profile-wrapper.mjs
+
       - name: Check deployment credentials
         id: deploy_config
         shell: bash
