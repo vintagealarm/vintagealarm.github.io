@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - "cloudflare/analytics-dashboard/**"
+      - "cloudflare/ai-relay/**"
       - ".github/workflows/check-analytics-worker.yml"
   pull_request:
     paths:
       - "cloudflare/analytics-dashboard/**"
+      - "cloudflare/ai-relay/**"
       - ".github/workflows/check-analytics-worker.yml"
 
 jobs:
@@ -22,7 +24,10 @@ jobs:
         run: |
           node --check cloudflare/analytics-dashboard/worker.js
           node --check cloudflare/analytics-dashboard/profile-worker.js
+          node --check cloudflare/ai-relay/functions/index.js
       - name: Check generated dashboard JavaScript
         run: node cloudflare/analytics-dashboard/check-generated-html.mjs
-      - name: Check X profile attribution wrapper
+      - name: Check X profile and AI URL wrapper
         run: node cloudflare/analytics-dashboard/check-profile-wrapper.mjs
+      - name: Check AI relay behavior
+        run: node cloudflare/ai-relay/check-relay.mjs
