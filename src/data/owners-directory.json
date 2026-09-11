@@ -25,6 +25,18 @@
       "historyHref": "/history/#1950s"
     },
     {
+      "ownerNumber": "04",
+      "historyId": "citizen-alarm",
+      "ownedEra": "1950s",
+      "ownedSortYear": 1958,
+      "brand": "CITIZEN",
+      "name": "ALARM",
+      "catch": "国産初のベル腕時計、そして伝説へ。",
+      "image": "/images/owners-thumbnails/citizen-alarm-full.jpg",
+      "href": "/citizen-alarm/#owners-note",
+      "historyHref": "/history/#1950s"
+    },
+    {
       "ownerNumber": "01",
       "historyId": "pierce-duofon",
       "ownedEra": "1960s",
