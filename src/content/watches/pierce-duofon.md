@@ -80,7 +80,7 @@ deepDive:
         alt: "Pierce Cal.135 4時位置リューズ操作に連動するバーと打撃ピン"
         afterParagraph: 2
         fullRow: true
-      - src: "/images/pierce-duofon/mechanism/01-signal-hammer.webp"
+      - src: "/images/pierce-duofon/mechanism/01-signal-hammer.webp?v=2"
         caption: "① SIGNAL（白・静音側）。打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体（ゴング）を打たずに自由振動する。"
         alt: "Pierce Cal.135 SIGNAL状態 打撃ピンがハンマーの打撃位置から外れた状態"
         afterParagraph: 2
