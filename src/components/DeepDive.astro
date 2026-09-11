@@ -177,8 +177,8 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
   .deep-media--compact figure{min-width:0}
   .deep-media--compact .deep-media__full{grid-column:1/-1;width:min(100%,360px);justify-self:center}
   .deep-media--compact figcaption{font-size:12px;line-height:1.6}
-  .deep-zoom{display:block;width:100%;padding:0;border:0;background:transparent;cursor:zoom-in;text-align:inherit}
-  .deep-zoom img{transition:opacity .18s ease}
+  .deep-zoom{display:flex;width:100%;aspect-ratio:4/5;align-items:center;justify-content:center;overflow:hidden;padding:0;border:1px solid rgba(31,28,24,.16);background:rgba(235,227,215,.42);cursor:zoom-in;text-align:inherit}
+  .deep-zoom img{width:100%;height:100%;object-fit:contain;border:0;transition:opacity .18s ease}
   .deep-zoom:hover img{opacity:.9}
   .deep-zoom:focus-visible{outline:2px solid var(--red,#934932);outline-offset:3px}
   .deep-lightbox{width:100vw;height:100dvh;max-width:none;max-height:none;margin:auto;padding:0;border:0;background:transparent;color:#fff;overflow:hidden}
