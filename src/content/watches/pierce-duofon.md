@@ -76,24 +76,24 @@ deepDive:
     mediaStyle: "compact-sequence"
     images:
       - src: "/images/pierce-duofon/mechanism/05-crown-linkage.webp"
-        caption: "⑤ 4時位置のリューズを回すと、連動するバーと打撃ピンの位置が動く。"
+        caption: "① 4時位置のリューズを回すと、連動するバーと打撃ピンの位置が動く。"
         alt: "Pierce Cal.135 4時位置リューズ操作に連動するバーと打撃ピン"
         afterParagraph: 2
         fullRow: true
       - src: "/images/pierce-duofon/mechanism/01-signal-hammer.webp?v=2"
-        caption: "① SIGNAL（白・静音側）。打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体（ゴング）を打たずに自由振動する。"
+        caption: "② SIGNAL（白・静音側）。打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体（ゴング）を打たずに自由振動する。"
         alt: "Pierce Cal.135 SIGNAL状態 打撃ピンがハンマーの打撃位置から外れた状態"
         afterParagraph: 2
       - src: "/images/pierce-duofon/mechanism/02-wecker-hammer.webp"
-        caption: "② WECKER（赤・ベル音側）。打撃ピンがハンマーの打撃位置へ入り、ハンマーが音響体（ゴング）を打つ状態になる。"
+        caption: "③ WECKER（赤・ベル音側）。打撃ピンがハンマーの打撃位置へ入り、ハンマーが音響体（ゴング）を打つ状態になる。"
         alt: "Pierce Cal.135 WECKER状態 打撃ピンがハンマーの打撃位置に入った状態"
         afterParagraph: 2
       - src: "/images/pierce-duofon/mechanism/03-signal-indicator.webp"
-        caption: "③ SIGNAL（白）。バーの移動に連動して、6時位置の表示窓が白へ切り替わる。"
+        caption: "④ SIGNAL（白）。バーの移動に連動して、6時位置の表示窓が白へ切り替わる。"
         alt: "Pierce Cal.135 SIGNAL 白表示へ切り替わる可動バー"
         afterParagraph: 2
       - src: "/images/pierce-duofon/mechanism/04-wecker-indicator.webp"
-        caption: "④ WECKER（赤）。同じバーの移動に連動して、6時位置の表示窓が赤へ切り替わる。"
+        caption: "⑤ WECKER（赤）。同じバーの移動に連動して、6時位置の表示窓が赤へ切り替わる。"
         alt: "Pierce Cal.135 WECKER 赤表示へ切り替わる可動バー"
         afterParagraph: 2
   - number: "03"
