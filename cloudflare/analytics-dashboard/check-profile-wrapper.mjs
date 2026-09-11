@@ -1,4 +1,4 @@
-import { patchAnalyticsPayload, patchDashboardHtml, X_PROFILE_TRACKING } from './profile-worker.js';
+import profileWorker, { patchAnalyticsPayload, patchDashboardHtml, X_PROFILE_TRACKING } from './profile-worker.js';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -33,5 +33,17 @@ assert(patchedHtml.includes('Xプロフィール専用URL発行'), 'system timel
 assert(patchedHtml.includes('X PROFILE ENTRY'), 'profile KPI was not injected');
 assert(patchedHtml.includes('X Profile'), 'profile event platform was not injected');
 assert(X_PROFILE_TRACKING.url === 'https://vintagealarm.github.io/x/', 'profile URL changed unexpectedly');
+
+const auth = `Basic ${Buffer.from('admin:test-password').toString('base64')}`;
+const dashboardResponse = await profileWorker.fetch(
+  new Request('https://dashboard.example/', { headers: { Authorization: auth } }),
+  { DASHBOARD_PASSWORD: 'test-password' },
+  {},
+);
+assert(dashboardResponse.ok, 'wrapped dashboard did not render');
+const dashboardHtml = await dashboardResponse.text();
+assert(dashboardHtml.includes('X PROFILE ENTRY'), 'real dashboard HTML is missing profile KPI');
+assert(dashboardHtml.includes('Xプロフィール専用URL発行'), 'real dashboard HTML is missing profile system event');
+assert(dashboardHtml.includes('item.platform==="X Profile"'), 'real dashboard HTML is missing X Profile marker handling');
 
 console.log('X profile attribution wrapper: OK');
