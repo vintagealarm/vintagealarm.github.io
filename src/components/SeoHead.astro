@@ -6,6 +6,7 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+  robots?: string;
 }
 
 const {
@@ -14,7 +15,8 @@ const {
   path = '',
   image,
   type = 'website',
-  schema
+  schema,
+  robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'
 } = Astro.props;
 
 const siteRoot = 'https://vintagealarm.github.io/';
@@ -25,7 +27,7 @@ const ogImage = image
 ---
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+<meta name="robots" content={robots} />
 <link rel="canonical" href={canonical} />
 <meta property="og:locale" content="ja_JP" />
 <meta property="og:site_name" content="VINTAGE ALARM" />
