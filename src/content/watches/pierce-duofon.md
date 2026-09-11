@@ -81,12 +81,12 @@ deepDive:
         afterParagraph: 2
         fullRow: true
       - src: "/images/pierce-duofon/mechanism/01-signal-hammer.webp?v=2"
-        caption: "② SIGNAL（白・静音側）。打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体（ゴング）を打たずに自由振動する。"
-        alt: "Pierce Cal.135 SIGNAL状態 打撃ピンがハンマーの打撃位置から外れた状態"
+        caption: "② SIGNAL（白・静音側）。青で示した部分がハンマー。打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体（ゴング）を打たずに自由振動する。"
+        alt: "Pierce Cal.135 SIGNAL状態 青で示したハンマーと、打撃位置から外れた打撃ピン"
         afterParagraph: 2
       - src: "/images/pierce-duofon/mechanism/02-wecker-hammer.webp"
-        caption: "③ WECKER（赤・ベル音側）。打撃ピンがハンマーの打撃位置へ入り、ハンマーが音響体（ゴング）を打つ状態になる。"
-        alt: "Pierce Cal.135 WECKER状態 打撃ピンがハンマーの打撃位置に入った状態"
+        caption: "③ WECKER（赤・ベル音側）。青で示した部分がハンマー。打撃ピンがハンマーの打撃位置へ入り、ハンマーが音響体（ゴング）を打つ状態になる。"
+        alt: "Pierce Cal.135 WECKER状態 青で示したハンマーと、打撃位置に入った打撃ピン"
         afterParagraph: 2
       - src: "/images/pierce-duofon/mechanism/03-signal-indicator.webp"
         caption: "④ SIGNAL（白）。バーの移動に連動して、6時位置の表示窓が白へ切り替わる。"
