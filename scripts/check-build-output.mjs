@@ -54,8 +54,11 @@ if (cyma?.published) {
 }
 
 const pagesConfig = fs.readFileSync(path.join(root, '.pages.yml'), 'utf8');
-for (const marker of ['name: published', '公開（OFFで下書き）', 'label: HISTORY 本文・MILESTONES', 'HISTORY・一覧サムネ画像']) {
+for (const marker of ['name: published', '公開（OFFで下書き）', 'label: HISTORY 本文・MILESTONES', 'label: Watches']) {
   if (!pagesConfig.includes(marker)) failures.push(`Pages CMS marker missing: ${marker}`);
+}
+if (pagesConfig.includes('name: ownersDirectory')) {
+  failures.push('Pages CMS must not expose duplicate OWNER directory metadata');
 }
 
 for (const file of fs.readdirSync(dist, { recursive: true }).filter((file) => String(file).endsWith('.html'))) {
