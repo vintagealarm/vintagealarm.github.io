@@ -60,7 +60,7 @@ try {
       if (route === 'history/' && width <= 390) {
         const historyRails = await page.evaluate(() => {
           const eraNav = document.querySelector('.history-era-nav > .shell');
-          const chapter = document.querySelector('#1950s');
+          const chapter = document.getElementById('1950s');
           if (chapter instanceof HTMLDetailsElement) chapter.open = true;
           const ownerRail = chapter?.querySelector('.owner-tiles');
           return {
