@@ -37,6 +37,18 @@
       "historyHref": "/history/#1950s"
     },
     {
+      "ownerNumber": "05",
+      "historyId": "westclox-watchlarm",
+      "ownedEra": "1950s",
+      "ownedSortYear": 1958,
+      "brand": "WESTCLOX",
+      "name": "WATCHLARM",
+      "catch": "0石腕時計の劇的ビフォーアフター。",
+      "image": "/images/owners-thumbnails/westclox-watchlarm-full.jpg",
+      "href": "/westclox-watchlarm/#owners-note",
+      "historyHref": "/history/#1950s"
+    },
+    {
       "ownerNumber": "01",
       "historyId": "pierce-duofon",
       "ownedEra": "1960s",
