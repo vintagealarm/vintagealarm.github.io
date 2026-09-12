@@ -4,7 +4,7 @@ const { rightLabel = 'ALARM WRISTWATCHES' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const researchPublished = researchSettings.published;
 ---
-<header class="shell mast section-mast">
+<header class="shell mast section-mast" data-research-published={researchPublished ? 'true' : 'false'}>
   <div class="section-mast-left">
     <details class="section-menu">
       <summary aria-label="セクションメニュー">≡</summary>
@@ -31,6 +31,7 @@ const researchPublished = researchSettings.published;
   .section-menu-panel a{display:flex;justify-content:space-between;gap:18px;padding:13px 11px;border-bottom:1px solid var(--rule);color:var(--ink);font-size:13px;letter-spacing:.04em;text-decoration:none;white-space:normal}
   .section-menu-panel a:last-child{border-bottom:0}
   .section-menu-panel a::after{content:'→';font-family:Georgia,"Times New Roman",serif}
+  :global(html:has(.section-mast[data-research-published="false"]) #research){display:none!important}
   @media(max-width:480px){
     .section-mast-left{gap:5px}
     .section-menu>summary{width:44px;height:44px;font-size:17px}
