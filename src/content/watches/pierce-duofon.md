@@ -123,6 +123,15 @@ deepDive:
       - "3,4"
       - "3,4"
       - "3,4"
+    images:
+      - src: "/images/gruenduotone3.png"
+        caption: "Duotone ダイヤル"
+        alt: "Gruen Duo-Tone Precision ダイヤル"
+        afterParagraph: 3
+      - src: "/images/gruenduotone4.webp"
+        caption: "Duotone ムーブメント"
+        alt: "Gruen Duo-Tone Precision Cal.920 SS ムーブメント"
+        afterParagraph: 3
 sourceMeta:
   - id: "1"
     type: primary
@@ -139,5 +148,5 @@ sources:
   - "Leonhard Beitl, 『Alarm am Arm』(2009), pp.356–358（Pierce Duo Fonのモデル例・Cal.135）"
   - "Leonhard Beitl, 『Alarm am Arm』(2009), pp.198–199（Gruen Duo-Tone Precision / Cal.920 SS）"
   - "Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007), pp.20, 130–131, 189–190, 218–221（Duofon / Pierce Cal.135 / 可変アラーム音量）"
-  - "機構画像5点（①〜⑤）：[森（時計狂）](https://x.com/ad19200610?s=11&t=3m8xXI66ZgB96VPG9PtQgw)さんより画像提供"
+  - "機構画像5点（①〜⑤）およびGruen Duo-Tone画像2点（ダイヤル／ムーブメント）：[森（時計狂）](https://x.com/ad19200610?s=11&t=3m8xXI66ZgB96VPG9PtQgw)さんより画像提供"
 ---
