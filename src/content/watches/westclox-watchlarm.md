@@ -7,7 +7,7 @@ model: WATCHLARM
 catch:
   - 0石腕時計の劇的ビフォーアフター。
 ownersNote:
-  image: /images/628F5488-72F9-4EFB-B4DD-3B9E97BB0D06.png
+  image: /images/IMG_2090.png
   lead:
     - 0石腕時計の劇的ビフォーアフター。
     - 石はいらない。
@@ -26,7 +26,8 @@ ownersNote:
   note:
     - Westcloxは、目覚まし時計を大量生産する一方で、W4のような0石の廉価腕時計も作っていた。
     - WatchlarmのW5では、2時位置のプッシャーでアラーム時刻を設定し、追加の歯車列と高価な回転ベゼルを省いた。
-    - 元Westclox社員Ellworth Danzは、W5にW4の部品が一部使われた可能性を挙げている。一方でDanzは、Watchlarmについて「製造が難しかった」とし、利益も出なかったと思うと振り返った。
+    - 元Westclox社員Ellworth
+      Danzは、W5にW4の部品が一部使われた可能性を挙げている。一方でDanzは、Watchlarmについて「製造が難しかった」とし、利益も出なかったと思うと振り返った。
 spec:
   era: 1950年代
   caseSize: 32.88mm（資料掲載個体）
@@ -51,7 +52,9 @@ deepDive:
     title: 目覚まし時計を何千万台も作った会社
     subtitle: Westcloxは、ただの廉価時計メーカーではなかった。
     paragraphs:
-      - 1950年代のWestcloxは、Big BenやBaby Benに代表される目覚まし時計を大規模に量産していたメーカーだった。1956年頃のLaSalle工場では4,000人を超える従業員を抱え、1日に約40,000個の時計類を生産していたとされる。同時期までにBig Benは4,000万台以上、Baby Benも2,800万台以上が作られていたという。
+      - 1950年代のWestcloxは、Big BenやBaby
+        Benに代表される目覚まし時計を大規模に量産していたメーカーだった。1956年頃のLaSalle工場では4,000人を超える従業員を抱え、1日に約40,000個の時計類を生産していたとされる。同時期までにBig
+        Benは4,000万台以上、Baby Benも2,800万台以上が作られていたという。
       - つまりWatchlarmは、小さなメーカーが苦肉の策で作った廉価アラーム腕時計ではない。目覚まし時計を何千万台も量産してきた会社が、今度はその「鳴る時計」を腕時計サイズで成立させようとしたものだった。Westcloxの強みは高級時計的な仕上げではなく、少ない部品と加工で大量に、安定して製品を作ることにあった。
       - 一方でWestcloxは、W4のような0石の廉価腕時計も作っていた。WatchlarmのW5を見ると、この二つの流れ――大量生産された目覚まし時計と、徹底して簡素化された腕時計――が一つの製品に交わったように見える。だからW5の面白さは、単に「0石のアラーム腕時計」であることではない。量産を知り尽くしたメーカーが、どこまで構造を削りながら「鳴る腕時計」を成立させられるかを突き詰めたところにある。
     citationRefs:
@@ -89,8 +92,10 @@ deepDive:
   - number: "05"
     title: ドイツ製ケースと音の構造
     paragraphs:
-      - Beitlは、Westclox Alarmのケースと文字盤がドイツ製だったと記録している。掲載個体はクローム仕上げの真鍮ケースで、直径32.88mm、圧入式の裏蓋を持つ。
-      - Horlbeckは、わずかに膨らんだ裏蓋、中央のリベット、内側の小さなブリッジなど、Junghans Minivoxの底部構造との類似を指摘している。
+      - Beitlは、Westclox
+        Alarmのケースと文字盤がドイツ製だったと記録している。掲載個体はクローム仕上げの真鍮ケースで、直径32.88mm、圧入式の裏蓋を持つ。
+      - Horlbeckは、わずかに膨らんだ裏蓋、中央のリベット、内側の小さなブリッジなど、Junghans
+        Minivoxの底部構造との類似を指摘している。
       - ただし、JunghansがW5のケースを直接製造した、あるいはW5を設計したと断定できる資料は確認できない。Horlbeckも、協力または供給元との近い関係の可能性として述べている。
     citationRefs:
       - "2"
@@ -106,8 +111,13 @@ sourceMeta:
   - id: "4"
     type: reference
 sources:
-  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007), pp.150, 198–199, 220–221（Westclox W5の仕様、操作、コスト削減構造、ケースと音響構造）
-  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.497–498, 628（Westclox Alarm / W5、0石、ケース径、操作、ドイツ製ケース・文字盤）
-  - Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/)（W5とW4部品の関係、製造難、採算に関する回想）
-  - ClockHistory, [Western Clock Company Chronology](https://clockhistory.com/westclox/company/dates/index.html)（1956年の従業員数、生産規模、Big Ben / Baby Ben累計生産数）
+  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007),
+    pp.150, 198–199, 220–221（Westclox W5の仕様、操作、コスト削減構造、ケースと音響構造）
+  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.497–498, 628（Westclox Alarm /
+    W5、0石、ケース径、操作、ドイツ製ケース・文字盤）
+  - Ellworth Danz, [Westclox
+    Wristwatches](https://clockhistory.com/westclox/products/wristwatch/)（W5とW4部品の関係、製造難、採算に関する回想）
+  - ClockHistory, [Western Clock Company
+    Chronology](https://clockhistory.com/westclox/company/dates/index.html)（1956年の従業員数、生産規模、Big
+    Ben / Baby Ben累計生産数）
 ---
