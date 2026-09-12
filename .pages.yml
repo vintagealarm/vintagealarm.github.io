@@ -422,3 +422,22 @@ content:
             fields:
               - { name: id, label: 出典番号, type: string, required: true }
               - { name: text, label: 出典本文, type: text, required: true }
+
+  - name: research
+    label: RESEARCH 公開設定
+    type: file
+    path: src/data/research-settings.json
+    format: json
+    fields:
+      - name: published
+        label: RESEARCHを公開
+        type: boolean
+        default: false
+      - name: title
+        label: 見出し
+        type: string
+        readonly: true
+      - name: lead
+        label: 導入文
+        type: text
+        readonly: true

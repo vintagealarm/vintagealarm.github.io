@@ -20,16 +20,15 @@ ownersNote:
   guide:
     - ① 動力巻き上げ　リューズ通常位置：時計／アラーム共用のゼンマイを巻き上げ
     - ② 時刻設定　リューズを引いて時刻設定
-    - ③ アラーム時刻設定　2時位置プッシャー：押すたびにアラーム針が15分ずつ反時計回りに進む　※48プッシュで一周（12時間）
+    - ③ アラーム時刻設定　2時位置プッシャー：押すたびにアラーム針が反時計回りに進む　※掲載個体は1プッシュ約12分／60プッシュで一周（12時間）
     - ④ アラーム ON/OFF　9時位置スライダー：上＝ON／下＝OFF　※ONでケース側に「ON」の表示が現れる
   noteTitle: NOTE
   note:
     - Westcloxは、目覚まし時計を大量生産する一方で、W4のような0石の廉価腕時計も作っていた。
     - WatchlarmのW5では、2時位置のプッシャーでアラーム時刻を設定し、追加の歯車列と高価な回転ベゼルを省いた。
-    - 元Westclox社員Ellworth
-      Danzは、W5にW4の部品が一部使われた可能性を挙げている。一方でDanzは、Watchlarmについて「製造が難しかった」とし、利益も出なかったと思うと振り返った。
+    - 元Westclox社員Ellworth Danzは、W5にW4の部品が一部使われた可能性を挙げている。一方でDanzは、Watchlarmについて「製造が難しかった」とし、利益も出なかったと思うと振り返った。
 spec:
-  era: 1950年代
+  era: 1950年代末〜1960年代初頭
   caseSize: 34mm
   caliber: Westclox W5
   jewels: 0石
@@ -37,7 +36,7 @@ spec:
   barrels: 1香箱
   winding: 手巻き
   acoustic: 底部ベル式
-  notes: 2時位置プッシャー式アラーム設定、9時位置ON/OFFスライダー、アラーム約10秒
+  notes: 2時位置プッシャー式アラーム設定、掲載個体は60プッシュで12時間一周、9時位置ON/OFFスライダー、アラーム約10秒
 specimenGallery:
   - image: /images/IMG_2093-2.jpeg
     label: 正面
@@ -54,17 +53,15 @@ video:
 deepDive:
   - number: "01"
     title: 目覚まし時計を何千万台も作った会社
-    subtitle: Westcloxは、ただの廉価時計メーカーではなかった。
+    subtitle: Westcloxの量産規模と腕時計製造
     paragraphs:
-      - 1950年代のWestcloxは、Big BenやBaby
-        Benに代表される目覚まし時計を大規模に量産していたメーカーだった。1956年頃のLaSalle工場では4,000人を超える従業員を抱え、1日に約40,000個の時計類を生産していたとされる。同時期までにBig
-        Benは4,000万台以上、Baby Benも2,800万台以上が作られていたという。
-      - つまりWatchlarmは、小さなメーカーが苦肉の策で作った廉価アラーム腕時計ではない。目覚まし時計を何千万台も量産してきた会社が、今度はその「鳴る時計」を腕時計サイズで成立させようとしたものだった。Westcloxの強みは高級時計的な仕上げではなく、少ない部品と加工で大量に、安定して製品を作ることにあった。
-      - 一方でWestcloxは、W4のような0石の廉価腕時計も作っていた。WatchlarmのW5を見ると、この二つの流れ――大量生産された目覚まし時計と、徹底して簡素化された腕時計――が一つの製品に交わったように見える。だからW5の面白さは、単に「0石のアラーム腕時計」であることではない。量産を知り尽くしたメーカーが、どこまで構造を削りながら「鳴る腕時計」を成立させられるかを突き詰めたところにある。
+      - 1950年代のWestcloxは、Big BenやBaby Benに代表される目覚まし時計を大規模に量産していたメーカーだった。1956年頃のLaSalle工場では4,000人を超える従業員を抱え、1日に約40,000個の時計類を生産していたとされる。同時期までにBig Benは4,000万台以上、Baby Benも2,800万台以上が作られていたという。
+      - 同社はW4のような0石の廉価腕時計も製造していた。Watchlarm W5は0石のピンレバー式ムーブメントを採用し、アラーム機構を組み込んでいる。元Westclox社員Ellworth Danzは、W5にW4の部品が一部使われた可能性を挙げている。
+      - 製造時期については資料差がある。Beitlは1950年代の製品として扱う一方、Horlbeckは1960年以降とし、ClockHistoryでは1960年・1961年のカタログ掲載を確認できる。本ページでは掲載個体の製造年を確定できる資料がないため、「1950年代末〜1960年代初頭」とする。
     citationRefs:
       - "4"
-      - "4"
-      - 3,4
+      - 2,3
+      - 1,2,3
   - number: "02"
     title: 0石、金属軸受けなし
     paragraphs:
@@ -76,13 +73,13 @@ deepDive:
       - "1"
       - "1"
   - number: "03"
-    title: 2時プッシャーが消したもの
+    title: 2時位置プッシャー式のアラーム設定
     paragraphs:
-      - アラーム時刻の設定は2時位置のプッシャーで行う。押すと小さなレバーが斜め歯のアラーム解除輪を直接動かし、アラーム針は15分ずつ反時計回りに進む。
+      - 掲載個体では60プッシュで12時間を一周し、1回あたり約12分。文献のHorlbeck／Beitlが記す15分刻みとは異なるが、参考WebサイトRanfftの12分刻みとは一致する。差の理由は、個体差・仕様差・資料差のいずれによるものか未確認。
       - この方式によって、設定用の追加歯車列を持たず、高価な回転ベゼルも使わずにアラーム時刻を設定できた。
       - 9時位置にはアラームのON/OFFスライダーがあり、上へ動かすとON、下へ動かすとOFF。ONにするとケース側の刻印が見える。
     citationRefs:
-      - 1,2
+      - 1,2,5,6
       - "1"
       - 1,2
   - number: "04"
@@ -96,10 +93,8 @@ deepDive:
   - number: "05"
     title: ドイツ製ケースと音の構造
     paragraphs:
-      - Beitlは、Westclox
-        Alarmのケースと文字盤がドイツ製だったと記録している。掲載個体はクローム仕上げの真鍮ケースで、直径32.88mm、圧入式の裏蓋を持つ。
-      - Horlbeckは、わずかに膨らんだ裏蓋、中央のリベット、内側の小さなブリッジなど、Junghans
-        Minivoxの底部構造との類似を指摘している。
+      - Beitlは、Westclox Alarmのケースと文字盤がドイツ製だったと記録している。掲載個体はクローム仕上げの真鍮ケースで、直径32.88mm、圧入式の裏蓋を持つ。
+      - Horlbeckは、わずかに膨らんだ裏蓋、中央のリベット、内側の小さなブリッジなど、Junghans Minivoxの底部構造との類似を指摘している。
       - ただし、JunghansがW5のケースを直接製造した、あるいはW5を設計したと断定できる資料は確認できない。Horlbeckも、協力または供給元との近い関係の可能性として述べている。
     citationRefs:
       - "2"
@@ -114,14 +109,15 @@ sourceMeta:
     type: reference
   - id: "4"
     type: reference
+  - id: "5"
+    type: reference
+  - id: "6"
+    type: owner
 sources:
-  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007),
-    pp.150, 198–199, 220–221（Westclox W5の仕様、操作、コスト削減構造、ケースと音響構造）
-  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.497–498, 628（Westclox Alarm /
-    W5、0石、ケース径、操作、ドイツ製ケース・文字盤）
-  - Ellworth Danz, [Westclox
-    Wristwatches](https://clockhistory.com/westclox/products/wristwatch/)（W5とW4部品の関係、製造難、採算に関する回想）
-  - ClockHistory, [Western Clock Company
-    Chronology](https://clockhistory.com/westclox/company/dates/index.html)（1956年の従業員数、生産規模、Big
-    Ben / Baby Ben累計生産数）
+  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007), pp.150, 198–199, 220–221（Westclox W5の仕様、操作、コスト削減構造、ケースと音響構造）
+  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.497–498, 628（Westclox Alarm / W5、0石、ケース径、操作、ドイツ製ケース・文字盤）
+  - Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/)（W5とW4部品の関係、製造難、採算、1960年・1961年のカタログ掲載）
+  - ClockHistory, [Western Clock Company Chronology](https://clockhistory.com/westclox/company/dates/index.html)（1956年の従業員数、生産規模、Big Ben / Baby Ben累計生産数）
+  - Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5)（アラーム設定12分刻みの記述）
+  - OWNER OBSERVATION, 掲載個体の実測（2時位置プッシャー60回でアラーム針が12時間を一周）
 ---

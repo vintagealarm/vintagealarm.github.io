@@ -15,10 +15,10 @@
 ## サイト階層
 
 - `HISTORY`：時代と技術上の問題を追う全体史。
-- `THEMES`：音、防水、香箱、通知などを横断して読む。
 - `OWNER'S NOTES / WATCH`：実機・個体から読む。
 - `DEEP DIVE`：個別時計の機構、変遷、文献差、供給関係などを掘る。
 - HISTORY本文で個別時計のDEEP DIVEまで説明しない。必要ならWATCHページへ送る。
+- `RESEARCH`は`src/data/research-settings.json`の`published`でTOP・セクションメニュー・HISTORY上の表示を同時に制御する。中身がない間は非公開にする。
 
 ## HISTORY
 
@@ -29,7 +29,8 @@
 - HISTORYの年代データをOWNER'S NOTES一覧やWATCHの`spec.era`から自動生成しない。
 - HISTORYからWATCHへリンクし、WATCHから該当時代のHISTORYへ戻れるようにする。
 - 最終章の見出しは「現状の到達点」。入口では皮肉やオチを説明しない。
-- SMARTWATCHページは通常の歴史章として入場させ、ページ内部でのみ通知過多のビジュアルを見せる。
+- SMARTWATCHページはHISTORYから辿るエピローグとして扱い、検索流入を目的としない。`noindex,follow`とし、`sitemap.xml`から外す。
+- SMARTWATCHページ内部でのみ通知過多のビジュアルを見せる。
 - SMARTWATCHを機械式アラーム腕時計の直接的な系譜として断定しない。
 - SMARTWATCH画像の前に「通知地獄」「皮肉」などのネタバレ見出しを追加しない。
 
@@ -41,7 +42,7 @@
 - 公開済みOWNER'S NOTEは`historyHref`を明示し、WATCHから戻るHISTORY上の位置を所有個体年代から自動推定しない。
 - WATCH末尾の「次の一本」は`owners-directory.json`の所有個体年代順から生成し、個別WATCH名をテンプレートへハードコードしない。
 - 例：Pierce DuofonはHISTORYでは1950年代の初出として扱えても、所有個体一覧では掲載個体に合わせて1960sへ置ける。
-- 一覧でWATCHページ用の`catch`や`spec.era`を自動流用しない。一覧専用の`catch`と所有個体年代を使う。
+- 一覧でWATCHページ用の`catch`や`spec.era`を自動流用しない。一覧専用の`directoryCatch`と所有個体年代を使う。
 - カードはヒーロー画像、ブランド、モデル名、短い一覧専用キャッチに絞る。
 - カード全体をOWNER'S NOTEへのリンクとし、「OWNER'S NOTEを見る」と「個体ページへ」の重複導線を置かない。
 - OWNER'S NOTE原文・WATCH本文を一覧都合で変更しない。
@@ -84,7 +85,7 @@
 
 ## 検索・公開の最低基準
 
-- TOP / HISTORY / OWNER'S NOTES / WATCH / SMARTWATCHは、それぞれ固有の `title` と `description` を持つ。
+- TOP / HISTORY / OWNER'S NOTES / WATCHは、それぞれ固有の `title` と `description` を持つ。
 - 公開ページには canonical URL を付ける。
 - OGP / Twitter Cardの基本メタデータを付ける。利用できる実画像があるページは `og:image` を設定する。
 - `robots.txt` でクロールを許可し、`sitemap.xml` を明示する。
