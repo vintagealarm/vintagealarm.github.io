@@ -1,5 +1,6 @@
 ---
 slug: basis-alarm
+published: true
 ownerNumber: "03"
 brand: BASIS
 model: ALARM
