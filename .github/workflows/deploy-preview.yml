@@ -1,0 +1,97 @@
+name: Deploy Cloudflare Pages Preview
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-preview-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      PREVIEW_PROJECT: vintage-alarm-preview
+      PREVIEW_BRANCH: pr-${{ github.event.pull_request.number || github.run_number }}
+      PUBLIC_VA_PREVIEW: 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Require Cloudflare deployment secrets
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build preview
+        run: npm run build
+
+      - name: Verify generated site
+        run: |
+          npm run check:quality
+          npm run test:quality
+          node scripts/check-owner-directory.mjs
+          node scripts/check-build-output.mjs
+          rg -q '<meta name="robots" content="noindex,nofollow,noarchive"' dist/index.html
+
+      - name: Install browser for layout check
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Verify rendered layouts
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/vintage-alarm-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl -fsS http://127.0.0.1:4321/ >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          node scripts/check-layout.mjs
+
+      - name: Create preview project if needed
+        run: |
+          npx --yes wrangler@4 pages project list > "$RUNNER_TEMP/pages-projects.txt"
+          if ! grep -Fq "$PREVIEW_PROJECT" "$RUNNER_TEMP/pages-projects.txt"; then
+            npx --yes wrangler@4 pages project create "$PREVIEW_PROJECT" --production-branch preview
+          fi
+
+      - name: Deploy preview
+        id: deploy
+        run: |
+          set +e
+          deploy_output="$(npx --yes wrangler@4 pages deploy dist --project-name "$PREVIEW_PROJECT" --branch "$PREVIEW_BRANCH" 2>&1)"
+          deploy_status=$?
+          set -e
+          printf '%s\n' "$deploy_output"
+          test "$deploy_status" -eq 0
+          preview_url="$(printf '%s\n' "$deploy_output" | grep -Eo 'https://[^[:space:]]+\.pages\.dev' | tail -n 1)"
+          test -n "$preview_url"
+          printf 'url=%s\n' "$preview_url" >> "$GITHUB_OUTPUT"
+
+      - name: Verify deployed preview
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          curl -fsSL "$PREVIEW_URL/" | rg -q '<meta name="robots" content="noindex,nofollow,noarchive"'
+          printf 'Preview: %s\n' "$PREVIEW_URL" >> "$GITHUB_STEP_SUMMARY"
