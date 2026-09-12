@@ -1,6 +1,8 @@
 ---
+import researchSettings from '../data/research-settings.json';
 const { rightLabel = 'ALARM WRISTWATCHES' } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const researchPublished = researchSettings.published;
 ---
 <header class="shell mast section-mast">
   <div class="section-mast-left">
@@ -10,7 +12,7 @@ const base = import.meta.env.BASE_URL;
         <a href={`${base}history/`}>歴史</a>
         <a href={`${base}history/#milestones`}>マイルストーン</a>
         <a href={`${base}owners-notes/`}>オーナーズノート</a>
-        <a href={`${base}history/#research`}>調査個体</a>
+        {researchPublished && <a href={`${base}history/#research`}>調査個体</a>}
       </nav>
     </details>
     <a class="mast-link" href={base}>VINTAGE ALARM</a>
