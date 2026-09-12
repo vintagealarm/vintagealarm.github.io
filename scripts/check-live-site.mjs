@@ -43,6 +43,15 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     }
   }
 
+  const cyma = watches.find((watch) => watch.slug === 'cyma-time-o-vox');
+  const cymaZoom = await get('cyma-time-o-vox/owners-note/');
+  if (cyma?.published) {
+    if (!cymaZoom.ok) failures.push(`cyma-time-o-vox/owners-note: HTTP ${cymaZoom.status}`);
+    else if (!cymaZoom.text.includes('noindex,follow')) failures.push('cyma-time-o-vox/owners-note: noindex,follow missing');
+  } else if (cymaZoom.ok) {
+    failures.push('cyma-time-o-vox/owners-note: still public while Cyma is unpublished');
+  }
+
   if (!failures.length) {
     console.log(`Live publication check: PASS — ${watches.filter((watch) => watch.published).length} published watch pages.`);
     process.exit(0);
