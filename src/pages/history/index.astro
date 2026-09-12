@@ -10,6 +10,7 @@ import ownersDirectory from '../../data/owners-directory.json';
 import '../../styles/site.css';
 import '../../styles/history-v13.css';
 import '../../styles/history-v18.css';
+import '../../styles/history-v19.css';
 const base=import.meta.env.BASE_URL;
 const watches=await getCollection('watches');
 const watchBySlug=new Map(watches.map(item=>[item.data.slug,item]));
@@ -27,10 +28,16 @@ const wrapJapanese=(text:string)=>{
  return groups;
 };
 const milestones=(era:string)=>historyCatalogByGroup.milestones.filter(entry=>entry.era===era&&entry.featured);
-const ownersForEra=(era:string)=>historyCatalogByGroup.owners
- .filter(entry=>entry.era===era&&entry.featured)
- .map(entry=>{
-  const directoryMeta=ownersDirectory.entries.find(note=>entry.id===note.historyId);
+const ownersForEra=(era:string)=>{
+ const catalogOwners=historyCatalogByGroup.owners.filter(entry=>entry.era===era&&entry.featured);
+ const directoryOwners=ownersDirectory.entries.filter(note=>note.historyEra===era);
+ const ownerIds=[
+  ...catalogOwners.map(entry=>entry.id),
+  ...directoryOwners.map(note=>note.historyId).filter(id=>!catalogOwners.some(entry=>entry.id===id))
+ ];
+ return ownerIds.map(id=>{
+  const entry=catalogOwners.find(item=>item.id===id);
+  const directoryMeta=ownersDirectory.entries.find(note=>id===note.historyId);
   const watch=directoryMeta?watchBySlug.get(directoryMeta.historyId):undefined;
   const note=directoryMeta&&watch?.data.published?{
    ...directoryMeta,
@@ -39,16 +46,17 @@ const ownersForEra=(era:string)=>historyCatalogByGroup.owners
    name:watch.data.model,
    href:`/${watch.data.slug}/#owners-note`
   }:undefined;
-  const [fallbackBrand,...fallbackName]=entry.name.split(' ');
+  const fallbackLabel=(entry?.name??`${watch?.data.brand??id} ${watch?.data.model??''}`).trim();
+  const [fallbackBrand,...fallbackName]=fallbackLabel.split(/\s+/);
   return {
-   entry,
    note,
-   brand:note?.brand??fallbackBrand,
-   name:note?.name??fallbackName.join(' '),
-   href:note? `${base}${note.href.replace(/^\//,'')}`:undefined,
-   image:note? `${base}${note.image.replace(/^\//,'')}`:undefined
+   brand:note?.brand??watch?.data.brand??fallbackBrand,
+   name:note?.name??watch?.data.model??fallbackName.join(' '),
+   href:note?`${base}${note.href.replace(/^\//,'')}`:undefined,
+   image:note?`${base}${note.image.replace(/^\//,'')}`:undefined
   };
  });
+};
 const {hero,coverMilestones,before,era1910s,era1940s,era1950s,era1960s,electronic,current,sources}=historyContent;
 const eras=[
  {id:'before',no:before.chapterNo,label:before.label,title:before.title,paragraphs:before.intro,teaser:before.teaser,motif:'images/history-motifs/before-watercolor.png',motifClass:'motif-before'},

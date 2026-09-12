@@ -1,0 +1,57 @@
+/* HISTORY v19: mobile swipe rails for era navigation and owned specimens. */
+@media(max-width:760px){
+  .history-v18 .history-era-nav>.shell{
+    display:flex;
+    justify-content:flex-start;
+    gap:0;
+    width:100%;
+    margin:0;
+    padding:0 20px;
+    box-sizing:border-box;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scroll-snap-type:x proximity;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .history-v18 .history-era-nav>.shell::-webkit-scrollbar{display:none}
+  .history-v18 .history-era-nav a{
+    flex:0 0 auto;
+    min-width:88px;
+    padding-inline:12px;
+    scroll-snap-align:start;
+  }
+  .history-v18 .collection-lead p::after{
+    content:'SWIPE →';
+    margin-left:10px;
+    color:var(--soft);
+    font:600 9px/1.4 var(--sans);
+    letter-spacing:.08em;
+    white-space:nowrap;
+  }
+  .history-v18 .owner-tiles{
+    display:grid;
+    grid-template-columns:none;
+    grid-auto-flow:column;
+    grid-auto-columns:min(78vw,292px);
+    gap:12px;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:0;
+    padding:0 18vw 10px 0;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .history-v18 .owner-tiles::-webkit-scrollbar{display:none}
+  .history-v18 .owner-tiles>.owner-frame{
+    min-width:0;
+    height:100%;
+    scroll-snap-align:start;
+  }
+}
+@media(max-width:350px){
+  .history-v18 .history-era-nav>.shell{padding-inline:18px}
+  .history-v18 .history-era-nav a{min-width:82px;padding-inline:10px}
+  .history-v18 .owner-tiles{grid-auto-columns:min(80vw,270px);padding-right:16vw}
+}

@@ -29,17 +29,25 @@ for (const watch of watches) {
 const ownersHtml = fs.existsSync(path.join(dist, 'owners-notes/index.html'))
   ? fs.readFileSync(path.join(dist, 'owners-notes/index.html'), 'utf8')
   : '';
+const historyHtml = fs.existsSync(path.join(dist, 'history/index.html'))
+  ? fs.readFileSync(path.join(dist, 'history/index.html'), 'utf8')
+  : '';
 const sitemap = fs.existsSync(path.join(dist, 'sitemap.xml'))
   ? fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8')
   : '';
+const ownersDirectory = JSON.parse(fs.readFileSync(path.join(root, 'src/data/owners-directory.json'), 'utf8'));
+const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.historyId));
 
 for (const watch of watches) {
   const href = `${watch.slug}/`;
+  const historyHref = `${watch.slug}/#owners-note`;
   if (watch.published) {
-    if (!ownersHtml.includes(`${watch.slug}/#owners-note`)) failures.push(`${watch.slug}: missing from OWNER'S NOTES`);
+    if (!ownersHtml.includes(historyHref)) failures.push(`${watch.slug}: missing from OWNER'S NOTES`);
+    if (historyOwnerSlugs.has(watch.slug) && !historyHtml.includes(historyHref)) failures.push(`${watch.slug}: missing from HISTORY owner rail`);
     if (!sitemap.includes(`https://vintagealarm.github.io/${href}`)) failures.push(`${watch.slug}: missing from sitemap`);
   } else {
-    if (ownersHtml.includes(`${watch.slug}/#owners-note`)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE leaked into directory`);
+    if (ownersHtml.includes(historyHref)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE leaked into directory`);
+    if (historyHtml.includes(historyHref)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE leaked into HISTORY`);
     if (sitemap.includes(`https://vintagealarm.github.io/${href}`)) failures.push(`${watch.slug}: unpublished route leaked into sitemap`);
   }
 }

@@ -1,9 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { readWatchPublicationState } from './watch-publication.mjs';
 
 const root = process.env.LIVE_SITE_ROOT;
 if (!root) throw new Error('LIVE_SITE_ROOT is required');
 const site = root.endsWith('/') ? root : `${root}/`;
 const watches = readWatchPublicationState();
+const ownersDirectory = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/owners-directory.json'), 'utf8'));
+const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.historyId));
 
 const get = async (path) => {
   try {
@@ -32,13 +36,16 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   for (const watch of watches) {
     const page = await get(`${watch.slug}/`);
     const sitemapUrl = `https://vintagealarm.github.io/${watch.slug}/`;
+    const ownerHref = `${watch.slug}/#owners-note`;
     if (watch.published) {
       if (!page.ok) failures.push(`${watch.slug}: published page HTTP ${page.status}`);
-      if (owners.ok && !owners.text.includes(`${watch.slug}/#owners-note`)) failures.push(`${watch.slug}: missing from OWNER'S NOTES`);
+      if (owners.ok && !owners.text.includes(ownerHref)) failures.push(`${watch.slug}: missing from OWNER'S NOTES`);
+      if (history.ok && historyOwnerSlugs.has(watch.slug) && !history.text.includes(ownerHref)) failures.push(`${watch.slug}: missing from HISTORY owner rail`);
       if (sitemap.ok && !sitemap.text.includes(sitemapUrl)) failures.push(`${watch.slug}: missing from sitemap`);
     } else {
       if (page.ok) failures.push(`${watch.slug}: unpublished page is still public`);
-      if (owners.ok && owners.text.includes(`${watch.slug}/#owners-note`)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE is listed`);
+      if (owners.ok && owners.text.includes(ownerHref)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE is listed`);
+      if (history.ok && history.text.includes(ownerHref)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE is linked from HISTORY`);
       if (sitemap.ok && sitemap.text.includes(sitemapUrl)) failures.push(`${watch.slug}: unpublished page is in sitemap`);
     }
   }

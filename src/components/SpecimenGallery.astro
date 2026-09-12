@@ -1,5 +1,4 @@
 ---
-import SmartWatchFit from './SmartWatchFit.astro';
 const { items = [], title = '' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const resolveImage = (path: string) => /^https?:\/\//.test(path)
@@ -31,9 +30,6 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
                 alt={alt}
                 loading="lazy"
                 decoding="async"
-                data-smart-watch-fit
-                data-smart-fit-target="0.9"
-                data-smart-fit-max="1.45"
               />
               <span class="specimen-gallery-zoom" aria-hidden="true">＋</span>
             </span>
@@ -52,7 +48,6 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
     <img src="" alt="" />
   </div>
 </section>
-<SmartWatchFit />
 
 <script>
   document.querySelectorAll('.specimen-gallery').forEach((gallery) => {
@@ -151,7 +146,7 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
     position:relative;
     display:block;
     width:100%;
-    aspect-ratio:4/5;
+    aspect-ratio:4/3;
     overflow:hidden;
     border:1px solid rgba(31,28,24,.16);
     background:rgba(88,99,78,.035);
@@ -160,7 +155,7 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
     display:block;
     width:100%;
     height:100%;
-    object-fit:contain;
+    object-fit:cover;
     object-position:center;
   }
   .specimen-gallery-zoom{
@@ -233,13 +228,13 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
   :global(html.specimen-lightbox-open){overflow:hidden}
 
   @media(max-width:760px){
-    .specimen-gallery-track{gap:12px;padding-right:16%}
-    .specimen-gallery-card{flex-basis:84%}
+    .specimen-gallery-track{gap:12px;padding-right:18%}
+    .specimen-gallery-card{flex-basis:82%}
   }
   @media(max-width:480px){
     .specimen-gallery-head>span{font-size:9px}
-    .specimen-gallery-track{margin-top:14px;padding-right:12%}
-    .specimen-gallery-card{flex-basis:88%}
+    .specimen-gallery-track{margin-top:14px;padding-right:18%}
+    .specimen-gallery-card{flex-basis:82%}
     .specimen-gallery-card figcaption strong{font-size:12px}
   }
 </style>
