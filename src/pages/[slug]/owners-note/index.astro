@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import SectionMast from '../../../components/SectionMast.astro';
+import OwnerNoteEndNav from '../../../components/OwnerNoteEndNav.astro';
+import OwnerFonts from '../../../components/OwnerFonts.astro';
+import ownersDirectory from '../../../data/owners-directory.json';
+import '../../../styles/site.css';
+import '../../../styles/owners-v15.css';
+
+export async function getStaticPaths() {
+  const watches = await getCollection('watches');
+  return watches
+    .filter((item) => item.data.published && item.data.slug === 'cyma-time-o-vox')
+    .map((item) => ({
+      params: { slug: item.data.slug },
+      props: { watch: item.data }
+    }));
+}
+
+const { watch } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const ownerNoteImage = `${base}${watch.ownersNote.image.replace(/^\//, '')}`;
+const watches = await getCollection('watches');
+const publishedSlugs = new Set(watches.filter((item) => item.data.published).map((item) => item.data.slug));
+const directoryEntries = ownersDirectory.entries
+  .filter((entry) => publishedSlugs.has(entry.historyId))
+  .sort((a, b) => a.ownedSortYear - b.ownedSortYear || Number(a.ownerNumber) - Number(b.ownerNumber));
+const currentIndex = directoryEntries.findIndex((entry) => entry.historyId === watch.slug);
+const current = currentIndex >= 0 ? directoryEntries[currentIndex] : null;
+const next = currentIndex >= 0 && directoryEntries.length > 1
+  ? directoryEntries[(currentIndex + 1) % directoryEntries.length]
+  : null;
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <OwnerFonts />
+    <title>{watch.brand} {watch.model} OWNER'S NOTE｜VINTAGE ALARM</title>
+  </head>
+  <body class="owners-v15">
+    <SectionMast rightLabel="OWNER'S NOTE" />
+    <main>
+      <div class="shell owner-note-zoom-page">
+        <a class="owner-note-zoom-back" href={`${base}${watch.slug}/`}>← {watch.brand} {watch.model}</a>
+        <div class="owner-note-zoom-stack">
+          <img src={ownerNoteImage} alt={`${watch.brand} ${watch.model} OWNER'S NOTE`} />
+        </div>
+      </div>
+      {next && current && (
+        <OwnerNoteEndNav
+          nextHref={next.href}
+          nextName={`${next.brand} ${next.name}`}
+          historyHref={current.historyHref}
+        />
+      )}
+    </main>
+  </body>
+</html>
+
+<style>
+  .owner-note-zoom-page{padding:34px 0 54px}
+  .owner-note-zoom-back{display:inline-block;margin-bottom:24px;padding-bottom:4px;border-bottom:1px solid currentColor;text-decoration:none;font-size:14px}
+  .owner-note-zoom-stack{width:min(100%,800px);margin-inline:auto}
+  .owner-note-zoom-stack img{display:block;width:100%;height:auto;margin:0}
+  @media(max-width:480px){
+    .owner-note-zoom-page{padding-top:24px;padding-bottom:42px}
+    .owner-note-zoom-back{margin-bottom:18px}
+  }
+</style>
