@@ -50,7 +50,11 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
     if (map.has(v)) fail(`duplicate ${label} with ${map.get(v)}`); else map.set(v, page);
   }
   const robots = value('robots').toLowerCase().split(',').map(s => s.trim());
-  if (!['index', 'follow', 'max-image-preview:large'].every(v => robots.includes(v)) || robots.includes('noindex') || robots.includes('nofollow')) fail('robots policy changed');
+  if (page === '/history/smartwatch/') {
+    if (!robots.includes('noindex') || !robots.includes('follow') || robots.includes('nofollow')) fail('smartwatch finale must remain noindex,follow');
+  } else if (!['index', 'follow', 'max-image-preview:large'].every(v => robots.includes(v)) || robots.includes('noindex') || robots.includes('nofollow')) {
+    fail('robots policy changed');
+  }
   for (const [key, expected] of [['og:title', title], ['og:description', description], ['og:url', canonical], ['twitter:title', title], ['twitter:description', description]])
     if (value(key) !== expected) fail(`${key} does not match page metadata`);
   for (const key of ['og:locale', 'og:site_name', 'og:type', 'twitter:card']) value(key);
