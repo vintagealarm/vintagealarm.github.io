@@ -7,7 +7,7 @@ model: WATCHLARM
 catch:
   - 0石腕時計の劇的ビフォーアフター。
 ownersNote:
-  image: /images/IMG_2090.png
+  image: /images/C38ECDB0-90CE-432E-AF6A-BC05FF52296F.png
   lead:
     - 0石腕時計の劇的ビフォーアフター。
     - 石はいらない。
@@ -47,6 +47,8 @@ specimenGallery:
     label: 9時側スライダー（OFF）
   - image: /images/IMG_2037.jpeg
     label: 9時側スライダー（ON）
+  - image: /images/IMG_2095.jpeg
+    label: 裏蓋
 video:
   youtubeId: https://youtube.com/shorts/GWkY7hPO89E?si=987fWp1q6TmrIHrC
 deepDive:
