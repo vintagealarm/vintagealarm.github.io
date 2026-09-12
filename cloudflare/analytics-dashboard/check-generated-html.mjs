@@ -65,6 +65,10 @@ const thirtyDayRanges = splitPeriod("2026-08-11T12:00:00Z", "2026-09-10T12:00:00
 assert.equal(thirtyDayRanges.length, 5);
 assert.equal(thirtyDayRanges[0].start.toISOString(), "2026-08-11T12:00:00.000Z");
 assert.equal(thirtyDayRanges.at(-1).end.toISOString(), "2026-09-10T12:00:00.000Z");
+assert.equal(thirtyDayRanges.at(-1).start.toISOString(), "2026-09-03T12:00:00.000Z");
+assert.equal(thirtyDayRanges[0].end.toISOString(), "2026-08-13T12:00:00.000Z");
+const sevenDayRange = splitPeriod("2026-09-03T12:00:00Z", "2026-09-10T12:00:00Z");
+assert.deepEqual(thirtyDayRanges.at(-1), sevenDayRange[0], "30D tail must match standalone 7D");
 assert.ok(thirtyDayRanges.every((range, index) =>
   range.end - range.start <= 7 * 24 * 60 * 60 * 1000 &&
   (!index || range.start.getTime() === thirtyDayRanges[index - 1].end.getTime())
