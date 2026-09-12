@@ -21,9 +21,10 @@ const {
 
 const siteRoot = 'https://vintagealarm.github.io/';
 const canonical = new URL(path.replace(/^\//, ''), siteRoot).toString();
-const ogImage = image
-  ? (image.startsWith('http') ? image : new URL(image.replace(/^\//, ''), siteRoot).toString())
-  : undefined;
+const effectiveImage = image ?? '/images/owners-thumbnails/pierce-duofon-full.png';
+const ogImage = effectiveImage.startsWith('http')
+  ? effectiveImage
+  : new URL(effectiveImage.replace(/^\//, ''), siteRoot).toString();
 ---
 <title>{title}</title>
 <meta name="description" content={description} />
@@ -35,11 +36,11 @@ const ogImage = image
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
-{ogImage && <meta property="og:image" content={ogImage} />}
-<meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+<meta property="og:image" content={ogImage} />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-{ogImage && <meta name="twitter:image" content={ogImage} />}
+<meta name="twitter:image" content={ogImage} />
 {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
 <!-- Performance / visitor analytics. Admin browsers can opt out with ?__va_analytics=off -->
