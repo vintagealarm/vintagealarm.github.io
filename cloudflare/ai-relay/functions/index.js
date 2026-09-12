@@ -14,10 +14,12 @@ function number(value) {
 function validateSource(raw) {
   if (!raw) throw new Error("Missing source URL.");
   const source = new URL(raw);
+  if (source.username || source.password || source.port || source.hash) throw new Error("Unexpected source URL component.");
   if (source.protocol !== "https:") throw new Error("HTTPS source required.");
   if (source.hostname !== ALLOWED_SOURCE_HOST) throw new Error("Source host is not allowed.");
   if (source.pathname !== ALLOWED_SOURCE_PATH) throw new Error("Source path is not allowed.");
   for (const key of source.searchParams.keys()) {
+    if (source.searchParams.getAll(key).length !== 1) throw new Error("Duplicate source parameter.");
     if (!ALLOWED_SOURCE_PARAMS.has(key)) throw new Error("Unexpected source parameter.");
   }
   if (!source.searchParams.get("window") || !source.searchParams.get("expires") || !source.searchParams.get("sig")) {
@@ -177,35 +179,49 @@ export function renderAnalyticsMarkdown(payload) {
   return lines.join("\n");
 }
 
-function responseHeaders() {
+function responseHeaders(html = false) {
   return {
-    "Content-Type": "text/markdown; charset=utf-8",
+    "Content-Type": html ? "text/html; charset=utf-8" : "text/markdown; charset=utf-8",
+    "Vary": "Accept",
+    "X-Content-Type-Options": "nosniff",
+    "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; frame-ancestors 'none'",
     "Cache-Control": "no-store, max-age=0",
     "X-Robots-Tag": "noindex, nofollow, noarchive",
     "Referrer-Policy": "no-referrer",
   };
 }
 
+function documentResponse(markdown, status, request, verified = false) {
+  const html = !(request.headers.get("Accept") || "").includes("text/markdown");
+  const escaped = markdown.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const body = html ? `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VINTAGE ALARM — read-only analytics</title><style>body{margin:24px;font:16px/1.6 system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}</style></head><body><main><pre>${escaped}</pre></main></body></html>` : markdown;
+  const headers = responseHeaders(html);
+  if (verified) headers["X-Analytics-Export"] = "vintage-alarm-ai-export-v1";
+  return new Response(body, { status, headers });
+}
+
 export async function onRequestGet(context) {
+  const request = context.request;
   try {
-    const requestUrl = new URL(context.request.url);
+    const requestUrl = new URL(request.url);
+    if (!requestUrl.search) {
+      return documentResponse("# VINTAGE ALARM AI relay\n\nThis service displays a signed, read-only analytics export. Generate an AI URL in the authenticated Analytics dashboard. Links expire after 15 minutes. No analytics data is available on this page.", 200, request);
+    }
     const source = validateSource(requestUrl.searchParams.get("source"));
     const upstream = await fetch(source.toString(), {
       headers: { Accept: "application/json" },
+      redirect: "error",
+      signal: AbortSignal.timeout(15000),
     });
     if (!upstream.ok) {
-      const detail = (await upstream.text()).slice(0, 300);
-      return new Response(`AI analytics source failed (${upstream.status}).\n\n${detail}`, {
-        status: upstream.status,
-        headers: responseHeaders(),
-      });
+      return documentResponse(`AI analytics source failed (HTTP ${upstream.status}). Generate a new AI URL in the Analytics dashboard.`, upstream.status, request);
     }
     const payload = await upstream.json();
-    return new Response(renderAnalyticsMarkdown(payload), { status: 200, headers: responseHeaders() });
+    if (payload?.schemaVersion !== "vintage-alarm-ai-export-v1" || !payload?.current || !payload?.generatedAt || payload?.error) {
+      return documentResponse("Analytics source returned an unexpected data format.", 502, request);
+    }
+    return documentResponse(renderAnalyticsMarkdown(payload), 200, request, true);
   } catch (error) {
-    return new Response(`VINTAGE ALARM AI relay\n\n${error instanceof Error ? error.message : String(error)}`, {
-      status: 400,
-      headers: responseHeaders(),
-    });
+    return documentResponse(`VINTAGE ALARM AI relay\n\n${error instanceof Error ? error.message : String(error)}`, 400, request);
   }
 }

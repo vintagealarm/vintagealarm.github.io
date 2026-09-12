@@ -189,11 +189,28 @@ async function aiReadableLinkResponse(request, url, env, ctx) {
   const relayUrl = new URL(AI_READABLE_RELAY);
   relayUrl.searchParams.set("source", signed.url);
 
+  // Validate the actual signed export before giving the user a link.
+  // This proves server-side delivery, not acceptance by every AI reader.
+  try {
+    const probe = await fetch(relayUrl.toString(), {
+      headers: { Accept: "text/markdown" },
+      redirect: "error",
+      signal: AbortSignal.timeout(20000),
+    });
+    const body = await probe.text();
+    if (!probe.ok || probe.headers.get("X-Analytics-Export") !== "vintage-alarm-ai-export-v1" || !body.startsWith("# VINTAGE ALARM ANALYTICS")) {
+      return jsonResponse({ error: `共有先のデータ取得を確認できませんでした（HTTP ${probe.status}）。時間をおいて再度お試しください。` }, 502);
+    }
+  } catch {
+    return jsonResponse({ error: "共有先に接続できませんでした。時間をおいて再度お試しください。" }, 502);
+  }
+
   return jsonResponse({
     url: relayUrl.toString(),
     expiresAt: signed.expiresAt,
     ttlSeconds: AI_READABLE_TTL_SECONDS,
-    format: "text/markdown",
+    format: "text/html",
+    deliveryVerified: true,
     scope: "aggregate analytics read-only",
   });
 }

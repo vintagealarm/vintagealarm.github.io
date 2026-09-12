@@ -52,6 +52,12 @@ assert(dashboardHtml.includes('Xプロフィール専用URL発行'), 'real dashb
 assert(dashboardHtml.includes('item.platform==="X Profile"'), 'real dashboard HTML is missing X Profile marker handling');
 assert(dashboardHtml.includes('id="aiReadable">AI URL</button>'), 'real dashboard HTML is missing AI URL button');
 
+const originalFetch = globalThis.fetch;
+let probeHeaders;
+globalThis.fetch = async (url, options) => {
+  probeHeaders = options.headers;
+  return new Response('# VINTAGE ALARM ANALYTICS — test', { headers: { 'X-Analytics-Export': 'vintage-alarm-ai-export-v1' } });
+};
 const linkResponse = await profileWorker.fetch(
   new Request('https://dashboard.example/api/ai-readable-link?window=7d', { headers: { Authorization: auth } }),
   env,
@@ -68,4 +74,13 @@ assert(signedSource.pathname === '/api/ai-export', 'signed source path mismatch'
 assert(signedSource.searchParams.get('window') === '7d', 'signed source window mismatch');
 assert(signedSource.searchParams.get('sig')?.length === 64, 'signed source signature missing');
 
+assert(linkPayload.deliveryVerified === true, 'delivery must be checked before issuance');
+assert(!probeHeaders.Authorization, 'dashboard credentials must not reach relay');
+globalThis.fetch = async () => new Response('unavailable', {status: 503});
+const failed = await profileWorker.fetch(new Request('https://dashboard.example/api/ai-readable-link?window=7d', {headers: {Authorization: auth}}), env, {});
+assert(failed.status === 502, 'unavailable relay must block link issuance');
+assert(!(await failed.json()).url, 'failed preflight must not return a URL');
+const unauthenticated = await profileWorker.fetch(new Request('https://dashboard.example/api/ai-readable-link'), env, {});
+assert(unauthenticated.status === 401, 'issuance still needs authentication');
+globalThis.fetch = originalFetch;
 console.log('X profile attribution + AI readable URL wrapper: OK');
