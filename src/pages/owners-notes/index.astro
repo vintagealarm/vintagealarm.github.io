@@ -9,9 +9,19 @@ import '../../styles/site.css';
 import '../../styles/owners-v15.css';
 const base=import.meta.env.BASE_URL;
 const watches=await getCollection('watches');
-const publishedSlugs=new Set(watches.filter(item=>item.data.published).map(item=>item.data.slug));
+const watchBySlug=new Map(watches.map(item=>[item.data.slug,item]));
 const entries=ownersDirectory.entries
- .filter(entry=>publishedSlugs.has(entry.historyId))
+ .flatMap(meta=>{
+  const watch=watchBySlug.get(meta.historyId);
+  if(!watch?.data.published) return [];
+  return [{
+   ...meta,
+   ownerNumber:watch.data.ownerNumber,
+   brand:watch.data.brand,
+   name:watch.data.model,
+   href:`/${watch.data.slug}/#owners-note`
+  }];
+ })
  .sort((a,b)=>a.ownedSortYear-b.ownedSortYear||Number(a.ownerNumber)-Number(b.ownerNumber));
 const eras=[...new Set(entries.map(entry=>entry.ownedEra))];
 const title="OWNER'S NOTES｜所有アラーム腕時計の実機記録｜VINTAGE ALARM";
