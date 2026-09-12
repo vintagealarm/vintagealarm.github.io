@@ -32,6 +32,16 @@ spec:
   winding: 手巻き
   acoustic: 二重裏蓋式
   notes: 中央回転ディスク、2リューズ、Parashock
+specimenGallery:
+  - image: /images/IMG_1695.jpeg
+    label: 正面（リストショット）
+  - image: /images/IMG_2088.jpeg
+    label: 側面（リューズ側）
+  - image: /images/IMG_2089.jpeg
+    label: 裏蓋
+video:
+  youtubeId: https://youtube.com/shorts/55cN9bsGytY?si=77KpPYDI_EloitHz
+  xUrl: https://x.com/rimacroissant/status/2090774762016608486?s=46&t=3m8xXI66ZgB96VPG9PtQgw
 deepDive:
   - number: "01"
     title: 1958年、国産初のアラーム腕時計
