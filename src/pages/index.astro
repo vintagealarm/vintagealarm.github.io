@@ -2,11 +2,15 @@
 import SeoHead from '../components/SeoHead.astro';
 import SectionMast from '../components/SectionMast.astro';
 import OwnerFonts from '../components/OwnerFonts.astro';
+import researchSettings from '../data/research-settings.json';
 import '../styles/site.css';
 import '../styles/home-v2.css';
 const base = import.meta.env.BASE_URL;
 const title = 'VINTAGE ALARM｜機械式アラーム腕時計の歴史・実機・資料';
 const description = '機械式アラーム腕時計を、歴史・実機・音・資料から読むオンライン誌。Pierce Duofonをはじめ、各時代のアラーム腕時計と機構を整理する。';
+const researchPublished = researchSettings.published;
+const contentCount = researchPublished ? '01—04' : '01—03';
+const socialImage = '/images/owners-thumbnails/pierce-duofon-full.png';
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -23,7 +27,7 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f8f4" />
     <OwnerFonts />
-    <SeoHead title={title} description={description} path="" schema={schema} />
+    <SeoHead title={title} description={description} path="" image={socialImage} schema={schema} />
   </head>
   <body class="home-v2">
     <SectionMast rightLabel="INDEX" />
@@ -39,7 +43,7 @@ const schema = {
       </section>
 
       <nav class="shell home-index" aria-label="VINTAGE ALARM メインコンテンツ">
-        <div class="home-index-head" aria-hidden="true"><span>CONTENTS</span><span>01—04</span></div>
+        <div class="home-index-head" aria-hidden="true"><span>CONTENTS</span><span>{contentCount}</span></div>
 
         <a href={`${base}history/`}>
           <span class="home-index-no">01</span>
@@ -59,11 +63,13 @@ const schema = {
           <span class="home-index-arrow" aria-hidden="true">→</span>
         </a>
 
-        <a href={`${base}history/#research`}>
-          <span class="home-index-no">04</span>
-          <div class="home-index-copy"><strong>RESEARCH</strong><small>気になっているもの、調査中の個体</small></div>
-          <span class="home-index-arrow" aria-hidden="true">→</span>
-        </a>
+        {researchPublished && (
+          <a href={`${base}history/#research`}>
+            <span class="home-index-no">04</span>
+            <div class="home-index-copy"><strong>RESEARCH</strong><small>気になっているもの、調査中の個体</small></div>
+            <span class="home-index-arrow" aria-hidden="true">→</span>
+          </a>
+        )}
       </nav>
     </main>
   </body>
