@@ -560,14 +560,16 @@ export function splitPeriod(start, end, maxMs = ANALYTICS_CHUNK_MS) {
     throw new Error("Invalid analytics period.");
   }
 
+  // Anchor slices at the end. The last slice of a 30-day request is then
+  // the same 7-day interval as the standalone 7D request.
   const ranges = [];
-  for (let cursor = startMs; cursor < endMs; cursor += maxMs) {
+  for (let cursor = endMs; cursor > startMs; cursor -= maxMs) {
     ranges.push({
-      start: new Date(cursor),
-      end: new Date(Math.min(cursor + maxMs, endMs)),
+      start: new Date(Math.max(cursor - maxMs, startMs)),
+      end: new Date(cursor),
     });
   }
-  return ranges;
+  return ranges.reverse();
 }
 
 function mergeGroupedRows(accounts, field, dimensionKeys, limit) {
