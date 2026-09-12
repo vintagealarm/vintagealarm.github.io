@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import WatchPage from '../../layouts/WatchPage.astro';
+
+export async function getStaticPaths() {
+  const watches = await getCollection('watches');
+  return watches
+    .filter((item) => item.data.published)
+    .map((item) => ({
+      params: { slug: item.data.slug },
+      props: { watch: item.data }
+    }));
+}
+
+const { watch } = Astro.props;
+---
+<WatchPage watch={watch} />
