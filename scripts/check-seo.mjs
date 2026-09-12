@@ -1,6 +1,10 @@
 import { files, document, attr, content, route, resolve, origin, finish } from './site-audit-lib.mjs';
 import { readWatchPublicationState } from './watch-publication.mjs';
 
+const isPreview = process.env.PUBLIC_VA_PREVIEW === 'true';
+const previewRobots = 'noindex,nofollow,noarchive';
+const hasRobots = (nodes, expected) => nodes.some(node => node.tagName === 'meta' && attr(node, 'name') === 'robots' && attr(node, 'content') === expected);
+
 const watchStates = readWatchPublicationState();
 const required = {
   '/': ['WebSite'],
@@ -24,12 +28,12 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
   seen.add(page);
   const fail = message => errors.push(`${page}: ${message}`);
   if (page === '/cyma-time-o-vox/owners-note/') {
-    if (!nodes.some(n => n.tagName === 'meta' && attr(n, 'name') === 'robots' && attr(n, 'content') === 'noindex,follow')) fail('enlargement view must remain noindex,follow');
+    if (!hasRobots(nodes, isPreview ? previewRobots : 'noindex,follow')) fail(isPreview ? 'preview robots policy changed' : 'enlargement view must remain noindex,follow');
     if (!nodes.some(n => n.tagName === 'title' && content(n).trim())) fail('missing title');
     continue;
   }
   if (page === '/x/') {
-    if (!nodes.some(n => n.tagName === 'meta' && attr(n, 'name') === 'robots' && attr(n, 'content') === 'noindex,follow')) fail('X profile alias must remain noindex,follow');
+    if (!hasRobots(nodes, isPreview ? previewRobots : 'noindex,follow')) fail(isPreview ? 'preview robots policy changed' : 'X profile alias must remain noindex,follow');
     if (canonicalNodes.length !== 1 || attr(canonicalNodes[0], 'href') !== origin + '/') fail(`X profile alias canonical must be ${origin + '/'}`);
     if (!nodes.some(n => n.tagName === 'title' && content(n).trim())) fail('missing title');
     continue;
@@ -50,7 +54,11 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
     if (map.has(v)) fail(`duplicate ${label} with ${map.get(v)}`); else map.set(v, page);
   }
   const robots = value('robots').toLowerCase().split(',').map(s => s.trim());
-  if (!['index', 'follow', 'max-image-preview:large'].every(v => robots.includes(v)) || robots.includes('noindex') || robots.includes('nofollow')) fail('robots policy changed');
+  if (isPreview) {
+    if (attr(meta('robots')[0], 'content') !== previewRobots) fail('preview robots policy changed');
+  } else if (!['index', 'follow', 'max-image-preview:large'].every(v => robots.includes(v)) || robots.includes('noindex') || robots.includes('nofollow')) {
+    fail('robots policy changed');
+  }
   for (const [key, expected] of [['og:title', title], ['og:description', description], ['og:url', canonical], ['twitter:title', title], ['twitter:description', description]])
     if (value(key) !== expected) fail(`${key} does not match page metadata`);
   for (const key of ['og:locale', 'og:site_name', 'og:type', 'twitter:card']) value(key);
