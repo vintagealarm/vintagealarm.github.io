@@ -47,6 +47,8 @@ specimenGallery:
     label: 9時側スライダー（OFF）
   - image: /images/IMG_2037.jpeg
     label: 9時側スライダー（ON）
+video:
+  youtubeId: https://youtube.com/shorts/GWkY7hPO89E?si=987fWp1q6TmrIHrC
 deepDive:
   - number: "01"
     title: 目覚まし時計を何千万台も作った会社
