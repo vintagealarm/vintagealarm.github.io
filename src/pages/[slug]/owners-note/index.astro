@@ -21,9 +21,20 @@ const { watch } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const ownerNoteImage = `${base}${watch.ownersNote.image.replace(/^\//, '')}`;
 const watches = await getCollection('watches');
-const publishedSlugs = new Set(watches.filter((item) => item.data.published).map((item) => item.data.slug));
+const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
 const directoryEntries = ownersDirectory.entries
-  .filter((entry) => publishedSlugs.has(entry.historyId))
+  .flatMap((meta) => {
+    const item = watchBySlug.get(meta.historyId);
+    if (!item?.data.published) return [];
+    return [{
+      ...meta,
+      ownerNumber: item.data.ownerNumber,
+      brand: item.data.brand,
+      name: item.data.model,
+      href: `/${item.data.slug}/#owners-note`,
+      historyHref: `/history/#${meta.historyEra}`
+    }];
+  })
   .sort((a, b) => a.ownedSortYear - b.ownedSortYear || Number(a.ownerNumber) - Number(b.ownerNumber));
 const currentIndex = directoryEntries.findIndex((entry) => entry.historyId === watch.slug);
 const current = currentIndex >= 0 ? directoryEntries[currentIndex] : null;
