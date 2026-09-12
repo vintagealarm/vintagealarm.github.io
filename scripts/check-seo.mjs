@@ -1,15 +1,18 @@
 import { files, document, attr, content, route, resolve, origin, finish } from './site-audit-lib.mjs';
 import { readWatchPublicationState } from './watch-publication.mjs';
 
+const watchStates = readWatchPublicationState();
 const required = {
   '/': ['WebSite'],
   '/history/': ['Article', 'BreadcrumbList'],
   '/owners-notes/': ['CollectionPage'],
-  '/history/smartwatch/': ['CreativeWork', 'BreadcrumbList'],
-  '/cyma-time-o-vox/owners-note/': []
+  '/history/smartwatch/': ['CreativeWork', 'BreadcrumbList']
 };
-for (const watch of readWatchPublicationState().filter((item) => item.published)) {
+for (const watch of watchStates.filter((item) => item.published)) {
   required[`/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
+}
+if (watchStates.some((item) => item.slug === 'cyma-time-o-vox' && item.published)) {
+  required['/cyma-time-o-vox/owners-note/'] = [];
 }
 
 const errors = [], seen = new Set();
