@@ -15,6 +15,10 @@ content:
         type: string
         required: true
         readonly: true
+      - name: published
+        label: 公開（OFFで下書き）
+        type: boolean
+        default: false
       - name: ownerNumber
         label: OWNER'S NOTE No.
         type: string
