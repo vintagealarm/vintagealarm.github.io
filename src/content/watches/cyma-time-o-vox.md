@@ -121,43 +121,67 @@ deepDive:
       - 掲載個体の実測では、1回の鳴動で約9時間分のパワーリザーブを消費した。
     citationRefs:
       - "1"
+      - 1,3
       - "1"
-      - "1"
-      - "4"
-      - "4"
-    linkLabel: タイミングホイールの実機動画を見る
+      - "6"
+      - "5"
+    linkLabel: タイミングホイールの約8秒の動きをXで見る
     linkUrl: https://x.com/Rimacroissant/status/2085277918473883977?s=20
   - number: "05"
     title: 鳴動中にリューズが回らない
     subtitle: 鳴動中は巻上げ側を切り離す
     paragraphs:
-      - R.464では、アラーム鳴動中にリューズが回転しない。ムーブメント内部では、アラームを鳴らしている間だけ巻上げ系統が切り離される。
-      - これは、鳴動中の高速な輪列回転がリューズへ伝わらないようにする構造だ。アラームが止まると巻上げ系統は再び接続される。
+      - 1香箱式のアラームには、鳴動にともなってリューズまで回転する構造が多い。
+      - |-
+        R.464では、アラームが作動すると巻上げ機構の接続が外れる。
+        そのため、アラームが鳴っている間もリューズは回転しない。
     citationRefs:
-      - "1"
-      - "1"
+      - "3"
+      - 1,3
   - number: "06"
     title: Time-O-Voxのケースとラグ
     paragraphs:
-      - Time-O-Voxには複数のケース仕様がある。ステンレス、金張り、金無垢などが確認でき、文字盤やラグ形状にも差がある。
-      - 掲載個体は18KYGケースで、透かし加工を施したラグを備える。裏蓋内側には18K 0.750の刻印と、Weber & Cieを示す刻印がある。
-      - この透かしラグは、同じTime-O-Voxでも一般的なケースとは異なる。所有個体ではケースとムーブメントの組み合わせまで含めて、特殊な仕様として残っている。
+      - Time-O-Voxは、ムーブメントだけでなくケースにも複数の仕様が確認されている。
+      - 『Alarm am
+        Arm』に掲載される金無垢モデルは、直径34mmの14Kケース。最も特徴的なのは、ケースから大きく伸びた完全に透かされたラグで、この金無垢仕様はChronomètreとして紹介されている。
+      - 一方、1955年頃のステンレスモデルでは、ラグの外形自体は金無垢仕様によく似ているものの、透かしは完全ではない。
+      - さらに別のステンレス仕様では、同じ系統の形状を残しながら、ラグは完全に滑らかで透かし表現そのものがなくなっている。
+      - 1957年頃になるとケースデザインはさらに変化し、金メッキケースに一般的な形状のラグを備えるTime-O-Voxも登場する。
+      - 少なくとも、透かしラグの金無垢、部分的な透かしを持つステンレス、滑らかなラグのステンレス、後期の通常ラグという仕様差が確認できる。
+      - 今回掲載するOWNER'S NOTE個体は、購入書類上では約1956年、34mm、18Kイエローゴールド、Weber &
+        Cie製ケースとして記録されている。
+      - 文献に掲載される14K個体と同じ系統の透かしラグを持ちながら、18Kで仕立てられた実例になる。
     citationRefs:
+      - 2,3
       - "2"
+      - "2"
+      - "2"
+      - "2"
+      - 2,3
       - "4"
-      - "4"
+      - 2,4
 sourceMeta:
   - id: "1"
-    type: primary
+    type: reference
   - id: "2"
     type: reference
   - id: "3"
     type: reference
   - id: "4"
+    type: provenance
+  - id: "5"
+    type: owner
+  - id: "6"
     type: owner
 sources:
-  - B. Humbert, 『Die Alarm-Armbanduhr』 / アラーム腕時計の技術解説（Cal.R.464の操作・切替・単一香箱・鳴動制御）
-  - Leonhard Beitl, 『Alarm am Arm』(2009)（Cyma Time-O-Vox、Chronomètre例、ケース仕様）
-  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007)（Cyma / Tavannes、R.464、ブランド・機構史）
-  - 掲載個体の実機観察・実測（鳴動約8秒、1回の鳴動で約9時間分のパワーリザーブ消費、鳴動中リューズ非回転、18Kケース刻印）
+  - B. Humbert, 『Die Armband-Weckeruhr』Calibre TIME-O-VOX
+    No.464（R.464の単一香箱、2プッシャー、Wippe、輪列・鳴動停止機構）
+  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.134–136（Cyma
+    Time-O-Voxの金無垢・ステンレス・ラグ仕様、クロノメーター例）
+  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007),
+    Cyma section pp.96–99
+  - Chrono24 Kaufzertifikat / Plus Ultra AG invoice, Cyma Time-O-Vox Chronomètre
+    ref.1283, 18K yellow gold, circa 1956
+  - 掲載個体の実測記録（1回の鳴動で約9時間分のパワーリザーブ消費）
+  - 掲載個体の実機動画（タイミングホイールが約8秒間作動する様子）
 ---
