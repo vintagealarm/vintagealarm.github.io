@@ -1,6 +1,6 @@
 ---
 slug: citizen-alarm
-published: false
+published: true
 ownerNumber: "04"
 brand: CITIZEN
 model: ALARM
