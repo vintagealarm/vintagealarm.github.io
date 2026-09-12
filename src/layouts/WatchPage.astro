@@ -32,10 +32,21 @@ const description = watch.slug === 'cyma-time-o-vox'
 const pagePath = `${watch.slug}/`;
 const pageUrl = new URL(pagePath, siteRoot).href;
 const imageUrl = new URL(watch.ownersNote.image.replace(/^\//, ''), siteRoot).href;
-const publishedWatches = await getCollection('watches');
-const publishedSlugs = new Set(publishedWatches.filter((item) => item.data.published).map((item) => item.data.slug));
+const allWatches = await getCollection('watches');
+const watchBySlug = new Map(allWatches.map((item) => [item.data.slug, item]));
 const directoryEntries = ownersDirectory.entries
-  .filter((entry) => publishedSlugs.has(entry.historyId))
+  .flatMap((meta) => {
+    const item = watchBySlug.get(meta.historyId);
+    if (!item?.data.published) return [];
+    return [{
+      ...meta,
+      ownerNumber: item.data.ownerNumber,
+      brand: item.data.brand,
+      name: item.data.model,
+      href: `/${item.data.slug}/#owners-note`,
+      historyHref: `/history/#${meta.historyEra}`
+    }];
+  })
   .sort((a, b) => a.ownedSortYear - b.ownedSortYear || Number(a.ownerNumber) - Number(b.ownerNumber));
 const directoryIndex = directoryEntries.findIndex((entry) => entry.historyId === watch.slug);
 const currentDirectoryEntry = directoryIndex >= 0 ? directoryEntries[directoryIndex] : null;
