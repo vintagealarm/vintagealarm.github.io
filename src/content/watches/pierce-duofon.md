@@ -1,5 +1,6 @@
 ---
 slug: "pierce-duofon"
+published: true
 ownerNumber: "01"
 brand: "PIERCE"
 model: "DUOFON"
