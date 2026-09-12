@@ -123,15 +123,16 @@ deepDive:
       - "3,4"
       - "3,4"
       - "3,4"
+    mediaStyle: "compact-sequence"
     images:
-      - src: "/images/gruenduotone3.png"
+      - src: "/images/gruenduotone.png"
         caption: "Duotone ダイヤル"
         alt: "Gruen Duo-Tone Precision ダイヤル"
-        afterParagraph: 3
-      - src: "/images/gruenduotone4.webp"
+        afterParagraph: 2
+      - src: "/images/gruenduotone2.png"
         caption: "Duotone ムーブメント"
         alt: "Gruen Duo-Tone Precision Cal.920 SS ムーブメント"
-        afterParagraph: 3
+        afterParagraph: 2
 sourceMeta:
   - id: "1"
     type: primary
