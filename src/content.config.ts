@@ -6,6 +6,7 @@ const watches = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/watches' }),
   schema: z.object({
     slug: z.string(),
+    published: z.boolean().default(false),
     ownerNumber: z.string(),
     brand: z.string(),
     model: z.string(),

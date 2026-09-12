@@ -1,5 +1,6 @@
 ---
 slug: cyma-time-o-vox
+published: true
 ownerNumber: "02"
 brand: CYMA
 model: TIME-O-VOX

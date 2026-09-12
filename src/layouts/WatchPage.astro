@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import SeoHead from '../components/SeoHead.astro';
 import SectionMast from '../components/SectionMast.astro';
 import WatchHero from '../components/WatchHero.astro';
@@ -31,9 +32,11 @@ const description = watch.slug === 'cyma-time-o-vox'
 const pagePath = `${watch.slug}/`;
 const pageUrl = new URL(pagePath, siteRoot).href;
 const imageUrl = new URL(watch.ownersNote.image.replace(/^\//, ''), siteRoot).href;
-const directoryEntries = [...ownersDirectory.entries].sort(
-  (a, b) => a.ownedSortYear - b.ownedSortYear || Number(a.ownerNumber) - Number(b.ownerNumber)
-);
+const publishedWatches = await getCollection('watches');
+const publishedSlugs = new Set(publishedWatches.filter((item) => item.data.published).map((item) => item.data.slug));
+const directoryEntries = ownersDirectory.entries
+  .filter((entry) => publishedSlugs.has(entry.historyId))
+  .sort((a, b) => a.ownedSortYear - b.ownedSortYear || Number(a.ownerNumber) - Number(b.ownerNumber));
 const directoryIndex = directoryEntries.findIndex((entry) => entry.historyId === watch.slug);
 const currentDirectoryEntry = directoryIndex >= 0 ? directoryEntries[directoryIndex] : null;
 const nextDirectoryEntry = directoryEntries.length > 1 && directoryIndex >= 0

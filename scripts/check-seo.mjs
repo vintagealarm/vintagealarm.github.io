@@ -1,26 +1,33 @@
 import { files, document, attr, content, route, resolve, origin, finish } from './site-audit-lib.mjs';
+import { readWatchPublicationState } from './watch-publication.mjs';
 
+const watchStates = readWatchPublicationState();
 const required = {
-  '/': ['WebSite'], '/history/': ['Article', 'BreadcrumbList'],
-  '/owners-notes/': ['CollectionPage'], '/history/smartwatch/': ['CreativeWork', 'BreadcrumbList'],
-  '/basis-alarm/': ['CreativeWork', 'BreadcrumbList'], '/pierce-duofon/': ['CreativeWork', 'BreadcrumbList'],
-  '/cyma-time-o-vox/': ['CreativeWork', 'BreadcrumbList'], '/cyma-time-o-vox/owners-note/': []
+  '/': ['WebSite'],
+  '/history/': ['Article', 'BreadcrumbList'],
+  '/owners-notes/': ['CollectionPage'],
+  '/history/smartwatch/': ['CreativeWork', 'BreadcrumbList']
 };
+for (const watch of watchStates.filter((item) => item.published)) {
+  required[`/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
+}
+if (watchStates.some((item) => item.slug === 'cyma-time-o-vox' && item.published)) {
+  required['/cyma-time-o-vox/owners-note/'] = [];
+}
+
 const errors = [], seen = new Set();
 const titles = new Map(), descriptions = new Map();
 for (const file of files().filter(f => f.endsWith('.html'))) {
   const page = route(file), nodes = document(file);
   const canonicalNodes = nodes.filter(n => n.tagName === 'link' && attr(n, 'rel')?.split(/\s+/).includes('canonical'));
-  if (!required[page] && !canonicalNodes.length) continue; // Verification file and non-SEO utility pages.
+  if (!required[page] && !canonicalNodes.length) continue;
   seen.add(page);
   const fail = message => errors.push(`${page}: ${message}`);
-  // Existing image enlargement view is deliberately noindex, not an article.
   if (page === '/cyma-time-o-vox/owners-note/') {
     if (!nodes.some(n => n.tagName === 'meta' && attr(n, 'name') === 'robots' && attr(n, 'content') === 'noindex,follow')) fail('enlargement view must remain noindex,follow');
     if (!nodes.some(n => n.tagName === 'title' && content(n).trim())) fail('missing title');
     continue;
   }
-  // X profile tracking alias deliberately mirrors TOP, is noindex, and canonicals back to TOP.
   if (page === '/x/') {
     if (!nodes.some(n => n.tagName === 'meta' && attr(n, 'name') === 'robots' && attr(n, 'content') === 'noindex,follow')) fail('X profile alias must remain noindex,follow');
     if (canonicalNodes.length !== 1 || attr(canonicalNodes[0], 'href') !== origin + '/') fail(`X profile alias canonical must be ${origin + '/'}`);
@@ -48,7 +55,6 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
     if (value(key) !== expected) fail(`${key} does not match page metadata`);
   for (const key of ['og:locale', 'og:site_name', 'og:type', 'twitter:card']) value(key);
   for (const key of ['og:image', 'twitter:image']) {
-    // SeoHead intentionally omits images on TOP, HISTORY and the directory.
     if (!meta(key).length && ['/', '/history/', '/owners-notes/'].includes(page)) continue;
     const image = value(key);
     try { const u = new URL(image); if (u.origin !== origin || !resolve(u)) fail(`${key}: missing or noncanonical image`); }

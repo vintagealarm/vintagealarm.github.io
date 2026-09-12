@@ -1,12 +1,15 @@
 import { chromium } from 'playwright';
+import { readWatchPublicationState } from './watch-publication.mjs';
 
 const root = process.env.LAYOUT_BASE_URL || 'http://127.0.0.1:4321/';
+const publishedWatchRoutes = readWatchPublicationState()
+  .filter((watch) => watch.published)
+  .map((watch) => `${watch.slug}/`);
 const routes = [
   '',
   'history/',
   'owners-notes/',
-  'pierce-duofon/',
-  'cyma-time-o-vox/',
+  ...publishedWatchRoutes,
   'history/smartwatch/'
 ];
 const widths = [320, 390, 768];
@@ -24,7 +27,11 @@ try {
 
     for (const route of routes) {
       const url = new URL(route, root).href;
-      await page.goto(url, { waitUntil: 'networkidle' });
+      const response = await page.goto(url, { waitUntil: 'networkidle' });
+      if (!response?.ok()) {
+        failures.push(`${width}px ${route || '/'}: HTTP ${response?.status() ?? 0}`);
+        continue;
+      }
 
       const result = await page.evaluate(() => {
         const root = document.documentElement;
