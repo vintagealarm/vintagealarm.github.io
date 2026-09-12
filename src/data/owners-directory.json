@@ -1,64 +1,39 @@
 {
   "entries": [
     {
-      "ownerNumber": "03",
       "historyId": "basis-alarm",
       "ownedEra": "1940s",
       "ownedSortYear": 1948,
-      "brand": "BASIS",
-      "name": "ALARM",
-      "catch": "触って、見て、聴いて楽しむおもちゃ箱。",
-      "image": "/images/IMG_8890.jpeg",
-      "href": "/basis-alarm/#owners-note",
-      "historyHref": "/history/#1940s"
+      "historyEra": "1940s",
+      "image": "/images/IMG_8890.jpeg"
     },
     {
-      "ownerNumber": "02",
       "historyId": "cyma-time-o-vox",
       "ownedEra": "1950s",
       "ownedSortYear": 1956,
-      "brand": "CYMA",
-      "name": "TIME-O-VOX",
-      "catch": "鳴る黄金のクロノメーター",
-      "image": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
-      "href": "/cyma-time-o-vox/#owners-note",
-      "historyHref": "/history/#1950s"
+      "historyEra": "1950s",
+      "image": "/images/owners-thumbnails/cyma-time-o-vox-full.png"
     },
     {
-      "ownerNumber": "04",
       "historyId": "citizen-alarm",
       "ownedEra": "1950s",
       "ownedSortYear": 1958,
-      "brand": "CITIZEN",
-      "name": "ALARM",
-      "catch": "国産初のベル腕時計、そして伝説へ。",
-      "image": "/images/owners-thumbnails/citizen-alarm-full.jpg",
-      "href": "/citizen-alarm/#owners-note",
-      "historyHref": "/history/#1950s"
+      "historyEra": "1950s",
+      "image": "/images/owners-thumbnails/citizen-alarm-full.jpg"
     },
     {
-      "ownerNumber": "05",
       "historyId": "westclox-watchlarm",
       "ownedEra": "1950s",
       "ownedSortYear": 1959,
-      "brand": "WESTCLOX",
-      "name": "WATCHLARM",
-      "catch": "0石腕時計の劇的ビフォーアフター。",
-      "image": "/images/IMG_2093-1.jpeg",
-      "href": "/westclox-watchlarm/#owners-note",
-      "historyHref": "/history/#1950s"
+      "historyEra": "1950s",
+      "image": "/images/IMG_2093-1.jpeg"
     },
     {
-      "ownerNumber": "01",
       "historyId": "pierce-duofon",
       "ownedEra": "1960s",
       "ownedSortYear": 1960,
-      "brand": "PIERCE",
-      "name": "DUOFON",
-      "catch": "1950's通知のオーパーツ。",
-      "image": "/images/owners-thumbnails/pierce-duofon-full.png",
-      "href": "/pierce-duofon/#owners-note",
-      "historyHref": "/history/#1950s"
+      "historyEra": "1950s",
+      "image": "/images/owners-thumbnails/pierce-duofon-full.png"
     }
   ]
 }
