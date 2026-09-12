@@ -16,7 +16,10 @@ function copy(dir, target) {
   }
 }
 function run(script, success, reason) {
-  const result = spawnSync(process.execPath, [`scripts/${script}.mjs`, fixture], { encoding: 'utf8' });
+  const result = spawnSync(process.execPath, [`scripts/${script}.mjs`, fixture], {
+    encoding: 'utf8',
+    env: process.env
+  });
   assert.equal(result.status, success ? 0 : 1, result.stdout + result.stderr);
   if (reason) assert.ok(result.stderr.includes(reason), result.stderr);
 }
