@@ -1,9 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { getPublishedWatchSlugs, readWatchPublicationState } from './watch-publication.mjs';
 
 const directoryPath = path.join(process.cwd(), 'src', 'data', 'owners-directory.json');
 const directory = JSON.parse(fs.readFileSync(directoryPath, 'utf8'));
 const entries = directory.entries ?? [];
+const publishedSlugs = getPublishedWatchSlugs();
+const watches = readWatchPublicationState();
 const seenIds = new Set();
 const seenNumbers = new Set();
 const seenHrefs = new Set();
@@ -29,10 +32,15 @@ for (const entry of entries) {
   }
 
   const route = String(entry.href || '').split('#')[0].replace(/^\//, '').replace(/\/$/, '');
-  if (route) {
+  if (route && publishedSlugs.has(entry.historyId)) {
     const output = path.join(process.cwd(), 'dist', route, 'index.html');
     if (!fs.existsSync(output)) failures.push(`${entry.historyId || entry.name}: generated WATCH page missing: ${output}`);
   }
+}
+
+for (const watch of watches.filter((item) => !item.published)) {
+  const output = path.join(process.cwd(), 'dist', watch.slug, 'index.html');
+  if (fs.existsSync(output)) failures.push(`${watch.slug}: unpublished WATCH page should not be generated`);
 }
 
 if (failures.length) {
@@ -41,4 +49,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`OWNER'S NOTES directory valid: ${entries.length} published entries.`);
+console.log(`OWNER'S NOTES directory valid: ${publishedSlugs.size} published watch entries.`);
