@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import SeoHead from '../../components/SeoHead.astro';
 import SectionMast from '../../components/SectionMast.astro';
 import OwnerThumbnailFrame from '../../components/OwnerThumbnailFrame.astro';
@@ -7,7 +8,11 @@ import ownersDirectory from '../../data/owners-directory.json';
 import '../../styles/site.css';
 import '../../styles/owners-v15.css';
 const base=import.meta.env.BASE_URL;
-const entries=[...ownersDirectory.entries].sort((a,b)=>a.ownedSortYear-b.ownedSortYear||Number(a.ownerNumber)-Number(b.ownerNumber));
+const watches=await getCollection('watches');
+const publishedSlugs=new Set(watches.filter(item=>item.data.published).map(item=>item.data.slug));
+const entries=ownersDirectory.entries
+ .filter(entry=>publishedSlugs.has(entry.historyId))
+ .sort((a,b)=>a.ownedSortYear-b.ownedSortYear||Number(a.ownerNumber)-Number(b.ownerNumber));
 const eras=[...new Set(entries.map(entry=>entry.ownedEra))];
 const title="OWNER'S NOTES｜所有アラーム腕時計の実機記録｜VINTAGE ALARM";
 const description="VINTAGE ALARMのOWNER'S NOTE一覧。所有する機械式アラーム腕時計を、所有個体の年代ごとに記録する。";
