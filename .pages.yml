@@ -145,33 +145,6 @@ content:
         type: string
         list: true
 
-  - name: ownersDirectory
-    label: OWNER'S NOTES / HISTORY サムネ
-    type: file
-    path: src/data/owners-directory.json
-    format: json
-    fields:
-      - name: entries
-        label: 所有個体カード
-        type: object
-        list:
-          min: 1
-          max: 100
-          collapsible:
-            collapsed: true
-            summary: "{ownedEra} / {brand} {name}"
-        fields:
-          - { name: ownerNumber, label: OWNER'S NOTE No., type: string }
-          - { name: historyId, label: HISTORYカードID, type: string, required: true }
-          - { name: ownedEra, label: 所有個体の年代区分, type: string }
-          - { name: ownedSortYear, label: 所有個体の並び順年, type: number }
-          - { name: brand, label: Brand, type: string }
-          - { name: name, label: Model, type: string }
-          - { name: catch, label: 一覧専用キャッチ, type: string }
-          - { name: image, label: HISTORY・一覧サムネ画像, type: image, required: true }
-          - { name: href, label: OWNER'S NOTEリンク, type: string }
-          - { name: historyHref, label: HISTORY戻り先, type: string, required: true }
-
   - name: history
     label: HISTORY 本文・MILESTONES
     type: file
@@ -348,7 +321,7 @@ content:
           - { name: label, label: 章ラベル, type: string, readonly: true }
           - { name: title, label: 章タイトル, type: string }
           - { name: teaser, label: 目次・要約, type: text }
-          - { name: intro, label: 導入本文, type: text }
+          - { name: intro, label: 本文, type: text }
           - name: cards
             label: HISTORYカード
             type: object
