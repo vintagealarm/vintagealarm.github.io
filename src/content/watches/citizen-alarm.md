@@ -31,7 +31,7 @@ spec:
   barrels: 2香箱
   winding: 手巻き
   acoustic: 二重裏蓋式
-  notes: 中央回転ディスク、2リューズ、Parashock（同型資料）
+  notes: 中央回転ディスク、2リューズ、Parashock
 deepDive:
   - number: "01"
     title: 1958年、国産初のアラーム腕時計
