@@ -12,7 +12,7 @@ import '../../styles/history-v13.css';
 import '../../styles/history-v18.css';
 const base=import.meta.env.BASE_URL;
 const watches=await getCollection('watches');
-const publishedSlugs=new Set(watches.filter(item=>item.data.published).map(item=>item.data.slug));
+const watchBySlug=new Map(watches.map(item=>[item.data.slug,item]));
 const jaSegmenter=new Intl.Segmenter('ja',{granularity:'word'});
 const jaParticles=/^(は|が|を|に|へ|で|と|の|も|や|か|から|まで|より|など|って|として|なら|ので|ため)$/;
 const jaClosing=/^[、。！？…）」』】］〉》]+$/;
@@ -30,8 +30,15 @@ const milestones=(era:string)=>historyCatalogByGroup.milestones.filter(entry=>en
 const ownersForEra=(era:string)=>historyCatalogByGroup.owners
  .filter(entry=>entry.era===era&&entry.featured)
  .map(entry=>{
-  const directoryNote=ownersDirectory.entries.find(note=>entry.id===note.historyId||entry.id===note.href.split('/')[1]);
-  const note=directoryNote&&publishedSlugs.has(directoryNote.historyId)?directoryNote:undefined;
+  const directoryMeta=ownersDirectory.entries.find(note=>entry.id===note.historyId);
+  const watch=directoryMeta?watchBySlug.get(directoryMeta.historyId):undefined;
+  const note=directoryMeta&&watch?.data.published?{
+   ...directoryMeta,
+   ownerNumber:watch.data.ownerNumber,
+   brand:watch.data.brand,
+   name:watch.data.model,
+   href:`/${watch.data.slug}/#owners-note`
+  }:undefined;
   const [fallbackBrand,...fallbackName]=entry.name.split(' ');
   return {
    entry,
