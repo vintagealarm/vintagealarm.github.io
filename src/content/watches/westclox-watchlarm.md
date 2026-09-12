@@ -1,6 +1,6 @@
 ---
 slug: westclox-watchlarm
-published: false
+published: true
 ownerNumber: "05"
 brand: WESTCLOX
 model: WATCHLARM
@@ -30,7 +30,7 @@ ownersNote:
       Danzは、W5にW4の部品が一部使われた可能性を挙げている。一方でDanzは、Watchlarmについて「製造が難しかった」とし、利益も出なかったと思うと振り返った。
 spec:
   era: 1950年代
-  caseSize: 34mm
+  caseSize: 32.88mm（資料掲載個体）
   caliber: Westclox W5
   jewels: 0石
   frequency: 18,000振動／時
@@ -39,7 +39,7 @@ spec:
   acoustic: 底部ベル式
   notes: 2時位置プッシャー式アラーム設定、9時位置ON/OFFスライダー、アラーム約10秒
 specimenGallery:
-  - image: /images/IMG_2093.jpeg
+  - image: /images/IMG_2035.jpeg
     label: 正面
   - image: /images/IMG_2038.jpeg
     label: 2時プッシャー
