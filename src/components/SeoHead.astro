@@ -19,6 +19,8 @@ const {
   robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'
 } = Astro.props;
 
+const isPreview = import.meta.env.PUBLIC_VA_PREVIEW === 'true';
+const effectiveRobots = isPreview ? 'noindex,nofollow,noarchive' : robots;
 const siteRoot = 'https://vintagealarm.github.io/';
 const canonical = new URL(path.replace(/^\//, ''), siteRoot).toString();
 const ogImage = image
@@ -27,7 +29,7 @@ const ogImage = image
 ---
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="robots" content={robots} />
+<meta name="robots" content={effectiveRobots} />
 <link rel="canonical" href={canonical} />
 <meta property="og:locale" content="ja_JP" />
 <meta property="og:site_name" content="VINTAGE ALARM" />
@@ -43,7 +45,7 @@ const ogImage = image
 {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
 <!-- Performance / visitor analytics. Admin browsers can opt out with ?__va_analytics=off -->
-<script is:inline>
+{!isPreview && <script is:inline>
   (() => {
     const key = 'vintageAlarmAnalyticsOptOut';
     try {
@@ -70,4 +72,4 @@ const ogImage = image
     beacon.dataset.cfBeacon = '{"token":"862adb1fcab1439f899cccf093361ee9"}';
     document.head.appendChild(beacon);
   })();
-</script>
+</script>}
