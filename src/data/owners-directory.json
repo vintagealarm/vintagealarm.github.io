@@ -5,35 +5,40 @@
       "ownedEra": "1940s",
       "ownedSortYear": 1948,
       "historyEra": "1940s",
-      "image": "/images/IMG_8890.jpeg"
+      "image": "/images/IMG_8890.jpeg",
+      "directoryCatch": "2香箱と、2つの巻上げ表示窓。"
     },
     {
       "historyId": "cyma-time-o-vox",
       "ownedEra": "1950s",
       "ownedSortYear": 1956,
       "historyEra": "1950s",
-      "image": "/images/owners-thumbnails/cyma-time-o-vox-full.png"
+      "image": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
+      "directoryCatch": "1香箱、2プッシャー、Chronomètre。"
     },
     {
       "historyId": "citizen-alarm",
       "ownedEra": "1950s",
       "ownedSortYear": 1958,
       "historyEra": "1950s",
-      "image": "/images/owners-thumbnails/citizen-alarm-full.jpg"
+      "image": "/images/owners-thumbnails/citizen-alarm-full.jpg",
+      "directoryCatch": "1958年、国産初のベル腕時計。"
     },
     {
       "historyId": "westclox-watchlarm",
-      "ownedEra": "1950s",
-      "ownedSortYear": 1959,
+      "ownedEra": "1960s",
+      "ownedSortYear": 1960,
       "historyEra": "1950s",
-      "image": "/images/IMG_2093-1.jpeg"
+      "image": "/images/IMG_2093-1.jpeg",
+      "directoryCatch": "0石、1香箱、プッシャー式アラーム。"
     },
     {
       "historyId": "pierce-duofon",
       "ownedEra": "1960s",
       "ownedSortYear": 1960,
       "historyEra": "1950s",
-      "image": "/images/owners-thumbnails/pierce-duofon-full.png"
+      "image": "/images/owners-thumbnails/pierce-duofon-full.png",
+      "directoryCatch": "WECKER / SIGNAL、2段階のアラーム。"
     }
   ]
 }
