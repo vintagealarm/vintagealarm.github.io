@@ -1,7 +1,7 @@
 # VINTAGE ALARM — German translation preparation
 
 更新日: 2026-09-14
-状態: Duofonドイツ語パイロット実装中。2026-09-14にユーザーが実装再開を明示。`/de/`・`/de/pierce-duofon/`・言語切替・hreflang・sitemapを実装対象とする。最終の逐語逆翻訳比較はユーザー監査前のため、意味忠実性の最終判定は未完了。
+状態: Duofonドイツ語パイロット公開済み。`/de/`・`/de/pierce-duofon/`・日本語/英語/ドイツ語の言語切替・hreflang・sitemap・llms.txt・Analyticsパスマッピングまで実装し、GitHub Pages CI（run 34772117885）でビルド、内部リンク/SEO、品質ゲート、公開状態、320/390/768pxのレンダリング検証を通過。最終の逐語逆翻訳比較はユーザー監査前のため、意味忠実性の最終判定だけは未完了。
 
 ## 目的
 
