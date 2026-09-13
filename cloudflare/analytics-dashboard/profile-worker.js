@@ -11,6 +11,14 @@ export const X_PROFILE_TRACKING = Object.freeze({
   eventAt: "2026-09-11T14:18:50.000Z",
 });
 
+export const WATCH_PAGE_NAMES = Object.freeze({
+  "/basis-alarm/": "Basis Alarm",
+  "/pierce-duofon/": "Pierce Duofon",
+  "/cyma-time-o-vox/": "Cyma Time-O-Vox",
+  "/citizen-alarm/": "Citizen Alarm",
+  "/westclox-watchlarm/": "Westclox Watchlarm",
+});
+
 const TREND_BUCKET_MS = Object.freeze({
   datetimeFiveMinutes: 5 * 60 * 1000,
   datetimeFifteenMinutes: 15 * 60 * 1000,
@@ -18,25 +26,63 @@ const TREND_BUCKET_MS = Object.freeze({
   date: 24 * 60 * 60 * 1000,
 });
 
+function mappedPageName(path) {
+  if (path === X_PROFILE_TRACKING.path) return X_PROFILE_TRACKING.name;
+  return WATCH_PAGE_NAMES[path] || "";
+}
+
 function patchPage(row) {
-  if (!row || row.path !== X_PROFILE_TRACKING.path) return row;
-  return { ...row, name: X_PROFILE_TRACKING.name, mapped: true };
+  if (!row) return row;
+  const name = mappedPageName(row.path);
+  if (!name) return row;
+  return { ...row, name, mapped: true };
 }
 
 function patchFlow(flow) {
   if (!flow) return flow;
   const out = { ...flow };
-  if (out.destinationPath === X_PROFILE_TRACKING.path) {
-    out.destinationName = X_PROFILE_TRACKING.name;
+  const destinationName = mappedPageName(out.destinationPath);
+  if (destinationName) {
+    out.destinationName = destinationName;
     out.destinationMapped = true;
   }
-  if (
-    out.sourceCleanPath === X_PROFILE_TRACKING.path ||
-    out.sourcePath === X_PROFILE_TRACKING.path
-  ) {
-    out.sourceName = X_PROFILE_TRACKING.name;
-  }
+  const sourcePath = out.sourceCleanPath || out.sourcePath;
+  const sourceName = mappedPageName(sourcePath);
+  if (sourceName) out.sourceName = sourceName;
   return out;
+}
+
+function rebuildSnsEntries(period) {
+  const channels = ["X", "Instagram", "Facebook", "Other SNS"];
+  const pages = Object.entries(WATCH_PAGE_NAMES).map(([path, name]) => ({
+    path,
+    name,
+    values: Object.fromEntries(channels.map((channel) => [channel, 0])),
+    total: 0,
+  }));
+  const other = {
+    path: "other",
+    name: "Other pages",
+    values: Object.fromEntries(channels.map((channel) => [channel, 0])),
+    total: 0,
+  };
+  const byPath = new Map(pages.map((row) => [row.path, row]));
+
+  for (const flow of period?.flows || []) {
+    if (!channels.includes(flow?.channel)) continue;
+    const visits = Number(flow?.visits || 0);
+    if (visits <= 0) continue;
+    const row = byPath.get(flow.destinationPath) || other;
+    row.values[flow.channel] += visits;
+    row.total += visits;
+  }
+
+  const rows = [...pages, other];
+  return {
+    pages: rows,
+    total: rows.reduce((sum, row) => sum + row.total, 0),
+    complete: period?.snsEntries?.complete ?? false,
+  };
 }
 
 function countProfileEntries(period) {
@@ -112,6 +158,7 @@ export function patchPeriod(period) {
   if (Array.isArray(patched.flows)) patched.flows = patched.flows.map(patchFlow);
   if (Array.isArray(patched.externalEntryFlows)) patched.externalEntryFlows = patched.externalEntryFlows.map(patchFlow);
   if (Array.isArray(patched.internalFlows)) patched.internalFlows = patched.internalFlows.map(patchFlow);
+  patched.snsEntries = rebuildSnsEntries(patched);
   patched.xProfileEntries = countProfileEntries(patched);
   return patched;
 }
@@ -196,6 +243,14 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   }`;
 
   return String(html)
+    .replace(
+      '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox"]',
+      '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm"]',
+    )
+    .replace(
+      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"}\n];',
+      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"},\n  {name:"Citizen Alarm",path:"/citizen-alarm/"},\n  {name:"Westclox Watchlarm",path:"/westclox-watchlarm/"}\n];',
+    )
     .replace(
       '<button class="refresh" id="aiShare">AI COPY</button>',
       '<button class="refresh" id="aiShare">AI COPY</button>\n<button class="refresh" id="aiReadable">AI URL</button>',
