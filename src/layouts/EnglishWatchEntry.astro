@@ -10,16 +10,19 @@ import SpecimenGallery from '../components/SpecimenGallery.astro';
 import Sources from '../components/Sources.astro';
 import OwnerFonts from '../components/OwnerFonts.astro';
 import { englishFullResearchBySlug } from '../data/en-watch-full-research';
+import { germanWatchEntries } from '../data/de-watch-entry';
 import '../styles/site.css';
 import '../styles/owners-v15.css';
 
 const { watch, entry } = Astro.props;
 const fullResearch = englishFullResearchBySlug[watch.slug];
+const germanEntry = germanWatchEntries[watch.slug];
 const siteRoot = 'https://vintagealarm.github.io/';
 const englishPath = `en/${watch.slug}/`;
 const japanesePath = `${watch.slug}/`;
 const pageUrl = new URL(englishPath, siteRoot).href;
 const japaneseUrl = new URL(japanesePath, siteRoot).href;
+const germanUrl = germanEntry ? new URL(`de/${watch.slug}/`, siteRoot).href : null;
 const socialImage = watch.specimenGallery?.[0]?.image ?? watch.ownersNote.image;
 const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
 const pageTitle = fullResearch?.title ?? entry.title;
@@ -28,6 +31,10 @@ const translatedOwnersNote = {
   image: socialImage,
   ...entry.ownersNote
 };
+const languageLinks = [
+  { href: `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
+  ...(germanEntry ? [{ href: `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
+];
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -91,6 +98,7 @@ const schema = {
       schema={schema}
       alternates={[
         { hreflang: 'en', href: pageUrl },
+        ...(germanUrl ? [{ hreflang: 'de', href: germanUrl }] : []),
         { hreflang: 'ja', href: japaneseUrl },
         { hreflang: 'x-default', href: japaneseUrl }
       ]}
@@ -100,9 +108,7 @@ const schema = {
     <SectionMast
       rightLabel="OWNER'S NOTE"
       lang="en"
-      languageHref={`/${watch.slug}/`}
-      languageLabel="日本語"
-      languageHreflang="ja"
+      languageLinks={languageLinks}
     />
     <main>
       <WatchHero brand={watch.brand} model={watch.model} catchLines={entry.catch} ownerNumber={watch.ownerNumber} />
