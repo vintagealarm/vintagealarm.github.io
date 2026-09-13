@@ -1,12 +1,21 @@
 ---
-const { items } = Astro.props;
+const { items, lang = 'ja' } = Astro.props;
+const isEnglish = lang === 'en';
 const base = import.meta.env.BASE_URL;
 const resolveImage = (path: string) => /^https?:\/\//.test(path)
   ? path
   : `${base}${path.replace(/^\//, '')}`;
+const deepHeading = isEnglish ? 'DEEP DIVE' : 'さらに詳しく';
+const sourceLabel = isEnglish ? 'Source' : '出典';
+const relatedLabel = isEnglish ? 'View related material' : '関連資料を見る';
+const enlargeLabel = (text: string) => isEnglish ? `Enlarge ${text}` : `${text}を拡大表示`;
+const galleryLabel = (title: string) => isEnglish ? `${title} image viewer` : `${title} 画像拡大表示`;
+const closeLabel = isEnglish ? 'Close enlarged image' : '拡大表示を閉じる';
+const prevLabel = isEnglish ? 'Previous image' : '前の画像';
+const nextLabel = isEnglish ? 'Next image' : '次の画像';
 ---
-<section class="section shell" aria-labelledby="deep">
-  <h2 id="deep">さらに詳しく</h2>
+<section class="section shell" aria-labelledby="deep" lang={lang}>
+  <h2 id="deep">{deepHeading}</h2>
   <div class="deep-list">
     {items.map((item: any) => {
       const images = item.images ?? [];
@@ -21,7 +30,7 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
         <div class:list={["deep-media", compactMedia && "deep-media--compact"]}>
           {mediaImages.map((image: any) => {
             const imageIndex = images.indexOf(image);
-            const alt = image.alt || image.caption || `${item.title} 補足画像`;
+            const alt = image.alt || image.caption || (isEnglish ? `${item.title} supporting image` : `${item.title} 補足画像`);
             const src = resolveImage(image.src);
             return (
               <figure class:list={[compactMedia && image.fullRow && "deep-media__full"]}>
@@ -33,7 +42,7 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
                     data-src={src}
                     data-alt={alt}
                     data-caption={image.caption || ''}
-                    aria-label={`${image.caption || item.title}を拡大表示`}
+                    aria-label={enlargeLabel(image.caption || item.title)}
                   >
                     <img
                       src={src}
@@ -73,7 +82,7 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
                   <p>
                     {paragraph}
                     {refs.length > 0 && (
-                      <sup class="cite-refs" aria-label={`出典 ${refs.join('、')}`}>
+                      <sup class="cite-refs" aria-label={`${sourceLabel} ${refs.join(', ')}`}>
                         {refs.map((ref: string, refIndex: number) => (
                           <>
                             {refIndex > 0 && <span aria-hidden="true">,</span>}
@@ -90,19 +99,19 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
             {trailingImages.length > 0 && renderMedia(trailingImages)}
             {item.linkUrl && (
               <a class="deep-link" href={item.linkUrl} target="_blank" rel="noopener">
-                {item.linkLabel || '関連資料を見る'} <span aria-hidden="true">↗</span>
+                {item.linkLabel || relatedLabel} <span aria-hidden="true">↗</span>
               </a>
             )}
             {compactMedia && images.length > 0 && (
-              <dialog class="deep-lightbox" data-deep-lightbox aria-label={`${item.title} 画像拡大表示`}>
+              <dialog class="deep-lightbox" data-deep-lightbox aria-label={galleryLabel(item.title)}>
                 <div class="deep-lightbox__panel">
-                  <button type="button" class="deep-lightbox__close" data-deep-close aria-label="拡大表示を閉じる">×</button>
-                  <button type="button" class="deep-lightbox__nav deep-lightbox__prev" data-deep-prev aria-label="前の画像">‹</button>
+                  <button type="button" class="deep-lightbox__close" data-deep-close aria-label={closeLabel}>×</button>
+                  <button type="button" class="deep-lightbox__nav deep-lightbox__prev" data-deep-prev aria-label={prevLabel}>‹</button>
                   <figure>
                     <img data-deep-lightbox-image alt="" />
                     <figcaption data-deep-lightbox-caption></figcaption>
                   </figure>
-                  <button type="button" class="deep-lightbox__nav deep-lightbox__next" data-deep-next aria-label="次の画像">›</button>
+                  <button type="button" class="deep-lightbox__nav deep-lightbox__next" data-deep-next aria-label={nextLabel}>›</button>
                 </div>
               </dialog>
             )}
