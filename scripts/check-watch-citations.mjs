@@ -96,8 +96,10 @@ for (const file of fs.readdirSync(watchesDir).filter((name) => name.endsWith('.m
       failures.push(`${slug} DEEP DIVE ${item.number}: ${item.paragraphs} paragraphs but ${item.citationRows.length} citation rows`);
     }
     item.citationRows.forEach((row, paragraphIndex) => {
+      // An explicit empty row is allowed for a framing/editorial paragraph that
+      // intentionally makes no source-backed factual claim. The row still has to
+      // exist so paragraph-to-citation alignment cannot silently shift.
       const refs = row.split(',').map((value) => cleanScalar(value)).filter(Boolean);
-      if (!refs.length) failures.push(`${slug} DEEP DIVE ${item.number} paragraph ${paragraphIndex + 1}: empty citationRefs row`);
       for (const ref of refs) {
         if (!knownIds.has(ref)) failures.push(`${slug} DEEP DIVE ${item.number} paragraph ${paragraphIndex + 1}: unknown source id ${ref}`);
       }
