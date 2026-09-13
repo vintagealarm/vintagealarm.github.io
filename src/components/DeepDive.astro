@@ -1,18 +1,19 @@
 ---
 const { items, lang = 'ja' } = Astro.props;
 const isEnglish = lang === 'en';
+const isGerman = lang === 'de';
 const base = import.meta.env.BASE_URL;
 const resolveImage = (path: string) => /^https?:\/\//.test(path)
   ? path
   : `${base}${path.replace(/^\//, '')}`;
-const deepHeading = isEnglish ? 'DEEP DIVE' : 'さらに詳しく';
-const sourceLabel = isEnglish ? 'Source' : '出典';
-const relatedLabel = isEnglish ? 'View related material' : '関連資料を見る';
-const enlargeLabel = (text: string) => isEnglish ? `Enlarge ${text}` : `${text}を拡大表示`;
-const galleryLabel = (title: string) => isEnglish ? `${title} image viewer` : `${title} 画像拡大表示`;
-const closeLabel = isEnglish ? 'Close enlarged image' : '拡大表示を閉じる';
-const prevLabel = isEnglish ? 'Previous image' : '前の画像';
-const nextLabel = isEnglish ? 'Next image' : '次の画像';
+const deepHeading = isEnglish ? 'DEEP DIVE' : isGerman ? 'IM DETAIL' : 'さらに詳しく';
+const sourceLabel = isEnglish ? 'Source' : isGerman ? 'Quelle' : '出典';
+const relatedLabel = isEnglish ? 'View related material' : isGerman ? 'Verwandtes Material ansehen' : '関連資料を見る';
+const enlargeLabel = (text: string) => isEnglish ? `Enlarge ${text}` : isGerman ? `${text} vergrößern` : `${text}を拡大表示`;
+const galleryLabel = (title: string) => isEnglish ? `${title} image viewer` : isGerman ? `${title} Bildansicht` : `${title} 画像拡大表示`;
+const closeLabel = isEnglish ? 'Close enlarged image' : isGerman ? 'Vergrößerte Ansicht schließen' : '拡大表示を閉じる';
+const prevLabel = isEnglish ? 'Previous image' : isGerman ? 'Vorheriges Bild' : '前の画像';
+const nextLabel = isEnglish ? 'Next image' : isGerman ? 'Nächstes Bild' : '次の画像';
 ---
 <section class="section shell" aria-labelledby="deep" lang={lang}>
   <h2 id="deep">{deepHeading}</h2>
@@ -30,7 +31,11 @@ const nextLabel = isEnglish ? 'Next image' : '次の画像';
         <div class:list={["deep-media", compactMedia && "deep-media--compact"]}>
           {mediaImages.map((image: any) => {
             const imageIndex = images.indexOf(image);
-            const alt = image.alt || image.caption || (isEnglish ? `${item.title} supporting image` : `${item.title} 補足画像`);
+            const alt = image.alt || image.caption || (isEnglish
+              ? `${item.title} supporting image`
+              : isGerman
+                ? `${item.title} ergänzendes Bild`
+                : `${item.title} 補足画像`);
             const src = resolveImage(image.src);
             return (
               <figure class:list={[compactMedia && image.fullRow && "deep-media__full"]}>
