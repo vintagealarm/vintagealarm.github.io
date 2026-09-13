@@ -6,10 +6,12 @@ const required = {
   '/': ['WebSite'],
   '/history/': ['Article', 'BreadcrumbList'],
   '/owners-notes/': ['CollectionPage'],
+  '/en/': ['CollectionPage'],
   '/history/smartwatch/': ['CreativeWork', 'BreadcrumbList']
 };
 for (const watch of watchStates.filter((item) => item.published)) {
   required[`/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
+  required[`/en/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
 }
 if (watchStates.some((item) => item.slug === 'cyma-time-o-vox' && item.published)) {
   required['/cyma-time-o-vox/owners-note/'] = [];
@@ -57,7 +59,17 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
   }
   for (const [key, expected] of [['og:title', title], ['og:description', description], ['og:url', canonical], ['twitter:title', title], ['twitter:description', description]])
     if (value(key) !== expected) fail(`${key} does not match page metadata`);
-  for (const key of ['og:locale', 'og:site_name', 'og:type', 'twitter:card']) value(key);
+  const ogLocale = value('og:locale');
+  for (const key of ['og:site_name', 'og:type', 'twitter:card']) value(key);
+  const htmlNode = nodes.find(n => n.tagName === 'html');
+  const isEnglish = page === '/en/' || page.startsWith('/en/');
+  if (isEnglish) {
+    if (!htmlNode || attr(htmlNode, 'lang') !== 'en') fail('English page must use html lang="en"');
+    if (ogLocale !== 'en_US') fail('English page must use og:locale en_US');
+  } else {
+    if (htmlNode && attr(htmlNode, 'lang') && attr(htmlNode, 'lang') !== 'ja') fail('Japanese page lang changed unexpectedly');
+    if (ogLocale !== 'ja_JP') fail('Japanese page must use og:locale ja_JP');
+  }
   for (const key of ['og:image', 'twitter:image']) {
     const image = value(key);
     try { const u = new URL(image); if (u.origin !== origin || !resolve(u)) fail(`${key}: missing or noncanonical image`); }
