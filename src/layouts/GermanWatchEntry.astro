@@ -1,0 +1,146 @@
+---
+import SeoHead from '../components/SeoHead.astro';
+import SectionMast from '../components/SectionMast.astro';
+import WatchHero from '../components/WatchHero.astro';
+import OwnersNote from '../components/OwnersNote.astro';
+import WatchSpec from '../components/WatchSpec.astro';
+import AlarmVideo from '../components/AlarmVideo.astro';
+import DeepDive from '../components/DeepDive.astro';
+import SpecimenGallery from '../components/SpecimenGallery.astro';
+import Sources from '../components/Sources.astro';
+import OwnerFonts from '../components/OwnerFonts.astro';
+import '../styles/site.css';
+import '../styles/owners-v15.css';
+
+const { watch, entry } = Astro.props;
+const siteRoot = 'https://vintagealarm.github.io/';
+const germanPath = `de/${watch.slug}/`;
+const japanesePath = `${watch.slug}/`;
+const englishPath = `en/${watch.slug}/`;
+const pageUrl = new URL(germanPath, siteRoot).href;
+const japaneseUrl = new URL(japanesePath, siteRoot).href;
+const englishUrl = new URL(englishPath, siteRoot).href;
+const socialImage = entry.specimenGallery?.[0]?.image ?? watch.ownersNote.image;
+const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
+const translatedOwnersNote = {
+  image: socialImage,
+  ...entry.ownersNote
+};
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CreativeWork',
+      name: `${watch.brand} ${watch.model}`,
+      description: entry.description,
+      inLanguage: 'de',
+      url: pageUrl,
+      image: imageUrl,
+      about: {
+        '@type': 'Thing',
+        name: `${watch.brand} ${watch.model}`
+      },
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'VINTAGE ALARM',
+        url: siteRoot
+      }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'VINTAGE ALARM',
+          item: siteRoot
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Deutsch',
+          item: new URL('de/', siteRoot).href
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: `${watch.brand} ${watch.model}`,
+          item: pageUrl
+        }
+      ]
+    }
+  ]
+};
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <OwnerFonts />
+    <SeoHead
+      title={entry.title}
+      description={entry.description}
+      path={germanPath}
+      image={socialImage}
+      type="article"
+      locale="de_DE"
+      schema={schema}
+      alternates={[
+        { hreflang: 'de', href: pageUrl },
+        { hreflang: 'en', href: englishUrl },
+        { hreflang: 'ja', href: japaneseUrl },
+        { hreflang: 'x-default', href: japaneseUrl }
+      ]}
+    />
+  </head>
+  <body class="owners-v15">
+    <SectionMast
+      rightLabel="OWNER'S NOTE"
+      lang="de"
+      languageLinks={[
+        { href: `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
+        { href: `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }
+      ]}
+    />
+    <main>
+      <WatchHero brand={watch.brand} model={watch.model} catchLines={entry.catch} ownerNumber={watch.ownerNumber} />
+
+      <div class="shell owners-grid">
+        <OwnersNote data={translatedOwnersNote} alt={`${watch.brand} ${watch.model} Exemplar`} lang="de" />
+        <WatchSpec spec={entry.spec} lang="de" />
+      </div>
+
+      {watch.video && <AlarmVideo video={watch.video} title={`${watch.brand} ${watch.model}`} lang="de" />}
+      <SpecimenGallery items={entry.specimenGallery} title={`${watch.brand} ${watch.model}`} lang="de" />
+      <DeepDive items={entry.deepDive} lang="de" />
+      <Sources sources={entry.sources} meta={entry.sourceMeta} lang="de" />
+
+      <nav class="german-related-nav shell" aria-label="Navigation zu verwandten Uhren">
+        <a class="german-related-next" href={entry.related.href} hreflang={entry.related.hreflang}>
+          <small>NÄCHSTE OWNER'S NOTE · EN</small>
+          <strong>{entry.related.name} →</strong>
+          <span>{entry.related.reason}</span>
+        </a>
+        <a class="german-related-back" href="/de/">ZURÜCK ZUR DEUTSCHEN ÜBERSICHT →</a>
+      </nav>
+    </main>
+  </body>
+</html>
+
+<style>
+  .german-related-nav{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding-block:52px 82px;border-top:1px solid var(--ink)}
+  .german-related-nav a{text-decoration:none}
+  .german-related-next{display:grid;gap:8px;min-width:0}
+  .german-related-next small{color:var(--soft);font-size:11px;letter-spacing:.12em}
+  .german-related-next strong{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.45rem,4vw,2.4rem);font-weight:400;line-height:1.12;overflow-wrap:normal;word-break:normal}
+  .german-related-next span{max-width:46rem;color:var(--soft);font-size:14px;line-height:1.65;letter-spacing:.01em}
+  .german-related-back{padding-bottom:5px;border-bottom:1px solid currentColor;font-size:14px;white-space:nowrap}
+  @media(max-width:480px){
+    .german-related-nav{grid-template-columns:1fr;gap:28px;padding-block:38px 58px}
+    .german-related-next strong{font-size:1.45rem}
+    .german-related-next span{font-size:13px;line-height:1.7}
+    .german-related-back{justify-self:start;white-space:normal}
+  }
+</style>
