@@ -62,16 +62,30 @@ try {
         failures.push(`${width}px ${route || '/'}: broken images: ${result.brokenImages.join(', ')}`);
       }
 
+      if (publishedWatchRoutes.includes(route) && width <= 390) {
+        const japaneseState = await page.evaluate(() => ({
+          lang: document.documentElement.lang,
+          englishLanguageLink: [...document.links].some((link) =>
+            link.getAttribute('hreflang') === 'en' && (link.textContent || '').trim() === 'EN'
+          ),
+          oversizedEnglishCta: [...document.links].some((link) => /ENGLISH ENTRY/.test(link.textContent || ''))
+        }));
+        if (japaneseState.lang !== 'ja') failures.push(`${width}px ${route}: html lang is not ja`);
+        if (!japaneseState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
+        if (japaneseState.oversizedEnglishCta) failures.push(`${width}px ${route}: legacy ENGLISH ENTRY CTA remains`);
+      }
+
       if (route.startsWith('en/') && route !== 'en/' && width <= 390) {
         const englishState = await page.evaluate(() => ({
           lang: document.documentElement.lang,
-          englishLink: !!document.querySelector('a[href^="/en/"]'),
-          japaneseResearchLink: [...document.links].some((link) => /COMPLETE JAPANESE|FULL RESEARCH NOTE/.test(link.textContent || '')),
+          japaneseLanguageLink: [...document.links].some((link) =>
+            link.getAttribute('hreflang') === 'ja' && (link.textContent || '').trim() === '日本語'
+          ),
           ownerTextOpen: document.querySelector('#owners-note')?.closest('section')?.querySelector('details')?.hasAttribute('open') || false,
           alarmHeading: document.getElementById('listen')?.textContent?.trim() || ''
         }));
         if (englishState.lang !== 'en') failures.push(`${width}px ${route}: html lang is not en`);
-        if (!englishState.japaneseResearchLink) failures.push(`${width}px ${route}: missing visible link to complete Japanese research`);
+        if (!englishState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
         if (!englishState.ownerTextOpen) failures.push(`${width}px ${route}: English OWNER'S NOTE text is not open by default`);
         if (englishState.alarmHeading && englishState.alarmHeading !== 'ORIGINAL ALARM VIDEO') failures.push(`${width}px ${route}: alarm video heading is not localized`);
       }
