@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import GermanWatchEntry from '../../../layouts/GermanWatchEntry.astro';
+import { germanWatchEntries } from '../../../data/de-watch-entry';
+
+export async function getStaticPaths() {
+  const watches = await getCollection('watches');
+  return watches
+    .filter((item) => item.data.published && germanWatchEntries[item.data.slug])
+    .map((item) => ({
+      params: { slug: item.data.slug },
+      props: { watch: item.data, entry: germanWatchEntries[item.data.slug] }
+    }));
+}
+
+const { watch, entry } = Astro.props;
+---
+<GermanWatchEntry watch={watch} entry={entry} />
