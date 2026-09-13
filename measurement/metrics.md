@@ -1,6 +1,6 @@
 # VINTAGE ALARM — 計測定義
 
-更新日: 2026-09-09
+更新日: 2026-09-13
 
 ## 公開URL移行
 
@@ -43,10 +43,14 @@
 Cloudflare Web Analytics / RUMをGraphQL APIから読み、VINTAGE ALARM用の名称へ変換して表示する。
 
 実装:
-- 開発元: `cloudflare/analytics-dashboard/worker.js`
-- デプロイ元: `orima1995-create/vintage-alarm-analytics`
+- 基礎集計: `cloudflare/analytics-dashboard/worker.js`
+- 本番ラッパー / エントリ: `cloudflare/analytics-dashboard/profile-worker.js`
+- Wrangler設定: `cloudflare/analytics-dashboard/wrangler.toml`
+- デプロイ元: `vintagealarm/vintagealarm.github.io` の `Deploy Analytics Worker` workflow
 - Worker: `vintage-alarm-analytics.orima1995.workers.dev`
 - Basic Authで管理者だけが閲覧する
+
+`profile-worker.js` は基礎集計を壊さず、公開済みWATCH 5ページの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。本番のWATCH範囲はBasis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarmの5ページとする。
 
 表示:
 - 1時間 / 3時間 / 24時間 / 7日 / 30日
@@ -111,13 +115,15 @@ Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始�
 - `/basis-alarm/` → Basis Alarm
 - `/pierce-duofon/` → Pierce Duofon
 - `/cyma-time-o-vox/` → Cyma Time-O-Vox
+- `/citizen-alarm/` → Citizen Alarm
+- `/westclox-watchlarm/` → Westclox Watchlarm
 - `/cyma-time-o-vox/owners-note/` → Cyma OWNER'S NOTE
 - `/history/smartwatch/` → Smartwatch / HISTORY
 
 base path、末尾スラッシュ、URLエンコード差を正規化する。
 既知マッピングに一致しないPathは`UNMAPPED`として表示し、勝手に既存ページ名へ丸めない。
 
-新規ページ公開時は表示名マッピングも更新する。
+新規ページ公開時は表示名マッピング、WATCH share、SNS → WATCH ENTRY、主要ページリストを同時に更新する。
 
 ## 管理者アクセス除外
 
@@ -177,9 +183,11 @@ Cloudflare:
 - TOP
 - HISTORY
 - OWNER'S NOTES
+- Basis Alarm
 - Pierce Duofon
 - Cyma Time-O-Vox
-- Basis Alarm
+- Citizen Alarm
+- Westclox Watchlarm
 
 WATCHページでは、
 1. 入口になったか
