@@ -1,13 +1,21 @@
 ---
 const { sources, meta = [], lang = 'ja' } = Astro.props;
 const isEnglish = lang === 'en';
-const sectionLabel = isEnglish ? 'References and sources' : '参考資料・出典';
-const typeLabel = {
-  primary: 'PRIMARY SOURCE',
-  reference: 'REFERENCE',
-  provenance: 'PROVENANCE',
-  owner: 'OWNER OBSERVATION'
-};
+const isGerman = lang === 'de';
+const sectionLabel = isEnglish ? 'References and sources' : isGerman ? 'Literatur und Quellen' : '参考資料・出典';
+const typeLabel = isGerman
+  ? {
+      primary: 'PRIMÄRQUELLE',
+      reference: 'REFERENZ',
+      provenance: 'PROVENIENZ',
+      owner: 'EIGENE BEOBACHTUNG'
+    }
+  : {
+      primary: 'PRIMARY SOURCE',
+      reference: 'REFERENCE',
+      provenance: 'PROVENANCE',
+      owner: 'OWNER OBSERVATION'
+    };
 const structured = Array.isArray(meta) && meta.length === sources.length;
 const parseInlineLink = (source: string) => {
   const match = source.match(/^(.*?)\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)(.*)$/);
@@ -22,7 +30,7 @@ const parseInlineLink = (source: string) => {
 ---
 <section class="section shell sources" aria-label={sectionLabel} lang={lang}>
   <details>
-    <summary>{isEnglish ? 'REFERENCES & SOURCES' : '参考資料・出典'}</summary>
+    <summary>{isEnglish ? 'REFERENCES & SOURCES' : isGerman ? 'LITERATUR & QUELLEN' : '参考資料・出典'}</summary>
     {structured ? (
       <ol class="source-list">
         {sources.map((source: string, index: number) => {
