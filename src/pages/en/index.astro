@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import SeoHead from '../../components/SeoHead.astro';
+import SectionMast from '../../components/SectionMast.astro';
+import OwnerThumbnailFrame from '../../components/OwnerThumbnailFrame.astro';
+import OwnerFonts from '../../components/OwnerFonts.astro';
+import ownersDirectory from '../../data/owners-directory.json';
+import { englishWatchEntries } from '../../data/en-watch-entry';
+import '../../styles/site.css';
+import '../../styles/owners-v15.css';
+
+const base = import.meta.env.BASE_URL;
+const watches = await getCollection('watches');
+const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
+const entries = ownersDirectory.entries
+  .flatMap((meta) => {
+    const watch = watchBySlug.get(meta.historyId);
+    const english = englishWatchEntries[meta.historyId];
+    if (!watch?.data.published || !english) return [];
+    return [{
+      ...meta,
+      ownerNumber: watch.data.ownerNumber,
+      brand: watch.data.brand,
+      name: watch.data.model,
+      href: `/en/${watch.data.slug}/`,
+      directoryCatch: english.indexBlurb
+    }];
+  })
+  .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
+
+const title = 'Vintage Mechanical Alarm Wristwatches — English Entry | VINTAGE ALARM';
+const description = 'English entry to five owned vintage mechanical alarm wristwatches, with specimen notes, operating guides, key specifications and original alarm videos. Full source-backed research remains available on the Japanese pages.';
+const socialImage = '/images/owners-thumbnails/cyma-time-o-vox-full.png';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'VINTAGE ALARM — English Entry',
+  description,
+  inLanguage: 'en',
+  url: 'https://vintagealarm.github.io/en/'
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <OwnerFonts />
+    <SeoHead title={title} description={description} path="en/" image={socialImage} locale="en_US" schema={schema} />
+  </head>
+  <body class="owners-v15">
+    <SectionMast rightLabel="ENGLISH ENTRY" lang="en" />
+    <main>
+      <header class="shell directory-intro">
+        <div>
+          <div class="eyebrow">VINTAGE ALARM</div>
+          <h1>Mechanical alarms, from the specimens outward.</h1>
+        </div>
+        <p class="directory-meta">OWNED SPECIMENS<br/>ENGLISH ENTRY</p>
+      </header>
+      <section class="shell section" aria-label="About the English entry">
+        <p class="english-intro">
+          These are concise English gateways to five owned mechanical alarm wristwatches. Each page keeps the original specimen, operating guide, key specifications and alarm video visible in English, then links to the complete Japanese research note for the full DEEP DIVE and source list.
+        </p>
+      </section>
+      <section class="shell directory-eras" aria-label="English watch entries">
+        <section class="directory-era">
+          <h2>WATCHES</h2>
+          <div class="directory-tiles">
+            {entries.map((entry) => (
+              <OwnerThumbnailFrame
+                brand={entry.brand}
+                name={entry.name}
+                directoryCatch={entry.directoryCatch}
+                href={`${base}${entry.href.replace(/^\//, '')}`}
+                image={`${base}${(entry.ownersThumbnail ?? entry.image).replace(/^\//, '')}`}
+                smartFit={false}
+              />
+            ))}
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  .english-intro{max-width:780px;line-height:1.85}
+</style>

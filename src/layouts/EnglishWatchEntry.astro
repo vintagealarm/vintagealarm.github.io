@@ -1,0 +1,122 @@
+---
+import SeoHead from '../components/SeoHead.astro';
+import SectionMast from '../components/SectionMast.astro';
+import WatchHero from '../components/WatchHero.astro';
+import OwnersNote from '../components/OwnersNote.astro';
+import WatchSpec from '../components/WatchSpec.astro';
+import AlarmVideo from '../components/AlarmVideo.astro';
+import OwnerFonts from '../components/OwnerFonts.astro';
+import '../styles/site.css';
+import '../styles/owners-v15.css';
+
+const { watch, entry } = Astro.props;
+const siteRoot = 'https://vintagealarm.github.io/';
+const englishPath = `en/${watch.slug}/`;
+const japanesePath = `${watch.slug}/`;
+const pageUrl = new URL(englishPath, siteRoot).href;
+const japaneseUrl = new URL(japanesePath, siteRoot).href;
+const socialImage = watch.specimenGallery?.[0]?.image ?? watch.ownersNote.image;
+const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
+const translatedOwnersNote = {
+  image: socialImage,
+  ...entry.ownersNote
+};
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CreativeWork',
+      name: `${watch.brand} ${watch.model} — English entry`,
+      description: entry.description,
+      inLanguage: 'en',
+      url: pageUrl,
+      image: imageUrl,
+      about: {
+        '@type': 'Thing',
+        name: `${watch.brand} ${watch.model}`
+      },
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'VINTAGE ALARM',
+        url: siteRoot
+      }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'VINTAGE ALARM',
+          item: siteRoot
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'English entry',
+          item: new URL('en/', siteRoot).href
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: `${watch.brand} ${watch.model}`,
+          item: pageUrl
+        }
+      ]
+    }
+  ]
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <OwnerFonts />
+    <SeoHead
+      title={entry.title}
+      description={entry.description}
+      path={englishPath}
+      image={socialImage}
+      type="article"
+      locale="en_US"
+      schema={schema}
+      alternates={[
+        { hreflang: 'en', href: pageUrl },
+        { hreflang: 'ja', href: japaneseUrl },
+        { hreflang: 'x-default', href: japaneseUrl }
+      ]}
+    />
+  </head>
+  <body class="owners-v15">
+    <SectionMast rightLabel="ENGLISH ENTRY" lang="en" />
+    <main>
+      <WatchHero brand={watch.brand} model={watch.model} catchLines={entry.catch} ownerNumber={watch.ownerNumber} />
+      <section class="shell section english-gateway-note" aria-label="About this English entry">
+        <p>
+          This page is a concise English entry to the specimen, its operation and its original alarm video.
+          The full source-backed research note remains on the Japanese page.
+        </p>
+        <a class="x-link" href={`/${watch.slug}/#owners-note`} lang="ja">FULL RESEARCH NOTE IN JAPANESE →</a>
+      </section>
+      <div class="shell owners-grid">
+        <OwnersNote data={translatedOwnersNote} alt={`${watch.brand} ${watch.model} specimen`} lang="en" />
+        <WatchSpec spec={entry.spec} lang="en" />
+      </div>
+      {watch.video && <AlarmVideo video={watch.video} title={`${watch.brand} ${watch.model}`} lang="en" />}
+      <section class="shell section english-gateway-note" aria-labelledby="continue-research">
+        <h2 id="continue-research">CONTINUE THE RESEARCH</h2>
+        <p>
+          The Japanese page contains the complete DEEP DIVE, specimen gallery and source list. Browser translation can be used there for the full research text.
+        </p>
+        <a class="x-link" href={`/${watch.slug}/`}>OPEN THE COMPLETE JAPANESE PAGE →</a>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  .english-gateway-note{max-width:980px}
+  .english-gateway-note p{max-width:760px;line-height:1.8}
+</style>

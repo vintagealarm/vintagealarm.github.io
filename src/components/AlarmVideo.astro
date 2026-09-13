@@ -1,5 +1,5 @@
 ---
-const { video, title } = Astro.props;
+const { video, title, lang = 'ja' } = Astro.props;
 
 const getYouTubeId = (value: string) => {
   const input = value?.trim();
@@ -25,14 +25,16 @@ const getYouTubeId = (value: string) => {
 
 const youtubeId = getYouTubeId(video.youtubeId ?? '');
 const embed = youtubeId ? `https://www.youtube.com/embed/${youtubeId}` : '';
+const heading = lang === 'en' ? 'ORIGINAL ALARM VIDEO' : '実機鳴動';
+const frameTitle = lang === 'en' ? `${title} original alarm video` : `${title} 実機鳴動`;
 ---
 <section class="section shell" aria-labelledby="listen">
-  <h2 id="listen">実機鳴動</h2>
+  <h2 id="listen">{heading}</h2>
   {youtubeId && (
     <div class="video-frame">
       <iframe
         src={embed}
-        title={`${title} 実機鳴動`}
+        title={frameTitle}
         loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"

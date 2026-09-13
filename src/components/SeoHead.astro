@@ -1,4 +1,9 @@
 ---
+interface AlternateLink {
+  hreflang: string;
+  href: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -7,6 +12,8 @@ interface Props {
   type?: 'website' | 'article';
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
   robots?: string;
+  locale?: string;
+  alternates?: AlternateLink[];
 }
 
 const {
@@ -16,7 +23,9 @@ const {
   image,
   type = 'website',
   schema,
-  robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'
+  robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
+  locale = 'ja_JP',
+  alternates = []
 } = Astro.props;
 
 const siteRoot = 'https://vintagealarm.github.io/';
@@ -25,12 +34,17 @@ const effectiveImage = image ?? '/images/history-motifs/before-watercolor.png';
 const ogImage = effectiveImage.startsWith('http')
   ? effectiveImage
   : new URL(effectiveImage.replace(/^\//, ''), siteRoot).toString();
+const normalizedAlternates = alternates.map((item) => ({
+  hreflang: item.hreflang,
+  href: item.href.startsWith('http') ? item.href : new URL(item.href.replace(/^\//, ''), siteRoot).toString()
+}));
 ---
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="robots" content={robots} />
 <link rel="canonical" href={canonical} />
-<meta property="og:locale" content="ja_JP" />
+{normalizedAlternates.map((item) => <link rel="alternate" hreflang={item.hreflang} href={item.href} />)}
+<meta property="og:locale" content={locale} />
 <meta property="og:site_name" content="VINTAGE ALARM" />
 <meta property="og:type" content={type} />
 <meta property="og:title" content={title} />

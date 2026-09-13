@@ -19,6 +19,20 @@ export const WATCH_PAGE_NAMES = Object.freeze({
   "/westclox-watchlarm/": "Westclox Watchlarm",
 });
 
+export const ENGLISH_GATEWAY_NAMES = Object.freeze({
+  "/en/": "English Entry",
+  "/en/basis-alarm/": "Basis Alarm (EN)",
+  "/en/pierce-duofon/": "Pierce Duofon (EN)",
+  "/en/cyma-time-o-vox/": "Cyma Time-O-Vox (EN)",
+  "/en/citizen-alarm/": "Citizen Alarm (EN)",
+  "/en/westclox-watchlarm/": "Westclox Watchlarm (EN)",
+});
+
+const TRACKED_PAGE_NAMES = Object.freeze({
+  ...WATCH_PAGE_NAMES,
+  ...ENGLISH_GATEWAY_NAMES,
+});
+
 const TREND_BUCKET_MS = Object.freeze({
   datetimeFiveMinutes: 5 * 60 * 1000,
   datetimeFifteenMinutes: 15 * 60 * 1000,
@@ -28,7 +42,7 @@ const TREND_BUCKET_MS = Object.freeze({
 
 function mappedPageName(path) {
   if (path === X_PROFILE_TRACKING.path) return X_PROFILE_TRACKING.name;
-  return WATCH_PAGE_NAMES[path] || "";
+  return TRACKED_PAGE_NAMES[path] || "";
 }
 
 function patchPage(row) {
@@ -60,7 +74,7 @@ function patchSnsEntries(period) {
   const sourceByPath = new Map(sourcePages.map((row) => [row.path, row]));
   const sourceOther = sourceByPath.get("other") || { path: "other", name: "Other pages", values: emptyValues(), total: 0 };
 
-  const pages = Object.entries(WATCH_PAGE_NAMES).map(([path, name]) => {
+  const pages = Object.entries(TRACKED_PAGE_NAMES).map(([path, name]) => {
     const existing = sourceByPath.get(path);
     return {
       path,
@@ -78,9 +92,13 @@ function patchSnsEntries(period) {
   };
 
   // The base worker already has exact SNS totals from its entry query, but only
-  // separates the original three WATCH pages. Use the flow rows only to split
-  // Citizen/Westclox back out of "Other pages", preserving the base total.
-  const newlyMappedPaths = new Set(["/citizen-alarm/", "/westclox-watchlarm/"]);
+  // separates the original three WATCH pages. Use the flow rows to split later
+  // WATCH pages and English gateways back out of "Other pages", preserving the base total.
+  const newlyMappedPaths = new Set([
+    "/citizen-alarm/",
+    "/westclox-watchlarm/",
+    ...Object.keys(ENGLISH_GATEWAY_NAMES),
+  ]);
   for (const flow of period?.flows || []) {
     if (!newlyMappedPaths.has(flow?.destinationPath) || !channels.includes(flow?.channel)) continue;
     const visits = Number(flow?.visits || 0);
@@ -261,11 +279,11 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   return String(html)
     .replace(
       '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox"]',
-      '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm"]',
+      '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)"]',
     )
     .replace(
       '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"}\n];',
-      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"},\n  {name:"Citizen Alarm",path:"/citizen-alarm/"},\n  {name:"Westclox Watchlarm",path:"/westclox-watchlarm/"}\n];',
+      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"},\n  {name:"Citizen Alarm",path:"/citizen-alarm/"},\n  {name:"Westclox Watchlarm",path:"/westclox-watchlarm/"},\n  {name:"English Entry",path:"/en/"},\n  {name:"Basis Alarm (EN)",path:"/en/basis-alarm/"},\n  {name:"Pierce Duofon (EN)",path:"/en/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (EN)",path:"/en/cyma-time-o-vox/"},\n  {name:"Citizen Alarm (EN)",path:"/en/citizen-alarm/"},\n  {name:"Westclox Watchlarm (EN)",path:"/en/westclox-watchlarm/"}\n];',
     )
     .replace(
       '<button class="refresh" id="aiShare">AI COPY</button>',

@@ -1,12 +1,12 @@
 # VINTAGE ALARM — SEO / AIO運用方針
 
-更新日: 2026-09-08
+更新日: 2026-09-13
 
 ## 目的
 
 このサイトの目的は、検索流入の最大化そのものではない。
 
-OWNER'S NOTEやX投稿を入口に、ヴィンテージ機械式アラーム腕時計へ興味を持つ人を増やし、実機・機構・歴史・資料へ進めることを目的とする。
+OWNER'S NOTE、X、YouTube、検索を入口に、ヴィンテージ機械式アラーム腕時計へ興味を持つ人を増やし、実機・機構・歴史・資料へ進めることを目的とする。
 
 ## 優先順位
 
@@ -25,6 +25,7 @@ OWNER'S NOTEやX投稿を入口に、ヴィンテージ機械式アラーム腕�
 - SEO目的だけの本文追記
 - 完成済みOWNER'S NOTEの検索向け改稿
 - 根拠のない検索ボリューム・順位・AI引用率の推定
+- DEEP DIVEや資料欄の機械翻訳による大量複製
 
 ## VINTAGE ALARMの独自情報
 
@@ -53,6 +54,26 @@ AIO:
 - ただし、AI回答で概要を理解した人がさらに訪れる理由を残す。
 
 AIOのためだけにllms.txt、機械的なQ&A分割、本文の細切れ化は行わない。
+
+## 英語入口
+
+海外向けは日本語サイト全体を複製せず、`/en/` と `/en/<watch>/` を発見・初回理解の入口として使う。
+
+英語入口に置くもの:
+- 英語のtitle / description / OGP
+- OWNER'S NOTEの英語テキスト
+- 操作ガイド
+- SPEC
+- 実機鳴動
+- 日本語の完全研究ページへの明示リンク
+
+役割分担:
+- 英語入口 = 英語検索・英語SNS共有・初回理解
+- 日本語完全版 + ブラウザ翻訳 = DEEP DIVE・資料差・長文研究の読解
+
+公開しただけで海外布教成功とは扱わない。英語URLのImpressions / Entry Visits、日本語完全版への遷移、さらに別WATCHへの遷移を観測する。
+
+詳細は `strategy/english-entry.md` を参照する。
 
 ## 現在の基準実験 — Pierce Duofon
 
@@ -85,7 +106,6 @@ Pierce Duofonを、完成済みWATCHページの基準個体として扱う。
 
 一度に大きく変えず、何が効いたか追える単位で変更する。
 
-
 ## 発見性の診断順序
 
 改善判断は以下の順にドリルダウンする。
@@ -98,7 +118,7 @@ Pierce Duofonを、完成済みWATCHページの基準個体として扱う。
    - Search Clicks / CTR
    - SNS Link Clicks
 3. サイトへ到達したか
-   - Search / X / AI ReferrerのEntry Visits
+   - Search / X / YouTube / AI ReferrerのEntry Visits
 4. 狙ったページへ入ったか
    - Entry Page
 5. 次の興味へ進んだか
@@ -109,4 +129,4 @@ Pierce Duofonを、完成済みWATCHページの基準個体として扱う。
    - Device / Country
    - Raw / Mapping / Bot疑い
 
-「順位が落ちた」「GEOが伸びた」などの結論を、単一指標だけで出さない。
+「順位が落ちた」「GEOが伸びた」「海外流入が成功した」などの結論を、単一指標だけで出さない。

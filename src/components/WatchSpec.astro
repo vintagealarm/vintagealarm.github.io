@@ -1,15 +1,18 @@
 ---
-const { spec } = Astro.props;
+const { spec, lang = 'ja' } = Astro.props;
+const labels = lang === 'en'
+  ? ['Era', 'Case size', 'Cal', 'Jewels', 'Frequency', 'Barrels', 'Winding', 'Acoustic system', 'Notes']
+  : ['年代', 'ケースサイズ', 'Cal', '石', '振動', '香箱', '手巻き', '音響', '特記事項'];
 const rows = [
-  ['年代', spec.era],
-  ['ケースサイズ', spec.caseSize],
-  ['Cal', spec.caliber],
-  ['石', spec.jewels],
-  ['振動', spec.frequency],
-  ['香箱', spec.barrels],
-  ['手巻き', spec.winding],
-  ['音響', spec.acoustic],
-  ['特記事項', spec.notes]
+  [labels[0], spec.era],
+  [labels[1], spec.caseSize],
+  [labels[2], spec.caliber],
+  [labels[3], spec.jewels],
+  [labels[4], spec.frequency],
+  [labels[5], spec.barrels],
+  [labels[6], spec.winding],
+  [labels[7], spec.acoustic],
+  [labels[8], spec.notes]
 ];
 ---
 <section class="section spec-section" aria-labelledby="spec">

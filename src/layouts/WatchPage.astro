@@ -14,6 +14,7 @@ import '../styles/site.css';
 import '../styles/owners-v15.css';
 import OwnerFonts from '../components/OwnerFonts.astro';
 import ownersDirectory from '../data/owners-directory.json';
+import { englishWatchEntries } from '../data/en-watch-entry';
 
 const { watch } = Astro.props;
 const siteRoot = 'https://vintagealarm.github.io/';
@@ -40,6 +41,15 @@ const description = watch.slug === 'cyma-time-o-vox'
 const pagePath = `${watch.slug}/`;
 const pageUrl = new URL(pagePath, siteRoot).href;
 const imageUrl = new URL(watch.ownersNote.image.replace(/^\//, ''), siteRoot).href;
+const englishEntry = englishWatchEntries[watch.slug];
+const englishUrl = englishEntry ? new URL(`en/${watch.slug}/`, siteRoot).href : null;
+const alternates = englishUrl
+  ? [
+      { hreflang: 'ja', href: pageUrl },
+      { hreflang: 'en', href: englishUrl },
+      { hreflang: 'x-default', href: pageUrl }
+    ]
+  : [];
 const allWatches = await getCollection('watches');
 const watchBySlug = new Map(allWatches.map((item) => [item.data.slug, item]));
 const directoryEntries = ownersDirectory.entries
@@ -115,12 +125,17 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f8f4" />
     <OwnerFonts />
-    <SeoHead title={pageTitle} description={description} path={pagePath} image={watch.ownersNote.image} type="article" schema={schema} />
+    <SeoHead title={pageTitle} description={description} path={pagePath} image={watch.ownersNote.image} type="article" schema={schema} alternates={alternates} />
   </head>
   <body class="owners-v15">
     <SectionMast rightLabel="OWNER'S NOTE" />
     <main>
       <WatchHero brand={watch.brand} model={watch.model} catchLines={watch.catch} ownerNumber={watch.ownerNumber} />
+      {englishEntry && (
+        <section class="shell section" aria-label="English version">
+          <a class="x-link" href={`/en/${watch.slug}/`} hreflang="en" lang="en">ENGLISH ENTRY →</a>
+        </section>
+      )}
       <div class="shell owners-grid">
         <OwnersNote data={watch.ownersNote} alt={`${watch.brand} ${watch.model} OWNER'S NOTE`} />
         <WatchSpec spec={watch.spec} />
