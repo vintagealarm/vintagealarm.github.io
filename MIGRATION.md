@@ -32,10 +32,11 @@ GitHub does not redirect a GitHub Pages site when its repository is transferred 
 - `/pierce-duofon/`
 - `/cyma-time-o-vox/`
 - `/cyma-time-o-vox/owners-note/`
+- `/citizen-alarm/`
+- `/westclox-watchlarm/`
 - `/lab/council/`
 - `/robots.txt`
 - `/sitemap.xml`
-- `/sitemap-vintage.xml`
 - `/googled3a96ed4c5eb9287.html`
 
 ## State
@@ -43,11 +44,11 @@ GitHub does not redirect a GitHub Pages site when its repository is transferred 
 - Implementation: canonical URL configuration complete
 - Local verification: Astro build, canonical/OGP/schema, sitemap/robots, known routes complete
 - Publication: complete (`https://vintagealarm.github.io/`)
-- Legacy redirects: complete for every known route, with query strings and fragments preserved
+- Legacy redirects: complete for the routes that existed at migration time, with query strings and fragments preserved
 - Cloudflare Web Analytics: new-host site and beacon configured; historical legacy-host data remains in the former site
 - Analytics dashboard Worker: deployed for `vintagealarm.github.io`; legacy-host referrals remain classified as internal navigation
 - Pages CMS: GitHub App installed for the Organization and the canonical repository opens successfully in the editor
-- Search Console: new URL-prefix property verified by HTML file; sitemap submitted; live URL test passed and the home page was added to the priority crawl queue
-- Search Console follow-up: both sitemap endpoints were submitted. The report still shows `Couldn't fetch`, but Google's live URL test passes for `sitemap.xml` and the public XML returns HTTP 200 to a Googlebot user agent; this is queued for Google's next processing pass rather than a site-side fetch failure
+- Search Console: new URL-prefix property verified by HTML file; canonical `sitemap.xml` submitted; live URL test passed and the home page was added to the priority crawl queue
+- Search Console follow-up: during migration follow-up the report temporarily showed `Couldn't fetch`; Google's live URL test passed for the canonical `sitemap.xml` and the public XML returned HTTP 200 to a Googlebot user agent. The site now exposes one canonical sitemap endpoint only: `https://vintagealarm.github.io/sitemap.xml`.
 - Council Worker: source origin is updated, but no `council-api` Worker is currently deployed; the public lab remains in its existing local-demo mode
 - Outcome observation: monitor indexing and traffic after Search Console submission

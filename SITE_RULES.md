@@ -30,6 +30,7 @@
 - HISTORYの年代データをOWNER'S NOTES一覧やWATCHの`spec.era`から自動生成しない。
 - HISTORYからWATCHへリンクし、WATCHから該当時代のHISTORYへ戻れるようにする。
 - HISTORY内のOWNER'S NOTESレールは、`owners-directory.json`に存在し、かつWATCHが公開済みの所有個体だけを表示する。未公開の予告カードをOWNER'S NOTESとして混在させない。
+- `history-content.json`にはOWNERカードを重複保持しない。HISTORY内の所有個体表示も`owners-directory.json`を単一ソースとする。
 - 最終章の見出しは「現状の到達点」。入口では皮肉やオチを説明しない。
 - SMARTWATCHページはHISTORYから辿るエピローグとして扱い、検索流入を目的としない。`noindex,follow`とし、`sitemap.xml`から外す。
 - SMARTWATCHページ内部でのみ通知過多のビジュアルを見せる。
@@ -42,6 +43,7 @@
 - 一覧のデータソースは`src/data/owners-directory.json`とする。
 - `ownedEra`は一覧に表示する所有個体の年代ラベル。個体年を確定できない場合は「1950年代末〜1960年代初頭」のように幅を持たせ、推定年を確定値として見せない。
 - `ownedSortKey`は一覧順を決めるためだけの内部キーで、正確な製造年を意味しない。HISTORYの初出年代とは別データとして管理する。
+- 旧フィールド`ownedSortYear`を復活させない。CMS・テンプレート・検証スクリプトも`ownedSortKey`へ揃える。
 - 公開済みOWNER'S NOTEは`historyEra`を明示し、WATCHから戻るHISTORY上の位置を所有個体年代から自動推定しない。
 - WATCH末尾の「次の一本」は`owners-directory.json`の`ownedSortKey`順から生成し、個別WATCH名をテンプレートへハードコードしない。
 - 例：Pierce DuofonはHISTORYでは1950年代の初出として扱えても、所有個体一覧では掲載個体に合わせて1960sへ置ける。
@@ -117,6 +119,7 @@
 - TOP / HISTORY / OWNER'S NOTES / WATCH / SMARTWATCHの必要ページが生成される。
 - OWNER'S NOTES一覧では所有個体年代とHISTORY初出年代が混在していない。
 - WATCHではタイトル、OWNER'S NOTE、SPEC、動画、DEEP DIVE、出典が存在する。
+- WATCHの各DEEP DIVEで、段落数と`citationRefs`数が一致し、参照番号が存在する`sourceMeta` / `sources`を指している。
 - HISTORYからWATCH、WATCHからHISTORYの往復リンクが存在する。
 - `RESEARCH`が非公開の場合、TOP・セクションメニュー・HISTORY生成HTMLのすべてにRESEARCH導線・本文が存在しない。
 - `robots.txt` と `sitemap.xml` が生成物に存在する。

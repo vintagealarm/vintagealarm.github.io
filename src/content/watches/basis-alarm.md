@@ -63,6 +63,7 @@ deepDive:
       - "2"
       - "2"
       - "2"
+      - "2"
   - number: "02"
     title: 一本のリューズ、一方向で二つの香箱
     paragraphs:

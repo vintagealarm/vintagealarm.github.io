@@ -8,7 +8,8 @@
     "preview": "astro preview",
     "check:links": "node scripts/check-internal-links.mjs",
     "check:seo": "node scripts/check-seo.mjs",
-    "check:quality": "npm run check:links && npm run check:seo",
+    "check:citations": "node scripts/check-watch-citations.mjs",
+    "check:quality": "npm run check:links && npm run check:seo && npm run check:citations",
     "test:quality": "node scripts/test-quality-gates.mjs"
   },
   "dependencies": {

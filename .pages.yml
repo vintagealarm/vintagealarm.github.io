@@ -116,6 +116,7 @@ content:
             list: true
           - { name: linkLabel, label: 補足リンク文言, type: string }
           - { name: linkUrl, label: 補足リンクURL, type: string }
+          - { name: mediaStyle, label: 画像レイアウト（default / compact-sequence）, type: string }
           - name: images
             label: 補足画像
             type: object
@@ -129,6 +130,7 @@ content:
               - { name: caption, label: キャプション, type: text }
               - { name: alt, label: altテキスト, type: string }
               - { name: afterParagraph, label: 何段落目の後に表示, type: number }
+              - { name: fullRow, label: 横幅いっぱいで表示, type: boolean, default: false }
       - name: sourceMeta
         label: 出典種別
         type: object
@@ -439,7 +441,7 @@ content:
         fields:
           - { name: historyId, label: ID, type: string, required: true, readonly: true }
           - { name: ownedEra, label: OWNER'S NOTES年代, type: string, required: true }
-          - { name: ownedSortYear, label: OWNER'S NOTES並び年, type: number, required: true }
+          - { name: ownedSortKey, label: OWNER'S NOTES並びキー, type: number, required: true }
           - { name: historyEra, label: HISTORY章, type: string, required: true }
           - { name: ownersThumbnail, label: OWNER'S NOTES一覧サムネ, type: image, required: true }
           - { name: historyThumbnail, label: HISTORY一覧サムネ, type: image, required: true }

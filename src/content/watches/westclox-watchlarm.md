@@ -93,11 +93,13 @@ deepDive:
   - number: "05"
     title: ドイツ製ケースと音の構造
     paragraphs:
-      - Beitlは、Westclox Alarmのケースと文字盤がドイツ製だったと記録している。掲載個体はクローム仕上げの真鍮ケースで、直径34mm、圧入式の裏蓋を持つ。
+      - Beitlは、Westclox Alarmのケースと文字盤がドイツ製だったと記録し、掲載例をクローム仕上げの真鍮ケース、圧入式裏蓋、直径32.88mmとしている。
+      - 本ページの掲載個体はケース径34mmとして記録している。Beitl掲載例の32.88mmとは一致しないため、同一ケース仕様とは断定しない。
       - Horlbeckは、わずかに膨らんだ裏蓋、中央のリベット、内側の小さなブリッジなど、Junghans Minivoxの底部構造との類似を指摘している。
       - ただし、JunghansがW5のケースを直接製造した、あるいはW5を設計したと断定できる資料は確認できない。Horlbeckも、協力または供給元との近い関係の可能性として述べている。
     citationRefs:
       - "2"
+      - "6"
       - "1"
       - "1"
 sourceMeta:
@@ -119,5 +121,5 @@ sources:
   - Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/)（W5とW4部品の関係、製造難、採算、1960年・1961年のカタログ掲載）
   - ClockHistory, [Western Clock Company Chronology](https://clockhistory.com/westclox/company/dates/index.html)（1956年の従業員数、生産規模、Big Ben / Baby Ben累計生産数）
   - Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5)（アラーム設定12分刻みの記述）
-  - OWNER OBSERVATION, 掲載個体の実測（2時位置プッシャー60回でアラーム針が12時間を一周）
+  - OWNER OBSERVATION, 掲載個体の記録（ケース径34mm、2時位置プッシャー60回でアラーム針が12時間を一周）
 ---

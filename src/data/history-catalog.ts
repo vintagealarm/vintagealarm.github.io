@@ -2,7 +2,7 @@ import { historyContent } from './history-content';
 
 export type HistoryCatalogEntry = {
   id: string;
-  group: 'milestone' | 'owner' | 'research';
+  group: 'milestone' | 'research';
   era: '1910s' | '1940s' | '1950s' | '1960s' | 'electronic';
   sort: number;
   meta: string;
@@ -37,6 +37,5 @@ export const historyCatalog: HistoryCatalogEntry[] = chapterCards.flatMap(([era,
 
 export const historyCatalogByGroup = {
   milestones: historyCatalog.filter((entry) => entry.group === 'milestone').sort((a, b) => a.sort - b.sort),
-  owners: historyCatalog.filter((entry) => entry.group === 'owner').sort((a, b) => a.sort - b.sort),
   research: historyCatalog.filter((entry) => entry.group === 'research').sort((a, b) => a.sort - b.sort)
 };
