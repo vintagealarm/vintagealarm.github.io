@@ -35,7 +35,7 @@ const directoryEntries = ownersDirectory.entries
       historyHref: `/history/#${meta.historyEra}`
     }];
   })
-  .sort((a, b) => a.ownedSortYear - b.ownedSortYear || Number(a.ownerNumber) - Number(b.ownerNumber));
+  .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
 const currentIndex = directoryEntries.findIndex((entry) => entry.historyId === watch.slug);
 const current = currentIndex >= 0 ? directoryEntries[currentIndex] : null;
 const next = currentIndex >= 0 && directoryEntries.length > 1
