@@ -142,7 +142,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         images: [
           {
             src: '/images/pierce-duofon/mechanism/05-crown-linkage.webp',
-            caption: '① Beim Drehen der Krone bei 4 Uhr bewegen sich die gekoppelte Stange und die Position des Klöppels verändert sich.',
+            caption: '① Beim Drehen der Krone bei 4 Uhr bewegt sich die gekoppelte Stange, und die Position des Klöppels verändert sich.',
             alt: 'Pierce Cal. 135, gekoppelte Stange und Klöppel bei Betätigung der Krone bei 4 Uhr',
             afterParagraph: 2,
             fullRow: true
