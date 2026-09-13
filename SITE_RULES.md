@@ -47,7 +47,8 @@
 - `ownedSortKey`は一覧順を決めるためだけの内部キーで、正確な製造年を意味しない。HISTORYの初出年代とは別データとして管理する。
 - 旧フィールド`ownedSortYear`を復活させない。CMS・テンプレート・検証スクリプトも`ownedSortKey`へ揃える。
 - 公開済みOWNER'S NOTEは`historyEra`を明示し、WATCHから戻るHISTORY上の位置を所有個体年代から自動推定しない。
-- WATCH末尾の「次の一本」は`owners-directory.json`の`ownedSortKey`順から生成し、個別WATCH名をテンプレートへハードコードしない。
+- WATCH末尾の「次の一本」は`src/data/watch-recommendations.ts`の編集推薦を使い、年代順へ自動送出しない。推薦先と推薦理由をセットで管理し、個別WATCH名をテンプレートへハードコードしない。
+- 推薦先が存在しない、または未公開の場合は「次の一本」を表示しない。年代順の別WATCHへ勝手にフォールバックしない。
 - 例：Pierce DuofonはHISTORYでは1950年代の初出として扱えても、所有個体一覧では掲載個体に合わせて1960sへ置ける。
 - 一覧でWATCHページ用の`catch`や`spec.era`を自動流用しない。一覧専用の`directoryCatch`と所有個体年代を使う。
 - 一覧・HISTORYのサムネイルは`fallbackThumbnail`を持たせ、画像取得に失敗してもbroken imageアイコンを露出させない。fallbackも失敗した場合はカード内プレースホルダへ落とす。
@@ -64,6 +65,7 @@
 5. 掲載個体ギャラリー（画像がある場合）
 6. DEEP DIVE
 7. 参考資料・出典
+8. 次の一本（編集推薦）
 
 ## SPEC
 
@@ -124,6 +126,7 @@
 - OWNER'S NOTESの大見出しは`ownedGroup`、補足年代は`ownedEra`から生成し、推定年代レンジを巨大見出しにしない。
 - OWNER'S NOTES / HISTORYの一覧画像はprimary/fallbackとも存在し、broken imageアイコンを露出させない。
 - WATCHではタイトル、OWNER'S NOTE、SPEC、動画、DEEP DIVE、出典が存在する。
+- WATCHの「次の一本」は公開済みWATCHを指し、`watch-recommendations.ts`の推薦理由が表示される。
 - WATCHの各DEEP DIVEで、段落数と`citationRefs`数が一致し、参照番号が存在する`sourceMeta` / `sources`を指している。
 - HISTORYからWATCH、WATCHからHISTORYの往復リンクが存在する。
 - `RESEARCH`が非公開の場合、TOP・セクションメニュー・HISTORY生成HTMLのすべてにRESEARCH導線・本文が存在しない。
