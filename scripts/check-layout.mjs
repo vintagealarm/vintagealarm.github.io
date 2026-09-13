@@ -5,11 +5,16 @@ const root = process.env.LAYOUT_BASE_URL || 'http://127.0.0.1:4321/';
 const publishedWatchRoutes = readWatchPublicationState()
   .filter((watch) => watch.published)
   .map((watch) => `${watch.slug}/`);
+const englishWatchRoutes = readWatchPublicationState()
+  .filter((watch) => watch.published)
+  .map((watch) => `en/${watch.slug}/`);
 const routes = [
   '',
   'history/',
   'owners-notes/',
   ...publishedWatchRoutes,
+  'en/',
+  ...englishWatchRoutes,
   'history/smartwatch/'
 ];
 const widths = [320, 390, 768];
@@ -55,6 +60,20 @@ try {
       }
       if (result.brokenImages.length) {
         failures.push(`${width}px ${route || '/'}: broken images: ${result.brokenImages.join(', ')}`);
+      }
+
+      if (route.startsWith('en/') && route !== 'en/' && width <= 390) {
+        const englishState = await page.evaluate(() => ({
+          lang: document.documentElement.lang,
+          englishLink: !!document.querySelector('a[href^="/en/"]'),
+          japaneseResearchLink: [...document.links].some((link) => /COMPLETE JAPANESE|FULL RESEARCH NOTE/.test(link.textContent || '')),
+          ownerTextOpen: document.querySelector('#owners-note')?.closest('section')?.querySelector('details')?.hasAttribute('open') || false,
+          alarmHeading: document.getElementById('listen')?.textContent?.trim() || ''
+        }));
+        if (englishState.lang !== 'en') failures.push(`${width}px ${route}: html lang is not en`);
+        if (!englishState.japaneseResearchLink) failures.push(`${width}px ${route}: missing visible link to complete Japanese research`);
+        if (!englishState.ownerTextOpen) failures.push(`${width}px ${route}: English OWNER'S NOTE text is not open by default`);
+        if (englishState.alarmHeading && englishState.alarmHeading !== 'ORIGINAL ALARM VIDEO') failures.push(`${width}px ${route}: alarm video heading is not localized`);
       }
 
       if (route === 'history/' && width <= 390) {
