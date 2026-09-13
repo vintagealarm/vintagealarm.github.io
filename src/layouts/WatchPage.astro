@@ -17,6 +17,8 @@ import ownersDirectory from '../data/owners-directory.json';
 import { englishWatchEntries } from '../data/en-watch-entry';
 import { germanWatchEntries } from '../data/de-watch-entry';
 import { watchRecommendations } from '../data/watch-recommendations';
+import { watchResearchRecords } from '../data/watch-research';
+import { getGitLastmod, latestDate } from '../lib/git-lastmod';
 
 const { watch } = Astro.props;
 const siteRoot = 'https://vintagealarm.github.io/';
@@ -57,6 +59,14 @@ const languageLinks = [
   ...(englishEntry ? [{ href: `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }] : []),
   ...(germanEntry ? [{ href: `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
 ];
+const researchRecord = watchResearchRecords[watch.slug];
+const dateModified = latestDate(
+  getGitLastmod(`src/content/watches/${watch.slug}.md`),
+  researchRecord ? getGitLastmod(researchRecord.sourceFile) : undefined
+);
+const articleName = watch.slug === 'cyma-time-o-vox'
+  ? 'CYMA TIME-O-VOX 18K CHRONOMÈTRE'
+  : `${watch.brand} ${watch.model}`;
 const allWatches = await getCollection('watches');
 const watchBySlug = new Map(allWatches.map((item) => [item.data.slug, item]));
 const directoryEntries = ownersDirectory.entries
@@ -89,12 +99,28 @@ const schema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'CreativeWork',
-      name: watch.slug === 'cyma-time-o-vox' ? 'CYMA TIME-O-VOX 18K CHRONOMÈTRE' : `${watch.brand} ${watch.model}`,
+      '@type': 'Article',
+      headline: articleName,
+      name: articleName,
       description,
       inLanguage: 'ja',
       url: pageUrl,
       image: imageUrl,
+      ...(dateModified ? { dateModified } : {}),
+      author: {
+        '@type': 'Organization',
+        name: 'VINTAGE ALARM',
+        url: siteRoot
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'VINTAGE ALARM',
+        url: siteRoot
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': pageUrl
+      },
       about: {
         '@type': 'Thing',
         name: `${watch.brand} ${watch.model}`
@@ -148,7 +174,7 @@ const schema = {
       {watch.video && <AlarmVideo video={watch.video} title={`${watch.brand} ${watch.model}`} />}
       {watch.specimenGallery?.length > 0 && <SpecimenGallery items={watch.specimenGallery} title={`${watch.brand} ${watch.model}`} />}
       <DeepDive items={watch.deepDive} />
-      <Sources sources={watch.sources} meta={watch.sourceMeta} />
+      <Sources sources={watch.sources} meta={watch.sourceMeta} research={researchRecord} />
       {nextOwnerNote && (
         <OwnerNoteEndNav
           nextHref={nextOwnerNote.href}
