@@ -6,6 +6,8 @@
       "ownedSortYear": 1948,
       "historyEra": "1940s",
       "image": "/images/IMG_8890.jpeg",
+      "ownersThumbnail": "/images/IMG_8890.jpeg",
+      "historyThumbnail": "/images/IMG_8890.jpeg",
       "directoryCatch": "2香箱と、2つの巻上げ表示窓。"
     },
     {
@@ -14,6 +16,8 @@
       "ownedSortYear": 1956,
       "historyEra": "1950s",
       "image": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
+      "ownersThumbnail": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
+      "historyThumbnail": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
       "directoryCatch": "1香箱、2プッシャー、Chronomètre。"
     },
     {
@@ -22,6 +26,8 @@
       "ownedSortYear": 1958,
       "historyEra": "1950s",
       "image": "/images/owners-thumbnails/citizen-alarm-full.jpg",
+      "ownersThumbnail": "/images/owners-thumbnails/citizen-alarm-full.jpg",
+      "historyThumbnail": "/images/owners-thumbnails/citizen-alarm-full.jpg",
       "directoryCatch": "1958年、国産初のベル腕時計。"
     },
     {
@@ -30,6 +36,8 @@
       "ownedSortYear": 1960,
       "historyEra": "1950s",
       "image": "/images/IMG_2093-1.jpeg",
+      "ownersThumbnail": "/images/IMG_2093-1.jpeg",
+      "historyThumbnail": "/images/IMG_2093-1.jpeg",
       "directoryCatch": "0石、1香箱、プッシャー式アラーム。"
     },
     {
@@ -38,6 +46,8 @@
       "ownedSortYear": 1960,
       "historyEra": "1950s",
       "image": "/images/owners-thumbnails/pierce-duofon-full.png",
+      "ownersThumbnail": "/images/owners-thumbnails/pierce-duofon-full.png",
+      "historyThumbnail": "/images/owners-thumbnails/pierce-duofon-full.png",
       "directoryCatch": "WECKER / SIGNAL、2段階のアラーム。"
     }
   ]
