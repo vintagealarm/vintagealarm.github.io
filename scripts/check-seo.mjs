@@ -2,16 +2,19 @@ import { files, document, attr, content, route, resolve, origin, finish } from '
 import { readWatchPublicationState } from './watch-publication.mjs';
 
 const watchStates = readWatchPublicationState();
+const germanWatchSlugs = new Set(['pierce-duofon']);
 const required = {
   '/': ['WebSite'],
   '/history/': ['Article', 'BreadcrumbList'],
   '/owners-notes/': ['CollectionPage'],
   '/en/': ['CollectionPage'],
+  '/de/': ['CollectionPage'],
   '/history/smartwatch/': ['CreativeWork', 'BreadcrumbList']
 };
 for (const watch of watchStates.filter((item) => item.published)) {
   required[`/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
   required[`/en/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
+  if (germanWatchSlugs.has(watch.slug)) required[`/de/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
 }
 if (watchStates.some((item) => item.slug === 'cyma-time-o-vox' && item.published)) {
   required['/cyma-time-o-vox/owners-note/'] = [];
@@ -62,14 +65,13 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
   const ogLocale = value('og:locale');
   for (const key of ['og:site_name', 'og:type', 'twitter:card']) value(key);
   const htmlNode = nodes.find(n => n.tagName === 'html');
-  const isEnglish = page === '/en/' || page.startsWith('/en/');
-  if (isEnglish) {
-    if (!htmlNode || attr(htmlNode, 'lang') !== 'en') fail('English page must use html lang="en"');
-    if (ogLocale !== 'en_US') fail('English page must use og:locale en_US');
-  } else {
-    if (htmlNode && attr(htmlNode, 'lang') && attr(htmlNode, 'lang') !== 'ja') fail('Japanese page lang changed unexpectedly');
-    if (ogLocale !== 'ja_JP') fail('Japanese page must use og:locale ja_JP');
-  }
+  const language = page === '/en/' || page.startsWith('/en/')
+    ? { code: 'en', locale: 'en_US', label: 'English' }
+    : page === '/de/' || page.startsWith('/de/')
+      ? { code: 'de', locale: 'de_DE', label: 'German' }
+      : { code: 'ja', locale: 'ja_JP', label: 'Japanese' };
+  if (!htmlNode || attr(htmlNode, 'lang') !== language.code) fail(`${language.label} page must use html lang="${language.code}"`);
+  if (ogLocale !== language.locale) fail(`${language.label} page must use og:locale ${language.locale}`);
   for (const key of ['og:image', 'twitter:image']) {
     const image = value(key);
     try { const u = new URL(image); if (u.origin !== origin || !resolve(u)) fail(`${key}: missing or noncanonical image`); }
