@@ -2,6 +2,7 @@
   "name": "vintage-alarm-analytics",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "check": "node --check worker.js",
     "deploy": "wrangler deploy",

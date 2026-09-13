@@ -1,6 +1,6 @@
 # Search Console 無料Import手順 — VINTAGE ALARM ANALYTICS
 
-更新日: 2026-09-09
+更新日: 2026-09-13
 
 ## 固定条件
 
@@ -32,7 +32,7 @@ Search Console:
 
 ## INDEX STATUS
 
-主要6ページだけURL検査を行う。
+公開中の主要8ページだけURL検査を行う。
 
 - TOP
 - HISTORY
@@ -40,6 +40,11 @@ Search Console:
 - Basis Alarm
 - Pierce Duofon
 - Cyma Time-O-Vox
+- Citizen Alarm
+- Westclox Watchlarm
+
+`/x/` はXプロフィール専用の計測入口で `noindex,follow` のためURL検査対象に含めない。
+SMARTWATCHはHISTORYのエピローグとして `noindex,follow` のためURL検査対象に含めない。
 
 結果をダッシュボードのManual Index Statusで記録する。
 

@@ -8,6 +8,7 @@ const watches = readWatchPublicationState();
 const failures = [];
 const mustExist = [
   'index.html',
+  'x/index.html',
   'history/index.html',
   'history/smartwatch/index.html',
   'owners-notes/index.html',
@@ -28,6 +29,9 @@ for (const watch of watches) {
 
 const homeHtml = fs.existsSync(path.join(dist, 'index.html'))
   ? fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
+  : '';
+const xHtml = fs.existsSync(path.join(dist, 'x/index.html'))
+  ? fs.readFileSync(path.join(dist, 'x/index.html'), 'utf8')
   : '';
 const ownersHtml = fs.existsSync(path.join(dist, 'owners-notes/index.html'))
   ? fs.readFileSync(path.join(dist, 'owners-notes/index.html'), 'utf8')
@@ -56,11 +60,28 @@ for (const watch of watches) {
   }
 }
 
+const sharedLandingMarkers = [
+  '通知が、まだ歯車だった頃。',
+  'スマホも電池も使わず、決めた時刻を腕の上で知らせる。',
+  'なぜ腕時計は鳴るようになった？',
+  '実物を巻いて、鳴らして、確かめる。'
+];
+for (const [name, html] of [['TOP', homeHtml], ['X', xHtml]]) {
+  for (const marker of sharedLandingMarkers) {
+    if (!html.includes(marker)) failures.push(`${name}: shared landing marker missing: ${marker}`);
+  }
+}
+for (const stale of ['鐘から現在まで。アラーム腕時計の歴史を読む', '所有個体を、実機・操作・音から読む']) {
+  if (xHtml.includes(stale)) failures.push(`X: stale duplicated TOP copy remains: ${stale}`);
+}
+if (!xHtml.includes('noindex,follow')) failures.push('X: profile entry route lost noindex,follow');
+
 if (researchSettings.published) {
   if (!homeHtml.includes('history/#research')) failures.push('RESEARCH published but TOP link is missing');
+  if (!xHtml.includes('history/#research')) failures.push('RESEARCH published but X entry link is missing');
   if (!historyHtml.includes('id="research"')) failures.push('RESEARCH published but HISTORY section is missing');
 } else {
-  for (const [name, html] of [['TOP', homeHtml], ['HISTORY', historyHtml], ["OWNER'S NOTES", ownersHtml]]) {
+  for (const [name, html] of [['TOP', homeHtml], ['X', xHtml], ['HISTORY', historyHtml], ["OWNER'S NOTES", ownersHtml]]) {
     if (html.includes('history/#research') || html.includes('id="research"')) {
       failures.push(`${name}: unpublished RESEARCH leaked into generated HTML`);
     }
