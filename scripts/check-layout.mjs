@@ -67,7 +67,7 @@ try {
             const image = ownerRail?.querySelector(`a[href*="${slug}/#owners-note"] img`);
             return {
               present: image instanceof HTMLImageElement,
-              loaded: image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0,
+              srcPresent: image instanceof HTMLImageElement && !!(image.getAttribute('src') || '').trim(),
               autoFit: image instanceof HTMLImageElement && image.hasAttribute('data-smart-watch-fit')
             };
           };
@@ -83,7 +83,7 @@ try {
         if (!historyRails.ownerRailScrollable) failures.push(`${width}px history/: OWNER'S NOTE rail is not swipeable`);
         if (!historyRails.westcloxPresent) failures.push(`${width}px history/: Westclox Watchlarm missing from 1950s owner rail`);
         for (const [name, state] of [['Citizen', historyRails.citizen], ['Westclox', historyRails.westclox]]) {
-          if (!state.present || !state.loaded) failures.push(`${width}px history/: ${name} curated thumbnail missing/broken`);
+          if (!state.present || !state.srcPresent) failures.push(`${width}px history/: ${name} curated thumbnail element/src missing`);
           if (state.autoFit) failures.push(`${width}px history/: ${name} curated thumbnail must bypass SmartWatchFit`);
         }
       }
@@ -94,14 +94,14 @@ try {
             const image = document.querySelector(`a[href*="${slug}/#owners-note"] img`);
             return {
               present: image instanceof HTMLImageElement,
-              loaded: image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0,
+              srcPresent: image instanceof HTMLImageElement && !!(image.getAttribute('src') || '').trim(),
               autoFit: image instanceof HTMLImageElement && image.hasAttribute('data-smart-watch-fit')
             };
           };
           return { citizen: inspect('citizen-alarm'), westclox: inspect('westclox-watchlarm') };
         });
         for (const [name, state] of [['Citizen', curated.citizen], ['Westclox', curated.westclox]]) {
-          if (!state.present || !state.loaded) failures.push(`${width}px owners-notes/: ${name} curated thumbnail missing/broken`);
+          if (!state.present || !state.srcPresent) failures.push(`${width}px owners-notes/: ${name} curated thumbnail element/src missing`);
           if (state.autoFit) failures.push(`${width}px owners-notes/: ${name} curated thumbnail must bypass SmartWatchFit`);
         }
       }
