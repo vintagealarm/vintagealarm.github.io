@@ -129,14 +129,14 @@ const schema = {
     <SeoHead title={pageTitle} description={description} path={pagePath} image={watch.ownersNote.image} type="article" schema={schema} alternates={alternates} />
   </head>
   <body class="owners-v15">
-    <SectionMast rightLabel="OWNER'S NOTE" />
+    <SectionMast
+      rightLabel="OWNER'S NOTE"
+      languageHref={englishEntry ? `/en/${watch.slug}/` : null}
+      languageLabel={englishEntry ? 'EN' : null}
+      languageHreflang={englishEntry ? 'en' : null}
+    />
     <main>
       <WatchHero brand={watch.brand} model={watch.model} catchLines={watch.catch} ownerNumber={watch.ownerNumber} />
-      {englishEntry && (
-        <section class="shell section" aria-label="English version">
-          <a class="x-link" href={`/en/${watch.slug}/`} hreflang="en" lang="en">ENGLISH ENTRY →</a>
-        </section>
-      )}
       <div class="shell owners-grid">
         <OwnersNote data={watch.ownersNote} alt={`${watch.brand} ${watch.model} OWNER'S NOTE`} />
         <WatchSpec spec={watch.spec} />
