@@ -5,11 +5,16 @@ import WatchHero from '../components/WatchHero.astro';
 import OwnersNote from '../components/OwnersNote.astro';
 import WatchSpec from '../components/WatchSpec.astro';
 import AlarmVideo from '../components/AlarmVideo.astro';
+import DeepDive from '../components/DeepDive.astro';
+import SpecimenGallery from '../components/SpecimenGallery.astro';
+import Sources from '../components/Sources.astro';
 import OwnerFonts from '../components/OwnerFonts.astro';
+import { englishFullResearchBySlug } from '../data/en-watch-full-research';
 import '../styles/site.css';
 import '../styles/owners-v15.css';
 
 const { watch, entry } = Astro.props;
+const fullResearch = englishFullResearchBySlug[watch.slug];
 const siteRoot = 'https://vintagealarm.github.io/';
 const englishPath = `en/${watch.slug}/`;
 const japanesePath = `${watch.slug}/`;
@@ -17,6 +22,8 @@ const pageUrl = new URL(englishPath, siteRoot).href;
 const japaneseUrl = new URL(japanesePath, siteRoot).href;
 const socialImage = watch.specimenGallery?.[0]?.image ?? watch.ownersNote.image;
 const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
+const pageTitle = fullResearch?.title ?? entry.title;
+const pageDescription = fullResearch?.description ?? entry.description;
 const translatedOwnersNote = {
   image: socialImage,
   ...entry.ownersNote
@@ -26,8 +33,8 @@ const schema = {
   '@graph': [
     {
       '@type': 'CreativeWork',
-      name: `${watch.brand} ${watch.model} — English entry`,
-      description: entry.description,
+      name: fullResearch ? `${watch.brand} ${watch.model}` : `${watch.brand} ${watch.model} — English entry`,
+      description: pageDescription,
       inLanguage: 'en',
       url: pageUrl,
       image: imageUrl,
@@ -53,7 +60,7 @@ const schema = {
         {
           '@type': 'ListItem',
           position: 2,
-          name: 'English entry',
+          name: 'English',
           item: new URL('en/', siteRoot).href
         },
         {
@@ -75,8 +82,8 @@ const schema = {
     <meta name="theme-color" content="#f7f8f4" />
     <OwnerFonts />
     <SeoHead
-      title={entry.title}
-      description={entry.description}
+      title={pageTitle}
+      description={pageDescription}
       path={englishPath}
       image={socialImage}
       type="article"
@@ -90,28 +97,54 @@ const schema = {
     />
   </head>
   <body class="owners-v15">
-    <SectionMast rightLabel="ENGLISH ENTRY" lang="en" />
+    <SectionMast rightLabel={fullResearch ? 'ENGLISH' : 'ENGLISH ENTRY'} lang="en" />
     <main>
       <WatchHero brand={watch.brand} model={watch.model} catchLines={entry.catch} ownerNumber={watch.ownerNumber} />
-      <section class="shell section english-gateway-note" aria-label="About this English entry">
-        <p>
-          This page is a concise English entry to the specimen, its operation and its original alarm video.
-          The full source-backed research note remains on the Japanese page.
-        </p>
-        <a class="x-link" href={`/${watch.slug}/#owners-note`} lang="ja">FULL RESEARCH NOTE IN JAPANESE →</a>
-      </section>
+
+      {fullResearch ? (
+        <section class="shell section english-language-link" aria-label="Language version">
+          <a class="x-link" href={`/${watch.slug}/`} hreflang="ja">JAPANESE VERSION →</a>
+        </section>
+      ) : (
+        <section class="shell section english-gateway-note" aria-label="About this English entry">
+          <p>
+            This page is a concise English entry to the specimen, its operation and its original alarm video.
+            The full source-backed research note remains on the Japanese page.
+          </p>
+          <a class="x-link" href={`/${watch.slug}/#owners-note`} hreflang="ja">FULL RESEARCH NOTE IN JAPANESE →</a>
+        </section>
+      )}
+
       <div class="shell owners-grid">
         <OwnersNote data={translatedOwnersNote} alt={`${watch.brand} ${watch.model} specimen`} lang="en" />
         <WatchSpec spec={entry.spec} lang="en" />
       </div>
+
       {watch.video && <AlarmVideo video={watch.video} title={`${watch.brand} ${watch.model}`} lang="en" />}
-      <section class="shell section english-gateway-note" aria-labelledby="continue-research">
-        <h2 id="continue-research">CONTINUE THE RESEARCH</h2>
-        <p>
-          The Japanese page contains the complete DEEP DIVE, specimen gallery and source list. Browser translation can be used there for the full research text.
-        </p>
-        <a class="x-link" href={`/${watch.slug}/`}>OPEN THE COMPLETE JAPANESE PAGE →</a>
-      </section>
+
+      {fullResearch ? (
+        <>
+          <SpecimenGallery items={fullResearch.specimenGallery} title={`${watch.brand} ${watch.model}`} lang="en" />
+          <DeepDive items={fullResearch.deepDive} lang="en" />
+          <Sources sources={fullResearch.sources} meta={fullResearch.sourceMeta} lang="en" />
+          <nav class="english-related-nav shell" aria-label="Related watch navigation">
+            <a class="english-related-next" href={fullResearch.related.href}>
+              <small>NEXT WATCH</small>
+              <strong>{fullResearch.related.name} →</strong>
+              <span>{fullResearch.related.reason}</span>
+            </a>
+            <a class="english-related-back" href="/en/">BACK TO ENGLISH INDEX →</a>
+          </nav>
+        </>
+      ) : (
+        <section class="shell section english-gateway-note" aria-labelledby="continue-research">
+          <h2 id="continue-research">CONTINUE THE RESEARCH</h2>
+          <p>
+            The Japanese page contains the complete DEEP DIVE, specimen gallery and source list. Browser translation can be used there for the full research text.
+          </p>
+          <a class="x-link" href={`/${watch.slug}/`}>OPEN THE COMPLETE JAPANESE PAGE →</a>
+        </section>
+      )}
     </main>
   </body>
 </html>
@@ -119,4 +152,18 @@ const schema = {
 <style>
   .english-gateway-note{max-width:980px}
   .english-gateway-note p{max-width:760px;line-height:1.8}
+  .english-language-link{padding-top:18px;padding-bottom:12px}
+  .english-related-nav{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding-block:52px 82px;border-top:1px solid var(--ink)}
+  .english-related-nav a{text-decoration:none}
+  .english-related-next{display:grid;gap:8px;min-width:0}
+  .english-related-next small{color:var(--soft);font-size:11px;letter-spacing:.12em}
+  .english-related-next strong{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.45rem,4vw,2.4rem);font-weight:400;line-height:1.12;overflow-wrap:normal;word-break:normal}
+  .english-related-next span{max-width:46rem;color:var(--soft);font-size:14px;line-height:1.65;letter-spacing:.01em}
+  .english-related-back{padding-bottom:5px;border-bottom:1px solid currentColor;font-size:14px;white-space:nowrap}
+  @media(max-width:480px){
+    .english-related-nav{grid-template-columns:1fr;gap:28px;padding-block:38px 58px}
+    .english-related-next strong{font-size:1.45rem}
+    .english-related-next span{font-size:13px;line-height:1.7}
+    .english-related-back{justify-self:start}
+  }
 </style>
