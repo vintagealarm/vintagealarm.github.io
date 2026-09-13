@@ -10,7 +10,7 @@ const imageParts = rawImageParts.map((path: string) => ({
   dimensions: getPublicImageDimensions(path)
 }));
 const zoomHref = data.zoomHref ? resolveLocal(data.zoomHref) : imageParts[0].src;
-const textSummary = lang === 'en' ? 'Read as text' : 'テキストで読む';
+const textSummary = lang === 'en' ? 'Read as text' : lang === 'de' ? 'Als Text lesen' : 'テキストで読む';
 ---
 <section class="section" aria-labelledby="owners-note">
   <div class="eyebrow" id="owners-note">OWNER'S NOTE</div>
@@ -30,7 +30,7 @@ const textSummary = lang === 'en' ? 'Read as text' : 'テキストで読む';
     </span>
     <span class="zoom" aria-hidden="true">↗</span>
   </a>
-  <details class="plain" open={lang === 'en'}>
+  <details class="plain" open={lang === 'en' || lang === 'de'}>
     <summary>{textSummary}</summary>
     <div class="owner-copy prose">
       <div class="owner-lead">
