@@ -2,52 +2,62 @@
   "entries": [
     {
       "historyId": "basis-alarm",
+      "ownedGroup": "1940s",
       "ownedEra": "1940s",
       "ownedSortKey": 1948,
       "historyEra": "1940s",
       "image": "/images/IMG_8890-1.jpeg",
       "ownersThumbnail": "/images/IMG_8890-1.jpeg",
       "historyThumbnail": "/images/IMG_8890-1.jpeg",
+      "fallbackThumbnail": "/images/Basis Alarm(BFG90).png",
       "directoryCatch": "2香箱と、2つの巻上げ表示窓。"
     },
     {
       "historyId": "cyma-time-o-vox",
+      "ownedGroup": "1950s",
       "ownedEra": "1950s",
       "ownedSortKey": 1956,
       "historyEra": "1950s",
       "image": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
       "ownersThumbnail": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
       "historyThumbnail": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
+      "fallbackThumbnail": "/images/cyma-time-o-vox/gallery/cyma-front.jpg",
       "directoryCatch": "1香箱、2プッシャー、Chronomètre。"
     },
     {
       "historyId": "citizen-alarm",
+      "ownedGroup": "1950s",
       "ownedEra": "1950s",
       "ownedSortKey": 1958,
       "historyEra": "1950s",
       "image": "/images/owners-thumbnails/citizen-alarm-full.jpg",
       "ownersThumbnail": "/images/owners-thumbnails/citizen-alarm-full.jpg",
       "historyThumbnail": "/images/owners-thumbnails/citizen-alarm-full.jpg",
+      "fallbackThumbnail": "/images/citizen-alarm/owners-note.jpg",
       "directoryCatch": "1958年、国産初のベル腕時計。"
     },
     {
       "historyId": "westclox-watchlarm",
-      "ownedEra": "1950年代末〜1960年代初頭",
+      "ownedGroup": "1950s",
+      "ownedEra": "c.1959–early 1960s",
       "ownedSortKey": 1959.5,
       "historyEra": "1950s",
       "image": "/images/IMG_2093-1.jpeg",
       "ownersThumbnail": "/images/IMG_2093-1.jpeg",
       "historyThumbnail": "/images/IMG_2093-1.jpeg",
+      "fallbackThumbnail": "/images/IMG_2093-2.jpeg",
       "directoryCatch": "0石、1香箱、プッシャー式アラーム。"
     },
     {
       "historyId": "pierce-duofon",
+      "ownedGroup": "1960s",
       "ownedEra": "1960s",
       "ownedSortKey": 1960,
       "historyEra": "1950s",
       "image": "/images/owners-thumbnails/pierce-duofon-full.png",
       "ownersThumbnail": "/images/owners-thumbnails/pierce-duofon-full.png",
       "historyThumbnail": "/images/owners-thumbnails/pierce-duofon-full.png",
+      "fallbackThumbnail": "/images/pierce-duofon/gallery/pierce-duofon-wrist-front.jpg",
       "directoryCatch": "WECKER / SIGNAL、2段階のアラーム。"
     }
   ]

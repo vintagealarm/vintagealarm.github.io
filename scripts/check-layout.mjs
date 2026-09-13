@@ -68,6 +68,7 @@ try {
             return {
               present: image instanceof HTMLImageElement,
               srcPresent: image instanceof HTMLImageElement && !!(image.getAttribute('src') || '').trim(),
+              fallbackPresent: image instanceof HTMLImageElement && !!(image.dataset.fallbackSrc || '').trim(),
               autoFit: image instanceof HTMLImageElement && image.hasAttribute('data-smart-watch-fit')
             };
           };
@@ -108,6 +109,7 @@ try {
             wittnauerPresent: !!ownerRail?.textContent?.includes('WITTNAUER'),
             citizen: inspectListingImage('citizen-alarm'),
             westclox: inspectListingImage('westclox-watchlarm'),
+            cyma: inspectListingImage('cyma-time-o-vox'),
             legacyPhraseWrappers: document.querySelectorAll('.ja-phrase').length,
             headingWordBreak: headingStyle?.wordBreak || '',
             paragraphWordBreak: paragraphStyle?.wordBreak || '',
@@ -118,8 +120,9 @@ try {
         if (!historyState.ownerRailScrollable) failures.push(`${width}px history/: OWNER'S NOTE rail is not swipeable`);
         if (!historyState.westcloxPresent) failures.push(`${width}px history/: Westclox Watchlarm missing from 1950s owner rail`);
         if (historyState.wittnauerPresent) failures.push(`${width}px history/: unpublished Wittnauer leaked into OWNER'S NOTE rail`);
-        for (const [name, state] of [['Citizen', historyState.citizen], ['Westclox', historyState.westclox]]) {
+        for (const [name, state] of [['Cyma', historyState.cyma], ['Citizen', historyState.citizen], ['Westclox', historyState.westclox]]) {
           if (!state.present || !state.srcPresent) failures.push(`${width}px history/: ${name} curated thumbnail element/src missing`);
+          if (!state.fallbackPresent) failures.push(`${width}px history/: ${name} thumbnail fallback missing`);
           if (state.autoFit) failures.push(`${width}px history/: ${name} curated thumbnail must bypass SmartWatchFit`);
         }
         if (historyState.legacyPhraseWrappers) failures.push(`${width}px history/: legacy ja-phrase wrappers remain`);
@@ -129,20 +132,57 @@ try {
       }
 
       if (route === 'owners-notes/' && width <= 390) {
-        const curated = await page.evaluate(() => {
+        const directoryState = await page.evaluate(() => {
           const inspect = (slug) => {
-            const image = document.querySelector(`a[href*="${slug}/#owners-note"] img`);
+            const link = document.querySelector(`a[href*="${slug}/#owners-note"]`);
+            const image = link?.querySelector('img');
+            const era = link?.closest('.directory-era');
             return {
               present: image instanceof HTMLImageElement,
               srcPresent: image instanceof HTMLImageElement && !!(image.getAttribute('src') || '').trim(),
-              autoFit: image instanceof HTMLImageElement && image.hasAttribute('data-smart-watch-fit')
+              fallbackPresent: image instanceof HTMLImageElement && !!(image.dataset.fallbackSrc || '').trim(),
+              autoFit: image instanceof HTMLImageElement && image.hasAttribute('data-smart-watch-fit'),
+              group: era?.querySelector(':scope > h2')?.textContent?.trim() || '',
+              eraLabel: link?.querySelector('.frame-directory-era')?.textContent?.trim() || ''
             };
           };
-          return { citizen: inspect('citizen-alarm'), westclox: inspect('westclox-watchlarm') };
+          return {
+            headings: [...document.querySelectorAll('.directory-era > h2')].map((node) => node.textContent?.trim() || ''),
+            cyma: inspect('cyma-time-o-vox'),
+            citizen: inspect('citizen-alarm'),
+            westclox: inspect('westclox-watchlarm')
+          };
         });
-        for (const [name, state] of [['Citizen', curated.citizen], ['Westclox', curated.westclox]]) {
+        if (directoryState.headings.join('|') !== '1940s|1950s|1960s') {
+          failures.push(`${width}px owners-notes/: decade headings drifted: ${directoryState.headings.join(' | ')}`);
+        }
+        if (directoryState.westclox.group !== '1950s') {
+          failures.push(`${width}px owners-notes/: Westclox must be grouped under 1950s, got ${directoryState.westclox.group || 'none'}`);
+        }
+        if (directoryState.westclox.eraLabel !== 'c.1959–early 1960s') {
+          failures.push(`${width}px owners-notes/: Westclox compact era label missing or changed`);
+        }
+        for (const [name, state] of [['Cyma', directoryState.cyma], ['Citizen', directoryState.citizen], ['Westclox', directoryState.westclox]]) {
           if (!state.present || !state.srcPresent) failures.push(`${width}px owners-notes/: ${name} curated thumbnail element/src missing`);
+          if (!state.fallbackPresent) failures.push(`${width}px owners-notes/: ${name} thumbnail fallback missing`);
           if (state.autoFit) failures.push(`${width}px owners-notes/: ${name} curated thumbnail must bypass SmartWatchFit`);
+        }
+
+        const fallbackProbe = await page.evaluate(async () => {
+          const image = document.querySelector('a[href*="westclox-watchlarm/#owners-note"] img');
+          if (!(image instanceof HTMLImageElement)) return { ok: false, reason: 'image missing' };
+          const fallback = image.dataset.fallbackSrc || '';
+          image.src = '/__owner-primary-intentionally-missing__.jpg';
+          await new Promise((resolve) => setTimeout(resolve, 250));
+          return {
+            ok: image.naturalWidth > 0 && image.currentSrc.includes(fallback),
+            fallback,
+            currentSrc: image.currentSrc,
+            placeholder: image.closest('[data-owner-media]')?.classList.contains('is-image-missing') || false
+          };
+        });
+        if (!fallbackProbe.ok) {
+          failures.push(`${width}px owners-notes/: Westclox image fallback did not recover (${JSON.stringify(fallbackProbe)})`);
         }
       }
 

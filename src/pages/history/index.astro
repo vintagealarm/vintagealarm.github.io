@@ -27,7 +27,8 @@ const ownersForEra=(era:string)=>ownersDirectory.entries
    brand:watch.data.brand,
    name:watch.data.model,
    href:`${base}${watch.data.slug}/#owners-note`,
-   image:`${base}${(note.historyThumbnail??note.image).replace(/^\//,'')}`
+   image:`${base}${(note.historyThumbnail??note.image).replace(/^\//,'')}`,
+   fallbackImage:note.fallbackThumbnail?`${base}${note.fallbackThumbnail.replace(/^\//,'')}`:undefined
   }];
  });
 const {hero,coverMilestones,before,era1910s,era1940s,era1950s,era1960s,electronic,current,sources}=historyContent;
@@ -76,7 +77,7 @@ const schema={'@context':'https://schema.org','@graph':[
     {era.id!=='before'&&<HistoryMilestones entries={milestones(era.id)} id={`milestones-${era.id}`} label={`${era.label}のマイルストーン`}/>} 
     {eraOwners.length>0&&<aside class="history-owners" aria-label="OWNER'S NOTES">
      <div class="collection-lead"><p>所有個体から見る。</p><a href={`${base}owners-notes/`} aria-label="OWNER'S NOTES一覧">一覧 ↗</a></div>
-     <div class="owner-tiles">{eraOwners.map(({note,brand,name,href,image})=><OwnerThumbnailFrame brand={brand} name={name} href={href} image={image} published={!!note} smartFit={false}/>)}</div>
+     <div class="owner-tiles">{eraOwners.map(({note,brand,name,href,image,fallbackImage})=><OwnerThumbnailFrame brand={brand} name={name} href={href} image={image} fallbackImage={fallbackImage} published={!!note} smartFit={false}/>)}</div>
     </aside>}
    </div>
   </details>
