@@ -28,9 +28,15 @@ export const ENGLISH_GATEWAY_NAMES = Object.freeze({
   "/en/westclox-watchlarm/": "Westclox Watchlarm (EN)",
 });
 
+export const GERMAN_GATEWAY_NAMES = Object.freeze({
+  "/de/": "German Entry",
+  "/de/pierce-duofon/": "Pierce Duofon (DE)",
+});
+
 const TRACKED_PAGE_NAMES = Object.freeze({
   ...WATCH_PAGE_NAMES,
   ...ENGLISH_GATEWAY_NAMES,
+  ...GERMAN_GATEWAY_NAMES,
 });
 
 const TREND_BUCKET_MS = Object.freeze({
@@ -93,11 +99,12 @@ function patchSnsEntries(period) {
 
   // The base worker already has exact SNS totals from its entry query, but only
   // separates the original three WATCH pages. Use the flow rows to split later
-  // WATCH pages and English gateways back out of "Other pages", preserving the base total.
+  // WATCH pages and language gateways back out of "Other pages", preserving the base total.
   const newlyMappedPaths = new Set([
     "/citizen-alarm/",
     "/westclox-watchlarm/",
     ...Object.keys(ENGLISH_GATEWAY_NAMES),
+    ...Object.keys(GERMAN_GATEWAY_NAMES),
   ]);
   for (const flow of period?.flows || []) {
     if (!newlyMappedPaths.has(flow?.destinationPath) || !channels.includes(flow?.channel)) continue;
@@ -279,11 +286,11 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   return String(html)
     .replace(
       '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox"]',
-      '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)"]',
+      '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)"]',
     )
     .replace(
       '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"}\n];',
-      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"},\n  {name:"Citizen Alarm",path:"/citizen-alarm/"},\n  {name:"Westclox Watchlarm",path:"/westclox-watchlarm/"},\n  {name:"English Entry",path:"/en/"},\n  {name:"Basis Alarm (EN)",path:"/en/basis-alarm/"},\n  {name:"Pierce Duofon (EN)",path:"/en/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (EN)",path:"/en/cyma-time-o-vox/"},\n  {name:"Citizen Alarm (EN)",path:"/en/citizen-alarm/"},\n  {name:"Westclox Watchlarm (EN)",path:"/en/westclox-watchlarm/"}\n];',
+      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"},\n  {name:"Citizen Alarm",path:"/citizen-alarm/"},\n  {name:"Westclox Watchlarm",path:"/westclox-watchlarm/"},\n  {name:"English Entry",path:"/en/"},\n  {name:"Basis Alarm (EN)",path:"/en/basis-alarm/"},\n  {name:"Pierce Duofon (EN)",path:"/en/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (EN)",path:"/en/cyma-time-o-vox/"},\n  {name:"Citizen Alarm (EN)",path:"/en/citizen-alarm/"},\n  {name:"Westclox Watchlarm (EN)",path:"/en/westclox-watchlarm/"},\n  {name:"German Entry",path:"/de/"},\n  {name:"Pierce Duofon (DE)",path:"/de/pierce-duofon/"}\n];',
     )
     .replace(
       '<button class="refresh" id="aiShare">AI COPY</button>',
