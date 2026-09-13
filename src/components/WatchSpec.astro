@@ -2,7 +2,9 @@
 const { spec, lang = 'ja' } = Astro.props;
 const labels = lang === 'en'
   ? ['Era', 'Case size', 'Cal', 'Jewels', 'Frequency', 'Barrels', 'Winding', 'Acoustic system', 'Notes']
-  : ['年代', 'ケースサイズ', 'Cal', '石', '振動', '香箱', '手巻き', '音響', '特記事項'];
+  : lang === 'de'
+    ? ['Zeitraum', 'Gehäusegröße', 'Kaliber', 'Steine', 'Frequenz', 'Federhäuser', 'Aufzug', 'Akustik', 'Besonderheiten']
+    : ['年代', 'ケースサイズ', 'Cal', '石', '振動', '香箱', '手巻き', '音響', '特記事項'];
 const rows = [
   [labels[0], spec.era],
   [labels[1], spec.caseSize],
@@ -15,7 +17,7 @@ const rows = [
   [labels[8], spec.notes]
 ];
 ---
-<section class="section spec-section" aria-labelledby="spec">
+<section class="section spec-section" aria-labelledby="spec" lang={lang}>
   <h2 id="spec">SPEC</h2>
   <dl class="specs">
     {rows.map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
