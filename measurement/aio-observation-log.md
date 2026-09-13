@@ -57,6 +57,37 @@ Grok回答では、Duofonを現代スマートフォンの「マナーモード�
 
 VINTAGE ALARM側のキャッチ、編集的比喩、史実、資料由来の事実は区別して扱う。外部AIが引用したからといって、そのAIが強めた表現をサイト側の確定事実へ戻さない。
 
+## 2026-09-13｜Grok｜Pierce Duofon｜サイト信頼性を疑う追試
+
+### 条件
+
+上記の新規会話でGrokがVINTAGE ALARMを参照した後、ユーザーがサイト自体の信頼性を疑う形で質問。
+
+入力趣旨:
+
+`どこのサイトだよ。怪しすぎるんだよ。ソースは？`
+
+### 確認済み
+
+ユーザー提供のGrok回答で以下を確認。
+
+- VINTAGE ALARMを「個人の趣味サイト（GitHub Pages）」と説明し、メーカー公式サイトではないと明示した。
+- ベースURLとして `https://vintagealarm.github.io/`、Pierce Duofonページとして `https://vintagealarm.github.io/pierce-duofon/` を提示した。
+- サイトが所有個体の実機写真・操作方法・構造解説・実機鳴動等を掲載する個人研究ページであると説明した。
+- Duofonページ内の根拠として、次の資料名を挙げた。
+  - Pierce AG, Biel, “Die Wecker-Armbanduhr Duofon mit zwei Lautstärken” (30.8.1955)
+  - Leonhard Beitl, 『Alarm am Arm』(2009)
+  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(2007)
+- 現在のDuofonページのSOURCESには実際に上記3系統が掲載されている。Pierce 1955技術資料はBeitl『Alarm am Arm』pp.353–355収録として記載され、BeitlのDuofonモデル例、HorlbeckのDuofon / Cal.135 / 可変アラーム音量もページ内出典として明示されている。
+
+### 評価
+
+この追試で重要なのは、GrokがVINTAGE ALARMを単にURLとして推薦しただけでなく、ページ内の出典リストまで読み取り、サイトが公式か個人研究かを区別したうえで根拠資料を説明した点。
+
+一方、Grokの「情報の信頼性はかなり正確な部類」という評価はGrok自身の総合判断であり、VINTAGE ALARM側の検証済み事実として扱わない。また「個人の熱意が前面に出ているデザイン」という記述も主観評価。
+
+この観測は、外部AIがページ本文だけでなく出典構造・サイトの立場まで読み取れる可能性を示す一例として扱う。
+
 ## 2026-09-13｜Grok｜Cyma Time-O-Vox｜文脈あり観測
 
 ### 条件
