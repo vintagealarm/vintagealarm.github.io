@@ -25,10 +25,11 @@ const getYouTubeId = (value: string) => {
 
 const youtubeId = getYouTubeId(video.youtubeId ?? '');
 const embed = youtubeId ? `https://www.youtube.com/embed/${youtubeId}` : '';
-const heading = lang === 'en' ? 'ORIGINAL ALARM VIDEO' : '実機鳴動';
-const frameTitle = lang === 'en' ? `${title} original alarm video` : `${title} 実機鳴動`;
+const heading = lang === 'en' ? 'ORIGINAL ALARM VIDEO' : lang === 'de' ? 'ORIGINAL-ALARMTON' : '実機鳴動';
+const frameTitle = lang === 'en' ? `${title} original alarm video` : lang === 'de' ? `${title} originaler Alarmton` : `${title} 実機鳴動`;
+const xLabel = lang === 'de' ? "OWNER'S NOTE auf X →" : "OWNER'S NOTE on X →";
 ---
-<section class="section shell" aria-labelledby="listen">
+<section class="section shell" aria-labelledby="listen" lang={lang}>
   <h2 id="listen">{heading}</h2>
   {youtubeId && (
     <div class="video-frame">
@@ -41,5 +42,5 @@ const frameTitle = lang === 'en' ? `${title} original alarm video` : `${title} �
         allowfullscreen></iframe>
     </div>
   )}
-  {video.xUrl && <a class="x-link" href={video.xUrl} target="_blank" rel="noopener">OWNER'S NOTE on X →</a>}
+  {video.xUrl && <a class="x-link" href={video.xUrl} target="_blank" rel="noopener">{xLabel}</a>}
 </section>
