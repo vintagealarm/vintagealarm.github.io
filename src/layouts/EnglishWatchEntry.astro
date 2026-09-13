@@ -18,9 +18,7 @@ const japaneseUrl = new URL(japanesePath, siteRoot).href;
 const socialImage = watch.specimenGallery?.[0]?.image ?? watch.ownersNote.image;
 const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
 const translatedOwnersNote = {
-  image: watch.ownersNote.image,
-  imageParts: watch.ownersNote.imageParts,
-  zoomHref: watch.ownersNote.zoomHref,
+  image: socialImage,
   ...entry.ownersNote
 };
 const schema = {
@@ -103,7 +101,7 @@ const schema = {
         <a class="x-link" href={`/${watch.slug}/#owners-note`} lang="ja">FULL RESEARCH NOTE IN JAPANESE →</a>
       </section>
       <div class="shell owners-grid">
-        <OwnersNote data={translatedOwnersNote} alt={`${watch.brand} ${watch.model} owner's note`} lang="en" />
+        <OwnersNote data={translatedOwnersNote} alt={`${watch.brand} ${watch.model} specimen`} lang="en" />
         <WatchSpec spec={entry.spec} lang="en" />
       </div>
       {watch.video && <AlarmVideo video={watch.video} title={`${watch.brand} ${watch.model}`} lang="en" />}
