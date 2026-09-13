@@ -23,7 +23,7 @@ const englishUrl = new URL(englishPath, siteRoot).href;
 const socialImage = entry.specimenGallery?.[0]?.image ?? watch.ownersNote.image;
 const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
 const translatedOwnersNote = {
-  image: socialImage,
+  image: watch.ownersNote.image,
   ...entry.ownersNote
 };
 const schema = {
