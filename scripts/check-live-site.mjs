@@ -19,6 +19,19 @@ const get = async (path) => {
   }
 };
 
+const head = async (assetPath) => {
+  try {
+    const response = await fetch(new URL(assetPath.replace(/^\//, ''), site), {
+      method: 'HEAD',
+      redirect: 'follow',
+      cache: 'no-store'
+    });
+    return { ok: response.ok, status: response.status };
+  } catch {
+    return { ok: false, status: 0 };
+  }
+};
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let lastFailures = [];
 
@@ -44,7 +57,20 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   }
 
   if (history.ok && history.text.includes('WITTNAUER ALARM')) failures.push('history: unpublished Wittnauer leaked into OWNER\'S NOTE rail');
-  if (owners.ok && !owners.text.includes('1950年代末〜1960年代初頭')) failures.push('owners-notes: uncertain Westclox date range missing');
+  if (owners.ok && !owners.text.includes('c.1959–early 1960s')) failures.push('owners-notes: compact Westclox uncertain-era label missing');
+  if (owners.ok && owners.text.includes('id="owners-1950年代末〜1960年代初頭"')) failures.push('owners-notes: long uncertain Westclox era leaked into section heading');
+
+  for (const entry of ownersDirectory.entries) {
+    for (const key of ['ownersThumbnail', 'historyThumbnail', 'fallbackThumbnail']) {
+      const assetPath = entry[key];
+      if (!assetPath) {
+        failures.push(`${entry.historyId}: ${key} missing from owner directory`);
+        continue;
+      }
+      const result = await head(assetPath);
+      if (!result.ok) failures.push(`${entry.historyId}: live ${key} HTTP ${result.status} (${assetPath})`);
+    }
+  }
 
   for (const watch of watches) {
     const page = await get(`${watch.slug}/`);
@@ -73,7 +99,7 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   }
 
   if (!failures.length) {
-    console.log(`Live publication check: PASS — ${watches.filter((watch) => watch.published).length} published watch pages.`);
+    console.log(`Live publication check: PASS — ${watches.filter((watch) => watch.published).length} published watch pages, owner thumbnails/fallbacks reachable.`);
     process.exit(0);
   }
   lastFailures = failures;
