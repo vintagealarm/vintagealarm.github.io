@@ -4,6 +4,18 @@ const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 
+const emptyValues = () => ({ X: 0, Instagram: 0, Facebook: 0, 'Other SNS': 0 });
+const baseSnsEntries = (otherValues = emptyValues(), otherTotal = 0, complete = true) => ({
+  pages: [
+    { path: '/cyma-time-o-vox/', name: 'Cyma Time-O-Vox', values: emptyValues(), total: 0 },
+    { path: '/pierce-duofon/', name: 'Pierce Duofon', values: emptyValues(), total: 0 },
+    { path: '/basis-alarm/', name: 'Basis Alarm', values: emptyValues(), total: 0 },
+    { path: 'other', name: 'Other pages', values: otherValues, total: otherTotal },
+  ],
+  total: otherTotal,
+  complete,
+});
+
 const snsFlows = [
   { sourcePath: '', sourceCleanPath: '', destinationPath: '/citizen-alarm/', destinationName: '/citizen-alarm/', destinationMapped: false, channel: 'X', visits: 2, pageviews: 2 },
   { sourcePath: '', sourceCleanPath: '', destinationPath: '/westclox-watchlarm/', destinationName: '/westclox-watchlarm/', destinationMapped: false, channel: 'Facebook', visits: 3, pageviews: 3 },
@@ -21,12 +33,12 @@ const payload = patchAnalyticsPayload({
       { sourcePath: '', sourceCleanPath: '', destinationPath: '/x/', destinationName: '/x/', destinationMapped: false, channel: 'Direct / Unknown', visits: 2, pageviews: 3 },
       ...snsFlows,
     ],
-    snsEntries: { pages: [], total: 0, complete: true },
+    snsEntries: baseSnsEntries({ X: 3, Instagram: 0, Facebook: 3, 'Other SNS': 0 }, 6),
   },
-  previous: { pages: [], flows: [], snsEntries: { pages: [], total: 0, complete: true } },
+  previous: { pages: [], flows: [], snsEntries: baseSnsEntries() },
   legacy: {
-    current: { pages: [], flows: [], snsEntries: { pages: [], total: 0, complete: true } },
-    previous: { pages: [], flows: [], snsEntries: { pages: [], total: 0, complete: true } },
+    current: { pages: [], flows: [], snsEntries: baseSnsEntries() },
+    previous: { pages: [], flows: [], snsEntries: baseSnsEntries() },
   },
   combined: {
     current: {
@@ -35,9 +47,9 @@ const payload = patchAnalyticsPayload({
         { path: '/westclox-watchlarm/', name: '/westclox-watchlarm/', mapped: false, pageviews: 3, visits: 3 },
       ],
       flows: snsFlows,
-      snsEntries: { pages: [], total: 0, complete: true },
+      snsEntries: baseSnsEntries({ X: 3, Instagram: 0, Facebook: 3, 'Other SNS': 0 }, 6),
     },
-    previous: { pages: [], flows: [], snsEntries: { pages: [], total: 0, complete: true } },
+    previous: { pages: [], flows: [], snsEntries: baseSnsEntries() },
   },
 });
 
@@ -62,8 +74,20 @@ assert(snsTotals['Cyma Time-O-Vox'] === 0, 'Cyma SNS row missing');
 assert(snsTotals['Citizen Alarm'] === 2, 'Citizen SNS visits mismatch');
 assert(snsTotals['Westclox Watchlarm'] === 3, 'Westclox SNS visits mismatch');
 assert(snsTotals['Other pages'] === 1, 'Other SNS visits mismatch');
-assert(payload.current.snsEntries.total === 6, 'SNS total mismatch');
-assert(payload.current.snsEntries.complete === true, 'SNS completeness flag must be preserved');
+assert(payload.current.snsEntries.total === 6, 'SNS base total must be preserved while reallocating rows');
+assert(payload.current.snsEntries.complete === true, 'SNS completeness flag must remain true when flow rows are below the cap');
+
+const cappedFlows = Array.from({ length: 200 }, (_, index) => ({
+  destinationPath: index % 2 ? '/citizen-alarm/' : '/unknown/',
+  channel: 'X',
+  visits: 1,
+  pageviews: 1,
+}));
+const capped = patchAnalyticsPayload({
+  current: { pages: [], flows: cappedFlows, snsEntries: baseSnsEntries({ X: 200, Instagram: 0, Facebook: 0, 'Other SNS': 0 }, 200, true) },
+});
+assert(capped.current.snsEntries.total === 200, 'flow cap must not change the exact base SNS total');
+assert(capped.current.snsEntries.complete === false, 'flow-cap reallocation must be marked incomplete');
 
 const fixture = [
   '<button class="refresh" id="aiShare">AI COPY</button>',
@@ -138,4 +162,4 @@ assert(!(await failed.json()).url, 'failed preflight must not return a URL');
 const unauthenticated = await profileWorker.fetch(new Request('https://dashboard.example/api/ai-readable-link'), env, {});
 assert(unauthenticated.status === 401, 'issuance still needs authentication');
 globalThis.fetch = originalFetch;
-console.log('Five-WATCH analytics + X profile attribution + AI readable URL wrapper: OK');
+console.log('Five-WATCH analytics + SNS reallocation + X profile attribution + AI readable URL wrapper: OK');
