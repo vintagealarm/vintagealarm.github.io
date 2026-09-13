@@ -186,12 +186,12 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
     title: 'Pierce Duofon Cal. 135 — English entry | VINTAGE ALARM',
     description: 'English entry to the Pierce Duofon Cal. 135: a two-barrel alarm wristwatch with selectable WECKER / SIGNAL notification modes, red/white indicator and original alarm video.',
     indexBlurb: 'A 1950s mechanical alarm watch that lets the wearer choose between a full audible alarm and a discreet signal mode.',
-    catch: ['An ancestor of “silent mode”!?', 'A 1950s notification outlier.'],
+    catch: ['An ancestor of “silent mode”!?', '1950s notification tech that feels decades ahead of its time.'],
     ownersNote: {
       lead: [
         'An ancestor of “silent mode”!?',
-        'A 1950s notification outlier.',
-        'Even the distance of the notification was mechanical.'
+        '1950s notification tech that feels decades ahead of its time.',
+        'Even the consideration built into a reminder was mechanical.'
       ],
       guideTitle: 'Quick operating guide',
       guide: [
@@ -203,9 +203,10 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'Long before pagers and mobile phones made selectable notification modes familiar, the Duofon used a mechanical system to change how its alarm announced the time.',
-        'The 4 o’clock control selects WECKER or SIGNAL, while a red/white window below 6 o’clock shows the chosen mode.',
-        'The Japanese research page documents the mechanism, model evolution and source differences behind that two-stage notification system.'
+        'The idea of choosing between an audible sound and a discreet notification depending on the situation did not become widespread until pager and mobile-phone functions became common from the late 1980s into the 1990s.',
+        'Separate from that later trend, the Duofon had already mechanized the “distance” of a notification in a 1950s wristwatch.',
+        'The 4 o’clock crown selects the sound, while the small window below 6 shows the watch’s “tone of voice” in color.',
+        'For an alarm wristwatch, it had caught the mood of the future far too early.'
       ]
     },
     spec: {
