@@ -15,6 +15,7 @@ import '../styles/owners-v15.css';
 import OwnerFonts from '../components/OwnerFonts.astro';
 import ownersDirectory from '../data/owners-directory.json';
 import { englishWatchEntries } from '../data/en-watch-entry';
+import { germanWatchEntries } from '../data/de-watch-entry';
 import { watchRecommendations } from '../data/watch-recommendations';
 
 const { watch } = Astro.props;
@@ -43,14 +44,19 @@ const pagePath = `${watch.slug}/`;
 const pageUrl = new URL(pagePath, siteRoot).href;
 const imageUrl = new URL(watch.ownersNote.image.replace(/^\//, ''), siteRoot).href;
 const englishEntry = englishWatchEntries[watch.slug];
+const germanEntry = germanWatchEntries[watch.slug];
 const englishUrl = englishEntry ? new URL(`en/${watch.slug}/`, siteRoot).href : null;
-const alternates = englishUrl
-  ? [
-      { hreflang: 'ja', href: pageUrl },
-      { hreflang: 'en', href: englishUrl },
-      { hreflang: 'x-default', href: pageUrl }
-    ]
-  : [];
+const germanUrl = germanEntry ? new URL(`de/${watch.slug}/`, siteRoot).href : null;
+const alternates = [
+  { hreflang: 'ja', href: pageUrl },
+  ...(englishUrl ? [{ hreflang: 'en', href: englishUrl }] : []),
+  ...(germanUrl ? [{ hreflang: 'de', href: germanUrl }] : []),
+  { hreflang: 'x-default', href: pageUrl }
+];
+const languageLinks = [
+  ...(englishEntry ? [{ href: `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }] : []),
+  ...(germanEntry ? [{ href: `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
+];
 const allWatches = await getCollection('watches');
 const watchBySlug = new Map(allWatches.map((item) => [item.data.slug, item]));
 const directoryEntries = ownersDirectory.entries
@@ -131,9 +137,7 @@ const schema = {
   <body class="owners-v15">
     <SectionMast
       rightLabel="OWNER'S NOTE"
-      languageHref={englishEntry ? `/en/${watch.slug}/` : null}
-      languageLabel={englishEntry ? 'EN' : null}
-      languageHreflang={englishEntry ? 'en' : null}
+      languageLinks={languageLinks}
     />
     <main>
       <WatchHero brand={watch.brand} model={watch.model} catchLines={watch.catch} ownerNumber={watch.ownerNumber} />
