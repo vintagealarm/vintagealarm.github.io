@@ -8,6 +8,7 @@ const publishedWatchRoutes = readWatchPublicationState()
 const englishWatchRoutes = readWatchPublicationState()
   .filter((watch) => watch.published)
   .map((watch) => `en/${watch.slug}/`);
+const germanWatchRoutes = ['de/pierce-duofon/'];
 const routes = [
   '',
   'history/',
@@ -15,6 +16,8 @@ const routes = [
   ...publishedWatchRoutes,
   'en/',
   ...englishWatchRoutes,
+  'de/',
+  ...germanWatchRoutes,
   'history/smartwatch/'
 ];
 const widths = [320, 390, 768];
@@ -68,10 +71,14 @@ try {
           englishLanguageLink: [...document.links].some((link) =>
             link.getAttribute('hreflang') === 'en' && (link.textContent || '').trim() === 'EN'
           ),
+          germanLanguageLink: [...document.links].some((link) =>
+            link.getAttribute('hreflang') === 'de' && (link.textContent || '').trim() === 'DE'
+          ),
           oversizedEnglishCta: [...document.links].some((link) => /ENGLISH ENTRY/.test(link.textContent || ''))
         }));
         if (japaneseState.lang !== 'ja') failures.push(`${width}px ${route}: html lang is not ja`);
         if (!japaneseState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
+        if (route === 'pierce-duofon/' && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (japaneseState.oversizedEnglishCta) failures.push(`${width}px ${route}: legacy ENGLISH ENTRY CTA remains`);
       }
 
@@ -81,13 +88,36 @@ try {
           japaneseLanguageLink: [...document.links].some((link) =>
             link.getAttribute('hreflang') === 'ja' && (link.textContent || '').trim() === '日本語'
           ),
+          germanLanguageLink: [...document.links].some((link) =>
+            link.getAttribute('hreflang') === 'de' && (link.textContent || '').trim() === 'DE'
+          ),
           ownerTextOpen: document.querySelector('#owners-note')?.closest('section')?.querySelector('details')?.hasAttribute('open') || false,
           alarmHeading: document.getElementById('listen')?.textContent?.trim() || ''
         }));
         if (englishState.lang !== 'en') failures.push(`${width}px ${route}: html lang is not en`);
         if (!englishState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
+        if (route === 'en/pierce-duofon/' && !englishState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (!englishState.ownerTextOpen) failures.push(`${width}px ${route}: English OWNER'S NOTE text is not open by default`);
         if (englishState.alarmHeading && englishState.alarmHeading !== 'ORIGINAL ALARM VIDEO') failures.push(`${width}px ${route}: alarm video heading is not localized`);
+      }
+
+      if (germanWatchRoutes.includes(route) && width <= 390) {
+        const germanState = await page.evaluate(() => ({
+          lang: document.documentElement.lang,
+          japaneseLanguageLink: [...document.links].some((link) =>
+            link.getAttribute('hreflang') === 'ja' && (link.textContent || '').trim() === '日本語'
+          ),
+          englishLanguageLink: [...document.links].some((link) =>
+            link.getAttribute('hreflang') === 'en' && (link.textContent || '').trim() === 'EN'
+          ),
+          ownerTextOpen: document.querySelector('#owners-note')?.closest('section')?.querySelector('details')?.hasAttribute('open') || false,
+          alarmHeading: document.getElementById('listen')?.textContent?.trim() || ''
+        }));
+        if (germanState.lang !== 'de') failures.push(`${width}px ${route}: html lang is not de`);
+        if (!germanState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
+        if (!germanState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
+        if (!germanState.ownerTextOpen) failures.push(`${width}px ${route}: German OWNER'S NOTE text is not open by default`);
+        if (germanState.alarmHeading && germanState.alarmHeading !== 'ORIGINAL-ALARMTON') failures.push(`${width}px ${route}: German alarm video heading is not localized`);
       }
 
       if (route === 'history/' && width <= 390) {
