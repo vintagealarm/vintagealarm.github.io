@@ -97,21 +97,22 @@ const schema = {
     />
   </head>
   <body class="owners-v15">
-    <SectionMast rightLabel={fullResearch ? 'ENGLISH' : 'ENGLISH ENTRY'} lang="en" />
+    <SectionMast
+      rightLabel="OWNER'S NOTE"
+      lang="en"
+      languageHref={`/${watch.slug}/`}
+      languageLabel="日本語"
+      languageHreflang="ja"
+    />
     <main>
       <WatchHero brand={watch.brand} model={watch.model} catchLines={entry.catch} ownerNumber={watch.ownerNumber} />
 
-      {fullResearch ? (
-        <section class="shell section english-language-link" aria-label="Language version">
-          <a class="x-link" href={`/${watch.slug}/`} hreflang="ja">COMPLETE JAPANESE VERSION →</a>
-        </section>
-      ) : (
+      {!fullResearch && (
         <section class="shell section english-gateway-note" aria-label="About this English entry">
           <p>
             This page is a concise English entry to the specimen, its operation and its original alarm video.
-            The full source-backed research note remains on the Japanese page.
+            The complete source-backed research remains on the Japanese version.
           </p>
-          <a class="x-link" href={`/${watch.slug}/#owners-note`} hreflang="ja">FULL RESEARCH NOTE IN JAPANESE →</a>
         </section>
       )}
 
@@ -136,23 +137,14 @@ const schema = {
             <a class="english-related-back" href="/en/">BACK TO ENGLISH INDEX →</a>
           </nav>
         </>
-      ) : (
-        <section class="shell section english-gateway-note" aria-labelledby="continue-research">
-          <h2 id="continue-research">CONTINUE THE RESEARCH</h2>
-          <p>
-            The Japanese page contains the complete DEEP DIVE, specimen gallery and source list. Browser translation can be used there for the full research text.
-          </p>
-          <a class="x-link" href={`/${watch.slug}/`}>OPEN THE COMPLETE JAPANESE PAGE →</a>
-        </section>
-      )}
+      ) : null}
     </main>
   </body>
 </html>
 
 <style>
-  .english-gateway-note{max-width:980px}
-  .english-gateway-note p{max-width:760px;line-height:1.8}
-  .english-language-link{padding-top:18px;padding-bottom:12px}
+  .english-gateway-note{max-width:980px;padding-top:18px;padding-bottom:12px}
+  .english-gateway-note p{max-width:760px;line-height:1.8;color:var(--soft)}
   .english-related-nav{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding-block:52px 82px;border-top:1px solid var(--ink)}
   .english-related-nav a{text-decoration:none}
   .english-related-next{display:grid;gap:8px;min-width:0}
