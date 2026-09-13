@@ -49,6 +49,7 @@ const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.h
 for (const watch of watches) {
   const href = `${watch.slug}/`;
   const historyHref = `${watch.slug}/#owners-note`;
+  const route = path.join(dist, watch.slug, 'index.html');
   if (watch.published) {
     if (!ownersHtml.includes(historyHref)) failures.push(`${watch.slug}: missing from OWNER'S NOTES`);
     if (historyOwnerSlugs.has(watch.slug) && !historyHtml.includes(historyHref)) failures.push(`${watch.slug}: missing from HISTORY owner rail`);
@@ -57,6 +58,17 @@ for (const watch of watches) {
       `<url><loc>https://vintagealarm\\.github\\.io/${watch.slug}/</loc><lastmod>\\d{4}-\\d{2}-\\d{2}</lastmod></url>`
     );
     if (!sitemapEntryPattern.test(sitemap)) failures.push(`${watch.slug}: sitemap lastmod missing or invalid`);
+
+    if (fs.existsSync(route)) {
+      const watchHtml = fs.readFileSync(route, 'utf8');
+      if (!watchHtml.includes('"@type":"Article"')) failures.push(`${watch.slug}: Japanese WATCH lost Article JSON-LD`);
+      if (!watchHtml.includes('"headline":')) failures.push(`${watch.slug}: Article headline missing`);
+      if (!/"dateModified":"\d{4}-\d{2}-\d{2}"/.test(watchHtml)) failures.push(`${watch.slug}: Article dateModified missing or invalid`);
+      if (!watchHtml.includes('"author":{"@type":"Organization","name":"VINTAGE ALARM"')) failures.push(`${watch.slug}: Article author missing or invalid`);
+      if (watch.slug !== 'cyma-time-o-vox' && watchHtml.includes('data-research-record')) {
+        failures.push(`${watch.slug}: Cyma research pilot leaked into another WATCH`);
+      }
+    }
   } else {
     if (ownersHtml.includes(historyHref)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE leaked into directory`);
     if (historyHtml.includes(historyHref)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE leaked into HISTORY`);
@@ -112,6 +124,16 @@ if (fs.existsSync(cymaHtmlPath)) {
   const citationIndex = fortisIndex >= 0 ? cymaHtml.indexOf('href="#source-2"', fortisIndex) : -1;
   if (fortisIndex < 0 || citationIndex < 0 || citationIndex - fortisIndex > 900) {
     failures.push('Cyma: Beitl source 2 is not attached to the chronometer comparison paragraph');
+  }
+
+  const sourceIndex = cymaHtml.indexOf('id="source-1"');
+  const researchIndex = cymaHtml.indexOf('data-research-record');
+  const revisionIndex = cymaHtml.indexOf('data-revision-record');
+  if (!(sourceIndex >= 0 && sourceIndex < researchIndex && researchIndex < revisionIndex)) {
+    failures.push('Cyma: evidence order must remain SOURCES → RESEARCH NOTE → REVISION');
+  }
+  for (const marker of ['RESEARCH NOTE', '文献確認', 'n=1（掲載個体）', 'REVISION']) {
+    if (!cymaHtml.includes(marker)) failures.push(`Cyma: research evidence marker missing: ${marker}`);
   }
 }
 
