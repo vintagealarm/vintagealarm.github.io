@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import SeoHead from '../../components/SeoHead.astro';
+import SectionMast from '../../components/SectionMast.astro';
+import OwnerThumbnailFrame from '../../components/OwnerThumbnailFrame.astro';
+import OwnerFonts from '../../components/OwnerFonts.astro';
+import ownersDirectory from '../../data/owners-directory.json';
+import { germanWatchEntries } from '../../data/de-watch-entry';
+import '../../styles/site.css';
+import '../../styles/owners-v15.css';
+
+const base = import.meta.env.BASE_URL;
+const watches = await getCollection('watches');
+const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
+const entries = ownersDirectory.entries
+  .flatMap((meta) => {
+    const watch = watchBySlug.get(meta.historyId);
+    const german = germanWatchEntries[meta.historyId];
+    if (!watch?.data.published || !german) return [];
+    return [{
+      ...meta,
+      ownerNumber: watch.data.ownerNumber,
+      brand: watch.data.brand,
+      name: watch.data.model,
+      href: `/de/${watch.data.slug}/`,
+      directoryCatch: german.indexBlurb
+    }];
+  })
+  .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
+
+const title = 'Mechanische Wecker-Armbanduhren — Deutsch | VINTAGE ALARM';
+const description = 'Deutsche VINTAGE-ALARM-Seiten zu mechanischen Wecker-Armbanduhren. Der Pierce Duofon enthält OWNER’S NOTE, Bedienung, Spezifikationen, Original-Alarmton, Exemplarfotos, DEEP DIVE und Quellen.';
+const socialImage = '/images/pierce-duofon/gallery/pierce-duofon-wrist-front.jpg';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'VINTAGE ALARM — Deutsch',
+  description,
+  inLanguage: 'de',
+  url: 'https://vintagealarm.github.io/de/'
+};
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <OwnerFonts />
+    <SeoHead title={title} description={description} path="de/" image={socialImage} locale="de_DE" schema={schema} />
+  </head>
+  <body class="owners-v15">
+    <SectionMast
+      rightLabel="DEUTSCH"
+      lang="de"
+      languageLinks={[
+        { href: '/', label: '日本語', hreflang: 'ja' },
+        { href: '/en/', label: 'EN', hreflang: 'en' }
+      ]}
+    />
+    <main>
+      <header class="shell directory-intro">
+        <div>
+          <div class="eyebrow">VINTAGE ALARM</div>
+          <h1>Mechanische Wecker, vom realen Exemplar aus gelesen.</h1>
+        </div>
+        <p class="directory-meta">EIGENE EXEMPLARE<br/>DEUTSCH</p>
+      </header>
+      <section class="shell section" aria-label="Über die deutschen Seiten">
+        <p class="german-intro">
+          Die deutsche Ausgabe startet mit dem Pierce Duofon. Die Übersetzung folgt direkt dem japanischen Originaltext und behält OWNER'S NOTE, Bedienung, Spezifikationen, DEEP DIVE, Quellen und die Trennung zwischen dokumentierten Angaben und vorsichtigen Einordnungen bei.
+        </p>
+      </section>
+      <section class="shell directory-eras" aria-label="Deutsche Uhrenseiten">
+        <section class="directory-era">
+          <h2>UHREN</h2>
+          <div class="directory-tiles">
+            {entries.map((entry) => (
+              <OwnerThumbnailFrame
+                brand={entry.brand}
+                name={entry.name}
+                directoryCatch={entry.directoryCatch}
+                href={`${base}${entry.href.replace(/^\//, '')}`}
+                image={`${base}${(entry.ownersThumbnail ?? entry.image).replace(/^\//, '')}`}
+                smartFit={false}
+              />
+            ))}
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  .german-intro{max-width:780px;line-height:1.85}
+</style>
