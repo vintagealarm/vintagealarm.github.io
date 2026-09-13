@@ -241,6 +241,19 @@
         "cardSummary": "まことしやかに囁かれる伝説",
         "cardStatus": "OWNER'S NOTE",
         "featured": true
+      },
+      {
+        "id": "westclox-watchlarm",
+        "group": "owner",
+        "sort": 90,
+        "meta": "WESTCLOX / W5",
+        "name": "WESTCLOX WATCHLARM",
+        "hook": "0石、1香箱、プッシャー式アラーム",
+        "cardSummary": "0石のW5に、プッシャー式アラーム設定とON/OFFスライダーを載せた所有個体。",
+        "cardStatus": "OWNER'S NOTE →",
+        "featured": true,
+        "href": "westclox-watchlarm/",
+        "hrefKind": "site"
       }
     ]
   },
