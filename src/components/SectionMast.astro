@@ -1,21 +1,34 @@
 ---
 import researchSettings from '../data/research-settings.json';
-const { rightLabel = 'ALARM WRISTWATCHES' } = Astro.props;
+const { rightLabel = 'ALARM WRISTWATCHES', lang = 'ja' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const researchPublished = researchSettings.published;
+const isEnglish = lang === 'en';
+const menuLabel = isEnglish ? 'VINTAGE ALARM section menu' : 'VINTAGE ALARM セクションメニュー';
+const summaryLabel = isEnglish ? 'Section menu' : 'セクションメニュー';
 ---
 <header class="shell mast section-mast">
   <div class="section-mast-left">
     <details class="section-menu">
-      <summary aria-label="セクションメニュー">≡</summary>
-      <nav class="section-menu-panel" aria-label="VINTAGE ALARM セクションメニュー">
-        <a href={`${base}history/`}>歴史</a>
-        <a href={`${base}history/#milestones`}>マイルストーン</a>
-        <a href={`${base}owners-notes/`}>オーナーズノート</a>
-        {researchPublished && <a href={`${base}history/#research`}>調査個体</a>}
+      <summary aria-label={summaryLabel}>≡</summary>
+      <nav class="section-menu-panel" aria-label={menuLabel}>
+        {isEnglish ? (
+          <>
+            <a href={`${base}en/`}>English entry</a>
+            <a href={`${base}history/`}>History (Japanese)</a>
+            <a href={`${base}owners-notes/`}>Owner's Notes (Japanese)</a>
+          </>
+        ) : (
+          <>
+            <a href={`${base}history/`}>歴史</a>
+            <a href={`${base}history/#milestones`}>マイルストーン</a>
+            <a href={`${base}owners-notes/`}>オーナーズノート</a>
+            {researchPublished && <a href={`${base}history/#research`}>調査個体</a>}
+          </>
+        )}
       </nav>
     </details>
-    <a class="mast-link" href={base}>VINTAGE ALARM</a>
+    <a class="mast-link" href={isEnglish ? `${base}en/` : base}>VINTAGE ALARM</a>
   </div>
   <span>{rightLabel}</span>
 </header>
