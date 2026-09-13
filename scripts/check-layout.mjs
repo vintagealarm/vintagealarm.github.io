@@ -63,15 +63,47 @@ try {
           const chapter = document.getElementById('1950s');
           if (chapter instanceof HTMLDetailsElement) chapter.open = true;
           const ownerRail = chapter?.querySelector('.owner-tiles');
+          const inspectListingImage = (slug) => {
+            const image = ownerRail?.querySelector(`a[href*="${slug}/#owners-note"] img`);
+            return {
+              present: image instanceof HTMLImageElement,
+              loaded: image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0,
+              autoFit: image instanceof HTMLImageElement && image.hasAttribute('data-smart-watch-fit')
+            };
+          };
           return {
             eraNavScrollable: !!eraNav && eraNav.scrollWidth > eraNav.clientWidth + 1,
             ownerRailScrollable: !!ownerRail && ownerRail.scrollWidth > ownerRail.clientWidth + 1,
-            westcloxPresent: !!ownerRail?.querySelector('a[href*="westclox-watchlarm/#owners-note"]')
+            westcloxPresent: !!ownerRail?.querySelector('a[href*="westclox-watchlarm/#owners-note"]'),
+            citizen: inspectListingImage('citizen-alarm'),
+            westclox: inspectListingImage('westclox-watchlarm')
           };
         });
         if (!historyRails.eraNavScrollable) failures.push(`${width}px history/: era navigation is not swipeable`);
         if (!historyRails.ownerRailScrollable) failures.push(`${width}px history/: OWNER'S NOTE rail is not swipeable`);
         if (!historyRails.westcloxPresent) failures.push(`${width}px history/: Westclox Watchlarm missing from 1950s owner rail`);
+        for (const [name, state] of [['Citizen', historyRails.citizen], ['Westclox', historyRails.westclox]]) {
+          if (!state.present || !state.loaded) failures.push(`${width}px history/: ${name} curated thumbnail missing/broken`);
+          if (state.autoFit) failures.push(`${width}px history/: ${name} curated thumbnail must bypass SmartWatchFit`);
+        }
+      }
+
+      if (route === 'owners-notes/' && width <= 390) {
+        const curated = await page.evaluate(() => {
+          const inspect = (slug) => {
+            const image = document.querySelector(`a[href*="${slug}/#owners-note"] img`);
+            return {
+              present: image instanceof HTMLImageElement,
+              loaded: image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0,
+              autoFit: image instanceof HTMLImageElement && image.hasAttribute('data-smart-watch-fit')
+            };
+          };
+          return { citizen: inspect('citizen-alarm'), westclox: inspect('westclox-watchlarm') };
+        });
+        for (const [name, state] of [['Citizen', curated.citizen], ['Westclox', curated.westclox]]) {
+          if (!state.present || !state.loaded) failures.push(`${width}px owners-notes/: ${name} curated thumbnail missing/broken`);
+          if (state.autoFit) failures.push(`${width}px owners-notes/: ${name} curated thumbnail must bypass SmartWatchFit`);
+        }
       }
 
       if (route === 'westclox-watchlarm/' && width <= 390) {
