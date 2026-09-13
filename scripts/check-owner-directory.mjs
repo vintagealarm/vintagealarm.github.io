@@ -14,6 +14,7 @@ const watchSlugs = new Set(watches.map((watch) => watch.slug));
 const seenIds = new Set();
 const failures = [];
 const validEras = new Set(['1910s', '1940s', '1950s', '1960s', 'electronic']);
+const validOwnedGroups = new Set(['1940s', '1950s', '1960s']);
 const legacyKeys = ['ownerNumber', 'brand', 'name', 'catch', 'href', 'historyHref', 'ownedSortYear'];
 
 const validateImage = (entry, key, required = true) => {
@@ -32,6 +33,9 @@ const validateImage = (entry, key, required = true) => {
 
 for (const entry of entries) {
   if (!entry.historyId) failures.push('entry missing historyId');
+  if (!entry.ownedGroup || !validOwnedGroups.has(entry.ownedGroup)) {
+    failures.push(`${entry.historyId || 'entry'}: ownedGroup must be a valid OWNER'S NOTES decade`);
+  }
   if (!entry.ownedEra) failures.push(`${entry.historyId || 'entry'}: missing ownedEra`);
   if (!Number.isFinite(entry.ownedSortKey)) failures.push(`${entry.historyId || 'entry'}: missing ownedSortKey`);
   if (!entry.historyEra || !validEras.has(entry.historyEra)) {
@@ -42,6 +46,7 @@ for (const entry of entries) {
   // only as a migration fallback until every old consumer has been retired.
   validateImage(entry, 'ownersThumbnail');
   validateImage(entry, 'historyThumbnail');
+  validateImage(entry, 'fallbackThumbnail');
   validateImage(entry, 'image', false);
 
   for (const key of legacyKeys) {
@@ -50,6 +55,12 @@ for (const entry of entries) {
   if (seenIds.has(entry.historyId)) failures.push(`duplicate historyId: ${entry.historyId}`);
   seenIds.add(entry.historyId);
   if (entry.historyId && !watchSlugs.has(entry.historyId)) failures.push(`${entry.historyId}: directory entry has no matching watch`);
+}
+
+const westclox = entries.find((entry) => entry.historyId === 'westclox-watchlarm');
+if (westclox) {
+  if (westclox.ownedGroup !== '1950s') failures.push('westclox-watchlarm: must stay grouped under 1950s in OWNER\'S NOTES');
+  if (westclox.ownedEra !== 'c.1959–early 1960s') failures.push('westclox-watchlarm: display era must remain c.1959–early 1960s');
 }
 
 for (const watch of watches) {

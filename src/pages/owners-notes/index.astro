@@ -23,7 +23,7 @@ const entries=ownersDirectory.entries
   }];
  })
  .sort((a,b)=>a.ownedSortKey-b.ownedSortKey||Number(a.ownerNumber)-Number(b.ownerNumber));
-const eras=[...new Set(entries.map(entry=>entry.ownedEra))];
+const eras=[...new Set(entries.map(entry=>entry.ownedGroup))];
 const title="OWNER'S NOTES｜所有アラーム腕時計の実機記録｜VINTAGE ALARM";
 const description="VINTAGE ALARMのOWNER'S NOTE一覧。所有する機械式アラーム腕時計を、所有個体の年代ごとに記録する。";
 const socialImage='/images/owners-thumbnails/cyma-time-o-vox-full.png';
@@ -37,7 +37,7 @@ const schema={'@context':'https://schema.org','@type':'CollectionPage',name:"OWN
   <main>
    <header class="shell directory-intro"><div><div class="eyebrow">OWNER'S NOTES</div><h1>所有個体から見る。</h1></div><p class="directory-meta">OWNED SPECIMENS<br/>COLLECTION</p></header>
    <section class="shell directory-eras" aria-label="OWNER'S NOTE年代別一覧">
-    {eras.map(era=><section class="directory-era" aria-labelledby={`owners-${era}`}><h2 id={`owners-${era}`}>{era}</h2><div class="directory-tiles">{entries.filter(entry=>entry.ownedEra===era).map(entry=><OwnerThumbnailFrame brand={entry.brand} name={entry.name} directoryCatch={entry.directoryCatch} href={`${base}${entry.href.replace(/^\//,'')}`} image={`${base}${(entry.ownersThumbnail??entry.image).replace(/^\//,'')}`} smartFit={false}/>)}</div></section>)}
+    {eras.map(era=><section class="directory-era" aria-labelledby={`owners-${era}`}><h2 id={`owners-${era}`}>{era}</h2><div class="directory-tiles">{entries.filter(entry=>entry.ownedGroup===era).map(entry=><OwnerThumbnailFrame brand={entry.brand} name={entry.name} directoryCatch={entry.directoryCatch} directoryEraLabel={entry.ownedEra!==entry.ownedGroup?entry.ownedEra:undefined} href={`${base}${entry.href.replace(/^\//,'')}`} image={`${base}${(entry.ownersThumbnail??entry.image).replace(/^\//,'')}`} fallbackImage={entry.fallbackThumbnail?`${base}${entry.fallbackThumbnail.replace(/^\//,'')}`:undefined} smartFit={false}/>)}</div></section>)}
    </section>
   </main>
  </body>

@@ -440,11 +440,13 @@ content:
             summary: "{historyId}"
         fields:
           - { name: historyId, label: ID, type: string, required: true, readonly: true }
-          - { name: ownedEra, label: OWNER'S NOTES年代, type: string, required: true }
+          - { name: ownedGroup, label: OWNER'S NOTES大見出し年代, type: string, required: true }
+          - { name: ownedEra, label: OWNER'S NOTES補足年代, type: string, required: true }
           - { name: ownedSortKey, label: OWNER'S NOTES並びキー, type: number, required: true }
           - { name: historyEra, label: HISTORY章, type: string, required: true }
           - { name: ownersThumbnail, label: OWNER'S NOTES一覧サムネ, type: image, required: true }
           - { name: historyThumbnail, label: HISTORY一覧サムネ, type: image, required: true }
+          - { name: fallbackThumbnail, label: 一覧サムネfallback, type: image, required: true }
           - { name: directoryCatch, label: 一覧キャッチ, type: text }
           - { name: image, label: 旧共通サムネ（互換用・触らない）, type: image, readonly: true }
 

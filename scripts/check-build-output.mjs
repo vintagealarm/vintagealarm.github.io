@@ -94,8 +94,11 @@ if (historyHtml.includes('ja-phrase')) {
 if (historyHtml.includes('WITTNAUER ALARM')) {
   failures.push("HISTORY: unpublished Wittnauer card leaked into OWNER'S NOTES rail");
 }
-if (!ownersHtml.includes('1950年代末〜1960年代初頭')) {
-  failures.push('OWNER\'S NOTES: uncertain Westclox date range label is missing');
+if (!ownersHtml.includes('c.1959–early 1960s')) {
+  failures.push("OWNER'S NOTES: compact Westclox uncertain-era label is missing");
+}
+if (ownersHtml.includes('id="owners-1950年代末〜1960年代初頭"')) {
+  failures.push("OWNER'S NOTES: long Westclox uncertain-era range leaked back into a section heading");
 }
 
 const cymaHtmlPath = path.join(dist, 'cyma-time-o-vox', 'index.html');
@@ -118,11 +121,16 @@ if (cyma?.published) {
 }
 
 const pagesConfig = fs.readFileSync(path.join(root, '.pages.yml'), 'utf8');
-for (const marker of ['name: published', '公開（OFFで下書き）', 'label: HISTORY 本文・MILESTONES', 'label: Watches']) {
+for (const marker of [
+  'name: published',
+  '公開（OFFで下書き）',
+  'label: HISTORY 本文・MILESTONES',
+  'label: Watches',
+  'name: ownerDirectory',
+  'name: ownedGroup',
+  'name: fallbackThumbnail'
+]) {
   if (!pagesConfig.includes(marker)) failures.push(`Pages CMS marker missing: ${marker}`);
-}
-if (pagesConfig.includes('name: ownersDirectory')) {
-  failures.push('Pages CMS must not expose duplicate OWNER directory metadata');
 }
 
 for (const file of fs.readdirSync(dist, { recursive: true }).filter((file) => String(file).endsWith('.html'))) {

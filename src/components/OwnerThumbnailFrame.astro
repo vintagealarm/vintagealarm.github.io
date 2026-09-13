@@ -1,12 +1,14 @@
 ---
 import SmartWatchFit from './SmartWatchFit.astro';
-const { brand, name, href, image, published = true, directoryCatch, smartFit = true } = Astro.props as {
+const { brand, name, href, image, fallbackImage, published = true, directoryCatch, directoryEraLabel, smartFit = true } = Astro.props as {
   brand: string;
   name: string;
   href?: string;
   image?: string;
+  fallbackImage?: string;
   published?: boolean;
   directoryCatch?: string;
+  directoryEraLabel?: string;
   smartFit?: boolean;
 };
 const Tag = href ? 'a' : 'div';
@@ -16,11 +18,46 @@ const liftWristShot = (brand === 'CITIZEN' && name === 'ALARM') || (brand === 'W
 <Tag class:list={['owner-frame', {'owner-tile': !!href}]} href={href} aria-label={`${published ? "OWNER'S NOTE" : 'COLLECTION INDEX'}：${brand} ${name}`}>
   <span class="frame-kind">{published ? "OWNER'S NOTE" : 'COLLECTION'}</span>
   {image
-    ? <span class="frame-media"><img class:list={[{'frame-wrist-lift': liftWristShot}]} src={image} alt={`${brand} ${name}`} loading="lazy" decoding="async" data-smart-watch-fit={useSmartFit ? 'true' : undefined} data-smart-fit-mode={useSmartFit ? 'dial' : undefined} data-smart-fit-target={useSmartFit ? '0.92' : undefined} data-smart-fit-max={useSmartFit ? '2.2' : undefined} /></span>
+    ? <span class="frame-media" data-owner-media>
+        <img
+          class:list={[{'frame-wrist-lift': liftWristShot}]}
+          src={image}
+          alt={`${brand} ${name}`}
+          loading="lazy"
+          decoding="async"
+          data-owner-image
+          data-fallback-src={fallbackImage}
+          data-smart-watch-fit={useSmartFit ? 'true' : undefined}
+          data-smart-fit-mode={useSmartFit ? 'dial' : undefined}
+          data-smart-fit-target={useSmartFit ? '0.92' : undefined}
+          data-smart-fit-max={useSmartFit ? '2.2' : undefined}
+        />
+        <span class="frame-image-fallback" aria-hidden="true"><small>{brand}</small><strong>{name}</strong></span>
+      </span>
     : <span class="frame-space" aria-hidden="true"></span>}
-  <span class="frame-caption"><span class="frame-name"><small>{brand}</small><strong>{name}</strong>{directoryCatch && <span class="frame-directory-catch">{directoryCatch}</span>}</span><span class="frame-status">{href ? '↗' : 'NOTE 未公開'}</span></span>
+  <span class="frame-caption"><span class="frame-name"><small>{brand}</small><strong>{name}</strong>{directoryEraLabel && <span class="frame-directory-era">{directoryEraLabel}</span>}{directoryCatch && <span class="frame-directory-catch">{directoryCatch}</span>}</span><span class="frame-status">{href ? '↗' : 'NOTE 未公開'}</span></span>
 </Tag>
 <SmartWatchFit />
+<script>
+  const handleOwnerImageFailure = (img) => {
+    if (!(img instanceof HTMLImageElement)) return;
+    const fallback = img.dataset.fallbackSrc;
+    if (fallback && img.dataset.fallbackTried !== 'true') {
+      img.dataset.fallbackTried = 'true';
+      img.src = fallback;
+      return;
+    }
+    img.hidden = true;
+    img.closest('[data-owner-media]')?.classList.add('is-image-missing');
+  };
+
+  document.querySelectorAll('[data-owner-image]').forEach((node) => {
+    if (!(node instanceof HTMLImageElement) || node.dataset.ownerFallbackBound === 'true') return;
+    node.dataset.ownerFallbackBound = 'true';
+    node.addEventListener('error', () => handleOwnerImageFailure(node));
+    if (node.complete && node.naturalWidth === 0) handleOwnerImageFailure(node);
+  });
+</script>
 <style>
   .owner-frame{position:relative;display:flex;flex-direction:column;isolation:auto;min-width:0;min-height:138px;aspect-ratio:auto;overflow:visible;border:1px solid var(--rule,#bcc5b2);background:transparent;color:var(--ink,#232720);text-decoration:none;padding:10px;font-family:var(--sans,sans-serif)}
   .owner-frame::after{display:none}
@@ -30,10 +67,13 @@ const liftWristShot = (brand === 'CITIZEN' && name === 'ALARM') || (brand === 'W
   .frame-media{position:relative;overflow:hidden;background:rgba(88,99,78,.035)}
   .frame-media img{display:block;width:100%;height:100%;object-fit:contain}
   .frame-media img.frame-wrist-lift{position:relative;top:-2px}
+  .frame-image-fallback{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:2px;padding:12px;text-align:center;color:var(--soft,#58634e);background:linear-gradient(180deg,rgba(88,99,78,.018),rgba(88,99,78,.055))}
+  .frame-image-fallback small{font-size:9px;letter-spacing:.12em}.frame-image-fallback strong{font-size:11px;font-weight:500;line-height:1.35;letter-spacing:.02em}
+  .frame-media.is-image-missing .frame-image-fallback{display:flex}
   .frame-caption{display:flex;gap:8px;align-items:flex-end;justify-content:space-between;padding-top:8px;border-top:1px solid var(--rule,#bcc5b2)}
-  .frame-name{min-width:0}.frame-name small{display:block;font-size:11px;line-height:1.5}.frame-name strong{display:block;font-size:13px;font-weight:500;line-height:1.4;word-break:normal;overflow-wrap:normal}.frame-directory-catch{display:block;margin-top:5px;color:var(--soft,#58634e);font-size:11px;line-height:1.65;letter-spacing:.01em;line-break:strict;word-break:normal;overflow-wrap:normal}
+  .frame-name{min-width:0}.frame-name small{display:block;font-size:11px;line-height:1.5}.frame-name strong{display:block;font-size:13px;font-weight:500;line-height:1.4;word-break:normal;overflow-wrap:normal}.frame-directory-era{display:block;margin-top:4px;color:var(--red,#934932);font-size:9.5px;line-height:1.45;letter-spacing:.03em;white-space:nowrap}.frame-directory-catch{display:block;margin-top:5px;color:var(--soft,#58634e);font-size:11px;line-height:1.65;letter-spacing:.01em;line-break:strict;word-break:normal;overflow-wrap:normal}
   .frame-status{font-size:14px;line-height:1.5;flex:none}.owner-frame:not(a) .frame-status{font-size:10px}
   a.owner-frame:hover{border-color:var(--ink,#232720)}
   @media(min-width:761px){.owner-frame{min-height:148px}.frame-caption{flex-wrap:wrap}.owner-frame:not(a){max-width:240px}}
-  @media(max-width:350px){.owner-frame{padding:8px;min-height:138px}.frame-media{aspect-ratio:1.1}.frame-name strong{font-size:12px}.frame-kind{font-size:10px}.frame-directory-catch{font-size:10.5px}}
+  @media(max-width:350px){.owner-frame{padding:8px;min-height:138px}.frame-media{aspect-ratio:1.1}.frame-name strong{font-size:12px}.frame-kind{font-size:10px}.frame-directory-era{font-size:9px}.frame-directory-catch{font-size:10.5px}}
 </style>
