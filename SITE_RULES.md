@@ -71,6 +71,10 @@
 7. 参考資料・出典
 8. 次の一本（編集推薦）
 
+- `参考資料・出典`の内部は、研究メタデータがあるWATCHでは `SOURCES → RESEARCH NOTE → REVISION` の順序を固定する。
+- `RESEARCH NOTE` / `REVISION` は既存の参考資料・出典details内に置き、本文途中のカードや独立セクションとして前面化しない。
+- 研究メタデータがないWATCHへ空の `RESEARCH NOTE` / `REVISION` を表示しない。
+
 ## SPEC
 
 固定ラベル：年代 / ケースサイズ / Cal / 石 / 振動 / 香箱 / 手巻き / 音響 / 特記事項。
@@ -85,6 +89,7 @@
 ## コード変更範囲
 
 - 通常の記事追加・文章修正：`src/content/watches/` と `public/images/` を中心に変更する。
+- WATCHの研究メタデータ・修正履歴：`src/data/watch-research/` と `src/data/watch-research.ts` を正本とし、その追加だけを理由に承認済みWATCH本文を変更しない。
 - OWNER'S NOTES一覧の追加・修正：`src/pages/owners-notes/` と `src/data/owners-directory.json` を中心に変更する。
 - HISTORYの追加・修正：`src/pages/history/`、`src/data/history-content.json`、`src/data/history-catalog.ts` と必要なHISTORY用画像を変更する。
 - デザイン変更の明示指示がある場合のみ：`src/components/`、`src/layouts/`、`src/styles/` を変更可。
@@ -106,7 +111,8 @@
 - TOP / HISTORY / OWNER'S NOTESは同じWATCH画像の使い回しを前提にせず、既存の実画像・サイト画像からページ内容に合う画像を指定する。
 - `robots.txt` でクロールを許可し、`sitemap.xml` を明示する。
 - 検索対象ページを追加したら `sitemap.xml` にURLを追加する。
-- TOPは `WebSite`、HISTORYは `Article`、OWNER'S NOTESは`CollectionPage`、WATCH / SMARTWATCHは `CreativeWork` を基本に構造化データを付ける。階層ページには `BreadcrumbList` を付ける。
+- TOPは `WebSite`、HISTORYは `Article`、OWNER'S NOTESは `CollectionPage`、日本語WATCHは `Article`、SMARTWATCHは `CreativeWork` を基本に構造化データを付ける。階層ページには `BreadcrumbList` を付ける。
+- 日本語WATCHの `Article` には、表示内容と一致する `headline` / `author` / `publisher` / `mainEntityOfPage` / `dateModified` を持たせる。`dateModified` はGitの実更新日を使い、ビルド日時を偽の更新日として入れない。
 - 検索用タイトルやdescriptionに未確認事項・過剰主張を追加しない。
 - SEO目的で本文を水増ししない。本文の編集品質と検索メタデータを分離する。
 
@@ -130,6 +136,8 @@
 - OWNER'S NOTESの大見出しは`ownedGroup`、補足年代は`ownedEra`から生成し、推定年代レンジを巨大見出しにしない。
 - OWNER'S NOTES / HISTORYの一覧画像はprimary/fallbackとも存在し、broken imageアイコンを露出させない。
 - WATCHではタイトル、OWNER'S NOTE、SPEC、動画、DEEP DIVE、出典が存在する。
+- 研究メタデータがあるWATCHでは、参考資料・出典details内が `SOURCES → RESEARCH NOTE → REVISION` の順で、研究メタデータがないWATCHへ漏れない。
+- 日本語WATCHは `Article` + `BreadcrumbList`、SMARTWATCHは `CreativeWork` + `BreadcrumbList` の構造化データを持つ。
 - WATCHの「次の一本」は公開済みWATCHを指し、`watch-recommendations.ts`の推薦理由が表示される。
 - WATCHの各DEEP DIVEで、段落数と`citationRefs`数が一致し、参照番号が存在する`sourceMeta` / `sources`を指している。
 - HISTORYからWATCH、WATCHからHISTORYの往復リンクが存在する。
