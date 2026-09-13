@@ -15,6 +15,7 @@ import '../styles/owners-v15.css';
 import OwnerFonts from '../components/OwnerFonts.astro';
 import ownersDirectory from '../data/owners-directory.json';
 import { englishWatchEntries } from '../data/en-watch-entry';
+import { watchRecommendations } from '../data/watch-recommendations';
 
 const { watch } = Astro.props;
 const siteRoot = 'https://vintagealarm.github.io/';
@@ -64,17 +65,17 @@ const directoryEntries = ownersDirectory.entries
       href: `/${item.data.slug}/#owners-note`,
       historyHref: `/history/#${meta.historyEra}`
     }];
-  })
-  .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
-const directoryIndex = directoryEntries.findIndex((entry) => entry.historyId === watch.slug);
-const currentDirectoryEntry = directoryIndex >= 0 ? directoryEntries[directoryIndex] : null;
-const nextDirectoryEntry = directoryEntries.length > 1 && directoryIndex >= 0
-  ? directoryEntries[(directoryIndex + 1) % directoryEntries.length]
+  });
+const currentDirectoryEntry = directoryEntries.find((entry) => entry.historyId === watch.slug) ?? null;
+const recommendation = watchRecommendations[watch.slug] ?? null;
+const nextDirectoryEntry = recommendation
+  ? directoryEntries.find((entry) => entry.historyId === recommendation.target) ?? null
   : null;
-const nextOwnerNote = nextDirectoryEntry
+const nextOwnerNote = nextDirectoryEntry && recommendation
   ? {
       href: nextDirectoryEntry.href,
-      name: `${nextDirectoryEntry.brand} ${nextDirectoryEntry.name}`
+      name: `${nextDirectoryEntry.brand} ${nextDirectoryEntry.name}`,
+      reason: recommendation.reason
     }
   : null;
 const historyHref = currentDirectoryEntry?.historyHref ?? '/history/';
@@ -148,6 +149,7 @@ const schema = {
         <OwnerNoteEndNav
           nextHref={nextOwnerNote.href}
           nextName={nextOwnerNote.name}
+          nextReason={nextOwnerNote.reason}
           historyHref={historyHref}
         />
       )}
