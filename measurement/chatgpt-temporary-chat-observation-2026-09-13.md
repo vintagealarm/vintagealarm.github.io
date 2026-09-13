@@ -22,10 +22,17 @@
 
 ## Cyma Time-O-Vox
 
-ユーザー提供スクリーンショットで、Temporary Chat上の質問 `cyma time-o-vox についておしえて` を確認。質問文ではVINTAGE ALARMやURLを提示していない。
+ユーザー提供スクリーンショットで、ChatGPTのTemporary Chat上の質問 `cyma time-o-vox についておしえて` を確認。質問文ではVINTAGE ALARMやURLを提示していない。
 
 確認済み:
 - Web検索を伴う回答が生成された。
+- スクリーンショット上で、VINTAGE ALARM旧ホストのCyma Time-O-Voxページが回答内の引用元として表示された。
+- したがって、少なくともこのTemporary ChatではChatGPT SearchがVINTAGE ALARMのCymaページを取得し、回答ソースとして利用したことを確認した。
 
-未確認:
-- このスクリーンショットだけでは、VINTAGE ALARMがCyma回答の直接引用元として表示されたかを独立確認できない。
+判定:
+- ChatGPT Temporary Chatでは、Pierce DuofonとCyma Time-O-Voxの2モデルについて、サイト名やURLを質問文に含めていない状態からVINTAGE ALARMの検索取得・引用を観測した。
+
+限界:
+- この観測だけから、完全な非個人化・完全なコールドスタート・全利用者環境での再現を断定しない。
+- VINTAGE ALARMが常に上位表示・常時引用されるとは言えない。
+- Temporary Chatという表示だけを根拠に、製品内部の検索条件やランキング要因まで断定しない。
