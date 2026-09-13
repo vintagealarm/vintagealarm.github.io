@@ -52,8 +52,11 @@ SEO:
 AIO:
 - 生成AIの回答でページや内容が参照・紹介される可能性を高める。
 - ただし、AI回答で概要を理解した人がさらに訪れる理由を残す。
+- AIが引用したことと、回答内で事実・OWNER OBSERVATION・比喩・仮説の意味を正しく保持したことは別に評価する。
 
 AIOのためだけにllms.txt、機械的なQ&A分割、本文の細切れ化は行わない。
+
+外部AI観測の判定基準と実測ログは `measurement/discovery-v3.md` と `measurement/aio-observation-log.md` を正本とする。
 
 ## 英語入口
 
@@ -86,12 +89,37 @@ Pierce Duofonを、完成済みWATCHページの基準個体として扱う。
 - 国別流入
 - Google Imagesなど画像検索での露出
 - `duofon` / `pierce duofon` / `pierce 135` の検索上の変化
+- 外部AIが新規会話でもDuofonページを発見・引用するか
+- 外部AIがキャッチコピーや編集的比喩を史実へ強めていないか
 
 重要:
 - X投稿の順位とサイト本体の順位は別指標。
 - Xからの流入増加を検索流入増加として扱わない。
 - 検索露出増加を来訪増加として扱わない。
 - 来訪増加を「ヴィンテージアラームへの関心増加」と即断しない。
+- AIソース表示順を検索順位・信頼度順位として扱わない。
+
+## 現行のチャネル別観測対象
+
+- Pierce Duofon: Search / External AI
+- Basis Alarm: YouTube Shorts / X / site entry
+- Cyma Time-O-Vox: X / Search
+- English gateways: overseas search / social discovery / EN → JP research transition
+
+各チャネルの実測値・時点付き状態は `measurement/experiment-log.md` を参照する。
+
+## 状態の正本
+
+古い会話要約や記憶から、過去の「未実装」「待ち」「予定」を現在状態へ持ち込まない。
+
+優先順位:
+
+1. 実装状態 = GitHub `main`
+2. 計測・実験結果 = `measurement/experiment-log.md` / `measurement/aio-observation-log.md`
+3. 方針 = `strategy/*.md` / `measurement/*.md`
+4. 会話記憶 = 参照候補に留め、上記と衝突したら採用しない
+
+時点が異なる記録は誤資料として消さず、観測日時を付けて過去状態として扱う。
 
 ## 改善判断
 
@@ -114,6 +142,7 @@ Pierce Duofonを、完成済みWATCHページの基準個体として扱う。
    - 通常検索Impressions
    - Google生成AI Impressions
    - SNS Impressions
+   - External AI source/citation observation
 2. クリックされたか
    - Search Clicks / CTR
    - SNS Link Clicks
@@ -128,5 +157,6 @@ Pierce Duofonを、完成済みWATCHページの基準個体として扱う。
    - Campaign / Referrer
    - Device / Country
    - Raw / Mapping / Bot疑い
+   - AI citation / semantic fidelity
 
 「順位が落ちた」「GEOが伸びた」「海外流入が成功した」などの結論を、単一指標だけで出さない。
