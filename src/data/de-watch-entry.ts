@@ -57,14 +57,14 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
     slug: 'pierce-duofon',
     title: 'Pierce Duofon Cal. 135 — Zweistufiger mechanischer Alarm | VINTAGE ALARM',
     description: 'Pierce Duofon mit Cal. 135: zwei Federhäuser, wählbare WECKER-/SIGNAL-Modi, rot-weiße Anzeige, Modellentwicklung, Verbindung zur Gruen Duo-Tone, Fotos des Exemplars, Original-Alarmton und Quellen.',
-    indexBlurb: 'Ein Vorläufer des Lautlosmodus!? Ein OOPArt der Benachrichtigungstechnik aus den 1950ern.',
+    indexBlurb: 'Ein Vorfahre des Lautlosmodus!? Ein OOPArt der Benachrichtigungstechnik aus den 1950ern.',
     catch: [
-      'Ein Vorläufer des Lautlosmodus!?',
+      'Ein Vorfahre des Lautlosmodus!?',
       'Ein OOPArt der Benachrichtigungstechnik aus den 1950ern.'
     ],
     ownersNote: {
       lead: [
-        'Ein Vorläufer des Lautlosmodus!?',
+        'Ein Vorfahre des Lautlosmodus!?',
         'Ein OOPArt der Benachrichtigungstechnik aus den 1950ern.',
         'Selbst die Rücksicht beim Erinnern war komplett mechanisch.'
       ],
@@ -81,7 +81,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         'Das Prinzip, je nach Situation zwischen einem hörbaren Ton und einer diskreten Benachrichtigung zu wählen, verbreitete sich erst von den späten 1980er- bis in die 1990er-Jahre, als Pager- und Mobiltelefonfunktionen allgemein üblich wurden.',
         'Unabhängig von dieser späteren Entwicklung hatte die Duofon in einer Armbanduhr der 1950er-Jahre bereits die „Distanz einer Benachrichtigung“ mechanisiert.',
         'Mit der Krone bei 4 Uhr wählt man den Ton; das kleine Fenster unter 6 Uhr zeigt die „Stimmfarbe“ der Uhr als Farbe.',
-        'Für eine Wecker-Armbanduhr hatte sie den Zeitgeist der Zukunft viel zu früh erfasst.'
+        'Obwohl sie eine Wecker-Armbanduhr war, hatte sie die Atmosphäre der Zukunft viel zu früh vorweggenommen.'
       ]
     },
     spec: {
@@ -103,12 +103,12 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       },
       {
         image: '/images/pierce-duofon/gallery/pierce-duofon-signal-white.jpg',
-        label: 'SIGNAL — weiß / diskrete Seite',
+        label: 'SIGNAL — weiß / leise',
         alt: 'Pierce Duofon im SIGNAL-Modus mit weißer Anzeige'
       },
       {
         image: '/images/pierce-duofon/gallery/pierce-duofon-wecker-red.jpg',
-        label: 'WECKER — rot / laute Alarmseite',
+        label: 'WECKER — rot / Glockenton',
         alt: 'Pierce Duofon im WECKER-Modus mit roter Anzeige'
       },
       {
@@ -149,13 +149,13 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
           },
           {
             src: '/images/pierce-duofon/mechanism/01-signal-hammer.webp?v=2',
-            caption: '② SIGNAL — weiß / diskrete Seite. Der blau markierte Teil ist der Hammer. Der Klöppel liegt außerhalb der Schlagposition des Hammers; der Hammer schwingt frei, ohne den Klangkörper (Gong) anzuschlagen.',
+            caption: '② SIGNAL — weiß / leise. Der blau markierte Teil ist der Hammer. Der Klöppel liegt außerhalb der Schlagposition des Hammers; der Hammer schwingt frei, ohne den Klangkörper (Gong) anzuschlagen.',
             alt: 'Pierce Cal. 135 im SIGNAL-Zustand mit blau markiertem Hammer und Klöppel außerhalb der Schlagposition',
             afterParagraph: 2
           },
           {
             src: '/images/pierce-duofon/mechanism/02-wecker-hammer.webp',
-            caption: '③ WECKER — rot / laute Alarmseite. Der blau markierte Teil ist der Hammer. Der Klöppel befindet sich in der Schlagposition des Hammers, sodass der Hammer den Klangkörper (Gong) anschlagen kann.',
+            caption: '③ WECKER — rot / Glockenton. Der blau markierte Teil ist der Hammer. Der Klöppel befindet sich in der Schlagposition des Hammers, sodass der Hammer den Klangkörper (Gong) anschlagen kann.',
             alt: 'Pierce Cal. 135 im WECKER-Zustand mit blau markiertem Hammer und Klöppel in Schlagposition',
             afterParagraph: 2
           },
