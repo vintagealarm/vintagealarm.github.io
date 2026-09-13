@@ -1,6 +1,6 @@
 # VINTAGE ALARM — DISCOVERY / SEO / GEO ANALYTICS V3
 
-更新日: 2026-09-09
+更新日: 2026-09-13
 
 ## 固定目的
 
@@ -87,14 +87,30 @@ Search Consoleの生成AI Performance ReportからCSV Exportして別Snapshotと
 ### OWNED SOCIAL
 - X native
 - Google → X
+- YouTube
 - その他Platform property
 
 ### EXTERNAL AI
+- Grok
 - ChatGPT
 - Perplexity
 - Gemini等
 
-AIで表示された / AIから来た / AIに引用された、を同一視しない。
+外部AIは次を分けて記録する。
+
+1. DISCOVERED — ソース候補・情報源一覧にVINTAGE ALARMが出た
+2. CITED — 回答本文のインライン引用または「引用済み」に出た
+3. USED IN ANSWER — 回答説明の構成要素として内容が使われたことが画面上で確認できる
+4. REFERRED VISIT — AI経由のサイト到達をCloudflare等で確認できた
+5. SEMANTIC FIDELITY — 事実 / OWNER OBSERVATION / 編集的比喩 / 仮説の区別が回答で保たれたか
+
+`AIで表示された / AIに引用された / 回答に使われた / AIから来た / 正確に意味保持された` を同一視しない。
+
+ソース表示順も検索順位・信頼度順位・回答寄与度順位とはみなさない。
+
+同一会話でVINTAGE ALARMを先に提示した結果と、新規会話でサイト名を提示せず再現した結果を分離して記録する。
+
+外部AIの実測ログは `measurement/aio-observation-log.md` を正本とする。
 
 ## 診断
 
@@ -133,7 +149,8 @@ Search Console Clicks ↑ + Cloudflare Search Entry ↓
 現在:
 - SEO/GEO CSV snapshot → browser localStorage
 - INDEX STATUS → browser localStorage
-- X Campaign → browser localStorage
+- X / YouTube Campaign → browser localStorage
+- 外部AI観測 → Git管理された時点付きログ
 
 次の検討:
 - 追加月額0円で使える永続ストレージのみ候補にする
