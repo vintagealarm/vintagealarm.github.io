@@ -12,7 +12,7 @@ const required = {
   '/history/smartwatch/': ['CreativeWork', 'BreadcrumbList']
 };
 for (const watch of watchStates.filter((item) => item.published)) {
-  required[`/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
+  required[`/${watch.slug}/`] = ['Article', 'BreadcrumbList'];
   required[`/en/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
   if (germanWatchSlugs.has(watch.slug)) required[`/de/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
 }
