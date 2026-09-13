@@ -43,6 +43,24 @@
   letter-spacing:-.045em;
 }
 .home-cover h1 span{display:block}
+.home-cover-lead{
+  position:relative;
+  z-index:3;
+  width:min(620px,78%);
+  margin-top:34px;
+}
+.home-cover-lead p{
+  margin:0;
+  color:var(--ink);
+  font:500 clamp(19px,2.1vw,26px)/1.55 var(--jp);
+  letter-spacing:.01em;
+}
+.home-cover-lead small{
+  display:block;
+  margin-top:8px;
+  color:var(--soft);
+  font:400 14px/1.8 var(--jp);
+}
 .home-cover-art{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .home-cover-art img{
   position:absolute;
@@ -148,6 +166,12 @@
     line-height:.82;
     letter-spacing:-.045em;
   }
+  .home-cover-lead{
+    width:min(100%,440px);
+    margin-top:26px;
+  }
+  .home-cover-lead p{font-size:18px;line-height:1.55}
+  .home-cover-lead small{margin-top:7px;font-size:12px;line-height:1.75}
   .home-cover-art .art-before{width:185px;left:-34px;bottom:-28px;opacity:.12}
   .home-cover-art .art-train{width:275px;left:48px;bottom:-38px;opacity:.145}
   .home-cover-art .art-drive{width:235px;right:-46px;bottom:-26px;opacity:.105}
@@ -171,8 +195,11 @@
 @media(max-width:350px){
   .home-v2 .shell{width:calc(100% - 36px)}
   .home-v2 .section-mast .mast-link{font-size:17px}
-  .home-cover{min-height:360px;padding-top:38px}
+  .home-cover{min-height:390px;padding-top:38px}
   .home-cover h1{font-size:57px}
+  .home-cover-lead{margin-top:22px}
+  .home-cover-lead p{font-size:16px}
+  .home-cover-lead small{font-size:11px;line-height:1.7}
   .home-cover-art .art-train{left:35px;width:250px}
   .home-index>a{grid-template-columns:34px minmax(0,1fr) 22px}
   .home-index strong{font-size:24px}
