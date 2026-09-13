@@ -1,20 +1,27 @@
 ---
-const { items = [], title = '' } = Astro.props;
+const { items = [], title = '', lang = 'ja' } = Astro.props;
+const isEnglish = lang === 'en';
 const base = import.meta.env.BASE_URL;
 const resolveImage = (path: string) => /^https?:\/\//.test(path)
   ? path
   : `${base}${path.replace(/^\//, '')}`;
+const heading = isEnglish ? 'THE SPECIMEN' : '掲載個体';
+const galleryLabel = isEnglish ? `${title} specimen gallery` : `${title} 掲載個体ギャラリー`;
+const lightboxLabel = isEnglish ? `${title} enlarged specimen view` : `${title} 掲載個体の拡大表示`;
+const closeLabel = isEnglish ? 'Close enlarged image' : '拡大表示を閉じる';
+const enlargeLabel = (alt: string) => isEnglish ? `Enlarge ${alt}` : `${alt}を拡大表示`;
 ---
-<section class="section shell specimen-gallery" aria-labelledby="specimen-gallery-title">
+<section class="section shell specimen-gallery" aria-labelledby="specimen-gallery-title" lang={lang}>
   <div class="specimen-gallery-head">
-    <h2 id="specimen-gallery-title">掲載個体</h2>
+    <h2 id="specimen-gallery-title">{heading}</h2>
     <span aria-hidden="true">SWIPE →</span>
   </div>
 
-  <div class="specimen-gallery-track" role="list" aria-label={`${title} 掲載個体ギャラリー`}>
+  <div class="specimen-gallery-track" role="list" aria-label={galleryLabel}>
     {items.map((item: any, index: number) => {
       const src = resolveImage(item.image);
-      const alt = item.alt || `${title} ${item.label || `掲載個体 ${index + 1}`}`;
+      const fallback = isEnglish ? `Specimen ${index + 1}` : `掲載個体 ${index + 1}`;
+      const alt = item.alt || `${title} ${item.label || fallback}`;
       return (
         <figure class="specimen-gallery-card" role="listitem">
           <button
@@ -22,7 +29,7 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
             type="button"
             data-lightbox-src={src}
             data-lightbox-alt={alt}
-            aria-label={`${alt}を拡大表示`}
+            aria-label={enlargeLabel(alt)}
           >
             <span class="specimen-gallery-media">
               <img
@@ -43,8 +50,8 @@ const resolveImage = (path: string) => /^https?:\/\//.test(path)
     })}
   </div>
 
-  <div class="specimen-lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label={`${title} 掲載個体の拡大表示`}>
-    <button class="specimen-lightbox-close" type="button" aria-label="拡大表示を閉じる">×</button>
+  <div class="specimen-lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label={lightboxLabel}>
+    <button class="specimen-lightbox-close" type="button" aria-label={closeLabel}>×</button>
     <img src="" alt="" />
   </div>
 </section>
