@@ -52,36 +52,52 @@ function patchFlow(flow) {
   return out;
 }
 
-function rebuildSnsEntries(period) {
+function patchSnsEntries(period) {
   const channels = ["X", "Instagram", "Facebook", "Other SNS"];
-  const pages = Object.entries(WATCH_PAGE_NAMES).map(([path, name]) => ({
-    path,
-    name,
-    values: Object.fromEntries(channels.map((channel) => [channel, 0])),
-    total: 0,
-  }));
+  const emptyValues = () => Object.fromEntries(channels.map((channel) => [channel, 0]));
+  const source = period?.snsEntries || { pages: [], total: 0, complete: false };
+  const sourcePages = Array.isArray(source.pages) ? source.pages : [];
+  const sourceByPath = new Map(sourcePages.map((row) => [row.path, row]));
+  const sourceOther = sourceByPath.get("other") || { path: "other", name: "Other pages", values: emptyValues(), total: 0 };
+
+  const pages = Object.entries(WATCH_PAGE_NAMES).map(([path, name]) => {
+    const existing = sourceByPath.get(path);
+    return {
+      path,
+      name,
+      values: { ...emptyValues(), ...(existing?.values || {}) },
+      total: Number(existing?.total || 0),
+    };
+  });
+  const byPath = new Map(pages.map((row) => [row.path, row]));
   const other = {
     path: "other",
     name: "Other pages",
-    values: Object.fromEntries(channels.map((channel) => [channel, 0])),
-    total: 0,
+    values: { ...emptyValues(), ...(sourceOther.values || {}) },
+    total: Number(sourceOther.total || 0),
   };
-  const byPath = new Map(pages.map((row) => [row.path, row]));
 
+  // The base worker already has exact SNS totals from its entry query, but only
+  // separates the original three WATCH pages. Use the flow rows only to split
+  // Citizen/Westclox back out of "Other pages", preserving the base total.
+  const newlyMappedPaths = new Set(["/citizen-alarm/", "/westclox-watchlarm/"]);
   for (const flow of period?.flows || []) {
-    if (!channels.includes(flow?.channel)) continue;
+    if (!newlyMappedPaths.has(flow?.destinationPath) || !channels.includes(flow?.channel)) continue;
     const visits = Number(flow?.visits || 0);
     if (visits <= 0) continue;
-    const row = byPath.get(flow.destinationPath) || other;
+    const row = byPath.get(flow.destinationPath);
+    if (!row) continue;
     row.values[flow.channel] += visits;
     row.total += visits;
+    other.values[flow.channel] = Math.max(0, Number(other.values[flow.channel] || 0) - visits);
+    other.total = Math.max(0, other.total - visits);
   }
 
   const rows = [...pages, other];
   return {
     pages: rows,
-    total: rows.reduce((sum, row) => sum + row.total, 0),
-    complete: period?.snsEntries?.complete ?? false,
+    total: Number(source.total || rows.reduce((sum, row) => sum + row.total, 0)),
+    complete: Boolean(source.complete) && (period?.flows?.length ?? 0) < 200,
   };
 }
 
@@ -158,7 +174,7 @@ export function patchPeriod(period) {
   if (Array.isArray(patched.flows)) patched.flows = patched.flows.map(patchFlow);
   if (Array.isArray(patched.externalEntryFlows)) patched.externalEntryFlows = patched.externalEntryFlows.map(patchFlow);
   if (Array.isArray(patched.internalFlows)) patched.internalFlows = patched.internalFlows.map(patchFlow);
-  patched.snsEntries = rebuildSnsEntries(patched);
+  patched.snsEntries = patchSnsEntries(patched);
   patched.xProfileEntries = countProfileEntries(patched);
   return patched;
 }
