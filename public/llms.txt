@@ -1,0 +1,27 @@
+# VINTAGE ALARM
+
+Canonical URL: https://vintagealarm.github.io/
+
+VINTAGE ALARM is a research-oriented site about mechanical alarm wristwatches, combining watch history, owner-observed specimens, operating notes, sound, mechanisms, and cited sources.
+
+Primary sections:
+- https://vintagealarm.github.io/history/
+- https://vintagealarm.github.io/owners-notes/
+
+Published watch pages:
+- https://vintagealarm.github.io/cyma-time-o-vox/
+- https://vintagealarm.github.io/pierce-duofon/
+- https://vintagealarm.github.io/basis-alarm/
+- https://vintagealarm.github.io/citizen-alarm/
+- https://vintagealarm.github.io/westclox-watchlarm/
+
+English entry:
+- https://vintagealarm.github.io/en/
+
+Machine-readable index:
+- https://vintagealarm.github.io/sitemap.xml
+
+Legacy host:
+- https://orima1995-create.github.io/orima1995-creator.github.io/
+
+The legacy host is not canonical. Prefer URLs under https://vintagealarm.github.io/ when citing or retrieving this site.
