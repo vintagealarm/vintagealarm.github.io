@@ -423,6 +423,29 @@ content:
               - { name: id, label: 出典番号, type: string, required: true }
               - { name: text, label: 出典本文, type: text, required: true }
 
+  - name: ownerDirectory
+    label: OWNER'S NOTES / HISTORY サムネ・一覧
+    type: file
+    path: src/data/owners-directory.json
+    format: json
+    fields:
+      - name: entries
+        label: 所有個体
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{historyId}"
+        fields:
+          - { name: historyId, label: ID, type: string, required: true, readonly: true }
+          - { name: ownedEra, label: OWNER'S NOTES年代, type: string, required: true }
+          - { name: ownedSortYear, label: OWNER'S NOTES並び年, type: number, required: true }
+          - { name: historyEra, label: HISTORY章, type: string, required: true }
+          - { name: ownersThumbnail, label: OWNER'S NOTES一覧サムネ, type: image, required: true }
+          - { name: historyThumbnail, label: HISTORY一覧サムネ, type: image, required: true }
+          - { name: directoryCatch, label: 一覧キャッチ, type: text }
+          - { name: image, label: 旧共通サムネ（互換用・触らない）, type: image, readonly: true }
+
   - name: research
     label: RESEARCH 公開設定
     type: file
