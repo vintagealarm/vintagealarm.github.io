@@ -1,6 +1,12 @@
 ---
 import researchSettings from '../data/research-settings.json';
-const { rightLabel = 'ALARM WRISTWATCHES', lang = 'ja' } = Astro.props;
+const {
+  rightLabel = 'ALARM WRISTWATCHES',
+  lang = 'ja',
+  languageHref = null,
+  languageLabel = null,
+  languageHreflang = null
+} = Astro.props;
 const base = import.meta.env.BASE_URL;
 const researchPublished = researchSettings.published;
 const isEnglish = lang === 'en';
@@ -14,7 +20,7 @@ const summaryLabel = isEnglish ? 'Section menu' : 'セクションメニュー';
       <nav class="section-menu-panel" aria-label={menuLabel}>
         {isEnglish ? (
           <>
-            <a href={`${base}en/`}>English entry</a>
+            <a href={`${base}en/`}>English</a>
             <a href={`${base}history/`}>History (Japanese)</a>
             <a href={`${base}owners-notes/`}>Owner's Notes (Japanese)</a>
           </>
@@ -30,11 +36,23 @@ const summaryLabel = isEnglish ? 'Section menu' : 'セクションメニュー';
     </details>
     <a class="mast-link" href={isEnglish ? `${base}en/` : base}>VINTAGE ALARM</a>
   </div>
-  <span>{rightLabel}</span>
+  <div class="section-mast-right">
+    {languageHref && languageLabel && (
+      <a
+        class="section-language-link"
+        href={languageHref}
+        hreflang={languageHreflang || undefined}
+        lang={languageHreflang || undefined}
+      >{languageLabel}</a>
+    )}
+    <span>{rightLabel}</span>
+  </div>
 </header>
 
 <style>
   .section-mast-left{display:flex;align-items:center;gap:12px}
+  .section-mast-right{display:flex;align-items:center;justify-content:flex-end;gap:12px;min-width:0}
+  .section-language-link{color:var(--soft);font-size:10px;line-height:1;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;white-space:nowrap}
   .section-menu{position:relative;border:0!important}
   .section-menu:last-child{border-bottom:0!important}
   .section-menu>summary{position:relative;display:grid;place-items:center;width:44px;height:44px;min-height:0;padding:0;border:0;font-family:sans-serif;font-size:18px;line-height:1;letter-spacing:0;cursor:pointer;touch-action:manipulation}
@@ -46,6 +64,8 @@ const summaryLabel = isEnglish ? 'Section menu' : 'セクションメニュー';
   .section-menu-panel a::after{content:'→';font-family:Georgia,"Times New Roman",serif}
   @media(max-width:480px){
     .section-mast-left{gap:5px}
+    .section-mast-right{gap:8px}
+    .section-language-link{font-size:9px}
     .section-menu>summary{width:44px;height:44px;font-size:17px}
     .section-menu>summary::before{inset:8px}
     .section-menu-panel{top:46px;width:min(84vw,280px)}
