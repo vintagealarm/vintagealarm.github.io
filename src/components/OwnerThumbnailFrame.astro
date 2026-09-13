@@ -1,15 +1,16 @@
 ---
 import SmartWatchFit from './SmartWatchFit.astro';
-const { brand, name, href, image, published = true, directoryCatch } = Astro.props as {
+const { brand, name, href, image, published = true, directoryCatch, smartFit = true } = Astro.props as {
   brand: string;
   name: string;
   href?: string;
   image?: string;
   published?: boolean;
   directoryCatch?: string;
+  smartFit?: boolean;
 };
 const Tag = href ? 'a' : 'div';
-const useSmartFit = !(brand === 'CITIZEN' && name === 'ALARM');
+const useSmartFit = smartFit && !(brand === 'CITIZEN' && name === 'ALARM');
 const liftWristShot = (brand === 'CITIZEN' && name === 'ALARM') || (brand === 'WESTCLOX' && name === 'WATCHLARM');
 ---
 <Tag class:list={['owner-frame', {'owner-tile': !!href}]} href={href} aria-label={`${published ? "OWNER'S NOTE" : 'COLLECTION INDEX'}：${brand} ${name}`}>
