@@ -5,13 +5,25 @@ const {
   lang = 'ja',
   languageHref = null,
   languageLabel = null,
-  languageHreflang = null
+  languageHreflang = null,
+  languageLinks = []
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const researchPublished = researchSettings.published;
 const isEnglish = lang === 'en';
-const menuLabel = isEnglish ? 'VINTAGE ALARM section menu' : 'VINTAGE ALARM セクションメニュー';
-const summaryLabel = isEnglish ? 'Section menu' : 'セクションメニュー';
+const isGerman = lang === 'de';
+const menuLabel = isEnglish
+  ? 'VINTAGE ALARM section menu'
+  : isGerman
+    ? 'VINTAGE ALARM Bereichsmenü'
+    : 'VINTAGE ALARM セクションメニュー';
+const summaryLabel = isEnglish ? 'Section menu' : isGerman ? 'Bereichsmenü' : 'セクションメニュー';
+const resolvedLanguageLinks = Array.isArray(languageLinks) && languageLinks.length > 0
+  ? languageLinks
+  : languageHref && languageLabel
+    ? [{ href: languageHref, label: languageLabel, hreflang: languageHreflang }]
+    : [];
+const homeHref = isEnglish ? `${base}en/` : isGerman ? `${base}de/` : base;
 ---
 <header class="shell mast section-mast">
   <div class="section-mast-left">
@@ -24,6 +36,12 @@ const summaryLabel = isEnglish ? 'Section menu' : 'セクションメニュー';
             <a href={`${base}history/`}>History (Japanese)</a>
             <a href={`${base}owners-notes/`}>Owner's Notes (Japanese)</a>
           </>
+        ) : isGerman ? (
+          <>
+            <a href={`${base}de/`}>Deutsch</a>
+            <a href={`${base}history/`}>Geschichte (Japanisch)</a>
+            <a href={`${base}owners-notes/`}>Owner's Notes (Japanisch)</a>
+          </>
         ) : (
           <>
             <a href={`${base}history/`}>歴史</a>
@@ -34,16 +52,20 @@ const summaryLabel = isEnglish ? 'Section menu' : 'セクションメニュー';
         )}
       </nav>
     </details>
-    <a class="mast-link" href={isEnglish ? `${base}en/` : base}>VINTAGE ALARM</a>
+    <a class="mast-link" href={homeHref}>VINTAGE ALARM</a>
   </div>
   <div class="section-mast-right">
-    {languageHref && languageLabel && (
-      <a
-        class="section-language-link"
-        href={languageHref}
-        hreflang={languageHreflang || undefined}
-        lang={languageHreflang || undefined}
-      >{languageLabel}</a>
+    {resolvedLanguageLinks.length > 0 && (
+      <div class="section-language-links" aria-label={isGerman ? 'Sprachauswahl' : isEnglish ? 'Language switcher' : '言語切替'}>
+        {resolvedLanguageLinks.map((item: any) => (
+          <a
+            class="section-language-link"
+            href={item.href}
+            hreflang={item.hreflang || undefined}
+            lang={item.hreflang || undefined}
+          >{item.label}</a>
+        ))}
+      </div>
     )}
     <span>{rightLabel}</span>
   </div>
@@ -52,6 +74,7 @@ const summaryLabel = isEnglish ? 'Section menu' : 'セクションメニュー';
 <style>
   .section-mast-left{display:flex;align-items:center;gap:12px}
   .section-mast-right{display:flex;align-items:center;justify-content:flex-end;gap:12px;min-width:0}
+  .section-language-links{display:flex;align-items:center;gap:8px;min-width:0}
   .section-language-link{color:var(--soft);font-size:10px;line-height:1;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;white-space:nowrap}
   .section-menu{position:relative;border:0!important}
   .section-menu:last-child{border-bottom:0!important}
@@ -65,6 +88,7 @@ const summaryLabel = isEnglish ? 'Section menu' : 'セクションメニュー';
   @media(max-width:480px){
     .section-mast-left{gap:5px}
     .section-mast-right{gap:8px}
+    .section-language-links{gap:6px}
     .section-language-link{font-size:9px}
     .section-menu>summary{width:44px;height:44px;font-size:17px}
     .section-menu>summary::before{inset:8px}
