@@ -53,6 +53,10 @@ for (const watch of watches) {
     if (!ownersHtml.includes(historyHref)) failures.push(`${watch.slug}: missing from OWNER'S NOTES`);
     if (historyOwnerSlugs.has(watch.slug) && !historyHtml.includes(historyHref)) failures.push(`${watch.slug}: missing from HISTORY owner rail`);
     if (!sitemap.includes(`https://vintagealarm.github.io/${href}`)) failures.push(`${watch.slug}: missing from sitemap`);
+    const sitemapEntryPattern = new RegExp(
+      `<url><loc>https://vintagealarm\\.github\\.io/${watch.slug}/</loc><lastmod>\\d{4}-\\d{2}-\\d{2}</lastmod></url>`
+    );
+    if (!sitemapEntryPattern.test(sitemap)) failures.push(`${watch.slug}: sitemap lastmod missing or invalid`);
   } else {
     if (ownersHtml.includes(historyHref)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE leaked into directory`);
     if (historyHtml.includes(historyHref)) failures.push(`${watch.slug}: unpublished OWNER'S NOTE leaked into HISTORY`);
