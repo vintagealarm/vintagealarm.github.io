@@ -54,6 +54,7 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 重要：部品互換および10SのAS1200同定は `10WA = AS 1200 base` の直接証明ではない。現時点では「時刻側に AS 1200 family と強い部品互換性がある」まで。
 - Forum / repair user report には「10WA の basis は AS 1200」とする主張があるが、一次 / メーカー技術資料では未確認。
 - Longines 10L / 10.68Z と AS 1200 は、どちらも概ね10.5 ligne・17石仕様あり・18,000振動という近い条件を持つため、外径や石数だけでは判定不能。
+- Longines 10.68Z の技術資料では 10.5 ligne、17石、小秒針、18,000 A/h と確認できるが、これ自体は10WAとの接続証拠ではない。
 - 現時点で `Longines Cal.10`、`Longines 10L/10.68Z`、`AS 1200 base` のいずれも確定しない。
 - 採用条件：地板レイアウト、部品番号体系、サービス資料、メーカー資料、明確な同定写真のいずれかで直接比較する。
 
@@ -74,7 +75,9 @@ Webの多数決で専門書・一次資料を上書きしない。
 - `US2566741A` (Watch casing, priority 1948-07-10) と10WAケース設計の関係：権利者・時期は近いが、現時点で10WA対応を示す請求項・図面照合は未完了。
 - 「10WAアラームモジュールの特許取得」説：SNS上の証言あり。対応特許未特定。
 - `CH45807A` (Wittnauer & Co., priority 1908-11-27, Sonnerie pour mouvements d'horlogerie) はWittnauer名義の古い打鈴機構特許として確認できるが、10WAとの技術的・法人上の直接系譜は未証明。歴史的背景候補に留める。
-- Hanhart Cal.301 は Horlbeck / Beitl で1951年開始、回転ベゼルによるアラーム時刻設定が確認できる。一方「ベゼル操作そのものがアラームを巻上げる」ことは、現時点で確認した専門書本文では明示されない。Grail Watch Wiki等の二次記述はあるため保留。
+- `US1160065A` (Wittnauer Co., priority 1913-07-18, Striking attachment for timepieces) はWittnauer名義の別の古い打鈴機構特許として後年のstriking-work特許から参照されている。10WAとの直接系譜は未証明で、歴史的背景候補に留める。
+- Hanhart Cal.301 は Horlbeck / Beitl で1951年開始、回転ベゼルによるアラーム時刻設定が確認できる。一方「ベゼル操作そのものがアラームを巻上げる」ことは、現時点で確認した専門書本文では明示されない。Beitl掲載の当時広告も `Weckerzeigereinstellung durch drehbaren Glasreif` と設定機能を明記するが、巻上げ機能は記載しない。
+- Hanhart当時広告に `D.PAT. NR.873525` と読める表示がある。これがどの特許庁・どの公報番号・どの請求範囲を指すかは未特定。同番号のGB/FR検索結果は年代・内容が一致せず、番号一致だけで結びつけない。
 - `Ref.1215 / 1216 / 1216A` の公式な材質・市場・年代区分：後年の販売・オークション記録では繰り返し確認できるが、メーカー一次表未発見。
 - Mister Wolf Time 掲載のRef.1216には original Longines-Wittnauer fitted box と guarantee/warranty booklets が付属する。冊子現物の内容が読めれば当時資料へ昇格する可能性がある。
 - 「1950年にLonginesがWittnauerを買収」説：流通する二次情報は多いが、法人関係が複雑で一次・学術資料の整理が必要。
@@ -89,6 +92,8 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 「ケースにLongines-Wittnauer表記がある = 時刻ムーブメントもLongines製」：ケース証拠とムーブメント製造者を混同するため不採用。
 - `US2937271A` を 10WA の特許とみなすこと：1957年出願の遠隔信号用 signalling/alarm device で、10WAとは別物のため不採用。
 - `USD163314S` を 10WA アラーム機構の特許とみなすこと：watch dial の意匠特許であり、アラーム機構の請求ではないため不採用。
+- `USD153008S` を 10WA アラーム機構の特許とみなすこと：1948年出願の ornamental watch design であり、機構特許ではないため不採用。
+- `US2362245A` を 10WA のアラーム / ベゼル特許とみなすこと：1942年出願・1944年公開の航空機計器時計向け winding and setting mechanism で、アラームモジュールを請求していないため不採用。
 - `CH45807A` を10WAモジュール特許とみなすこと：1908/1909年の別時代の打鈴機構で、10WAとの直接対応を示す証拠なし。
 - 販売記事に `Longines Cal.10 base` と書かれていることだけでベースムーブメントを確定すること：孫引きの可能性があるため不採用。
 
@@ -112,6 +117,7 @@ Webの多数決で専門書・一次資料を上書きしない。
 9. ケース形状・張り出しベゼル・小型リューズの関係を技術資料で裏付けられるか。
 10. 所有個体の実測：鳴動時間、操作量、音、ベゼル回転量など。
 11. 1950年前後のLongines / Wittnauer / Longines-Wittnauer各法人の所有・開発・製造関係を一次資料ベースで整理できるか。
+12. Hanhart広告の `D.PAT. NR.873525` を正しいドイツ特許公報へ同定し、請求対象がベゼル設定・停止・音響等のどれかを確認できるか。
 
 ## Evidence source register
 
@@ -121,7 +127,7 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 同書、alarm module 解説章：genuine module の接続点は release apparatus、Wittnauer を代表例として説明。
 - Leonhard Beitl, *Alarm am Arm* (2009), Wittnauer pp.500–502：10WA、Longines hand-wound movement + separate alarm module、回転ベゼル、tone/gong、1950年代前半、後続AS採用。
 - 同書、Longines pp.295–296：Longines署名 10WA 個体を掲載。少数自社seriesという説明部分は推測として扱う。
-- 同書、Hanhart pp.207–211：Sans-Souci / Cal.301、1951広告、回転ベゼル式 alarm setting、後期停止スライダー。
+- 同書、Hanhart pp.206–211：Sans-Souci / Cal.301、1951頃の広告、回転ベゼル式 alarm setting、後期停止スライダー。広告では `Weckerzeigereinstellung durch drehbaren Glasreif` と設定機能を明記し、`D.PAT. NR.873525` 表示が見える。
 - Horlbeck Hanhart 301章：1951–1956、1香箱、lunetteでalarm time設定。確認範囲ではlunetteによる独立alarm spring巻上げとは記述していない。
 
 ### User specimen
@@ -137,7 +143,10 @@ Webの多数決で専門書・一次資料を上書きしない。
 - `US2937271A` — Longines-Wittnauer Watch Co. Inc., filed 1957-10-25, signalling/alarm device。遠隔信号用途で10WAとは別物。REJECTED。
 - `US2566741A` — Longines-Wittnauer Watch Co. Inc., priority 1948-07-10, *Watch casing*。10WAとの対応未証明。HOLD / 直接機構特許扱い禁止。
 - `USD163314S` — Leon M. Newhouse / Longines-Wittnauer, filed 1950-01-12, watch dial design。機構特許ではない。REJECTED as 10WA alarm patent。
+- `USD153008S` — Leon M. Newhouse / Longines-Wittnauer, filed 1948-07-10, *Design for a watch*。ornamental designのみ。REJECTED as 10WA alarm patent。
+- `US2362245A` — Louis Cohen / Longines-Wittnauer, priority 1942-05-20, *Winding and setting mechanism for watches*。航空機計器時計の前面stemによる巻上げ・時刻合わせ機構。10WA alarm/bezel機構とは別。REJECTED as direct 10WA evidence。
 - `CH45807A` — Wittnauer & Co., priority 1908-11-27, *Sonnerie pour mouvements d'horlogerie*。Wittnauer名義の打鈴機構特許として存在確認。10WA直接対応なし。
+- `US1160065A` — Wittnauer Co., priority 1913-07-18, *Striking attachment for timepieces*。後年の複数のstriking-work特許で先行技術として引用される。10WAとの直接対応なし。
 - Hanhart 公式履歴：Sans-Souci を1951年発売、Cal.301、patented とする。特許番号・請求範囲の直接確認は未完了。
 - FTC 1958 complaint/decision：Longines-Wittnauer Watch Company, Inc. とその子会社がスイス製ムーブメント・部品を輸入し、New Yorkで組立・販売していたことを記載。10WA個別製品の証拠ではない。
 
@@ -147,7 +156,9 @@ Webの多数決で専門書・一次資料を上書きしない。
 - Time Connection II / Bestfit database：AS 1200 factory part 445/654 (set bridge) の compatible caliber に WITTNAUER 10S / 10SC / 10WA を列挙。
 - Time Connection II / Bestfit：AS 1200 系 lower balance cap jewel screw の互換群に WITTNAUER 10WA を列挙。
 - winding stem interchange lists：AS 1200 系と WITTNAUER 10WA の共通 stem 情報あり。
+- Bestfit互換一覧は多数のブランド/派生caliberを横断しており、部品互換性の証拠としては有効だが、base caliber同定の証拠力は低い。
 - Ranfft：AS 1200 = 10.5 ligne, 23.7 mm, h 3.50 mm, 17石仕様あり, 18,000 A/h, 1945頃。Longines 10L / 10.68Z = 10.5 ligne, 23.65 mm, h 4.1 mm, 17石, 18,000 A/h, 1948頃。スペック近似だけでは判定不可。
+- Longines 10.68Z technical sheet：10.5 ligne、17 rubis、小秒針、18,000 A/h と技術図面を確認。10WAとの直接接続資料ではない。
 - `watch.weblog.to` の 10WA 分解記事：文字盤側に積層されたアラーム機構を実機分解写真で確認可能。専門Web / owner repair report として扱い、メーカー一次資料とは分離。
 - Meticulous Watches：Ref.1216、10k gold filled、36mm、ケース内 `Longines-Wittnauer Watch Co. Inc`、ベゼル内部gongとhammer tipの記述。販売/時計師資料であり一次資料ではない。
 - Private Eyes / Watchnet：Ref.1215、SS、36mm、serial 262,***、10WAの販売記録。
@@ -181,6 +192,17 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 1950年代の真正な10WA広告・取説・service sheetを複数語で探索したが、今回も本文を読める一次資料は未発見。`OPEN` 継続。
 - Ref.1216のbox + guarantee/warranty booklets付き現存例を発見。冊子本文が取得できれば一次資料候補になるためHOLD。
 - 「Longines acquired Wittnauer in 1950」「joint development for US market」を再監査。FTC、学術研究、1955訴訟資料と一般ブランド史で法人関係の表現が単純一致しないため、10WA記事では確定表現を避ける。
+
+### 2026-09-13 — Round 3: 特許ノイズ除去 / Hanhart先行例 / base比較の証拠力を再評価
+
+- Longines-Wittnauer名義の米国特許を追加探索。`US2362245A` は1942年出願の航空機計器時計向けwinding/setting mechanismで、alarm module / rotating bezelを請求しないため10WA直接証拠から除外。
+- `USD153008S` は1948年出願のwatch ornamental designであり、10WA機構特許候補から除外。
+- `US1160065A` は1913年優先のWittnauer名義 striking attachment として存在を確認。後年の打鈴特許から引用されるが、10WAへの直接系譜は未証明のため背景資料止まり。
+- Beitl掲載Hanhart広告を再確認。広告本文は「回転するガラス縁でアラーム針を設定」と明記するが、ベゼル巻上げは記載しない。Horlbeckの1香箱構造とも整合し、Hanhartを10WAのset+winding先行例として使う根拠はさらに弱くなった。
+- 同広告の `D.PAT. NR.873525` を追跡したが、文字列一致のGB/FR公報は年代・技術内容がHanhart 301と一致しない。管轄を確定せず番号だけで結びつけることを禁止し、正しいドイツ公報同定をOPENへ追加。
+- Bestfit互換部品リストの対象範囲を再確認。多数のブランド/caliberが同一交換部品群に並ぶため、「10WAがAS1200の部品と互換」から「10WAのbaseはAS1200」と推定する証拠力を一段下げた。
+- Longines 10.68Z技術資料を確認し、サイズ・石数・振動数・小秒針が10WA候補として整合し得ることは確認。ただし10WAとの直接リンクは依然ない。
+- 1950年代10WAのメーカー広告 / 取説 / service sheetは今回も発見できず。未発見は「存在しない」の証明には使わない。
 
 ## Editorial decisions
 
