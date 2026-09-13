@@ -63,18 +63,9 @@ deepDive:
   - number: "01"
     title: CYMAとは
     paragraphs:
-      - |-
-        1891年、Henri-Frédéric Sandozはスイス・タヴァンヌで時計製造を開始した。
-        Schwob Frèresとの協力を経て、1904年には「CYMA Tavannes Watch Co.」の商標が
-        登録されている。  
-      - |-
-        20世紀に入ると、Tavannes／CYMAは超薄型ムーブメントや高精度時計を展開した。
-        1910年には日産2,500本規模へ成長し、1913年には1,200人を擁するスイス有数の大規模時計工場となった。
-        1921年には、部品の互換性を高める新しい製造方法を導入した記録も残る。
-      - |-
-        1950年代、CYMAは自社製アラームムーブメント Cal.R.464 を搭載する 
-        Time-O-Vox を展開した。1香箱、2つのプッシャーと1本のリューズを組み合わせた
-        切替機構など、同時代の一般的なアラーム腕時計とは異なる構成を採っている。
+      - 1891年、Henri-Frédéric Sandozはスイス・タヴァンヌで時計製造を開始した。Schwob Frèresとの協力を経て、1904年には「CYMA Tavannes Watch Co.」の商標が登録されている。
+      - 20世紀に入ると、Tavannes／CYMAは超薄型ムーブメントや高精度時計を展開した。1910年には日産2,500本規模へ成長し、1913年には1,200人を擁するスイス有数の大規模時計工場となった。1921年には、部品の互換性を高める新しい製造方法を導入した記録も残る。
+      - 1950年代、CYMAは自社製アラームムーブメント Cal.R.464 を搭載するTime-O-Voxを展開した。1香箱、2つのプッシャーと1本のリューズを組み合わせた切替機構など、同時代の一般的なアラーム腕時計とは異なる構成を採っている。
     citationRefs:
       - "3"
       - "3"
@@ -84,9 +75,9 @@ deepDive:
     subtitle: 精度を求める時計に、アラームを載せる
     paragraphs:
       - ここでいう「矛盾」は、アラームを鳴らしながらクロノメーター試験をするという意味ではない。精度を求める時計に、アラーム機構を組み込んでいることを指す。
-      - 『Alarm am Arm』では、当時クロノメーターとして知られるアラーム腕時計は、CymaのほかにFortis
-        ManagerとVulcainの1モデルのみと記されている。
+      - 『Alarm am Arm』では、当時クロノメーターとして知られるアラーム腕時計は、CymaのほかにFortis ManagerとVulcainの1モデルのみと記されている。
     citationRefs:
+      - ""
       - "2"
   - number: "03"
     title: 2つのプッシャーとWippe
@@ -105,9 +96,7 @@ deepDive:
         alt: CYMA Time-O-Vox Cal.R.464 ムーブメント全景
         afterParagraph: 1
       - src: /images/cyma-time-o-vox/wipe.jpg
-        caption: |-
-          Wippeを含む切替機構と上下プッシャーの位置関係。
-          プッシャー操作に応じて、内部の接続先が切り替わる。
+        caption: Wippeを含む切替機構と上下プッシャーの位置関係。プッシャー操作に応じて、内部の接続先が切り替わる。
         alt: CYMA Cal.R.464 Wippeを含む切替機構と上下プッシャー
         afterParagraph: 3
   - number: "04"
@@ -132,9 +121,7 @@ deepDive:
     subtitle: 鳴動中は巻上げ側を切り離す
     paragraphs:
       - 1香箱式のアラームには、鳴動にともなってリューズまで回転する構造が多い。
-      - |-
-        R.464では、アラームが作動すると巻上げ機構の接続が外れる。
-        そのため、アラームが鳴っている間もリューズは回転しない。
+      - R.464では、アラームが作動すると巻上げ機構の接続が外れる。そのため、アラームが鳴っている間もリューズは回転しない。
     citationRefs:
       - "3"
       - 1,3
@@ -142,14 +129,12 @@ deepDive:
     title: Time-O-Voxのケースとラグ
     paragraphs:
       - Time-O-Voxは、ムーブメントだけでなくケースにも複数の仕様が確認されている。
-      - 『Alarm am
-        Arm』に掲載される金無垢モデルは、直径34mmの14Kケース。最も特徴的なのは、ケースから大きく伸びた完全に透かされたラグで、この金無垢仕様はChronomètreとして紹介されている。
+      - 『Alarm am Arm』に掲載される金無垢モデルは、直径34mmの14Kケース。最も特徴的なのは、ケースから大きく伸びた完全に透かされたラグで、この金無垢仕様はChronomètreとして紹介されている。
       - 一方、1955年頃のステンレスモデルでは、ラグの外形自体は金無垢仕様によく似ているものの、透かしは完全ではない。
       - さらに別のステンレス仕様では、同じ系統の形状を残しながら、ラグは完全に滑らかで透かし表現そのものがなくなっている。
       - 1957年頃になるとケースデザインはさらに変化し、金メッキケースに一般的な形状のラグを備えるTime-O-Voxも登場する。
       - 少なくとも、透かしラグの金無垢、部分的な透かしを持つステンレス、滑らかなラグのステンレス、後期の通常ラグという仕様差が確認できる。
-      - 今回掲載するOWNER'S NOTE個体は、購入書類上では約1956年、34mm、18Kイエローゴールド、Weber &
-        Cie製ケースとして記録されている。
+      - 今回掲載するOWNER'S NOTE個体は、購入書類上では約1956年、34mm、18Kイエローゴールド、Weber & Cie製ケースとして記録されている。
       - 文献に掲載される14K個体と同じ系統の透かしラグを持ちながら、18Kで仕立てられた実例になる。
     citationRefs:
       - 2,3
@@ -174,14 +159,10 @@ sourceMeta:
   - id: "6"
     type: owner
 sources:
-  - B. Humbert, 『Die Armband-Weckeruhr』Calibre TIME-O-VOX
-    No.464（R.464の単一香箱、2プッシャー、Wippe、輪列・鳴動停止機構）
-  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.134–136（Cyma
-    Time-O-Voxの金無垢・ステンレス・ラグ仕様、クロノメーター例）
-  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007),
-    Cyma section pp.96–99
-  - Chrono24 Kaufzertifikat / Plus Ultra AG invoice, Cyma Time-O-Vox Chronomètre
-    ref.1283, 18K yellow gold, circa 1956
+  - B. Humbert, 『Die Armband-Weckeruhr』Calibre TIME-O-VOX No.464（R.464の単一香箱、2プッシャー、Wippe、輪列・鳴動停止機構）
+  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.134–136（Cyma Time-O-Voxの金無垢・ステンレス・ラグ仕様、クロノメーター例）
+  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007), Cyma section pp.96–99
+  - Chrono24 Kaufzertifikat / Plus Ultra AG invoice, Cyma Time-O-Vox Chronomètre ref.1283, 18K yellow gold, circa 1956
   - 掲載個体の実測記録（1回の鳴動で約9時間分のパワーリザーブ消費）
   - 掲載個体の実機動画（タイミングホイールが約8秒間作動する様子）
 ---

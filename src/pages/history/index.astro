@@ -7,6 +7,7 @@ import OwnerThumbnailFrame from '../../components/OwnerThumbnailFrame.astro';
 import { historyCatalogByGroup } from '../../data/history-catalog';
 import { historyContent } from '../../data/history-content';
 import ownersDirectory from '../../data/owners-directory.json';
+import researchSettings from '../../data/research-settings.json';
 import '../../styles/site.css';
 import '../../styles/history-v13.css';
 import '../../styles/history-v18.css';
@@ -14,49 +15,21 @@ import '../../styles/history-v19.css';
 const base=import.meta.env.BASE_URL;
 const watches=await getCollection('watches');
 const watchBySlug=new Map(watches.map(item=>[item.data.slug,item]));
-const jaSegmenter=new Intl.Segmenter('ja',{granularity:'word'});
-const jaParticles=/^(は|が|を|に|へ|で|と|の|も|や|か|から|まで|より|など|って|として|なら|ので|ため)$/;
-const jaClosing=/^[、。！？…）」』】］〉》]+$/;
-const wrapJapanese=(text:string)=>{
- const groups:string[]=[];
- for(const part of jaSegmenter.segment(text.replaceAll('\n',''))){
-  const token=part.segment;
-  if(!token) continue;
-  if((jaParticles.test(token)||jaClosing.test(token))&&groups.length) groups[groups.length-1]+=token;
-  else groups.push(token);
- }
- return groups;
-};
+const researchPublished=researchSettings.published;
 const milestones=(era:string)=>historyCatalogByGroup.milestones.filter(entry=>entry.era===era&&entry.featured);
-const ownersForEra=(era:string)=>{
- const catalogOwners=historyCatalogByGroup.owners.filter(entry=>entry.era===era&&entry.featured);
- const directoryOwners=ownersDirectory.entries.filter(note=>note.historyEra===era);
- const ownerIds=[
-  ...catalogOwners.map(entry=>entry.id),
-  ...directoryOwners.map(note=>note.historyId).filter(id=>!catalogOwners.some(entry=>entry.id===id))
- ];
- return ownerIds.map(id=>{
-  const entry=catalogOwners.find(item=>item.id===id);
-  const directoryMeta=ownersDirectory.entries.find(note=>id===note.historyId);
-  const watch=directoryMeta?watchBySlug.get(directoryMeta.historyId):undefined;
-  const note=directoryMeta&&watch?.data.published?{
-   ...directoryMeta,
-   ownerNumber:watch.data.ownerNumber,
+const ownersForEra=(era:string)=>ownersDirectory.entries
+ .filter(note=>note.historyEra===era)
+ .flatMap(note=>{
+  const watch=watchBySlug.get(note.historyId);
+  if(!watch?.data.published) return [];
+  return [{
+   note,
    brand:watch.data.brand,
    name:watch.data.model,
-   href:`/${watch.data.slug}/#owners-note`
-  }:undefined;
-  const fallbackLabel=(entry?.name??`${watch?.data.brand??id} ${watch?.data.model??''}`).trim();
-  const [fallbackBrand,...fallbackName]=fallbackLabel.split(/\s+/);
-  return {
-   note,
-   brand:note?.brand??watch?.data.brand??fallbackBrand,
-   name:note?.name??watch?.data.model??fallbackName.join(' '),
-   href:note?`${base}${note.href.replace(/^\//,'')}`:undefined,
-   image:note?`${base}${(note.historyThumbnail??note.image).replace(/^\//,'')}`:undefined
-  };
+   href:`${base}${watch.data.slug}/#owners-note`,
+   image:`${base}${(note.historyThumbnail??note.image).replace(/^\//,'')}`
+  }];
  });
-};
 const {hero,coverMilestones,before,era1910s,era1940s,era1950s,era1960s,electronic,current,sources}=historyContent;
 const eras=[
  {id:'before',no:before.chapterNo,label:before.label,title:before.title,paragraphs:before.intro,teaser:before.teaser,motif:'images/history-motifs/before-watercolor.png',motifClass:'motif-before'},
@@ -68,6 +41,7 @@ const eras=[
 ];
 const title='アラーム腕時計の歴史｜Eterna・Cricket・Memovox・Duofon・Time-O-Vox｜VINTAGE ALARM';
 const description='鐘や携帯時計から、Eterna、Vulcain Cricket、Memovox、AS 1475、Pierce Duofon、Omega Memomatic、電子式アラームまで。「時間を知らせる」腕時計の歴史を辿る。';
+const socialImage='/images/history-motifs/1950s-train-watercolor.png';
 const root='https://vintagealarm.github.io/';
 const schema={'@context':'https://schema.org','@graph':[
  {'@type':'Article',headline:'アラーム腕時計の歴史',description,inLanguage:'ja',mainEntityOfPage:root+'history/',isPartOf:{'@type':'WebSite',name:'VINTAGE ALARM',url:root}},
@@ -78,7 +52,7 @@ const schema={'@context':'https://schema.org','@graph':[
  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#1c201c"/><link rel="icon" href="data:,"/>
  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet"/>
- <SeoHead title={title} description={description} path="history/" type="article" schema={schema}/>
+ <SeoHead title={title} description={description} path="history/" image={socialImage} type="article" schema={schema}/>
 </head><body class="history-v13 history-v18">
  <a class="history-skip" href="#before">本文へ</a><div class="history-mast"><SectionMast rightLabel="HISTORY"/></div>
  <main><section class="history-cover-v13" aria-labelledby="history-title"><div class="shell">
@@ -93,12 +67,12 @@ const schema={'@context':'https://schema.org','@graph':[
   return <details class:list={['chronology-era','chapter-v18',{'has-owners':eraOwners.length>0,'is-before':era.id==='before','has-motif':!!era.motif}]} id={era.id} aria-labelledby={`title-${era.id}`}>
    <summary class="chapter-summary-v18">
     <span class="chapter-index-v18">{era.no}</span>
-    <span class="chapter-summary-copy-v18"><small>{era.label}</small><h2 id={`title-${era.id}`}>{wrapJapanese(era.title).map(segment=><span class="ja-phrase">{segment}</span>)}</h2><span>{era.teaser}</span></span>
+    <span class="chapter-summary-copy-v18"><small>{era.label}</small><h2 id={`title-${era.id}`}>{era.title}</h2><span>{era.teaser}</span></span>
     {era.motif&&<img class:list={['chapter-motif-v18',era.motifClass]} src={`${base}${era.motif}`} alt="" aria-hidden="true"/>}
     <span class="chapter-toggle-v18" aria-hidden="true"><i></i></span>
    </summary>
    <div class:list={['shell','chapter-body-v18',{'has-owners-body-v18':eraOwners.length>0}]}>
-    <div class="chapter-copy">{era.paragraphs.map(paragraph=><p>{wrapJapanese(paragraph).map(segment=><span class="ja-phrase">{segment}</span>)}</p>)}</div>
+    <div class="chapter-copy">{era.paragraphs.map(paragraph=><p>{paragraph}</p>)}</div>
     {era.id!=='before'&&<HistoryMilestones entries={milestones(era.id)} id={`milestones-${era.id}`} label={`${era.label}のマイルストーン`}/>} 
     {eraOwners.length>0&&<aside class="history-owners" aria-label="OWNER'S NOTES">
      <div class="collection-lead"><p>所有個体から見る。</p><a href={`${base}owners-notes/`} aria-label="OWNER'S NOTES一覧">一覧 ↗</a></div>
@@ -108,7 +82,7 @@ const schema={'@context':'https://schema.org','@graph':[
   </details>
  })}
  <section class="history-current-v13 shell" id="current" aria-labelledby="current-title"><div class="chapter-date"><strong>CURRENT</strong><span>CHAPTER 06</span></div><div><h2 id="current-title">{current.title}</h2><a class="current-link" href={`${base}${current.href}`}><span>{current.name}</span><span aria-hidden="true">↗</span></a></div></section>
- <aside class="history-research-v13 shell" id="research" aria-label="次のリサーチ"><h2>RESEARCH</h2><p>次に気になっているものと、そのデータ。</p></aside>
+ {researchPublished&&<aside class="history-research-v13 shell" id="research" aria-label="次のリサーチ"><h2>{researchSettings.title}</h2><p>{researchSettings.lead}</p></aside>}
  <section class="history-sources-v13 shell"><details><summary>{sources.summary}</summary><ol class="history-source-list">{sources.items.map(item=><li id={`history-source-${item.id}`}><span class="history-source-no" aria-hidden="true">{item.id}</span><span>{item.text}</span></li>)}</ol></details></section>
  </main>
  <script>

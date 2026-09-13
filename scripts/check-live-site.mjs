@@ -7,6 +7,7 @@ if (!root) throw new Error('LIVE_SITE_ROOT is required');
 const site = root.endsWith('/') ? root : `${root}/`;
 const watches = readWatchPublicationState();
 const ownersDirectory = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/owners-directory.json'), 'utf8'));
+const researchSettings = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/research-settings.json'), 'utf8'));
 const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.historyId));
 
 const get = async (path) => {
@@ -32,6 +33,18 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
 
   if (home.ok && !home.text.includes('owners-notes/')) failures.push('home: OWNER\'S NOTES link missing');
   if (history.ok && !history.text.includes('id="milestones"')) failures.push('history: milestones missing');
+
+  if (researchSettings.published) {
+    if (home.ok && !home.text.includes('history/#research')) failures.push('home: published RESEARCH link missing');
+    if (history.ok && !history.text.includes('id="research"')) failures.push('history: published RESEARCH section missing');
+  } else {
+    if (home.ok && home.text.includes('history/#research')) failures.push('home: unpublished RESEARCH link leaked');
+    if (history.ok && (history.text.includes('history/#research') || history.text.includes('id="research"'))) failures.push('history: unpublished RESEARCH leaked');
+    if (owners.ok && owners.text.includes('history/#research')) failures.push('owners-notes: unpublished RESEARCH menu link leaked');
+  }
+
+  if (history.ok && history.text.includes('WITTNAUER ALARM')) failures.push('history: unpublished Wittnauer leaked into OWNER\'S NOTE rail');
+  if (owners.ok && !owners.text.includes('1950年代末〜1960年代初頭')) failures.push('owners-notes: uncertain Westclox date range missing');
 
   for (const watch of watches) {
     const page = await get(`${watch.slug}/`);
