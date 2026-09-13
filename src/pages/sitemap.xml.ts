@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { getCollection } from 'astro:content';
 import { englishWatchEntries } from '../data/en-watch-entry';
+import { germanWatchEntries } from '../data/de-watch-entry';
 
 function getGitLastmod(filePath: string) {
   try {
@@ -26,13 +27,17 @@ export async function GET() {
     { loc: `${root}history/` },
     { loc: `${root}owners-notes/` },
     { loc: `${root}en/` },
+    { loc: `${root}de/` },
     ...published.map((item) => ({
       loc: `${root}${item.data.slug}/`,
       lastmod: getGitLastmod(`src/content/watches/${item.data.slug}.md`)
     })),
     ...published
       .filter((item) => englishWatchEntries[item.data.slug])
-      .map((item) => ({ loc: `${root}en/${item.data.slug}/` }))
+      .map((item) => ({ loc: `${root}en/${item.data.slug}/` })),
+    ...published
+      .filter((item) => germanWatchEntries[item.data.slug])
+      .map((item) => ({ loc: `${root}de/${item.data.slug}/` }))
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(({ loc, lastmod }) => renderUrl(loc, lastmod)).join('\n')}\n</urlset>\n`;
   return new Response(body, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });
