@@ -58,7 +58,7 @@ try {
       }
 
       if (route === 'history/' && width <= 390) {
-        const historyRails = await page.evaluate(() => {
+        const historyState = await page.evaluate(() => {
           const eraNav = document.querySelector('.history-era-nav > .shell');
           const chapter = document.getElementById('1950s');
           if (chapter instanceof HTMLDetailsElement) chapter.open = true;
@@ -71,21 +71,61 @@ try {
               autoFit: image instanceof HTMLImageElement && image.hasAttribute('data-smart-watch-fit')
             };
           };
+          const heading = document.querySelector('.chapter-summary-copy-v18 h2');
+          const paragraph = document.querySelector('.chapter-copy p');
+          const headingStyle = heading ? getComputedStyle(heading) : null;
+          const paragraphStyle = paragraph ? getComputedStyle(paragraph) : null;
+          const closing = /^[、。！？…）」』】］〉》]/;
+          const opening = /[（「『【［〈《]$/;
+          const headingLineIssues = [];
+
+          for (const element of document.querySelectorAll('.chapter-summary-copy-v18 h2')) {
+            const node = [...element.childNodes].find((item) => item.nodeType === Node.TEXT_NODE);
+            if (!node?.textContent) continue;
+            const lines = new Map();
+            for (let index = 0; index < node.textContent.length; index += 1) {
+              const char = node.textContent[index];
+              if (/\s/.test(char)) continue;
+              const range = document.createRange();
+              range.setStart(node, index);
+              range.setEnd(node, index + 1);
+              const rect = range.getClientRects()[0];
+              if (!rect) continue;
+              const key = Math.round(rect.top);
+              lines.set(key, `${lines.get(key) || ''}${char}`);
+            }
+            for (const line of lines.values()) {
+              if (line.length === 1 || closing.test(line) || opening.test(line)) {
+                headingLineIssues.push(`${element.textContent?.trim()}: ${line}`);
+              }
+            }
+          }
+
           return {
             eraNavScrollable: !!eraNav && eraNav.scrollWidth > eraNav.clientWidth + 1,
             ownerRailScrollable: !!ownerRail && ownerRail.scrollWidth > ownerRail.clientWidth + 1,
             westcloxPresent: !!ownerRail?.querySelector('a[href*="westclox-watchlarm/#owners-note"]'),
+            wittnauerPresent: !!ownerRail?.textContent?.includes('WITTNAUER'),
             citizen: inspectListingImage('citizen-alarm'),
-            westclox: inspectListingImage('westclox-watchlarm')
+            westclox: inspectListingImage('westclox-watchlarm'),
+            legacyPhraseWrappers: document.querySelectorAll('.ja-phrase').length,
+            headingWordBreak: headingStyle?.wordBreak || '',
+            paragraphWordBreak: paragraphStyle?.wordBreak || '',
+            headingLineIssues
           };
         });
-        if (!historyRails.eraNavScrollable) failures.push(`${width}px history/: era navigation is not swipeable`);
-        if (!historyRails.ownerRailScrollable) failures.push(`${width}px history/: OWNER'S NOTE rail is not swipeable`);
-        if (!historyRails.westcloxPresent) failures.push(`${width}px history/: Westclox Watchlarm missing from 1950s owner rail`);
-        for (const [name, state] of [['Citizen', historyRails.citizen], ['Westclox', historyRails.westclox]]) {
+        if (!historyState.eraNavScrollable) failures.push(`${width}px history/: era navigation is not swipeable`);
+        if (!historyState.ownerRailScrollable) failures.push(`${width}px history/: OWNER'S NOTE rail is not swipeable`);
+        if (!historyState.westcloxPresent) failures.push(`${width}px history/: Westclox Watchlarm missing from 1950s owner rail`);
+        if (historyState.wittnauerPresent) failures.push(`${width}px history/: unpublished Wittnauer leaked into OWNER'S NOTE rail`);
+        for (const [name, state] of [['Citizen', historyState.citizen], ['Westclox', historyState.westclox]]) {
           if (!state.present || !state.srcPresent) failures.push(`${width}px history/: ${name} curated thumbnail element/src missing`);
           if (state.autoFit) failures.push(`${width}px history/: ${name} curated thumbnail must bypass SmartWatchFit`);
         }
+        if (historyState.legacyPhraseWrappers) failures.push(`${width}px history/: legacy ja-phrase wrappers remain`);
+        if (historyState.headingWordBreak !== 'normal') failures.push(`${width}px history/: heading word-break is ${historyState.headingWordBreak || 'unset'}, expected normal`);
+        if (historyState.paragraphWordBreak !== 'normal') failures.push(`${width}px history/: paragraph word-break is ${historyState.paragraphWordBreak || 'unset'}, expected normal`);
+        if (historyState.headingLineIssues.length) failures.push(`${width}px history/: awkward heading wrap: ${historyState.headingLineIssues.join(' | ')}`);
       }
 
       if (route === 'owners-notes/' && width <= 390) {

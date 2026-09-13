@@ -3,7 +3,7 @@
     {
       "historyId": "basis-alarm",
       "ownedEra": "1940s",
-      "ownedSortYear": 1948,
+      "ownedSortKey": 1948,
       "historyEra": "1940s",
       "image": "/images/IMG_8890.jpeg",
       "ownersThumbnail": "/images/IMG_8890.jpeg",
@@ -13,7 +13,7 @@
     {
       "historyId": "cyma-time-o-vox",
       "ownedEra": "1950s",
-      "ownedSortYear": 1956,
+      "ownedSortKey": 1956,
       "historyEra": "1950s",
       "image": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
       "ownersThumbnail": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
@@ -23,7 +23,7 @@
     {
       "historyId": "citizen-alarm",
       "ownedEra": "1950s",
-      "ownedSortYear": 1958,
+      "ownedSortKey": 1958,
       "historyEra": "1950s",
       "image": "/images/owners-thumbnails/citizen-alarm-full.jpg",
       "ownersThumbnail": "/images/owners-thumbnails/citizen-alarm-full.jpg",
@@ -32,8 +32,8 @@
     },
     {
       "historyId": "westclox-watchlarm",
-      "ownedEra": "1960s",
-      "ownedSortYear": 1960,
+      "ownedEra": "1950年代末〜1960年代初頭",
+      "ownedSortKey": 1959.5,
       "historyEra": "1950s",
       "image": "/images/IMG_2093-1.jpeg",
       "ownersThumbnail": "/images/IMG_2093-1.jpeg",
@@ -43,7 +43,7 @@
     {
       "historyId": "pierce-duofon",
       "ownedEra": "1960s",
-      "ownedSortYear": 1960,
+      "ownedSortKey": 1960,
       "historyEra": "1950s",
       "image": "/images/owners-thumbnails/pierce-duofon-full.png",
       "ownersThumbnail": "/images/owners-thumbnails/pierce-duofon-full.png",

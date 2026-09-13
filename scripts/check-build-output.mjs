@@ -26,6 +26,9 @@ for (const watch of watches) {
   if (!watch.published && fs.existsSync(route)) failures.push(`${watch.slug}: unpublished route was generated`);
 }
 
+const homeHtml = fs.existsSync(path.join(dist, 'index.html'))
+  ? fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
+  : '';
 const ownersHtml = fs.existsSync(path.join(dist, 'owners-notes/index.html'))
   ? fs.readFileSync(path.join(dist, 'owners-notes/index.html'), 'utf8')
   : '';
@@ -36,6 +39,7 @@ const sitemap = fs.existsSync(path.join(dist, 'sitemap.xml'))
   ? fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8')
   : '';
 const ownersDirectory = JSON.parse(fs.readFileSync(path.join(root, 'src/data/owners-directory.json'), 'utf8'));
+const researchSettings = JSON.parse(fs.readFileSync(path.join(root, 'src/data/research-settings.json'), 'utf8'));
 const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.historyId));
 
 for (const watch of watches) {
@@ -52,13 +56,44 @@ for (const watch of watches) {
   }
 }
 
+if (researchSettings.published) {
+  if (!homeHtml.includes('history/#research')) failures.push('RESEARCH published but TOP link is missing');
+  if (!historyHtml.includes('id="research"')) failures.push('RESEARCH published but HISTORY section is missing');
+} else {
+  for (const [name, html] of [['TOP', homeHtml], ['HISTORY', historyHtml], ["OWNER'S NOTES", ownersHtml]]) {
+    if (html.includes('history/#research') || html.includes('id="research"')) {
+      failures.push(`${name}: unpublished RESEARCH leaked into generated HTML`);
+    }
+  }
+}
+
+if (historyHtml.includes('ja-phrase')) {
+  failures.push('HISTORY: legacy nowrap phrase wrappers remain in generated HTML');
+}
+if (historyHtml.includes('WITTNAUER ALARM')) {
+  failures.push("HISTORY: unpublished Wittnauer card leaked into OWNER'S NOTES rail");
+}
+if (!ownersHtml.includes('1950年代末〜1960年代初頭')) {
+  failures.push('OWNER\'S NOTES: uncertain Westclox date range label is missing');
+}
+
+const cymaHtmlPath = path.join(dist, 'cyma-time-o-vox', 'index.html');
+if (fs.existsSync(cymaHtmlPath)) {
+  const cymaHtml = fs.readFileSync(cymaHtmlPath, 'utf8');
+  const fortisIndex = cymaHtml.indexOf('Fortis Manager');
+  const citationIndex = fortisIndex >= 0 ? cymaHtml.indexOf('href="#source-2"', fortisIndex) : -1;
+  if (fortisIndex < 0 || citationIndex < 0 || citationIndex - fortisIndex > 900) {
+    failures.push('Cyma: Beitl source 2 is not attached to the chronometer comparison paragraph');
+  }
+}
+
 const cyma = watches.find((watch) => watch.slug === 'cyma-time-o-vox');
 const cymaZoom = path.join(dist, 'cyma-time-o-vox', 'owners-note', 'index.html');
 if (cyma?.published) {
   if (!fs.existsSync(cymaZoom)) failures.push('Cyma enlargement page missing while watch is published');
   else if (!fs.readFileSync(cymaZoom, 'utf8').includes('noindex,follow')) failures.push('Cyma enlargement page lost noindex,follow');
 } else if (fs.existsSync(cymaZoom)) {
-  failures.push('Cyma enlargement page was generated while watch is unpublished');
+  failures.push('Cyma enlargement page was generated while Cyma is unpublished');
 }
 
 const pagesConfig = fs.readFileSync(path.join(root, '.pages.yml'), 'utf8');
@@ -72,6 +107,11 @@ if (pagesConfig.includes('name: ownersDirectory')) {
 for (const file of fs.readdirSync(dist, { recursive: true }).filter((file) => String(file).endsWith('.html'))) {
   const html = fs.readFileSync(path.join(dist, file), 'utf8');
   if (/data:image\/.*base64/.test(html)) failures.push(`${file}: embedded base64 image remains`);
+}
+for (const file of fs.readdirSync(dist, { recursive: true }).filter((file) => String(file).endsWith('.css'))) {
+  const css = fs.readFileSync(path.join(dist, file), 'utf8');
+  if (/word-break\s*:\s*break-all/i.test(css)) failures.push(`${file}: word-break: break-all remains`);
+  if (/\.ja-phrase\b/.test(css)) failures.push(`${file}: legacy ja-phrase nowrap CSS remains`);
 }
 
 if (failures.length) {

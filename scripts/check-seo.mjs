@@ -59,7 +59,6 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
     if (value(key) !== expected) fail(`${key} does not match page metadata`);
   for (const key of ['og:locale', 'og:site_name', 'og:type', 'twitter:card']) value(key);
   for (const key of ['og:image', 'twitter:image']) {
-    if (!meta(key).length && ['/', '/history/', '/owners-notes/'].includes(page)) continue;
     const image = value(key);
     try { const u = new URL(image); if (u.origin !== origin || !resolve(u)) fail(`${key}: missing or noncanonical image`); }
     catch { fail(`${key}: invalid image URL`); }

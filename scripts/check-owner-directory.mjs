@@ -21,7 +21,7 @@ const historySections = {
   '1960s': history.era1960s,
   electronic: history.electronic
 };
-const legacyKeys = ['ownerNumber', 'brand', 'name', 'catch', 'href', 'historyHref'];
+const legacyKeys = ['ownerNumber', 'brand', 'name', 'catch', 'href', 'historyHref', 'ownedSortYear'];
 
 const validateImage = (entry, key, required = true) => {
   const value = entry[key];
@@ -40,7 +40,7 @@ const validateImage = (entry, key, required = true) => {
 for (const entry of entries) {
   if (!entry.historyId) failures.push('entry missing historyId');
   if (!entry.ownedEra) failures.push(`${entry.historyId || 'entry'}: missing ownedEra`);
-  if (!Number.isFinite(entry.ownedSortYear)) failures.push(`${entry.historyId || 'entry'}: missing ownedSortYear`);
+  if (!Number.isFinite(entry.ownedSortKey)) failures.push(`${entry.historyId || 'entry'}: missing ownedSortKey`);
   if (!entry.historyEra || !validEras.has(entry.historyEra)) {
     failures.push(`${entry.historyId || 'entry'}: historyEra must be a valid HISTORY chapter`);
   }

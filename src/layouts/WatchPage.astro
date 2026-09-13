@@ -55,7 +55,7 @@ const directoryEntries = ownersDirectory.entries
       historyHref: `/history/#${meta.historyEra}`
     }];
   })
-  .sort((a, b) => a.ownedSortYear - b.ownedSortYear || Number(a.ownerNumber) - Number(b.ownerNumber));
+  .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
 const directoryIndex = directoryEntries.findIndex((entry) => entry.historyId === watch.slug);
 const currentDirectoryEntry = directoryIndex >= 0 ? directoryEntries[directoryIndex] : null;
 const nextDirectoryEntry = directoryEntries.length > 1 && directoryIndex >= 0
