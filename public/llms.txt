@@ -18,6 +18,10 @@ Published watch pages:
 English entry:
 - https://vintagealarm.github.io/en/
 
+German entry:
+- https://vintagealarm.github.io/de/
+- https://vintagealarm.github.io/de/pierce-duofon/
+
 Machine-readable index:
 - https://vintagealarm.github.io/sitemap.xml
 
