@@ -30,7 +30,7 @@ const textSummary = lang === 'en' ? 'Read as text' : 'テキストで読む';
     </span>
     <span class="zoom" aria-hidden="true">↗</span>
   </a>
-  <details class="plain">
+  <details class="plain" open={lang === 'en'}>
     <summary>{textSummary}</summary>
     <div class="owner-copy prose">
       <div class="owner-lead">
