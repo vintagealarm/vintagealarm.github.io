@@ -18,6 +18,7 @@ import { englishWatchEntries } from '../data/en-watch-entry';
 import { germanWatchEntriesWithCyma } from '../data/cyma-localizations';
 import { watchRecommendations } from '../data/watch-recommendations';
 import { watchResearchRecords } from '../data/watch-research';
+import { resolveSourceLibraryId } from '../data/source-library';
 import { getGitLastmod, latestDate } from '../lib/git-lastmod';
 
 const { watch } = Astro.props;
@@ -67,6 +68,11 @@ const dateModified = latestDate(
 const articleName = watch.slug === 'cyma-time-o-vox'
   ? 'CYMA TIME-O-VOX 18K CHRONOMÈTRE'
   : `${watch.brand} ${watch.model}`;
+const sourceLibraryIds = [...new Set(
+  (watch.sources ?? [])
+    .map((source: string) => resolveSourceLibraryId(source))
+    .filter((id: string | null): id is string => Boolean(id))
+)];
 const allWatches = await getCollection('watches');
 const watchBySlug = new Map(allWatches.map((item) => [item.data.slug, item]));
 const directoryEntries = ownersDirectory.entries
@@ -107,6 +113,9 @@ const schema = {
       url: pageUrl,
       image: imageUrl,
       ...(dateModified ? { dateModified } : {}),
+      ...(sourceLibraryIds.length ? {
+        citation: sourceLibraryIds.map((id) => ({ '@id': `${siteRoot}sources/#${id}` }))
+      } : {}),
       author: {
         '@type': 'Organization',
         name: 'VINTAGE ALARM',

@@ -16,12 +16,22 @@ export type HistoryCatalogEntry = {
   displaySummary?: string;
   displayNote?: string;
   sourceRefs?: string[];
+  sourcePages?: Record<string, string>;
   featured: boolean;
   href?: string;
   hrefKind?: 'site' | 'external';
 };
 
 type HistoryCatalogSourceEntry = Omit<HistoryCatalogEntry, 'era'>;
+
+const sourcePagesByEntry: Record<string, Record<string, string>> = {
+  'eterna-1914': { '1': 'pp.12–13', '2': 'pp.164–168' },
+  'vulcain-cricket': { '2': 'p.474' },
+  'as1475': { '1': 'pp.81–83' },
+  'vulcain-golden-voice': { '1': 'pp.58–59' },
+  'vulcain-cricket-nautical': { '2': 'p.479' },
+  'as5007-5008': { '1': 'pp.85–87', '2': 'p.75' }
+};
 
 const chapterCards = [
   ['1910s', historyContent.era1910s.cards],
@@ -32,7 +42,11 @@ const chapterCards = [
 ] as const;
 
 export const historyCatalog: HistoryCatalogEntry[] = chapterCards.flatMap(([era, cards]) =>
-  (cards as unknown as HistoryCatalogSourceEntry[]).map((entry) => ({ ...entry, era }))
+  (cards as unknown as HistoryCatalogSourceEntry[]).map((entry) => ({
+    ...entry,
+    era,
+    ...(sourcePagesByEntry[entry.id] ? { sourcePages: sourcePagesByEntry[entry.id] } : {})
+  }))
 );
 
 export const historyCatalogByGroup = {

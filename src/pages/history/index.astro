@@ -8,6 +8,7 @@ import { historyCatalogByGroup } from '../../data/history-catalog';
 import { historyContent } from '../../data/history-content';
 import ownersDirectory from '../../data/owners-directory.json';
 import researchSettings from '../../data/research-settings.json';
+import { resolveSourceLibraryId } from '../../data/source-library';
 import '../../styles/site.css';
 import '../../styles/history-v13.css';
 import '../../styles/history-v18.css';
@@ -47,8 +48,13 @@ const root='https://vintagealarm.github.io/';
 const japaneseUrl=root+'history/';
 const englishUrl=root+'en/history/';
 const germanUrl=root+'de/history/';
+const sourceLibraryIds=[...new Set(
+ sources.items
+  .map(item=>resolveSourceLibraryId(item.text))
+  .filter((id:string|null):id is string=>Boolean(id))
+)];
 const schema={'@context':'https://schema.org','@graph':[
- {'@type':'Article',headline:'アラーム腕時計の歴史',description,inLanguage:'ja',mainEntityOfPage:japaneseUrl,isPartOf:{'@type':'WebSite',name:'VINTAGE ALARM',url:root}},
+ {'@type':'Article',headline:'アラーム腕時計の歴史',description,inLanguage:'ja',mainEntityOfPage:japaneseUrl,isPartOf:{'@type':'WebSite',name:'VINTAGE ALARM',url:root},...(sourceLibraryIds.length?{citation:sourceLibraryIds.map(id=>({'@id':`${root}sources/#${id}`}))}:{})},
  {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'VINTAGE ALARM',item:root},{'@type':'ListItem',position:2,name:'HISTORY',item:japaneseUrl}]}
 ]};
 ---
@@ -95,7 +101,7 @@ const schema={'@context':'https://schema.org','@graph':[
  })}
  <section class="history-current-v13 shell" id="current" aria-labelledby="current-title"><div class="chapter-date"><strong>CURRENT</strong><span>CHAPTER 06</span></div><div><h2 id="current-title">{current.title}</h2><a class="current-link" href={`${base}${current.href}`}><span>{current.name}</span><span aria-hidden="true">↗</span></a></div></section>
  {researchPublished&&<aside class="history-research-v13 shell" id="research" aria-label="次のリサーチ"><h2>{researchSettings.title}</h2><p>{researchSettings.lead}</p></aside>}
- <section class="history-sources-v13 shell"><details><summary>{sources.summary}</summary><ol class="history-source-list">{sources.items.map(item=><li id={`history-source-${item.id}`}><span class="history-source-no" aria-hidden="true">{item.id}</span><span>{item.text}</span></li>)}</ol></details></section>
+ <section class="history-sources-v13 shell"><details><summary>{sources.summary}</summary><ol class="history-source-list">{sources.items.map(item=><li id={`history-source-${item.id}`} data-source-library-id={resolveSourceLibraryId(item.text)||undefined}><span class="history-source-no" aria-hidden="true">{item.id}</span><span>{item.text}</span></li>)}</ol></details></section>
  </main>
  <script>
   const links=[...document.querySelectorAll<HTMLAnchorElement>('.history-era-nav a')];

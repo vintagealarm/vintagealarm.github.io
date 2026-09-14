@@ -15,7 +15,7 @@ const noteSpacer = lang === 'ja' ? '' : ' ';
    <p>
     {summary}
     {entry.displayNote&&<>{noteSpacer}<span class="shelf-display-note-v18">{entry.displayNote}</span></>}
-    {entry.sourceRefs?.length > 0 && <sup class="shelf-source-refs" aria-label={`${sourceLabel} ${entry.sourceRefs.join(sourceSeparator)}`}>{entry.sourceRefs.map((ref,refIndex)=><>{refIndex>0&&<span aria-hidden="true">,</span>}<a href={`#history-source-${ref}`}>{ref}</a></>)}</sup>}
+    {entry.sourceRefs?.length > 0 && <sup class="shelf-source-refs" aria-label={`${sourceLabel} ${entry.sourceRefs.map(ref=>entry.sourcePages?.[ref]?`${ref} ${entry.sourcePages[ref]}`:ref).join(sourceSeparator)}`}>{entry.sourceRefs.map((ref,refIndex)=>{const pages=entry.sourcePages?.[ref];return <>{refIndex>0&&<span aria-hidden="true">,</span>}<a href={`#history-source-${ref}`}>{ref}{pages&&<span class="shelf-source-pages"> {pages}</span>}</a></>})}</sup>}
    </p>
    <small>{index+1} / {entries.length}</small>
   </article>;})}

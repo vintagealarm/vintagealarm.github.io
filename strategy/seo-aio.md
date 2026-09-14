@@ -1,6 +1,6 @@
 # VINTAGE ALARM — SEO / AIO運用方針
 
-更新日: 2026-09-13
+更新日: 2026-09-15
 
 ## 目的
 
@@ -57,6 +57,41 @@ AIO:
 AIOのためだけにllms.txt、機械的なQ&A分割、本文の細切れ化は行わない。
 
 外部AI観測の判定基準と実測ログは `measurement/discovery-v3.md` と `measurement/aio-observation-log.md` を正本とする。
+
+## Source Traceability / 出典追跡性改善
+
+この施策の目的は、AI引用率を上げることではなく、**読者が「この記述はどの資料のどこに基づくか」を自分で追跡・検証できる状態を作ること**。
+
+初期実装はHorlbeck / Beitlの2冊に限定する。巨大な文献DBや全資料カード化へ拡張しない。
+
+SOURCEカードに持たせる情報:
+- 書名
+- 著者
+- 刊行年
+- 出版社 / 発行者
+- ISBN（資料そのもの、出版社等で確認できる場合のみ）
+- VINTAGE ALARM内での主な参照範囲
+- Amazon等の入手リンクは `入手先` と明示し、史実の根拠・一次資料リンクとして扱わない
+
+HISTORY本文は全脚注化しない。次のような、検証されやすく事実関係の精度が重要な主張だけを、該当ページまたは一次資料へ直接紐付ける。
+- 年代
+- 特許番号
+- 「世界初」等の優先権主張
+- キャリバー
+- 発売 / 登場年
+- 資料間で差が出やすい仕様・系譜
+
+実装思想:
+- 「VINTAGE ALARMが正しいから信じる」ではなく、「根拠資料と参照箇所を示し、必要なら読者自身が確認できる」にする。
+- SOURCEカードは本文を論文化するためのものではない。HISTORYの可読性を維持する。
+- 既存WATCHの高密度な出典・OWNER OBSERVATION構造を、理由なく全面改修しない。
+- Amazon等の購入先追加だけで出典追跡性が改善したとは扱わない。
+- この施策を `AIO強化` と呼ばない。AI側の引用精度・意味保持・発見性への効果は、実装後に別途観測する。
+- 実装したことをAI露出改善の成果と扱わない。
+
+確認済み初期メタデータ:
+- Michael Philip Horlbeck, *The Alarm Wristwatch: The History of an Undervalued Feature*, Schiffer Publishing Ltd., 2007, ISBN 978-0-7643-2644-8
+- Leonhard Beitl, *Alarm am Arm*, Wien, 2009. 発行者: Leonhard Beitl（Wien）。ISBN 978-3-200-01646-0（Deutsche Nationalbibliothek、Deutsches Uhrenmuseum Glashütte蔵書目録、NAWCC書誌で外部照合）
 
 ## 英語入口
 
