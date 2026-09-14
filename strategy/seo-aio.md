@@ -1,6 +1,6 @@
 # VINTAGE ALARM — SEO / AIO運用方針
 
-更新日: 2026-09-14
+更新日: 2026-09-15
 
 ## 目的
 
@@ -91,7 +91,7 @@ HISTORY本文は全脚注化しない。次のような、検証されやすく�
 
 確認済み初期メタデータ:
 - Michael Philip Horlbeck, *The Alarm Wristwatch: The History of an Undervalued Feature*, Schiffer Publishing Ltd., 2007, ISBN 978-0-7643-2644-8
-- Leonhard Beitl, *Alarm am Arm*, Wien, 2009. 発行者: Leonhard Beitl（Wien）。ISBNは現時点で手元資料から未確認
+- Leonhard Beitl, *Alarm am Arm*, Wien, 2009. 発行者: Leonhard Beitl（Wien）。ISBN 978-3-200-01646-0（Deutsche Nationalbibliothek、Deutsches Uhrenmuseum Glashütte蔵書目録、NAWCC書誌で外部照合）
 
 ## 英語入口
 
