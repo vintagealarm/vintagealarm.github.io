@@ -2,7 +2,7 @@ import { files, document, attr, content, route, resolve, origin, finish } from '
 import { readWatchPublicationState } from './watch-publication.mjs';
 
 const watchStates = readWatchPublicationState();
-const germanWatchSlugs = new Set(['pierce-duofon']);
+const germanWatchSlugs = new Set(['pierce-duofon', 'westclox-watchlarm', 'cyma-time-o-vox']);
 const required = {
   '/': ['WebSite'],
   '/history/': ['Article', 'BreadcrumbList'],
