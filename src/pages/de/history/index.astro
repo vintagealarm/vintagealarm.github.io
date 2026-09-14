@@ -2,7 +2,44 @@
 import LocalizedHistoryPage from '../../../layouts/LocalizedHistoryPage.astro';
 import { germanHistoryContent } from '../../../data/history-localized';
 
-const title = 'Geschichte der Wecker-Armbanduhr | Eterna, Cricket, Memovox, Duofon, Time-O-Vox | VINTAGE ALARM';
-const description = 'Von Glocken und tragbaren Uhren über Eterna, Vulcain Cricket, Memovox, AS 1475, Pierce Duofon und Omega Memomatic bis zum elektronischen Alarm: die Geschichte der Armbanduhr, die zur eingestellten Zeit benachrichtigt.';
+const content = {
+  ...germanHistoryContent,
+  hero: {
+    ...germanHistoryContent.hero,
+    kicker: [
+      'Nicht nur die Zeit ablesen,',
+      'sondern benachrichtigt werden, wenn die eingestellte Zeit erreicht ist.'
+    ]
+  },
+  era1940s: {
+    ...germanHistoryContent.era1940s,
+    intro: 'Je dichter das Gehäuse einer Armbanduhr geschlossen wird, um das Werk vor Wasser und Staub zu schützen, desto schwieriger gelangt der Alarmton nach außen.\nDie Vulcain Cricket von 1947 verband mit einer Akustikkonstruktion mit doppeltem Gehäuseboden gute Hörbarkeit beim Tragen mit Wasserdichtigkeit.'
+  },
+  era1950s: {
+    ...germanHistoryContent.era1950s,
+    intro: 'In den 1950er-Jahren erweiterten sich die Anforderungen an Wecker-Armbanduhren: Serienfertigung, Miniaturisierung, automatischer Aufzug, Parkzeitkontrolle und unterschiedliche Möglichkeiten, Menschen in der Umgebung zu benachrichtigen.\nDie Hersteller beantworteten diese Anforderungen mit verschiedenen Lösungen für Energieversorgung, Akustik und Bedienung.',
+    cards: germanHistoryContent.era1950s.cards.map((card) => card.id === 'vulcain-golden-voice'
+      ? {
+          ...card,
+          displaySummary: 'Ein Armbandwecker für Damen.',
+          hook: 'Der weltweit erste Armbandwecker für Damen.'
+        }
+      : card)
+  },
+  era1960s: {
+    ...germanHistoryContent.era1960s,
+    teaser: 'Tauchen, Automatik und präzisere Einstellung der Alarmzeit.',
+    cards: germanHistoryContent.era1960s.cards.map((card) => card.id === 'seiko-bell-matic'
+      ? {
+          ...card,
+          hook: 'Vom Hammerautomaten zum Zentralrotor.',
+          displayNote: 'Vom Hammerautomaten zum Zentralrotor.'
+        }
+      : card)
+  }
+};
+
+const title = 'Geschichte des Armbandweckers | Eterna, Cricket, Memovox, Duofon, Time-O-Vox | VINTAGE ALARM';
+const description = 'Von Glocken und tragbaren Uhren über Eterna, Vulcain Cricket, Memovox, AS 1475, Pierce Duofon und Omega Memomatic bis zum elektronischen Alarm: die Geschichte des Armbandweckers.';
 ---
-<LocalizedHistoryPage lang="de" content={germanHistoryContent} title={title} description={description} />
+<LocalizedHistoryPage lang="de" content={content} title={title} description={description} />
