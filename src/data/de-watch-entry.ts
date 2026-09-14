@@ -244,7 +244,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         'Das dramatische Vorher und Nachher einer Armbanduhr mit 0 Steinen.',
         'Keine Steine.',
         'Auch keine separaten Metalllager.',
-        'Auch die drehbare Lünette und zusätzliche Räderwerke werden weggelassen.',
+        'Keine drehbare Lünette. Kein zusätzliches Einstellräderwerk.',
         'Und trotzdem bekommt sie einen Alarm.',
         'Was für eine Verwandlung.',
         'Die Meister der Wecker-Massenproduktion bauten einen Alarm in eine Armbanduhr mit 0 Steinen ein — und hielten die Zahl neuer Teile so klein wie möglich.'
@@ -271,7 +271,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       frequency: '18.000 A/h',
       barrels: '1 Federhaus',
       winding: 'Handaufzug',
-      acoustic: 'Boden-Glockensystem',
+      acoustic: 'Bodenglocke',
       notes: 'Alarmzeiteinstellung per Drücker bei 2 Uhr, beim gezeigten Exemplar 60 Drücke für 12 Stunden, EIN/AUS-Schieber bei 9 Uhr, Alarmdauer ca. 10 Sekunden'
     },
     specimenGallery: [
@@ -344,7 +344,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       },
       {
         number: '05',
-        title: 'Deutsches Gehäuse und die Klangkonstruktion',
+        title: 'Deutsches Gehäuse und Klangaufbau',
         paragraphs: [
           'Beitl verzeichnet Gehäuse und Zifferblatt des Westclox Alarm als in Deutschland hergestellt und beschreibt das abgebildete Beispiel mit verchromtem Messinggehäuse, gedrücktem Boden und 32,88 mm Durchmesser.',
           'Das auf dieser Seite gezeigte Exemplar ist mit 34 mm Gehäusedurchmesser dokumentiert. Da dies nicht mit den 32,88 mm des bei Beitl gezeigten Beispiels übereinstimmt, wird nicht behauptet, dass beide dieselbe Gehäusespezifikation besitzen.',
