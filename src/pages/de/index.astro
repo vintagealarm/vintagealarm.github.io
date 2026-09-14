@@ -29,7 +29,7 @@ const entries = ownersDirectory.entries
   .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
 
 const title = 'Mechanische Wecker-Armbanduhren — Deutsch | VINTAGE ALARM';
-const description = 'Deutsche VINTAGE-ALARM-Seiten zu mechanischen Wecker-Armbanduhren mit OWNER’S NOTE, Bedienung, Spezifikationen, Original-Alarmton, Exemplarfotos, DEEP DIVE und Quellen.';
+const description = 'VINTAGE ALARM auf Deutsch: die Geschichte der Wecker-Armbanduhr sowie vollständige Seiten zu Pierce Duofon, Cyma Time-O-Vox und Westclox Watchlarm mit OWNER’S NOTE, DEEP DIVE und Quellen.';
 const socialImage = '/images/pierce-duofon/gallery/pierce-duofon-wrist-front.jpg';
 const schema = {
   '@context': 'https://schema.org',
@@ -68,8 +68,9 @@ const schema = {
       </header>
       <section class="shell section" aria-label="Über die deutschen Seiten">
         <p class="german-intro">
-          Die deutschen Seiten folgen direkt dem japanischen Originaltext und behalten OWNER'S NOTE, Bedienung, Spezifikationen, DEEP DIVE, Quellen sowie die Trennung zwischen dokumentierten Angaben, Beobachtungen am Exemplar und vorsichtigen Einordnungen bei.
+          Die deutschen Seiten folgen direkt dem japanischen Originaltext und behalten OWNER'S NOTE, Bedienung, Spezifikationen, DEEP DIVE, Quellen sowie die Trennung zwischen dokumentierten Angaben, Beobachtungen am Exemplar und vorsichtigen Einordnungen bei. Die vollständige Geschichte der Wecker-Armbanduhr ist ebenfalls auf Deutsch verfügbar.
         </p>
+        <p class="german-history-link"><a href={`${base}de/history/`}>GESCHICHTE DER WECKER-ARMBANDUHR →</a></p>
       </section>
       <section class="shell directory-eras" aria-label="Deutsche Uhrenseiten">
         <section class="directory-era">
@@ -94,4 +95,6 @@ const schema = {
 
 <style>
   .german-intro{max-width:780px;line-height:1.85}
+  .german-history-link{margin-top:18px}
+  .german-history-link a{font-size:13px;letter-spacing:.05em;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
 </style>
