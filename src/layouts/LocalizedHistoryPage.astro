@@ -7,7 +7,7 @@ import OwnerThumbnailFrame from '../components/OwnerThumbnailFrame.astro';
 import ownersDirectory from '../data/owners-directory.json';
 import researchSettings from '../data/research-settings.json';
 import { englishWatchEntries } from '../data/en-watch-entry';
-import { germanWatchEntries } from '../data/de-watch-entry';
+import { germanWatchEntriesWithCyma } from '../data/cyma-localizations';
 import '../styles/site.css';
 import '../styles/history-v13.css';
 import '../styles/history-v18.css';
@@ -62,7 +62,7 @@ const ownersForEra = (era: string) => ownersDirectory.entries
       ? englishWatchEntries[watch.data.slug]
         ? `${base}en/${watch.data.slug}/#owners-note`
         : `${base}${watch.data.slug}/#owners-note`
-      : germanWatchEntries[watch.data.slug]
+      : germanWatchEntriesWithCyma[watch.data.slug]
         ? `${base}de/${watch.data.slug}/#owners-note`
         : englishWatchEntries[watch.data.slug]
           ? `${base}en/${watch.data.slug}/#owners-note`
