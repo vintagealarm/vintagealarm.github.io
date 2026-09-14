@@ -16,6 +16,7 @@
 分野別ルーティング:
 
 - 本文 / WATCH / HISTORY / OWNER'S NOTES / 翻訳 → `SITE_RULES.md`
+- 日本語本文の新規執筆 / 大幅な書き直し → `SITE_RULES.md` + `strategy/japanese-writing.md`。必要な場合だけ `references/voice-samples.md`
 - デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md` + 関係する `SITE_RULES.md`
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
 - Analytics / 計測 → `measurement/metrics.md` + 対象実装
@@ -53,6 +54,7 @@
 変更後は影響範囲に応じて最小限の確認から始め、必要な場合だけ広げる。
 
 - コード / 構造変更: build / test / lint等の該当検査
+- 日本語本文 / 文書の新規執筆・大幅改稿: `npm run check:japanese-style`。warningは再読のきっかけであり、自動修正命令ではない
 - デザイン変更: `DESIGN_ENGINEERING.md` の実寸監査。build成功だけで検証済みにしない
 - 公開ページ: 必要に応じて主要ページ生成、リンク、メタデータ、mobile表示を確認
 - SEO / AIO / Analytics: 実装と成果観測を分離する
@@ -108,6 +110,7 @@ V2共通プロトコル:
 - 同じ調査を複数エージェントへ重複依頼しない。
 - 既に取得したファイル・検索結果・決定事項を理由なく再取得しない。
 - 広いリポジトリ全走査は、対象箇所を特定できない場合に限る。
+- `strategy/japanese-writing.md` と `references/voice-samples.md` は日本語執筆・大幅改稿の時だけ読む。通常のコード修正や調査で常時読み込まない。
 - Web検索は、最新性・一次資料・外部確認が必要な論点に絞る。
 - 十分な証拠が揃ったら探索を止め、実装・検証へ進む。
 - 長い作業ログを毎回再掲せず、差分・結論・未確認事項を優先する。
