@@ -1,4 +1,6 @@
 ---
+import { resolveSourceLibraryId } from '../data/source-library';
+
 const { sources, meta = [], lang = 'ja', research = null } = Astro.props;
 const isEnglish = lang === 'en';
 const isGerman = lang === 'de';
@@ -50,9 +52,10 @@ const parseInlineLink = (source: string) => {
           const label = typeLabel[itemMeta?.type as keyof typeof typeLabel];
           const displaySource = stripDuplicatedTypePrefix(source, itemMeta?.type, label);
           const linkedSource = parseInlineLink(displaySource);
+          const libraryId = resolveSourceLibraryId(displaySource);
 
           return (
-            <li id={`source-${id}`}>
+            <li id={`source-${id}`} data-source-library-id={libraryId || undefined}>
               <span class="source-no" aria-hidden="true">{id}</span>
               <div class="source-copy">
                 {label && <span class="source-kind">{label}</span>}
@@ -65,6 +68,9 @@ const parseInlineLink = (source: string) => {
                     </>
                   ) : displaySource}
                 </span>
+                {!isEnglish && !isGerman && libraryId && (
+                  <a class="source-library-link" href={`/sources/#${libraryId}`}>資料カード</a>
+                )}
               </div>
             </li>
           );
@@ -115,6 +121,7 @@ const parseInlineLink = (source: string) => {
   .source-no{color:var(--red,#934932);font:600 12px/1.5 var(--sans,sans-serif);padding-top:3px}
   .source-copy{min-width:0;color:var(--soft,#58634e);font-size:14px;line-height:1.9}
   .source-copy a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+  .source-library-link{display:inline-block;margin-left:8px;font:500 10px/1.5 var(--sans,sans-serif);letter-spacing:.04em;white-space:nowrap}
   .source-kind{display:inline-block;margin:0 8px 6px 0;padding:2px 7px;border:1px solid var(--rule,#bcc5b2);font:600 10px/1.5 var(--sans,sans-serif);letter-spacing:.06em;color:var(--soft,#58634e);vertical-align:.08em}
   .research-record,.revision-record{border-top:1px solid var(--rule,#bcc5b2);padding:20px 0 8px}
   .revision-record{margin-top:16px}
@@ -131,6 +138,7 @@ const parseInlineLink = (source: string) => {
   @media(max-width:480px){
     .source-list li{grid-template-columns:24px minmax(0,1fr);gap:10px;padding:16px 0}
     .source-copy{font-size:13px;line-height:1.85}
+    .source-library-link{font-size:9px}
     .source-kind{font-size:9px}
     .research-record,.revision-record{padding-top:18px}
     .research-grid>div,.revision-list li{grid-template-columns:108px minmax(0,1fr);gap:12px;padding:8px 0}
