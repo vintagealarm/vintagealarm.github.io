@@ -1,7 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { getCollection } from 'astro:content';
 import { englishWatchEntries } from '../data/en-watch-entry';
-import { germanWatchEntries } from '../data/de-watch-entry';
+import { germanWatchEntriesWithCyma } from '../data/cyma-localizations';
 
 function getGitLastmod(filePath: string) {
   try {
@@ -36,7 +36,7 @@ export async function GET() {
       .filter((item) => englishWatchEntries[item.data.slug])
       .map((item) => ({ loc: `${root}en/${item.data.slug}/` })),
     ...published
-      .filter((item) => germanWatchEntries[item.data.slug])
+      .filter((item) => germanWatchEntriesWithCyma[item.data.slug])
       .map((item) => ({ loc: `${root}de/${item.data.slug}/` }))
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(({ loc, lastmod }) => renderUrl(loc, lastmod)).join('\n')}\n</urlset>\n`;
