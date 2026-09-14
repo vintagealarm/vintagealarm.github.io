@@ -1,0 +1,9 @@
+---
+import LocalizedSourcesPage from '../../../layouts/LocalizedSourcesPage.astro';
+import { localizedSourceLibrary } from '../../../data/source-library-localized';
+
+const books = localizedSourceLibrary('de').filter((item) => item.category === 'reference-book');
+const title = 'Quellen & Literatur | VINTAGE ALARM';
+const description = 'Die von VINTAGE ALARM wiederholt verwendeten Fachbücher mit bibliographischen Angaben, wichtigen Verwendungen, Bibliotheks- und Verlagsnachweisen sowie Bezugslinks.';
+---
+<LocalizedSourcesPage lang="de" books={books} title={title} description={description} />
