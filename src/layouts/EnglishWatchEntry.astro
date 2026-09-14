@@ -28,7 +28,7 @@ const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
 const pageTitle = fullResearch?.title ?? entry.title;
 const pageDescription = fullResearch?.description ?? entry.description;
 const translatedOwnersNote = {
-  image: socialImage,
+  image: watch.ownersNote.image,
   ...entry.ownersNote
 };
 const languageLinks = [
