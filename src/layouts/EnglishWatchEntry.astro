@@ -10,10 +10,12 @@ import SpecimenGallery from '../components/SpecimenGallery.astro';
 import Sources from '../components/Sources.astro';
 import OwnerFonts from '../components/OwnerFonts.astro';
 import { englishFullResearchWithCyma, germanWatchEntriesWithCyma } from '../data/cyma-localizations';
+import { englishCymaEntry } from '../data/cyma-en-entry';
 import '../styles/site.css';
 import '../styles/owners-v15.css';
 
 const { watch, entry } = Astro.props;
+const localizedEntry = watch.slug === 'cyma-time-o-vox' ? englishCymaEntry : entry;
 const fullResearch = englishFullResearchWithCyma[watch.slug];
 const germanEntry = germanWatchEntriesWithCyma[watch.slug];
 const siteRoot = 'https://vintagealarm.github.io/';
@@ -24,11 +26,11 @@ const japaneseUrl = new URL(japanesePath, siteRoot).href;
 const germanUrl = germanEntry ? new URL(`de/${watch.slug}/`, siteRoot).href : null;
 const socialImage = watch.specimenGallery?.[0]?.image ?? watch.ownersNote.image;
 const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
-const pageTitle = fullResearch?.title ?? entry.title;
-const pageDescription = fullResearch?.description ?? entry.description;
+const pageTitle = fullResearch?.title ?? localizedEntry.title;
+const pageDescription = fullResearch?.description ?? localizedEntry.description;
 const translatedOwnersNote = {
   image: watch.ownersNote.image,
-  ...entry.ownersNote
+  ...localizedEntry.ownersNote
 };
 const languageLinks = [
   { href: `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
@@ -110,7 +112,7 @@ const schema = {
       languageLinks={languageLinks}
     />
     <main>
-      <WatchHero brand={watch.brand} model={watch.model} catchLines={entry.catch} ownerNumber={watch.ownerNumber} />
+      <WatchHero brand={watch.brand} model={watch.model} catchLines={localizedEntry.catch} ownerNumber={watch.ownerNumber} />
 
       {!fullResearch && (
         <section class="shell section english-gateway-note" aria-label="About this English entry">
@@ -123,7 +125,7 @@ const schema = {
 
       <div class="shell owners-grid">
         <OwnersNote data={translatedOwnersNote} alt={`${watch.brand} ${watch.model} specimen`} lang="en" />
-        <WatchSpec spec={entry.spec} lang="en" />
+        <WatchSpec spec={localizedEntry.spec} lang="en" />
       </div>
 
       {watch.video && <AlarmVideo video={watch.video} title={`${watch.brand} ${watch.model}`} lang="en" />}
