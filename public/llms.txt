@@ -8,6 +8,10 @@ Primary sections:
 - https://vintagealarm.github.io/history/
 - https://vintagealarm.github.io/owners-notes/
 
+Localized HISTORY:
+- https://vintagealarm.github.io/en/history/
+- https://vintagealarm.github.io/de/history/
+
 Published watch pages:
 - https://vintagealarm.github.io/cyma-time-o-vox/
 - https://vintagealarm.github.io/pierce-duofon/
