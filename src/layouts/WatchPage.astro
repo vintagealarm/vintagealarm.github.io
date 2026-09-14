@@ -15,7 +15,7 @@ import '../styles/owners-v15.css';
 import OwnerFonts from '../components/OwnerFonts.astro';
 import ownersDirectory from '../data/owners-directory.json';
 import { englishWatchEntries } from '../data/en-watch-entry';
-import { germanWatchEntries } from '../data/de-watch-entry';
+import { germanWatchEntriesWithCyma } from '../data/cyma-localizations';
 import { watchRecommendations } from '../data/watch-recommendations';
 import { watchResearchRecords } from '../data/watch-research';
 import { getGitLastmod, latestDate } from '../lib/git-lastmod';
@@ -46,7 +46,7 @@ const pagePath = `${watch.slug}/`;
 const pageUrl = new URL(pagePath, siteRoot).href;
 const imageUrl = new URL(watch.ownersNote.image.replace(/^\//, ''), siteRoot).href;
 const englishEntry = englishWatchEntries[watch.slug];
-const germanEntry = germanWatchEntries[watch.slug];
+const germanEntry = germanWatchEntriesWithCyma[watch.slug];
 const englishUrl = englishEntry ? new URL(`en/${watch.slug}/`, siteRoot).href : null;
 const germanUrl = germanEntry ? new URL(`de/${watch.slug}/`, siteRoot).href : null;
 const alternates = [
