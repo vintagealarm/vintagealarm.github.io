@@ -8,9 +8,11 @@ const title='資料・出典｜VINTAGE ALARM';
 const description='VINTAGE ALARMで繰り返し参照する専門書を、書誌情報・主な参照範囲・図書館／書誌確認・入手先とともに整理する資料ページ。';
 const root='https://vintagealarm.github.io/';
 const pageUrl=root+'sources/';
+const englishUrl=root+'en/sources/';
+const germanUrl=root+'de/sources/';
 const books=sourceLibrary.filter(item=>item.category==='reference-book');
 const schema={'@context':'https://schema.org','@graph':[
-  {'@type':'CollectionPage',name:'資料・出典',description,url:pageUrl,isPartOf:{'@type':'WebSite',name:'VINTAGE ALARM',url:root}},
+  {'@type':'CollectionPage',name:'資料・出典',description,inLanguage:'ja',url:pageUrl,isPartOf:{'@type':'WebSite',name:'VINTAGE ALARM',url:root}},
   ...books.map(item=>({
     '@type':'Book',
     '@id':`${pageUrl}#${item.id}`,
@@ -35,9 +37,17 @@ const schema={'@context':'https://schema.org','@graph':[
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet"/>
-  <SeoHead title={title} description={description} path="sources/" type="website" schema={schema}/>
+  <SeoHead title={title} description={description} path="sources/" type="website" schema={schema} alternates={[
+    {hreflang:'ja',href:pageUrl},
+    {hreflang:'en',href:englishUrl},
+    {hreflang:'de',href:germanUrl},
+    {hreflang:'x-default',href:pageUrl}
+  ]}/>
 </head><body>
-  <SectionMast rightLabel="SOURCES"/>
+  <SectionMast rightLabel="SOURCES" languageLinks={[
+    {href:'/en/sources/',label:'EN',hreflang:'en'},
+    {href:'/de/sources/',label:'DE',hreflang:'de'}
+  ]}/>
   <main class="source-library shell">
     <header class="source-library-head">
       <p class="source-kicker">SOURCE TRACEABILITY</p>
