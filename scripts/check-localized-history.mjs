@@ -56,6 +56,12 @@ try {
         const menuHistoryLink = [...document.querySelectorAll('.section-menu-panel a')]
           .find((link) => new URL(link.getAttribute('href') || '', location.href).pathname === menuHref);
         const currentLink = document.querySelector('#current .current-link');
+        const localizedNoteSpacingOk = [...document.querySelectorAll('.shelf-display-note-v18')].every((note) => {
+          const parentText = note.parentElement?.textContent || '';
+          const noteText = note.textContent || '';
+          const index = parentText.indexOf(noteText);
+          return index <= 0 || /\s/.test(parentText[index - 1]);
+        });
 
         return {
           lang: document.documentElement.lang,
@@ -69,6 +75,7 @@ try {
           menuHistoryLink: !!menuHistoryLink,
           currentHref: currentLink?.getAttribute('href') || '',
           currentHreflang: currentLink?.getAttribute('hreflang') || '',
+          localizedNoteSpacingOk,
           expectedLang,
           expectedSourceSummary: sourceSummary
         };
@@ -88,6 +95,7 @@ try {
       if (!state.menuHistoryLink) failures.push(`${width}px ${testCase.route}: localized HISTORY menu link missing`);
       if (width <= 390 && !state.eraNavScrollable) failures.push(`${width}px ${testCase.route}: era navigation is not swipeable`);
       if (testCase.lang !== 'ja') {
+        if (!state.localizedNoteSpacingOk) failures.push(`${width}px ${testCase.route}: milestone summary and note are concatenated without whitespace`);
         if (!state.currentHref.endsWith('/history/smartwatch/')) failures.push(`${width}px ${testCase.route}: SMARTWATCH epilogue link changed`);
         if (state.currentHreflang !== 'ja') failures.push(`${width}px ${testCase.route}: Japanese SMARTWATCH epilogue must declare hreflang=ja`);
       }
