@@ -5,7 +5,7 @@ import { sourceLibrary } from '../../data/source-library';
 import '../../styles/site.css';
 
 const title='資料・出典｜VINTAGE ALARM';
-const description='VINTAGE ALARMで繰り返し参照する専門書を、書誌情報・主な参照範囲・入手先とともに整理する資料ページ。';
+const description='VINTAGE ALARMで繰り返し参照する専門書を、書誌情報・主な参照範囲・図書館／書誌確認・入手先とともに整理する資料ページ。';
 const root='https://vintagealarm.github.io/';
 const pageUrl=root+'sources/';
 const schema={'@context':'https://schema.org','@graph':[
@@ -32,7 +32,7 @@ const books=sourceLibrary.filter(item=>item.category==='reference-book');
     <header class="source-library-head">
       <p class="source-kicker">SOURCE TRACEABILITY</p>
       <h1>資料・出典</h1>
-      <p>VINTAGE ALARMで繰り返し参照する資料を、読者自身が追跡できるように整理します。ここにある入手先リンクは資料そのものの根拠ではなく、同じ資料を確認するための補助導線です。</p>
+      <p>VINTAGE ALARMで繰り返し参照する資料を、読者自身が追跡できるように整理します。図書館・出版社・書誌資料へのリンクは、資料の実在、版、ISBNなどを確認するための補助導線です。歴史的主張そのものは、HISTORY / WATCH側で該当ページや一次資料へ紐付けます。</p>
     </header>
 
     <section aria-labelledby="reference-books-title">
@@ -54,6 +54,10 @@ const books=sourceLibrary.filter(item=>item.category==='reference-book');
             <h4>VINTAGE ALARM内の主な参照</h4>
             <ul>{item.usedFor.map(use=><li>{use}</li>)}</ul>
           </div>
+          {item.bibliography&&item.bibliography.length>0&&<div class="source-links source-bibliography" aria-label="書誌確認">
+            <span>書誌確認</span>
+            {item.bibliography.map(link=><a href={link.url} rel="noopener noreferrer" target="_blank" data-kind={link.kind}>{link.label} ↗</a>)}
+          </div>}
           {item.note&&<p class="source-note">{item.note}</p>}
           {item.acquisition&&item.acquisition.length>0&&<div class="source-links" aria-label="入手先">
             <span>入手先</span>
@@ -93,6 +97,7 @@ const books=sourceLibrary.filter(item=>item.category==='reference-book');
   .source-uses ul{margin:0;padding-left:1.1em;font-size:13px;line-height:1.8}
   .source-note{margin:20px 0 0;padding-top:16px;border-top:1px solid var(--rule);font-size:12px;line-height:1.8;color:var(--soft)}
   .source-links{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .source-bibliography{padding-top:16px;border-top:1px solid var(--rule)}
   .source-links>span{font:600 10px/1 Inter,sans-serif;letter-spacing:.1em;color:var(--soft)}
   .source-links a{color:var(--ink);font-size:12px;text-underline-offset:3px}
   .source-scope{margin-top:34px;padding:20px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
