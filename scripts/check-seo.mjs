@@ -6,6 +6,8 @@ const germanWatchSlugs = new Set(['pierce-duofon', 'westclox-watchlarm', 'cyma-t
 const required = {
   '/': ['WebSite'],
   '/history/': ['Article', 'BreadcrumbList'],
+  '/en/history/': ['Article', 'BreadcrumbList'],
+  '/de/history/': ['Article', 'BreadcrumbList'],
   '/owners-notes/': ['CollectionPage'],
   '/en/': ['CollectionPage'],
   '/de/': ['CollectionPage'],
