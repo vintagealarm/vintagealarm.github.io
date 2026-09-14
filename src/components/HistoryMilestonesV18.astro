@@ -1,6 +1,9 @@
 ---
 import type { HistoryCatalogEntry } from '../data/history-catalog';
-const { entries, id, label } = Astro.props as { entries: HistoryCatalogEntry[]; id: string; label: string };
+type MilestoneEntry = Omit<HistoryCatalogEntry, 'era'> & { era?: HistoryCatalogEntry['era'] };
+const { entries, id, label, lang = 'ja' } = Astro.props as { entries: MilestoneEntry[]; id: string; label: string; lang?: 'ja' | 'en' | 'de' };
+const sourceLabel = lang === 'en' ? 'Sources' : lang === 'de' ? 'Quellen' : '出典';
+const sourceSeparator = lang === 'ja' ? '、' : ', ';
 ---
 {entries.length > 0 && <section class="history-shelf-v18" id={id} aria-label={label} data-milestones>
  <header class="shelf-heading-v18"><h3>MILESTONES</h3><span>{entries.length}</span></header>
@@ -11,7 +14,7 @@ const { entries, id, label } = Astro.props as { entries: HistoryCatalogEntry[]; 
    <p>
     {summary}
     {entry.displayNote&&<span class="shelf-display-note-v18">{entry.displayNote}</span>}
-    {entry.sourceRefs?.length > 0 && <sup class="shelf-source-refs" aria-label={`出典 ${entry.sourceRefs.join('、')}`}>{entry.sourceRefs.map((ref,refIndex)=><>{refIndex>0&&<span aria-hidden="true">,</span>}<a href={`#history-source-${ref}`}>{ref}</a></>)}</sup>}
+    {entry.sourceRefs?.length > 0 && <sup class="shelf-source-refs" aria-label={`${sourceLabel} ${entry.sourceRefs.join(sourceSeparator)}`}>{entry.sourceRefs.map((ref,refIndex)=><>{refIndex>0&&<span aria-hidden="true">,</span>}<a href={`#history-source-${ref}`}>{ref}</a></>)}</sup>}
    </p>
    <small>{index+1} / {entries.length}</small>
   </article>;})}
