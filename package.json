@@ -10,9 +10,11 @@
     "check:seo": "node scripts/check-seo.mjs",
     "check:citations": "node scripts/check-watch-citations.mjs",
     "check:source-traceability": "node scripts/check-source-traceability.mjs",
+    "check:japanese-style": "node scripts/check-japanese-style.mjs",
     "check:images": "node scripts/check-image-duplicates.mjs",
-    "check:quality": "npm run check:links && npm run check:seo && npm run check:citations && npm run check:source-traceability && npm run check:images",
-    "test:quality": "node scripts/test-quality-gates.mjs"
+    "check:quality": "npm run check:links && npm run check:seo && npm run check:citations && npm run check:source-traceability && npm run check:japanese-style && npm run check:images",
+    "test:japanese-style": "node scripts/test-japanese-style.mjs",
+    "test:quality": "node scripts/test-quality-gates.mjs && npm run test:japanese-style"
   },
   "dependencies": {
     "astro": "^7.0.0"
