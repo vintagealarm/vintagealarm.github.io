@@ -28,6 +28,8 @@ export async function GET() {
     { loc: `${root}sources/` },
     { loc: `${root}en/history/` },
     { loc: `${root}de/history/` },
+    { loc: `${root}en/sources/` },
+    { loc: `${root}de/sources/` },
     { loc: `${root}owners-notes/` },
     { loc: `${root}en/` },
     { loc: `${root}de/` },
