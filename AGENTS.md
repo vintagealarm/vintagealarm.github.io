@@ -46,7 +46,7 @@
 - 本番へmerge済みの確定状態: GitHub `main`
 - 実際の公開状態: deploy成功後のlive site
 
-この3つを混同しない。branch上で正しい未merge変更があっても、`main`にないという理由だけで旧仕様扱いしない。逆に、branchへ実装しただけで本番反映・公開済みとは扱わない。
+この3つを混同しない。branch上で正しい未merge変更があっても、`main`にないという理由で旧仕様扱いしない。逆に、branchへ実装しただけで本番反映・公開済みとは扱わない。
 
 ## 変更と検証
 
@@ -78,6 +78,21 @@
 - 精度を実質的に上げる不足情報がある時だけ質問する。
 - 質問が必要でも、原則は最重要の一点だけ聞く。
 - 情報が十分なら質問せず即実行する。
+
+### Council継続ターンの再ルーティング
+
+Councilの**表示形式**（例: `thread`）は継続してよいが、議題が変わったら `domain` / `evidence` / 参照正本は毎ターン再判定する。前ターンが `general` だったことを理由に、次ターンでも会話記憶だけで続行しない。
+
+特に次の語・論点が含まれる場合は、生成前に必ずGitHubの正本へ再ルーティングする。
+
+- SNS / X / YouTube / Shorts / 投稿 / 再生 / 初動 / 流入 / 比較 / 期待値 / 実験結果 → `PROJECT_STATE.md` → `measurement/experiment-log.md`
+- Analytics / 計測定義 → `PROJECT_STATE.md` → `measurement/metrics.md` + 必要な実験ログ
+- SEO / AIO / 発見性 → `PROJECT_STATE.md` → `strategy/seo-aio.md` + 必要な `measurement/*`
+- WATCH / OWNER'S NOTE / 実機仕様 → `PROJECT_STATE.md` → `SITE_RULES.md` + 対象WATCH / 研究台帳
+
+GitHubへ記録済みであることと、Councilがその事実を取得済みであることを同一視しない。正本が存在する論点では、会話記憶より先に正本を取得する。
+
+`run_council` Worker自体はGitHub connectorを持たないため、`evidence=project` を「GitHubを自動取得済み」の意味で扱わない。ChatGPT側で必要なGitHub正本を先に読み、該当する確認済み事実を `body` に含めてから `run_council` を呼ぶ。GitHub正本を未取得のまま、記憶や推測で穴埋めしない。
 
 `2ch民で焼いて` / `5ch民で焼いて` / `スレ民で焼いて` のように形式が明示済みなら、5択を再表示せず1を直接実行してよい。
 
