@@ -8,7 +8,7 @@ const publishedWatchRoutes = readWatchPublicationState()
 const englishWatchRoutes = readWatchPublicationState()
   .filter((watch) => watch.published)
   .map((watch) => `en/${watch.slug}/`);
-const germanWatchRoutes = ['de/pierce-duofon/', 'de/westclox-watchlarm/'];
+const germanWatchRoutes = ['de/pierce-duofon/', 'de/westclox-watchlarm/', 'de/cyma-time-o-vox/'];
 const routes = [
   '',
   'history/',
@@ -78,7 +78,7 @@ try {
         }));
         if (japaneseState.lang !== 'ja') failures.push(`${width}px ${route}: html lang is not ja`);
         if (!japaneseState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
-        if (['pierce-duofon/', 'westclox-watchlarm/'].includes(route) && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
+        if (['pierce-duofon/', 'westclox-watchlarm/', 'cyma-time-o-vox/'].includes(route) && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (japaneseState.oversizedEnglishCta) failures.push(`${width}px ${route}: legacy ENGLISH ENTRY CTA remains`);
       }
 
@@ -97,7 +97,7 @@ try {
         }));
         if (englishState.lang !== 'en') failures.push(`${width}px ${route}: html lang is not en`);
         if (!englishState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
-        if (['en/pierce-duofon/', 'en/westclox-watchlarm/'].includes(route) && !englishState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
+        if (['en/pierce-duofon/', 'en/westclox-watchlarm/', 'en/cyma-time-o-vox/'].includes(route) && !englishState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (!englishState.ownerTextOpen) failures.push(`${width}px ${route}: English OWNER'S NOTE text is not open by default`);
         if (englishState.alarmHeading && englishState.alarmHeading !== 'ORIGINAL ALARM VIDEO') failures.push(`${width}px ${route}: alarm video heading is not localized`);
         if (/OWNER OBSERVATION\s+OWNER OBSERVATION/i.test(englishState.sourcesText)) failures.push(`${width}px ${route}: duplicate owner-observation source label`);
