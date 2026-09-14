@@ -18,6 +18,16 @@ const typeLabel = isGerman
     };
 const structured = Array.isArray(meta) && meta.length === sources.length;
 const showResearch = !isEnglish && !isGerman && research?.summary?.length > 0;
+const stripDuplicatedTypePrefix = (source: string, type?: string, label?: string) => {
+  if (type !== 'owner') return source;
+  const prefixes = [label, 'OWNER OBSERVATION', 'EIGENE BEOBACHTUNG'].filter(Boolean) as string[];
+  let cleaned = source;
+  for (const prefix of prefixes) {
+    const escaped = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    cleaned = cleaned.replace(new RegExp(`^${escaped}\\s*(?:[—–:,-]\\s*)?`, 'i'), '');
+  }
+  return cleaned;
+};
 const parseInlineLink = (source: string) => {
   const match = source.match(/^(.*?)\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)(.*)$/);
   if (!match) return null;
@@ -38,7 +48,8 @@ const parseInlineLink = (source: string) => {
           const itemMeta = meta[index];
           const id = itemMeta?.id || String(index + 1);
           const label = typeLabel[itemMeta?.type as keyof typeof typeLabel];
-          const linkedSource = parseInlineLink(source);
+          const displaySource = stripDuplicatedTypePrefix(source, itemMeta?.type, label);
+          const linkedSource = parseInlineLink(displaySource);
 
           return (
             <li id={`source-${id}`}>
@@ -52,7 +63,7 @@ const parseInlineLink = (source: string) => {
                       <a href={linkedSource.href} target="_blank" rel="noopener noreferrer">{linkedSource.label}</a>
                       {linkedSource.after}
                     </>
-                  ) : source}
+                  ) : displaySource}
                 </span>
               </div>
             </li>
