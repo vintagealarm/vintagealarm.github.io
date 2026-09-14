@@ -151,22 +151,25 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
     ownersNote: {
       lead: [
         'A dramatic before-and-after for a zero-jewel wristwatch.',
-        'No jewels. No separate metal bearings.',
-        'No rotating bezel or extra setting train if they could be avoided.',
-        'And yet Westclox still added an alarm.'
+        'No jewels needed.',
+        'No separate metal bearings needed, either.',
+        'No rotating bezel. No extra setting train.',
+        'And yet, it still gets an alarm.',
+        'What a transformation.',
+        'The masters of mass-produced alarms put an alarm into a zero-jewel wristwatch while adding as few new parts as possible.'
       ],
       guideTitle: 'Quick operating guide',
       guide: [
         '① Winding — crown in normal position winds the single mainspring shared by timekeeping and alarm',
         '② Time setting — pull the crown and set the hands',
-        '③ Alarm setting — press the 2 o’clock pusher; on this specimen each press advances the alarm hand by about 12 minutes, 60 presses for 12 hours',
+        '③ Alarm setting — press the 2 o’clock pusher; on this specimen each press advances the alarm hand counter-clockwise by about 12 minutes, 60 presses for one full 12-hour circuit',
         '④ Alarm ON / OFF — 9 o’clock slider: up = ON / down = OFF; an “ON” marking appears on the case when engaged'
       ],
       noteTitle: 'NOTE',
       note: [
         'Westclox mass-produced alarm clocks while also making inexpensive zero-jewel wristwatches such as the W4.',
-        'The Watchlarm W5 used push-button alarm setting to avoid a rotating bezel and additional setting train.',
-        'Former Westclox employee Ellworth Danz recalled that the Watchlarm was difficult to manufacture and that he did not think it was profitable.'
+        'On the Watchlarm W5, the alarm time is set with the 2 o’clock pusher, eliminating an additional setting train and an expensive rotating bezel.',
+        'Former Westclox employee Ellworth Danz suggested that some W4 parts may have been used in the W5. At the same time, he recalled that the Watchlarm was difficult to manufacture and that he did not think it was profitable.'
       ]
     },
     spec: {
