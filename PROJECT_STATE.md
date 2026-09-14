@@ -46,7 +46,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 計測定義: `measurement/metrics.md`
 - 現在までの実験結果: `measurement/experiment-log.md`
 - 外部AI観測: `measurement/aio-observation-log.md`
-- Council / roast: `council-worker/README.md` + `council-worker/src/index.ts`
+- Council / 焼いて: `council-worker/README.md` + `council-worker/src/index.ts`
 
 `MIGRATION.md`、`REFACTOR_AUDIT.md`、日付付き監査記録は履歴資料です。現在仕様と衝突する場合は、上記の作業コンテキスト、現在の `main`、分野別正本を順に確認します。
 
@@ -65,6 +65,11 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
+- Councilはprotocol-driven V2。`焼いて` 単独は即実行せず5形式を毎回明示するランチャー
+- Councilの5形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board
+- Councilはformat / domain / budget / evidence / panelSizeを分離し、人数や固定ラウンド数を品質の代理指標にしない
+- Council共通プロトコルは独立初手 → Board整理 → Cross Exam → 必要時のみadaptive hot-seat → 匿名再評価 → Minority Report → 議長裁定
+- Council住民は架空の家族構成・年齢等ではなく、目的・証拠方針・失敗傾向・修正条件・棄権条件で差別化する
 
 この一覧だけで対象ページの実装状態を断定しない。編集前に必ず対象ファイルと、作業中branch / PRがある場合はそのdiffを確認する。
 
@@ -104,6 +109,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 検索 / SNS / Analytics施策: `measurement/experiment-log.md`
 - 外部AI発見性 / 意味保持: `measurement/aio-observation-log.md`
 - 検索・AIO全体方針: `strategy/seo-aio.md`
+- Council現行仕様: `council-worker/README.md` + `council-worker/src/index.ts`
 
 理由: 数時間〜数日で変わる数値や公開状態をこのファイルにも複製すると、古い状態を復活させる原因になるため。
 
@@ -121,6 +127,10 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - Calibre DB化、ブランド百科事典化、FAQ大量生成、検索語差し替え型ページ量産
 - AIOだけを理由にllms.txtやQ&A分割、本文細切れ化を増やす
 - build成功だけでデザイン変更を検証済みとする
+- Council V1の「焼いて」で即2chスレを開始する仕様
+- Council V1の `quick / project / deep-web-10` が人数と継続ラウンド数を一体で固定する仕様
+- Council V1の QUICK=継続×2 / PROJECT=×3 / DEEP WEB=×4 の固定反復
+- Council住民へ架空の人口属性を足して多様性の代用にする方向
 
 個別案件の棄却候補は、その案件の研究台帳・PR・実験ログ側を正本とし、このファイルへ大量複製しない。
 
@@ -171,6 +181,6 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
 - Analytics → `measurement/metrics.md` + 対象worker / dashboard
 - 翻訳 → `SITE_RULES.md` + 該当言語strategy + 日本語正本
-- roast → Council最新仕様
+- 焼いて / Council → `council-worker/README.md` + `council-worker/src/index.ts`
 
 対象が絞れているのに、理由なくリポジトリ全走査や全ルール再読をしない。

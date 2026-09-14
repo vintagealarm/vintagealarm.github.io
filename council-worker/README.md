@@ -1,35 +1,104 @@
-# Council Worker
+# Council Worker V2
 
 COUNCIL LAB の実AIバックエンド用 Cloudflare Worker。
 
-## MVP方針
+V2では、Councilを「キャラが固定ラウンドでレスを続ける仕組み」から、**目的に応じて議論プロトコルと表示形式を切り替える集団思考エンジン**へ変更する。
 
-この版は汎用サービスではなく、TypeCプロジェクト専用MVPとして設計する。
+## 「焼いて」ルーター
 
-- TypeC Project Mirror を毎回固定で参照する
+ユーザーが **「焼いて」だけ** と言った場合、Councilを即実行しない。毎回、次の5択を明示する。
+
+1. **2ch民で焼いて** → スレ表示。煽り・反論・レスバ込みで論点を削る
+2. **みんなで議論して** → ひな壇。複数視点をテンポよくぶつける
+3. **冷静に決めて** → 評議会。選択肢を比較して最終判断まで出す
+4. **監査して** → Claim Board。主張・根拠・反証・未確認を分解する
+5. **案出して** → Brainstorming Board。独立発想→整理→発展→絞り込み
+
+番号または形式が選ばれた後は、現在の会話、画像、ファイル、Project資料、GitHub、過去の確定判断を先に使う。
+
+- 既に把握できることは聞き直さない。
+- 精度を実質的に上げる不足情報がある時だけ質問する。
+- 質問が必要でも、原則は一度に最重要の一点だけ聞く。
+- 情報が十分なら質問せず実行する。
+
+「2ch民で焼いて」「5ch民で焼いて」「スレ民で焼いて」のように形式が明示済みなら、メニューを挟まず1を直接実行してよい。
+
+通常の文章としての「監査して」「案出して」まで自動的にCouncilへ奪わない。Councilの流れで選択された場合、または明示的にCouncil形式として指定された場合に4/5として扱う。
+
+## V2の分離軸
+
+旧V1では `mode` と `engine` が、人数、Web検索、反復回数、表示形式までまとめて決めていた。V2では次を分離する。
+
+- `format`: `thread | panel | council | claims | brainstorm`
+- `domain`: `general | watch | business`
+- `budget`: `quick | standard | deep`
+- `evidence`: `none | project | web | project-web | deep-web`
+- `panelSize`: 4〜10。未指定時は形式とbudgetから自動選択
+
+人数を増やすこと自体を品質とみなさない。検索担当が多く必要でも、全員を最後まで討論へ残す必要はない。
+
+## 共通プロトコル
+
+全形式で内部思考は次を基本とする。
+
+1. **Silent Position** — 住民が互いを見ず独立に初手を出す
+2. **Board Synthesis** — 人ではなく主張 / 案をID付きBoardへ整理する
+3. **Cross Exam** — 相手の人格ではなくBoard項目へ反証・補強・統合を行う
+4. **Adaptive Hot Seat** — 重要対立と情報利得が残る場合だけ集中反証する
+5. **Private Re-vote** — 他人の投票を見ず再評価する
+6. **Minority Report** — 多数派に負けても強い反対論を残す
+7. **Chair** — 根拠、反証、再評価、未確認を比較して裁定する
+
+固定の「継続議論×3」などは廃止する。新しい証拠、反例、定義修正、立場変更が止まったら終了する。
+
+## 5形式の役割
+
+### 1. thread — 2ch民で焼いて
+
+出力は匿名掲示板スレ。煽りやレスバは表示上許可するが、内部では独立初手とBoardを経由する。単なる2ch口調の連投にはしない。
+
+### 2. panel — みんなで議論して
+
+ひな壇型。住民ごとの短い発言と衝突軸を前に出す。テンポを優先しつつ、内部では独立生成を先に行い、発言順による同調を避ける。
+
+### 3. council — 冷静に決めて
+
+選択肢、評価軸、反証、匿名再評価を重視する。最後は条件付きでも推奨を一つ決め、強い少数意見を残す。
+
+### 4. claims — 監査して
+
+Claim Boardとして、主張、支持根拠、反証、未確認を分ける。検索結果を見つけただけで確認済みにしない。
+
+### 5. brainstorm — 案出して
+
+独立発想を先に広げ、似た案を後からクラスタ化する。早い多数決で変な案を潰さず、Cross Examでは否定だけでなく改造・組合せも行い、最後に絞る。
+
+## 住民設計
+
+住民は架空の家族構成・年齢・性別を足して人間らしくするのではなく、**認識論的な判断方針**を持つ。
+
+各住民には最低限、次を持たせる。
+
+- `role`
+- `objective`
+- `evidence`
+- `bias / failure mode`
+- `revision rule`
+- `abstain rule`
+
+必要な利用者属性は「38歳・子2人」などの架空人物として演じず、`stakeholder lens` として扱う。
+
+## Project資料とWeb
+
+時計案件では、目の前の画像・ファイル、Project資料、一次資料を一般論より優先する。
+
+固定Project Mirror:
+
 - `Alarm am Arm`
 - `The Alarm Wristwatch`
-- プロジェクトの事実認定ルール
-- 追加Web URLは任意
-- `DEEP WEB ×10` だけは10住民がそれぞれ独立してWebを掘る
+- TypeC / Projectの事実認定ルール
 
-ChatGPT Projectそのものを外部Webアプリから直接読むのではなく、非公開のOpenAI Vector Storeへ必要資料を複製し、Responses APIのFile Searchで参照する。
-
-## 議論の深さ
-
-表にはROUND表示を出さない。通常の匿名掲示板レスとして時系列に並べる。
-
-- QUICK: 初手 → 返信 → 継続議論×2 → 議長
-- PROJECT: 初手 → 返信 → 継続議論×3 → 議長
-- DEEP WEB ×10: 10人独立検索 → 10人返信 → 継続議論×4 → 議長
-
-住民は各段階で、返信先・継続・修正/撤回を自分で判断する。DEEP WEB ×10 は条件次第で60レス前後まで伸びるため、時間とAPIコストが大きい。
-
-## OpenAI Vector Store 初期化
-
-著作権資料は公開GitHubへ置かない。
-
-ローカルにあるPDFを直接OpenAIへアップロードする。
+著作権資料は公開GitHubへ置かず、非公開OpenAI Vector Storeへ登録する。
 
 ```bash
 cd council-worker
@@ -38,110 +107,62 @@ OPENAI_API_KEY="..." npm run setup:vector -- \
   "/path/to/The Alarm Wrist Watch.pdf"
 ```
 
-完了すると、
+Web検索は `evidence=web | project-web | deep-web` の時だけ使う。検索結果の要約ではなく、必要なら原ページまで確認する。
 
-```text
-COUNCIL_VECTOR_STORE_ID=vs_...
-```
-
-が出る。
-
-OpenAI公式のFile Searchは、Vector Storeへファイルを登録し、Responses APIの `file_search` ツールから検索する方式。
-
-## Workerに必要なSecret
-
-GitHub repository secrets:
-
-- `OPENAI_API_KEY`
-- `COUNCIL_VECTOR_STORE_ID`
-- `CLOUDFLARE_API_TOKEN`
-- `CLOUDFLARE_ACCOUNT_ID`
-
-その後、GitHub Actionsの `Deploy Council Worker` を手動実行する。
-
-Workflowが、
-
-1. Worker secretへOpenAI API keyを登録
-2. Vector Store IDを登録
-3. Cloudflare Workerをデプロイ
-
-まで行う。
-
-APIキーやPDF本体をブラウザ・公開repoへ置かない。
-
-## エンドポイント
+## API
 
 - `GET /health`
+- `GET /api/menu`
 - `POST /api/council`
 - `GET /api/thread/:id`（D1接続時）
+- `POST /mcp`
 
-`/health` の想定:
+`GET /api/menu` は、ChatGPT側と同じ5択を返す。
 
-```json
-{
-  "ok": true,
-  "openai": true,
-  "vectorStore": true,
-  "db": false
-}
+## MCP / ChatGPT
+
+MCP endpoint:
+
+```text
+https://<worker-host>/mcp
 ```
 
-## フロント接続
+Tool:
 
-Worker URLが確定したら、COUNCIL LABのENGINE API URLへ一度設定する。
+```text
+run_council
+```
 
-個人用MVPでは最終的にこのURLをフロントへ固定し、開発用入力欄自体を消す。
+重要:
 
-## CI
+- `焼いて` だけでは `run_council` を呼ばず、先に5択を表示する。
+- 形式が決まったら `run_council` を使う。
+- MCPが未接続でもCouncil自体を中止せず、このREADMEと `src/index.ts` の現行仕様をチャット内で実行する。
+- 既知情報を再質問しない。
+- 精度を上げるために本当に必要な不足だけ聞く。
 
-`Council Worker Check` がWorker変更時に `wrangler deploy --dry-run` を実行してコンパイルを検査する。
+## 旧V1から失効したもの
 
-## D1
+次はV2で失効。
 
-短い共有URLを使う場合だけ、`schema.sql` を適用し `DB` bindingを追加する。現状のハッシュ共有はD1なしでも動く。
+- 「焼いて」だけで即2chスレを開始する
+- `general | watch | business | roast` が表示形式まで決める
+- `quick | project | deep-web-10` が人数とラウンド数を固定する
+- QUICK=継続×2 / PROJECT=×3 / DEEP WEB=×4という固定反復
+- `CONFIDENCE` の数字だけで議論品質を表す
+- 返信相手の人物を選ぶこと自体を議論の中心にする
 
-## Remote MCP / ChatGPT接続
+旧API互換用の `mode` / `engine` はWorker側で読み替え可能だが、新規呼び出しではV2パラメータを使う。
 
-Workerは通常のCOUNCIL LAB APIに加えて、Streamable HTTP互換のMCPエンドポイントを公開する。
+## CI / deploy
 
-- MCP endpoint: `https://<worker-host>/mcp`
-- Tool: `run_council`
-- mode: `general | watch | business | roast`
-- engine: `quick | project | deep-web-10`
+`Council Worker Check` が `council-worker/**` 変更時に `wrangler deploy --dry-run` でコンパイル確認する。
 
-`run_council` は、フロントのデモ文を返すのではなく、Worker内部の実Council実行系を直接呼ぶ。
-
-- 各住民が独立に初手を出す
-- 全レスを読んで返信先を自分で選ぶ
-- 維持 / 修正 / 撤回を許可
-- 複数波の継続議論
-- 最後に議長が根拠と反証を比較して裁定
-
-ChatGPT側でカスタムMCPアプリを作成できる環境では、この `/mcp` URLを接続先として登録し、Tool Scanで `run_council` を確認する。
-
-### ChatGPTからのCouncil実行ルール
-
-「焼いて」「2ch民で焼いて」「5ch民で焼いて」「スレ民で焼いて」「Councilで」などの呼び方は、MCP接続の有無にかかわらず、上記Councilの議論フローを実行する要求を意味する。
-
-- `run_council` が利用可能なら、同ツールを使用する。
-- `run_council` が利用不可・未接続でも、MCP未接続を理由に停止しない。
-- 未接続時は、このREADMEと `src/index.ts` の最新仕様を読み込み、現在のチャット内でCouncilを実行する。
-- 「MCPが使えないため再現する」「PROJECT相当で代用する」といった断り書きを挟んで簡略化しない。
-- 単なる2ch / 5ch風の口調、一言煽り、通常の箇条書きはCouncilではない。
-- 少なくとも、独立した初手、他レスを読んだ返信、反証、維持 / 修正 / 撤回、複数波の継続議論、議長による裁定を含める。
-- 時計案件では、参照可能なProject資料、PDF、画像、既存実装を一般論より先に確認し、確認済み・資料記載・推論・未確認を混ぜない。
-
-つまり、MCPはCouncilを実行するための一つの実装経路であり、Councilそのものの意味や実行可否を決める前提条件ではない。
-
-Tool descriptionには「スレ民」「Council」「自律思考バトル」「2ch/5ch民で焼く」「DEEP WEB ×10」が明記されている。これらの呼び方は、接続中なら `run_council`、未接続なら現在のチャット内実行という違いだけで、同じCouncil仕様を指す。
-
-### デプロイ前提
-
-GitHub Actionsの `Deploy Council Worker` は、次のrepository secretsが揃った時だけCloudflareへデプロイする。
+Worker deployにはrepository secretsが必要。
 
 - `OPENAI_API_KEY`
 - `COUNCIL_VECTOR_STORE_ID`
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-不足時は赤失敗にせず、warningを出してdeployをskipする。
+Secret不足時に資料やWebを読んだふりはしない。
