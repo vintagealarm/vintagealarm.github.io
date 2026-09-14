@@ -12,8 +12,8 @@ const englishCardText: Record<string, Record<string, string>> = {
   },
   'vulcain-cricket': {
     displayTopic: 'Acoustics',
-    displaySummary: 'Double-back acoustic construction.',
-    cardSummary: 'A double-back construction combined alarm volume with water resistance. Also known for its association with U.S. presidents.'
+    displaySummary: 'Double-caseback acoustic construction.',
+    cardSummary: 'A double-caseback construction combined alarm volume with water resistance. Also known for its association with U.S. presidents.'
   },
   'as1475': {
     displayTopic: 'Mass production',
@@ -53,7 +53,7 @@ const englishCardText: Record<string, Record<string, string>> = {
   },
   'omega-memomatic': {
     displayTopic: 'Power & setting',
-    displaySummary: 'One barrel powers the watch; alarm time can be set to the minute.',
+    displaySummary: 'A single barrel powers both timekeeping and the alarm; the alarm can be set to the minute.',
     hook: 'Even the alarm’s power is automatically wound.',
     cardSummary: 'One barrel powers both timekeeping and alarm, with alarm time adjustable to the minute.'
   },
@@ -121,7 +121,7 @@ const germanCardText: Record<string, Record<string, string>> = {
   },
   'omega-memomatic': {
     displayTopic: 'Antrieb & Einstellung',
-    displaySummary: 'Ein Federhaus als Energiequelle; Alarmzeit minutengenau einstellbar.',
+    displaySummary: 'Ein einziges Federhaus treibt Gehwerk und Wecker an; die Alarmzeit lässt sich minutengenau einstellen.',
     hook: 'Auch die Energie für den Wecker wird automatisch aufgezogen.',
     cardSummary: 'Ein Federhaus treibt Gehwerk und Wecker an; die Alarmzeit lässt sich minutengenau einstellen.'
   },
@@ -167,21 +167,21 @@ export const englishHistoryContent = {
     ...historyContent.era1940s,
     title: 'Solving the contradiction between sealing and volume.',
     teaser: 'Mechanical alarm wristwatches enter mass production.',
-    intro: 'In a wristwatch, the more completely the case is closed to protect the mechanism from water and dust, the harder it becomes for the alarm sound to escape.\nThe 1947 Vulcain Cricket used a double-back acoustic construction to combine audibility on the wrist with water resistance.',
+    intro: 'In a wristwatch, the more completely the case is closed to protect the mechanism from water and dust, the harder it becomes for the alarm sound to escape.\nThe 1947 Vulcain Cricket used a double-caseback acoustic construction to combine audibility on the wrist with water resistance.',
     cards: translateCards(historyContent.era1940s.cards, englishCardText)
   },
   era1950s: {
     ...historyContent.era1950s,
     title: 'Different needs, different answers.',
     teaser: 'Mass production, miniaturization, automatic winding and broader uses.',
-    intro: 'In the 1950s, the roles expected of an alarm wristwatch expanded: mass production, miniaturization, automatic winding, parking-time management and different ways of alerting the people around the wearer.\nBrands answered those needs with different approaches to power, acoustics and operation.',
+    intro: 'In the 1950s, the roles expected of an alarm wristwatch expanded: mass production, miniaturization, automatic winding, parking-time management and different ways of alerting those around the wearer.\nBrands answered those needs with different approaches to power, acoustics and operation.',
     cards: translateCards(historyContent.era1950s.cards, englishCardText)
   },
   era1960s: {
     ...historyContent.era1960s,
     title: 'Uses and mechanisms expand.',
     teaser: 'Diving, automatic winding and finer alarm setting.',
-    intro: 'In the 1960s, alarms were combined with diver’s watches and automatic winding.\nNew arrangements also appeared in how the mechanism was powered and how the alarm time was set.',
+    intro: 'In the 1960s, alarms were combined with diver’s watches and automatic winding.\nNew approaches also emerged to powering the mechanism and setting the alarm time.',
     cards: translateCards(historyContent.era1960s.cards, englishCardText)
   },
   electronic: {
