@@ -7,10 +7,15 @@ VINTAGE ALARM is a research-oriented site about mechanical alarm wristwatches, c
 Primary sections:
 - https://vintagealarm.github.io/history/
 - https://vintagealarm.github.io/owners-notes/
+- https://vintagealarm.github.io/sources/
 
 Localized HISTORY:
 - https://vintagealarm.github.io/en/history/
 - https://vintagealarm.github.io/de/history/
+
+Localized SOURCES:
+- https://vintagealarm.github.io/en/sources/
+- https://vintagealarm.github.io/de/sources/
 
 Published watch pages:
 - https://vintagealarm.github.io/cyma-time-o-vox/
@@ -23,6 +28,8 @@ English entry:
 - https://vintagealarm.github.io/en/
 - https://vintagealarm.github.io/en/cyma-time-o-vox/
 - https://vintagealarm.github.io/en/pierce-duofon/
+- https://vintagealarm.github.io/en/basis-alarm/
+- https://vintagealarm.github.io/en/citizen-alarm/
 - https://vintagealarm.github.io/en/westclox-watchlarm/
 
 German entry:
