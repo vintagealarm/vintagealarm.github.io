@@ -59,6 +59,7 @@ jobs:
           done
           node scripts/check-layout.mjs
           node scripts/check-localized-history.mjs
+          node scripts/check-localized-sources.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site
