@@ -8,7 +8,7 @@ const publishedWatchRoutes = readWatchPublicationState()
 const englishWatchRoutes = readWatchPublicationState()
   .filter((watch) => watch.published)
   .map((watch) => `en/${watch.slug}/`);
-const germanWatchRoutes = ['de/pierce-duofon/'];
+const germanWatchRoutes = ['de/pierce-duofon/', 'de/westclox-watchlarm/'];
 const routes = [
   '',
   'history/',
@@ -78,7 +78,7 @@ try {
         }));
         if (japaneseState.lang !== 'ja') failures.push(`${width}px ${route}: html lang is not ja`);
         if (!japaneseState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
-        if (route === 'pierce-duofon/' && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
+        if (['pierce-duofon/', 'westclox-watchlarm/'].includes(route) && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (japaneseState.oversizedEnglishCta) failures.push(`${width}px ${route}: legacy ENGLISH ENTRY CTA remains`);
       }
 
@@ -92,13 +92,15 @@ try {
             link.getAttribute('hreflang') === 'de' && (link.textContent || '').trim() === 'DE'
           ),
           ownerTextOpen: document.querySelector('#owners-note')?.closest('section')?.querySelector('details')?.hasAttribute('open') || false,
-          alarmHeading: document.getElementById('listen')?.textContent?.trim() || ''
+          alarmHeading: document.getElementById('listen')?.textContent?.trim() || '',
+          sourcesText: (document.querySelector('.sources')?.textContent || '').replace(/\s+/g, ' ').trim()
         }));
         if (englishState.lang !== 'en') failures.push(`${width}px ${route}: html lang is not en`);
         if (!englishState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
-        if (route === 'en/pierce-duofon/' && !englishState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
+        if (['en/pierce-duofon/', 'en/westclox-watchlarm/'].includes(route) && !englishState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (!englishState.ownerTextOpen) failures.push(`${width}px ${route}: English OWNER'S NOTE text is not open by default`);
         if (englishState.alarmHeading && englishState.alarmHeading !== 'ORIGINAL ALARM VIDEO') failures.push(`${width}px ${route}: alarm video heading is not localized`);
+        if (/OWNER OBSERVATION\s+OWNER OBSERVATION/i.test(englishState.sourcesText)) failures.push(`${width}px ${route}: duplicate owner-observation source label`);
       }
 
       if (germanWatchRoutes.includes(route) && width <= 390) {
@@ -111,13 +113,15 @@ try {
             link.getAttribute('hreflang') === 'en' && (link.textContent || '').trim() === 'EN'
           ),
           ownerTextOpen: document.querySelector('#owners-note')?.closest('section')?.querySelector('details')?.hasAttribute('open') || false,
-          alarmHeading: document.getElementById('listen')?.textContent?.trim() || ''
+          alarmHeading: document.getElementById('listen')?.textContent?.trim() || '',
+          sourcesText: (document.querySelector('.sources')?.textContent || '').replace(/\s+/g, ' ').trim()
         }));
         if (germanState.lang !== 'de') failures.push(`${width}px ${route}: html lang is not de`);
         if (!germanState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
         if (!germanState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
         if (!germanState.ownerTextOpen) failures.push(`${width}px ${route}: German OWNER'S NOTE text is not open by default`);
         if (germanState.alarmHeading && germanState.alarmHeading !== 'ORIGINAL-ALARMTON') failures.push(`${width}px ${route}: German alarm video heading is not localized`);
+        if (/EIGENE BEOBACHTUNG\s+(?:OWNER OBSERVATION|EIGENE BEOBACHTUNG)/i.test(germanState.sourcesText)) failures.push(`${width}px ${route}: duplicate German owner-observation source label`);
       }
 
       if (route === 'history/' && width <= 390) {
