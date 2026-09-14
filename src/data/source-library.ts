@@ -6,6 +6,8 @@ export type SourceLibraryItem = {
   imprint: string;
   year: string;
   isbn?: string;
+  language?: string;
+  matchTerms: string[];
   usedFor: string[];
   bibliography?: { label: string; url: string; kind: 'library' | 'publisher' | 'bibliography' }[];
   acquisition?: { label: string; url: string }[];
@@ -21,6 +23,8 @@ export const sourceLibrary: SourceLibraryItem[] = [
     imprint: 'Schiffer Publishing Ltd.',
     year: '2007',
     isbn: '978-0-7643-2644-8',
+    language: 'en',
+    matchTerms: ['Michael Philip Horlbeck', 'The Alarm Wristwatch'],
     usedFor: [
       'Eterna初期アラーム腕時計 / Patent 42,203',
       'A. Schild AS 1475 / AS 5007 / AS 5008',
@@ -56,6 +60,8 @@ export const sourceLibrary: SourceLibraryItem[] = [
     imprint: 'Herausgeber: Leonhard Beitl, Wien',
     year: '2009',
     isbn: '978-3-200-01646-0',
+    language: 'de',
+    matchTerms: ['Leonhard Beitl', 'Alarm am Arm'],
     usedFor: [
       'Eterna Cal.68とPatent 42,203',
       '各社・各モデルの実例と年代比較',
@@ -82,3 +88,13 @@ export const sourceLibrary: SourceLibraryItem[] = [
     note: '2009年・Wien・676頁・ISBN 978-3-200-01646-0は、Deutsches Uhrenmuseum Glashütteの蔵書目録とNAWCCの書誌資料でも照合できます。書誌登録は資料の実在性・版の確認に使い、本文の各主張は該当ページまたは一次資料で検証します。'
   }
 ];
+
+export const sourceLibraryById = new Map(sourceLibrary.map((item) => [item.id, item] as const));
+
+export function resolveSourceLibraryId(source: string) {
+  const normalized = source.toLocaleLowerCase();
+  const match = sourceLibrary.find((item) =>
+    item.matchTerms.some((term) => normalized.includes(term.toLocaleLowerCase()))
+  );
+  return match?.id ?? null;
+}
