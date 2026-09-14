@@ -1,15 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 import GermanWatchEntry from '../../../layouts/GermanWatchEntry.astro';
-import { germanWatchEntries } from '../../../data/de-watch-entry';
+import { germanWatchEntriesWithCyma } from '../../../data/cyma-localizations';
 
 export async function getStaticPaths() {
   const watches = await getCollection('watches');
   return watches
-    .filter((item) => item.data.published && germanWatchEntries[item.data.slug])
+    .filter((item) => item.data.published && germanWatchEntriesWithCyma[item.data.slug])
     .map((item) => ({
       params: { slug: item.data.slug },
-      props: { watch: item.data, entry: germanWatchEntries[item.data.slug] }
+      props: { watch: item.data, entry: germanWatchEntriesWithCyma[item.data.slug] }
     }));
 }
 
