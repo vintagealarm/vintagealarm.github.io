@@ -5,7 +5,7 @@ import SectionMast from '../../components/SectionMast.astro';
 import OwnerThumbnailFrame from '../../components/OwnerThumbnailFrame.astro';
 import OwnerFonts from '../../components/OwnerFonts.astro';
 import ownersDirectory from '../../data/owners-directory.json';
-import { germanWatchEntries } from '../../data/de-watch-entry';
+import { germanWatchEntriesWithCyma } from '../../data/cyma-localizations';
 import '../../styles/site.css';
 import '../../styles/owners-v15.css';
 
@@ -15,7 +15,7 @@ const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
 const entries = ownersDirectory.entries
   .flatMap((meta) => {
     const watch = watchBySlug.get(meta.historyId);
-    const german = germanWatchEntries[meta.historyId];
+    const german = germanWatchEntriesWithCyma[meta.historyId];
     if (!watch?.data.published || !german) return [];
     return [{
       ...meta,
@@ -29,7 +29,7 @@ const entries = ownersDirectory.entries
   .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
 
 const title = 'Mechanische Wecker-Armbanduhren — Deutsch | VINTAGE ALARM';
-const description = 'Deutsche VINTAGE-ALARM-Seiten zu mechanischen Wecker-Armbanduhren. Der Pierce Duofon enthält OWNER’S NOTE, Bedienung, Spezifikationen, Original-Alarmton, Exemplarfotos, DEEP DIVE und Quellen.';
+const description = 'Deutsche VINTAGE-ALARM-Seiten zu mechanischen Wecker-Armbanduhren mit OWNER’S NOTE, Bedienung, Spezifikationen, Original-Alarmton, Exemplarfotos, DEEP DIVE und Quellen.';
 const socialImage = '/images/pierce-duofon/gallery/pierce-duofon-wrist-front.jpg';
 const schema = {
   '@context': 'https://schema.org',
@@ -68,7 +68,7 @@ const schema = {
       </header>
       <section class="shell section" aria-label="Über die deutschen Seiten">
         <p class="german-intro">
-          Die deutsche Ausgabe startet mit dem Pierce Duofon. Die Übersetzung folgt direkt dem japanischen Originaltext und behält OWNER'S NOTE, Bedienung, Spezifikationen, DEEP DIVE, Quellen und die Trennung zwischen dokumentierten Angaben und vorsichtigen Einordnungen bei.
+          Die deutschen Seiten folgen direkt dem japanischen Originaltext und behalten OWNER'S NOTE, Bedienung, Spezifikationen, DEEP DIVE, Quellen sowie die Trennung zwischen dokumentierten Angaben, Beobachtungen am Exemplar und vorsichtigen Einordnungen bei.
         </p>
       </section>
       <section class="shell directory-eras" aria-label="Deutsche Uhrenseiten">
