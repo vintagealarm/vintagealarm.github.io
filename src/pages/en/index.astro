@@ -29,7 +29,7 @@ const entries = ownersDirectory.entries
   .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
 
 const title = 'Vintage Mechanical Alarm Wristwatches — English | VINTAGE ALARM';
-const description = 'English pages for five owned vintage mechanical alarm wristwatches, with specimen notes, operating guides, key specifications and original alarm videos. Pierce Duofon also includes the complete source-backed DEEP DIVE and references.';
+const description = 'English VINTAGE ALARM: the full history of the alarm wristwatch plus five owned vintage mechanical alarm watches. Duofon, Cyma Time-O-Vox and Westclox Watchlarm include full source-backed research.';
 const socialImage = '/images/owners-thumbnails/cyma-time-o-vox-full.png';
 const schema = {
   '@context': 'https://schema.org',
@@ -61,8 +61,9 @@ const schema = {
       </header>
       <section class="shell section" aria-label="About the English pages">
         <p class="english-intro">
-          English pages for five owned mechanical alarm wristwatches. Pierce Duofon includes the complete source-backed DEEP DIVE, specimen gallery and references; the other watches currently provide concise English pages with the specimen, operating guide, key specifications and original alarm video.
+          English pages for five owned mechanical alarm wristwatches. Pierce Duofon, Cyma Time-O-Vox and Westclox Watchlarm include the complete source-backed DEEP DIVE, specimen gallery and references; Basis Alarm and Citizen Alarm currently provide concise English specimen pages.
         </p>
+        <p class="english-history-link"><a href={`${base}en/history/`}>HISTORY OF THE ALARM WRISTWATCH →</a></p>
       </section>
       <section class="shell directory-eras" aria-label="English watch pages">
         <section class="directory-era">
@@ -87,4 +88,6 @@ const schema = {
 
 <style>
   .english-intro{max-width:780px;line-height:1.85}
+  .english-history-link{margin-top:18px}
+  .english-history-link a{font-size:13px;letter-spacing:.05em;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
 </style>
