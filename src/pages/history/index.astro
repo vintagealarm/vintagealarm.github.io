@@ -44,18 +44,29 @@ const title='アラーム腕時計の歴史｜Eterna・Cricket・Memovox・Duofo
 const description='鐘や携帯時計から、Eterna、Vulcain Cricket、Memovox、AS 1475、Pierce Duofon、Omega Memomatic、電子式アラームまで。「時間を知らせる」腕時計の歴史を辿る。';
 const socialImage='/images/history-motifs/1950s-train-watercolor.png';
 const root='https://vintagealarm.github.io/';
+const japaneseUrl=root+'history/';
+const englishUrl=root+'en/history/';
+const germanUrl=root+'de/history/';
 const schema={'@context':'https://schema.org','@graph':[
- {'@type':'Article',headline:'アラーム腕時計の歴史',description,inLanguage:'ja',mainEntityOfPage:root+'history/',isPartOf:{'@type':'WebSite',name:'VINTAGE ALARM',url:root}},
- {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'VINTAGE ALARM',item:root},{'@type':'ListItem',position:2,name:'HISTORY',item:root+'history/'}]}
+ {'@type':'Article',headline:'アラーム腕時計の歴史',description,inLanguage:'ja',mainEntityOfPage:japaneseUrl,isPartOf:{'@type':'WebSite',name:'VINTAGE ALARM',url:root}},
+ {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'VINTAGE ALARM',item:root},{'@type':'ListItem',position:2,name:'HISTORY',item:japaneseUrl}]}
 ]};
 ---
 <!doctype html><html lang="ja"><head>
  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#1c201c"/><link rel="icon" href="data:,"/>
  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet"/>
- <SeoHead title={title} description={description} path="history/" image={socialImage} type="article" schema={schema}/>
+ <SeoHead title={title} description={description} path="history/" image={socialImage} type="article" schema={schema} alternates={[
+  {hreflang:'ja',href:japaneseUrl},
+  {hreflang:'en',href:englishUrl},
+  {hreflang:'de',href:germanUrl},
+  {hreflang:'x-default',href:japaneseUrl}
+ ]}/>
 </head><body class="history-v13 history-v18">
- <a class="history-skip" href="#before">本文へ</a><div class="history-mast"><SectionMast rightLabel="HISTORY"/></div>
+ <a class="history-skip" href="#before">本文へ</a><div class="history-mast"><SectionMast rightLabel="HISTORY" languageLinks={[
+  {href:'/en/history/',label:'EN',hreflang:'en'},
+  {href:'/de/history/',label:'DE',hreflang:'de'}
+ ]}/></div>
  <main><section class="history-cover-v13" aria-labelledby="history-title"><div class="shell">
   <div class="cover-meta"><span>HISTORY</span><span>01 / CONTENTS</span></div>
   <h1 id="history-title"><span>HISTORY</span><em>of the</em><span>ALARM</span><small>WRISTWATCH</small></h1>
