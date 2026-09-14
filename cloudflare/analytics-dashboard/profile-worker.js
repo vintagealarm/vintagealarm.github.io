@@ -31,6 +31,7 @@ export const ENGLISH_GATEWAY_NAMES = Object.freeze({
 export const GERMAN_GATEWAY_NAMES = Object.freeze({
   "/de/": "German Entry",
   "/de/pierce-duofon/": "Pierce Duofon (DE)",
+  "/de/cyma-time-o-vox/": "Cyma Time-O-Vox (DE)",
   "/de/westclox-watchlarm/": "Westclox Watchlarm (DE)",
 });
 
@@ -287,11 +288,11 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   return String(html)
     .replace(
       '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox"]',
-      '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Westclox Watchlarm (DE)"]',
+      '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]',
     )
     .replace(
       '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"}\n];',
-      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"},\n  {name:"Citizen Alarm",path:"/citizen-alarm/"},\n  {name:"Westclox Watchlarm",path:"/westclox-watchlarm/"},\n  {name:"English Entry",path:"/en/"},\n  {name:"Basis Alarm (EN)",path:"/en/basis-alarm/"},\n  {name:"Pierce Duofon (EN)",path:"/en/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (EN)",path:"/en/cyma-time-o-vox/"},\n  {name:"Citizen Alarm (EN)",path:"/en/citizen-alarm/"},\n  {name:"Westclox Watchlarm (EN)",path:"/en/westclox-watchlarm/"},\n  {name:"German Entry",path:"/de/"},\n  {name:"Pierce Duofon (DE)",path:"/de/pierce-duofon/"},\n  {name:"Westclox Watchlarm (DE)",path:"/de/westclox-watchlarm/"}\n];',
+      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"},\n  {name:"Citizen Alarm",path:"/citizen-alarm/"},\n  {name:"Westclox Watchlarm",path:"/westclox-watchlarm/"},\n  {name:"English Entry",path:"/en/"},\n  {name:"Basis Alarm (EN)",path:"/en/basis-alarm/"},\n  {name:"Pierce Duofon (EN)",path:"/en/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (EN)",path:"/en/cyma-time-o-vox/"},\n  {name:"Citizen Alarm (EN)",path:"/en/citizen-alarm/"},\n  {name:"Westclox Watchlarm (EN)",path:"/en/westclox-watchlarm/"},\n  {name:"German Entry",path:"/de/"},\n  {name:"Pierce Duofon (DE)",path:"/de/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (DE)",path:"/de/cyma-time-o-vox/"},\n  {name:"Westclox Watchlarm (DE)",path:"/de/westclox-watchlarm/"}\n];',
     )
     .replace(
       '<button class="refresh" id="aiShare">AI COPY</button>',
