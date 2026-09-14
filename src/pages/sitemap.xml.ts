@@ -25,6 +25,8 @@ export async function GET() {
   const urls = [
     { loc: root },
     { loc: `${root}history/` },
+    { loc: `${root}en/history/` },
+    { loc: `${root}de/history/` },
     { loc: `${root}owners-notes/` },
     { loc: `${root}en/` },
     { loc: `${root}de/` },
