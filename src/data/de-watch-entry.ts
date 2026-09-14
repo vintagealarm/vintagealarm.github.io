@@ -232,5 +232,149 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       name: 'CYMA TIME-O-VOX',
       reason: 'Dieselben 1950er. Das andere Extrem: ein Federhaus und der Anspruch auf Chronomètre.'
     }
+  },
+  'westclox-watchlarm': {
+    slug: 'westclox-watchlarm',
+    title: 'Westclox Watchlarm W5 — 0 Steine, 1 Federhaus, Drücker-Alarm | VINTAGE ALARM',
+    description: 'Westclox Watchlarm W5: 0 Steine, ein Federhaus, Alarmzeiteinstellung per Drücker, EIN/AUS-Schieber bei 9 Uhr, Messwerte des gezeigten Exemplars, Original-Alarmton, Fertigungsgeschichte und Quellen.',
+    indexBlurb: '0 Steine, ein Federhaus, Alarmzeiteinstellung per Drücker — eine Wecker-Armbanduhr, radikal auf Kostensenkung konstruiert.',
+    catch: ['Das dramatische Vorher und Nachher einer Armbanduhr mit 0 Steinen.'],
+    ownersNote: {
+      lead: [
+        'Das dramatische Vorher und Nachher einer Armbanduhr mit 0 Steinen.',
+        'Keine Steine.',
+        'Auch keine separaten Metalllager.',
+        'Auch die drehbare Lünette und zusätzliche Räderwerke werden weggelassen.',
+        'Und trotzdem bekommt sie einen Alarm.',
+        'Was für eine Verwandlung.',
+        'Die Meister der Wecker-Massenproduktion bauten einen Alarm in eine Armbanduhr mit 0 Steinen ein — und hielten die Zahl neuer Teile so klein wie möglich.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        '① Aufziehen — Krone in Normalposition: zieht die gemeinsame Zugfeder für Gehwerk und Alarm auf',
+        '② Uhrzeit einstellen — Krone herausziehen und die Zeiger einstellen',
+        '③ Alarmzeit einstellen — Drücker bei 2 Uhr: mit jedem Druck rückt der Alarmzeiger gegen den Uhrzeigersinn weiter; bei diesem Exemplar ca. 12 Minuten pro Druck / 60 Drücke für eine volle Runde (12 Stunden)',
+        '④ Alarm EIN/AUS — Schieber bei 9 Uhr: oben = EIN / unten = AUS; bei EIN erscheint am Gehäuse die Markierung „ON“'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Westclox produzierte Wecker in Massen und stellte zugleich preisgünstige Armbanduhren mit 0 Steinen wie die W4 her.',
+        'Bei der Watchlarm W5 wird die Alarmzeit mit dem Drücker bei 2 Uhr eingestellt; dadurch konnten ein zusätzliches Einstellräderwerk und eine teure drehbare Lünette entfallen.',
+        'Der frühere Westclox-Mitarbeiter Ellworth Danz hielt es für möglich, dass in der W5 einige Teile der W4 verwendet wurden. Zugleich erinnerte er sich daran, dass die Watchlarm schwierig herzustellen war und Westclox damit seiner Einschätzung nach keinen Gewinn erzielte.'
+      ]
+    },
+    spec: {
+      era: 'Ende der 1950er bis Anfang der 1960er-Jahre',
+      caseSize: '34 mm',
+      caliber: 'Westclox W5',
+      jewels: '0 Steine',
+      frequency: '18.000 A/h',
+      barrels: '1 Federhaus',
+      winding: 'Handaufzug',
+      acoustic: 'Boden-Glockensystem',
+      notes: 'Alarmzeiteinstellung per Drücker bei 2 Uhr, beim gezeigten Exemplar 60 Drücke für 12 Stunden, EIN/AUS-Schieber bei 9 Uhr, Alarmdauer ca. 10 Sekunden'
+    },
+    specimenGallery: [
+      {
+        image: '/images/IMG_2093-2.jpeg',
+        label: 'Vorderseite',
+        alt: 'Westclox Watchlarm W5, gezeigtes Exemplar, Vorderseite'
+      },
+      {
+        image: '/images/IMG_2038.jpeg',
+        label: 'Drücker bei 2 Uhr',
+        alt: 'Westclox Watchlarm W5, Drücker zur Alarmzeiteinstellung bei 2 Uhr'
+      },
+      {
+        image: '/images/IMG_2036.jpeg',
+        label: 'Schieber bei 9 Uhr — AUS',
+        alt: 'Westclox Watchlarm W5, Alarmschieber bei 9 Uhr in AUS-Stellung'
+      },
+      {
+        image: '/images/IMG_2037.jpeg',
+        label: 'Schieber bei 9 Uhr — EIN',
+        alt: 'Westclox Watchlarm W5, Alarmschieber bei 9 Uhr in EIN-Stellung'
+      },
+      {
+        image: '/images/IMG_2095.jpeg',
+        label: 'Gehäuseboden',
+        alt: 'Gehäuseboden des gezeigten Westclox-Watchlarm-W5-Exemplars'
+      }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: 'Eine Firma, die Wecker in zweistelliger Millionenstückzahl baute',
+        subtitle: 'Produktionsmaßstab von Westclox und die Armbanduhrenfertigung',
+        paragraphs: [
+          'In den 1950er-Jahren war Westclox ein Hersteller, der Wecker wie Big Ben und Baby Ben in großem Maßstab produzierte. Für das LaSalle-Werk werden um 1956 mehr als 4.000 Beschäftigte und eine Tagesproduktion von etwa 40.000 Uhren genannt. Bis zu dieser Zeit sollen mehr als 40 Millionen Big Ben und mehr als 28 Millionen Baby Ben hergestellt worden sein.',
+          'Das Unternehmen fertigte zugleich preisgünstige Armbanduhren mit 0 Steinen wie die W4. Die Watchlarm W5 verwendet ein 0-Steine-Werk mit Stiftankerhemmung und integriertem Alarmmechanismus. Der frühere Westclox-Mitarbeiter Ellworth Danz hielt es für möglich, dass in der W5 einige Teile der W4 verwendet wurden.',
+          'Beim Fertigungszeitraum unterscheiden sich die Quellen. Beitl behandelt die Uhr als Produkt der 1950er-Jahre, Horlbeck setzt sie dagegen ab 1960 an, und ClockHistory weist Katalogaufnahmen für 1960 und 1961 nach. Da für das auf dieser Seite gezeigte Exemplar keine Quelle vorliegt, die das Herstellungsjahr eindeutig festlegt, verwendet VINTAGE ALARM die Einordnung „Ende der 1950er bis Anfang der 1960er-Jahre“.'
+        ],
+        citationRefs: ['4', '2,3', '1,2,3']
+      },
+      {
+        number: '02',
+        title: '0 Steine, keine separaten Metalllager',
+        paragraphs: [
+          'Die W5 besitzt ein 0-Steine-Werk mit Stiftankerhemmung und keine separaten Metalllager. Die Zapfen laufen direkt in Bohrungen von Platine und Deckplatte. Die Unruh ist gestanzt, die Spirale flach, und auch die Stoßsicherung ist einfach ausgeführt.',
+          'Das Werk ist in Vollplatinenbauweise aufgebaut und verwendet übereinanderliegende kreisförmige Platten anstelle herkömmlicher Brücken und eines separaten Unruhklobens. Die Literatur beschreibt eine Konstruktion, bei der selbst unnötige Aussparungen möglichst vermieden wurden, um die Kosten niedrig zu halten.',
+          'Trotzdem treibt ein einziges Federhaus sowohl die Zeitanzeige als auch den Alarm an und ermöglicht etwa 38 Stunden Laufzeit sowie rund 10 Sekunden Alarmdauer.'
+        ],
+        citationRefs: ['1,2', '1', '1']
+      },
+      {
+        number: '03',
+        title: 'Alarmzeiteinstellung per Drücker bei 2 Uhr',
+        paragraphs: [
+          'Beim gezeigten Exemplar ergeben 60 Drücke eine volle 12-Stunden-Runde, also etwa 12 Minuten pro Druck. Das weicht von den 15-Minuten-Schritten ab, die Horlbeck und Beitl angeben, stimmt aber mit den 12-Minuten-Schritten bei Ranfft überein. Ob die Abweichung auf Exemplarunterschiede, Spezifikationsunterschiede oder Unterschiede zwischen den Quellen zurückgeht, ist nicht bestätigt.',
+          'Mit diesem System lässt sich die Alarmzeit ohne zusätzliches Einstellräderwerk und ohne teure drehbare Lünette einstellen.',
+          'Bei 9 Uhr befindet sich ein EIN/AUS-Schieber für den Alarm: nach oben = EIN, nach unten = AUS. In der Stellung EIN wird die Markierung „ON“ am Gehäuse sichtbar.'
+        ],
+        citationRefs: ['1,2,5,6', '1', '1,2']
+      },
+      {
+        number: '04',
+        title: 'Einfach zu fertigen war sie nicht',
+        paragraphs: [
+          'Der frühere Westclox-Mitarbeiter Ellworth Danz hielt es für möglich, dass in der W5 einige Teile der W4 verwendet wurden.',
+          'Gleichzeitig erinnerte Danz sich daran, dass die Watchlarm schwierig herzustellen war und dass er nicht glaubte, Westclox habe mit dieser Uhr Gewinn erzielt.'
+        ],
+        citationRefs: ['3', '3']
+      },
+      {
+        number: '05',
+        title: 'Deutsches Gehäuse und die Klangkonstruktion',
+        paragraphs: [
+          'Beitl verzeichnet Gehäuse und Zifferblatt des Westclox Alarm als in Deutschland hergestellt und beschreibt das abgebildete Beispiel mit verchromtem Messinggehäuse, gedrücktem Boden und 32,88 mm Durchmesser.',
+          'Das auf dieser Seite gezeigte Exemplar ist mit 34 mm Gehäusedurchmesser dokumentiert. Da dies nicht mit den 32,88 mm des bei Beitl gezeigten Beispiels übereinstimmt, wird nicht behauptet, dass beide dieselbe Gehäusespezifikation besitzen.',
+          'Horlbeck weist auf Ähnlichkeiten mit dem Bodenaufbau der Junghans Minivox hin, darunter einen leicht gewölbten Gehäuseboden, einen zentralen Niet und eine kleine Brücke auf der Innenseite.',
+          'Es liegt jedoch keine für diese Seite bestätigte Quelle vor, die belegt, dass Junghans das W5-Gehäuse direkt hergestellt oder die W5 entworfen hat. Auch Horlbeck beschreibt dies nur als mögliche enge Beziehung durch Zusammenarbeit oder Zulieferung.'
+        ],
+        citationRefs: ['2', '6', '1', '1']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'reference' },
+      { id: '2', type: 'reference' },
+      { id: '3', type: 'reference' },
+      { id: '4', type: 'reference' },
+      { id: '5', type: 'reference' },
+      { id: '6', type: 'owner' }
+    ],
+    sources: [
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 150, 198–199, 220–221 — Spezifikation und Bedienung der Westclox W5, kostenreduzierte Konstruktion, Gehäuse- und Klangaufbau.',
+      'Leonhard Beitl, Alarm am Arm (2009), S. 497–498, 628 — Westclox Alarm / W5, 0 Steine, Gehäusedurchmesser, Bedienung, deutsches Gehäuse und Zifferblatt.',
+      'Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/) — Beziehung zwischen W5- und W4-Teilen, Fertigungsschwierigkeit, Rentabilität sowie Katalogaufnahmen 1960/1961.',
+      'ClockHistory, [Western Clock Company Chronology](https://clockhistory.com/westclox/company/dates/index.html) — Beschäftigtenzahl und Produktionsmaßstab 1956 sowie kumulierte Stückzahlen von Big Ben / Baby Ben.',
+      'Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5) — Angabe einer Alarmzeiteinstellung in 12-Minuten-Schritten.',
+      'OWNER OBSERVATION — Dokumentation des gezeigten Exemplars: 34 mm Gehäusedurchmesser; 60 Betätigungen des Drückers bei 2 Uhr bewegen den Alarmzeiger einmal vollständig über 12 Stunden.'
+    ],
+    related: {
+      href: '/en/basis-alarm/',
+      hreflang: 'en',
+      name: 'BASIS ALARM',
+      reason: 'Eine andere Richtung als die Luxusmodelle: eine weitere Antwort für den Massenmarkt.'
+    }
   }
 };
