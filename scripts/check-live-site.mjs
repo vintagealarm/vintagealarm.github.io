@@ -37,15 +37,33 @@ let lastFailures = [];
 
 for (let attempt = 1; attempt <= 12; attempt += 1) {
   const failures = [];
-  const [home, history, owners, sitemap] = await Promise.all([
-    get(''), get('history/'), get('owners-notes/'), get('sitemap.xml')
+  const [home, history, englishHistory, germanHistory, owners, sitemap] = await Promise.all([
+    get(''), get('history/'), get('en/history/'), get('de/history/'), get('owners-notes/'), get('sitemap.xml')
   ]);
-  for (const [name, result] of [['home', home], ['history', history], ['owners-notes', owners], ['sitemap', sitemap]]) {
+  for (const [name, result] of [
+    ['home', home],
+    ['history', history],
+    ['en/history', englishHistory],
+    ['de/history', germanHistory],
+    ['owners-notes', owners],
+    ['sitemap', sitemap]
+  ]) {
     if (!result.ok) failures.push(`${name}: HTTP ${result.status}`);
   }
 
   if (home.ok && !home.text.includes('owners-notes/')) failures.push('home: OWNER\'S NOTES link missing');
   if (history.ok && !history.text.includes('id="milestones"')) failures.push('history: milestones missing');
+  if (englishHistory.ok && !englishHistory.text.includes('lang="en"')) failures.push('en/history: html lang missing');
+  if (germanHistory.ok && !germanHistory.text.includes('lang="de"')) failures.push('de/history: html lang missing');
+  if (englishHistory.ok && !englishHistory.text.includes('References &amp; Sources') && !englishHistory.text.includes('References & Sources')) failures.push('en/history: localized sources label missing');
+  if (germanHistory.ok && !germanHistory.text.includes('Literatur &amp; Quellen') && !germanHistory.text.includes('Literatur & Quellen')) failures.push('de/history: localized sources label missing');
+
+  if (sitemap.ok) {
+    for (const path of ['history/', 'en/history/', 'de/history/']) {
+      const expected = `https://vintagealarm.github.io/${path}`;
+      if (!sitemap.text.includes(expected)) failures.push(`${path}: missing from sitemap`);
+    }
+  }
 
   if (researchSettings.published) {
     if (home.ok && !home.text.includes('history/#research')) failures.push('home: published RESEARCH link missing');
@@ -99,7 +117,7 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   }
 
   if (!failures.length) {
-    console.log(`Live publication check: PASS — ${watches.filter((watch) => watch.published).length} published watch pages, owner thumbnails/fallbacks reachable.`);
+    console.log(`Live publication check: PASS — localized HISTORY plus ${watches.filter((watch) => watch.published).length} published watch pages, owner thumbnails/fallbacks reachable.`);
     process.exit(0);
   }
   lastFailures = failures;
