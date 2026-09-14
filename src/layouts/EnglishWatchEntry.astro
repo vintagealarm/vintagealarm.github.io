@@ -9,14 +9,13 @@ import DeepDive from '../components/DeepDive.astro';
 import SpecimenGallery from '../components/SpecimenGallery.astro';
 import Sources from '../components/Sources.astro';
 import OwnerFonts from '../components/OwnerFonts.astro';
-import { englishFullResearchBySlug } from '../data/en-watch-full-research';
-import { germanWatchEntries } from '../data/de-watch-entry';
+import { englishFullResearchWithCyma, germanWatchEntriesWithCyma } from '../data/cyma-localizations';
 import '../styles/site.css';
 import '../styles/owners-v15.css';
 
 const { watch, entry } = Astro.props;
-const fullResearch = englishFullResearchBySlug[watch.slug];
-const germanEntry = germanWatchEntries[watch.slug];
+const fullResearch = englishFullResearchWithCyma[watch.slug];
+const germanEntry = germanWatchEntriesWithCyma[watch.slug];
 const siteRoot = 'https://vintagealarm.github.io/';
 const englishPath = `en/${watch.slug}/`;
 const japanesePath = `${watch.slug}/`;
