@@ -57,16 +57,16 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
     slug: 'pierce-duofon',
     title: 'Pierce Duofon Cal. 135 — Zweistufiger mechanischer Alarm | VINTAGE ALARM',
     description: 'Pierce Duofon mit Cal. 135: zwei Federhäuser, wählbare WECKER-/SIGNAL-Modi, rot-weiße Anzeige, Modellentwicklung, Verbindung zur Gruen Duo-Tone, Fotos des Exemplars, Original-Alarmton und Quellen.',
-    indexBlurb: 'Ein Vorfahre des Lautlosmodus!? Ein OOPArt der Benachrichtigungstechnik aus den 1950ern.',
+    indexBlurb: 'Ein Vorfahre des Lautlosmodus!? Benachrichtigungstechnik aus den 1950ern, ihrer Zeit Jahrzehnte voraus.',
     catch: [
       'Ein Vorfahre des Lautlosmodus!?',
-      'Ein OOPArt der Benachrichtigungstechnik aus den 1950ern.'
+      'Benachrichtigungstechnik aus den 1950ern, ihrer Zeit Jahrzehnte voraus.'
     ],
     ownersNote: {
       lead: [
         'Ein Vorfahre des Lautlosmodus!?',
-        'Ein OOPArt der Benachrichtigungstechnik aus den 1950ern.',
-        'Selbst die Rücksicht beim Erinnern war komplett mechanisch.'
+        'Benachrichtigungstechnik aus den 1950ern, ihrer Zeit Jahrzehnte voraus.',
+        'Sogar die Rücksicht darauf, wie man erinnert, war rein mechanisch gelöst.'
       ],
       guideTitle: 'Kurzanleitung',
       guide: [
@@ -79,9 +79,9 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       noteTitle: 'NOTE',
       note: [
         'Das Prinzip, je nach Situation zwischen einem hörbaren Ton und einer diskreten Benachrichtigung zu wählen, verbreitete sich erst von den späten 1980er- bis in die 1990er-Jahre, als Pager- und Mobiltelefonfunktionen allgemein üblich wurden.',
-        'Unabhängig von dieser späteren Entwicklung hatte die Duofon in einer Armbanduhr der 1950er-Jahre bereits die „Distanz einer Benachrichtigung“ mechanisiert.',
-        'Mit der Krone bei 4 Uhr wählt man den Ton; das kleine Fenster unter 6 Uhr zeigt die „Stimmfarbe“ der Uhr als Farbe.',
-        'Obwohl sie eine Wecker-Armbanduhr war, hatte sie die Atmosphäre der Zukunft viel zu früh vorweggenommen.'
+        'Unabhängig von dieser späteren Entwicklung hatte die Duofon bereits in den 1950er-Jahren mechanisch umgesetzt, wie laut oder zurückhaltend eine Benachrichtigung ausfallen sollte.',
+        'Mit der Krone bei 4 Uhr wählt man den Alarmmodus; das kleine Fenster unter 6 Uhr zeigt den gewählten „Tonfall“ in Rot oder Weiß.',
+        'Für eine Wecker-Armbanduhr nahm sie die Zukunft erstaunlich früh vorweg.'
       ]
     },
     spec: {
