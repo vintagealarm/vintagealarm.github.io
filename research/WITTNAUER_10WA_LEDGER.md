@@ -53,7 +53,11 @@ Webの多数決で専門書・一次資料を上書きしない。
 - Beitl も Wittnauer 10WA を独立した Longines 手巻きムーブメント＋別作動のアラームモジュールと記述する。
 - 一方、Bestfit 系部品情報では AS 1200 用の setting bridge / balance cap jewel screw / winding stem などが WITTNAUER 10S / 10SC / 10WA と互換対象に列挙される。
 - American Watchmakers Institute の1969年 Technical Bulletin は `Wittnauer 10S (AS 1200)` と明記する。これは10Sの同定には強いが、10WAの直接同定ではない。
-- 重要：部品互換および10SのAS1200同定は `10WA = AS 1200 base` の直接証明ではない。現時点では「時刻側に AS 1200 family と強い部品互換性がある」まで。
+- 竜真互換資料では `AS 1200` と `Wittnauer 10S / 10SC / 10WA / 11B / 11H` が同一互換群に並ぶ。10WAとAS1200-familyの関係を補強するが、base caliberの直接同定ではない。
+- ユーザー提供のFHF (@FHF_Ebauche) 2024-08-10投稿は「10WAのベースムーブメントはA. Schild Cal.1200」とし、`A SCHILD 1200 / WITT 11P` と読める識別資料画像を掲示する。FHFは研究経路を示す二次資料として保持する。
+- ただし、Marshall Handy Manual の historical trade concordance scan は `10SG = WIT-AS1200`、`11H = WIT-AS1200`、`11P = WIT-P170` と列挙する。さらにBestfit balance-staff listingも `Peseux 170-190 - Witt 11P` を対応させる。
+- したがってFHF画像の **`AS1200 = Witt 11P` という具体的な橋渡し自体が資料衝突**になった。`11P` を根拠に10WA=AS1200と確定しない。また、Marshall側を根拠にFHF画像の`11P`を勝手に`11H`へ訂正しない。
+- 重要：部品互換および10S / 11HのAS1200同定は `10WA = AS 1200 base` の直接証明ではない。現時点では「時刻側に AS 1200 family と強い部品互換性がある」まで。
 - Forum / repair user report には「10WA の basis は AS 1200」とする主張があるが、一次 / メーカー技術資料では未確認。
 - Longines 10L / 10.68Z と AS 1200 は、どちらも概ね10.5 ligne・17石仕様あり・18,000振動という近い条件を持つため、外径や石数だけでは判定不能。
 - Longines 10.68Z の技術資料では 10.5 ligne、17石、小秒針、18,000 A/h と確認できるが、これ自体は10WAとの接続証拠ではない。
@@ -73,9 +77,10 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 「Longines Cal.10」説：Hodinkee / Watch-Wiki 等の二次資料では見られるが、現時点では一次 / 技術資料で未確定。
 - `Longines 10L / 10.68Z` が10WA時刻側の具体的ベースである可能性：寸法・年代・振動数は整合し得るが直接資料なし。
 - Longines銘10WAの小規模シリーズ説：Beitl は Longines 署名個体を掲載している。実物記録は重視するが、製造規模・市場・経緯は未確定。
+- `CH304088A` (Marcel Bliss, filed 1952-12-04, published 1954-12-31)：文字盤側に独立プレートで載るアラーム機構、独立アラーム香箱、回転ベゼル内部の歯付きリングによるアラーム巻上げ、同じベゼルによるアラーム時刻設定を記載し、10WAの既知構造と極めて強く対応する。さらに満巻き時の設定自由度を保つ手段として slipping bridle を記載する。ただし特許自体にWittnauer名はなく、所有・譲渡・ライセンス・製品化の直接接続は未証明。**「10WAの特許」と断定しない。**
+- Marcel Blissの時計業界との関係：同名の `CH332208A`（1957出願、marquise watch）が存在し、二次企業史ではMarcel Bliss of Zurichが1959年にMontres Busga SAのpower of attorneyを得て後に取締役・社長になったとされる。Busgaは1958年に回転ベゼル設定式のCapitol Alarm Timerを発売した。ただし1952年時点の所属、同一人物性、CH304088AとBusga/Wittnauerの接続は未証明。
 - Leon M. Newhouse / Longines-Wittnauer の同時期 watch-case / dial design patent と 10WA の関係：時期は近いが対応未証明。
 - `US2566741A` (Watch casing, priority 1948-07-10) と10WAケース設計の関係：権利者・時期は近いが、現時点で10WA対応を示す請求項・図面照合は未完了。
-- 「10WAアラームモジュールの特許取得」説：SNS上の証言あり。対応特許未特定。
 - `CH45807A` (Wittnauer & Co., priority 1908-11-27, Sonnerie pour mouvements d'horlogerie) はWittnauer名義の古い打鈴機構特許として確認できるが、10WAとの技術的・法人上の直接系譜は未証明。歴史的背景候補に留める。
 - `US1160065A` (Wittnauer Co., priority 1913-07-18, Striking attachment for timepieces) はWittnauer名義の別の古い打鈴機構特許として後年のstriking-work特許から参照されている。10WAとの直接系譜は未証明で、歴史的背景候補に留める。
 - Hanhart Cal.301 は Horlbeck / Beitl で1951年開始、回転ベゼルによるアラーム時刻設定が確認できる。一方「ベゼル操作そのものがアラームを巻上げる」ことは、現時点で確認した専門書本文では明示されない。Beitl掲載の当時広告も `Weckerzeigereinstellung durch drehbaren Glasreif` と設定機能を明記するが、巻上げ機能は記載しない。
@@ -100,6 +105,7 @@ Webの多数決で専門書・一次資料を上書きしない。
 - `US2362245A` を 10WA のアラーム / ベゼル特許とみなすこと：1942年出願・1944年公開の航空機計器時計向け winding and setting mechanism で、アラームモジュールを請求していないため不採用。
 - `CH45807A` を10WAモジュール特許とみなすこと：1908/1909年の別時代の打鈴機構で、10WAとの直接対応を示す証拠なし。
 - 販売記事に `Longines Cal.10 base` と書かれていることだけでベースムーブメントを確定すること：孫引きの可能性があるため不採用。
+- FHF画像の `A SCHILD 1200 / WITT 11P` 表記だけで `10WA base = AS1200` を確定すること：Marshall / Bestfitで `11P = Peseux 170` という反証資料が出たため不採用。画像の出典・版・ページを特定して再評価する。
 
 ### OBSOLETE
 
@@ -107,22 +113,25 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 「10WA = Longines Cal.10で確定」：直接根拠不足のため撤回。
 - 「Longines-Wittnauer の1950年前後の特許を見つけた = 10WAモジュール特許を発見」：内容照合前の旧判断として禁止。
 - 「Hanhart 301 がベゼルで設定と巻上げを同時に行うため10WAの先行例で確定」：専門書再確認により、少なくとも巻上げ部分は未確認へ戻す。
+- 「対応する1954年特許が未特定」：`CH304088A` が構造的に極めて強く対応する候補として特定されたため旧状態。Wittnauerとの権利・製品接続自体は引き続き未確定。
 
 ## Open research questions — priority order
 
-1. 10WAアラームモジュールの対応特許を特定できるか。
-2. 出願人 / 発明者 / 優先日 / 同族特許 / 請求項と10WA構造の対応。
+1. `CH304088A` とWittnauer 10WAを直接結ぶ一次資料を発見できるか。譲渡 / ライセンス / メーカー資料 / trade literature / correspondenceを優先。
+2. Marcel Blissの1952年時点の所属・事業関係を確認し、後年Montres Busga SAに関与したMarcel Blissと同一人物か一次資料で確定できるか。
 3. 時刻側ベースムーブメントの確定：Longines系かAS1200系か、または別の説明が必要か。
-4. 1950年代初頭の当時広告、カタログ、取扱説明書、サービス資料。特に「ベゼルで設定＋巻上げ」を当時どのような利点として説明・販売したか。
-5. Longines銘10WAの追加個体・市場・製造経緯。
-6. 10WAの発売開始年 / 終了年 / ref.展開。
-7. ベゼル操作方式の先行例・同時代比較と、10WA固有点の確定。
-8. なぜWittnauerが後続でAS系アラームへ移行したのか。**移行そのものは確認済み、理由は未確認**。
-9. ケース形状・張り出しベゼル・小型リューズの関係を技術資料で裏付けられるか。
-10. 所有個体の実測：鳴動時間、操作量、音、ベゼル回転量など。
-11. 1950年前後のLongines / Wittnauer / Longines-Wittnauer各法人の所有・開発・製造関係を一次資料ベースで整理できるか。
-12. Hanhart広告の `D.PAT. NR.873525` を正しいドイツ特許公報へ同定し、請求対象がベゼル設定・停止・音響等のどれかを確認できるか。
-13. 10WAの整備性について、当時またはメーカー系のservice bulletin / parts sheet / watchmaker instructionを発見できるか。現時点の「整備が難しい」は後年修理報告中心。
+4. FHF投稿画像 `A SCHILD 1200 / WITT 11P` の正確な出典・版・ページを特定し、Marshall / Bestfitの `11P = Peseux 170`、`11H = AS1200` と何が違うのか確認できるか。
+5. 1950年代初頭の当時広告、カタログ、取扱説明書、サービス資料。特に「ベゼルで設定＋巻上げ」を当時どのような利点として説明・販売したか。
+6. 10WAアラーム香箱が fixed bridle / slipping bridle のどちらを採るか、分解写真またはservice資料で直接確認できるか。
+7. Longines銘10WAの追加個体・市場・製造経緯。
+8. 10WAの発売開始年 / 終了年 / ref.展開。
+9. ベゼル操作方式の先行例・同時代比較と、10WA固有点の確定。
+10. なぜWittnauerが後続でAS系アラームへ移行したのか。**移行そのものは確認済み、理由は未確認**。
+11. ケース形状・張り出しベゼル・小型リューズの関係を技術資料で裏付けられるか。
+12. 所有個体の実測：鳴動時間、操作量、音、ベゼル回転量など。
+13. 1950年前後のLongines / Wittnauer / Longines-Wittnauer各法人の所有・開発・製造関係を一次資料ベースで整理できるか。
+14. Hanhart広告の `D.PAT. NR.873525` を正しいドイツ特許公報へ同定し、請求対象がベゼル設定・停止・音響等のどれかを確認できるか。
+15. 10WAの整備性について、当時またはメーカー系のservice bulletin / parts sheet / watchmaker instructionを発見できるか。現時点の「整備が難しい」は後年修理報告中心。
 
 ## Evidence source register
 
@@ -137,16 +146,20 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 同書、Hanhart pp.206–211：Sans-Souci / Cal.301、1951頃の広告、回転ベゼル式 alarm setting、後期停止スライダー。広告では `Weckerzeigereinstellung durch drehbaren Glasreif` と設定機能を明記し、`D.PAT. NR.873525` 表示が見える。
 - Horlbeck Hanhart 301章：1951–1956、1香箱、lunetteでalarm time設定。確認範囲ではlunetteによる独立alarm spring巻上げとは記述していない。
 
-### User specimen
+### User specimen / supplied material
 
 - `IMG_5490.jpeg`：正面。金色ケース、特徴的なインデックス、青い波形アラーム針。
 - `IMG_5386.jpeg`：腕載せ。
 - `IMG_5758.jpeg`：シースルーバック。`WITTNAUER` / `SEVENTEEN 17 JEWELS` / `10WA`刻印を視認可能。時刻側ムーブメントは見えるがアラームモジュールは見えない。
 - `IMG_7643.jpeg`：側面。張り出したベゼル、ケースの絞り、リューズ配置を観察可能。
+- FHF (@FHF_Ebauche) X screenshot, 2024-08-09 / 2024-08-10：特許先行で10WA実機へ到達した研究経路、1954年特許への言及、翌日のAS1200 base説と `A SCHILD 1200 / WITT 11P` 識別画像。二次研究ノートとして保持し、個別主張は一次 / trade資料で独立検証する。
 - 重要：所有個体の刻印は10WA同定には使えるが、時刻側ムーブメントの元メーカー同定には単独使用しない。
 
 ### Primary / patent candidates checked
 
+- `CH304088A` — Marcel Bliss, filed / priority 1952-12-04, published 1954-12-31, *Watch*。文字盤側の独立alarm module、独立barrel、rotating bezel / toothed crownによるalarm winding、同じbezelによるsimultaneous alarm settingを記載。slipping bridleで満巻き後も設定自由度を保つ案も明記。10WAと強い構造対応があるが、Wittnauerとの権利・ライセンス・製品化接続は未発見。HOLD。
+- `CH332208A` — Marcel Bliss, filed 1957-12-09, published 1958-08-31, *Marquise watch*。同名人物による同時代の別のwatch patentとして確認。CH304088AとBusga/Wittnauerの接続証拠ではない。
+- Swatch Group 2021 priorityのrotating case / mobile indicator patent family (`EP4086710` / `JP7386924`等) が `CH304088A` をprior artとして引用。後世のhorological prior-art認識には使えるが、Wittnauer系譜の証拠には使わない。
 - `US2937271A` — Longines-Wittnauer Watch Co. Inc., filed 1957-10-25, signalling/alarm device。遠隔信号用途で10WAとは別物。REJECTED。
 - `US2566741A` — Longines-Wittnauer Watch Co. Inc., priority 1948-07-10, *Watch casing*。10WAとの対応未証明。HOLD / 直接機構特許扱い禁止。
 - `USD163314S` — Leon M. Newhouse / Longines-Wittnauer, filed 1950-01-12, watch dial design。機構特許ではない。REJECTED as 10WA alarm patent。
@@ -163,14 +176,18 @@ Webの多数決で専門書・一次資料を上書きしない。
 - American Watchmakers Institute, Technical Bulletin (1969)：`Wittnauer 10S (AS 1200)` と記載。10Sには強い同定資料、10WAへの直接証明ではない。
 - Time Connection II / Bestfit database：AS 1200 factory part 445/654 (set bridge) の compatible caliber に WITTNAUER 10S / 10SC / 10WA を列挙。
 - Time Connection II / Bestfit：AS 1200 系 lower balance cap jewel screw の互換群に WITTNAUER 10WA を列挙。
-- winding stem interchange lists：AS 1200 系と WITTNAUER 10WA の共通 stem 情報あり。
+- winding stem interchange lists：AS 1200 系と WITTNAUER 10S / 10SC / 10WA / 11B / 11H の共通 stem 情報あり。
+- Marshall Handy Manual historical trade concordance scan：Wittnauer discontinued modelsで `10SG = WIT-AS1200`、`11H = WIT-AS1200`、`11P = WIT-P170`。FHF画像の11P表記とのCONFLICTとして扱う。
+- Bestfit balance-staff listing：`Peseux 170-190 - Witt 11P`。Marshallの11P→P170対応を別ルートで補強。
+- `Paulson's Master Key Swiss Catalog`：Henry Paulson & Co., Chicago, 1950。movement-identification catalogとして存在と年版を確認。FHF画像の正確な出典かは未確認。
 - Bestfit互換一覧は多数のブランド/派生caliberを横断しており、部品互換性の証拠としては有効だが、base caliber同定の証拠力は低い。
 - Ranfft：AS 1200 = 10.5 ligne, 23.7 mm, h 3.50 mm, 17石仕様あり, 18,000 A/h, 1945頃。Longines 10L / 10.68Z = 10.5 ligne, 23.65 mm, h 4.1 mm, 17石, 18,000 A/h, 1948頃。スペック近似だけでは判定不可。
+- Ranfft現行draftはWittnauer 11Pを`PES 170-190` baseとするが、auto-generated draftで誤りの可能性を明記しているため補助証拠止まり。
 - Longines 10.68Z technical sheet：10.5 ligne、17 rubis、小秒針、18,000 A/h と技術図面を確認。10WAとの直接接続資料ではない。
 - `watch.weblog.to` の 10WA 分解記事：文字盤側に積層されたアラーム機構を実機分解写真で確認可能。筆者は分解手順資料を見つけられず、時計師から「不用意に触ると壊されやすい」趣旨の警告を受けたと記述。専門Web / owner repair report として扱い、メーカー一次資料とは分離。
-- Uhrforumの2026年実機修理報告：過去の不適切なアラーム操作に起因すると判断されたアラームモジュールの歯車損傷を報告。Horlbeckの操作上の危険と整合するが、一個体の事例として扱う。
+- Uhrforumの2026年実機修理報告：過去の不適切なアラーム操作に起因すると判断されたアラームモジュールの歯車損傷を報告し、ベゼルのover-rotationがmechanism damageにつながると説明。Horlbeckの操作上の危険と整合するが、一個体の事例として扱う。
 - Cinci Watches (2021)：10WAは操作が impractical で破損しやすく、Wittnauerが早期に生産をやめASムーブメントへ移ったと説明する。ただし一次資料を示していないため、因果説明はHOLD。
-- Hodinkee (2025)：10WAのアラーム機構を finicky とし、過度なベゼル操作で壊れた個体が多いとの古いforum情報を紹介。二次情報としてのみ保持。
+- Hodinkee (2025)：10WAをLongines Cal.10 baseのmodular alarmと説明。二次情報として保持し、Horlbeck / Beitlと同方向だが直接一次根拠ではない。
 - Meticulous Watches：Ref.1216、10k gold filled、36mm、ケース内 `Longines-Wittnauer Watch Co. Inc`、ベゼル内部gongとhammer tipの記述。販売/時計師資料であり一次資料ではない。
 - Private Eyes / Watchnet：Ref.1215、SS、36mm、serial 262,***、10WAの販売記録。
 - Mister Wolf Time：Ref.1216とoriginal Longines-Wittnauer fitted box / guarantee-warranty bookletsの現存例。冊子本文未確認。
@@ -181,6 +198,7 @@ Webの多数決で専門書・一次資料を上書きしない。
 - Pierre-Yves Donzé, Longines corporate-history research：Wittnauerを米国でLongines watchesのfinish/assemblyを担った長期パートナーとして記述し、1970年のWestinghouseによるLongines-Wittnauer takeoverを記録。
 - 1955 U.S. antitrust litigation：Longines / Wittnauer間の株式関係を示す記述あり。法人名の切り分けを要するため最終解釈は保留。
 - Hodinkee / Ranfft /一般ブランド史：「1950 Longines acquired Wittnauer」説。二次情報として保持するが、上記法人資料と整合させるまで採用しない。
+- Grail Watch Wiki / Busga corporate-history research：Montres Busga SAにMarcel Bliss of Zurichが1959年から関与したとする。一次商業登記を直接確認できていないため、CH304088Aのinventorとの同一人物性・1952年時点の所属はHOLD。
 
 ## Research log
 
@@ -241,6 +259,17 @@ Webの多数決で専門書・一次資料を上書きしない。
 - Cinci Watchesは「10WAは実用上扱いにくく破損しやすかったためWittnauerが早期に生産をやめASへ移行した」と明記するが、一次資料を提示していないため**因果はHOLD**。
 - 現時点の最も安全な結論：**10WAの後、Wittnauerは量産・信頼性で実績のあるAS系アラームへ移行した。10WA固有の操作制約・損傷リスクは確認できるが、それが移行の決定理由だったことは未証明。**
 
+### 2026-09-15 — Round 5: CH304088A / FHF / 11P再監査
+
+- ユーザー提供FHFスクリーンショットを起点に1954年特許を追跡し、`CH304088A` (Marcel Bliss, filed 1952-12-04, published 1954-12-31) を原文確認。文字盤側独立alarm module、own plate、alarm barrel、rotating bezelのtoothed crownによるalarm winding、同じbezelによるsimultaneous alarm-time settingが明記され、10WAの構造と非常に強く対応することを確認。
+- 特許本文は、一体化したset+windingの利点を「別途alarm springの巻上げを気にしなくてよい」方向で説明し、さらに満巻き時も設定自由度を維持するためslipping bridleを提案している。発明者が統合操作の利点と制約を両方認識していたことが分かる。
+- 一方、Horlbeck記載の量産10WAは約1.5回転でベゼルがblockし、無理な回転で歯を損傷し得る。現時点では10WA alarm barrelのspring attachmentを直接示すservice / teardown資料がなく、patent optionを採らなかった理由も不明。
+- Google Patents上ではCH304088AはMarcel Bliss名義で、Wittnauer名はない。assignment / licence / manufacturer bridgeは未発見のため `HOLD / strong structural correspondence` とし、「10WAの特許」とは断定しない。
+- Marcel Bliss名義の別watch patent `CH332208A` (1957 filing) を確認。さらに二次企業史でMarcel Bliss of Zurichが後年Montres Busga SAに関与し、Busgaが1958年にrotating-bezel-set alarm timerを出したことを確認。ただし同一人物性・1952年時点の所属・10WAとの接続は未証明。
+- FHFの2024-08-10 follow-upはAS1200 base説と `A SCHILD 1200 / WITT 11P` 画像を提示するが、Marshall Handy Manualは `11P = WIT-P170`、`11H = WIT-AS1200` と記載し、Bestfit staff listingも `Peseux 170-190 - Witt 11P` を示す。よってFHF画像の11P橋渡し自体を新たな`CONFLICT`へ移動。
+- ただしAS1200-familyと10WAのparts compatibilityは複数資料で継続して確認できるため、AS1200説そのものを棄却したわけではない。`11P`を橋にする論証だけを不採用とする。
+- `Paulson's Master Key Swiss Catalog` 1950年版の存在とmovement-identification用途を確認したが、FHF画像の正確な出典・pageは未特定。画像の出典確認を高優先OPENへ追加。
+
 ## Editorial decisions
 
 - OWNER'S NOTE末尾の個人的な締めは現状維持候補。調査で勝手に改稿しない。
@@ -250,10 +279,12 @@ Webの多数決で専門書・一次資料を上書きしない。
 - DEEP DIVEでは、キャッチを説明するために史実を歪めない。
 - 10WAの独自性候補は「回転ベゼルそのもの」ではなく、独立モジュール / 専用香箱 / bezelによるset+winding / case・gongまで連動するパッケージ全体として評価する。
 - 「世界初」「特許取得」「Longines共同開発」など、キャッチとして強い語ほど一次根拠を得るまで使わない。
+- `CH304088A` は「10WA構造と極めて強く対応する1954年公開特許」と書けるが、Wittnauerとの直接接続が出るまでは「Wittnauer 10WAの特許」と書かない。
+- FHFは、特許から実機へ到達した研究経路を示す参照先として価値がある。一方、FHF投稿内のbase-caliber同定は独立検証し、`A SCHILD 1200 / WITT 11P`画像をそのまま確定根拠にしない。
 - 専門資料が二説に分かれ、追加調査でどちらかを直接確定できる見込みが低い場合、`CONFLICT` 自体を最終回答として扱う。未解決を無理に解消しない。
 - 追加調査は「記事の主張・構成・採否を変え得る直接証拠」が見込める場合に限って優先する。専門家向けの細部を延々と掘ること自体を目的化しない。
 - ベースムーブメント問題は現時点で、Horlbeck / Beitl の Longines-base 説と、時計師資料 / 部品互換が示す AS1200-family 関連説の二本立てを明示する方針。新しい直接証拠が出るまでは、この資料差をDEEP DIVEの結論として扱う。
-- 10WAを「失敗作」「馬鹿な設計」「壊れやすい時計」と縮約しない。確認できるのは、**大胆で独創的な操作統合と、その統合が生んだ明確な制約・損傷リスク**。評価語を使う場合も設計意図への敬意と技術的成果を同時に残す。
+- 10WAを「失敗作」「馬鹿な設計」「壊れやすい時計」と縮約しない。確認できるのは、**大胆で独創的な操作統合と、その統合が生んだ明確な制約・損傷リスク**。CH304088Aはさらに、発明者側が統合操作の利点と満巻き時の問題を認識し回避案まで記載していたことを示す。評価語を使う場合も設計意図への敬意と技術的成果を同時に残す。
 
 ## Update rule
 
