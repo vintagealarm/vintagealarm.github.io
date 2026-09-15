@@ -1,0 +1,112 @@
+# VINTAGE ALARM — Multilingual revision sync
+
+更新日: 2026-09-15
+
+## 結論
+
+多言語版の最大リスクは翻訳の自然さそのものより、**日本語正本で行った事実修正が EN / DE に残らない revision drift（改訂同期ズレ）**とする。
+
+日本語サイト本文を正本とする既存方針は維持する。ただし「日本語を正本と書いてある」だけでは同期は保証できないため、共有事実の修正には CI で落ちる同期契約を持たせる。
+
+## 現在の公開深度
+
+### English
+
+- FULL RESEARCH: Cyma Time-O-Vox / Pierce Duofon / Westclox Watchlarm
+- CONCISE ENTRY: Basis Alarm / Citizen Alarm
+
+英語版は全WATCHを同じ深度で複製する方針ではない。`CONCISE ENTRY` と `FULL RESEARCH` は意図的に併存する。
+
+### Deutsch
+
+- FULL RESEARCH: Cyma Time-O-Vox / Pierce Duofon / Westclox Watchlarm
+- 未展開: Basis Alarm / Citizen Alarm
+
+ドイツ語版は部分展開中とする。
+
+`public/llms.txt` は「実際に公開されているURL」の一覧として扱い、完全版・短縮版を同一品質であるかのように解釈しない。
+
+## 事実修正の同期ルール
+
+日本語正本で、EN / DEにも存在する事実を修正するときは、同じ変更単位で次を行う。
+
+1. 日本語正本を修正する。
+2. 公開済みEN / DEの対応箇所を同時修正する。
+3. 資料差がある場合、本文には採択した事実を自然に書き、異説・採択理由は参考資料・RESEARCH NOTE・REVISIONへ置く。
+4. `src/data/localization-fact-sync.json` に同期契約を追加または更新する。
+5. `npm run check:localization-sync` が通ることを確認する。
+6. build / quality / layout / live publication checkまで通してから完了とする。
+
+## 同期契約
+
+正本:
+
+- `src/data/localization-fact-sync.json`
+
+検証:
+
+- `scripts/check-localization-sync.mjs`
+- `npm run check:localization-sync`
+- `npm run check:quality` の一部としてCIで常時実行
+
+同期契約は、各共有事実について以下を確認する。
+
+- 日本語正本に現行値が存在すること
+- EN / DEの公開済み版に同じ現行値が存在すること
+- 既知の旧本文表現が残っていないこと
+- 資料差を残す必要がある場合、旧値そのものは参考資料側に残っていること
+- build後の公開HTMLにも必要な値が出ていること
+
+## 最初の登録事例 — Pierce創業年
+
+2026-09-15、Pierce創業年について日本語本文を1888年から1883年へ修正した。
+
+- 本文値: 1883
+- Horlbeck p.131: 1888
+- Beitl p.670 / Grail Watch Wiki / Ranfft DB / Watch-Wiki: 1883
+- 一次資料による最終確定: 継続
+
+この修正は JA / EN / DE すべてを1883へ同期し、1888との資料差は参考資料側へ残した。
+
+この事例を revision drift の回帰テストとしてCIに固定する。
+
+## 本文と証拠層を混ぜない
+
+本文に次のような編集会議口調を置かない。
+
+- `VINTAGE ALARMでは現時点で〜を採用する`
+- `複数資料が一致するため〜と判断した`
+- そのほか採択理由を本文読者へ説明する文章
+
+本文は採択した事実を自然に記述する。
+
+資料差、異説、採択理由、修正理由は以下へ分離する。
+
+- 参考資料・出典
+- RESEARCH NOTE
+- REVISION
+
+## 翻訳深度と同期は別問題
+
+ページが `CONCISE ENTRY` か `FULL RESEARCH` かは編集・公開戦略の問題。
+
+一方、**その言語版に既に存在する事実が古いまま残ることは許容しない。**
+
+したがって短縮英語版であっても、日本語正本の修正対象と同じ事実を掲載しているなら同期対象になる。
+
+## 10WA以降
+
+Wittnauer 10WAなど今後の多言語展開では、翻訳公開前に「どの事実を複数言語で共有するか」を同期契約へ登録する。
+
+特に次のような論点はrevision driftの影響が大きいため、登録優先度を高くする。
+
+- 年代・初出年
+- キャリバー系譜
+- メーカー / ebauche帰属
+- 特許との関係
+- 香箱数
+- 操作仕様
+- 実測値と文献値の差
+- `world first` 等の強い歴史主張
+
+多言語化を理由に日本語正本の確度を上げたり、海外資料側へ本文を寄せたりしない。
