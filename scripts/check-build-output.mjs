@@ -45,6 +45,14 @@ const sitemap = fs.existsSync(path.join(dist, 'sitemap.xml'))
 const ownersDirectory = JSON.parse(fs.readFileSync(path.join(root, 'src/data/owners-directory.json'), 'utf8'));
 const researchSettings = JSON.parse(fs.readFileSync(path.join(root, 'src/data/research-settings.json'), 'utf8'));
 const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.historyId));
+const researchDir = path.join(root, 'src/data/watch-research');
+const researchSlugs = new Set(
+  fs.existsSync(researchDir)
+    ? fs.readdirSync(researchDir)
+        .filter((file) => file.endsWith('.json'))
+        .map((file) => path.basename(file, '.json'))
+    : []
+);
 
 for (const watch of watches) {
   const href = `${watch.slug}/`;
@@ -65,8 +73,13 @@ for (const watch of watches) {
       if (!watchHtml.includes('"headline":')) failures.push(`${watch.slug}: Article headline missing`);
       if (!/"dateModified":"\d{4}-\d{2}-\d{2}"/.test(watchHtml)) failures.push(`${watch.slug}: Article dateModified missing or invalid`);
       if (!watchHtml.includes('"author":{"@type":"Organization","name":"VINTAGE ALARM"')) failures.push(`${watch.slug}: Article author missing or invalid`);
-      if (watch.slug !== 'cyma-time-o-vox' && watchHtml.includes('data-research-record')) {
-        failures.push(`${watch.slug}: Cyma research pilot leaked into another WATCH`);
+
+      const hasResearchRecord = watchHtml.includes('data-research-record');
+      if (researchSlugs.has(watch.slug) && !hasResearchRecord) {
+        failures.push(`${watch.slug}: registered research record missing from generated WATCH`);
+      }
+      if (!researchSlugs.has(watch.slug) && hasResearchRecord) {
+        failures.push(`${watch.slug}: research record leaked without registered metadata`);
       }
     }
   } else {
