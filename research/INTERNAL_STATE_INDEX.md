@@ -34,6 +34,16 @@ This repository is public, so this branch is not secret. The goal is only to red
 
 Anyone who intentionally inspects all branches can still find these files. True confidentiality requires a private repository; this branch is a low-discoverability state store, not a security boundary.
 
+## Pages CMS / draft-slot rule
+
+Pages CMS is configured against `main`. If a future WATCH entry must be visible/editable in Pages CMS before publication, reserve a minimal schema-valid entry on `main` with `published: false`.
+
+That `main` file is only the CMS slot. Keep unpublished editorial strategy, rejected drafts, competitor analysis, and detailed working copy on `state/*` or a non-main content branch until it is approved for public visibility.
+
+Do not confuse “reserve the CMS slot” with “add an image placeholder”. For unpublished WATCH entries, validation and source-traceability checks must respect `published: false` and must not require a built public page.
+
+Current 10WA CMS slot: `src/content/watches/wittnauer-10wa.md` on `main`, `published: false`.
+
 ## 10WA state files
 
 The existing `research/WITTNAUER_10WA_*` files on this branch preserve:
