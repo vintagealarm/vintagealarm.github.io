@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "canonicalLanguage": "ja",
+  "purpose": "Block factual revision drift between the Japanese source text and published EN/DE versions. Add or update a rule whenever a factual correction changes content that exists in more than one language.",
+  "facts": [
+    {
+      "id": "pierce-founding-year",
+      "slug": "pierce-duofon",
+      "canonicalValue": "1883",
+      "note": "Body copy states the currently adopted fact naturally. Source conflict and adoption rationale stay in References / RESEARCH NOTE / REVISION, not in the body prose.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/pierce-duofon.md",
+          "mustContain": [
+            "Pierceの前身となるLéon Lévy & Frèreは1883年、Léon LévyとThéodore Lévyによってスイス・ビエンヌで設立された。",
+            "p.131では創業年を1888年と記載",
+            "創業年注記：本文では1883年を採用"
+          ],
+          "mustNotContain": [
+            "Horlbeckは1888年としており資料差があるため、VINTAGE ALARMでは現時点で複数資料が一致する1883年を採用する"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "Pierce’s predecessor, Léon Lévy & Frère, was founded in Biel/Bienne, Switzerland, in 1883",
+            "Page 131 gives the company founding year as 1888.",
+            "Founding-year note: this page uses 1883."
+          ],
+          "mustNotContain": [
+            "Pierce was founded in Biel/Bienne, Switzerland, in 1888 by Léon Levi and his brothers."
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "Pierces Vorgängerunternehmen Léon Lévy & Frère wurde 1883",
+            "Auf S. 131 wird als Gründungsjahr 1888 genannt.",
+            "Hinweis zum Gründungsjahr: Im Fließtext wird 1883 verwendet."
+          ],
+          "mustNotContain": [
+            "Pierce wurde 1888 von Léon Levi und seinen Brüdern"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/pierce-duofon/index.html",
+          "mustContain": ["1883", "1888"]
+        },
+        {
+          "path": "dist/en/pierce-duofon/index.html",
+          "mustContain": ["1883", "1888"]
+        },
+        {
+          "path": "dist/de/pierce-duofon/index.html",
+          "mustContain": ["1883", "1888"]
+        }
+      ]
+    }
+  ]
+}
