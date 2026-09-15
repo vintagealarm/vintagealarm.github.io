@@ -240,23 +240,111 @@ No new evidence in this round changes the A/B/C relationship hypotheses.
 
 ---
 
+## Round 3 — AS transition and base-calibre evidence
+
+### A9. AS 1475 was under formal A. Schild / Ebauches S.A. service support by September 1955
+
+A surviving period Ebauches S.A. technical sheet for **A. Schild Cal.1475 `ALERTIC`** is explicitly dated **September 1955**, numbered **Technical and Practical Communication for the Guidance of Watch Repairers No.13**, and includes the movement description, disassembly / assembly guidance and spare-parts numbering.
+
+Classification: `ADOPTED chronology anchor`.
+
+What it proves:
+
+- by September 1955, AS 1475 was not merely an announced idea; it had reached a stage where Ebauches S.A. issued formal repairer-facing technical documentation and parts support;
+- therefore a mature service / parts ecosystem existed **no later than September 1955**.
+
+What it does **not** prove:
+
+- exact design-completion date;
+- exact production-start date;
+- first manufacturer delivery date;
+- first retail sale date;
+- that Wittnauer had access to / chose AS 1475 at the exact same moment.
+
+This sharply narrows factor 4 without turning `1954` into a single magic date.
+
+### A10. `Alertic` / `L'As Alarm` trademark timing provides a pre-September-1955 commercial-preparation lead
+
+The Mikrolisk horological trademark index records both `Alertic` and `L'As Alarm` for A. Schild with registration date **1954-10-13**.
+
+Classification: `HOLD / secondary trademark-index chronology` until an official trademark-register record is inspected.
+
+Interpretation:
+
+- this is consistent with active commercial preparation of the A. Schild alarm family by late 1954;
+- combined with the September 1955 Ebauches service sheet, it supports a staged chronology: branding / market preparation by late 1954, formal repairer documentation by September 1955;
+- it still does not establish the first sale or the date when Wittnauer could realistically procure the movement.
+
+### A11. Period technical documentation changes the AS-transition question
+
+The relevant question is now narrower than `AS 1475 was born in 1954`:
+
+> **Was 10WA already committed to production before AS1475 became a commercially supported alternative, or did Wittnauer continue with 10WA after that alternative was available?**
+
+A dated 10WA launch / price list / dealer bulletin is therefore now more valuable than another generic movement-history article.
+
+### B7. AS1200-family linkage to 10WA is broad, not dependent on a single interchangeable part
+
+Current Bestfit-derived / interchange sources connect `WITTNAUER 10WA` with the AS1200 family across multiple distinct components:
+
+- setting bridge: factory `445/AS 1200` lists Wittnauer 10WA;
+- lower balance cap-jewel screw: factory `5330/AS 1200` lists Wittnauer 10WA;
+- winding-stem interchange groups place 10WA together with AS1200-family calibres and Wittnauer 10S / 10SC / 11B / 11H;
+- period-style parts listings also sell `AS 1200`-identified setting components for Wittnauer 10WA.
+
+Classification: `STRONG AS1200-family parts relationship / still not exact base-calibre proof`.
+
+Research consequence:
+
+- the AS side is no longer a one-part coincidence;
+- shared components span keyless works / winding-setting and balance-area hardware;
+- however, broad interchangeability can still reflect a movement family / standardized dimensions rather than exact ebauche identity.
+
+The direct-proof standard remains unchanged: manufacturer / period service or parts documentation explicitly naming the 10WA base.
+
+### B8. Specialist watchmaker testimony points directly to AS1200, but remains secondary
+
+A 2016 Uhrforum post by the specialist user `Weckerfreund` states directly that the Wittnauer 10WA is a modular calibre whose base is **AS 1200**, with the alarm module screwed to the dial side like an add-on calendar. A 2026 repair discussion by the same specialist again challenges the recurring Longines-base attribution.
+
+Classification: `HOLD / specialist secondary corroboration`.
+
+This is useful because it independently converges with the parts-interchange evidence, but it does not override Horlbeck / Beitl without a manufacturer / period bridge source.
+
+### B9. Current chain-of-title search still produces no Wittnauer bridge
+
+Renewed exact searches for CH304088A / Marcel Bliss together with Wittnauer / Longines and assignment / licence terminology again produced no readable transfer record. Modern Swatch Group patent families continue to cite CH304088A as prior art, confirming the patent's technical visibility, but not any 1950s commercial lineage.
+
+Classification: `OPEN`.
+
+Do not convert repeated search failure into evidence for hypothesis C (independent convergence).
+
+### A12. Guarantee-booklet lead remains real, but current web indexing does not expose readable pages
+
+Mister Wolf Time still documents a Ref.1216 set with original Longines-Wittnauer fitted box and guarantee / warranty booklets. The accessible indexed page confirms the existence of the papers but does not expose readable booklet text in search output.
+
+Classification: `HIGH-VALUE OPEN retrieval target`.
+
+The next useful step is actual image / owner / dealer access, not further paraphrase of the sales listing.
+
+---
+
 ## Immediate next moves
 
 ### Track A
 
 1. **Retrieve / inspect NAWCC Box W1 Wittnauer Repair Bulletins and calibre notebook material.**
-2. Inspect the NAWCC BestFit 1952 / 1956 and other period interchange books specifically for `10WA`, `10S`, `11H`, `11P`, `AS1200`, and any alarm-attachment notation.
-3. Locate readable scans of surviving Ref.1216 guarantee / warranty booklets and compare them against the 1948-copyright generic Wittnauer booklet format.
-4. Continue exact-reference `1215 / 1216` period dealer / price-list search.
-5. Search numbered Longines-Wittnauer Information Bulletins for any 10WA / Alarm Watch servicing note.
+2. Obtain readable images of Ref.1216 guarantee / warranty papers; inspect `PAT.` / patent language, print codes, service addresses and operating warnings.
+3. Date the earliest realistic AS1475 procurement window more tightly: official trademark record, first dated factory / customer adoption and first retail evidence.
+4. Search exact `1215 / 1216 / 10WA` in period Longines-Wittnauer price lists / dealer material.
+5. Continue searching the Longines-Wittnauer Information Bulletin series specifically for alarm / 10WA service material.
 
 ### Track B
 
-1. Inspect Swiss historical patent-register / official-gazette records for CH304088A ownership, representative, address, transfer, or legal-effect annotations.
+1. Inspect Swiss historical patent-register / official-gazette records for CH304088A ownership, representative, address, transfer or legal-effect annotations.
 2. Search foreign equivalents via independent historical patent indexes rather than treating Google family data as exhaustive.
-3. Compare patent drawings against teardown photographs feature-by-feature.
+3. Use the broad AS1200 parts relationship to target a **period Wittnauer / Bestfit page that directly names 10WA**, rather than accumulating more modern seller listings.
 4. Identify the production alarm-barrel bridle / stop arrangement from service or teardown evidence.
-5. Search Wittnauer / Longines-Wittnauer technical material for `patented`, patent number, inventor name, or licensed-construction language.
+5. Compare patent drawings against 10WA teardown photographs feature-by-feature.
 
 ## Stop rule
 
