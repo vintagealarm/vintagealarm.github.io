@@ -8,18 +8,34 @@ const sectionLabel = isEnglish ? 'References and sources' : isGerman ? 'Literatu
 const typeLabel = isGerman
   ? {
       primary: 'PRIMÄRQUELLE',
+      'primary-reprint': 'PRIMÄRQUELLE · NACHDRUCK',
       reference: 'REFERENZ',
       provenance: 'PROVENIENZ',
       owner: 'EIGENE BEOBACHTUNG'
     }
   : {
       primary: 'PRIMARY SOURCE',
+      'primary-reprint': 'PRIMARY SOURCE · REPRODUCED',
       reference: 'REFERENCE',
       provenance: 'PROVENANCE',
       owner: 'OWNER OBSERVATION'
     };
 const structured = Array.isArray(meta) && meta.length === sources.length;
 const showResearch = !isEnglish && !isGerman && research?.summary?.length > 0;
+const feedbackIntro = isEnglish
+  ? 'Found an error, a variant specimen, a conflicting source, or additional material?'
+  : isGerman
+    ? 'Fehler, abweichendes Exemplar, widersprüchliche Quelle oder zusätzliches Material gefunden?'
+    : '誤り・別個体・資料差・追加資料を見つけた方へ。';
+const feedbackJoin = isEnglish
+  ? 'Send it via'
+  : isGerman
+    ? 'Hinweise bitte über'
+    : '情報提供は';
+const feedbackOr = isGerman ? 'oder' : isEnglish ? 'or' : 'または';
+const feedbackEnd = isEnglish ? '.' : isGerman ? '.' : 'からお願いします。';
+const xUrl = 'https://x.com/rimacroissant';
+const issueUrl = 'https://github.com/vintagealarm/vintagealarm.github.io/issues/new?template=research-correction.yml';
 const stripDuplicatedTypePrefix = (source: string, type?: string, label?: string) => {
   if (type !== 'owner') return source;
   const prefixes = [label, 'OWNER OBSERVATION', 'EIGENE BEOBACHTUNG'].filter(Boolean) as string[];
@@ -111,6 +127,17 @@ const parseInlineLink = (source: string) => {
         )}
       </>
     )}
+
+    <div class="research-feedback" data-research-feedback>
+      <p>
+        {feedbackIntro} {feedbackJoin}
+        <a href={xUrl} target="_blank" rel="noopener noreferrer">X @rimacroissant</a>
+        {` ${feedbackOr} `}
+        <a href={issueUrl} target="_blank" rel="noopener noreferrer">
+          {isEnglish ? 'GitHub correction form' : isGerman ? 'GitHub-Korrekturformular' : 'GitHub訂正フォーム'}
+        </a>{feedbackEnd}
+      </p>
+    </div>
   </details>
 </section>
 
@@ -135,6 +162,9 @@ const parseInlineLink = (source: string) => {
   .revision-list li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding:9px 0;border-top:1px solid var(--rule,#bcc5b2);font-size:13px;line-height:1.8}
   .revision-list time{color:var(--soft,#58634e);font-variant-numeric:tabular-nums}
   .revision-list span{color:var(--ink,#232720)}
+  .research-feedback{margin-top:16px;padding:16px 0 2px;border-top:1px solid var(--rule,#bcc5b2)}
+  .research-feedback p{margin:0;color:var(--soft,#58634e);font-size:12px;line-height:1.8}
+  .research-feedback a{color:inherit;text-underline-offset:3px}
   @media(max-width:480px){
     .source-list li{grid-template-columns:24px minmax(0,1fr);gap:10px;padding:16px 0}
     .source-copy{font-size:13px;line-height:1.85}
@@ -143,5 +173,7 @@ const parseInlineLink = (source: string) => {
     .research-record,.revision-record{padding-top:18px}
     .research-grid>div,.revision-list li{grid-template-columns:108px minmax(0,1fr);gap:12px;padding:8px 0}
     .research-grid dt,.research-grid dd,.revision-list li{font-size:12px;line-height:1.75}
+    .research-feedback{padding-top:14px}
+    .research-feedback p{font-size:11px;line-height:1.8}
   }
 </style>
