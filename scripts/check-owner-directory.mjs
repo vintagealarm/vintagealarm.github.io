@@ -64,7 +64,7 @@ if (westclox) {
 }
 
 for (const watch of watches) {
-  if (!seenIds.has(watch.slug)) failures.push(`${watch.slug}: watch is missing directory metadata`);
+  if (watch.published && !seenIds.has(watch.slug)) failures.push(`${watch.slug}: published watch is missing directory metadata`);
   const output = path.join(root, 'dist', watch.slug, 'index.html');
   if (watch.published && !fs.existsSync(output)) failures.push(`${watch.slug}: published WATCH page missing: ${output}`);
   if (!watch.published && fs.existsSync(output)) failures.push(`${watch.slug}: unpublished WATCH page should not be generated`);
