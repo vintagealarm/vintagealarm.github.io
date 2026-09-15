@@ -11,12 +11,13 @@ import Sources from '../components/Sources.astro';
 import OwnerFonts from '../components/OwnerFonts.astro';
 import { englishFullResearchWithCyma, germanWatchEntriesWithCyma } from '../data/cyma-localizations';
 import { englishCymaEntry } from '../data/cyma-en-entry';
+import { applyPierceEnglishResearchCorrection } from '../lib/pierce-factual-correction';
 import '../styles/site.css';
 import '../styles/owners-v15.css';
 
 const { watch, entry } = Astro.props;
 const localizedEntry = watch.slug === 'cyma-time-o-vox' ? englishCymaEntry : entry;
-const fullResearch = englishFullResearchWithCyma[watch.slug];
+const fullResearch = applyPierceEnglishResearchCorrection(englishFullResearchWithCyma[watch.slug], watch.slug);
 const germanEntry = germanWatchEntriesWithCyma[watch.slug];
 const siteRoot = 'https://vintagealarm.github.io/';
 const englishPath = `en/${watch.slug}/`;
