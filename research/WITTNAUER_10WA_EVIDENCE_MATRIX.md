@@ -149,9 +149,25 @@ The number of OPEN questions is not a weakness. For VINTAGE ALARM it is part of 
 
 ## 7. Primary-source search order for the next rounds
 
-For the adoption-history track, prioritize **service / technical documentation before advertising**.
+For the adoption-history track, prioritize **service / technical documentation before advertising**, while original guarantee / instruction material gets its own highest-priority pass because it can bridge product, service, chronology, and patent-marking questions at once.
 
-### Tier 1 — highest value
+### Tier 0 — immediate target
+
+- original 10WA guarantee booklet
+- original instruction booklet / retailer instruction card
+- warranty / service card from Ref.1215 / 1216 sets
+
+Look specifically for:
+
+- `PAT.` / `PATENTED`
+- operating warnings
+- alarm winding limit / special sequence
+- service address
+- corporate / distributor name
+- print code / revision number
+- model / reference notation
+
+### Tier 1 — highest technical value
 
 - Wittnauer parts catalogues
 - Longines-Wittnauer service bulletins
@@ -220,3 +236,72 @@ Working framing:
 This is a research framing, not a final historical conclusion.
 
 The remaining `why` must be answered, if possible, by Wittnauer / Longines-Wittnauer primary evidence rather than by a clean retrospective narrative.
+
+## 10. Patent-proof discipline: dates, claims, and bridges
+
+### Separate patent dates
+
+Never use `1954 patent` as if it were the origin date of the idea.
+
+For CH304088A currently verified:
+
+- filing: `1952-12-04`
+- publication: `1954-12-31`
+- grant / registration / legal-effect date: `OPEN` until independently verified
+
+Editorial consequence:
+
+> The documented architecture existed at least by the December 1952 filing date.
+
+### Separate CLAIM / DESCRIPTION / OPTIONAL OR DEPENDENT IMPLEMENTATION
+
+Do not treat every sentence in the specification as equal in legal meaning.
+
+Use `WITTNAUER_10WA_CH304088_CLAIM_CHART.md`.
+
+Important current finding:
+
+- the **slipping bridle appears in dependent sub-claim 6** in the checked CH304088A publication.
+- therefore it is stronger than a casual descriptive suggestion, but it is still **not a requirement of every broader claimed implementation**.
+- production 10WA behavior does not show the same full-wind setting freedom, but actual production bridle construction remains `OPEN`.
+
+### Separate structural correspondence from legal / commercial connection
+
+Even near-identity of mechanism cannot prove:
+
+- assignment,
+- licence,
+- purchase,
+- supply agreement,
+- common designer,
+- technology transfer.
+
+Those require bridge evidence.
+
+## 11. Competing A / B / C hypotheses
+
+Maintain three live explanations for the CH304088A ↔ 10WA correspondence.
+
+- **A — authorized transfer / licence / acquisition:** Bliss’s rights or concept reached Wittnauer and was modified for production.
+- **B — technical contact without proven patent-rights chain:** supplier / designer / prototype / know-how contact existed, but the legal chain is indirect or undocumented.
+- **C — independent convergence:** similar design constraints produced similar solutions independently.
+
+Research rule:
+
+> Search for evidence that can falsify or weaken A, B, or C, not only evidence that makes A feel plausible.
+
+If no bridge is found after serious archive-level searching, the valid conclusion may remain:
+
+> **Extremely strong structural correspondence is documented, but no legal or commercial technology-transfer bridge has been found in the sources checked.**
+
+Do not overstate non-discovery as proof of independence.
+
+## 12. Current next-round priority order
+
+1. original 10WA guarantee / instruction booklet images
+2. CH304088A claim chart completion / production comparison
+3. Bliss / CH304088A chain-of-title and foreign-equivalent search beyond Google Patents
+4. original Wittnauer parts / service documentation
+5. Ref.1215 / 1216 period advertising / dealer material
+
+AS1200 vs Longines-base remains secondary until a direct parts / service source appears.
