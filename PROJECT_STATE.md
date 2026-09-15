@@ -1,6 +1,6 @@
 # VINTAGE ALARM — CURRENT PROJECT STATE
 
-更新日: 2026-09-14
+更新日: 2026-09-15
 
 この文書は、VINTAGE ALARMで作業を再開するときに最初に読む「現在位置の索引」です。
 
@@ -65,11 +65,12 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
-- Councilはprotocol-driven V2。`焼いて` 単独は即実行せず5形式を毎回明示するランチャー
-- Councilの5形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board
+- Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
+- Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
 - Councilはformat / domain / budget / evidence / panelSizeを分離し、人数や固定ラウンド数を品質の代理指標にしない
 - Council共通プロトコルは独立初手 → Board整理 → Cross Exam → 必要時のみadaptive hot-seat → 匿名再評価 → Minority Report → 議長裁定
 - Council住民は架空の家族構成・年齢等ではなく、目的・証拠方針・失敗傾向・修正条件・棄権条件で差別化する
+- PRE-MORTEMはコード0行での前提破壊と最小SPIKE後の再評価を分け、致命傷 / 高確率地雷 / 設計上の負債 / 好み / 未検証を分類して、GO / SPIKEしてからGO / 作り直せを裁定する
 
 この一覧だけで対象ページの実装状態を断定しない。編集前に必ず対象ファイルと、作業中branch / PRがある場合はそのdiffを確認する。
 
