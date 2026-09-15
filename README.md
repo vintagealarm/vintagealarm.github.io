@@ -14,6 +14,13 @@ VINTAGE ALARM does **not** treat external outreach as SEO sales or reciprocal-li
 
 Detailed policy: `strategy/external-reference-outreach.md`
 
+## Editorial durability
+
+VINTAGE ALARM favors a small number of durable, source-traceable WATCH pages over database-scale content growth. Multilingual factual revisions, targeted SPEC exceptions, reproduced-primary-source labeling, correction intake, AI/SEO guardrails, uneven article depth, and long-term evidence-media preservation are governed by:
+
+- `strategy/editorial-durability.md`
+- `strategy/localization-sync.md`
+
 Key public sections:
 - HISTORY: https://vintagealarm.github.io/history/
 - OWNER'S NOTES: https://vintagealarm.github.io/owners-notes/
