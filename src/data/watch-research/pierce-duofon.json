@@ -1,0 +1,12 @@
+{
+  "summary": [
+    { "label": "文献確認", "value": "Horlbeck / Beitl / 外部照合3件" },
+    { "label": "一次資料", "value": "Pierce技術資料（1955年）" },
+    { "label": "所有個体の観察", "value": "1本（掲載個体）" },
+    { "label": "資料差", "value": "Pierce創業年 1883 / 1888" },
+    { "label": "現行採択", "value": "1883（複数資料一致。一次資料での最終確定は継続）" }
+  ],
+  "revisions": [
+    { "date": "2026-09-15", "note": "Pierce創業年を1888年から1883年へ修正。Horlbeckは1888年、Beitl・Grail Watch・Ranfft・Watch-Wikiは1883年としているため、現時点では複数資料が一致する1883年を採用。企業登記等の一次資料による最終確認は継続。" }
+  ]
+}
