@@ -9,10 +9,12 @@ import DeepDive from '../components/DeepDive.astro';
 import SpecimenGallery from '../components/SpecimenGallery.astro';
 import Sources from '../components/Sources.astro';
 import OwnerFonts from '../components/OwnerFonts.astro';
+import { applyPierceGermanEntryCorrection } from '../lib/pierce-factual-correction';
 import '../styles/site.css';
 import '../styles/owners-v15.css';
 
-const { watch, entry } = Astro.props;
+const { watch, entry: rawEntry } = Astro.props;
+const entry = applyPierceGermanEntryCorrection(rawEntry, watch.slug);
 const siteRoot = 'https://vintagealarm.github.io/';
 const germanPath = `de/${watch.slug}/`;
 const japanesePath = `${watch.slug}/`;
