@@ -12,9 +12,10 @@
     "check:source-traceability": "node scripts/check-source-traceability.mjs",
     "check:localization-sync": "node scripts/check-localization-sync.mjs",
     "check:localization-coverage": "node scripts/check-localization-coverage.mjs",
+    "check:spec-evidence": "node scripts/check-spec-evidence.mjs",
     "check:japanese-style": "node scripts/check-japanese-style.mjs",
     "check:images": "node scripts/check-image-duplicates.mjs",
-    "check:quality": "npm run check:links && npm run check:seo && npm run check:citations && npm run check:source-traceability && npm run check:localization-sync && npm run check:localization-coverage && npm run check:japanese-style && npm run check:images",
+    "check:quality": "npm run check:links && npm run check:seo && npm run check:citations && npm run check:source-traceability && npm run check:localization-sync && npm run check:localization-coverage && npm run check:spec-evidence && npm run check:japanese-style && npm run check:images",
     "test:japanese-style": "node scripts/test-japanese-style.mjs",
     "test:quality": "node scripts/test-quality-gates.mjs && npm run test:japanese-style"
   },
