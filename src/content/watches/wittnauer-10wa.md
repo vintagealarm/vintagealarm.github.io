@@ -7,7 +7,7 @@ model: CAL.10WA
 catch:
   - （キャッチコピー選定中）
 ownersNote:
-  image: /images/wittnauer-10wa/owners-note.jpg
+  image: /images/wittnauer-10wa/owners-note-placeholder.svg
   lead:
     - 所有するアラーム腕時計の中でも、特に思い入れの深い一本。
     - アラームは、リューズではなく回転ベゼルで操作する。
