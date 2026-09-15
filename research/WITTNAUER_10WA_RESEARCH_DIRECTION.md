@@ -218,6 +218,87 @@ When evaluating a claimed explanation for 10WA, separate these layers:
 
 A source may support one layer without supporting the next. Do not collapse the chain into a single causal story.
 
+## Adoption-history findings — 2026-09-15
+
+The adoption question now has several **Wittnauer-side context factors** that are worth pursuing, but they are not yet proof of causation.
+
+### A. Modular construction had a clear economic logic in the period
+
+Horlbeck's general module-history chapter explains that the basic attraction of an alarm module was to avoid the cost of developing an entirely new integrated alarm movement and to reuse an existing base movement. The book then identifies Wittnauer 10WA as the clearest example of a separately controlled genuine alarm module.
+
+Classification: `ADOPTED as period design context`, **not** `Wittnauer-specific motive`.
+
+Implication:
+
+- It is historically reasonable that Wittnauer would consider a module attractive because it could add an alarm to an established time-only base rather than engineer a complete alarm calibre from scratch.
+- Do not yet write that cost reduction was Wittnauer's actual internal reason; no company document has been found saying so.
+
+### B. The timing is unusually important: 10WA appeared at the exact market transition toward standardized alarm ebauches
+
+Horlbeck dates the birth of the AS 1475 family to 1954 and describes it as a mass-market turning point. AS 1475 / Venus 230 made alarm watches accessible to firms that had not developed proprietary alarm movements; AS 1475 was produced in very large numbers and rapidly used across many brands.
+
+Beitl documents AS 1475 alarm watches from multiple firms already around 1954–1955. Wittnauer later used AS 1475 and subsequent AS alarm calibres.
+
+Classification: `ADOPTED chronology / HOLD causal interpretation`.
+
+Implication:
+
+- 10WA was not entering a static market. It was arriving just as the economics of alarm-watch production were changing sharply.
+- A proprietary / semi-proprietary modular solution could therefore have faced a very different cost and service environment only a short time after launch.
+- This is a plausible background factor for Wittnauer's later migration to AS, but no direct source yet proves that procurement economics drove the switch.
+
+### C. Longines-Wittnauer already had direct U.S. exposure to another major alarm-watch product line
+
+Period-document research on the U.S. market shows that by 1948 Vacheron & Constantin-LeCoultre was presented as a division of Longines-Wittnauer, and by the mid-1950s LeCoultre was explicitly marketed as a division of Longines-Wittnauer. Early-1950s LeCoultre and Wittnauer boxes / service pamphlets also show shared U.S. distribution infrastructure. A 1951 Longines-Wittnauer information bulletin for LeCoultre Futurematic is reported in collector archival material.
+
+LeCoultre's Memovox alarm was already in the U.S. market during the same period.
+
+Classification: `HOLD / market-channel context`.
+
+Implication:
+
+- Longines-Wittnauer was not approaching alarm watches as an isolated technical novelty; its U.S. distribution organization had contemporaneous exposure to LeCoultre's alarm products and service infrastructure.
+- This may have informed awareness of the alarm category, customer demand, service expectations, and product positioning.
+- Do **not** infer technology transfer, shared engineering, or a Memovox-derived design path without direct evidence.
+
+### D. 10WA's one-bezel interface can be read as a product-differentiation strategy, but this remains secondary interpretation
+
+The production architecture uses the bezel for both alarm winding and alarm-time setting while leaving the normal crown for clock winding / time setting. Later commentary notes that this produces a visually clean single-crown exterior compared with many two-crown alarm watches.
+
+Classification: `HOLD / design interpretation`.
+
+Implication:
+
+- The external-control concept may have offered both a functional and visual differentiation: one crown for the watch, one bezel for the alarm.
+- Horlbeck's case discussion shows that the bezel operation strongly shaped the case geometry, so the alarm interface was not a superficial styling choice.
+- Still missing: a period Wittnauer advertisement or design statement presenting clean exterior design / reduced controls as a selling point.
+
+### E. The strongest current adoption hypothesis is a convergence of four incentives, not one proven cause
+
+Working model only:
+
+1. **Avoid full integrated-calibre development** by using a module on an existing base.
+2. **Simplify the user's alarm routine** by combining set + wind in one external control.
+3. **Differentiate the product visibly and mechanically** in a U.S. alarm-watch market already familiar with Memovox / Cricket-type products.
+4. **Enter the market before / during the 1954 mass-ebauche inflection**, after which standardized AS alarm movements made proprietary solutions less economically compelling.
+
+Classification: `HOLD — multi-factor hypothesis`.
+
+This model must remain explicitly provisional until Wittnauer / Longines-Wittnauer primary material supports one or more factors.
+
+### F. New high-value sources to hunt
+
+The adoption-history search should now target:
+
+- 1953–1957 Longines-Wittnauer dealer catalogues and price lists,
+- 1953–1957 LIFE / trade-magazine Wittnauer ads specifically showing an Alarm Watch,
+- Wittnauer / Longines-Wittnauer information bulletins around the 10WA, especially numbering near other known early-1950s bulletins,
+- retailer instruction cards / guarantee booklets from Ref.1215 / 1216,
+- service memos that warn about bezel winding limits,
+- import / parts records showing whether the alarm module was Swiss-complete, U.S.-assembled, or sourced separately from the base movement,
+- any dealer or service comparison between Wittnauer Alarm Watch and LeCoultre Memovox,
+- procurement or trade records after 1954 that show adoption of AS 1475 by Wittnauer and the timing of 10WA discontinuation.
+
 ## Editorial implication
 
 The research should retain respect for the engineering intent.
@@ -225,5 +306,7 @@ The research should retain respect for the engineering intent.
 The current strongest narrative is not `a foolish design created a trap`, but:
 
 > A one-control concept deliberately removed a separate user task. The underlying patent literature even recognized the resulting coupling problem and proposed a remedy. The production 10WA nevertheless exhibits a real full-wind setting constraint. The unresolved historical question is how and why Wittnauer arrived at that production implementation.
+
+The adoption-history context adds another layer: 10WA may have been Wittnauer's technically distinctive answer at the exact moment alarm watches were shifting from manufacture-specific solutions toward standardized mass-market alarm ebauches. That is a strong research hypothesis, not yet a settled company motive.
 
 This direction is intended to support a later Deep Dive and catch-copy decision, not to force a catch before the evidence is mature.
