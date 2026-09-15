@@ -29,7 +29,7 @@ ownersNote:
     - だからこそ、見て、触って、鳴らす楽しさが残っている。
 spec:
   era: 1948年頃（同型資料）
-  caseSize: 37mm（同型資料）
+  caseSize: 34mm
   caliber: Baumgartner BFG 90
   jewels: 17石
   frequency: 18,000振動／時
