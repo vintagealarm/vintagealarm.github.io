@@ -1,5 +1,6 @@
 name: Research correction / source difference
-about: Report an error, variant specimen, conflicting source, or additional material
+description: Report an error, variant specimen, conflicting source, or additional material
+title: "[Research correction] "
 labels: []
 body:
   - type: markdown
