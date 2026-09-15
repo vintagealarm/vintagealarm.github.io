@@ -39,8 +39,10 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 所有個体のシースルーバックから見えるのは時刻側ムーブメントで、アラーム機構は見えない。この観察は文字盤側モジュール配置と整合する。
 - 「裏スケなのにアラームが見えない」は OWNER'S NOTE / DEEP DIVE の実物説明材料として有効。
 - Beitl は 10WA を 1950年代前半の Wittnauer 初期アラームとして扱い、その後の Wittnauer は AS 製アラームムーブメントへ移行したと記述する。
+- Beitl のブランド一覧では、10WAの後続として少なくとも `AS 1475` / `AS 1568` / `AS 1931` / `AS 5008` を搭載した Wittnauer Alarm / Automatic Alarm が確認できる。これは「10WA独自系から後続AS系へ移行した」という**系譜上の事実**には使えるが、移行理由そのものの証拠には使わない。
 - Horlbeck / Beitl とも、ベゼル張り出し・後方へ絞られたケース・小型リューズを10WAの構造と操作性に関係する特徴として扱う。
 - 後年の市場記録では、少なくとも `Ref.1215` のステンレス個体と `Ref.1216` / `1216A` の金張り系個体が複数確認される。ただし公式リファレンス表としては扱わない。
+- 後年の修理・実機報告では、不適切なベゼル操作に起因するとされるアラーム側歯車損傷の実例が複数見つかる。これはHorlbeckの操作上の危険記述と整合するが、発生率や製品全体の「壊れやすさ」を示す統計ではない。
 
 ### CONFLICT
 
@@ -82,6 +84,8 @@ Webの多数決で専門書・一次資料を上書きしない。
 - Mister Wolf Time 掲載のRef.1216には original Longines-Wittnauer fitted box と guarantee/warranty booklets が付属する。冊子現物の内容が読めれば当時資料へ昇格する可能性がある。
 - 「1950年にLonginesがWittnauerを買収」説：流通する二次情報は多いが、法人関係が複雑で一次・学術資料の整理が必要。
 - 「10WAはLonginesとWittnauerが米国市場向けに共同開発した」説：Hodinkee等に記載があるが、現時点ではメーカー一次資料を欠く。
+- 「10WAは操作が不便かつ壊れやすかったため早期に放棄され、AS系へ置換された」という因果説明：Cinci Watches等の二次記事には明記があるが、メーカー一次資料・当時業界資料で未確認。**後続AS採用の事実**と**採用理由**を分離する。
+- AS 1475 はHorlbeckが mass-produced かつ reliable と評価しているため、Wittnauerが後続でAS系を採った背景として「量産性・信頼性・整備性・調達性」が合理的候補にはなる。ただしWittnauer自身の意思決定資料がないため推測扱い。
 
 ### REJECTED
 
@@ -109,15 +113,16 @@ Webの多数決で専門書・一次資料を上書きしない。
 1. 10WAアラームモジュールの対応特許を特定できるか。
 2. 出願人 / 発明者 / 優先日 / 同族特許 / 請求項と10WA構造の対応。
 3. 時刻側ベースムーブメントの確定：Longines系かAS1200系か、または別の説明が必要か。
-4. 1950年代初頭の当時広告、カタログ、取扱説明書、サービス資料。
+4. 1950年代初頭の当時広告、カタログ、取扱説明書、サービス資料。特に「ベゼルで設定＋巻上げ」を当時どのような利点として説明・販売したか。
 5. Longines銘10WAの追加個体・市場・製造経緯。
 6. 10WAの発売開始年 / 終了年 / ref.展開。
 7. ベゼル操作方式の先行例・同時代比較と、10WA固有点の確定。
-8. なぜWittnauerが後続でAS系アラームへ移行したのか。
+8. なぜWittnauerが後続でAS系アラームへ移行したのか。**移行そのものは確認済み、理由は未確認**。
 9. ケース形状・張り出しベゼル・小型リューズの関係を技術資料で裏付けられるか。
 10. 所有個体の実測：鳴動時間、操作量、音、ベゼル回転量など。
 11. 1950年前後のLongines / Wittnauer / Longines-Wittnauer各法人の所有・開発・製造関係を一次資料ベースで整理できるか。
 12. Hanhart広告の `D.PAT. NR.873525` を正しいドイツ特許公報へ同定し、請求対象がベゼル設定・停止・音響等のどれかを確認できるか。
+13. 10WAの整備性について、当時またはメーカー系のservice bulletin / parts sheet / watchmaker instructionを発見できるか。現時点の「整備が難しい」は後年修理報告中心。
 
 ## Evidence source register
 
@@ -125,7 +130,9 @@ Webの多数決で専門書・一次資料を上書きしない。
 
 - Michael Philip Horlbeck, *The Alarm Wristwatch* (Schiffer, 2007), pp.152–153：Wittnauer 10WA。modular caliber、Longines hand-wound base、独立 alarm barrel、回転ベゼルで alarm set + winding、約1.5回転付近の巻上げ限界、伝達歯の破損リスク、tone spring、ケース形状と小型リューズの関係。
 - 同書、alarm module 解説章：genuine module の接続点は release apparatus、Wittnauer を代表例として説明。
+- 同書、AS 1475の歴史・技術解説：AS 1475を mass-produced product としつつ reliable と評価し、Fortis Managerでのchronometer test例を記載。これはAS 1475一般の評価であり、Wittnauerの採用理由を直接示すものではない。
 - Leonhard Beitl, *Alarm am Arm* (2009), Wittnauer pp.500–502：10WA、Longines hand-wound movement + separate alarm module、回転ベゼル、tone/gong、1950年代前半、後続AS採用。
+- 同書、ブランド / キャリバー一覧：Wittnauer 10 WAのほか、Wittnauer Alarm Watch / Alarm / Automatic Alarm に AS 1475 / AS 1568 / AS 1931 / AS 5008 を確認。
 - 同書、Longines pp.295–296：Longines署名 10WA 個体を掲載。少数自社seriesという説明部分は推測として扱う。
 - 同書、Hanhart pp.206–211：Sans-Souci / Cal.301、1951頃の広告、回転ベゼル式 alarm setting、後期停止スライダー。広告では `Weckerzeigereinstellung durch drehbaren Glasreif` と設定機能を明記し、`D.PAT. NR.873525` 表示が見える。
 - Horlbeck Hanhart 301章：1951–1956、1香箱、lunetteでalarm time設定。確認範囲ではlunetteによる独立alarm spring巻上げとは記述していない。
@@ -149,6 +156,7 @@ Webの多数決で専門書・一次資料を上書きしない。
 - `US1160065A` — Wittnauer Co., priority 1913-07-18, *Striking attachment for timepieces*。後年の複数のstriking-work特許で先行技術として引用される。10WAとの直接対応なし。
 - Hanhart 公式履歴：Sans-Souci を1951年発売、Cal.301、patented とする。特許番号・請求範囲の直接確認は未完了。
 - FTC 1958 complaint/decision：Longines-Wittnauer Watch Company, Inc. とその子会社がスイス製ムーブメント・部品を輸入し、New Yorkで組立・販売していたことを記載。10WA個別製品の証拠ではない。
+- 1950年代の10WA広告 / カタログ / 取扱説明書 / service sheet：今回も本文を読める真正一次資料は未発見。未発見は「存在しない」の証明には使わない。
 
 ### Technical parts / specialist web
 
@@ -159,7 +167,10 @@ Webの多数決で専門書・一次資料を上書きしない。
 - Bestfit互換一覧は多数のブランド/派生caliberを横断しており、部品互換性の証拠としては有効だが、base caliber同定の証拠力は低い。
 - Ranfft：AS 1200 = 10.5 ligne, 23.7 mm, h 3.50 mm, 17石仕様あり, 18,000 A/h, 1945頃。Longines 10L / 10.68Z = 10.5 ligne, 23.65 mm, h 4.1 mm, 17石, 18,000 A/h, 1948頃。スペック近似だけでは判定不可。
 - Longines 10.68Z technical sheet：10.5 ligne、17 rubis、小秒針、18,000 A/h と技術図面を確認。10WAとの直接接続資料ではない。
-- `watch.weblog.to` の 10WA 分解記事：文字盤側に積層されたアラーム機構を実機分解写真で確認可能。専門Web / owner repair report として扱い、メーカー一次資料とは分離。
+- `watch.weblog.to` の 10WA 分解記事：文字盤側に積層されたアラーム機構を実機分解写真で確認可能。筆者は分解手順資料を見つけられず、時計師から「不用意に触ると壊されやすい」趣旨の警告を受けたと記述。専門Web / owner repair report として扱い、メーカー一次資料とは分離。
+- Uhrforumの2026年実機修理報告：過去の不適切なアラーム操作に起因すると判断されたアラームモジュールの歯車損傷を報告。Horlbeckの操作上の危険と整合するが、一個体の事例として扱う。
+- Cinci Watches (2021)：10WAは操作が impractical で破損しやすく、Wittnauerが早期に生産をやめASムーブメントへ移ったと説明する。ただし一次資料を示していないため、因果説明はHOLD。
+- Hodinkee (2025)：10WAのアラーム機構を finicky とし、過度なベゼル操作で壊れた個体が多いとの古いforum情報を紹介。二次情報としてのみ保持。
 - Meticulous Watches：Ref.1216、10k gold filled、36mm、ケース内 `Longines-Wittnauer Watch Co. Inc`、ベゼル内部gongとhammer tipの記述。販売/時計師資料であり一次資料ではない。
 - Private Eyes / Watchnet：Ref.1215、SS、36mm、serial 262,***、10WAの販売記録。
 - Mister Wolf Time：Ref.1216とoriginal Longines-Wittnauer fitted box / guarantee-warranty bookletsの現存例。冊子本文未確認。
@@ -204,6 +215,32 @@ Webの多数決で専門書・一次資料を上書きしない。
 - Longines 10.68Z技術資料を確認し、サイズ・石数・振動数・小秒針が10WA候補として整合し得ることは確認。ただし10WAとの直接リンクは依然ない。
 - 1950年代10WAのメーカー広告 / 取説 / service sheetは今回も発見できず。未発見は「存在しない」の証明には使わない。
 
+### 2026-09-15 — Round 4: 開発意図 / 整備上の代償 / 後続AS系への移行
+
+#### 1. 当時広告・取説で何を利点として売ったか
+
+- 1950年代のWittnauer 10WA広告、カタログ、取扱説明書、サービス資料を再検索したが、**今回も本文を読める真正一次資料は未発見**。
+- よって「一操作で設定＋巻上げ」をWittnauer自身が“便利さ”“革新性”“簡単操作”として訴求した、と現時点では断定しない。
+- Mister Wolf TimeのRef.1216現存個体に original Longines-Wittnauer guarantee / warranty booklets が付属することは再確認。冊子本文が取得できれば最優先の一次資料候補。
+- 二次資料・専門書はベゼル操作を unusual / handy / unique / inventive と評価するが、これは後世評価であり当時広告文言とは分離する。
+
+#### 2. 構造上の代償・整備上の評価
+
+- Horlbeckが最も強い根拠。操作自体は「原理上とても簡単」としながら、アラームゼンマイが約1.5回転で全巻になるとベゼルが止まり、無理に目的時刻まで回そうとすると**伝達歯を破損し得る**と明記。
+- Horlbeckは短い先送り（30〜90°）の場合、十分な鳴動エネルギーを確保するため一度アラーム針を現時刻まで回して鳴らし切り、その後目的時刻へ設定する二段階操作を推奨している。つまり「設定＋巻上げ一体化」は便利さと同時に、**残存巻上げ量と設定角度が結び付く操作上の制約**を生む。
+- 同書は、小型リューズと後方へ絞ったケースのため通常の時刻側巻上げはやや扱いづらいとも記述。アラーム機能のためのケース造形が、別の操作性に代償を出している。
+- 後年修理記事 `watch.weblog.to` では、分解手順資料が見つからず慎重な手順検討が必要だったこと、時計師から不用意な整備で壊されやすい趣旨の警告を受けたことを報告。
+- Uhrforumの実機修理例では、過去の不適切なアラーム操作に起因すると判断された歯車損傷が確認されている。
+- 以上から、**操作ミスによる特定部位の損傷リスクは強く支持**できる。一方、「10WA全体が構造的に壊れやすい」「製品として失敗だった」までは証拠不足。
+
+#### 3. なぜ後続でAS系へ移ったのか
+
+- BeitlのWittnauer章・一覧で、10WAの後に `AS 1475`、`AS 1568`、`AS 1931`、さらに1970年代のAutomatic Alarmで `AS 5008` が使われることを確認。**独自10WA方式が後続Wittnauerの標準にならず、AS系へ移った事実自体は確認できる**。
+- HorlbeckはAS 1475を「量産品でありながら非常に信頼性が高い」と評価し、1956年Fortis Managerでchronometer testを通過した例を挙げる。またAS / Venus / Rondaなどの量産アラームムーブメントが多数ブランドへ広がった市場背景も説明する。
+- ただし、Horlbeck / Beitlの確認範囲では「Wittnauerが10WAの欠点を理由にASへ切り替えた」という会社側の説明は見つからない。
+- Cinci Watchesは「10WAは実用上扱いにくく破損しやすかったためWittnauerが早期に生産をやめASへ移行した」と明記するが、一次資料を提示していないため**因果はHOLD**。
+- 現時点の最も安全な結論：**10WAの後、Wittnauerは量産・信頼性で実績のあるAS系アラームへ移行した。10WA固有の操作制約・損傷リスクは確認できるが、それが移行の決定理由だったことは未証明。**
+
 ## Editorial decisions
 
 - OWNER'S NOTE末尾の個人的な締めは現状維持候補。調査で勝手に改稿しない。
@@ -216,6 +253,7 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 専門資料が二説に分かれ、追加調査でどちらかを直接確定できる見込みが低い場合、`CONFLICT` 自体を最終回答として扱う。未解決を無理に解消しない。
 - 追加調査は「記事の主張・構成・採否を変え得る直接証拠」が見込める場合に限って優先する。専門家向けの細部を延々と掘ること自体を目的化しない。
 - ベースムーブメント問題は現時点で、Horlbeck / Beitl の Longines-base 説と、時計師資料 / 部品互換が示す AS1200-family 関連説の二本立てを明示する方針。新しい直接証拠が出るまでは、この資料差をDEEP DIVEの結論として扱う。
+- 10WAを「失敗作」「馬鹿な設計」「壊れやすい時計」と縮約しない。確認できるのは、**大胆で独創的な操作統合と、その統合が生んだ明確な制約・損傷リスク**。評価語を使う場合も設計意図への敬意と技術的成果を同時に残す。
 
 ## Update rule
 
