@@ -74,6 +74,8 @@ for (const file of fs.readdirSync(watchesDir).filter((name) => name.endsWith('.m
   const source = fs.readFileSync(path.join(watchesDir, file), 'utf8');
   const slug = source.match(/^slug:\s*["']?([^"'\n]+)["']?\s*$/m)?.[1]?.trim();
   if (!slug) continue;
+  const published = /^published:\s*true\s*$/m.test(source);
+  if (!published) continue;
   const builtPath = path.join(root, 'dist', slug, 'index.html');
   if (!fs.existsSync(builtPath)) {
     failures.push(`${slug}: built WATCH page is missing`);
