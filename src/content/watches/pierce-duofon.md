@@ -56,11 +56,11 @@ deepDive:
   - number: "01"
     title: "Pierceとは"
     paragraphs:
-      - "Pierceは1888年、Léon Leviとその兄弟によってスイス・ビエンヌで設立された。創業当初は外部からムーブメントを調達していたが、1930年代初頭には自社でムーブメントの開発・製造を行うようになった。"
+      - "Pierceの前身となるLéon Lévy & Frèreは1883年、Léon LévyとThéodore Lévyによってスイス・ビエンヌで設立されたとする資料が複数ある。Horlbeckは1888年としており資料差があるため、VINTAGE ALARMでは現時点で複数資料が一致する1883年を採用する。創業当初は外部からムーブメントを調達していたが、1930年代初頭には自社でムーブメントの開発・製造を行うようになった。"
       - "自社製ムーブメントには13リーニュのクロノグラフCal.130／134があり、1950年代にはCorrectomaticを投入している。Correctomaticは、ケース側の2つのボタンで緩急針を動かし、時計の進み・遅れを調整する機構だった。"
       - "Duofonに搭載されたCal.135もPierceが自社開発したムーブメントである。"
     citationRefs:
-      - "4"
+      - "4,6,7,8,9"
       - "4"
       - "4"
   - number: "02"
@@ -144,10 +144,22 @@ sourceMeta:
     type: reference
   - id: "5"
     type: provenance
+  - id: "6"
+    type: reference
+  - id: "7"
+    type: reference
+  - id: "8"
+    type: reference
+  - id: "9"
+    type: reference
 sources:
   - "Pierce AG, Biel, “Die Wecker-Armbanduhr Duofon mit zwei Lautstärken” (30.8.1955), Leonhard Beitl『Alarm am Arm』(2009) pp.353–355収録"
   - "Leonhard Beitl, 『Alarm am Arm』(2009), pp.356–358（Pierce Duo Fonのモデル例・Cal.135）"
   - "Leonhard Beitl, 『Alarm am Arm』(2009), pp.198–199（Gruen Duo-Tone Precision / Cal.920 SS）"
-  - "Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007), pp.20, 130–131, 189–190, 218–221（Duofon / Pierce Cal.135 / 可変アラーム音量）"
+  - "Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007), pp.20, 130–131, 189–190, 218–221（Duofon / Pierce Cal.135 / 可変アラーム音量。p.131では創業年を1888年と記載）"
   - "機構画像5点（①〜⑤）およびGruen Duo-Tone画像2点（ダイヤル／ムーブメント）：[森（時計狂）](https://x.com/ad19200610?s=11&t=3m8xXI66ZgB96VPG9PtQgw)さんより画像提供"
+  - "Leonhard Beitl, 『Alarm am Arm』(2009), p.670（メーカー一覧：Pierce / Lévy Frères / 1883）"
+  - "[Grail Watch Wiki — Pierce](https://wiki.grail-watch.com/index.php/Pierce)（1883年5月16日にLéon Lévy & Frère設立と記載）"
+  - "[Ranfft DB — Pierce Calibers](https://ranfft.org/manufacturer/241-Pierce)（1883年創業と記載）"
+  - "[Watch-Wiki — Pierce](https://www.watch-wiki.net/doku.php?id=pierce)（1883年創業と記載）"
 ---
