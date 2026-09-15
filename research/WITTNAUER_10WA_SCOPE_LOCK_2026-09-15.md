@@ -93,3 +93,35 @@ The 10WA research is sufficient for publication when the article can responsibly
 3. whether the patent's slipping-bride solution is present, absent, or still unverified in production 10WA.
 
 Everything else is secondary and must not delay publication.
+
+## Current status after scope-locked Round 8
+
+### Q1 — base movement
+
+`STRONG / PROVISIONAL — AS1200 / Wittnauer-10S-family favored.`
+
+A 1966 C. & E. Marshall service-parts table lists 10WA with the same timekeeping-side mainspring (`WIT3245`), balance staff (`WIT679`), stem (`WIT158L`), roller (`WIT89`) and pallet arbor (`WIT573`) as Wittnauer 10S; the 10WA row separately adds alarm mainspring `WIT5102`. An American Watchmakers Institute bulletin from October 1969 explicitly identifies `Wittnauer 10S (AS 1200)`.
+
+This materially strengthens the AS1200-family interpretation beyond generic interchangeability. Horlbeck and Beitl still explicitly state a Longines base, so retain the secondary-source conflict and do not claim absolute factory-level resolution without a direct Wittnauer / Longines-Wittnauer sheet.
+
+Article treatment: AS1200/10S-family is the **favored technical conclusion**, not a 50/50 tie.
+
+### Q2 — CH304088A / Bliss ↔ Wittnauer bridge
+
+`OPEN — no direct bridge found in checked public digital sources.`
+
+Focused exact searches did not produce a readable assignment, licence, Wittnauer technical notice, or contemporary commercial source linking CH304088A / Marcel Bliss directly to 10WA. The Swiss IPI free raw-data coverage begins with 1978 filing dates, so it cannot resolve the 1952 chain-of-title question.
+
+Stop active broad web expansion. Resume only if historical Swiss register / gazette material, Wittnauer documentation, or another direct bridge source becomes accessible.
+
+Article treatment: very strong structural correspondence can be stated; direct legal / commercial / technical transfer remains unproven.
+
+### Q3 — production slipping bridle
+
+`OPEN — functional divergence established; exact barrel attachment unverified.`
+
+CH304088A explicitly describes and sub-claims a slipping-bride solution preserving setting freedom at full wind. Production 10WA documentation instead shows a hard full-wind stop and tooth-damage risk if forced. The 1966 Marshall table confirms a separate alarm mainspring (`WIT5102`), but neither the available teardown nor the surviving `X3154` complete-alarm-barrel listing exposes the mainspring attachment sufficiently to determine fixed vs slipping bridle.
+
+Stop generic X31xx searching. Resume only for an X3154 barrel interior, factory/service drawing, or direct component-level evidence.
+
+Article treatment: patent solution vs production behavior may be compared, but the exact physical reason remains OPEN.
