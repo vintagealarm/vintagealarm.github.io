@@ -36,6 +36,10 @@ const feedbackOr = isGerman ? 'oder' : isEnglish ? 'or' : 'または';
 const feedbackEnd = isEnglish ? '.' : isGerman ? '.' : 'からお願いします。';
 const xUrl = 'https://x.com/rimacroissant';
 const issueUrl = 'https://github.com/vintagealarm/vintagealarm.github.io/issues/new?template=research-correction.yml';
+const resolvedSourceType = (source: string, type?: string) => {
+  if (type !== 'primary') return type;
+  return /(reproduced in|abgedruckt in|収録)/i.test(source) ? 'primary-reprint' : type;
+};
 const stripDuplicatedTypePrefix = (source: string, type?: string, label?: string) => {
   if (type !== 'owner') return source;
   const prefixes = [label, 'OWNER OBSERVATION', 'EIGENE BEOBACHTUNG'].filter(Boolean) as string[];
@@ -65,7 +69,8 @@ const parseInlineLink = (source: string) => {
         {sources.map((source: string, index: number) => {
           const itemMeta = meta[index];
           const id = itemMeta?.id || String(index + 1);
-          const label = typeLabel[itemMeta?.type as keyof typeof typeLabel];
+          const sourceType = resolvedSourceType(source, itemMeta?.type);
+          const label = typeLabel[sourceType as keyof typeof typeLabel];
           const displaySource = stripDuplicatedTypePrefix(source, itemMeta?.type, label);
           const linkedSource = parseInlineLink(displaySource);
           const libraryId = resolveSourceLibraryId(displaySource);
