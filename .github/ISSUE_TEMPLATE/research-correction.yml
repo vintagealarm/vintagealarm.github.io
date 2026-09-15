@@ -1,0 +1,43 @@
+name: Research correction / source difference
+about: Report an error, variant specimen, conflicting source, or additional material
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve VINTAGE ALARM. Reports are evaluated against the specimen, cited sources, and other available evidence. External references are not treated as automatic proof.
+
+  - type: input
+    id: page
+    attributes:
+      label: Page / watch
+      description: Which VINTAGE ALARM page or watch does this concern?
+      placeholder: e.g. Pierce Duofon / https://vintagealarm.github.io/pierce-duofon/
+    validations:
+      required: true
+
+  - type: textarea
+    id: point
+    attributes:
+      label: Point to review
+      description: What statement, specification, specimen difference, or source conflict should be checked?
+      placeholder: Please quote or describe the exact point.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Source / evidence
+      description: Please provide the source, page number, photograph, catalogue, movement image, owner observation, or other evidence if available.
+      placeholder: Book title + page, URL, photograph description, archive reference, etc.
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      description: Anything else that may help distinguish model variation, specimen variation, or source disagreement.
+    validations:
+      required: false
