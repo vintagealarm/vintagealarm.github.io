@@ -134,6 +134,40 @@ Pierce Duofonを、完成済みWATCHページの基準個体として扱う。
 - 来訪増加を「ヴィンテージアラームへの関心増加」と即断しない。
 - AIソース表示順を検索順位・信頼度順位として扱わない。
 
+## Retrieval / Concept Discovery
+
+モデル名を知っている人が対象ページを取得できるかと、モデル名を知らない人の現代語の質問から未知の時計へ到達できるかを分ける。
+
+Concept Discoveryでは、次の経路を観測する。
+
+`現代語の質問 → 機械式アラーム腕時計というカテゴリ → 質問に含まれない具体例 → VINTAGE ALARMの発見・参照`
+
+特定モデル、特にDuofonを必ず回答に出すことを成功条件にしない。質問に対して自然な時計へ探索が広がり、その過程でVINTAGE ALARMが参加できるかを見る。
+
+2026-09-15時点では、現行TOP / HISTORY / Duofonには `通知`、`知らせる`、`リマインダー` 等の意味接続が既に存在する。一方、URLを提示しない会話ではVINTAGE ALARM未発見、URL提示後は高い関連性を認識する事例が得られた。
+
+ただし2026-09-10の旧host → `vintagealarm.github.io` 移行直後で、旧hostが検索・外部AI候補に残る観測がある。このため現時点のcold-start未発見は `migration-confounded` と扱い、semantic relevance不足へ帰属しない。
+
+移行期間中は原因分離のため、Concept Discovery改善を目的とした以下の変更を原則凍結する。
+
+- TOP / HISTORY / WATCH本文
+- OWNER'S NOTE
+- meta description
+- Concept SEO用のFAQ・新規ランディングページ
+
+事実誤認、壊れたroute / canonical / sitemap / robots等の運用修正は例外。
+
+状態遷移は分ける。
+
+1. Web上の移行が健全
+2. 検索インデックス上で新hostが代表化
+3. 固定したConcept Discoveryシナリオを再試験
+4. その後、AIサービス固有のRetrieval / 追加探索 / 競合問題を評価
+
+Google Search / Search Console上の移行完了を、外部AI Retrievalの移行完了とはみなさない。
+
+固定質問・Discovery Depth・再試験条件・pre-testの詳細は `measurement/retrieval-concept-discovery.md` を正本とする。
+
 ## 現行のチャネル別観測対象
 
 - Pierce Duofon: Search / External AI
