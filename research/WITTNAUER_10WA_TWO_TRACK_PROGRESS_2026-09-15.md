@@ -140,21 +140,123 @@ Absence from indexed web results is not proof that no assignment / licence exist
 
 ---
 
+## Round 2 — concrete archival progress
+
+### A5. NAWCC Library has exactly the Wittnauer service material this research needs
+
+The NAWCC Library & Research Center Technical Information Directory lists, in **Box W1**:
+
+- Wittnauer notebook section: `Calibers: 3W to D13T, 90 & 1317 to 1557`
+- Wittnauer `Mainspring Chart`
+- Wittnauer `Pricelists`
+- Wittnauer `Repair Bulletins`
+- Wittnauer `Catalog of Interchangeable Watch Materials (1912)`
+
+The same directory also lists period cross-reference material that can independently test the base-calibre problem:
+
+- BestFit Swiss Material Catalogs: **1952 and 1956**
+- BestFit Book 104: **1954 Systems & Assorted Charts**
+- BestFit Automatic Material: **1954 and 1957**
+- Swiss Watch Repair Parts: **1949 and 1955**
+- Watch Material Distributors Association Catalog of Watch Parts: **1957**
+
+Classification: `ADOPTED archival-holdings fact / HIGH-VALUE retrieval target`.
+
+Why this is important:
+
+- this is no longer a generic hope that a service sheet might exist; a specialist archive explicitly holds Wittnauer repair bulletins, calibre material, price lists, and period interchange catalogues;
+- one of these sources could directly identify `10WA`, its base calibre, its alarm attachment, or its service warnings;
+- the 1952/1954/1955/1956/1957 material is chronologically close enough to test both launch architecture and the later AS-family transition.
+
+Do not claim that Box W1 contains a 10WA bulletin until the actual pages are inspected.
+
+### A6. Longines-Wittnauer had a numbered technical-bulletin system aimed at watchmakers
+
+Digitized examples confirm a formal `INFORMATION BULLETIN` series published by Longines-Wittnauer Watch Co., Inc.:
+
+- No. 572 — `FAST TRAIN WATCHES`
+- No. 574 — `SERVICING — THE LONGINES AUTOMATIC`
+- No. 575 — `RESERVE POWER INDICATOR / LeCOULTRE CALIBER 481`
+
+No. 574 explicitly directs technical inquiries to the **Technical Information Service, Longines-Wittnauer Watch Co., Inc., 580 Fifth Avenue, New York 36, N.Y.**
+
+Classification: `ADOPTED existence of technical-bulletin channel / OPEN 10WA bulletin`.
+
+Research consequence:
+
+- searching only consumer advertising is insufficient;
+- the most likely contemporary source for special 10WA servicing / operating cautions may be this technical-information channel or the NAWCC `Repair Bulletins` holdings;
+- bulletin numbers must not be assumed to map cleanly to calendar chronology without dated originals.
+
+### A7. A generic Wittnauer guarantee-and-instructions booklet with 1948 copyright survives in the market
+
+Current marketplace indexing shows a `Wittnauer Guarantee And Instructions Booklet: Copyright 1948` and other generic Longines-Wittnauer guarantee/instruction booklets.
+
+Classification: `HOLD / format-and-revision lead`, **not 10WA-specific evidence**.
+
+Why it matters:
+
+- a 1948-copyright booklet could plausibly have remained in circulation or been revised during the early-1950s period;
+- comparison with the Ref.1216 surviving paper sets may identify whether their booklet is generic, revised, or model-specific;
+- copyright / print code / service address / company-name changes can provide dating evidence even when a sale date is blank.
+
+Do not attach the 1948 booklet to any 10WA set without a matching surviving-paper image.
+
+### A8. Current period-ad / reference-number search is still negative
+
+Exact searches for `Wittnauer 1215`, `Wittnauer 1216`, and 1954–1955 `Wittnauer Alarm Watch` still mainly return later sales / auction records, not a readable period factory ad.
+
+Classification: `OPEN`.
+
+This increases the relative priority of service archives and surviving guarantee papers rather than proving period advertising did not exist.
+
+### B5. Chain-of-title / foreign-family search remains unresolved after broader indexing checks
+
+Broader web searches using `CH304088A`, `304088`, `Marcel Bliss`, `Espacenet`, `Swissreg`, assignment / licence wording, and Wittnauer / Longines combinations did **not** surface a readable official transfer, foreign-family, or Wittnauer-linked record.
+
+The checked Google Patents record still shows:
+
+- Marcel Bliss as inventor and original assignee;
+- filing 1952-12-04;
+- publication 1954-12-31;
+- one Swiss family application in Google's dataset;
+- no Wittnauer name in the bibliographic record.
+
+Classification: `OPEN chain of title / OPEN foreign equivalents`.
+
+Guardrail:
+
+> Search failure in current web indexes is not evidence of no assignment, licence, or foreign filing. Historical Swiss register / gazette inspection remains necessary.
+
+### B6. Claim-chart wording remains supported by the patent text
+
+Re-check of the publication confirms the useful distinction already recorded in `WITTNAUER_10WA_CH304088_CLAIM_CHART.md`:
+
+- main claim: dial-side alarm mechanism outside / on top of the base movement;
+- dependent claims cover own plate, rotating bezel + toothed winding ring, bezel retention by groove-engaging members, simultaneous alarm-time setting, rotating-part index, and slipping-bride barrel spring;
+- the specification separately states the user benefit of avoiding a separate alarm-winding task.
+
+No new evidence in this round changes the A/B/C relationship hypotheses.
+
+---
+
 ## Immediate next moves
 
 ### Track A
 
-1. Locate readable scans of surviving guarantee / warranty booklets.
-2. Search exact factory references `1215` / `1216` in period dealer and trade material.
-3. Identify `Lew Wainstock` only if primary / period evidence appears.
-4. Continue dating production / discontinuation independently of later sales descriptions.
+1. **Retrieve / inspect NAWCC Box W1 Wittnauer Repair Bulletins and calibre notebook material.**
+2. Inspect the NAWCC BestFit 1952 / 1956 and other period interchange books specifically for `10WA`, `10S`, `11H`, `11P`, `AS1200`, and any alarm-attachment notation.
+3. Locate readable scans of surviving Ref.1216 guarantee / warranty booklets and compare them against the 1948-copyright generic Wittnauer booklet format.
+4. Continue exact-reference `1215 / 1216` period dealer / price-list search.
+5. Search numbered Longines-Wittnauer Information Bulletins for any 10WA / Alarm Watch servicing note.
 
 ### Track B
 
-1. Search Swiss official patent register / gazette for ownership, assignment, representative, or address details around CH304088A.
-2. Compare patent drawings against teardown photographs feature-by-feature.
-3. Identify the production alarm-barrel bridle / stop arrangement from service or teardown evidence.
-4. Search Wittnauer / Longines-Wittnauer material for `patented`, patent number, inventor name, or licensed construction language.
+1. Inspect Swiss historical patent-register / official-gazette records for CH304088A ownership, representative, address, transfer, or legal-effect annotations.
+2. Search foreign equivalents via independent historical patent indexes rather than treating Google family data as exhaustive.
+3. Compare patent drawings against teardown photographs feature-by-feature.
+4. Identify the production alarm-barrel bridle / stop arrangement from service or teardown evidence.
+5. Search Wittnauer / Longines-Wittnauer technical material for `patented`, patent number, inventor name, or licensed-construction language.
 
 ## Stop rule
 
