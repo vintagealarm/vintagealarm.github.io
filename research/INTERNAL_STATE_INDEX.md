@@ -10,6 +10,14 @@ This branch exists to preserve editorial decisions, rejected directions, researc
 
 Do not open a Pull Request from this branch. Do not link this branch from the public site, README, issues, releases, or PR descriptions. Do not merge this branch to `main`.
 
+## Operating policy
+
+The general VINTAGE ALARM internal-state rules are defined in:
+
+`research/INTERNAL_STATE_OPERATING_RULES.md`
+
+That file is the active operating policy for how `main`, ordinary public-intent branches, and `state/*` branches are separated. It also defines session-start checks, decision logging, draft handling, accidental-public-write recovery, and visibility precautions.
+
 ## Why this exists
 
 The public website repository is also used as the durable state store for ongoing editorial/research work. The purpose is continuity: keep current goals, rejected ideas, scope locks, unresolved questions, evidence judgments, and draft evolution available to future editing sessions.
