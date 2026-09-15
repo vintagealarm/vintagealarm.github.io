@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "purpose": "Track only SPEC fields where the displayed specimen and the supporting evidence require an explicit qualifier or where a known contradiction could reappear. Do not turn every SPEC row into provenance metadata.",
+  "checks": [
+    {
+      "id": "citizen-alarm-same-type-spec",
+      "note": "The displayed Citizen specimen has not been independently verified for these four values. Keep the same-type-documentation qualifier, and do not reintroduce the former 19-jewel contradiction.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/citizen-alarm.md",
+          "mustContain": [
+            "caseSize: 37mm（同型資料）",
+            "caliber: Citizen 980（同型資料）",
+            "jewels: 17石（同型資料）",
+            "frequency: 18,000振動／時（同型資料）",
+            "初期の980には17石、Parashock付きの仕様が確認できる"
+          ],
+          "mustNotContain": [
+            "jewels: 19石"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-entry.ts",
+          "mustContain": [
+            "caseSize: '37 mm (same-type documentation)'",
+            "caliber: 'Citizen 980 (same-type documentation)'",
+            "jewels: '17 jewels (same-type documentation)'",
+            "frequency: '18,000 vph (same-type documentation)'"
+          ],
+          "mustNotContain": [
+            "jewels: '19 jewels"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/citizen-alarm/index.html",
+          "mustContain": ["17石（同型資料）", "Citizen 980（同型資料）"]
+        },
+        {
+          "path": "dist/en/citizen-alarm/index.html",
+          "mustContain": ["17 jewels (same-type documentation)", "Citizen 980 (same-type documentation)"]
+        }
+      ]
+    }
+  ]
+}
