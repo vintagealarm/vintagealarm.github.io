@@ -132,18 +132,18 @@ const parseInlineLink = (source: string) => {
         )}
       </>
     )}
-
-    <div class="research-feedback" data-research-feedback>
-      <p>
-        {feedbackIntro} {feedbackJoin}
-        <a href={xUrl} target="_blank" rel="noopener noreferrer">X @rimacroissant</a>
-        {` ${feedbackOr} `}
-        <a href={issueUrl} target="_blank" rel="noopener noreferrer">
-          {isEnglish ? 'GitHub correction form' : isGerman ? 'GitHub-Korrekturformular' : 'GitHub訂正フォーム'}
-        </a>{feedbackEnd}
-      </p>
-    </div>
   </details>
+
+  <div class="research-feedback" data-research-feedback>
+    <p>
+      {feedbackIntro} {feedbackJoin}
+      <a href={xUrl} target="_blank" rel="noopener noreferrer">X @rimacroissant</a>
+      {` ${feedbackOr} `}
+      <a href={issueUrl} target="_blank" rel="noopener noreferrer">
+        {isEnglish ? 'GitHub correction form' : isGerman ? 'GitHub-Korrekturformular' : 'GitHub訂正フォーム'}
+      </a>{feedbackEnd}
+    </p>
+  </div>
 </section>
 
 <style>
@@ -167,7 +167,7 @@ const parseInlineLink = (source: string) => {
   .revision-list li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding:9px 0;border-top:1px solid var(--rule,#bcc5b2);font-size:13px;line-height:1.8}
   .revision-list time{color:var(--soft,#58634e);font-variant-numeric:tabular-nums}
   .revision-list span{color:var(--ink,#232720)}
-  .research-feedback{margin-top:16px;padding:16px 0 2px;border-top:1px solid var(--rule,#bcc5b2)}
+  .research-feedback{margin-top:14px;padding:14px 0 2px;border-top:1px solid var(--rule,#bcc5b2)}
   .research-feedback p{margin:0;color:var(--soft,#58634e);font-size:12px;line-height:1.8}
   .research-feedback a{color:inherit;text-underline-offset:3px}
   @media(max-width:480px){
@@ -178,7 +178,7 @@ const parseInlineLink = (source: string) => {
     .research-record,.revision-record{padding-top:18px}
     .research-grid>div,.revision-list li{grid-template-columns:108px minmax(0,1fr);gap:12px;padding:8px 0}
     .research-grid dt,.research-grid dd,.revision-list li{font-size:12px;line-height:1.75}
-    .research-feedback{padding-top:14px}
+    .research-feedback{padding-top:12px}
     .research-feedback p{font-size:11px;line-height:1.8}
   }
 </style>
