@@ -1,4 +1,5 @@
 import cymaTimeOVox from './watch-research/cyma-time-o-vox.json';
+import pierceDuofon from './watch-research/pierce-duofon.json';
 
 export type ResearchSummaryItem = {
   label: string;
@@ -20,5 +21,9 @@ export const watchResearchRecords: Record<string, WatchResearchRecord> = {
   'cyma-time-o-vox': {
     ...cymaTimeOVox,
     sourceFile: 'src/data/watch-research/cyma-time-o-vox.json'
+  },
+  'pierce-duofon': {
+    ...pierceDuofon,
+    sourceFile: 'src/data/watch-research/pierce-duofon.json'
   }
 };
