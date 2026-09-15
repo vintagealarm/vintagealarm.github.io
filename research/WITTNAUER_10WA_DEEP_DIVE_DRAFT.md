@@ -4,17 +4,19 @@ Status: DRAFT / NOT PUBLISHED
 
 Editorial basis: `WITTNAUER_10WA_DEEP_DIVE_EDITORIAL_DECISIONS_2026-09-15.md`
 
+Final review corrections: `WITTNAUER_10WA_FINAL_REVIEW_CORRECTIONS_2026-09-15.md`
+
 キャッチコピー、OWNER'S NOTE、画像構成、公開設定はこのドラフトでは変更しない。
 
 ---
 
 ## 01 — Wittnauerとは
 
-Wittnauerは、19世紀後半のアメリカでスイス時計の輸入・販売から成長したブランドだ。Michael Philip Horlbeckによれば、1845年にスイスから北米へ渡ったEugene Robertは、のちに義弟Albert Wittnauerとともに時計輸入業を営み、1868年にはWittnauer & Co.が設立された。Longinesをはじめ、複数のスイス時計ブランドをアメリカで扱っている。[1]
+Wittnauerの歴史は、J. Eugene Robertがニューヨークで営んだスイス時計輸入事業にさかのぼる。Hans Weilによれば、Albert Wittnauerは1856年生まれで、1872年に16歳でニューヨークへ渡り、Robertの事業に加わった。André FrancillonのLongines史では、RobertとAlbertがパートナーになったのは1885年、1890年には事業がAlbertへ引き継がれたとされる。[11][12]
 
-Wittnauer名義の時計も、すべてを自社で作る方式ではなかった。Horlbeckは、LonginesやGirard-Perregauxのムーブメントを用いた時計や、スイス製部品をアメリカで組み立て・調整し、アメリカ製ケースへ収めた例を記している。[1]
+Wittnauerの時計は、すべてを一社で完結して作るものばかりではなかった。Horlbeckは、LonginesやGirard-Perregauxのムーブメントを用いた時計や、スイス製部品をアメリカで組み立て・調整し、アメリカ製ケースへ収めた例を記している。[1]
 
-この背景は、Cal.10WAのベースムーブメントを考えるうえでも無視できない。ただし、Wittnauerが外部のムーブメントを使っていたことと、10WAが実際に何をベースにしたかは別の話だ。10WAについては、後述するように資料が食い違っている。
+ただし、この企業史だけからCal.10WAのベースムーブメントを決めることはできない。10WAについては、後述するように資料そのものが食い違っている。
 
 ---
 
@@ -70,15 +72,15 @@ Horlbeckによれば、アラーム側はベゼル約1.5回転で満巻きにな
 
 ---
 
-## 05 — 独自機構のすぐ後に
+## 05 — 1955年にはAS製アラームも現れる
 
 Beitlは10WAを1950年代前半のモデルとして紹介している。その一方で、1955年のWittnauer製アラームにはAS 1475を搭載した例があり、同書ではWittnauerがAS製アラームキャリバーを採用した初期の例として扱われている。[2]
 
-時期だけを見れば、10WAの独自機構とAS製アラームムーブメントはかなり近い。しかし、**AS 1475が登場したから10WAが終わった**と結びつける資料はない。
+ただし、10WAの正確な生産開始・終了年は確定できていない。したがって、AS 1475搭載機をそのまま10WAの後継としたり、**AS 1475が登場したから10WAが終わった**と結びつけたりすることはできない。
 
-製造コスト、整備性、部品供給、故障、販売成績。どれが後継機の選択に影響したのかは分からない。確かなのは、Wittnauerが一度、ベゼルで設定と巻上げをまとめた独自のアラーム腕時計を作り、そのすぐ後の製品にはAS製キャリバーが現れることまでだ。
+製造コスト、整備性、部品供給、故障、販売成績。どれが機種選択に影響したのかも分からない。確認できるのは、1950年代前半に10WAがあり、**少なくとも1955年にはAS 1475を搭載したWittnauer製アラームも存在した**という時系列までだ。
 
-10WAは、Wittnauerのアラーム腕時計史の中でも、長く繰り返されなかった仕組みを持つ一本として残っている。
+近い時期のWittnauer製アラームに、異なる二つの方式が確認できる。その先の関係は、まだ資料でつながっていない。
 
 ---
 
@@ -88,7 +90,7 @@ Beitlは10WAを1950年代前半のモデルとして紹介している。その�
 
 金色ケースについては、現存するRef.1216の中に **10K GOLD FILLED（金張り）** と明記された個体が複数ある。ステンレス製の裏蓋と組み合わされた例も確認できる。一方で、ステンレスケースの10WAも残っている。[6][7][8]
 
-現存例にはRef.1215、1216、1216Aという表記も見られる。ただし、これらを網羅したWittnauerの公式リファレンス表は、現在まで確認できていない。ここではあくまで、現存個体に残る表記として扱う。[9][10]
+販売記録ではRef.1215とRef.1216の表記を確認できる。別の観察記録にはRef.1216Aという表記もあるが、今回の一般Webでの再確認では独立した個体を確認できなかった。いずれについても、これらを網羅したWittnauerの公式リファレンス表は現在まで確認できていない。ここでは、現存個体や観察記録に残る表記として扱う。[9][10]
 
 さらにBeitlは、1956年のものとしてLongines銘のCal.10WAも掲載している。Longinesがどのような経緯でこの時計を販売したのかについては、同書でも推測を含む説明に留まる。[2]
 
@@ -106,7 +108,7 @@ Deep Dive本文には入れず、個人的な温度はOWNER'S NOTE側で扱う�
 
 ## Sources
 
-[1] Michael Philip Horlbeck, *The Alarm Wristwatch* (Schiffer Publishing, 2007), Wittnauer / Cal.10WA sections（Wittnauer沿革、10WAの2香箱・ベゼル操作・Longinesベース記述・満巻き時の注意）
+[1] Michael Philip Horlbeck, *The Alarm Wristwatch* (Schiffer Publishing, 2007), Wittnauer / Cal.10WA sections（10WAの2香箱・ベゼル操作・Longinesベース記述・満巻き時の注意、Wittnauerの時計製造・調達背景）
 
 [2] Leonhard Beitl, *Alarm am Arm* (2009), Wittnauer / Longines sections（10WA、Longines-Basiskaliber記述、1950年代前半、AS1475搭載Wittnauer、外装差、Longines銘10WA）
 
@@ -130,4 +132,10 @@ https://www.sweetroad.com/view/item/000000009921
 
 [9] Private Eyes / Antiquorum surviving Ref.1215 examples（Ref.1215表記の確認）
 
-[10] EveryWatch / Mister Wolf surviving Ref.1216A / Ref.1216 examples（現存リファレンス表記の確認）
+[10] EveryWatch / Mister Wolf surviving Ref.1216A / Ref.1216 observation records（現存・観察リファレンス表記の確認。Ref.1216Aは一般Webでの独立再確認を保留）
+
+[11] André Francillon, *History of Longines*（J. Eugene RobertとAlbert Wittnauerが1885年にパートナーとなり、1890年に事業がAlbertへ移ったとする記録）
+https://theindex.nawcc.org/Articles/Francillon.pdf
+
+[12] Hans Weil, Wittnauer history（Albert Wittnauer 1856年生、1872年に16歳でNew Yorkへ渡る。1885年Robertと共同経営、1890年A. Wittnauerへ）
+https://hans-weil.faszination-uhrwerk.de/wittnauer.pdf
