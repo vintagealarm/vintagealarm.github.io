@@ -55,7 +55,12 @@ VINTAGE ALARMが持つ一次資料・専門文献・所有実機・機構整理�
 
 状態: **未接触**
 
-### P1 — Watch-Wiki
+### P1 — Watch-Wiki / Gerd-Lothar Reschke
+
+確認済み:
+- Watch-WikiにはGerd-Lothar Reschke名義のAuthors' portalがあり、ブランド / モデル / ムーブメント等のページテンプレートと編集用資料が公開されている。
+- Impressum / ContactでもGerd-Lothar Reschkeが窓口として明示され、連絡は郵便またはE-mailとされている。
+- Watch-Wiki自身がメーカー等から独立したサイトであり、各ページのversion historyで著者を確認する方式を明記している。
 
 候補:
 - BFG 90
@@ -65,11 +70,9 @@ VINTAGE ALARMが持つ一次資料・専門文献・所有実機・機構整理�
 方針:
 - `VINTAGE ALARMを掲載してほしい` より、既存記事の資料補完へ参加する。
 - 可能なら一次資料 / Horlbeck / Beitl / 独立DBを使って記事本文を改善し、Further reading / Weblinksの一つとしてVINTAGE ALARMを置けるか検討する。
+- 投稿権限の取得手順は、接触前に現行UI上で最終確認する。
 
-注意:
-- Gerd-Lothar Reschkeが多数の記事著者として確認できるが、今回の記録作成時点では投稿参加の現行窓口・権限手順までは独立確認未完了。
-
-状態: **窓口確認前 / 未接触**
+状態: **窓口確認済み / 未接触**
 
 ### P1 — Ranfft DB
 
@@ -134,6 +137,25 @@ VINTAGE ALARMが持つ一次資料・専門文献・所有実機・機構整理�
 
 状態: **未接触**
 
+### P2 — NAWCC Publications / Library & Research Center
+
+確認済み:
+- NAWCC Watch & Clock Bulletinはhorological researchを扱う査読誌で、会員・非会員とも投稿可能。
+- 投稿区分には通常Articleのほか `Research Activities & News`、`Horologica` 等がある。
+- WatchNewsはNAWCC会員だけでなくoutside writersからも原稿を受け付けるとしている。
+- NAWCC Library & Research Centerは時計・時刻学に特化した大規模研究図書館で、資料照会窓口を持つ。
+
+位置づけ:
+- `リンクを置いてもらう` 相手というより、外部査読・外部研究媒体へVINTAGE ALARMの研究成果を出す経路。
+- 成功すれば「第三者評価が弱い」というサイトの構造的弱点へ直接効くが、短期のRetrieval施策としては重い。
+
+最初の題材候補:
+- Westclox Watchlarm：文献15分 / Ranfft12分 / 掲載個体12分という資料差と実測
+- Pierce Duofon：1955 Pierce技術資料とWECKER / SIGNAL機構
+- Cyma R.464：1香箱アラームの機構と所有個体観察
+
+状態: **長期候補 / 未接触**
+
 ### P3 — メーカー / Heritage / Archive
 
 対象:
@@ -152,7 +174,8 @@ VINTAGE ALARMが持つ一次資料・専門文献・所有実機・機構整理�
 3. Watch-Wiki / Ranfft — データ改善参加
 4. Fratello — BFG 90資料パック
 5. Grail Watch — Pierce一次資料パック
-6. メーカー / Heritage
+6. NAWCC — 外部研究成果として成立する題材を選び、投稿可否を検討
+7. メーカー / Heritage
 
 ## 成功判定
 
@@ -166,6 +189,8 @@ VINTAGE ALARMが持つ一次資料・専門文献・所有実機・機構整理�
 6. `DISCOVERY EFFECT` — Search / External AIで現行URL発見性の変化が観測された
 
 `LINKED` を即 `DISCOVERY EFFECT` と呼ばない。
+
+NAWCC等の外部研究媒体は `PUBLISHED / REVIEWED` を別指標として持ち、単なるLINKEDと同一視しない。
 
 ## 現在の判断
 
