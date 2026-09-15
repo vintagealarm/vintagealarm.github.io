@@ -122,11 +122,11 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         number: '01',
         title: 'Über Pierce',
         paragraphs: [
-          'Pierce wurde 1888 von Léon Levi und seinen Brüdern in Biel/Bienne in der Schweiz gegründet. Anfangs bezog das Unternehmen Werke von externen Lieferanten; Anfang der 1930er-Jahre begann es jedoch, eigene Werke zu entwickeln und herzustellen.',
+          'Pierces Vorgängerunternehmen Léon Lévy & Frère wurde 1883 von Léon Lévy und Théodore Lévy in Biel/Bienne in der Schweiz gegründet. Anfangs bezog das Unternehmen Werke von externen Lieferanten; Anfang der 1930er-Jahre begann es jedoch, eigene Werke zu entwickeln und herzustellen.',
           'Zu den eigenen Werken gehörten die 13-linigen Chronographenkaliber 130 und 134. In den 1950er-Jahren führte Pierce außerdem die Correctomatic ein. Bei der Correctomatic bewegen zwei Drücker am Gehäuse den Rücker, um den Gang der Uhr schneller oder langsamer einzustellen.',
           'Auch das in der Duofon verwendete Kaliber 135 wurde von Pierce selbst entwickelt.'
         ],
-        citationRefs: ['4', '4', '4']
+        citationRefs: ['10', '4', '4']
       },
       {
         number: '02',
@@ -217,14 +217,24 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       { id: '2', type: 'reference' },
       { id: '3', type: 'reference' },
       { id: '4', type: 'reference' },
-      { id: '5', type: 'provenance' }
+      { id: '5', type: 'provenance' },
+      { id: '6', type: 'reference' },
+      { id: '7', type: 'reference' },
+      { id: '8', type: 'reference' },
+      { id: '9', type: 'reference' },
+      { id: '10', type: 'reference' }
     ],
     sources: [
       'Pierce AG, Biel, „Die Wecker-Armbanduhr Duofon mit zwei Lautstärken“ (30.8.1955), abgedruckt in Leonhard Beitl, Alarm am Arm (2009), S. 353–355.',
       'Leonhard Beitl, Alarm am Arm (2009), S. 356–358 — Pierce-Duo-Fon-Modellbeispiele und Cal. 135.',
       'Leonhard Beitl, Alarm am Arm (2009), S. 198–199 — Gruen Duo-Tone Precision / Cal. 920 SS.',
-      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 20, 130–131, 189–190, 218–221 — Duofon / Pierce Cal. 135 / variable Alarmlautstärke.',
-      'Fünf Mechanikbilder (①–⑤) sowie zwei Bilder der Gruen Duo-Tone (Zifferblatt / Werk): Bildmaterial von [Mori (時計狂)](https://x.com/ad19200610?s=11&t=3m8xXI66ZgB96VPG9PtQgw).'
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 20, 130–131, 189–190, 218–221 — Duofon / Pierce Cal. 135 / variable Alarmlautstärke. Auf S. 131 wird als Gründungsjahr 1888 genannt.',
+      'Fünf Mechanikbilder (①–⑤) sowie zwei Bilder der Gruen Duo-Tone (Zifferblatt / Werk): Bildmaterial von [Mori (時計狂)](https://x.com/ad19200610?s=11&t=3m8xXI66ZgB96VPG9PtQgw).',
+      'Leonhard Beitl, Alarm am Arm (2009), S. 670 — Herstellerliste: Pierce / Lévy Frères / 1883.',
+      '[Grail Watch Wiki — Pierce](https://wiki.grail-watch.com/index.php/Pierce) — nennt die Gründung von Léon Lévy & Frère am 16. Mai 1883.',
+      '[Ranfft DB — Pierce Calibers](https://ranfft.org/manufacturer/241-Pierce) — nennt 1883 als Gründungsjahr.',
+      '[Watch-Wiki — Pierce](https://www.watch-wiki.net/doku.php?id=pierce) — nennt 1883 als Gründungsjahr.',
+      'Hinweis zum Gründungsjahr: Im Fließtext wird 1883 verwendet. Horlbeck S. 131 nennt 1888, während Beitl S. 670, Grail Watch Wiki, Ranfft DB und Watch-Wiki 1883 nennen. VINTAGE ALARM verwendet daher derzeit 1883 als Textwert; die abschließende Bestätigung durch ein Handelsregister oder eine vergleichbare Primärquelle bleibt offen.'
     ],
     related: {
       href: '/en/cyma-time-o-vox/',
