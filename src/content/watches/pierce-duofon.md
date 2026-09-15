@@ -56,11 +56,11 @@ deepDive:
   - number: "01"
     title: "Pierceとは"
     paragraphs:
-      - "Pierceの前身となるLéon Lévy & Frèreは1883年、Léon LévyとThéodore Lévyによってスイス・ビエンヌで設立されたとする資料が複数ある。Horlbeckは1888年としており資料差があるため、VINTAGE ALARMでは現時点で複数資料が一致する1883年を採用する。創業当初は外部からムーブメントを調達していたが、1930年代初頭には自社でムーブメントの開発・製造を行うようになった。"
+      - "Pierceの前身となるLéon Lévy & Frèreは1883年、Léon LévyとThéodore Lévyによってスイス・ビエンヌで設立された。創業当初は外部からムーブメントを調達していたが、1930年代初頭には自社でムーブメントの開発・製造を行うようになった。"
       - "自社製ムーブメントには13リーニュのクロノグラフCal.130／134があり、1950年代にはCorrectomaticを投入している。Correctomaticは、ケース側の2つのボタンで緩急針を動かし、時計の進み・遅れを調整する機構だった。"
       - "Duofonに搭載されたCal.135もPierceが自社開発したムーブメントである。"
     citationRefs:
-      - "4,6,7,8,9"
+      - "10"
       - "4"
       - "4"
   - number: "02"
@@ -152,6 +152,8 @@ sourceMeta:
     type: reference
   - id: "9"
     type: reference
+  - id: "10"
+    type: reference
 sources:
   - "Pierce AG, Biel, “Die Wecker-Armbanduhr Duofon mit zwei Lautstärken” (30.8.1955), Leonhard Beitl『Alarm am Arm』(2009) pp.353–355収録"
   - "Leonhard Beitl, 『Alarm am Arm』(2009), pp.356–358（Pierce Duo Fonのモデル例・Cal.135）"
@@ -162,4 +164,5 @@ sources:
   - "[Grail Watch Wiki — Pierce](https://wiki.grail-watch.com/index.php/Pierce)（1883年5月16日にLéon Lévy & Frère設立と記載）"
   - "[Ranfft DB — Pierce Calibers](https://ranfft.org/manufacturer/241-Pierce)（1883年創業と記載）"
   - "[Watch-Wiki — Pierce](https://www.watch-wiki.net/doku.php?id=pierce)（1883年創業と記載）"
+  - "創業年注記：本文では1883年を採用。Horlbeck p.131は1888年、Beitl p.670・Grail Watch Wiki・Ranfft DB・Watch-Wikiは1883年としている。現時点では複数資料が一致する1883年を本文値とし、企業登記等の一次資料による最終確認は継続する。"
 ---
