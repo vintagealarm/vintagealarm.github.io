@@ -2,6 +2,7 @@ import profileWorker from "./profile-worker.js";
 import baseWorker from "./worker.js";
 
 const AI_READABLE_RELAY = "https://vintage-alarm-ai-relay.pages.dev/";
+const AI_READER_PREFIX = "https://r.jina.ai/";
 const AI_READABLE_TTL_SECONDS = 15 * 60;
 
 function jsonResponse(payload, status = 200) {
@@ -125,6 +126,17 @@ export function buildShortRelayUrl(signedUrl) {
   return new URL(`/s/v1/${windowKey}/${expires}/${sig}`, AI_READABLE_RELAY);
 }
 
+export function buildReaderUrl(relayUrl) {
+  const target = relayUrl instanceof URL ? relayUrl : new URL(relayUrl);
+  if (target.protocol !== "https:" || target.hostname !== "vintage-alarm-ai-relay.pages.dev") {
+    throw new Error("AI Reader target must be the approved analytics relay.");
+  }
+  if (!/^\/s\/v1\/(1h|3h|24h|7d|30d)\/\d{10,}\/[0-9a-f]{64}$/i.test(target.pathname)) {
+    throw new Error("AI Reader target must be a short signed relay URL.");
+  }
+  return new URL(AI_READER_PREFIX + target.toString());
+}
+
 async function fallbackFragmentFromSignedExport(signedUrl, env, ctx) {
   try {
     const response = await profileWorker.fetch(
@@ -135,8 +147,8 @@ async function fallbackFragmentFromSignedExport(signedUrl, env, ctx) {
     if (!response.ok) return "";
     return buildAiFallbackFragment(await response.json());
   } catch {
-    // Fallback data must never block URL issuance. The short signed relay URL
-    // remains valid even when a fresh analytics snapshot cannot be embedded.
+    // Fallback data must never block URL issuance. The signed relay remains
+    // valid even when a fresh analytics snapshot cannot be embedded.
     return "";
   }
 }
@@ -163,19 +175,22 @@ async function issueAiReadableLink(request, url, env, ctx) {
   if (!signed?.url) return jsonResponse({ error: "Signed export URL was not returned." }, 502);
 
   const relayUrl = buildShortRelayUrl(signed.url);
+  const readerUrl = buildReaderUrl(relayUrl);
   const fallbackFragment = await fallbackFragmentFromSignedExport(signed.url, env, ctx);
-  const portableUrl = relayUrl.toString() + (fallbackFragment ? `#${fallbackFragment}` : "");
+  const portableUrl = readerUrl.toString() + (fallbackFragment ? `#${fallbackFragment}` : "");
 
   return jsonResponse({
     url: portableUrl,
+    readerUrl: readerUrl.toString(),
     relayUrl: relayUrl.toString(),
     expiresAt: signed.expiresAt,
     ttlSeconds: AI_READABLE_TTL_SECONDS,
     format: "text/markdown",
     deliveryVerified: false,
-    deliveryVerification: "deferred-to-relay-request",
+    deliveryVerification: "jina-reader-to-signed-relay-request",
     fallbackIncluded: Boolean(fallbackFragment),
     fallbackSchema: fallbackFragment ? "VA1" : null,
+    transport: "Jina Reader",
     scope: "aggregate analytics read-only",
   });
 }

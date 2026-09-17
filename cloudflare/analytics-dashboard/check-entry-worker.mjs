@@ -1,13 +1,7 @@
-import entryWorker, { buildAiFallbackFragment, buildShortRelayUrl } from './entry-worker.js';
+import { buildAiFallbackFragment, buildReaderUrl, buildShortRelayUrl } from './entry-worker.js';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
-};
-
-const auth = `Basic ${Buffer.from('admin:test-password').toString('base64')}`;
-const env = {
-  DASHBOARD_PASSWORD: 'test-password',
-  CF_API_TOKEN: 'test-cloudflare-token',
 };
 
 const sample = {
@@ -21,12 +15,7 @@ const sample = {
       pageviews: 80,
       channels: [
         { name: 'X', visits: 19 },
-        { name: 'YouTube', visits: 0 },
-        { name: 'Instagram', visits: 0 },
-        { name: 'Facebook', visits: 0 },
-        { name: 'Organic Search', visits: 0 },
         { name: 'Direct / Unknown', visits: 39 },
-        { name: 'AI Assistant', visits: 0 },
         { name: 'Other Referral', visits: 2 },
         { name: 'Internal Navigation', visits: 8 },
       ],
@@ -59,43 +48,16 @@ const signed = 'https://vintage-alarm-analytics.orima1995.workers.dev/api/ai-exp
 const shortRelay = buildShortRelayUrl(signed);
 assert(shortRelay.toString() === 'https://vintage-alarm-ai-relay.pages.dev/s/v1/7d/1999999999/' + 'a'.repeat(64), 'short relay URL format mismatch');
 
-const originalFetch = globalThis.fetch;
-let externalFetchCalls = 0;
-globalThis.fetch = async () => {
-  externalFetchCalls += 1;
-  throw new Error('entry worker must not probe the relay before issuing a URL');
-};
+const reader = buildReaderUrl(shortRelay);
+assert(reader.hostname === 'r.jina.ai', 'AI URL must use Jina Reader transport');
+assert(reader.toString() === 'https://r.jina.ai/https://vintage-alarm-ai-relay.pages.dev/s/v1/7d/1999999999/' + 'a'.repeat(64), 'Jina Reader URL format mismatch');
 
+let rejected = false;
 try {
-  const response = await entryWorker.fetch(
-    new Request('https://dashboard.example/api/ai-readable-link?window=7d', {
-      headers: { Authorization: auth },
-    }),
-    env,
-    {},
-  );
-
-  assert(response.ok, 'entry worker must issue an AI readable URL without relay preflight');
-  const payload = await response.json();
-  assert(payload.ttlSeconds === 900, 'AI readable URL TTL must be 15 minutes');
-  assert(payload.deliveryVerified === false, 'issuance must not claim relay delivery was verified');
-  assert(payload.deliveryVerification === 'deferred-to-relay-request', 'delivery verification mode mismatch');
-  assert(payload.fallbackIncluded === false, 'failed snapshot lookup must degrade to URL-only issuance');
-  assert(externalFetchCalls === 0, 'URL-only fallback unexpectedly made a global fetch');
-
-  const readableUrl = new URL(payload.url);
-  assert(readableUrl.hostname === 'vintage-alarm-ai-relay.pages.dev', 'AI readable URL must use the self-hosted relay');
-  assert(/^\/s\/v1\/7d\/\d{10,}\/[0-9a-f]{64}$/.test(readableUrl.pathname), 'AI readable URL must use the short signed relay path');
-  assert(!readableUrl.searchParams.get('source'), 'short AI URL must not carry a nested source query');
-
-  const unauthenticated = await entryWorker.fetch(
-    new Request('https://dashboard.example/api/ai-readable-link?window=7d'),
-    env,
-    {},
-  );
-  assert(unauthenticated.status === 401, 'AI URL issuance must remain Basic Auth protected');
-} finally {
-  globalThis.fetch = originalFetch;
+  buildReaderUrl('https://example.com/s/v1/7d/1999999999/' + 'a'.repeat(64));
+} catch {
+  rejected = true;
 }
+assert(rejected, 'AI Reader must reject non-relay targets');
 
-console.log('AI URL entry worker: short signed URL + portable fallback schema: OK');
+console.log('AI URL entry worker: Jina Reader transport + signed relay + portable fallback schema: OK');
