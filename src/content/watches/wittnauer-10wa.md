@@ -7,7 +7,7 @@ model: CAL.10WA
 catch:
   - （編集中）
 ownersNote:
-  image: /images/wittnauer-10wa/owners-note.jpg
+  image: /images/Wittnauer10WA.png
   lead:
     - （編集中）
   guideTitle: 簡易操作ガイド
