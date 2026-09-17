@@ -1,6 +1,6 @@
 ---
 slug: wittnauer-10wa
-published: false
+published: true
 ownerNumber: "06"
 brand: WITTNAUER
 model: CAL.10WA
