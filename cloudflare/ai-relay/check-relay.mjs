@@ -50,8 +50,8 @@ try {
   assert(response.status === 200, 'valid allowlisted source should render');
   assert(response.headers.get('content-type')?.includes('text/markdown'), 'relay should return markdown');
   assert(fetchedUrl.startsWith('https://vintage-alarm-analytics.orima1995.workers.dev/api/ai-export?'), 'relay fetched unexpected host');
-  assert(response.headers.get('cache-control')?.startsWith('public, max-age='), 'verified relay response should be short-lived cacheable content');
-  assert(response.headers.get('x-robots-tag') === 'noindex, nofollow, noarchive', 'cacheable signed content must remain noindex');
+  assert(response.headers.get('cache-control') === 'no-store, max-age=0', 'legacy query relay must preserve no-store behavior');
+  assert(response.headers.get('x-robots-tag') === 'noindex, nofollow, noarchive', 'signed content must remain noindex');
 
   const htmlResponse = await onRequestGet({ request: new Request(relay.toString()) });
   assert(htmlResponse.headers.get('content-type').includes('text/html'), 'legacy query relay should default to HTML');
@@ -94,4 +94,4 @@ try {
   globalThis.fetch = originalFetch;
 }
 
-console.log('AI relay: legacy query + short cacheable signed path: OK');
+console.log('AI relay: legacy no-store query + short cacheable signed path: OK');
