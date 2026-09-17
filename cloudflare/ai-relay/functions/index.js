@@ -1,6 +1,8 @@
 const ALLOWED_SOURCE_HOST = "vintage-alarm-analytics.orima1995.workers.dev";
 const ALLOWED_SOURCE_PATH = "/api/ai-export";
 const ALLOWED_SOURCE_PARAMS = new Set(["window", "expires", "sig"]);
+const ALLOWED_WINDOWS = new Set(["1h", "3h", "24h", "7d", "30d"]);
+const MAX_PUBLIC_CACHE_SECONDS = 15 * 60;
 
 function text(value) {
   return String(value ?? "").replace(/\|/g, "\\|").replace(/\r?\n/g, " ").trim();
@@ -25,11 +27,31 @@ function validateSource(raw) {
   if (!source.searchParams.get("window") || !source.searchParams.get("expires") || !source.searchParams.get("sig")) {
     throw new Error("Signed analytics source is incomplete.");
   }
+  if (!ALLOWED_WINDOWS.has(source.searchParams.get("window"))) throw new Error("Signed analytics window is invalid.");
+  if (!/^[0-9a-f]{64}$/i.test(source.searchParams.get("sig"))) throw new Error("Signed analytics signature is invalid.");
   const expires = Number(source.searchParams.get("expires"));
   if (!Number.isInteger(expires) || expires <= Math.floor(Date.now() / 1000)) {
     throw new Error("Signed analytics source has expired.");
   }
   return source;
+}
+
+export function sourceFromRelayUrl(requestUrl) {
+  const short = requestUrl.pathname.match(/^\/s\/v1\/(1h|3h|24h|7d|30d)\/(\d{10,})\/([0-9a-f]{64})\/?$/i);
+  if (short) {
+    const source = new URL(`https://${ALLOWED_SOURCE_HOST}${ALLOWED_SOURCE_PATH}`);
+    source.searchParams.set("window", short[1]);
+    source.searchParams.set("expires", short[2]);
+    source.searchParams.set("sig", short[3].toLowerCase());
+    return validateSource(source.toString());
+  }
+  return validateSource(requestUrl.searchParams.get("source"));
+}
+
+function sourceCacheSeconds(source) {
+  const expires = Number(source.searchParams.get("expires"));
+  const remaining = expires - Math.floor(Date.now() / 1000);
+  return Math.max(0, Math.min(MAX_PUBLIC_CACHE_SECONDS, remaining));
 }
 
 function table(headers, rows) {
@@ -179,23 +201,29 @@ export function renderAnalyticsMarkdown(payload) {
   return lines.join("\n");
 }
 
-function responseHeaders(html = false) {
-  return {
+function responseHeaders(html = false, cacheSeconds = 0) {
+  const cacheControl = cacheSeconds > 0
+    ? `public, max-age=${cacheSeconds}, s-maxage=${cacheSeconds}`
+    : "no-store, max-age=0";
+  const headers = {
     "Content-Type": html ? "text/html; charset=utf-8" : "text/markdown; charset=utf-8",
     "Vary": "Accept",
     "X-Content-Type-Options": "nosniff",
     "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; frame-ancestors 'none'",
-    "Cache-Control": "no-store, max-age=0",
+    "Cache-Control": cacheControl,
     "X-Robots-Tag": "noindex, nofollow, noarchive",
     "Referrer-Policy": "no-referrer",
+    "Access-Control-Allow-Origin": "*",
   };
+  if (cacheSeconds > 0) headers["CDN-Cache-Control"] = `public, max-age=${cacheSeconds}`;
+  return headers;
 }
 
-function documentResponse(markdown, status, request, verified = false) {
-  const html = !(request.headers.get("Accept") || "").includes("text/markdown");
+function documentResponse(markdown, status, request, verified = false, cacheSeconds = 0, forceMarkdown = false) {
+  const html = !forceMarkdown && !(request.headers.get("Accept") || "").includes("text/markdown");
   const escaped = markdown.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   const body = html ? `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VINTAGE ALARM — read-only analytics</title><style>body{margin:24px;font:16px/1.6 system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}</style></head><body><main><pre>${escaped}</pre></main></body></html>` : markdown;
-  const headers = responseHeaders(html);
+  const headers = responseHeaders(html, cacheSeconds);
   if (verified) headers["X-Analytics-Export"] = "vintage-alarm-ai-export-v1";
   return new Response(body, { status, headers });
 }
@@ -204,10 +232,13 @@ export async function onRequestGet(context) {
   const request = context.request;
   try {
     const requestUrl = new URL(request.url);
-    if (!requestUrl.search) {
+    const isLanding = requestUrl.pathname === "/" && !requestUrl.search;
+    if (isLanding) {
       return documentResponse("# VINTAGE ALARM AI relay\n\nThis service displays a signed, read-only analytics export. Generate an AI URL in the authenticated Analytics dashboard. Links expire after 15 minutes. No analytics data is available on this page.", 200, request);
     }
-    const source = validateSource(requestUrl.searchParams.get("source"));
+
+    const source = sourceFromRelayUrl(requestUrl);
+    const isShortLink = requestUrl.pathname.startsWith("/s/v1/");
     const upstream = await fetch(source.toString(), {
       headers: { Accept: "application/json" },
       redirect: "error",
@@ -220,7 +251,9 @@ export async function onRequestGet(context) {
     if (payload?.schemaVersion !== "vintage-alarm-ai-export-v1" || !payload?.current || !payload?.generatedAt || payload?.error) {
       return documentResponse("Analytics source returned an unexpected data format.", 502, request);
     }
-    return documentResponse(renderAnalyticsMarkdown(payload), 200, request, true);
+
+    const cacheSeconds = isShortLink ? sourceCacheSeconds(source) : 0;
+    return documentResponse(renderAnalyticsMarkdown(payload), 200, request, true, cacheSeconds, isShortLink);
   } catch (error) {
     return documentResponse(`VINTAGE ALARM AI relay\n\n${error instanceof Error ? error.message : String(error)}`, 400, request);
   }
