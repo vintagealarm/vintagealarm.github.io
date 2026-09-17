@@ -1,6 +1,6 @@
 # VINTAGE ALARM — CURRENT PROJECT STATE
 
-更新日: 2026-09-15
+更新日: 2026-09-17
 
 この文書は、VINTAGE ALARMで作業を再開するときに最初に読む「現在位置の索引」です。
 
@@ -40,6 +40,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 
 - サイト本文・階層・WATCH仕様: `SITE_RULES.md`
 - デザイン / UI / motion / mobile: `DESIGN_ENGINEERING.md`
+- 調査解説 / `初心者向け` ランチャー: `AGENTS.md`「調査結果を初心者向けに説明する時」
 - SEO / AIO方針: `strategy/seo-aio.md`
 - 英語入口: `strategy/english-entry.md`
 - ドイツ語入口: `strategy/german-entry.md`
@@ -65,6 +66,8 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
+- `初心者向け` は調査解説モードの明示ランチャー。単独・修飾指定のどちらでも、確認を挟まず即起動する
+- `初心者向け` では情報を削らず、資料の作成者 / 目的 / 記載内容 / 専門用語 / A→B→Cの因果 / 推論境界 / 反証・未確認を順にほどき、必要な出典は同じものでも再引用する
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
 - Councilはformat / domain / budget / evidence / panelSizeを分離し、人数や固定ラウンド数を品質の代理指標にしない
@@ -179,6 +182,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 
 - WATCH本文修正 → `SITE_RULES.md` + 対象WATCH
 - UI / 画像 / mobile修正 → `DESIGN_ENGINEERING.md` + 関係する `SITE_RULES.md` + 対象component
+- 調査解説 / `初心者向け` → `AGENTS.md`「調査結果を初心者向けに説明する時」
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
 - Analytics → `measurement/metrics.md` + 対象worker / dashboard
 - 翻訳 → `SITE_RULES.md` + 該当言語strategy + 日本語正本
