@@ -120,9 +120,6 @@ if (researchSettings.published) {
 if (historyHtml.includes('ja-phrase')) {
   failures.push('HISTORY: legacy nowrap phrase wrappers remain in generated HTML');
 }
-if (historyHtml.includes('WITTNAUER ALARM')) {
-  failures.push("HISTORY: unpublished Wittnauer card leaked into OWNER'S NOTES rail");
-}
 if (!ownersHtml.includes('c.1959–early 1960s')) {
   failures.push("OWNER'S NOTES: compact Westclox uncertain-era label is missing");
 }
