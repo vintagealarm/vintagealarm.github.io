@@ -252,7 +252,7 @@ export async function onRequestGet(context) {
       return documentResponse("Analytics source returned an unexpected data format.", 502, request);
     }
 
-    const cacheSeconds = sourceCacheSeconds(source);
+    const cacheSeconds = isShortLink ? sourceCacheSeconds(source) : 0;
     return documentResponse(renderAnalyticsMarkdown(payload), 200, request, true, cacheSeconds, isShortLink);
   } catch (error) {
     return documentResponse(`VINTAGE ALARM AI relay\n\n${error instanceof Error ? error.message : String(error)}`, 400, request);
