@@ -1,7 +1,10 @@
 import { files, document, attr, content, route, resolve, origin, finish } from './site-audit-lib.mjs';
+import { readFileSync } from 'node:fs';
 import { readWatchPublicationState } from './watch-publication.mjs';
 
 const watchStates = readWatchPublicationState();
+const englishEntrySource = readFileSync(new URL('../src/data/en-watch-entry.ts', import.meta.url), 'utf8');
+const englishWatchSlugs = new Set([...englishEntrySource.matchAll(/^  '([^']+)': \\{/gm)].map((match) => match[1]));
 const germanWatchSlugs = new Set(['pierce-duofon', 'westclox-watchlarm', 'cyma-time-o-vox']);
 const required = {
   '/': ['WebSite'],
@@ -15,7 +18,7 @@ const required = {
 };
 for (const watch of watchStates.filter((item) => item.published)) {
   required[`/${watch.slug}/`] = ['Article', 'BreadcrumbList'];
-  required[`/en/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
+  if (englishWatchSlugs.has(watch.slug)) required[`/en/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
   if (germanWatchSlugs.has(watch.slug)) required[`/de/${watch.slug}/`] = ['CreativeWork', 'BreadcrumbList'];
 }
 if (watchStates.some((item) => item.slug === 'cyma-time-o-vox' && item.published)) {
