@@ -46,15 +46,18 @@ Webの多数決で専門書・一次資料を上書きしない。
 - Horlbeck / Beitl：Longines系手巻きベースと記述。
 - Horlbeck は 10WA を「機能上独立した時刻機構＋独立アラームモジュール」の genuine modular caliber と説明し、時刻側を hand-wound Longines caliber と明記する。
 - Beitl も Wittnauer 10WA を独立した Longines 手巻きムーブメント＋別作動のアラームモジュールと記述する。
+- HODINKEE, *Bring a Loupe* (2025-08-15) はさらに具体的に、10WA を “a modular alarm movement built on top of the Longines caliber 10” と記述する。これは `Longines Caliber 10` 説を明示する有力な二次資料だが、メーカー一次資料ではない。
 - 一方、Bestfit 系部品情報では AS 1200 用の setting bridge / balance cap jewel screw / winding stem などが WITTNAUER 10S / 10SC / 10WA と互換対象に列挙される。
 - 重要：部品互換は `10WA = AS 1200 base` の直接証明ではない。現時点では「時刻側に AS 1200 family と強い部品互換性がある」まで。
 - Forum / repair user report には「10WA の basis は AS 1200」とする主張があるが、一次 / メーカー技術資料では未確認。
 - 現時点で `Longines Cal.10`、`AS 1200 base` のどちらも確定しない。
+- HODINKEE の表記 `Longines caliber 10` を、そのまま `Longines 10L / 10.68Z` と同一視しない。10L / 10.68Z への具体的なブリッジは別資料で直接確認する必要がある。
 - 採用条件：地板レイアウト、部品番号体系、サービス資料、メーカー資料、明確な同定写真のいずれかで直接比較する。
 
 ### HOLD
 
-- 「Longines Cal.10」説：Hodinkee / Watch-Wiki 等の二次資料では見られるが、現時点では一次 / 技術資料で未確定。
+- 「Longines Cal.10」説：HODINKEE が明示し、Horlbeck / Beitl の「Longines手巻きベース」記述とも整合するため二次資料系では強い。ただし現時点では一次 / 技術資料で未確定。
+- 「Longines Cal.10 = 10L / 10.68Z」説：スペック上の近似だけでは確定しない。HODINKEE の `caliber 10` 表記を 10L / 10.68Z へ自動変換しない。
 - Longines銘10WAの小規模シリーズ説：Beitl は Longines 署名個体を掲載している。実物記録は重視するが、製造規模・市場・経緯は未確定。
 - Leon M. Newhouse / Longines-Wittnauer の同時期 watch-case / dial design patent と 10WA の関係：時期は近いが対応未証明。
 - 「10WAアラームモジュールの特許取得」説：SNS上の証言あり。対応特許未特定。
@@ -80,13 +83,14 @@ Webの多数決で専門書・一次資料を上書きしない。
 1. 10WAアラームモジュールの対応特許を特定できるか。
 2. 出願人 / 発明者 / 優先日 / 同族特許 / 請求項と10WA構造の対応。
 3. 時刻側ベースムーブメントの確定：Longines系かAS1200系か、または別の説明が必要か。
-4. 1950年代初頭の当時広告、カタログ、取扱説明書、サービス資料。
-5. Longines銘10WAの追加個体・市場・製造経緯。
-6. 10WAの発売開始年 / 終了年 / ref.展開。
-7. ベゼル操作方式の先行例・同時代比較と、10WA固有点の確定。
-8. なぜWittnauerが後続でAS系アラームへ移行したのか。
-9. ケース形状・張り出しベゼル・小型リューズの関係を技術資料で裏付けられるか。
-10. 所有個体の実測：鳴動時間、操作量、音、ベゼル回転量など。
+4. `Longines caliber 10` の具体的なメーカー側キャリバー番号を一次 / 技術資料で確定できるか。10L / 10.68Z との同一性は未確認。
+5. 1950年代初頭の当時広告、カタログ、取扱説明書、サービス資料。
+6. Longines銘10WAの追加個体・市場・製造経緯。
+7. 10WAの発売開始年 / 終了年 / ref.展開。
+8. ベゼル操作方式の先行例・同時代比較と、10WA固有点の確定。
+9. なぜWittnauerが後続でAS系アラームへ移行したのか。
+10. ケース形状・張り出しベゼル・小型リューズの関係を技術資料で裏付けられるか。
+11. 所有個体の実測：鳴動時間、操作量、音、ベゼル回転量など。
 
 ## Evidence source register
 
@@ -120,6 +124,10 @@ Webの多数決で専門書・一次資料を上書きしない。
 - winding stem interchange lists：AS 1200 系と WITTNAUER 10WA の共通 stem 情報あり。
 - `watch.weblog.to` の 10WA 分解記事：文字盤側に積層されたアラーム機構を実機分解写真で確認可能。専門Web / owner repair report として扱い、メーカー一次資料とは分離。
 
+### Secondary watch media
+
+- HODINKEE, Rich Fordon, “Bring a Loupe: A Parmigiani Fleurier Toric Memory Time, A Cartier Trianon, And Two Picks From Goodwill,” 2025-08-15. `https://www.hodinkee.com/articles/bring-a-loupe-august-15-2025` — “1950s Wittnauer Alarm Watch With Caliber 10WA” の項で、10WA を “a modular alarm movement built on top of the Longines caliber 10” と明記。さらにベゼル回転で alarm を wind / set すると説明。Longines `caliber 10` という具体名を与える重要な二次資料だが、メーカー一次資料ではないため base caliber 最終確定には単独使用しない。
+
 ## Research log
 
 ### 2026-09-13 — GitHub正本化後の再監査
@@ -140,6 +148,15 @@ Webの多数決で専門書・一次資料を上書きしない。
 - 「今日も」は機構説明には不要だが、擬人化を単なる広告語から日常の勤務風景へ変え、OWNER'S NOTEの表側に必要な軽さを作る要素として残す。
 - `過労` / `ワンオペ` は編集上の比喩。10WAが壊れやすい、設計負荷が過大、Wittnauerが人員削減・合理化を意図した、という史実・技術主張には使わない。
 - OWNER'S NOTE表側と DEEP DIVE の温度差を再確認。キャッチでは現代比喩を許容する一方、DEEP DIVEでは機構・資料・未確認範囲へ戻し、企業ネタを章見出しへ持ち込まない。
+
+### 2026-09-17 — HODINKEE証拠をベースムーブメント論争へ統合
+
+- HODINKEE の 2025-08-15 *Bring a Loupe* を原ページで再確認した。
+- 記事は10WAを “a modular alarm movement built on top of the Longines caliber 10” と明記しており、単なる「Longines系」ではなく `Longines caliber 10` まで具体化している。
+- この記述は Horlbeck / Beitl の「Longines手巻きベース」と方向が一致するため、Longines説の二次資料側の補強として台帳へ追加した。
+- ただし HODINKEE はメーカーサービス資料ではないため、`10WA = Longines Cal.10` の最終確定へは昇格させない。
+- また `Longines caliber 10` と `10L / 10.68Z` の同一性はこの記事単体からは確認できないため、別論点として `HOLD / OPEN` に残す。
+- AS1200系との部品互換証拠は失効していない。したがって現状は「専門書2冊＋HODINKEEがLongines側を支持／部品資料群がAS1200系との強い互換性を示す」という `CONFLICT` を維持する。
 
 ## Copy selection ledger — 2026-09-15
 
