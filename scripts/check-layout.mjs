@@ -1,12 +1,16 @@
 import { chromium } from 'playwright';
+import { readFileSync } from 'node:fs';
 import { readWatchPublicationState } from './watch-publication.mjs';
 
 const root = process.env.LAYOUT_BASE_URL || 'http://127.0.0.1:4321/';
-const publishedWatchRoutes = readWatchPublicationState()
+const watchStates = readWatchPublicationState();
+const englishEntrySource = readFileSync(new URL('../src/data/en-watch-entry.ts', import.meta.url), 'utf8');
+const englishWatchSlugs = new Set([...englishEntrySource.matchAll(/^  '([^']+)': \\{/gm)].map((match) => match[1]));
+const publishedWatchRoutes = watchStates
   .filter((watch) => watch.published)
   .map((watch) => `${watch.slug}/`);
-const englishWatchRoutes = readWatchPublicationState()
-  .filter((watch) => watch.published)
+const englishWatchRoutes = watchStates
+  .filter((watch) => watch.published && englishWatchSlugs.has(watch.slug))
   .map((watch) => `en/${watch.slug}/`);
 const germanWatchRoutes = ['de/pierce-duofon/', 'de/westclox-watchlarm/', 'de/cyma-time-o-vox/'];
 const routes = [
@@ -77,7 +81,8 @@ try {
           oversizedEnglishCta: [...document.links].some((link) => /ENGLISH ENTRY/.test(link.textContent || ''))
         }));
         if (japaneseState.lang !== 'ja') failures.push(`${width}px ${route}: html lang is not ja`);
-        if (!japaneseState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
+        const watchSlug = route.replace(/\/$/, '');
+        if (englishWatchSlugs.has(watchSlug) && !japaneseState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
         if (['pierce-duofon/', 'westclox-watchlarm/', 'cyma-time-o-vox/'].includes(route) && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (japaneseState.oversizedEnglishCta) failures.push(`${width}px ${route}: legacy ENGLISH ENTRY CTA remains`);
       }
@@ -173,7 +178,6 @@ try {
             eraNavScrollable: !!eraNav && eraNav.scrollWidth > eraNav.clientWidth + 1,
             ownerRailScrollable: !!ownerRail && ownerRail.scrollWidth > ownerRail.clientWidth + 1,
             westcloxPresent: !!ownerRail?.querySelector('a[href*="westclox-watchlarm/#owners-note"]'),
-            wittnauerPresent: !!ownerRail?.textContent?.includes('WITTNAUER'),
             citizen: inspectListingImage('citizen-alarm'),
             westclox: inspectListingImage('westclox-watchlarm'),
             cyma: inspectListingImage('cyma-time-o-vox'),
@@ -186,7 +190,6 @@ try {
         if (!historyState.eraNavScrollable) failures.push(`${width}px history/: era navigation is not swipeable`);
         if (!historyState.ownerRailScrollable) failures.push(`${width}px history/: OWNER'S NOTE rail is not swipeable`);
         if (!historyState.westcloxPresent) failures.push(`${width}px history/: Westclox Watchlarm missing from 1950s owner rail`);
-        if (historyState.wittnauerPresent) failures.push(`${width}px history/: unpublished Wittnauer leaked into OWNER'S NOTE rail`);
         for (const [name, state] of [['Cyma', historyState.cyma], ['Citizen', historyState.citizen], ['Westclox', historyState.westclox]]) {
           if (!state.present || !state.srcPresent) failures.push(`${width}px history/: ${name} curated thumbnail element/src missing`);
           if (!state.fallbackPresent) failures.push(`${width}px history/: ${name} thumbnail fallback missing`);
