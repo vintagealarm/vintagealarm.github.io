@@ -33,6 +33,7 @@ jobs:
         run: |
           node --check worker.js
           node --check profile-worker.js
+          node --check entry-worker.js
 
       - name: Check generated dashboard JavaScript
         run: node check-generated-html.mjs

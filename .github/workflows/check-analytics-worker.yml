@@ -24,10 +24,13 @@ jobs:
         run: |
           node --check cloudflare/analytics-dashboard/worker.js
           node --check cloudflare/analytics-dashboard/profile-worker.js
+          node --check cloudflare/analytics-dashboard/entry-worker.js
           node --check cloudflare/ai-relay/functions/index.js
       - name: Check generated dashboard JavaScript
         run: node cloudflare/analytics-dashboard/check-generated-html.mjs
-      - name: Check X profile and AI URL wrapper
+      - name: Check X profile and legacy AI URL wrapper
         run: node cloudflare/analytics-dashboard/check-profile-wrapper.mjs
+      - name: Check production AI URL entry path
+        run: node cloudflare/analytics-dashboard/check-entry-worker.mjs
       - name: Check AI relay behavior
         run: node cloudflare/ai-relay/check-relay.mjs
