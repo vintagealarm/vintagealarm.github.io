@@ -5,29 +5,29 @@ ownerNumber: "06"
 brand: WITTNAUER
 model: CAL.10WA
 catch:
-  - "過酷な現場、アラーム部門。"
-  - "今日もベゼルがワンオペ中🔔"
+  - 過酷な現場、アラーム部門。
+  - 今日もベゼルがワンオペ中🔔
 ownersNote:
   image: /images/Wittnauer10WA.png
   lead:
-    - "巻くのも、合わせるのも、このベゼル。"
-    - "時刻側ムーブメントの文字盤側に、アラーム専用モジュールを上乗せ。"
-    - "動力は別香箱。"
-    - "それでもアラーム側の操作は、ベゼルひとつ。"
+    - 巻くのも、合わせるのも、このベゼル。
+    - 時刻側ムーブメントの文字盤側に、アラーム専用モジュールを上乗せ。
+    - 動力は別香箱。
+    - それでもアラーム側の操作は、ベゼルひとつ。
   guideTitle: 簡易操作ガイド
   guide:
-    - "① 動力巻き上げ　時計：リューズ巻き上げ／アラーム：ベゼル反時計回り"
-    - "※アラームは1周を目途に。破損防止のため"
-    - "② 時刻設定　リューズを引いて順回し"
-    - "③ アラーム設定　ベゼルを反時計回り"
-    - "※アラームON/OFFなし"
+    - ① 動力巻き上げ　時計：リューズ巻き上げ／アラーム：ベゼル反時計回り
+    - ※アラームは1周を目途に。破損防止のため
+    - ② 時刻設定　リューズを引いて順回し
+    - ③ アラーム設定　ベゼルを反時計回り
+    - ※アラームON/OFFなし
   noteTitle: NOTE
   note:
-    - "クセのある数字インデックス。"
-    - "波打つアラーム針。"
-    - "張り出した回転ベゼルに、ケースへ半分隠れる小さなリューズ。"
-    - "裏スケから見えるのは時刻側だけ。"
-    - "アラーム機構は、文字盤側に隠れている。"
+    - クセのある数字インデックス。
+    - 波打つアラーム針。
+    - 張り出した回転ベゼルに、ケースへ半分隠れる小さなリューズ。
+    - 裏スケから見えるのは時刻側だけ。
+    - アラーム機構は、文字盤側に隠れている。
 spec:
   era: 1950年代前半
   caseSize: 約36mm（掲載個体）
@@ -36,24 +36,34 @@ spec:
   frequency: 18,000振動／時
   barrels: 2香箱
   winding: 手巻き
-  acoustic: トーンスプリング式
+  acoustic: ゴング式
   notes: 回転ベゼル式アラーム設定＋巻上げ、アラーム側独立香箱
-
+specimenGallery:
+  - image: /images/IMG_5792.jpeg
+    label: リストショット（正面）
+  - image: /images/IMG_7643.jpeg
+    label: 三角錐の純正リューズ
+  - image: /images/IMG_6609.jpeg
+    label: ムーブメント
+video:
+  youtubeId: https://youtu.be/rh0jnIWGmzE?si=BaN2l3qpjRpVo9qX
+  xUrl: https://x.com/rimacroissant/status/2100425465349689832?s=46&t=3m8xXI66ZgB96VPG9PtQgw
 deepDive:
   - number: "01"
     title: Wittnauerとは
     paragraphs:
       - Wittnauerの歴史は、J. Eugene Robertがニューヨークで営んだスイス時計輸入事業にさかのぼる。
-      - Hans Weilによれば、Albert Wittnauerは1856年生まれで、1872年に16歳でニューヨークへ渡り、Robertの事業に加わった。André FrancillonのLongines史では、RobertとAlbertがパートナーになったのは1885年、1890年には事業がAlbertへ引き継がれたとされる。
+      - Hans Weilによれば、Albert
+        Wittnauerは1856年生まれで、1872年に16歳でニューヨークへ渡り、Robertの事業に加わった。André
+        FrancillonのLongines史では、RobertとAlbertがパートナーになったのは1885年、1890年には事業がAlbertへ引き継がれたとされる。
       - Wittnauerは、すべてを一社で完結して作っていたわけではない。
       - Horlbeckは、LonginesやGirard-Perregauxのムーブメントを用いた時計や、スイス製部品をアメリカで組み立て・調整し、アメリカ製ケースへ収めた例を記している。
       - ただし10WAについては、後述するように資料そのものが食い違っている。
     citationRefs:
-      - "11,12"
-      - "11,12"
+      - 11,12
+      - 11,12
       - "1"
       - "1"
-      - ""
   - number: "02"
     title: Wittnauer最初のアラーム、10WA
     paragraphs:
@@ -71,43 +81,43 @@ deepDive:
       - 一つのベゼルに二つの仕事を任せたことが、10WAの面白さであり、扱いを少し特殊にしている理由でもある。
     citationRefs:
       - "2"
-      - "1,2"
-      - ""
-      - "1,2"
-      - "1,2"
-      - "1,2"
-      - "1,2"
-      - "1,2"
-      - "1,2"
+      - 1,2
+      - 1,2
+      - 1,2
+      - 1,2
+      - 1,2
+      - 1,2
+      - 1,2
       - "1"
-      - "1,13"
-      - "1,2"
+      - 1,13
+      - 1,2
   - number: "03"
     title: Cal.10WAの中身
     paragraphs:
       - 10WAは、時刻機構とアラーム機構がそれぞれ独立した香箱を持つ。
       - アラーム側は、通常の時計ムーブメントの文字盤側に重ねるかたちで、専用の香箱や設定輪列、ハンマーを備える。
       - 問題は、その下にある時刻機構が何だったのかだ。
-      - Horlbeckは手巻きのLonginesキャリバーをベースにしたと記し、Beitlも `Longines-Basiskaliber` としている。両者ともLongines説を採っている。
+      - Horlbeckは手巻きのLonginesキャリバーをベースにしたと記し、Beitlも `Longines-Basiskaliber`
+        としている。両者ともLongines説を採っている。
       - ところが、修理用の部品資料を見ると別の手掛かりが出てくる。
-      - 1966年の *C. & E. Marshall Handy Manual* では、Wittnauer 10WAとWittnauer 10Sが、主ゼンマイ、天真、巻真、振り座、アンクル真など、時刻側の主要部品を共通で使っている。
+      - 1966年の *C. & E. Marshall Handy Manual* では、Wittnauer 10WAとWittnauer
+        10Sが、主ゼンマイ、天真、巻真、振り座、アンクル真など、時刻側の主要部品を共通で使っている。
       - 10WAには、それとは別にアラーム用ゼンマイが設定されている。
-      - さらに1969年のAmerican Watchmakers Instituteの資料では、Wittnauer 10Sが **AS 1200** と対応づけられている。
+      - さらに1969年のAmerican Watchmakers Instituteの資料では、Wittnauer 10Sが **AS 1200**
+        と対応づけられている。
       - 部品表からは10Sとの近さが見え、その10SをAWIはAS1200と対応づけている。
       - つまり、**10WAの時刻側には10S／AS1200系との強い共通性が見える一方で、専門書にはLonginesベースという記録が残る。**
       - 今ある資料だけでは、どちらか一方に決めることはできない。
     citationRefs:
-      - "1,2"
-      - "1,2"
-      - ""
-      - "1,2"
-      - ""
+      - 1,2
+      - 1,2
+      - 1,2
       - "4"
       - "4"
       - "5"
-      - "4,5"
-      - "1,2,4,5"
-      - "1,2,4,5"
+      - 4,5
+      - 1,2,4,5
+      - 1,2,4,5
   - number: "04"
     title: 1952年の特許と量産10WA
     paragraphs:
@@ -121,7 +131,8 @@ deepDive:
       - ただし、特許の名義はMarcel Bliss。書誌にもWittnauerの名はない。
       - 譲渡やライセンスなど、両者を直接結ぶ資料も今のところ見つかっていない。
       - 違いがはっきり出るのは、満巻きになった後だ。
-      - CH304088Aには、アラームゼンマイの外端を滑らせる **slipping bridle** を使い、満巻きの後でもベゼルを回してアラーム時刻を変えられる構成が示されている。
+      - CH304088Aには、アラームゼンマイの外端を滑らせる **slipping bridle**
+        を使い、満巻きの後でもベゼルを回してアラーム時刻を変えられる構成が示されている。
       - ところが、Horlbeckが記録した量産10WAは、アラーム用ゼンマイが満巻きになるとベゼルが止まる。
       - 無理に回せば、伝達輪を傷めるおそれがある。
       - "**特許には、満巻きの後も操作を続けるための仕組みがある。量産10WAは、満巻きになると止まる。**"
@@ -135,24 +146,26 @@ deepDive:
       - "3"
       - "3"
       - "3"
-      - "1,2,3"
+      - 1,2,3
       - "3"
       - "3"
-      - ""
       - "3"
       - "1"
       - "1"
-      - "1,3"
-      - "1,3"
-      - "1,3"
-      - "1,3"
+      - 1,3
+      - 1,3
+      - 1,3
+      - 1,3
   - number: "05"
     title: 1955年にはAS製アラームも現れる
     paragraphs:
       - Beitlは10WAを1950年代前半のモデルとして紹介している。
-      - その一方で、1955年のWittnauer製アラームにはAS 1475を搭載した例があり、同書ではAS製キャリバーを採用した初期の例のひとつとして紹介されている。
-      - 10WAの正確な生産開始・終了年は分かっていない。したがってAS 1475搭載機をそのまま後継とは呼べず、両者の交代にどんな事情があったのかも不明だ。
-      - 分かるのは、1950年代前半に10WAがあり、**少なくとも1955年にはAS 1475を搭載したWittnauer製アラームも存在した**ことまで。
+      - その一方で、1955年のWittnauer製アラームにはAS
+        1475を搭載した例があり、同書ではAS製キャリバーを採用した初期の例のひとつとして紹介されている。
+      - 10WAの正確な生産開始・終了年は分かっていない。したがってAS
+        1475搭載機をそのまま後継とは呼べず、両者の交代にどんな事情があったのかも不明だ。
+      - 分かるのは、1950年代前半に10WAがあり、**少なくとも1955年にはAS
+        1475を搭載したWittnauer製アラームも存在した**ことまで。
       - 近い時期のWittnauer製アラームに、異なる二つの方式が確認できる。
     citationRefs:
       - "2"
@@ -165,7 +178,8 @@ deepDive:
     paragraphs:
       - 10WAは、機構だけでなく外装にもいくつかの違いが確認できる。
       - Beitlには、ステンレスケースと銀色系文字盤の個体に加え、黒文字盤や金色ケースの個体も掲載されている。黒文字盤は特に珍しい仕様として紹介されている。
-      - 金色ケースについては、現存するRef.1216の中に **10K GOLD FILLED（金張り）** と明記された個体が複数ある。ステンレス製の裏蓋と組み合わされた例も確認できる。
+      - 金色ケースについては、現存するRef.1216の中に **10K GOLD FILLED（金張り）**
+        と明記された個体が複数ある。ステンレス製の裏蓋と組み合わされた例も確認できる。
       - 一方で、ステンレスケースの10WAも残っている。
       - 販売記録ではRef.1215とRef.1216の表記を確認できる。
       - 別の観察記録にはRef.1216Aの表記もあるが、独立して確認できる現存個体は見つかっていない。
@@ -173,15 +187,15 @@ deepDive:
       - Longinesがどのような経緯でこの時計を販売したのかについては、同書でも推測を含む説明に留まる。
       - "**同じCal.10WAでも、外装にはいくつもの仕様が残されている。ひとつの機構から、これだけ違う姿の時計が作られていた。**"
     citationRefs:
-      - "2,6,7,8,9,10"
+      - 2,6,7,8,9,10
       - "2"
-      - "6,7"
+      - 6,7
       - "8"
-      - "6,7,9"
+      - 6,7,9
       - "10"
       - "2"
       - "2"
-      - "2,6,7,8,9,10"
+      - 2,6,7,8,9,10
 sourceMeta:
   - id: "1"
     type: reference
@@ -210,17 +224,35 @@ sourceMeta:
   - id: "13"
     type: owner
 sources:
-  - Michael Philip Horlbeck, 『The Alarm Wrist Watch』(Schiffer Publishing, 2007), Wittnauer / Cal.10WA sections（10WAの2香箱・ベゼル操作・Longinesベース記述・満巻き時の注意、Wittnauerの時計製造・調達背景）
-  - Leonhard Beitl, 『Alarm am Arm』(2009), Wittnauer / Longines sections（10WA、Longines-Basiskaliber記述、1950年代前半、AS1475搭載Wittnauer、外装差、Longines銘10WA）
-  - Swiss patent CH304088A, Marcel Bliss, filed 1952-12-04, published 1954-12-31（文字盤側アラーム機構、ベゼル巻上げ＋設定、slipping bridle） https://patents.google.com/patent/CH304088A/en
-  - C. & E. Marshall, 『Handy Manual』(1966), Wittnauer interchange listings（10S / 10WAの時刻側主要部品共通、10WAの別アラーム用ゼンマイ） https://www.phfactor.net/wtf/Marshall%20Handy%20Manual/Marshall%202.pdf
-  - American Watchmakers Institute, Technical Bulletin / AWI News (1969), Wittnauer 10S = AS 1200 https://www.awci.com/wp-content/uploads/2018/01/10-1969-AWI-News.pdf
-  - アンティーウオッチマン, Wittnauer Alarm Watch Ref.1216, 10K GOLD FILLED / SS https://antiwatchman.com/products/detail.php?product_id=10821
-  - Meticulous Watches, Wittnauer Alarm Watch Ref.1216, 10k gold filled / stainless steel back https://meticulouswatches.com/products/wittnauer-alarm-watch-bezel-set-cal-10wa-sold-265
-  - Sweetroad, Wittnauer 10WA stainless-case surviving example https://www.sweetroad.com/view/item/000000009921
+  - Michael Philip Horlbeck, 『The Alarm Wrist Watch』(Schiffer Publishing, 2007),
+    Wittnauer / Cal.10WA
+    sections（10WAの2香箱・ベゼル操作・Longinesベース記述・満巻き時の注意、Wittnauerの時計製造・調達背景）
+  - Leonhard Beitl, 『Alarm am Arm』(2009), Wittnauer / Longines
+    sections（10WA、Longines-Basiskaliber記述、1950年代前半、AS1475搭載Wittnauer、外装差、Longines銘10WA）
+  - Swiss patent CH304088A, Marcel Bliss, filed 1952-12-04, published
+    1954-12-31（文字盤側アラーム機構、ベゼル巻上げ＋設定、slipping bridle）
+    https://patents.google.com/patent/CH304088A/en
+  - C. & E. Marshall, 『Handy Manual』(1966), Wittnauer interchange listings（10S /
+    10WAの時刻側主要部品共通、10WAの別アラーム用ゼンマイ）
+    https://www.phfactor.net/wtf/Marshall%20Handy%20Manual/Marshall%202.pdf
+  - American Watchmakers Institute, Technical Bulletin / AWI News (1969),
+    Wittnauer 10S = AS 1200
+    https://www.awci.com/wp-content/uploads/2018/01/10-1969-AWI-News.pdf
+  - アンティーウオッチマン, Wittnauer Alarm Watch Ref.1216, 10K GOLD FILLED / SS
+    https://antiwatchman.com/products/detail.php?product_id=10821
+  - Meticulous Watches, Wittnauer Alarm Watch Ref.1216, 10k gold filled /
+    stainless steel back
+    https://meticulouswatches.com/products/wittnauer-alarm-watch-bezel-set-cal-10wa-sold-265
+  - Sweetroad, Wittnauer 10WA stainless-case surviving example
+    https://www.sweetroad.com/view/item/000000009921
   - Private Eyes / Antiquorum surviving Ref.1215 examples（Ref.1215表記の確認）
-  - EveryWatch / Mister Wolf surviving Ref.1216A / Ref.1216 observation records（現存・観察リファレンス表記の確認。Ref.1216Aは独立再確認を保留）
-  - André Francillon, 『History of Longines』（J. Eugene RobertとAlbert Wittnauerが1885年にパートナーとなり、1890年に事業がAlbertへ移ったとする記録） https://theindex.nawcc.org/Articles/Francillon.pdf
-  - Hans Weil, Wittnauer history（Albert Wittnauer 1856年生、1872年に16歳でNew Yorkへ渡る。1885年Robertと共同経営、1890年A. Wittnauerへ） https://hans-weil.faszination-uhrwerk.de/wittnauer.pdf
+  - EveryWatch / Mister Wolf surviving Ref.1216A / Ref.1216 observation
+    records（現存・観察リファレンス表記の確認。Ref.1216Aは独立再確認を保留）
+  - André Francillon, 『History of Longines』（J. Eugene RobertとAlbert
+    Wittnauerが1885年にパートナーとなり、1890年に事業がAlbertへ移ったとする記録）
+    https://theindex.nawcc.org/Articles/Francillon.pdf
+  - Hans Weil, Wittnauer history（Albert Wittnauer 1856年生、1872年に16歳でNew
+    Yorkへ渡る。1885年Robertと共同経営、1890年A. Wittnauerへ）
+    https://hans-weil.faszination-uhrwerk.de/wittnauer.pdf
   - 掲載個体の実機観察・修理記録（アラーム側ベゼル操作系に一度不具合が発生）
 ---
