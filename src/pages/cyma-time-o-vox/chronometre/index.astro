@@ -14,7 +14,8 @@ const siteRoot='https://vintagealarm.github.io/';
 const pagePath='cyma-time-o-vox/chronometre/';
 const pageUrl=new URL(pagePath,siteRoot).href;
 const fallbackHero='/images/cyma-time-o-vox/Cyma timeovox .png';
-const heroImage=data.heroImage||fallbackHero;
+const socialImage=data.heroImage||fallbackHero;
+const heroImage=data.heroImage||'';
 const pageTitle='Cyma Time-O-Vox Chronomètre｜観測個体と認定記録｜VINTAGE ALARM';
 const description='Cyma Time-O-Vox Chronomètreを、企業資料・専門文献・17件の観測記録・Neuchâtel公文書館回答・米国のadjusted/unadjusted資料・実機観測から整理する。';
 const dateModified=latestDate(
@@ -30,7 +31,7 @@ const schema={
       description,
       inLanguage:'ja',
       url:pageUrl,
-      image:new URL(heroImage.replace(/^\//,''),siteRoot).href,
+      image:new URL(socialImage.replace(/^\//,''),siteRoot).href,
       ...(dateModified?{dateModified}:{}),
       author:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
       publisher:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
@@ -66,6 +67,13 @@ const getYouTubeId=(value:string)=>{
   return input;
 };
 const anomalyVideoId=getYouTubeId(data.failure.youtubeId||'');
+const caseRank=(value:string)=>{
+  const v=(value||'').toUpperCase();
+  if(v.includes('YG')||v.includes('GOLD')||/\b(14K|18K)\b/.test(v)) return 0;
+  if(v.includes('SS')||v.includes('STEEL')) return 1;
+  return 2;
+};
+const displaySpecimens=[...data.observed.specimens].sort((a,b)=>caseRank(a.case)-caseRank(b.case));
 ---
 <!doctype html>
 <html lang="ja">
@@ -74,7 +82,7 @@ const anomalyVideoId=getYouTubeId(data.failure.youtubeId||'');
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="theme-color" content="#f3f0e7"/>
   <OwnerFonts/>
-  <SeoHead title={pageTitle} description={description} path={pagePath} image={heroImage} type="article" schema={schema}/>
+  <SeoHead title={pageTitle} description={description} path={pagePath} image={socialImage} type="article" schema={schema}/>
 </head>
 <body class="cyma-research">
   <SectionMast rightLabel="RESEARCH"/>
@@ -85,9 +93,9 @@ const anomalyVideoId=getYouTubeId(data.failure.youtubeId||'');
         <h1>{data.heading}</h1>
         <div class="cyma-r-lead">{data.lead.map(line=><p>{line}</p>)}</div>
       </div>
-      <figure class="cyma-r-hero-media">
+      {heroImage&&<figure class="cyma-r-hero-media">
         <img src={`${base}${heroImage.replace(/^\//,'')}`} alt="CYMA Time-O-Vox Chronomètre"/>
-      </figure>
+      </figure>}
     </header>
 
     <article class="cyma-r-flow">
@@ -106,7 +114,7 @@ const anomalyVideoId=getYouTubeId(data.failure.youtubeId||'');
       <section class="cyma-r-section shell" id="observed">
         <header class="cyma-r-section-head"><span>02</span><div><h2>{data.observed.title}</h2><p>{data.observed.intro}</p></div></header>
         <div class="cyma-r-observed-summary">
-          <strong>{data.observed.specimens.length}</strong>
+          <strong>{displaySpecimens.length}</strong>
           <span>OBSERVED RECORDS</span>
         </div>
         <div class="cyma-r-facts">
@@ -116,13 +124,12 @@ const anomalyVideoId=getYouTubeId(data.failure.youtubeId||'');
         </div>
         <p class="cyma-r-note">{data.observed.note}</p>
         <details class="cyma-r-table-details">
-          <summary><span>観測個体一覧を見る</span><span>{data.observed.specimens.length}件</span></summary>
+          <summary><span>観測個体一覧を見る</span><span>{displaySpecimens.length}件</span></summary>
           <div class="cyma-r-table-wrap" tabindex="0" role="region" aria-label="CYMA Time-O-Vox Chronomètre 観測個体一覧">
             <table>
-              <thead><tr><th>ID</th><th>seller ref</th><th>年代</th><th>ケース</th><th>ダイヤル</th><th>Chronomètre</th><th>調整刻印</th><th>MOV. No. 帯</th><th>ケースコード</th><th>情報源</th></tr></thead>
-              <tbody>{data.observed.specimens.map(row=><tr>
-                <td>{row.id}</td><td>{row.sellerRef}</td><td>{row.era}</td><td>{row.case}</td><td>{row.dial}</td><td>{row.chronometre}</td><td>{row.adjustment}</td><td>{row.movementBand}</td><td>{row.caseCode}</td>
-                <td>{row.sourceUrl?<a href={row.sourceUrl} target="_blank" rel="noopener">{row.source}</a>:row.source}</td>
+              <thead><tr><th>ケース</th><th>Chronomètre</th><th>調整刻印</th><th>MOV. No. 帯</th><th>seller ref</th><th>年代</th><th>ダイヤル</th><th>ケースコード</th><th>情報源</th><th>ID</th></tr></thead>
+              <tbody>{displaySpecimens.map(row=><tr>
+                <td>{row.case}</td><td>{row.chronometre}</td><td>{row.adjustment}</td><td>{row.movementBand}</td><td>{row.sellerRef}</td><td>{row.era}</td><td>{row.dial}</td><td>{row.caseCode}</td><td>{row.source}</td><td>{row.id}</td>
               </tr>)}</tbody>
             </table>
           </div>
