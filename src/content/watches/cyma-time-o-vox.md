@@ -79,6 +79,8 @@ deepDive:
     citationRefs:
       - ""
       - "2"
+    linkLabel: Chronomètre観測記録を見る
+    linkUrl: https://vintagealarm.github.io/cyma-time-o-vox/chronometre/
   - number: "03"
     title: 2つのプッシャーとWippe
     subtitle: リューズの接続先を切り替える
