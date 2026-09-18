@@ -1,6 +1,6 @@
 # VINTAGE ALARM — CURRENT PROJECT STATE
 
-更新日: 2026-09-15
+更新日: 2026-09-18
 
 この文書は、VINTAGE ALARMで作業を再開するときに最初に読む「現在位置の索引」です。
 
@@ -64,6 +64,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
+- Cyma Time-O-Vox Chronomètreには公開済みの伴走研究ページ `/cyma-time-o-vox/chronometre/` があり、観測個体表・資料層・未解決事項をWATCH本文と分けて扱う
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
@@ -164,7 +165,25 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 
 エラーが自力で解決可能な場合は、そのままユーザーへ返さず原因を特定して再試行する。
 
-## 10. STARTUP ROUTING
+## 10. PROJECT HYGIENE CHECKPOINT
+
+GitHub側の方針・索引・未完了差分が会話や実装より遅れないよう、次のどちらか早い時点で軽い棚卸しを行う。
+
+- 前回チェックから7日経過
+- `main` へ10件のPRがmerge
+
+確認項目:
+
+- `PROJECT_STATE.md` が現行の主要構造・正本への導線を指しているか
+- 会話だけに残った、今後の編集判断を変える方針がないか
+- 長期間残ったopen PRが、現行 `main` に対して有効か / 救出すべきか / 失効したか
+- `strategy/*` / `measurement/*` と実装が逆転していないか
+- 失効した旧仕様や棄却済み候補がルール側へ残っていないか
+- 新しい観測結果を `measurement/*` や研究台帳へ記録できているか
+
+このチェックは毎回の全リポジトリ監査ではない。差分と現在位置だけを確認し、必要な箇所だけ更新する。
+
+## 11. STARTUP ROUTING
 
 新しい作業を始めるときは、全資料を毎回読むのではなく次の順序にする。
 
