@@ -103,7 +103,7 @@ jobs:
             sleep 2
           done
           test "$status" = "401"
-          grep -qi '^www-authenticate: Basic realm="VINTAGE ALARM preview"' /tmp/preview-headers.txt
+          grep -qi '^www-authenticate: Basic realm="VINTAGE ALARM ANALYTICS"' /tmp/preview-headers.txt
           grep -qi '^x-robots-tag: noindex, nofollow, noarchive' /tmp/preview-headers.txt
           {
             echo "Protected preview: $PREVIEW_URL/lab/how-they-ring/"
