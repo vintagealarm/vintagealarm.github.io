@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "purpose": "Lock a small set of high-risk, manually reviewed claims where source disagreement, specimen-vs-literature differences, or a popular but unverified story could otherwise collapse into an overconfident statement. CI does not decide historical truth; it only forces a fresh evidence review if these exact guarded statements are changed.",
+  "checks": [
+    {
+      "id": "wittnauer-10wa-base-movement-disagreement",
+      "path": "src/content/watches/wittnauer-10wa.md",
+      "reviewedAt": "2026-09-18",
+      "reviewedAgainst": [
+        "Horlbeck, The Alarm Wristwatch, Wittnauer 10 WA section",
+        "Beitl, Alarm am Arm, Wittnauer / movement table",
+        "C. & E. Marshall Handy Manual (1966), Wittnauer interchange listings",
+        "American Watchmakers Institute (1969), Wittnauer 10S = AS 1200"
+      ],
+      "mustContain": [
+        "**10WAの時刻側には10S／AS1200系との強い共通性が見える一方で、専門書にはLonginesベースという記録が残る。**",
+        "結局、10WAの時刻側がLonginesなのか、AS1200系なのか。今ある資料だけでは答えが出ない。",
+        "Longines-Basiskaliber",
+        "Wittnauer 10S = AS 1200"
+      ],
+      "mustNotContain": [
+        "10WAの時刻側はAS1200である",
+        "10WAの時刻側はLonginesで確定"
+      ]
+    },
+    {
+      "id": "cyma-chronometer-scope",
+      "path": "src/content/watches/cyma-time-o-vox.md",
+      "reviewedAt": "2026-09-18",
+      "reviewedAgainst": [
+        "Beitl, Alarm am Arm, p.134"
+      ],
+      "mustContain": [
+        "『Alarm am Arm』では、当時クロノメーターとして知られるアラーム腕時計は、CymaのほかにFortis ManagerとVulcainの1モデルのみと記されている。",
+        "Leonhard Beitl, 『Alarm am Arm』(2009), pp.134–136"
+      ],
+      "mustNotContain": [
+        "クロノメーターのアラーム腕時計は世界に3本しか存在しない",
+        "クロノメーターのアラーム腕時計は3モデルしか存在しない"
+      ]
+    },
+    {
+      "id": "pierce-prototype-barrel-difference",
+      "path": "src/content/watches/pierce-duofon.md",
+      "reviewedAt": "2026-09-18",
+      "reviewedAgainst": [
+        "Beitl, Alarm am Arm, pp.355–357",
+        "Horlbeck, The Alarm Wristwatch, Pierce 135 section"
+      ],
+      "mustContain": [
+        "1952年のプロトタイプとして記録されている個体は、35mmの金色ケースと圧入式のスチール裏蓋を備える。",
+        "また、この個体については時刻機構とアラームを1つの香箱で駆動すると記載されている。",
+        "一方、1955年のPierce技術資料では、完成型のムーブメントは時刻用とアラーム用に独立した2つの香箱を持つと記載されている。1952年プロトタイプに記録された1香箱仕様とは異なる。"
+      ],
+      "mustNotContain": [
+        "1952年からCal.135は一貫して2香箱だった"
+      ]
+    },
+    {
+      "id": "westclox-setting-step-disagreement",
+      "path": "src/content/watches/westclox-watchlarm.md",
+      "reviewedAt": "2026-09-18",
+      "reviewedAgainst": [
+        "Horlbeck, The Alarm Wristwatch, Westclox W5 section",
+        "Beitl, Alarm am Arm, pp.497–498 / movement table",
+        "OWNER OBSERVATION, displayed specimen"
+      ],
+      "mustContain": [
+        "掲載個体では60プッシュで12時間を一周し、1回あたり約12分。文献のHorlbeck／Beitlが記す15分刻みとは異なるが、参考WebサイトRanfftの12分刻みとは一致する。差の理由は、個体差・仕様差・資料差のいずれによるものか未確認。",
+        "OWNER OBSERVATION, 掲載個体の記録（ケース径34mm、2時位置プッシャー60回でアラーム針が12時間を一周）"
+      ],
+      "mustNotContain": [
+        "Westclox W5は15分刻みである",
+        "Westclox W5は12分刻みである"
+      ]
+    },
+    {
+      "id": "citizen-jlc-complaint-story",
+      "path": "src/content/watches/citizen-alarm.md",
+      "reviewedAt": "2026-09-18",
+      "reviewedAgainst": [
+        "Citizen official Alarm / design history",
+        "Beitl, Alarm am Arm, Citizen section",
+        "Horlbeck, The Alarm Wristwatch, Citizen section"
+      ],
+      "mustContain": [
+        "国内では「Memovoxに似すぎてJaeger-LeCoultreからクレームを受け、4Hへ変わった」という話が伝わる。ただ、Citizen公式、Beitl、Horlbeckから、その経緯を裏付ける記述は確認できない。",
+        "初代と4Hの間に何があったのか。確かな記録が見つからないまま、「ルクルトからクレームが来た」という話だけが、ひとつの伝説として残っている。"
+      ],
+      "mustNotContain": [
+        "Jaeger-LeCoultreからクレームを受けたため4Hへ変更された",
+        "ルクルトのクレームで4Hへ変更された"
+      ]
+    }
+  ]
+}
