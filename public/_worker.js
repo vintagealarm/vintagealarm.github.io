@@ -1,37 +1,23 @@
-const PREVIEW_USERNAME = 'preview';
-const PREVIEW_PASSWORD_SHA256 = 'f745330a3a3214ad262ffdfd1f98dc8c6dfe1cd5e80596fca8baa7ae40407564';
-
-function toHex(buffer) {
-  return [...new Uint8Array(buffer)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
-}
-
-function constantTimeEqual(left, right) {
-  if (left.length !== right.length) return false;
-  let diff = 0;
-  for (let index = 0; index < left.length; index += 1) {
-    diff |= left.charCodeAt(index) ^ right.charCodeAt(index);
-  }
-  return diff === 0;
-}
+const AUTH_CHECK_URL = 'https://vintage-alarm-analytics.orima1995.workers.dev/__preview-auth-check__';
 
 async function authorized(request) {
-  const header = request.headers.get('Authorization') || '';
-  if (!header.startsWith('Basic ')) return false;
+  const authorization = request.headers.get('Authorization') || '';
+  if (!authorization.startsWith('Basic ')) return false;
 
   try {
-    const decoded = atob(header.slice(6));
-    const separator = decoded.indexOf(':');
-    if (separator < 0) return false;
+    const response = await fetch(AUTH_CHECK_URL, {
+      method: 'GET',
+      headers: {
+        Authorization: authorization,
+        Accept: 'text/plain'
+      },
+      redirect: 'manual'
+    });
 
-    const username = decoded.slice(0, separator);
-    const password = decoded.slice(separator + 1);
-    if (username !== PREVIEW_USERNAME) return false;
-
-    const digest = await crypto.subtle.digest(
-      'SHA-256',
-      new TextEncoder().encode(password)
-    );
-    return constantTimeEqual(toHex(digest), PREVIEW_PASSWORD_SHA256);
+    // The analytics Worker authenticates first, then returns 404 for this
+    // intentionally nonexistent path. Any non-401/503 response therefore
+    // means the existing admin credentials were accepted.
+    return response.status !== 401 && response.status !== 503;
   } catch {
     return false;
   }
@@ -50,7 +36,7 @@ export default {
       return new Response('Authentication required.', {
         status: 401,
         headers: protectedHeaders(new Headers({
-          'WWW-Authenticate': 'Basic realm="VINTAGE ALARM preview", charset="UTF-8"',
+          'WWW-Authenticate': 'Basic realm="VINTAGE ALARM ANALYTICS", charset="UTF-8"',
           'Cache-Control': 'no-store'
         }))
       });
