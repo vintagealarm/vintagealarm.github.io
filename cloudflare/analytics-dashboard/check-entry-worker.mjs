@@ -39,7 +39,10 @@ const sample = {
         { channel: 'Other Referral', sourceHost: 'www.watchuseek.com', destinationPath: '/cyma-time-o-vox/', visits: 2 },
       ],
       internalFlows: [
-        { sourceHost: 'vintagealarm.github.io', sourceCleanPath: '/cyma-time-o-vox/', destinationPath: '/pierce-duofon/', pageviews: 1, visits: 0 },
+        { sourceHost: 'vintagealarm.github.io', destinationHost: 'vintagealarm.github.io', sourceCleanPath: '/cyma-time-o-vox/', destinationPath: '/pierce-duofon/', pageviews: 1, visits: 0 },
+      ],
+      migrationFlows: [
+        { sourceHost: 'orima1995-create.github.io', destinationHost: 'vintagealarm.github.io', sourceCleanPath: '/', destinationPath: '/cyma-time-o-vox/', pageviews: 2, visits: 2 },
       ],
       snsEntries: {
         pages: [
@@ -68,6 +71,7 @@ assert(fallback.includes('latest=2026-09-17;gap=0'), 'freshness marker missing')
 assert(fallback.includes('pages=/:26/26,/cyma-time-o-vox/:10/13'), 'portable snapshot entry pages missing');
 assert(fallback.includes('external=X@t.co~/pierce-duofon/:6,OTHER@www.watchuseek.com~/cyma-time-o-vox/:2'), 'portable snapshot external flow missing source host');
 assert(fallback.includes('flow=vintagealarm.github.io@/cyma-time-o-vox/~/pierce-duofon/:1/0'), 'portable snapshot internal flow missing host context');
+assert(fallback.includes('handoff=orima1995-create.github.io@/>vintagealarm.github.io@/cyma-time-o-vox/:2/2'), 'portable snapshot host migration flow missing');
 assert(fallback.includes('sns=/pierce-duofon/:7/0/0/0/7'), 'SNS landing summary missing');
 assert(fallback.includes('trend=2026-09-16/7/3/2/0/0/0/0/0/1/0/0,2026-09-17/9/6/4/0/0/0/0/0/2/0/0'), 'trend summary missing');
 
