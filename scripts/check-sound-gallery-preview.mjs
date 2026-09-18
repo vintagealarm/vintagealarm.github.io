@@ -36,7 +36,24 @@ try {
       analytics: !!document.querySelector('script[src*="static.cloudflareinsights.com"]')
     }));
 
-    if (shellState.overflow > 1) failures.push(`${width}px: horizontal overflow ${shellState.overflow}px`);
+    if (shellState.overflow > 1) {
+      const offenders = await page.evaluate(() => {
+        const vw = document.documentElement.clientWidth;
+        return [...document.querySelectorAll('body *')]
+          .map((node) => ({ node, rect: node.getBoundingClientRect() }))
+          .filter(({ rect }) => rect.width > 0 && (rect.right > vw + 1 || rect.left < -1))
+          .slice(0, 8)
+          .map(({ node, rect }) => ({
+            tag: node.tagName.toLowerCase(),
+            className: typeof node.className === 'string' ? node.className : '',
+            text: (node.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+            left: Math.round(rect.left),
+            right: Math.round(rect.right),
+            width: Math.round(rect.width)
+          }));
+      });
+      failures.push(`${width}px: horizontal overflow ${shellState.overflow}px offenders=${JSON.stringify(offenders)}`);
+    }
     if (shellState.categoryButtons !== 4) failures.push(`${width}px: expected 4 category buttons, got ${shellState.categoryButtons}`);
     if (shellState.variantButtons !== 3) failures.push(`${width}px: expected 3 prototype variants, got ${shellState.variantButtons}`);
     if (shellState.robots !== 'noindex,nofollow,noarchive') failures.push(`${width}px: robots meta changed`);
