@@ -75,7 +75,7 @@ const specimens = orderedSlugs
       brand: watch.brand,
       model: watch.model,
       caliber: watch.spec.caliber,
-      image: \`\${base}\${watch.ownersNote.image.replace(/^\\//, '')}\`,
+      image: `${base}${watch.ownersNote.image.replace(/^\\//, '')}`,
       audio: watch.audio
     };
   })
@@ -716,7 +716,7 @@ const specimens = orderedSlugs
 
               <span class="sound-impression">
                 <b>{category.sound}</b>
-                <span class={\`sound-shape sound-shape-\${category.id}\`} aria-hidden="true">
+                <span class={`sound-shape sound-shape-${category.id}`} aria-hidden="true">
                   <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                 </span>
                 <small>{category.soundNote}</small>
@@ -759,7 +759,7 @@ const specimens = orderedSlugs
               hidden={watch.category !== 'gong'}
             >
               <div class="specimen-media">
-                <img src={watch.image} alt={\`\${watch.brand} \${watch.model} 掲載個体\`} loading="lazy" />
+                <img src={watch.image} alt={`${watch.brand} ${watch.model} 掲載個体`} loading="lazy" />
               </div>
               <div class="specimen-copy">
                 <p class="specimen-category">
@@ -776,7 +776,7 @@ const specimens = orderedSlugs
                       recording.src ? (
                         <div>
                           <p>{recording.label}</p>
-                          <audio controls preload="none" src={\`\${base}\${recording.src.replace(/^\\//, '')}\`}></audio>
+                          <audio controls preload="none" src={`${base}${recording.src.replace(/^\\//, '')}`}></audio>
                         </div>
                       ) : (
                         <button class="audio-pending" type="button" disabled>
