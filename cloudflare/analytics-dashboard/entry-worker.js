@@ -33,6 +33,11 @@ function channelVisits(period, name) {
   return finiteNumber(row?.visits);
 }
 
+function internalPageviews(period) {
+  return (period?.internalFlows || [])
+    .reduce((sum, row) => sum + finiteNumber(row?.pageviews), 0);
+}
+
 function channelCode(name) {
   return ({
     X: "X",
@@ -170,7 +175,8 @@ export function buildAiFallbackFragment(payload) {
     `direct=${channelVisits(combined, "Direct / Unknown")}`,
     `ai=${channelVisits(combined, "AI Assistant")}`,
     `other=${channelVisits(combined, "Other Referral")}`,
-    `internal=${channelVisits(combined, "Internal Navigation")}`,
+    `internalVisits=${channelVisits(combined, "Internal Navigation")}`,
+    `internalPV=${internalPageviews(combined)}`,
     `xprofile=${finiteNumber(combined?.xProfileEntries)}`,
   ];
 
