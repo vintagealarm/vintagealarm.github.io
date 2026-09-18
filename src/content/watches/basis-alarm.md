@@ -37,6 +37,10 @@ spec:
   winding: 手巻き
   acoustic: 底部ベル式
   notes: アラーム約10秒（Horlbeck／掲載個体）、回転ベゼル式アラーム設定、9時位置ON/OFFスライダー、1時／5時位置の巻上げ表示窓
+audio:
+  status: pending
+  recordings: []
+
 specimenGallery:
   - image: /images/IMG_8890-1.jpeg
     label: 正面（リストショット）
