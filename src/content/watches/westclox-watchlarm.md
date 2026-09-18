@@ -35,7 +35,7 @@ spec:
   frequency: 18,000振動／時
   barrels: 1香箱
   winding: 手巻き
-  acoustic: 底部ベル式
+  acoustic: 裏蓋ピン式
   notes: 2時位置プッシャー式アラーム設定、掲載個体は60プッシュで12時間一周、9時位置ON/OFFスライダー、アラーム約10秒
 specimenGallery:
   - image: /images/IMG_2093-2.jpeg
