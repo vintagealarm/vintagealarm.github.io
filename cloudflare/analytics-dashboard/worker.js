@@ -1,3 +1,4 @@
+import { cymaResearchPreviewResponse } from "./cyma-research-preview.js";
 const GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql";
 const DEFAULT_HOST = "vintagealarm.github.io";
 export const HOST_MIGRATION = Object.freeze({
@@ -23,6 +24,10 @@ export default {
 
     const auth = requireBasicAuth(request, env);
     if (auth) return auth;
+
+    if (url.pathname === "/research/cyma-chronometre" || url.pathname === "/research/cyma-chronometre/") {
+      return cymaResearchPreviewResponse();
+    }
 
     if (url.pathname === "/api/analytics") {
       return analyticsResponse(url, env);
