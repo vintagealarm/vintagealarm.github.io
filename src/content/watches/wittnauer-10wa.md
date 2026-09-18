@@ -168,9 +168,9 @@ sourceMeta:
     type: reference
 sources:
   - Michael Philip Horlbeck, 『The Alarm Wrist Watch』(Schiffer Publishing, 2007),
-    Wittnauer / Cal.10WA
+    pp.152–153, Wittnauer / Cal.10WA
     sections（10WAの2香箱・ベゼル操作・Longinesベース記述・満巻き時の注意、Wittnauerの時計製造・調達背景）
-  - Leonhard Beitl, 『Alarm am Arm』(2009), Wittnauer / Longines
+  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.295, 499–500, 629, Wittnauer / Longines
     sections（10WA、Longines-Basiskaliber記述、1950年代前半、AS1475搭載Wittnauer、外装差、Longines銘10WA）
   - Swiss patent CH304088A, Marcel Bliss, filed 1952-12-04, published
     1954-12-31（文字盤側アラーム機構、ベゼル巻上げ＋設定、slipping bridle）
