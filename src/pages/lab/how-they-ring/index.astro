@@ -75,7 +75,7 @@ const specimens = orderedSlugs
       brand: watch.brand,
       model: watch.model,
       caliber: watch.spec.caliber,
-      image: `${base}${watch.ownersNote.image.replace(/^\\//, '')}`,
+      image: `${base}${watch.ownersNote.image.replace(/^\//, '')}`,
       audio: watch.audio
     };
   })
@@ -776,7 +776,7 @@ const specimens = orderedSlugs
                       recording.src ? (
                         <div>
                           <p>{recording.label}</p>
-                          <audio controls preload="none" src={`${base}${recording.src.replace(/^\\//, '')}`}></audio>
+                          <audio controls preload="none" src={`${base}${recording.src.replace(/^\//, '')}`}></audio>
                         </div>
                       ) : (
                         <button class="audio-pending" type="button" disabled>
