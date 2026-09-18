@@ -207,6 +207,6 @@ sources:
     Yorkへ渡る。1885年Robertと共同経営、1890年A. Wittnauerへ）
     https://hans-weil.faszination-uhrwerk.de/wittnauer.pdf
   - 掲載個体の実機観察・修理記録（アラーム側ベゼル操作系に一度不具合が発生）
-  - Rich Fordon, HODINKEE, “Bring a Loupe: A Parmigiani Fleurier Toric Memory Time, A Cartier Trianon, And Two Picks From Goodwill” (2025-08-15), “1950s Wittnauer Alarm Watch With Caliber 10WA” section（Cal.10WAをLongines Cal.10をベースとするモジュラー式アラームムーブメントとして紹介）
-    https://www.hodinkee.com/articles/bring-a-loupe-august-15-2025
+  - >-
+    Rich Fordon, HODINKEE, “Bring a Loupe: A Parmigiani Fleurier Toric Memory Time, A Cartier Trianon, And Two Picks From Goodwill” (2025-08-15), “1950s Wittnauer Alarm Watch With Caliber 10WA” section（Cal.10WAをLongines Cal.10をベースとするモジュラー式アラームムーブメントとして紹介） https://www.hodinkee.com/articles/bring-a-loupe-august-15-2025
 ---
