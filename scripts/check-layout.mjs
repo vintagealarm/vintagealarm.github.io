@@ -278,6 +278,29 @@ try {
       }
     }
 
+    if (width === 390) {
+      const malformedOptOut = new URL('cyma-time-o-vox/#owners-note?__va_analytics=off', root).href;
+      const response = await page.goto(malformedOptOut, { waitUntil: 'networkidle' });
+      if (!response?.ok()) {
+        failures.push(`390px malformed analytics opt-out: HTTP ${response?.status() ?? 0}`);
+      } else {
+        const optOutState = await page.evaluate(() => ({
+          stored: localStorage.getItem('vintageAlarmAnalyticsOptOut'),
+          dataset: document.documentElement.dataset.vaAnalytics || '',
+          path: window.location.pathname,
+          search: window.location.search,
+          hash: window.location.hash,
+          beaconPresent: !!document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')
+        }));
+        if (optOutState.stored !== '1') failures.push('390px malformed analytics opt-out: localStorage flag was not set');
+        if (optOutState.dataset !== 'off') failures.push('390px malformed analytics opt-out: document state is not off');
+        if (optOutState.path !== '/cyma-time-o-vox/' || optOutState.search !== '' || optOutState.hash !== '#owners-note') {
+          failures.push(`390px malformed analytics opt-out: URL was not normalized (${JSON.stringify(optOutState)})`);
+        }
+        if (optOutState.beaconPresent) failures.push('390px malformed analytics opt-out: Cloudflare beacon was injected');
+      }
+    }
+
     await context.close();
   }
 } finally {
