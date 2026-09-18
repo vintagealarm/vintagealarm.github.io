@@ -73,61 +73,61 @@ const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブ�
       <main class="proto-owner">
         <header class="proto-owner-hero shell">
           <div class="proto-owner-title">
-            <p class="proto-kicker">RESEARCH NOTE / CYMA TIME-O-VOX</p>
-            <h1><span>一本の実機から追う、</span><span>クロノメーターの記録。</span></h1>
-            <p class="proto-owner-deck">18Kケース、文字盤のChronomètre、Cal.R.464。掲載個体から始め、文献、17件の観測、認定記録へ進む。</p>
+            <p class="proto-kicker">CYMA / CAL. R.464</p>
+            <h1><span>Time-O-Vox</span><span>Chronomètre</span></h1>
+            <p class="proto-owner-deck">文字盤に「CHRONOMÈTRE」と記された18KケースのTime-O-Vox。企業資料と専門書にもChronomètre仕様の記録がある。しかし、現存個体の文字盤とムーブメントを見比べると、その表記は一様ではない。</p>
           </div>
           <figure class="proto-owner-watch">
             <img src={`${base}images/cyma-time-o-vox/gallery/cyma-front.jpg`} alt="CYMA Time-O-Vox 18K Chronomètre 掲載個体" />
-            <figcaption>OWNER'S NOTE 02 /掲載個体</figcaption>
+            <figcaption>18K YELLOW GOLD / CAL. R.464</figcaption>
           </figure>
         </header>
 
         <article class="proto-owner-story shell">
           <section class="proto-owner-section" id="owners-documented">
-            <header><span>01</span><div><small>DOCUMENTED</small><h2>Chronomètre仕様は、資料に残っている</h2></div></header>
+            <header><span>01</span><div><small>DOCUMENTED</small><h2>Time-O-VoxにもChronomètreがあった</h2></div></header>
             <div class="proto-owner-copy">
-              <p>MIHが共有したCYMA企業資料には、金製Time-O-Voxがクロノメーター証明を受けた旨が記されている。Horlbeckは、Chronomètre仕様のためにムーブメントが5姿勢と温度で試験されたと記す。</p>
-              <p>Beitlは、文字盤とムーブメントの表記が揃わない別個体も掲載している。モデルとしての仕様は確認できる。しかし、表記の置かれ方は一様ではない。</p>
               <dl class="proto-source-ledger">
-                {data.documented.cards.map((card, index) => <div><dt>0{index + 1}</dt><dd><small>{card.label}</small><strong>{card.title}</strong><p>{card.body}</p></dd></div>)}
+                <div><dt>01</dt><dd><small>CYMA / D_7938</small><strong>金製Time-O-Voxへのクロノメーター証明</strong><p>MIHから共有されたCYMAの企業資料には、金製アラーム腕時計「Time-O-Vox」がクロノメーター証明を受けたと記されている。</p></dd></div>
+                <div><dt>02</dt><dd><small>MICHAEL PHILIP HORLBECK</small><strong>5姿勢と温度による試験</strong><p>『The Alarm Wristwatch』は、Cal.R.464を搭載したTime-O-Voxにクロノメーター証明付きの仕様があり、そのムーブメントは5姿勢と温度で試験されたと記す。</p></dd></div>
+                <div><dt>03</dt><dd><small>LEONHARD BEITL</small><strong>文字盤に表記がないChronomètre個体</strong><p>『Alarm am Arm』には、文字盤とムーブメントの双方にChronomètre表記を持つ金ケース個体に加え、文字盤には表記がない一方、ムーブメントにChronometerの表記を持つ別個体も掲載されている。</p></dd></div>
               </dl>
-            </div>
-          </section>
-
-          <section class="proto-owner-section proto-owner-logic" id="owners-unadjusted">
-            <header><span>02</span><div><small>UNADJUSTED</small><h2>刻印だけでは切れない</h2></div></header>
-            <div class="proto-owner-copy">
-              <blockquote><p lang="en">{proofQuote}</p><footer>{proofQuoteJa}</footer></blockquote>
-              <div class="proto-logic-lines">{logic.map((item) => <article><small>{item.label}</small><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>
+              <p>Time-O-VoxにChronomètre仕様が存在したことは、複数の資料から確認できる。だが、Chronomètreという語がどこに記されたかは、個体ごとに異なっている。</p>
             </div>
           </section>
 
           <section class="proto-owner-section" id="owners-observed">
-            <header><span>03</span><div><small>OBSERVED</small><h2>{totalSpecimens}件を、金無垢／金色ケースから並べる</h2></div></header>
+            <header><span>02</span><div><small>OBSERVED</small><h2>表記が揃わない</h2></div></header>
             <div class="proto-owner-copy">
-              <p>{data.observed.intro}</p>
+              <p>公開資料から確認できた17件には、文字盤の表記だけではムーブメントの状態を判断できない例が含まれている。</p>
+              <dl class="proto-source-ledger">
+                <div><dt>01</dt><dd><small>18K / CHRONOMÈTRE</small><strong>文字盤はChronomètre</strong><p>掲載個体は18Kケースで、文字盤にCHRONOMÈTREとある。ムーブメント写真では、5姿勢・温度調整を示す刻印を確認できない。</p></dd></div>
+                <div><dt>02</dt><dd><small>YG / FIVE POSITIONS + TEMPERATURE</small><strong>表記なし、5姿勢・温度調整</strong><p>金色ケースの観測例には、文字盤にChronomètre表記がなく、ムーブメントに「ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE」と刻まれた個体がある。</p></dd></div>
+                <div><dt>03</dt><dd><small>YG / UNADJUSTED</small><strong>金色ケース、UNADJUSTED</strong><p>金色ケースには、ムーブメントにUNADJUSTEDと刻まれた個体もある。ケース素材、文字盤表記、調整刻印の組み合わせは一定していない。</p></dd></div>
+              </dl>
               <CymaSpecimenTables />
             </div>
           </section>
 
+          <section class="proto-owner-section proto-owner-logic" id="owners-unadjusted">
+            <header><span>03</span><div><small>UNADJUSTED</small><h2>Tavannesで起きていたこと</h2></div></header>
+            <div class="proto-owner-copy">
+              <p>1956年、米国上院の公聴会は、実際には調整されていたスイス時計が「unadjusted」と表示され、米国へ輸入されていた問題を扱った。調整済み時計に課される追加関税を避けるためだった。</p>
+              <blockquote><p lang="en">{proofQuote}</p><footer>{proofQuoteJa}</footer></blockquote>
+              <p>Pritchardはその具体例としてTavannesを挙げている。工場の広告は、すべてのムーブメントを姿勢と温度について調整すると記していた。一方、Washington, D.C.で購入されたTavannes時計には「unadjusted」と刻印されていた。</p>
+              <p>PritchardのTavannes項目には、CYMA WATCH CO. SAもグループ企業として記載されている。少なくともTavannesの米国向け時計では、UNADJUSTEDという刻印と実際の調整状態が一致しない例があった。</p>
+              <p>金色ケースのTime-O-VoxにあるUNADJUSTED刻印も、それだけで未調整の証拠にはならない。調整済みだった可能性は残るが、クロノメーター試験を通過したかどうかは、別の記録がなければ確定できない。</p>
+            </div>
+          </section>
+
           <section class="proto-owner-section" id="owners-archive">
-            <header><span>04</span><div><small>ARCHIVE</small><h2>認定記録とは、まだつながらない</h2></div></header>
+            <header><span>04</span><div><small>ARCHIVE</small><h2>掲載個体の証明書は見つかっていない</h2></div></header>
             <div class="proto-owner-copy proto-institution-list">
-              {data.archive.cards.map((card) => <article><small>{card.label}</small><h3>{card.title}</h3><p>{card.body}</p></article>)}
-              <p class="proto-note">{data.archive.note}</p>
+              <article><small>MIH / 18 SEP. 2025</small><h3>モデルに直接結びつく文書は未発見</h3><p>国際時計博物館（MIH）は、Time-O-Vox Chronomètreに直接関係する文書は見つからなかったと回答した。その一方で、CYMAの企業資料に金製アラーム腕時計へのクロノメーター証明の記述があるとして、D_7938を共有した。</p></article>
+              <article><small>NEUCHÂTEL / 14 NOV. 2025</small><h3>掲載個体を特定できず</h3><p>Neuchâtel州立公文書館は、1954年から1958年までの8冊のBT台帳を調べたが、掲載個体に対応する試験記録を特定できなかった。ただし、1956年以降にはCyma Watch Co. SA, Le Locle名義で、Arnold Racineが調整を担当した試験記録が残っている。</p></article>
+              <p>掲載個体のムーブメント番号やケース番号は、観測所の記録番号と同じものではない。文字盤のCHRONOMÈTREと、特定の証明書や台帳記録を結びつける資料は、現在まで確認できていない。</p>
             </div>
           </section>
-
-          <section class="proto-owner-section" id="owners-failure">
-            <header><span>05</span><div><small>FIELD NOTE</small><h2>実機では、別のずれも起きている</h2></div></header>
-            <div class="proto-owner-copy proto-field-note">
-              <img src={`${base}images/cyma-time-o-vox/gallery/cyma-movement-r464.jpg`} alt="CYMA Time-O-Vox Cal.R.464 ムーブメント" />
-              <div><h3>{data.failure.observedTitle}</h3><p>{data.failure.observedBody}</p><p>{data.failure.hypothesisBody}</p></div>
-            </div>
-          </section>
-
-          <CymaResearchConclusion />
         </article>
       </main>
     )}
@@ -225,7 +225,7 @@ const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブ�
     )}
 
     <footer class="proto-footer shell">
-      <details><summary>参考資料・確認範囲</summary><ol>{data.sources.map((source) => <li>{source}</li>)}</ol></details>
+      <details><summary>SOURCES / 使用資料</summary><ol>{data.sources.map((source) => <li>{source}</li>)}</ol></details>
       <a href={`${base}cyma-time-o-vox/chronometre/`}>現行RESEARCHページを見る →</a>
     </footer>
   </body>
