@@ -1,0 +1,371 @@
+{
+  "published": true,
+  "title": "CYMA TIME-O-VOX CHRONOMÈTRE",
+  "heading": "観測個体から追う、クロノメーターの記録",
+  "lead": [
+    "Time-O-Vox Chronomètreは、資料上その存在を確認できる。",
+    "一方で、現存個体の文字盤表記、調整刻印、ケース番号、seller refは一様ではなく、当時の認定記録と現存個体を結びつける記録はまだ特定できていない。",
+    "このページでは、文献・機関回答・現存個体の観測を分けて並べる。"
+  ],
+  "heroImage": "",
+  "documented": {
+    "title": "Chronomètre仕様は記録されている",
+    "intro": "存在の確認と、特定の現存個体が認定を受けたことの証明は分けて扱う。",
+    "cards": [
+      {
+        "label": "CYMA企業資料",
+        "title": "金製Time-O-Voxへのクロノメーター証明",
+        "body": "MIHが共有したCYMA企業資料には、金製アラーム腕時計「Time-O-Vox」がクロノメーター証明を受けた旨が記されている。",
+        "image": ""
+      },
+      {
+        "label": "HORLBECK",
+        "title": "Chronomètre仕様と5姿勢・温度試験",
+        "body": "『The Alarm Wristwatch』は、Time-O-Voxにクロノメーター証明付き仕様が存在し、そのためにムーブメントが5姿勢と温度で試験されたと記している。",
+        "image": ""
+      },
+      {
+        "label": "BEITL",
+        "title": "文字盤とムーブメント表記は一様ではない",
+        "body": "『Alarm am Arm』は金ケースのChronomètre個体に加え、文字盤にChronomètre表記がない一方でムーブメント側にクロノメーター表記を持つ別個体も掲載している。",
+        "image": ""
+      }
+    ]
+  },
+  "observed": {
+    "title": "観測個体一覧",
+    "intro": "販売ページ、文献、整備記事、動画、SNSで確認できた17件の観測記録を整理した。これは製造台帳ではなく、公開情報から確認できた実例の比較表である。",
+    "note": "Movement No.は公開用に番号帯へ丸め、個体固有性の高い補助番号は掲載しない。同一個体の転載・再出品が含まれる可能性は完全には排除していないため、製造数の推定には使わない。",
+    "specimens": [
+      {
+        "id": "OBS-01",
+        "sellerRef": "1283",
+        "era": "1950年代",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "—",
+        "movementBand": "5xx?",
+        "caseCode": "2 6526",
+        "source": "HODINKEE Shop",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-02",
+        "sellerRef": "1261",
+        "era": "1950年代",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "画像無し",
+        "movementBand": "—",
+        "caseCode": "—",
+        "source": "Lot-Art (Australia)",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-03",
+        "sellerRef": "—",
+        "era": "1950年代",
+        "case": "18YG",
+        "dial": "6インデックスなし",
+        "chronometre": "—",
+        "adjustment": "画像無し",
+        "movementBand": "—",
+        "caseCode": "—",
+        "source": "EveryWatch",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-04",
+        "sellerRef": "1283",
+        "era": "1956年頃",
+        "case": "18YG",
+        "dial": "6インデックスあり",
+        "chronometre": "CHRONOMETRE",
+        "adjustment": "刻印を確認できず",
+        "movementBand": "4xx",
+        "caseCode": "8 6525",
+        "source": "Plus Ultra",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-05",
+        "sellerRef": "—",
+        "era": "1965年",
+        "case": "18YG",
+        "dial": "6インデックスなし",
+        "chronometre": "—",
+        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
+        "movementBand": "19xx",
+        "caseCode": "8 6525",
+        "source": "Dr. Crott Lot 536",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-06",
+        "sellerRef": "1283",
+        "era": "1950年代",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "—",
+        "movementBand": "8xx",
+        "caseCode": "2 6526",
+        "source": "Pamono",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-07",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "UNADJUSTED",
+        "movementBand": "12xx",
+        "caseCode": "—",
+        "source": "Mitka",
+        "sourceUrl": "https://mitka.co.uk/2018/01/23/cyma-time-o-vox-calibre-464/"
+      },
+      {
+        "id": "OBS-08",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "—",
+        "movementBand": "8xx",
+        "caseCode": "2 6526",
+        "source": "eBay",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-09",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "YG",
+        "dial": "6インデックスあり",
+        "chronometre": "CHRONOMETRE",
+        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
+        "movementBand": "19xx",
+        "caseCode": "8 6525",
+        "source": "削除済み記録",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-10",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "SS",
+        "dial": "6インデックスなし",
+        "chronometre": "—",
+        "adjustment": "—",
+        "movementBand": "11xx",
+        "caseCode": "2 6526",
+        "source": "YouTube",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-11",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "YG",
+        "dial": "6インデックスなし",
+        "chronometre": "—",
+        "adjustment": "UNADJUSTED",
+        "movementBand": "10xx",
+        "caseCode": "8 6525",
+        "source": "Watchuseek",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-12",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "YG",
+        "dial": "6インデックスあり",
+        "chronometre": "CHRONOMETRE",
+        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
+        "movementBand": "10xx",
+        "caseCode": "—",
+        "source": "Alarm am Arm",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-13",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "YG",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
+        "movementBand": "4桁・不明瞭",
+        "caseCode": "—",
+        "source": "Alarm am Arm",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-14",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "—",
+        "movementBand": "4xx",
+        "caseCode": "—",
+        "source": "Alarm am Arm",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-15",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "—",
+        "movementBand": "20xx",
+        "caseCode": "—",
+        "source": "The Alarm Wristwatch",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-16",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "—",
+        "movementBand": "3x",
+        "caseCode": "2 6526",
+        "source": "Facebook",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-17",
+        "sellerRef": "—",
+        "era": "1950年代",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "—",
+        "movementBand": "7xx",
+        "caseCode": "2 6526",
+        "source": "シェルマン銀座",
+        "sourceUrl": "https://shellman-online.jp/view/item/000000003957?category_page_id=8"
+      }
+    ]
+  },
+  "mismatch": {
+    "title": "表記が揃わない",
+    "intro": "観測例を並べると、文字盤表記・調整刻印・ケース素材は単純な一対一対応にならない。",
+    "cards": [
+      {
+        "label": "A",
+        "title": "CHRONOMÈTRE文字盤 × 調整刻印なし",
+        "body": "文字盤にChronomètreを掲げながら、ムーブメント側で5姿勢・温度調整刻印を確認できない例がある。"
+      },
+      {
+        "label": "B",
+        "title": "Chronomètre表記なし × 5姿勢・温度調整",
+        "body": "文字盤にChronomètre表記がない一方、ムーブメント側にADJUSTED TO FIVE POSITION(S) AND TEMPERATUREを持つ例がある。"
+      },
+      {
+        "label": "C",
+        "title": "YGケース × UNADJUSTED",
+        "body": "金色ケースの個体にもUNADJUSTED刻印の例がある。刻印だけからChronomètre仕様の有無を逆算することはできない。"
+      }
+    ]
+  },
+  "archive": {
+    "title": "認定記録とは、まだつながらない",
+    "intro": "モデルとしてChronomètre仕様が存在したことと、特定の現存個体が当時の認定記録に対応することは別問題である。",
+    "cards": [
+      {
+        "label": "MIH / 2025",
+        "title": "モデル直接資料は未発見、金製アラームへの証明記述は確認",
+        "body": "国際時計博物館（MIH）は、このモデルに直接関係する文書は見つからなかったと回答した一方、所蔵するCYMAファイルに金製アラームウォッチへの証明書に関する記述があるとしてD_7938を共有した。",
+        "image": ""
+      },
+      {
+        "label": "NEUCHÂTEL ARCHIVES / 2025",
+        "title": "1954–1958年のBT台帳で掲載個体は特定できず",
+        "body": "Neuchâtel州立公文書館は1954–1958年の8冊のBT registerを確認したが、掲載個体に対応する試験を特定できなかった。一方、1956年以降にCyma Watch Co SA, Le Locle名義、Arnold Racine調整の試験記録群が存在すると回答している。",
+        "image": ""
+      }
+    ],
+    "note": "「見つからなかった」は、Time-O-Vox Chronomètreの不存在証明ではない。現在確認できている記録から、掲載個体との接続ができていないという意味に限る。"
+  },
+  "tariff": {
+    "title": "CYMA / Tavannes と “UNADJUSTED”",
+    "intro": "ADJUSTED / UNADJUSTEDを、技術状態だけの表示として読まないための制度資料。",
+    "body": [
+      "1956年の米国上院公聴会では、実際には調整されているスイス時計が、adjusted watchへの追加関税を避けるため「unadjusted」と表示されて輸入された問題が扱われた。",
+      "Pritchardはこの公聴会の具体例としてTAVANNES WATCH CO.を挙げる。工場広告では全ムーブメントをpositionとtemperatureに調整するとしていた一方、Washington, D.C.で購入されたTavannes時計には「unadjusted」と刻印されていた。",
+      "同じPritchardの企業項目ではCYMA WATCH CO. SAがTavannes系の企業名として整理されている。このため、本ページではUNADJUSTED刻印を実際の調整状態やクロノメーター認定の直接証明とは扱わない。"
+    ],
+    "image": "",
+    "caption": "U.S. Senate, Swiss Watches—Adjustments (1956) の該当箇所。"
+  },
+  "failure": {
+    "title": "観測された異常動作",
+    "intro": "修理史ではなく、資料上の正常仕様と現存個体の挙動差だけを残す。",
+    "normalTitle": "資料上の正常な状態",
+    "normalBody": "B. HumbertのR.464技術解説では、両プッシャーが中央位置にあるときのみアラームが作動可能で、どちらか一方を完全に押し込むとアラームはロックされる。",
+    "observedTitle": "観測された症状",
+    "observedBody": "少なくとも3個体で、片側プッシャーを押し込んだ状態でもアラームが鳴動する同一症状を確認している。",
+    "hypothesisTitle": "掲載個体からの原因候補",
+    "hypothesisBody": "掲載個体では、切替レバー支点部の穴／軸まわりの摩耗やガタによりレバー位置がずれ、ロック側への有効ストロークが不足している可能性を考えている。部品が破断していなくても説明できる仮説だが、他2個体の内部状態は未確認で、同一原因とは断定しない。",
+    "examples": [
+      "掲載個体",
+      "公開動画で確認した別個体",
+      "国内販売個体"
+    ],
+    "images": [
+      {
+        "image": "",
+        "caption": "切替レバー単体。支点穴まわりを確認するための写真。",
+        "alt": "CYMA R.464 切替レバー支点部"
+      },
+      {
+        "image": "",
+        "caption": "組付け状態。レバーの位置と掛かり方を確認するための写真。",
+        "alt": "CYMA R.464 切替レバー組付け状態"
+      }
+    ],
+    "youtubeId": "",
+    "youtubeCaption": "掲載個体。購入時に、片側プッシャー押し込み状態でも鳴動する様子を記録した動画。"
+  },
+  "conclusion": {
+    "title": "ここまでで言えること",
+    "items": [
+      {
+        "label": "資料で確認",
+        "text": "金製Time-O-Voxにクロノメーター証明が与えられた記録があり、Time-O-Vox Chronomètre仕様の存在は確認できる。"
+      },
+      {
+        "label": "現存個体で観測",
+        "text": "文字盤のChronomètre表記、調整刻印、ケース素材、ケースコード、seller refは単純対応しない。"
+      },
+      {
+        "label": "未解決",
+        "text": "どの現存個体が当時のどの認定記録に対応するかは、現在も特定できていない。"
+      }
+    ]
+  },
+  "sources": [
+    "CYMA company history file shared by Musée international d’horlogerie (MIH), D_7938",
+    "Michael Philip Horlbeck, The Alarm Wristwatch, Schiffer Publishing, 2007, Cyma section",
+    "Leonhard Beitl, Alarm am Arm, 2009, pp.134–136",
+    "B. Humbert, Die Armband-Weckeruhr, Calibre TIME-O-VOX 464 technical article",
+    "K. H. Pritchard, Swiss Timepiece Makers: 1775–1975, Tavannes section",
+    "U.S. Senate Committee on Government Operations, Swiss Watches—Adjustments, hearings, 1956",
+    "Musée international d’horlogerie (MIH), reply dated 18 Sep 2025",
+    "Office des archives de l’Etat, Neuchâtel, reply dated 14 Nov 2025",
+    "VINTAGE ALARM / TypeC 観測個体表・掲載個体観測記録"
+  ]
+}

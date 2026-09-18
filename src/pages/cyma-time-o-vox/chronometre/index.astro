@@ -1,0 +1,184 @@
+---
+import SeoHead from '../../../components/SeoHead.astro';
+import SectionMast from '../../../components/SectionMast.astro';
+import OwnerFonts from '../../../components/OwnerFonts.astro';
+import data from '../../../data/cyma-chronometre-research.json';
+import { getGitLastmod, latestDate } from '../../../lib/git-lastmod';
+import '../../../styles/site.css';
+import '../../../styles/cyma-chronometre-research.css';
+
+const base=import.meta.env.BASE_URL;
+if(!data.published) return Astro.redirect(`${base}cyma-time-o-vox/`);
+
+const siteRoot='https://vintagealarm.github.io/';
+const pagePath='cyma-time-o-vox/chronometre/';
+const pageUrl=new URL(pagePath,siteRoot).href;
+const fallbackHero='/images/cyma-time-o-vox/Cyma timeovox .png';
+const heroImage=data.heroImage||fallbackHero;
+const pageTitle='Cyma Time-O-Vox Chronomètre｜観測個体と認定記録｜VINTAGE ALARM';
+const description='Cyma Time-O-Vox Chronomètreを、企業資料・専門文献・17件の観測記録・Neuchâtel公文書館回答・米国のadjusted/unadjusted資料・実機観測から整理する。';
+const dateModified=latestDate(
+  getGitLastmod('src/data/cyma-chronometre-research.json'),
+  getGitLastmod('src/pages/cyma-time-o-vox/chronometre/index.astro')
+);
+const schema={
+  '@context':'https://schema.org',
+  '@graph':[
+    {
+      '@type':'Article',
+      headline:'CYMA Time-O-Vox Chronomètre — 観測個体から追うクロノメーターの記録',
+      description,
+      inLanguage:'ja',
+      url:pageUrl,
+      image:new URL(heroImage.replace(/^\//,''),siteRoot).href,
+      ...(dateModified?{dateModified}:{}),
+      author:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
+      publisher:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
+      mainEntityOfPage:{'@type':'WebPage','@id':pageUrl},
+      about:{'@type':'Thing',name:'Cyma Time-O-Vox Chronomètre'}
+    },
+    {
+      '@type':'BreadcrumbList',
+      itemListElement:[
+        {'@type':'ListItem',position:1,name:'VINTAGE ALARM',item:siteRoot},
+        {'@type':'ListItem',position:2,name:'CYMA TIME-O-VOX',item:new URL('cyma-time-o-vox/',siteRoot).href},
+        {'@type':'ListItem',position:3,name:'CHRONOMÈTRE RESEARCH',item:pageUrl}
+      ]
+    }
+  ]
+};
+
+const getYouTubeId=(value:string)=>{
+  const input=value?.trim();
+  if(!input) return '';
+  if(!input.includes('/')&&!input.includes('.')) return input;
+  try{
+    const url=new URL(input);
+    const host=url.hostname.replace(/^www\./,'');
+    if(host==='youtu.be') return url.pathname.split('/').filter(Boolean)[0]??'';
+    if(host==='youtube.com'||host==='m.youtube.com'){
+      const queryId=url.searchParams.get('v');
+      if(queryId) return queryId;
+      const parts=url.pathname.split('/').filter(Boolean);
+      if(['shorts','embed','live'].includes(parts[0])) return parts[1]??'';
+    }
+  }catch{return input;}
+  return input;
+};
+const anomalyVideoId=getYouTubeId(data.failure.youtubeId||'');
+---
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#f3f0e7"/>
+  <OwnerFonts/>
+  <SeoHead title={pageTitle} description={description} path={pagePath} image={heroImage} type="article" schema={schema}/>
+</head>
+<body class="cyma-research">
+  <SectionMast rightLabel="RESEARCH"/>
+  <main>
+    <header class="cyma-r-hero shell">
+      <div class="cyma-r-hero-copy">
+        <div class="cyma-r-kicker">{data.title}</div>
+        <h1>{data.heading}</h1>
+        <div class="cyma-r-lead">{data.lead.map(line=><p>{line}</p>)}</div>
+      </div>
+      <figure class="cyma-r-hero-media">
+        <img src={`${base}${heroImage.replace(/^\//,'')}`} alt="CYMA Time-O-Vox Chronomètre"/>
+      </figure>
+    </header>
+
+    <article class="cyma-r-flow">
+      <section class="cyma-r-section shell" id="documented">
+        <header class="cyma-r-section-head"><span>01</span><div><h2>{data.documented.title}</h2><p>{data.documented.intro}</p></div></header>
+        <div class="cyma-r-source-cards">
+          {data.documented.cards.map(card=><article class="cyma-r-source-card">
+            {card.image&&<img src={`${base}${card.image.replace(/^\//,'')}`} alt=""/>}
+            <div class="cyma-r-source-label">{card.label}</div>
+            <h3>{card.title}</h3>
+            <p>{card.body}</p>
+          </article>)}
+        </div>
+      </section>
+
+      <section class="cyma-r-section shell" id="observed">
+        <header class="cyma-r-section-head"><span>02</span><div><h2>{data.observed.title}</h2><p>{data.observed.intro}</p></div></header>
+        <div class="cyma-r-observed-summary">
+          <strong>{data.observed.specimens.length}</strong>
+          <span>OBSERVED RECORDS</span>
+        </div>
+        <div class="cyma-r-facts">
+          <article><small>文字盤</small><b>Chronomètre表記あり／なし</b></article>
+          <article><small>調整刻印</small><b>5姿勢・温度調整／UNADJUSTED／刻印なし</b></article>
+          <article><small>ケース</small><b>YG / 18YG / SS、複数のケースコード</b></article>
+        </div>
+        <p class="cyma-r-note">{data.observed.note}</p>
+        <details class="cyma-r-table-details">
+          <summary><span>観測個体一覧を見る</span><span>{data.observed.specimens.length}件</span></summary>
+          <div class="cyma-r-table-wrap" tabindex="0" role="region" aria-label="CYMA Time-O-Vox Chronomètre 観測個体一覧">
+            <table>
+              <thead><tr><th>ID</th><th>seller ref</th><th>年代</th><th>ケース</th><th>ダイヤル</th><th>Chronomètre</th><th>調整刻印</th><th>MOV. No. 帯</th><th>ケースコード</th><th>情報源</th></tr></thead>
+              <tbody>{data.observed.specimens.map(row=><tr>
+                <td>{row.id}</td><td>{row.sellerRef}</td><td>{row.era}</td><td>{row.case}</td><td>{row.dial}</td><td>{row.chronometre}</td><td>{row.adjustment}</td><td>{row.movementBand}</td><td>{row.caseCode}</td>
+                <td>{row.sourceUrl?<a href={row.sourceUrl} target="_blank" rel="noopener">{row.source}</a>:row.source}</td>
+              </tr>)}</tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
+      <section class="cyma-r-section shell" id="mismatch">
+        <header class="cyma-r-section-head"><span>03</span><div><h2>{data.mismatch.title}</h2><p>{data.mismatch.intro}</p></div></header>
+        <div class="cyma-r-mismatch">{data.mismatch.cards.map(card=><article><small>{card.label}</small><h3>{card.title}</h3><p>{card.body}</p></article>)}</div>
+      </section>
+
+      <section class="cyma-r-section shell" id="archive">
+        <header class="cyma-r-section-head"><span>04</span><div><h2>{data.archive.title}</h2><p>{data.archive.intro}</p></div></header>
+        <div class="cyma-r-archive">
+          {data.archive.cards.map(card=><article>
+            {card.image&&<img src={`${base}${card.image.replace(/^\//,'')}`} alt=""/>}
+            <small>{card.label}</small><h3>{card.title}</h3><p>{card.body}</p>
+          </article>)}
+        </div>
+        <p class="cyma-r-caution">{data.archive.note}</p>
+      </section>
+
+      <section class="cyma-r-section shell" id="unadjusted">
+        <header class="cyma-r-section-head"><span>05</span><div><h2>{data.tariff.title}</h2><p>{data.tariff.intro}</p></div></header>
+        <div class:list={['cyma-r-document',{'has-image':!!data.tariff.image}]}>
+          {data.tariff.image&&<figure><img src={`${base}${data.tariff.image.replace(/^\//,'')}`} alt="1956年米国上院 Swiss Watches—Adjustments 資料"/><figcaption>{data.tariff.caption}</figcaption></figure>}
+          <div>{data.tariff.body.map(paragraph=><p>{paragraph}</p>)}</div>
+        </div>
+      </section>
+
+      <section class="cyma-r-section shell" id="failure">
+        <header class="cyma-r-section-head"><span>06</span><div><h2>{data.failure.title}</h2><p>{data.failure.intro}</p></div></header>
+        {(data.failure.images.some(item=>item.image)||anomalyVideoId)&&<div class="cyma-r-failure-media">
+          {data.failure.images.filter(item=>item.image).map(item=><figure><img src={`${base}${item.image.replace(/^\//,'')}`} alt={item.alt||''}/><figcaption>{item.caption}</figcaption></figure>)}
+          {anomalyVideoId&&<figure class="cyma-r-video"><div class="video-frame"><iframe src={`https://www.youtube.com/embed/${anomalyVideoId}`} title="CYMA Time-O-Vox 片側プッシャー押し込み状態での鳴動" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>{data.failure.youtubeCaption}</figcaption></figure>}
+        </div>}
+        <div class="cyma-r-failure-grid">
+          <article><small>資料上の正常仕様</small><h3>{data.failure.normalTitle}</h3><p>{data.failure.normalBody}</p></article>
+          <article><small>所有者観測</small><h3>{data.failure.observedTitle}</h3><p>{data.failure.observedBody}</p><ul>{data.failure.examples.map(item=><li>{item}</li>)}</ul></article>
+          <article><small>仮説</small><h3>{data.failure.hypothesisTitle}</h3><p>{data.failure.hypothesisBody}</p></article>
+        </div>
+      </section>
+
+      <section class="cyma-r-section shell" id="conclusion">
+        <header class="cyma-r-section-head"><span>07</span><div><h2>{data.conclusion.title}</h2></div></header>
+        <div class="cyma-r-conclusion">{data.conclusion.items.map(item=><article><small>{item.label}</small><p>{item.text}</p></article>)}</div>
+      </section>
+
+      <section class="cyma-r-sources shell">
+        <details><summary>参考資料・確認範囲</summary><ol>{data.sources.map(source=><li>{source}</li>)}</ol></details>
+      </section>
+
+      <nav class="cyma-r-back shell" aria-label="CYMA Time-O-Voxへ戻る">
+        <a href={`${base}cyma-time-o-vox/`}>← CYMA TIME-O-VOX OWNER'S NOTEへ戻る</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
