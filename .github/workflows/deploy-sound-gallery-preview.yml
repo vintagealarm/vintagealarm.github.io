@@ -85,7 +85,7 @@ jobs:
           set -e
           printf '%s\n' "$deploy_output"
           test "$deploy_status" -eq 0
-          preview_url="$(printf '%s\n' "$deploy_output" | grep -Eo 'https://[^[:space:]]+\.pages\.dev' | tail -n 1)"
+          preview_url="$(printf '%s\n' "$deploy_output" | grep -Eo 'https://[^[:space:]]+\.pages\.dev' | head -n 1)"
           test -n "$preview_url"
           printf 'url=%s\n' "$preview_url" >> "$GITHUB_OUTPUT"
 
@@ -93,6 +93,7 @@ jobs:
         env:
           PREVIEW_URL: ${{ steps.deploy.outputs.url }}
         run: |
+          sleep 8
           status=""
           for attempt in {1..20}; do
             status="$(curl -sS -o /tmp/preview-body.txt -D /tmp/preview-headers.txt -w '%{http_code}' "$PREVIEW_URL/lab/how-they-ring/" || true)"
