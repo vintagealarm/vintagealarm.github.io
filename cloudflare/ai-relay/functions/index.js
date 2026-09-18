@@ -100,6 +100,18 @@ function renderInternalFlows(period) {
   return table(["From", "To", "PV"], rows);
 }
 
+function renderMigrationFlows(period) {
+  const rows = (period?.migrationFlows || []).slice(0, 40).map((row) => [
+    row.sourceHost || "",
+    row.sourceCleanPath || row.sourcePath || "",
+    row.destinationHost || "",
+    row.destinationName || row.destinationPath,
+    number(row.visits),
+    number(row.pageviews),
+  ]);
+  return table(["Source host", "From", "Destination host", "To", "Visits", "PV"], rows);
+}
+
 function renderCountries(period) {
   const rows = (period?.countries || []).slice(0, 30).map((row) => [row.name, number(row.pageviews)]);
   return table(["Country", "PV"], rows);
@@ -146,6 +158,9 @@ function renderPeriod(title, period) {
     "",
     "### Internal flows",
     renderInternalFlows(period),
+    "",
+    "### Host migration flows",
+    renderMigrationFlows(period),
     "",
     "### Country",
     renderCountries(period),

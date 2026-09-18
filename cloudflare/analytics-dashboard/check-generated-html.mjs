@@ -99,27 +99,45 @@ const fakeAnalyticsFetch = async (_url, options) => {
   const host = request.variables.filter.AND.find(part => part.requestHost)?.requestHost;
   queriedHosts.push(host);
   const value = host === "vintagealarm.github.io" ? 5 : 9;
+  const isNewHost = host === "vintagealarm.github.io";
+  const referers = isNewHost
+    ? [
+        { count: 2, sum: { visits: 2 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
+        { count: 1, sum: { visits: 0 }, dimensions: { refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/" } },
+      ]
+    : [
+        { count: 1, sum: { visits: 0 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
+      ];
+  const flows = isNewHost
+    ? [
+        { count: 2, sum: { visits: 2 }, dimensions: { requestPath: "/cyma-time-o-vox/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
+        { count: 1, sum: { visits: 0 }, dimensions: { requestPath: "/pierce-duofon/", refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/", countryName: "JP", deviceType: "desktop" } },
+      ]
+    : [
+        { count: 1, sum: { visits: 0 }, dimensions: { requestPath: "/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
+      ];
   const account = request.query.includes("VintageAlarmTrend")
     ? { totals: [{ count: value, sum: { visits: value }, dimensions: { bucket: "2026-09-10" } }], acquisition: [] }
     : {
         total: [{ count: value, sum: { visits: value } }],
         pages: [{ count: value, sum: { visits: value }, dimensions: { requestPath: "/" } }],
-        referers: [], flows: [], entries: [], countries: [], devices: [],
+        referers, flows, entries: [], countries: [], devices: [],
       };
   return new Response(JSON.stringify({ data: { viewer: { accounts: [account] } } }), {
     headers: { "Content-Type": "application/json" },
   });
 };
+const analyticsEnv = {
+  DASHBOARD_PASSWORD: apiPassword,
+  CF_API_TOKEN: "test-token",
+  CF_ACCOUNT_ID: "test-account",
+  REQUEST_HOST: "vintagealarm.github.io",
+  LEGACY_REQUEST_HOST: "orima1995-create.github.io",
+  ANALYTICS_FETCH: fakeAnalyticsFetch,
+};
 const analyticsApiResponse = await worker.fetch(
   new Request("https://dashboard.test/api/analytics?window=7d", { headers: { Authorization: `Basic ${apiAuth}` } }),
-  {
-    DASHBOARD_PASSWORD: apiPassword,
-    CF_API_TOKEN: "test-token",
-    CF_ACCOUNT_ID: "test-account",
-    REQUEST_HOST: "vintagealarm.github.io",
-    LEGACY_REQUEST_HOST: "orima1995-create.github.io",
-    ANALYTICS_FETCH: fakeAnalyticsFetch,
-  },
+  analyticsEnv,
 );
 assert.equal(analyticsApiResponse.status, 200);
 const analyticsPayload = await analyticsApiResponse.json();
@@ -130,8 +148,33 @@ assert.equal(analyticsPayload.legacy.current.visits, 9);
 assert.equal(analyticsPayload.combined.current.visits, 14);
 assert.equal(analyticsPayload.combined.current.pageviews, 14);
 assert.equal(analyticsPayload.combined.trend[0].visits, 14);
+assert.equal(analyticsPayload.current.channels.find(row => row.name === "Host Migration")?.visits, 2);
+assert.equal(analyticsPayload.current.channels.find(row => row.name === "Internal Navigation")?.visits, 0);
+const migrationFlow = analyticsPayload.current.flows.find(row => row.channel === "Host Migration");
+assert.equal(migrationFlow?.sourceHost, "orima1995-create.github.io");
+assert.equal(migrationFlow?.destinationHost, "vintagealarm.github.io");
+assert.equal(migrationFlow?.destinationPath, "/cyma-time-o-vox/");
+const sameHostFlow = analyticsPayload.current.flows.find(row => row.channel === "Internal Navigation");
+assert.equal(sameHostFlow?.sourceCleanPath, "/cyma-time-o-vox/");
+assert.equal(sameHostFlow?.destinationPath, "/pierce-duofon/");
 assert.equal(queriedHosts.filter(host => host === "vintagealarm.github.io").length, 3);
 assert.equal(queriedHosts.filter(host => host === "orima1995-create.github.io").length, 3);
+
+const shareResponse = await worker.fetch(
+  new Request("https://dashboard.test/api/ai-share-link?window=7d&ttl=900", { headers: { Authorization: `Basic ${apiAuth}` } }),
+  analyticsEnv,
+);
+assert.equal(shareResponse.status, 200);
+const sharePayload = await shareResponse.json();
+const exportResponse = await worker.fetch(new Request(sharePayload.url), analyticsEnv);
+assert.equal(exportResponse.status, 200);
+const exportPayload = await exportResponse.json();
+assert.equal(exportPayload.current.migrationFlows.length, 1);
+assert.equal(exportPayload.current.migrationFlows[0].channel, "Host Migration");
+assert.equal(exportPayload.current.internalFlows.length, 1);
+assert.equal(exportPayload.current.internalFlows[0].channel, "Internal Navigation");
+assert.equal(exportPayload.current.externalEntryFlows.some(row => row.channel === "Host Migration"), false);
+assert.equal(exportPayload.current.flowRowsComplete, true);
 
 const password = "ci-test-password";
 const auth = Buffer.from(`admin:${password}`).toString("base64");
@@ -165,6 +208,10 @@ scripts.forEach((script, index) => {
 });
 
 const dashboardScript = scripts.join("\n");
+assert.ok(html.includes("SNS → SITE ENTRY"));
+assert.ok(html.includes("HOST MIGRATION FLOW"));
+assert.ok(html.includes("SITE FLOWから分離"));
+assert.ok(html.includes("同一ホスト内の内部遷移"));
 // Exercise the actual generated chart function without the dashboard's DOM boot.
 const chartSource = dashboardScript.slice(dashboardScript.indexOf('const HOST_MIGRATION ='), dashboardScript.indexOf('function entryBars('));
 assert.ok(chartSource.includes('function lineChart('));

@@ -344,11 +344,15 @@ function aiExportPeriod(period) {
     channels: period?.channels || [],
     referrers: period?.referrers || [],
     externalEntryFlows: flows.filter(
-      (flow) => flow.channel !== "Internal Navigation" && (flow.visits || 0) > 0,
+      (flow) => flow.channel !== "Internal Navigation" && flow.channel !== "Host Migration" && (flow.visits || 0) > 0,
     ),
     internalFlows: flows.filter(
       (flow) => flow.channel === "Internal Navigation" && (flow.pageviews || 0) > 0,
     ),
+    migrationFlows: flows.filter(
+      (flow) => flow.channel === "Host Migration" && (flow.pageviews || 0) > 0,
+    ),
+    flowRowsComplete: flows.length < 200,
     snsEntries: period?.snsEntries || { pages: [], total: 0, complete: false },
     countries: period?.countries || [],
     devices: period?.devices || [],
@@ -421,10 +425,10 @@ async function analyticsResponse(url, env) {
       fetchTrend(env, legacyHost, currentStart, now, windowSpec),
     ]);
 
-    const currentPeriod = normalizePeriod(current);
-    const previousPeriod = normalizePeriod(previous);
-    const legacyCurrentPeriod = normalizePeriod(legacyCurrent);
-    const legacyPreviousPeriod = normalizePeriod(legacyPrevious);
+    const currentPeriod = normalizePeriod(current, host);
+    const previousPeriod = normalizePeriod(previous, host);
+    const legacyCurrentPeriod = normalizePeriod(legacyCurrent, legacyHost);
+    const legacyPreviousPeriod = normalizePeriod(legacyPrevious, legacyHost);
     const payload = {
       generatedAt: now.toISOString(),
       windowKey: windowSpec.key,
@@ -480,14 +484,14 @@ export function campaignWindow(start, hours, now = Date.now()) {
     end: new Date(anchor + elapsed).toISOString(), complete: elapsed === duration, elapsedHours: elapsed / 3600000 };
 }
 
-export function campaignSummary(data, target, platform = "X") {
+export function campaignSummary(data, target, platform = "X", requestHost = DEFAULT_HOST) {
   const account = data?.viewer?.accounts?.[0] || {};
   if (!Array.isArray(account.entries) || !Array.isArray(account.flows)) throw new Error("比較データを取得できませんでした。");
   const channel = platform === "YouTube" ? "YouTube" : "X";
   const entries = account.entries;
-  const flows = normalizePeriod(data).flows;
-  const platformEntries = entries.filter(x => classifyReferrer(x.dimensions?.refererHost || "") === channel).reduce((s,x) => s + (x.sum?.visits || 0), 0);
-  const targetEntries = entries.filter(x => classifyReferrer(x.dimensions?.refererHost || "") === channel && cleanPath(x.dimensions?.requestPath || "/") === target).reduce((s,x) => s + (x.sum?.visits || 0), 0);
+  const flows = normalizePeriod(data, requestHost).flows;
+  const platformEntries = entries.filter(x => classifyReferrer(x.dimensions?.refererHost || "", requestHost) === channel).reduce((s,x) => s + (x.sum?.visits || 0), 0);
+  const targetEntries = entries.filter(x => classifyReferrer(x.dimensions?.refererHost || "", requestHost) === channel && cleanPath(x.dimensions?.requestPath || "/") === target).reduce((s,x) => s + (x.sum?.visits || 0), 0);
   return {
     platform,
     platformEntries,
@@ -511,7 +515,7 @@ async function campaignResponse(url, env) {
       fetchPeriod(env, host, new Date(bounds.beforeStart), new Date(Date.parse(bounds.start) - 1)),
       fetchPeriod(env, host, new Date(bounds.start), new Date(Date.parse(bounds.end) - 1))
     ]);
-    return jsonResponse({ ...bounds, target, platform, before: campaignSummary(before, target, platform), after: campaignSummary(after, target, platform) });
+    return jsonResponse({ ...bounds, target, platform, before: campaignSummary(before, target, platform, host), after: campaignSummary(after, target, platform, host) });
   } catch (error) { return jsonResponse({ error: error.message }, 500); }
 }
 
@@ -752,7 +756,7 @@ query VintageAlarmTrend(
 
       return {
         bucketField,
-        points: mergeTrendPoints(data.map(normalizeTrend)),
+        points: mergeTrendPoints(data.map((part) => normalizeTrend(part, host))),
         warning: null,
       };
     } catch (error) {
@@ -781,7 +785,7 @@ export function mergeTrendPoints(pointSets) {
   return [...points.values()].sort((a, b) => String(a.bucket).localeCompare(String(b.bucket)));
 }
 
-function normalizeTrend(data) {
+function normalizeTrend(data, targetHost = DEFAULT_HOST) {
   const account = data?.viewer?.accounts?.[0] || {};
   const points = new Map();
 
@@ -814,7 +818,7 @@ function normalizeTrend(data) {
 
   for (const row of account.acquisition || []) {
     const point = ensure(row?.dimensions?.bucket);
-    const channel = classifyReferrer(row?.dimensions?.refererHost || "");
+    const channel = classifyReferrer(row?.dimensions?.refererHost || "", targetHost);
     const visits = row?.sum?.visits || 0;
 
     if (channel === "X") point.x += visits;
@@ -856,7 +860,7 @@ async function cloudflareGraphQL(env, query, variables) {
   return payload.data;
 }
 
-function normalizePeriod(data) {
+function normalizePeriod(data, targetHost = DEFAULT_HOST) {
   const account = data?.viewer?.accounts?.[0] || {};
   const total = account.total?.[0] || { count: 0, sum: { visits: 0 } };
 
@@ -893,9 +897,9 @@ function normalizePeriod(data) {
     visits: total.sum?.visits || 0,
     pages,
     referrers: rawReferers,
-    flows: buildFlows(rawFlows),
-    channels: buildChannels(rawReferers),
-    snsEntries: aggregateSnsEntries(account.entries),
+    flows: buildFlows(rawFlows, targetHost),
+    channels: buildChannels(rawReferers, targetHost),
+    snsEntries: aggregateSnsEntries(account.entries, targetHost),
     countries: (account.countries || []).map((row) => ({
       name: friendlyCountry(row?.dimensions?.countryName || "Unknown"),
       pageviews: row?.count || 0,
@@ -937,7 +941,7 @@ export function combinePeriods(periods) {
     visits: periods.reduce((sum, period) => sum + Number(period?.visits || 0), 0),
     pages: mergeRowsBy(periods.flatMap((period) => period?.pages || []), ["path"], ["pageviews", "visits"]),
     referrers: mergeRowsBy(periods.flatMap((period) => period?.referrers || []), ["host", "path"], ["pageviews", "visits"]),
-    flows: mergeRowsBy(periods.flatMap((period) => period?.flows || []), ["sourceHost", "sourcePath", "destinationPath", "channel", "country", "device"], ["pageviews", "visits"]),
+    flows: mergeRowsBy(periods.flatMap((period) => period?.flows || []), ["sourceHost", "sourcePath", "destinationHost", "destinationPath", "channel", "country", "device"], ["pageviews", "visits"]),
     channels: mergeRowsBy(periods.flatMap((period) => period?.channels || []), ["name"], ["pageviews", "visits"]),
     snsEntries: combineSnsEntries(periods),
     countries: mergeRowsBy(periods.flatMap((period) => period?.countries || []), ["name"], ["pageviews"]),
@@ -956,7 +960,7 @@ const PAGE_NAMES = Object.freeze({
   "/history/smartwatch/": "Smartwatch / HISTORY",
 });
 
-export function aggregateSnsEntries(rows) {
+export function aggregateSnsEntries(rows, targetHost = DEFAULT_HOST) {
   const channels = ["X", "Instagram", "Facebook", "Other SNS"];
   const pages = [
     ["/cyma-time-o-vox/", "Cyma Time-O-Vox"],
@@ -965,7 +969,7 @@ export function aggregateSnsEntries(rows) {
     ["other", "Other pages"],
   ].map(([path, name]) => ({ path, name, values: Object.fromEntries(channels.map(c => [c, 0])), total: 0 }));
   for (const row of rows || []) {
-    const channel = classifyReferrer(row?.dimensions?.refererHost);
+    const channel = classifyReferrer(row?.dimensions?.refererHost, targetHost);
     if (!channels.includes(channel)) continue;
     const path = cleanPath(row?.dimensions?.requestPath);
     const page = pages.find(p => p.path === path) || pages[3];
@@ -1001,14 +1005,16 @@ function friendlyPageName(path) {
   return pageMeta(path).name;
 }
 
-function buildFlows(rows) {
+function buildFlows(rows, targetHost = DEFAULT_HOST) {
   return rows.map((row) => {
     const destination = pageMeta(row.requestPath);
-    const channel = classifyReferrer(row.refererHost);
+    const channel = classifyReferrer(row.refererHost, targetHost);
     let sourceName = channel;
 
     if (channel === "Internal Navigation") {
       sourceName = friendlyPageName(row.refererPath || "/");
+    } else if (channel === "Host Migration") {
+      sourceName = "Host Migration";
     } else if (channel === "Direct / Unknown") {
       sourceName = "Direct";
     } else if (row.refererPath) {
@@ -1019,7 +1025,8 @@ function buildFlows(rows) {
       sourceName,
       sourceHost: row.refererHost,
       sourcePath: row.refererPath,
-      sourceCleanPath: channel === "Internal Navigation" ? cleanPath(row.refererPath || "/") : row.refererPath,
+      sourceCleanPath: channel === "Internal Navigation" || channel === "Host Migration" ? cleanPath(row.refererPath || "/") : row.refererPath,
+      destinationHost: targetHost,
       destinationName: destination.name,
       destinationPath: destination.path,
       destinationMapped: destination.mapped,
@@ -1032,7 +1039,7 @@ function buildFlows(rows) {
   }).sort((a, b) => (b.visits - a.visits) || (b.pageviews - a.pageviews));
 }
 
-function buildChannels(rows) {
+function buildChannels(rows, targetHost = DEFAULT_HOST) {
   const channels = {
     "X": { pageviews: 0, visits: 0 },
     "YouTube": { pageviews: 0, visits: 0 },
@@ -1043,11 +1050,12 @@ function buildChannels(rows) {
     "Direct / Unknown": { pageviews: 0, visits: 0 },
     "AI Assistant": { pageviews: 0, visits: 0 },
     "Other Referral": { pageviews: 0, visits: 0 },
+    "Host Migration": { pageviews: 0, visits: 0 },
     "Internal Navigation": { pageviews: 0, visits: 0 },
   };
 
   for (const row of rows) {
-    const category = classifyReferrer(row.host);
+    const category = classifyReferrer(row.host, targetHost);
     channels[category].pageviews += row.pageviews;
     channels[category].visits += row.visits;
   }
@@ -1056,15 +1064,17 @@ function buildChannels(rows) {
     .map(([name, values]) => ({ name, ...values }));
 }
 
-function classifyReferrer(host) {
+function classifyReferrer(host, targetHost = DEFAULT_HOST) {
   const value = String(host || "").toLowerCase();
+  const target = String(targetHost || DEFAULT_HOST).toLowerCase();
   if (!value) return "Direct / Unknown";
+  if (value === target || value.endsWith("." + target)) return "Internal Navigation";
   if (
     value === DEFAULT_HOST ||
     value.endsWith("." + DEFAULT_HOST) ||
     value === LEGACY_HOST ||
     value.endsWith("." + LEGACY_HOST)
-  ) return "Internal Navigation";
+  ) return "Host Migration";
 
   if (
     value === "x.com" ||
@@ -1341,10 +1351,11 @@ function channelColor(name){
   if(name==="Facebook")return "#426d9b";
   if(name==="Other SNS")return "#8a763a";
   if(name==="AI Assistant")return COLORS.AI;
+  if(name==="Host Migration")return COLORS.legacyHost;
   return COLORS.Other;
 }
 function trafficMix(channels){
-  const items=channels.filter(x=>x.name!=="Internal Navigation"&&x.visits>0);
+  const items=channels.filter(x=>x.name!=="Internal Navigation"&&x.name!=="Host Migration"&&x.visits>0);
   const total=items.reduce((s,x)=>s+x.visits,0);
   if(!total)return '<div class="muted">流入データなし</div>';
   let cursor=0;
@@ -1369,7 +1380,7 @@ function snsEntryChart(data){
   const note=data.complete?'判別できたSNS入口 '+n(data.total)+'件':'取得上限に到達：表示分 '+n(data.total)+'件（全体比は算出保留）';
   return '<div class="sns-note">'+note+(data.total<30?' · 少数データ：傾向判断は保留':'')+'<br>棒の共通目盛り：0〜'+n(max)+'件</div>'+
     data.pages.map(p=>'<div class="sns-row"><div class="sns-heading"><strong>'+esc(p.name)+'</strong><span>'+n(p.total)+'件'+(data.complete&&data.total?' · SNS全体の'+(p.total/data.total*100).toFixed(0)+'%':'')+'</span></div><div class="sns-track" role="img" aria-label="'+esc(p.name+' '+channels.map(c=>c+' '+p.values[c]+'件').join('、'))+'">'+channels.map(c=>'<span style="width:'+(p.values[c]/max*100)+'%;background:'+channelColor(c)+'"></span>').join('')+'</div><div class="sns-breakdown">'+channels.map(c=>'<span><i class="legend-dot" style="background:'+channelColor(c)+'"></i>'+esc(c)+' '+n(p.values[c])+'</span>').join('')+'</div></div>').join('')+
-    '<div class="sns-note">入口回数（人数・SNSクリック数ではありません）。Direct / UnknownにSNS由来が含まれる場合があります。Other pagesは上記3ページ以外。</div>';
+    '<div class="sns-note">入口回数（人数・SNSクリック数ではありません）。Direct / UnknownにSNS由来が含まれる場合があります。Other pagesは個別表示対象外のページ。</div>';
 }
 const CAMPAIGN_KEY="vaCampaigns";
 function normalizeCampaignRecord(item){
@@ -1576,6 +1587,7 @@ function render(data){
   const searchPrev=p.channels.find(x=>x.name==="Organic Search")?.visits||0;
   const entryFlows=c.flows.filter(x=>x.visits>0 && x.channel!=="Internal Navigation");
   const internalFlows=c.flows.filter(x=>x.channel==="Internal Navigation"&&x.sourceCleanPath!==x.destinationPath);
+  const migrationFlows=c.flows.filter(x=>x.channel==="Host Migration");
   const campaigns=getCampaigns();
   const newTrend=data.trend||[];
   const trend=data.combined?.trend||newTrend;
@@ -1620,8 +1632,9 @@ function render(data){
     '<section class="card summary-chart"><div class="section-head"><div class="section-title">TRAFFIC MIX</div><span>Visits構成</span></div>'+trafficMix(c.channels)+'</section>'+
     '<section class="card primary-chart"><div class="section-head"><div class="section-title">TOTAL ACQUISITION TREND</div><span>新旧合算・流入元別</span></div>'+lineChart(trend,acquisitionSeries,campaigns,true)+'</section>'+
     '<section class="card summary-chart"><div class="section-head"><div class="section-title">ENTRY PAGES</div><span>入口回数</span></div>'+entryBars(c.pages)+'</section>'+
-    '<section class="card flow"><div class="section-head"><div class="section-title">SNS → WATCH ENTRY</div><span>判別できたSNS流入の着地先</span></div>'+snsEntryChart(c.snsEntries)+'</section>'+
-    '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>内部遷移</span></div>'+flowVisual(internalFlows)+'</section>'+
+    '<section class="card flow"><div class="section-head"><div class="section-title">SNS → SITE ENTRY</div><span>判別できたSNS流入の着地先</span></div>'+snsEntryChart(c.snsEntries)+'</section>'+
+    '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>同一ホスト内の内部遷移</span></div>'+flowVisual(internalFlows)+'</section>'+
+    (migrationFlows.length?'<section class="card flow"><div class="section-head"><div class="section-title">HOST MIGRATION FLOW</div><span>旧ホスト ↔ 新ホスト。SITE FLOWから分離</span></div>'+flowVisual(migrationFlows)+'</section>':'')+
     '<details class="card drawer campaign"><summary><span>CAMPAIGN FUNNEL</span><span class="drawer-meta">投稿ログはこのブラウザだけに保存</span></summary><div class="drawer-content">'+campaignPanel(entryFlows,internalFlows)+'</div></details>'+
     '<section class="card pages"><div class="section-head"><div class="section-title">PAGES</div><span>'+n(c.pages.length)+' paths</span></div><table><thead><tr><th>PAGE</th><th class="num">PV</th><th class="num">ENTRY VISITS</th></tr></thead><tbody>'+
       c.pages.slice(0,20).map(x=>'<tr><td><strong>'+esc(x.name)+'</strong>'+(!x.mapped?'<span class="flag">UNMAPPED</span>':'')+'<span class="path">'+esc(x.path)+'</span></td><td class="num">'+n(x.pageviews)+'</td><td class="num">'+n(x.visits)+'</td></tr>').join("")+
@@ -1633,7 +1646,8 @@ function render(data){
     '</div></details>'+
     '<details class="card drawer raw"><summary><span>RAW / AUDIT TABLES</span><span class="drawer-meta">流入元・内部遷移・国・端末の詳細</span></summary><div class="drawer-content detail-grid">'+
     '<section class="card flow"><div class="section-head"><div class="section-title">ENTRY SOURCE → PAGE</div><span>同一行で取得</span></div><table><thead><tr><th>SOURCE</th><th></th><th>DESTINATION</th><th class="num">PV</th><th class="num">ENTRY VISITS</th></tr></thead><tbody>'+flowRows(entryFlows)+'</tbody></table></section>'+
-    '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>内部遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(internalFlows,true)+'</tbody></table></section>'+
+    (migrationFlows.length?'<section class="card flow"><div class="section-head"><div class="section-title">HOST MIGRATION</div><span>旧・新ホスト間の遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(migrationFlows,true)+'</tbody></table></section>':'')+
+    '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>同一ホスト内の内部遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(internalFlows,true)+'</tbody></table></section>'+
     '<section class="card referrers"><div class="section-head"><div class="section-title">REFERRERS</div><span>raw host</span></div><table><thead><tr><th>HOST</th><th class="num">PV</th><th class="num">ENTRY VISITS</th></tr></thead><tbody>'+
       c.referrers.slice(0,20).map(x=>'<tr><td><strong>'+esc(x.host||"(Direct)")+'</strong>'+(x.path?'<span class="path">'+esc(x.path)+'</span>':'')+'</td><td class="num">'+n(x.pageviews)+'</td><td class="num">'+n(x.visits)+'</td></tr>').join("")+
     '</tbody></table></section>'+

@@ -68,7 +68,8 @@ Cloudflare Web Analytics / RUMをGraphQL APIから読み、VINTAGE ALARM用の�
 - Direct / Unknown
 - AI Assistant
 - Other Referral
-- Internal Navigation
+- Host Migration（旧・新ホスト間。内部回遊とは別）
+- Internal Navigation（同一ホスト内のみ）
 - Referrer host / path
 - Country
 - Device
@@ -85,6 +86,8 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 - 署名はwindowと有効期限に結び付ける。
 - 有効期限は最小5分、最大7日。
 - exportはCloudflare Web Analyticsの集計値だけを返す。
+- flowは `externalEntryFlows` / `internalFlows` / `migrationFlows` に分離する。旧ホスト↔新ホストの遷移を内部回遊へ混ぜない。
+- SNS着地先の再配分はfull dashboardの `flows`、AI exportの `externalEntryFlows` のどちらでも同じ結果になるようにする。
 - Cloudflare API token / Dashboard password / IP / Cookie / raw User-Agentは返さない。
 - Search Console / Google生成AIのCSV ImportはブラウザlocalStorageのためexport対象外。
 
@@ -97,12 +100,14 @@ Page viewsとVisitsを同一視しない。
 Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始まったページビューを基準にする。
 内部遷移ではPage viewが増えてもVisitsが0になり得る。
 
+`Internal Navigation` は **request hostとreferrer hostが同じ場合だけ** とする。正規ホスト `vintagealarm.github.io` と旧ホスト `orima1995-create.github.io` の間をまたぐreferrerは `Host Migration` として分離し、SITE FLOWや内部回遊数へ加えない。host移行導線は別表・`migrationFlows`で観測する。
+
 ページ表の`ENTRY VISITS`は、そのページが外部流入またはDirectの入口になった回数として読む。
 
 `ENTRY SOURCE → PAGE`では、`requestPath + refererHost + refererPath`を同じGraphQL集計行で取得する。
 別々に集計したPageとReferrerを推測で結び付けない。
 
-`SITE FLOW`では、自サイトをRefererに持つ内部遷移を分離して表示する。
+`SITE FLOW`では、同一ホストをRefererに持つ内部遷移だけを表示する。旧↔新ホスト間は `HOST MIGRATION FLOW` として別表示する。
 
 ## URL → 表示名の監査
 

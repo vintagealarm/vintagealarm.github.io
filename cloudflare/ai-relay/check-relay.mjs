@@ -12,9 +12,20 @@ const sample = {
   windowStart: '2026-09-05T00:00:00.000Z',
   windowEnd: '2026-09-12T00:00:00.000Z',
   host: 'vintagealarm.github.io',
-  current: { pageviews: 10, visits: 8, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [], countries: [], devices: [], xProfileEntries: 2 },
-  legacy: { host: 'orima1995-create.github.io', current: { pageviews: 3, visits: 2, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [], countries: [], devices: [], xProfileEntries: 0 } },
-  combined: { current: { pageviews: 13, visits: 10, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [], countries: [], devices: [], xProfileEntries: 2 }, trend: [], note: 'host-scoped sum' },
+  current: {
+    pageviews: 10, visits: 8, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [],
+    migrationFlows: [{ sourceHost: 'orima1995-create.github.io', sourceCleanPath: '/', destinationHost: 'vintagealarm.github.io', destinationPath: '/cyma-time-o-vox/', destinationName: 'Cyma Time-O-Vox', visits: 2, pageviews: 2 }],
+    countries: [], devices: [], xProfileEntries: 2,
+  },
+  legacy: { host: 'orima1995-create.github.io', current: { pageviews: 3, visits: 2, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [], migrationFlows: [], countries: [], devices: [], xProfileEntries: 0 } },
+  combined: {
+    current: {
+      pageviews: 13, visits: 10, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [],
+      migrationFlows: [{ sourceHost: 'orima1995-create.github.io', sourceCleanPath: '/', destinationHost: 'vintagealarm.github.io', destinationPath: '/cyma-time-o-vox/', destinationName: 'Cyma Time-O-Vox', visits: 2, pageviews: 2 }],
+      countries: [], devices: [], xProfileEntries: 2,
+    },
+    trend: [], note: 'host-scoped sum',
+  },
   profileTracking: { path: '/x/' },
   limitations: { attribution: 'not post-level attribution' },
 };
@@ -22,6 +33,9 @@ const sample = {
 const markdown = renderAnalyticsMarkdown(sample);
 assert(markdown.includes('Primary combined visits: 10'), 'combined visits missing');
 assert(markdown.includes('X profile entries (/x/): 2'), 'X profile entries missing');
+assert(markdown.includes('Host migration flows'), 'host migration section missing');
+assert(markdown.includes('orima1995-create.github.io'), 'migration source host missing');
+assert(markdown.includes('vintagealarm.github.io'), 'migration destination host missing');
 assert(markdown.includes('not post-level attribution'), 'limitations missing');
 
 const noSource = await onRequestGet({ request: new Request('https://relay.example/') });
