@@ -38,32 +38,6 @@
     "note": "Movement No.は公開用に番号帯へ丸め、個体固有性の高い補助番号は掲載しない。同一個体の転載・再出品が含まれる可能性は完全には排除していないため、製造数の推定には使わない。",
     "specimens": [
       {
-        "id": "OBS-01",
-        "sellerRef": "1283",
-        "era": "1950年代",
-        "case": "SS",
-        "dial": "6インデックスあり",
-        "chronometre": "—",
-        "adjustment": "—",
-        "movementBand": "5xx?",
-        "caseCode": "2 6526",
-        "source": "HODINKEE Shop",
-        "sourceUrl": ""
-      },
-      {
-        "id": "OBS-02",
-        "sellerRef": "1261",
-        "era": "1950年代",
-        "case": "SS",
-        "dial": "6インデックスあり",
-        "chronometre": "—",
-        "adjustment": "画像無し",
-        "movementBand": "—",
-        "caseCode": "—",
-        "source": "Lot-Art (Australia)",
-        "sourceUrl": ""
-      },
-      {
         "id": "OBS-03",
         "sellerRef": "—",
         "era": "1950年代",
@@ -100,6 +74,84 @@
         "movementBand": "19xx",
         "caseCode": "8 6525",
         "source": "Dr. Crott Lot 536",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-09",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "YG",
+        "dial": "6インデックスあり",
+        "chronometre": "CHRONOMETRE",
+        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
+        "movementBand": "19xx",
+        "caseCode": "8 6525",
+        "source": "削除済み記録",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-11",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "YG",
+        "dial": "6インデックスなし",
+        "chronometre": "—",
+        "adjustment": "UNADJUSTED",
+        "movementBand": "10xx",
+        "caseCode": "8 6525",
+        "source": "Watchuseek",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-12",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "YG",
+        "dial": "6インデックスあり",
+        "chronometre": "CHRONOMETRE",
+        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
+        "movementBand": "10xx",
+        "caseCode": "—",
+        "source": "Alarm am Arm",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-13",
+        "sellerRef": "—",
+        "era": "不明",
+        "case": "YG",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
+        "movementBand": "4桁・不明瞭",
+        "caseCode": "—",
+        "source": "Alarm am Arm",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-01",
+        "sellerRef": "1283",
+        "era": "1950年代",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "—",
+        "movementBand": "5xx?",
+        "caseCode": "2 6526",
+        "source": "HODINKEE Shop",
+        "sourceUrl": ""
+      },
+      {
+        "id": "OBS-02",
+        "sellerRef": "1261",
+        "era": "1950年代",
+        "case": "SS",
+        "dial": "6インデックスあり",
+        "chronometre": "—",
+        "adjustment": "画像無し",
+        "movementBand": "—",
+        "caseCode": "—",
+        "source": "Lot-Art (Australia)",
         "sourceUrl": ""
       },
       {
@@ -142,19 +194,6 @@
         "sourceUrl": ""
       },
       {
-        "id": "OBS-09",
-        "sellerRef": "—",
-        "era": "不明",
-        "case": "YG",
-        "dial": "6インデックスあり",
-        "chronometre": "CHRONOMETRE",
-        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
-        "movementBand": "19xx",
-        "caseCode": "8 6525",
-        "source": "削除済み記録",
-        "sourceUrl": ""
-      },
-      {
         "id": "OBS-10",
         "sellerRef": "—",
         "era": "不明",
@@ -165,45 +204,6 @@
         "movementBand": "11xx",
         "caseCode": "2 6526",
         "source": "YouTube",
-        "sourceUrl": ""
-      },
-      {
-        "id": "OBS-11",
-        "sellerRef": "—",
-        "era": "不明",
-        "case": "YG",
-        "dial": "6インデックスなし",
-        "chronometre": "—",
-        "adjustment": "UNADJUSTED",
-        "movementBand": "10xx",
-        "caseCode": "8 6525",
-        "source": "Watchuseek",
-        "sourceUrl": ""
-      },
-      {
-        "id": "OBS-12",
-        "sellerRef": "—",
-        "era": "不明",
-        "case": "YG",
-        "dial": "6インデックスあり",
-        "chronometre": "CHRONOMETRE",
-        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
-        "movementBand": "10xx",
-        "caseCode": "—",
-        "source": "Alarm am Arm",
-        "sourceUrl": ""
-      },
-      {
-        "id": "OBS-13",
-        "sellerRef": "—",
-        "era": "不明",
-        "case": "YG",
-        "dial": "6インデックスあり",
-        "chronometre": "—",
-        "adjustment": "ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE",
-        "movementBand": "4桁・不明瞭",
-        "caseCode": "—",
-        "source": "Alarm am Arm",
         "sourceUrl": ""
       },
       {
@@ -266,12 +266,12 @@
     "cards": [
       {
         "label": "A",
-        "title": "CHRONOMÈTRE文字盤 × 調整刻印なし",
+        "title": "CHRONOMÈTRE 文字盤 × 調整刻印なし",
         "body": "文字盤にChronomètreを掲げながら、ムーブメント側で5姿勢・温度調整刻印を確認できない例がある。"
       },
       {
         "label": "B",
-        "title": "Chronomètre表記なし × 5姿勢・温度調整",
+        "title": "Chronomètre 表記なし × 5姿勢・温度調整",
         "body": "文字盤にChronomètre表記がない一方、ムーブメント側にADJUSTED TO FIVE POSITION(S) AND TEMPERATUREを持つ例がある。"
       },
       {
