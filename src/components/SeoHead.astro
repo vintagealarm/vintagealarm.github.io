@@ -63,7 +63,21 @@ const normalizedAlternates = alternates.map((item) => ({
     const key = 'vintageAlarmAnalyticsOptOut';
     try {
       const url = new URL(window.location.href);
-      const toggle = url.searchParams.get('__va_analytics');
+      let toggle = url.searchParams.get('__va_analytics');
+
+      // Accept both the canonical ?query#hash form and the common mistaken
+      // #hash?query form so admin opt-out still works on anchored links.
+      if (!toggle && url.hash.includes('?')) {
+        const [hashPath, hashQuery = ''] = url.hash.split('?', 2);
+        const hashParams = new URLSearchParams(hashQuery);
+        const hashToggle = hashParams.get('__va_analytics');
+        if (hashToggle === 'off' || hashToggle === 'on') {
+          toggle = hashToggle;
+          hashParams.delete('__va_analytics');
+          const remainingHashQuery = hashParams.toString();
+          url.hash = hashPath + (remainingHashQuery ? `?${remainingHashQuery}` : '');
+        }
+      }
 
       if (toggle === 'off') localStorage.setItem(key, '1');
       if (toggle === 'on') localStorage.removeItem(key);
