@@ -65,6 +65,8 @@ assert(fallback.startsWith('VA2;window=7d;'), 'portable snapshot schema prefix m
 assert(fallback.includes('visits=68;pageviews=80'), 'portable snapshot totals missing');
 assert(fallback.includes('new=63/75;old=5/5;previous=10/10'), 'host or previous totals missing');
 assert(fallback.includes('x=19'), 'portable snapshot channel totals missing');
+assert(fallback.includes('internalVisits=8;internalPV=1'), 'internal visits/PV must be explicit and separate');
+assert(!fallback.includes(';internal=8;'), 'ambiguous legacy internal field must not be emitted');
 assert(fallback.includes('xprofile=2'), 'X profile total missing');
 assert(fallback.includes('migration=2026-09-10'), 'migration marker missing');
 assert(fallback.includes('latest=2026-09-17;gap=0'), 'freshness marker missing');
