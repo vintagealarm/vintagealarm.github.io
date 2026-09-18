@@ -40,15 +40,23 @@
 .proto-specimens summary small{margin-left:auto;color:var(--soft);font:600 10px/1.4 var(--sans);letter-spacing:.08em}
 .proto-specimens summary::after{margin-left:0}
 .proto-table-region{max-width:100%;padding-bottom:10px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin}
-.proto-table-group{min-width:970px;margin:0;padding:22px 0 10px;border-top:1px solid var(--rule)}
+.proto-table-group{min-width:1240px;margin:0;padding:22px 0 10px;border-top:1px solid var(--rule)}
 .proto-table-group h3{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin:0 0 10px;font:600 13px/1.4 var(--sans);letter-spacing:.1em}
 .proto-table-group h3 small{color:var(--soft);font-size:9px;letter-spacing:.12em}
-.proto-table-group table{width:100%;border-collapse:collapse;font:11px/1.45 var(--sans)}
+.proto-table-group table{width:100%;table-layout:auto;border-collapse:collapse;font:11px/1.45 var(--sans)}
 .proto-table-group th,.proto-table-group td{padding:10px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
 .proto-table-group th:first-child,.proto-table-group td:first-child{padding-left:0}
 .proto-table-group th{color:var(--soft);font-size:9px;letter-spacing:.08em;white-space:nowrap}
-.proto-table-group td:nth-child(1),.proto-table-group td:nth-child(4),.proto-table-group td:nth-child(5),.proto-table-group td:nth-child(8),.proto-table-group td:nth-child(10){white-space:nowrap}
-.proto-table-group td:nth-child(3){min-width:215px}
+.proto-table-group td{overflow-wrap:normal;word-break:keep-all}
+.proto-table-group td:nth-child(1),.proto-table-group td:nth-child(2),.proto-table-group td:nth-child(3),.proto-table-group td:nth-child(4),.proto-table-group td:nth-child(5),.proto-table-group td:nth-child(6),.proto-table-group td:nth-child(8),.proto-table-group td:nth-child(10){white-space:nowrap}
+.proto-table-group td:nth-child(3){min-width:245px}
+.proto-table-group td:nth-child(7){min-width:150px}
+.proto-table-group td:nth-child(9){min-width:175px}
+.proto-specimen-subgroup{border-top:1px solid var(--rule)}
+.proto-specimen-subgroup>summary{min-height:52px;padding:12px 0;font:600 11px/1.5 var(--sans);letter-spacing:.08em}
+.proto-specimen-subgroup>summary::after{content:'＋'}
+.proto-specimen-subgroup[open]>summary::after{content:'－'}
+.proto-specimen-subgroup .proto-table-group{padding-top:10px;border-top:0}
 .proto-table-note,.proto-note{margin:14px 0 20px;color:var(--soft);font:12px/1.85 var(--sans)}
 
 /* Shared final ruling. */
