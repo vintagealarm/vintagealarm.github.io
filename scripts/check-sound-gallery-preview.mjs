@@ -50,7 +50,19 @@ try {
             left: Math.round(rect.left),
             right: Math.round(rect.right),
             width: Math.round(rect.width)
-          }));
+          }))
+          .concat(
+            [...document.querySelectorAll('body *')]
+              .filter((node) => node.scrollWidth > node.clientWidth + 1)
+              .slice(0, 8)
+              .map((node) => ({
+                tag: node.tagName.toLowerCase(),
+                className: typeof node.className === 'string' ? node.className : '',
+                text: (node.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+                scrollWidth: node.scrollWidth,
+                clientWidth: node.clientWidth
+              }))
+          );
       });
       failures.push(`${width}px: horizontal overflow ${shellState.overflow}px offenders=${JSON.stringify(offenders)}`);
     }
