@@ -1,6 +1,6 @@
 # VINTAGE ALARM — CURRENT PROJECT STATE
 
-更新日: 2026-09-15
+更新日: 2026-09-19
 
 この文書は、VINTAGE ALARMで作業を再開するときに最初に読む「現在位置の索引」です。
 
@@ -112,7 +112,21 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 検索・AIO全体方針: `strategy/seo-aio.md`
 - Council現行仕様: `council-worker/README.md` + `council-worker/src/index.ts`
 
-理由: 数時間〜数日で変わる数値や公開状態をこのファイルにも複製すると、古い状態を復活させる原因になるため。
+### CYMA Time-O-Vox Chronomètre — VA準拠テストページ
+
+- 状態: `DEPLOYED`。本番の既存RESEARCHページは未変更
+- 採用方向: A / OWNER'S NOTE寄り
+- URL: `https://vintagealarm.github.io/lab/cyma-chronometre/owners-note/`
+- 認証: なし。公開テストページのためID・パスワードは不要
+- 検索: `noindex,nofollow`、sitemap対象外
+- 本文の流れ: Chronomètre仕様の資料確認 → 現存17件の表記差 → TavannesのUNADJUSTED事例 → MIH／Neuchâtelで掲載個体を特定できなかった地点
+- 観測表: 初期状態は閉じる。開くと18K／YGを表示し、SSは二段目で折りたたむ。Movement No.は番号帯表示
+- 本文から除外: 編集メモ風の「根拠／観測／推論」、三段要約、Chronomètre論証と別系統の故障研究
+- 対象実装: `src/components/CymaChronometrePrototype.astro`、`src/components/CymaSpecimenTables.astro`、`src/styles/cyma-chronometre-prototypes.css`
+
+進捗照会では上記URLと「認証なし」を回答する。実在するパスワードは公開Gitリポジトリへ保存しない。将来認証付きページへ移す場合も、GitにはURLとユーザー名、利用するSecret名だけを記録し、パスワード本体はGitHubまたはCloudflareのSecretsで管理する。
+
+理由: 数時間〜数日で変わる数値や公開状態をこのファイルにも複製すると、古い状態を復活させる原因になるため。上記のCYMAテストページは、進捗照会時にアクセス先を即答できるよう明示的に残す例外とする。
 
 ## 7. SUPERSEDED / REJECTED BASELINES
 
