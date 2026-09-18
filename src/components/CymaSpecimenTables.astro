@@ -1,0 +1,27 @@
+---
+import data from '../data/cyma-chronometre-research.json';
+
+const { open = false } = Astro.props as { open?: boolean };
+const goldSpecimens = data.observed.specimens.filter((item) => /YG|GOLD|14K|18K/i.test(item.case));
+const steelSpecimens = data.observed.specimens.filter((item) => /SS|STEEL/i.test(item.case));
+const groups = [
+  { title: '18K / YG', rows: goldSpecimens },
+  { title: 'STAINLESS STEEL', rows: steelSpecimens }
+];
+const total = groups.reduce((sum, group) => sum + group.rows.length, 0);
+---
+<details class="proto-specimens" open={open}>
+  <summary><span>観測個体一覧を見る</span><small>{total}件</small></summary>
+  <div class="proto-table-region" tabindex="0" role="region" aria-label="CYMA Time-O-Vox 観測個体一覧">
+    {groups.map((group) => (
+      <section class="proto-table-group">
+        <h3>{group.title}<small>{group.rows.length} OBJECTS</small></h3>
+        <table>
+          <thead><tr><th>CASE</th><th>CHRONOMÈTRE</th><th>ADJUSTMENT</th><th>MOV. No.帯</th><th>seller ref</th><th>年代</th><th>ダイヤル</th><th>CASE CODE</th><th>SOURCE</th><th>ID</th></tr></thead>
+          <tbody>{group.rows.map((row) => <tr><td>{row.case}</td><td>{row.chronometre}</td><td>{row.adjustment}</td><td>{row.movementBand}</td><td>{row.sellerRef}</td><td>{row.era}</td><td>{row.dial}</td><td>{row.caseCode}</td><td>{row.source}</td><td>{row.id}</td></tr>)}</tbody>
+        </table>
+      </section>
+    ))}
+  </div>
+  <p class="proto-table-note">{data.observed.note} 情報源名は表内で統一し、個別リンクは付けていない。</p>
+</details>

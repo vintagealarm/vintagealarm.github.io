@@ -1,0 +1,7 @@
+---
+import data from '../data/cyma-chronometre-research.json';
+---
+<section class="proto-conclusion shell">
+  <header><span>NOW</span><h2>{data.conclusion.title}</h2></header>
+  <div>{data.conclusion.items.map((item) => <article><small>{item.label}</small><p>{item.text}</p></article>)}</div>
+</section>
