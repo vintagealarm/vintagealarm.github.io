@@ -88,6 +88,7 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 - exportはCloudflare Web Analyticsの集計値だけを返す。
 - flowは `externalEntryFlows` / `internalFlows` / `migrationFlows` に分離する。旧ホスト↔新ホストの遷移を内部回遊へ混ぜない。
 - SNS着地先の再配分はfull dashboardの `flows`、AI exportの `externalEntryFlows` のどちらでも同じ結果になるようにする。
+- VA2 fallbackでは内部回遊を `internalVisits` と `internalPV` に分ける。`internalVisits` はInternal Navigation channelのVisits、`internalPV` は `internalFlows` のPage views合計。Visitsが0でも内部遷移PVは存在し得るため、単一の `internal` 値は使わない。
 - Cloudflare API token / Dashboard password / IP / Cookie / raw User-Agentは返さない。
 - Search Console / Google生成AIのCSV ImportはブラウザlocalStorageのためexport対象外。
 
