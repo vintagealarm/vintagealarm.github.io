@@ -23,6 +23,7 @@ jobs:
       - name: Check worker JavaScript
         run: |
           node --check cloudflare/analytics-dashboard/worker.js
+          node --check cloudflare/analytics-dashboard/cyma-research-preview.js
           node --check cloudflare/analytics-dashboard/profile-worker.js
           node --check cloudflare/analytics-dashboard/entry-worker.js
           node --check cloudflare/ai-relay/functions/index.js
