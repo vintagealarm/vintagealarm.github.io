@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { getCollection } from 'astro:content';
 import { englishWatchEntries } from '../data/en-watch-entry';
 import { germanWatchEntriesWithCyma } from '../data/cyma-localizations';
+import cymaChronometreResearch from '../data/cyma-chronometre-research.json';
 
 function getGitLastmod(filePath: string) {
   try {
@@ -33,6 +34,10 @@ export async function GET() {
     { loc: `${root}owners-notes/` },
     { loc: `${root}en/` },
     { loc: `${root}de/` },
+    ...(cymaChronometreResearch.published ? [{
+      loc: `${root}cyma-time-o-vox/chronometre/`,
+      lastmod: getGitLastmod('src/data/cyma-chronometre-research.json')
+    }] : []),
     ...published.map((item) => ({
       loc: `${root}${item.data.slug}/`,
       lastmod: getGitLastmod(`src/content/watches/${item.data.slug}.md`)
