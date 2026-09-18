@@ -48,6 +48,11 @@ const TRACKED_PAGE_NAMES = Object.freeze({
   ...HISTORY_GATEWAY_NAMES,
 });
 
+const SNS_PAGE_NAMES = Object.freeze({
+  ...TRACKED_PAGE_NAMES,
+  [X_PROFILE_TRACKING.path]: X_PROFILE_TRACKING.name,
+});
+
 const TREND_BUCKET_MS = Object.freeze({
   datetimeFiveMinutes: 5 * 60 * 1000,
   datetimeFifteenMinutes: 15 * 60 * 1000,
@@ -89,7 +94,7 @@ function patchSnsEntries(period) {
   const sourceByPath = new Map(sourcePages.map((row) => [row.path, row]));
   const sourceOther = sourceByPath.get("other") || { path: "other", name: "Other pages", values: emptyValues(), total: 0 };
 
-  const pages = Object.entries(TRACKED_PAGE_NAMES).map(([path, name]) => {
+  const pages = Object.entries(SNS_PAGE_NAMES).map(([path, name]) => {
     const existing = sourceByPath.get(path);
     return {
       path,
@@ -107,17 +112,18 @@ function patchSnsEntries(period) {
   };
 
   // The base worker already has exact SNS totals from its entry query, but only
-  // separates the original three WATCH pages. Use the flow rows to split later
-  // WATCH pages, language gateways and localized HISTORY pages back out of
-  // "Other pages", preserving the base total.
-  const newlyMappedPaths = new Set([
-    "/citizen-alarm/",
-    "/westclox-watchlarm/",
-    ...Object.keys(ENGLISH_GATEWAY_NAMES),
-    ...Object.keys(GERMAN_GATEWAY_NAMES),
-    ...Object.keys(HISTORY_GATEWAY_NAMES),
-  ]);
-  for (const flow of period?.flows || []) {
+  // separates the original three WATCH pages. Reallocate later tracked pages
+  // from "Other pages" using flow rows. The full dashboard has `flows`; the
+  // signed AI export intentionally exposes only `externalEntryFlows`.
+  const newlyMappedPaths = new Set(
+    Object.keys(SNS_PAGE_NAMES).filter((path) => !sourceByPath.has(path)),
+  );
+  const flowRows = Array.isArray(period?.flows)
+    ? period.flows
+    : Array.isArray(period?.externalEntryFlows)
+      ? period.externalEntryFlows
+      : [];
+  for (const flow of flowRows) {
     if (!newlyMappedPaths.has(flow?.destinationPath) || !channels.includes(flow?.channel)) continue;
     const visits = Number(flow?.visits || 0);
     if (visits <= 0) continue;
@@ -130,10 +136,13 @@ function patchSnsEntries(period) {
   }
 
   const rows = [...pages, other];
+  const flowRowsComplete = Array.isArray(period?.flows)
+    ? period.flows.length < 200
+    : period?.flowRowsComplete !== false;
   return {
     pages: rows,
     total: Number(source.total || rows.reduce((sum, row) => sum + row.total, 0)),
-    complete: Boolean(source.complete) && (period?.flows?.length ?? 0) < 200,
+    complete: Boolean(source.complete) && flowRowsComplete,
   };
 }
 
@@ -210,6 +219,7 @@ export function patchPeriod(period) {
   if (Array.isArray(patched.flows)) patched.flows = patched.flows.map(patchFlow);
   if (Array.isArray(patched.externalEntryFlows)) patched.externalEntryFlows = patched.externalEntryFlows.map(patchFlow);
   if (Array.isArray(patched.internalFlows)) patched.internalFlows = patched.internalFlows.map(patchFlow);
+  if (Array.isArray(patched.migrationFlows)) patched.migrationFlows = patched.migrationFlows.map(patchFlow);
   patched.snsEntries = patchSnsEntries(patched);
   patched.xProfileEntries = countProfileEntries(patched);
   return patched;
