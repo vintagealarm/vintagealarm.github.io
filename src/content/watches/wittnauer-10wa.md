@@ -84,7 +84,7 @@ deepDive:
       - 問題は、その下にある時刻機構が何だったのかだ。Horlbeckは手巻きのLonginesキャリバーをベースにしたと記し、Beitlも `Longines-Basiskaliber` としている。さらに2025年には、時計メディアのHODINKEEも10WAをLongines Cal.10をベースとするモジュラー式アラームムーブメントとして紹介している。少なくともLongines説は、専門書だけでなく後年の時計メディアにも受け継がれている。
       - ところが、修理用の部品資料を見ると別の手掛かりが出てくる。1966年の *C. & E. Marshall Handy Manual* では、Wittnauer 10WAとWittnauer 10Sが、主ゼンマイ、天真、巻真、振り座、アンクル真など、時刻側の主要部品を共通で使っている。10WAには、それとは別にアラーム用ゼンマイが設定されている。
       - さらに1969年のAmerican Watchmakers Instituteの資料では、Wittnauer 10Sが **AS 1200** と対応づけられている。つまりMarshallの部品表からは10WAと10Sの近さが見え、その10SをAWIはAS1200と対応づけている。
-      - **10WAの時刻側には10S／AS1200系との強い共通性が見える一方で、専門書にはLonginesベースという記録が残る。**
+      - "**10WAの時刻側には10S／AS1200系との強い共通性が見える一方で、専門書にはLonginesベースという記録が残る。**"
       - 結局、10WAの時刻側がLonginesなのか、AS1200系なのか。今ある資料だけでは答えが出ない。
     citationRefs:
       - 1,2
