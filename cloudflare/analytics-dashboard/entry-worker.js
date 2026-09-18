@@ -81,6 +81,20 @@ function internalRows(period) {
     .join(",");
 }
 
+function migrationRows(period) {
+  return (period?.migrationFlows || [])
+    .filter((row) => finiteNumber(row?.pageviews) > 0 || finiteNumber(row?.visits) > 0)
+    .slice(0, 20)
+    .map((row) => {
+      const sourceHost = token(row?.sourceHost || "-", 55) || "-";
+      const destinationHost = token(row?.destinationHost || "-", 55) || "-";
+      const source = token(row?.sourceCleanPath || row?.sourcePath || row?.sourceName, 55);
+      const destination = token(row?.destinationPath || row?.destinationName, 55);
+      return `${sourceHost}@${source}>${destinationHost}@${destination}:${finiteNumber(row?.pageviews)}/${finiteNumber(row?.visits)}`;
+    })
+    .join(",");
+}
+
 function snsRows(period) {
   return (period?.snsEntries?.pages || [])
     .filter((row) => finiteNumber(row?.total) > 0)
@@ -167,6 +181,7 @@ export function buildAiFallbackFragment(payload) {
   const pages = pageRows(combined);
   const external = externalRows(combined);
   const internal = internalRows(combined);
+  const migrationFlow = migrationRows(combined);
   const sns = snsRows(combined);
   const countries = countryRows(combined);
   const devices = deviceRows(combined);
@@ -175,6 +190,7 @@ export function buildAiFallbackFragment(payload) {
   if (pages) fields.push(`pages=${pages}`);
   if (external) fields.push(`external=${external}`);
   if (internal) fields.push(`flow=${internal}`);
+  if (migrationFlow) fields.push(`handoff=${migrationFlow}`);
   if (sns) fields.push(`sns=${sns}`);
   if (countries) fields.push(`countries=${countries}`);
   if (devices) fields.push(`devices=${devices}`);
