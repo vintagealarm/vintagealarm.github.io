@@ -16,7 +16,7 @@ jobs:
   build-and-preview:
     runs-on: ubuntu-latest
     env:
-      CLOUDFLARE_API_TOKEN: \${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       PREVIEW_PROJECT: vintage-alarm-preview
       PREVIEW_BRANCH: sound-gallery
     steps:
@@ -91,7 +91,7 @@ jobs:
 
       - name: Verify login wall
         env:
-          PREVIEW_URL: \${{ steps.deploy.outputs.url }}
+          PREVIEW_URL: ${{ steps.deploy.outputs.url }}
         run: |
           status=""
           for attempt in {1..20}; do
