@@ -21,6 +21,7 @@ const snsFlows = [
   { sourcePath: '', sourceCleanPath: '', destinationPath: '/westclox-watchlarm/', destinationName: '/westclox-watchlarm/', destinationMapped: false, channel: 'Facebook', visits: 3, pageviews: 3 },
   { sourcePath: '', sourceCleanPath: '', destinationPath: '/en/basis-alarm/', destinationName: '/en/basis-alarm/', destinationMapped: false, channel: 'X', visits: 1, pageviews: 1 },
   { sourcePath: '', sourceCleanPath: '', destinationPath: '/en/history/', destinationName: '/en/history/', destinationMapped: false, channel: 'X', visits: 1, pageviews: 1 },
+  { sourcePath: '', sourceCleanPath: '', destinationPath: '/x/', destinationName: '/x/', destinationMapped: false, channel: 'X', visits: 2, pageviews: 2 },
   { sourcePath: '', sourceCleanPath: '', destinationPath: '/unknown/', destinationName: '/unknown/', destinationMapped: false, channel: 'X', visits: 1, pageviews: 1 },
 ];
 
@@ -39,7 +40,7 @@ const payload = patchAnalyticsPayload({
       { sourcePath: '', sourceCleanPath: '', destinationPath: '/x/', destinationName: '/x/', destinationMapped: false, channel: 'Direct / Unknown', visits: 2, pageviews: 3 },
       ...snsFlows,
     ],
-    snsEntries: baseSnsEntries({ X: 5, Instagram: 0, Facebook: 3, 'Other SNS': 0 }, 8),
+    snsEntries: baseSnsEntries({ X: 7, Instagram: 0, Facebook: 3, 'Other SNS': 0 }, 10),
   },
   previous: { pages: [], flows: [], snsEntries: baseSnsEntries() },
   legacy: {
@@ -56,7 +57,7 @@ const payload = patchAnalyticsPayload({
         { path: '/en/history/', name: '/en/history/', mapped: false, pageviews: 1, visits: 1 },
       ],
       flows: snsFlows,
-      snsEntries: baseSnsEntries({ X: 5, Instagram: 0, Facebook: 3, 'Other SNS': 0 }, 8),
+      snsEntries: baseSnsEntries({ X: 7, Instagram: 0, Facebook: 3, 'Other SNS': 0 }, 10),
     },
     previous: { pages: [], flows: [], snsEntries: baseSnsEntries() },
   },
@@ -84,16 +85,32 @@ assert(payload.current.flows[3].destinationName === 'Basis Alarm (EN)', 'Basis E
 assert(payload.current.flows[4].destinationName === 'HISTORY (EN)', 'English HISTORY flow destination was not mapped');
 
 const snsTotals = Object.fromEntries(payload.current.snsEntries.pages.map((row) => [row.name, row.total]));
-assert(payload.current.snsEntries.pages.length === 19, 'SNS chart must contain five WATCH rows, six English rows, four German rows, three HISTORY rows, plus Other pages');
+assert(payload.current.snsEntries.pages.length === 20, 'SNS chart must contain tracked WATCH/gateway/HISTORY rows, X Profile, plus Other pages');
 assert(snsTotals['Citizen Alarm'] === 2, 'Citizen SNS visits mismatch');
 assert(snsTotals['Westclox Watchlarm'] === 3, 'Westclox SNS visits mismatch');
 assert(snsTotals['Basis Alarm (EN)'] === 1, 'Basis English SNS visits mismatch');
 assert(snsTotals['HISTORY'] === 0, 'Japanese HISTORY SNS row missing');
 assert(snsTotals['HISTORY (EN)'] === 1, 'English HISTORY SNS visits mismatch');
 assert(snsTotals['HISTORY (DE)'] === 0, 'German HISTORY SNS row missing');
+assert(snsTotals['X Profile'] === 2, 'X Profile SNS visits must not remain in Other pages');
 assert(snsTotals['Other pages'] === 1, 'Other SNS visits mismatch');
-assert(payload.current.snsEntries.total === 8, 'SNS base total must be preserved while reallocating rows');
+assert(payload.current.snsEntries.total === 10, 'SNS base total must be preserved while reallocating rows');
 assert(payload.current.snsEntries.complete === true, 'SNS completeness flag must remain true when flow rows are below the cap');
+
+const exportedPayload = patchAnalyticsPayload({
+  current: {
+    pages: [{ path: '/x/', name: '/x/', mapped: false, pageviews: 2, visits: 2 }],
+    externalEntryFlows: snsFlows,
+    flowRowsComplete: true,
+    snsEntries: baseSnsEntries({ X: 7, Instagram: 0, Facebook: 3, 'Other SNS': 0 }, 10),
+  },
+});
+const exportedSns = Object.fromEntries(exportedPayload.current.snsEntries.pages.map((row) => [row.name, row.total]));
+assert(exportedSns['Westclox Watchlarm'] === 3, 'AI export SNS reallocation must use externalEntryFlows');
+assert(exportedSns['HISTORY (EN)'] === 1, 'AI export HISTORY SNS reallocation failed');
+assert(exportedSns['X Profile'] === 2, 'AI export X Profile SNS reallocation failed');
+assert(exportedSns['Other pages'] === 1, 'AI export Other pages must retain only untracked destinations');
+assert(exportedPayload.current.snsEntries.complete === true, 'AI export flow completeness marker must be respected');
 
 const cappedFlows = Array.from({ length: 200 }, (_, index) => ({
   destinationPath: index % 2 ? '/citizen-alarm/' : '/unknown/',
