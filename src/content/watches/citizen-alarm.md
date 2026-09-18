@@ -32,6 +32,10 @@ spec:
   winding: 手巻き
   acoustic: 二重裏蓋式
   notes: 中央回転ディスク、2リューズ、Parashock
+audio:
+  status: pending
+  recordings: []
+
 specimenGallery:
   - image: /images/IMG_1695.jpeg
     label: 正面（リストショット）
