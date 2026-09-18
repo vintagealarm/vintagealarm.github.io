@@ -151,3 +151,88 @@ CYMA判定は、
 注意:
 - この時点ではYouTube側の公開URL、公開後の再生数、流入成果を確認していない。
 - 公開成功と、Shorts配布・サイト来訪・検索露出の成果は別状態として記録する。
+
+## 2026-09-19｜Google / Bing｜モデル名・関連語の検索露出（Private / InPrivate）
+
+ユーザー提供スクリーンショットで、ブラウザのPrivate / InPrivateモードかつ検索サービス未ログイン状態で以下を観測した。
+
+### 条件
+
+- Google: InPrivate表示、Google未ログイン
+- Bing: InPrivate表示
+- これは通常ブラウザ履歴・Cookieによる個人化を弱める条件だが、完全な無個人化・地域差排除を保証するものではない。
+- 検索順位は時点・地域・検索エンジン・表示モジュールで変動するため、固定順位ではなく観測時点のスナップショットとして扱う。
+
+### Google｜Cyma Time-O-Vox
+
+検索語: `Cyma timeovox`
+
+確認済み:
+- 通常検索の1ページ目スクリーンショット内に、現行host `vintagealarm.github.io` の `Cyma Time-O-Vox 18K Chronomètre | Cal.R.464・1香箱` が表示された。
+- 同じ通常検索画面の画像枠にもVINTAGE ALARM由来画像が表示された。
+- Google画像検索では、VINTAGE ALARM由来のCyma画像が上段に複数確認できた。
+
+判定:
+- 少なくともこの観測では、現行hostのCymaページが通常検索・画像検索の双方で取得候補になっている。
+- この1回から恒常順位や検索エンジン内評価を断定しない。
+
+### Google｜Pierce Duofon
+
+検索語: `duofon`
+
+確認済み:
+- 通常検索の1ページ目スクリーンショット内に、現行hostの `Pierce Duofon | Cal.135・2段階アラーム・実機音` が表示された。
+- X上のPierce Duofon投稿も同じ検索画面内に表示された。
+- Google画像検索では、VINTAGE ALARM由来画像が最上段に確認でき、X由来の実機画像も上段に複数表示された。
+- `duofon` には通信サービス等の別義検索結果も混在している。
+
+判定:
+- 別義を含む広い一語検索でも、時計クラスタ内でVINTAGE ALARMの現行ページと実機画像が取得される観測が得られた。
+- 画像表示順を恒常的な画像検索順位とは扱わない。
+
+### Google｜Westclox
+
+検索語: `westclox alarm watch`
+
+確認済み:
+- Google画像検索は、Westcloxの置時計・目覚まし時計・電子時計・腕時計・販売画像等が大量に混在する広い集合になっていた。
+- その中で、VINTAGE ALARM / X由来のWestclox Watchlarm実機画像が上位表示領域に入り始めていることをスクリーンショットで確認した。
+- ユーザー観測では、X由来の実機画像が画像検索の早い位置に出始めた。
+
+判定:
+- Westcloxはブランド全体の画像母集団が大きく、`alarm watch` を付けてもGoogle画像検索がWatchlarm W5だけに狭く分離されていない。
+- したがって現時点では、Googleでの露出難易度を「ページ品質不足」と即断せず、巨大ブランド集合との競合を別仮説として扱う。
+
+### Bing｜Westclox
+
+検索語: `westclox alarm watch`
+
+確認済み:
+- Bing通常検索のスクリーンショットでは、上からEtsy、Antique Watchmanに続き、現行 `vintagealarm.github.io/westclox-watchlarm/` が概ね3番目の通常検索結果として表示された。
+- 表示タイトルは `WESTCLOX WATCHLARM | VINTAGE ALARM`。
+- スニペットはWestclox / Big Ben / Baby Benに触れる現行ページ本文を使用していた。
+- 同画面の画像モジュールにもWestclox関連画像が表示された。
+
+判定:
+- 少なくともBingのこの観測では、現行Westcloxページは `westclox alarm watch` に対する高い関連候補として取得されている。
+- Googleでの相対的な苦戦を、そのままページ自体のretrievability不良へ一般化できない。
+- GoogleとBingで検索集合の切り方・順位付けが異なる可能性を、今後の比較対象とする。
+
+### Citizen
+
+この一連の観測では、ユーザー報告上、CitizenだけVINTAGE ALARMの明確な浮上を確認できなかった。
+
+- このログではCitizenの固定順位・未インデックスを断定しない。
+- 次回は検索語を固定し、例: `Citizen Alarm 980` / `Citizen Alarm watch 980` で通常検索・画像検索を同条件比較する。
+
+### 横断整理
+
+今回確認できた範囲では:
+
+- Cyma: Google通常検索 + 画像検索で現行hostを確認
+- Duofon: Google通常検索 + 画像検索で現行host / 実機画像を確認
+- Westclox: Google画像検索で実機画像が参入、Bing通常検索では概ね3番目に現行hostを確認
+- Citizen: 今回は明確な浮上を確認できず
+
+この結果から、全WATCHを同じ検索難易度・同じ順位目標で評価しない。
+固有名詞の狭さ、ブランド規模、語義競合、画像母集団、検索エンジン差を分けて追う。
