@@ -82,6 +82,21 @@
 - 質問が必要でも、原則は最重要の一点だけ聞く。
 - 情報が十分なら質問せず即実行する。
 
+### Council継続ターンの再ルーティング
+
+Councilの**表示形式**は継続してよいが、議題が変わったら `domain` / `evidence` / 参照正本は毎ターン再判定する。前ターンの一般会話や会話記憶を、そのまま次の議題の根拠にしない。
+
+特に次の論点では生成前にGitHub正本へ再ルーティングする。
+
+- SNS / X / YouTube / Shorts / 投稿 / 再生 / 初動 / 流入 / 比較 / 実験結果 → `PROJECT_STATE.md` → `measurement/experiment-log.md`
+- Analytics / 計測定義 → `PROJECT_STATE.md` → `measurement/metrics.md` + 必要な実験ログ
+- SEO / AIO / 発見性 → `PROJECT_STATE.md` → `strategy/seo-aio.md` + 必要な `measurement/*`
+- WATCH / OWNER'S NOTE / 実機仕様 → `PROJECT_STATE.md` → `SITE_RULES.md` + 対象WATCH / 研究台帳
+
+GitHubへ記録済みであることと、その正本を今回のCouncilが取得済みであることを同一視しない。正本が存在する論点では会話記憶より先に取得する。
+
+`run_council` Worker自体がGitHub正本を自動取得した前提にしない。必要なGitHub事実はChatGPT側で先に読み、確認済み事実として渡してから実行する。
+
 `2ch民で焼いて` / `5ch民で焼いて` / `スレ民で焼いて` のように形式が明示済みなら、6択を再表示せず1を直接実行してよい。
 
 通常の依頼としての「監査して」「案出して」「地雷探知して」まで自動でCouncilへ変換しない。直前に「焼いて」で形式選択中の場合、またはCouncil形式として明示された場合に4 / 5 / 6として扱う。
@@ -134,3 +149,13 @@ V2共通プロトコル:
 - 全体に影響する未解決事項・完了条件が変わった
 
 数時間〜数日で変わるアクセス数、投稿結果、個別調査の途中経過は `measurement/*` や研究台帳側へ記録し、`PROJECT_STATE.md` へ重複保存しない。
+
+
+## Project hygiene checkpoint
+
+方針・索引・未完了PRが実装より遅れないよう、次のどちらか早い時点で軽い棚卸しを行う。
+
+- 前回チェックから7日経過
+- `main` へ10件のPRがmerge
+
+確認するのは、`PROJECT_STATE.md` の鮮度、会話だけに残った重要方針、長期open PR、`strategy/*` / `measurement/*` と実装の逆転、失効ルール、未記録の観測結果。全リポジトリ再監査はしない。
