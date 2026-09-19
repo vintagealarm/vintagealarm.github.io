@@ -601,8 +601,6 @@ content:
           - { name: normalBody, label: 正常仕様本文, type: text }
           - { name: observedTitle, label: 観測症状タイトル, type: string }
           - { name: observedBody, label: 観測症状本文, type: text }
-          - { name: hypothesisTitle, label: 原因候補タイトル, type: string }
-          - { name: hypothesisBody, label: 原因候補本文, type: text }
           - name: examples
             label: 同症状を確認した例
             type: string
@@ -622,7 +620,7 @@ content:
           - { name: youtubeId, label: 押し込み状態鳴動 YouTube URL / ID, type: string }
           - { name: youtubeCaption, label: YouTubeキャプション, type: text }
       - name: conclusion
-        label: 内部 / 結論データ（Aでは直接表示しない）
+        label: 結び / ここまでで言えること
         type: object
         fields:
           - { name: title, label: 見出し, type: string }
