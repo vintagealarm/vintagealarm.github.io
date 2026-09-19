@@ -73,6 +73,12 @@
 .proto-footer details{border:0;border-bottom:1px solid var(--rule)}
 .proto-footer summary{min-height:52px;padding:14px 0;font:500 13px/1.5 var(--sans);letter-spacing:.06em}
 .proto-footer ol{margin:0 0 20px;padding-left:24px;color:var(--soft);font:12px/1.8 var(--sans)}
+.proto-footer li{scroll-margin-top:72px}
+.proto-source-no{display:inline-block;min-width:28px;color:var(--accent);font-weight:600}
+.proto-cite{display:inline-flex;gap:3px;margin-left:2px;vertical-align:super;font:600 9px/1 var(--sans)}
+.proto-cite a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+.proto-cite a:hover{opacity:.68}
+
 .proto-footer>a{display:inline-block;margin-top:22px;padding-bottom:4px;border-bottom:1px solid currentColor;font:12px/1.5 var(--sans);text-decoration:none}
 
 /* A: OWNER'S NOTE — specimen first, quiet editorial spread. */
