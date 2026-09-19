@@ -35,7 +35,7 @@
   "observed": {
     "title": "観測個体一覧",
     "intro": "販売ページ、文献、整備記事、動画、SNSで確認できた17件の観測記録を整理した。これは製造台帳ではなく、公開情報から確認できた実例の比較表である。",
-    "note": "Movement No.は公開用に番号帯へ丸め、個体固有性の高い補助番号は掲載しない。同一個体の転載・再出品が含まれる可能性は完全には排除していないため、製造数の推定には使わない。",
+    "note": "17件は同一個体の転載・再出品をそのまま数えたものではない。元資料ではMovement No.を中心に個体識別を行い、番号を確認できる個体同士に同一番号の重複は確認されていない。公開版ではMovement No.を番号帯へマスキングし、個体固有性の高い補助番号も省略している。番号画像がない、または判読が難しい資料についてのみ完全な重複排除までは断定しないため、製造数の推定には使わない。",
     "specimens": [
       {
         "id": "OBS-03",
@@ -288,7 +288,7 @@
       {
         "label": "MIH / 2025",
         "title": "モデル直接資料は未発見、金製アラームへの証明記述は確認",
-        "body": "国際時計博物館（MIH）は、このモデルに直接関係する文書は見つからなかったと回答した一方、所蔵するCYMAファイルに金製アラームウォッチへの証明書に関する記述があるとしてD_7938を共有した。",
+        "body": "国際時計博物館（MIH）は、このモデルに直接関係する文書は見つからなかったと回答した一方、館内で保管するCyma関連ファイルの一つに金製アラームウォッチの証明書への言及があるとして、その記述を含む資料を共有した。",
         "image": ""
       },
       {
@@ -358,7 +358,7 @@
     ]
   },
   "sources": [
-    "CYMA company history file shared by Musée international d’horlogerie (MIH), D_7938",
+    "Cyma-related historical material shared from a library file held by Musée international d’horlogerie (MIH)",
     "Michael Philip Horlbeck, The Alarm Wristwatch, Schiffer Publishing, 2007, Cyma section",
     "Leonhard Beitl, Alarm am Arm, 2009, pp.134–136",
     "B. Humbert, Die Armband-Weckeruhr, Calibre TIME-O-VOX 464 technical article",
