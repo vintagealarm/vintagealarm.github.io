@@ -87,6 +87,42 @@ try {
       }
     }
 
+    const diagramState = await page.evaluate(() =>
+      [...document.querySelectorAll('.mechanism-figure img')].map((img) => {
+        const figure = img.closest('.mechanism-figure');
+        const ir = img.getBoundingClientRect();
+        const fr = figure.getBoundingClientRect();
+        return {
+          src: img.getAttribute('src') || '',
+          naturalWidth: img.naturalWidth,
+          naturalHeight: img.naturalHeight,
+          image: { left: ir.left, right: ir.right, top: ir.top, bottom: ir.bottom, width: ir.width, height: ir.height },
+          figure: { left: fr.left, right: fr.right, top: fr.top, bottom: fr.bottom, width: fr.width, height: fr.height },
+          transform: getComputedStyle(img).transform
+        };
+      })
+    );
+
+    const expectedNatural = [[161, 180], [300, 130], [300, 98], [300, 134]];
+    diagramState.forEach((item, index) => {
+      const [nw, nh] = expectedNatural[index];
+      if (item.naturalWidth !== nw || item.naturalHeight !== nh) {
+        failures.push(`${width}px: ${expectedOrder[index]} wrong image dimensions ${item.naturalWidth}x${item.naturalHeight}, expected ${nw}x${nh}`);
+      }
+      if (item.transform !== 'none') {
+        failures.push(`${width}px: ${expectedOrder[index]} unexpected transform ${item.transform}`);
+      }
+      const clipped = item.image.left < item.figure.left - 1 || item.image.right > item.figure.right + 1 || item.image.top < item.figure.top - 1 || item.image.bottom > item.figure.bottom + 1;
+      if (clipped) {
+        failures.push(`${width}px: ${expectedOrder[index]} image is clipped by figure box: ${JSON.stringify(item)}`);
+      }
+      const heightRatio = item.figure.height ? item.image.height / item.figure.height : 0;
+      const widthRatio = item.figure.width ? item.image.width / item.figure.width : 0;
+      if (heightRatio < 0.55 || heightRatio > 1.01 || widthRatio < 0.35 || widthRatio > 1.01) {
+        failures.push(`${width}px: ${expectedOrder[index]} visual size out of range: h=${heightRatio.toFixed(2)} w=${widthRatio.toFixed(2)}`);
+      }
+    });
+
     if (shellState.overlapFailures.length) {
       failures.push(`${width}px: category content overlap: ${shellState.overlapFailures.join(', ')}`);
     }
