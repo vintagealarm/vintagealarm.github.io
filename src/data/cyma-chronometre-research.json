@@ -238,8 +238,7 @@
         "source": "シェルマン銀座",
         "sourceUrl": "https://shellman-online.jp/view/item/000000003957?category_page_id=8"
       }
-    ],
-    "refNote": "Ref.1283は、掲載個体の購入書類だけでなく、HODINKEEとPamonoの別個体でも使われている。同系統のSS個体ではRef.1261も確認できるため、CYMA公式の型番なのか、流通側で使われた番号なのかは不明。"
+    ]
   },
   "mismatch": {
     "title": "表記が揃わない",
@@ -247,19 +246,16 @@
     "cards": [
       {
         "label": "掲載個体",
-        "meta": "18K / CHRONOMÈTRE",
         "title": "文字盤はChronomètre",
         "body": "掲載個体は18Kケース。文字盤はCHRONOMÈTRE。ムーブメントには5姿勢・温度調整の刻印は見当たらない。"
       },
       {
         "label": "5姿勢",
-        "meta": "YG / FIVE POSITIONS + TEMPERATURE",
         "title": "表記なし、5姿勢・温度調整",
         "body": "文字盤にChronomètre表記はないが、ムーブメントに「ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE」と刻まれた金色ケース個体がある。"
       },
       {
         "label": "UNADJUSTED",
-        "meta": "YG / UNADJUSTED",
         "title": "金色ケース、UNADJUSTED",
         "body": "逆に、金色ケースでムーブメントにUNADJUSTEDと刻まれた個体もある。"
       }
@@ -279,10 +275,7 @@
         "title": "Movement No.4xx",
         "body": "Movement No.4xx、ケース内番号8 6525、BT、1954〜1958年を指定して再照会。約100ページずつのBT台帳8冊を確認したが、掲載個体に対応する試験は特定できなかった。"
       }
-    ],
-    "clueLabel": "台帳に残った手掛かり",
-    "clueQuote": "Bulletin: La Chaux-de-Fonds",
-    "clueBody": "同じ台帳には、1956年以降の Cyma Watch Co. SA, Le Locle、調整者 Arnold Racine の試験記録が残る。さらにCymaのページ上部には「Bulletin: La Chaux-de-Fonds」と鉛筆書きが系統的に入っている。公文書館担当者は、当該企業の試験結果がその年のObservatory BulletinでLa Chaux-de-Fondsの項に掲載されたことを示すものだろう、と説明している。"
+    ]
   },
   "tariff": {
     "title": "Tavannesで起きていたこと",
@@ -316,7 +309,7 @@
       },
       {
         "image": "/images/Cyma timeovox 故障個所.png",
-        "caption": "確認されたバネの状況\n本来の作動位置とは別の箇所に接触痕が確認された。\n整備を担当した修理士から、この個体で生じていた誤作動との関連が指摘された。\nR.464全般に共通する症状かは未確認。",
+        "caption": "掲載個体では、本来の作動穴とは別の位置にも接触痕があった。\n修理士によると、そこでも作動穴に入った時と同じ状態になり、アラームが鳴るという。\n黄色部分がその痕。\nほかのR.464でも同じかは分からない。",
         "alt": "アラーム起動のバネ"
       }
     ],
