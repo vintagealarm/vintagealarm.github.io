@@ -592,7 +592,11 @@ const specimens = orderedSlugs
                 <em>{category.ja}</em>
               </span>
               <span class="mechanism-figure" aria-hidden="true">
-                <img src={`${base}${category.image.replace(/^\//, '')}`} alt="" />
+                <img
+                  src={`${base}${category.image.replace(/^\//, '')}`}
+                  alt=""
+                  style="display:block;width:100%;height:100%;max-width:none;object-fit:contain;"
+                />
               </span>
               <span class="category-action">{category.action}</span>
               <span class="category-count">{category.count} {category.count === 1 ? 'WATCH' : 'WATCHES'} / 掲載</span>
