@@ -90,6 +90,12 @@
 .proto-owner-watch{margin:0}
 .proto-owner-watch img{width:100%;aspect-ratio:1.3;object-fit:cover;object-position:center 48%;filter:saturate(.84) contrast(.97)}
 .proto-owner-watch figcaption{margin-top:9px;color:var(--soft);font:600 9px/1.5 var(--sans);letter-spacing:.1em;text-align:right}
+.proto-owner-index{border-bottom:1px solid var(--rule);background:var(--paper)}
+.proto-owner-index>.shell{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.proto-owner-index a{display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:baseline;min-height:58px;padding:15px 14px;border-left:1px solid var(--rule);text-decoration:none}
+.proto-owner-index a:last-child{border-right:1px solid var(--rule)}
+.proto-owner-index span{color:var(--accent);font:600 9px/1.4 var(--sans);letter-spacing:.08em}
+.proto-owner-index strong{font:500 12px/1.5 var(--jp)}
 .proto-owner-story{padding-bottom:18px}
 .proto-owner-section{display:grid;grid-template-columns:minmax(250px,.72fr) minmax(0,1.28fr);gap:44px;padding:48px 0 54px;border-bottom:1px solid var(--rule)}
 .proto-owner-section>header{display:grid;grid-template-columns:28px 1fr;gap:14px;align-content:start}
@@ -118,6 +124,21 @@
 .proto-institution-list article small{color:var(--accent);font:600 9px/1.5 var(--sans);letter-spacing:.1em}
 .proto-institution-list article h3{margin-top:5px}
 .proto-institution-list article p{margin-left:0}
+.proto-owner-inquiry .proto-owner-copy{max-width:780px}
+.proto-inquiry-lead{margin-bottom:24px!important}
+.proto-inquiry-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.proto-inquiry-grid article{padding:20px 22px 22px 0}
+.proto-inquiry-grid article+article{padding-left:22px;border-left:1px solid var(--rule)}
+.proto-inquiry-grid small,.proto-archive-clue>small{color:var(--accent);font:600 9px/1.5 var(--sans);letter-spacing:.1em}
+.proto-inquiry-grid h3{margin:5px 0 0;font:500 17px/1.65 var(--jp)}
+.proto-inquiry-grid p{margin:7px 0 0;color:var(--soft);font:13px/1.9 var(--sans)}
+.proto-archive-clue{margin:30px 0 0;padding:24px 26px 26px;background:#eceee7;border-left:3px solid var(--accent)}
+.proto-archive-clue blockquote{margin:10px 0 14px;padding:0;border:0}
+.proto-archive-clue blockquote{font:italic 27px/1.35 Georgia,serif;letter-spacing:-.015em}
+.proto-archive-clue p{margin:0;color:var(--ink);font:14px/1.95 var(--jp)}
+.proto-inquiry-next{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;margin-top:22px;padding-top:18px;border-top:1px solid var(--ink)}
+.proto-inquiry-next span{color:var(--accent);font:600 10px/1.5 var(--sans);letter-spacing:.1em}
+.proto-inquiry-next p{margin:0;font:15px/1.95 var(--jp)}
 .proto-field-note{display:grid;grid-template-columns:minmax(240px,.9fr) minmax(0,1.1fr);gap:28px;align-items:start}
 .proto-field-note img{width:100%;aspect-ratio:1.25;object-fit:cover;filter:saturate(.78)}
 .proto-field-note p{margin-left:0}
@@ -237,10 +258,25 @@
   .proto-owner-title h1{font-size:30px;line-height:1.6;letter-spacing:-.03em}
   .proto-owner-deck{margin-top:18px;font-size:14px;line-height:1.9}
   .proto-owner-watch img{aspect-ratio:1.45}
+  .proto-owner-index{overflow-x:auto;scrollbar-width:none}
+  .proto-owner-index::-webkit-scrollbar{display:none}
+  .proto-owner-index>.shell{display:flex;width:max-content;min-width:100%;padding-inline:20px}
+  .proto-owner-index a{flex:0 0 auto;min-width:118px;min-height:50px;padding:12px 12px}
+  .proto-owner-index a:first-child{border-left:0}
+  .proto-owner-index a:last-child{border-right:0}
+  .proto-owner-index strong{font-size:11px}
   .proto-owner-section{display:block;padding:34px 0 38px}
   .proto-owner-section>header{grid-template-columns:24px 1fr;gap:10px;margin-bottom:24px}
   .proto-owner-section h2{font-size:21px;line-height:1.6}
   .proto-owner-copy>p{font-size:14px;line-height:1.95}
+  .proto-inquiry-grid{grid-template-columns:1fr}
+  .proto-inquiry-grid article{padding:18px 0}
+  .proto-inquiry-grid article+article{padding-left:0;border-left:0;border-top:1px solid var(--rule)}
+  .proto-archive-clue{margin-top:24px;padding:20px 18px 22px}
+  .proto-archive-clue blockquote{font-size:22px}
+  .proto-archive-clue p{font-size:13px}
+  .proto-inquiry-next{grid-template-columns:1fr;gap:6px}
+  .proto-inquiry-next p{font-size:14px}
   .proto-logic-lines article{grid-template-columns:52px minmax(0,1fr);gap:12px}
   .proto-logic-lines p{grid-column:2}
   .proto-field-note{grid-template-columns:1fr;gap:20px}
