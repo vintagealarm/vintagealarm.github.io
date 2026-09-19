@@ -37,6 +37,23 @@ const watches = defineCollection({
       label: z.string().optional(),
       alt: z.string().optional()
     })).optional(),
+    howTheyRing: z.object({
+      published: z.boolean().default(false),
+      category: z.enum(['gong', 'caseback', 'bell', 'pin']),
+      image: z.string().optional(),
+      audio: z.object({
+        status: z.enum(['pending', 'ready']).default('pending'),
+        recordings: z.array(z.object({
+          id: z.string(),
+          label: z.string(),
+          src: z.string().optional(),
+          recordedWith: z.string().optional(),
+          distanceCm: z.number().positive().optional(),
+          position: z.string().optional(),
+          processed: z.boolean().optional()
+        })).default([])
+      }).optional()
+    }).optional(),
     video: z.object({
       youtubeId: z.string().optional(),
       xUrl: z.string().url().optional()
