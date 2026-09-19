@@ -3,26 +3,56 @@ import SectionMast from './SectionMast.astro';
 import OwnerFonts from './OwnerFonts.astro';
 import CymaSpecimenTables from './CymaSpecimenTables.astro';
 import CymaResearchConclusion from './CymaResearchConclusion.astro';
+import SeoHead from './SeoHead.astro';
 import data from '../data/cyma-chronometre-research.json';
+import { getGitLastmod, latestDate } from '../lib/git-lastmod';
 
 type Variant = 'owners' | 'history' | 'archive';
-const { variant } = Astro.props as { variant: Variant };
+const { variant, production = false } = Astro.props as { variant: Variant; production?: boolean };
 const base = import.meta.env.BASE_URL;
 
-const paths = {
-  owners: `${base}lab/cyma-chronometre/owners-note/`,
-  history: `${base}lab/cyma-chronometre/history/`,
-  archive: `${base}lab/cyma-chronometre/archive/`
-};
-const labels = {
-  owners: 'A / ノート',
-  history: 'B / 年代記',
-  archive: 'C / 資料'
-};
 const titles = {
   owners: '個体ノート',
   history: '年代記',
   archive: '資料'
+};
+
+const siteRoot='https://vintagealarm.github.io/';
+const productionPath='cyma-time-o-vox/chronometre/';
+const productionUrl=new URL(productionPath,siteRoot).href;
+const productionTitle='Cyma Time-O-Vox Chronomètre｜観測個体と認定記録｜VINTAGE ALARM';
+const productionDescription='Cyma Time-O-Vox Chronomètreを、文献・17件の観測個体・外部照会・UNADJUSTED刻印・実機観察から整理する。';
+const productionImage='/images/cyma-time-o-vox/gallery/cyma-front.jpg';
+const dateModified=latestDate(
+  getGitLastmod('src/data/cyma-chronometre-research.json'),
+  getGitLastmod('src/components/CymaChronometrePrototype.astro'),
+  getGitLastmod('src/pages/cyma-time-o-vox/chronometre/index.astro')
+);
+const productionSchema={
+  '@context':'https://schema.org',
+  '@graph':[
+    {
+      '@type':'Article',
+      headline:'CYMA Time-O-Vox Chronomètre — 観測個体と認定記録',
+      description:productionDescription,
+      inLanguage:'ja',
+      url:productionUrl,
+      image:new URL(productionImage.replace(/^\//,''),siteRoot).href,
+      ...(dateModified?{dateModified}:{}),
+      author:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
+      publisher:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
+      mainEntityOfPage:{'@type':'WebPage','@id':productionUrl},
+      about:{'@type':'Thing',name:'Cyma Time-O-Vox Chronomètre'}
+    },
+    {
+      '@type':'BreadcrumbList',
+      itemListElement:[
+        {'@type':'ListItem',position:1,name:'VINTAGE ALARM',item:siteRoot},
+        {'@type':'ListItem',position:2,name:'CYMA TIME-O-VOX',item:new URL('cyma-time-o-vox/',siteRoot).href},
+        {'@type':'ListItem',position:3,name:'CHRONOMÈTRE',item:productionUrl}
+      ]
+    }
+  ]
 };
 const goldSpecimens = data.observed.specimens.filter((item) => /YG|GOLD|14K|18K/i.test(item.case));
 const steelSpecimens = data.observed.specimens.filter((item) => /SS|STEEL/i.test(item.case));
@@ -54,28 +84,22 @@ const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブ�
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex,nofollow" />
+    {!production && <meta name="robots" content="noindex,nofollow" />}
     <meta name="theme-color" content={variant === 'history' ? '#1c201c' : '#f7f8f4'} />
     <OwnerFonts />
-    <title>CYMA Time-O-Vox Chronomètre — {titles[variant]}｜VINTAGE ALARM</title>
+    {production
+      ? <SeoHead title={productionTitle} description={productionDescription} path={productionPath} image={productionImage} type="article" schema={productionSchema} />
+      : <title>CYMA Time-O-Vox Chronomètre — {titles[variant]}｜VINTAGE ALARM</title>}
   </head>
   <body class:list={['cyma-proto', `cyma-proto--${variant}`, variant === 'owners' && 'owners-v15', variant === 'history' && 'history-v13 history-v18']}>
     <div class="proto-mast"><SectionMast rightLabel="CYMA / R.464" /></div>
-    <nav class="proto-switcher" aria-label="表示切り替え">
-      <div class="shell">
-        {(Object.keys(paths) as Variant[]).map((key) => (
-          <a href={paths[key]} aria-current={key === variant ? 'page' : undefined}>{labels[key]}</a>
-        ))}
-      </div>
-    </nav>
-
     {variant === 'owners' && (
       <main class="proto-owner">
         <header class="proto-owner-hero shell">
           <div class="proto-owner-title">
             <p class="proto-kicker">CYMA / CAL. R.464</p>
             <h1><span>Time-O-Vox</span><span>Chronomètre</span></h1>
-            <p class="proto-owner-deck"><span>文字盤に「CHRONOMÈTRE」と記された18KケースのTime-O-Vox。</span><span>この一本を起点に、クロノメーター仕様と個体差を追っていく。</span></p>
+            <p class="proto-owner-deck"><span>文字盤に「CHRONOMÈTRE」と記された18KケースのTime-O-Vox。</span><span>文字盤の「CHRONOMÈTRE」と、現存個体に残る表記の違いを追っていく。</span></p>
           </div>
           <figure class="proto-owner-watch">
             <img src={`${base}images/cyma-time-o-vox/gallery/cyma-front.jpg`} alt="CYMA Time-O-Vox 18K Chronomètre 掲載個体" />
