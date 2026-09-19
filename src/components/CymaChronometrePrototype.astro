@@ -249,15 +249,10 @@ const failureImages=data.failure.images?.filter((item)=>item.image)??[];
                 </ol>
               </div>
 
-              <div class="proto-owner-field-hypothesis">
-                <small>掲載個体の仮説</small>
-                <h3>{data.failure.hypothesisTitle}</h3>
-                <p><JapaneseProse text={data.failure.hypothesisBody}/> <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
-              </div>
-
             </div>
           </section>
         </article>
+        <CymaResearchConclusion />
       </main>
     )}
 
