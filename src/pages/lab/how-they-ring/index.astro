@@ -339,9 +339,15 @@ const specimens = orderedSlugs
       }
 
       .specimen-media {
+        display: block;
         aspect-ratio: 4 / 3;
         overflow: hidden;
         background: rgba(255,255,255,.28);
+      }
+
+      .specimen-media:focus-visible {
+        outline: 2px solid var(--lab-ink);
+        outline-offset: 2px;
       }
 
       .specimen-media img {
@@ -638,9 +644,13 @@ const specimens = orderedSlugs
               data-category={watch.category}
               hidden={watch.category !== 'gong'}
             >
-              <div class="specimen-media">
+              <a
+                class="specimen-media"
+                href={`${base}${watch.slug}/#owners-note`}
+                aria-label={`${watch.brand} ${watch.model} のOWNER'S NOTEへ`}
+              >
                 <img src={watch.image} alt={`${watch.brand} ${watch.model} 掲載個体`} loading="lazy" />
-              </div>
+              </a>
               <div class="specimen-copy">
                 <div class="specimen-meta">
                   <p class="specimen-type">

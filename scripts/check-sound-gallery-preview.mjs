@@ -255,6 +255,30 @@ try {
     );
     if (brokenImages.length) failures.push(`${width}px: broken images: ${brokenImages.join(', ')}`);
 
+    const thumbnailLinks = await page.locator('[data-specimen] .specimen-media').evaluateAll((links) =>
+      links.map((link) => ({ href: link.getAttribute('href'), label: link.getAttribute('aria-label') }))
+    );
+    const expectedSlugs = [
+      'cyma-time-o-vox', 'pierce-duofon', 'wittnauer-10wa',
+      'citizen-alarm', 'basis-alarm', 'westclox-watchlarm'
+    ];
+    expectedSlugs.forEach((slug, index) => {
+      if (thumbnailLinks[index]?.href !== `/${slug}/#owners-note` || !thumbnailLinks[index]?.label?.includes("OWNER'S NOTE")) {
+        failures.push(`${width}px: ${slug} thumbnail does not link to its OWNER'S NOTE`);
+      }
+    });
+
+    if (width === 390) {
+      await page.locator('button[data-category="bell"]').click();
+      await page.locator('[data-specimen]:not([hidden]) .specimen-media').click();
+      await page.locator('#owners-note').waitFor({ state: 'attached' });
+      const destination = page.url();
+      const ownersNoteAnchors = await page.locator('#owners-note').count();
+      if (!destination.endsWith('/basis-alarm/#owners-note') || ownersNoteAnchors !== 1) {
+        failures.push(`390px: BELL thumbnail did not open the BASIS OWNER'S NOTE (${destination}, anchors: ${ownersNoteAnchors})`);
+      }
+    }
+
     await context.close();
   }
 } finally {
