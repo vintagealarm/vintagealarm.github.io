@@ -12,7 +12,7 @@ const total = goldSpecimens.length + steelSpecimens.length;
     <section class="proto-table-group">
       <h3>18K / YG<small>{goldSpecimens.length} OBJECTS</small></h3>
       <table>
-        <thead><tr><th>CASE</th><th>CHRONOMÈTRE</th><th>ADJUSTMENT</th><th>MOV. No.帯</th><th>seller ref</th><th>年代</th><th>ダイヤル</th><th>CASE CODE</th><th>SOURCE</th><th>ID</th></tr></thead>
+        <thead><tr><th>CASE</th><th>CHRONOMÈTRE</th><th>ADJUSTMENT</th><th>MOV. No.帯</th><th>掲載Ref.</th><th>年代</th><th>ダイヤル</th><th>CASE CODE</th><th>SOURCE</th><th>ID</th></tr></thead>
         <tbody>{goldSpecimens.map((row) => <tr><td>{row.case}</td><td>{row.chronometre}</td><td>{row.adjustment}</td><td>{row.movementBand}</td><td>{row.sellerRef}</td><td>{row.era}</td><td>{row.dial}</td><td>{row.caseCode}</td><td>{row.source}</td><td>{row.id}</td></tr>)}</tbody>
       </table>
     </section>
@@ -22,7 +22,7 @@ const total = goldSpecimens.length + steelSpecimens.length;
     <div class="proto-table-region" tabindex="0" role="region" aria-label="CYMA Time-O-Vox ステンレスケース観測個体一覧">
       <section class="proto-table-group proto-table-group--nested">
         <table>
-          <thead><tr><th>CASE</th><th>CHRONOMÈTRE</th><th>ADJUSTMENT</th><th>MOV. No.帯</th><th>seller ref</th><th>年代</th><th>ダイヤル</th><th>CASE CODE</th><th>SOURCE</th><th>ID</th></tr></thead>
+          <thead><tr><th>CASE</th><th>CHRONOMÈTRE</th><th>ADJUSTMENT</th><th>MOV. No.帯</th><th>掲載Ref.</th><th>年代</th><th>ダイヤル</th><th>CASE CODE</th><th>SOURCE</th><th>ID</th></tr></thead>
           <tbody>{steelSpecimens.map((row) => <tr><td>{row.case}</td><td>{row.chronometre}</td><td>{row.adjustment}</td><td>{row.movementBand}</td><td>{row.sellerRef}</td><td>{row.era}</td><td>{row.dial}</td><td>{row.caseCode}</td><td>{row.source}</td><td>{row.id}</td></tr>)}</tbody>
         </table>
       </section>
