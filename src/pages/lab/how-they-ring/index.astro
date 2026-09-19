@@ -188,7 +188,6 @@ const specimens = orderedSlugs
       }
 
       .category-button[aria-pressed="true"] {
-        box-shadow: inset 0 -3px 0 var(--lab-ink);
         background: rgba(255,255,255,.10);
       }
 
@@ -252,6 +251,12 @@ const specimens = orderedSlugs
         background: transparent;
       }
 
+
+      .category-button[data-category="gong"] .mechanism-figure > img {
+        transform: scale(1.28);
+        transform-origin: center 52%;
+      }
+
       .category-button[data-category="caseback"] .mechanism-figure > img,
       .category-button[data-category="bell"] .mechanism-figure > img,
       .category-button[data-category="pin"] .mechanism-figure > img {
@@ -283,11 +288,8 @@ const specimens = orderedSlugs
       }
 
       .selected-head {
-        display: grid;
-        grid-template-columns: 240px minmax(0, 1fr);
-        gap: 24px;
-        align-items: end;
-        padding: 22px 0;
+        display: block;
+        padding: 18px 0 14px;
       }
 
       .category-summary[hidden],
@@ -476,6 +478,10 @@ const specimens = orderedSlugs
           margin: 5px -2px 2px;
         }
 
+        .category-button[data-category="gong"] .mechanism-figure > img {
+          transform: scale(1.20);
+        }
+
         .category-action {
           min-height: 2.7em;
           margin-top: 3px;
@@ -493,10 +499,7 @@ const specimens = orderedSlugs
         }
 
         .selected-head {
-          grid-template-columns: 92px minmax(0, 1fr);
-          gap: 10px;
-          align-items: center;
-          padding: 8px 0;
+          padding: 8px 0 7px;
         }
 
         .category-summary h2 {
@@ -621,13 +624,7 @@ const specimens = orderedSlugs
               </div>
             ))}
           </div>
-          <div>
-            {categories.map((category) => (
-              <div class="category-summary" data-category-description={category.id} hidden={category.id !== 'gong'}>
-                <p>{category.action}方式。現在の掲載個体は{category.count}本。音源は実機録音を追加するまで表示しない。</p>
-              </div>
-            ))}
-          </div>
+
         </div>
 
         <div class="specimen-grid">
@@ -661,16 +658,14 @@ const specimens = orderedSlugs
                           <audio controls preload="none" src={`${base}${recording.src.replace(/^\//, '')}`}></audio>
                         </div>
                       ) : (
-                        <button class="audio-pending" type="button" disabled>
+                        <button class="audio-pending" type="button" disabled aria-label={recording.label}>
                           <span>{recording.label}</span>
-                          <small>音源準備中</small>
                         </button>
                       )
                     ))
                   ) : (
                     <button class="audio-pending" type="button" disabled>
                       <span>AUDIO / 音源</span>
-                      <small>実機録音を追加予定</small>
                     </button>
                   )}
                 </div>
@@ -679,10 +674,7 @@ const specimens = orderedSlugs
           ))}
         </div>
 
-        <p class="lab-footnote">
-          音源スロットは各掲載個体に用意済み。録音を追加した個体だけ再生UIへ切り替える。
-          Pierce Duofonは複数音源を格納できる構造を維持。
-        </p>
+
       </section>
     </main>
 
@@ -691,7 +683,6 @@ const specimens = orderedSlugs
         const categoryButtons = [...document.querySelectorAll('button[data-category]')];
         const specimenCards = [...document.querySelectorAll('[data-specimen]')];
         const headingBlocks = [...document.querySelectorAll('[data-category-summary]')];
-        const descriptionBlocks = [...document.querySelectorAll('[data-category-description]')];
 
         const selectCategory = (category) => {
           categoryButtons.forEach((button) => {
@@ -702,9 +693,6 @@ const specimens = orderedSlugs
           });
           headingBlocks.forEach((block) => {
             block.hidden = block.dataset.categorySummary !== category;
-          });
-          descriptionBlocks.forEach((block) => {
-            block.hidden = block.dataset.categoryDescription !== category;
           });
         };
 
