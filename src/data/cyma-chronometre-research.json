@@ -282,23 +282,23 @@
     ]
   },
   "archive": {
-    "title": "認定記録とは、まだつながらない",
-    "intro": "モデルとしてChronomètre仕様が存在したことと、特定の現存個体が当時の認定記録に対応することは別問題である。",
+    "title": "外部照会で残った手掛かり",
+    "intro": "MIHはモデル資料、Neuchâtel州立公文書館はMovement No.489の個体照合として回答した。",
     "cards": [
       {
-        "label": "MIH / 2025",
+        "label": "MIH / 18 SEP. 2025",
         "title": "モデル直接資料は未発見、金製アラームへの証明記述は確認",
-        "body": "国際時計博物館（MIH）は、このモデルに直接関係する文書は見つからなかったと回答した一方、館内で保管するCyma関連ファイルの一つに金製アラームウォッチの証明書への言及があるとして、その記述を含む資料を共有した。",
+        "body": "Time-O-Vox Chronomètreに直接関係する文書は確認できなかった。一方、Cyma関連ファイルには金製アラームウォッチへの証明書発行を示す記述があり、その資料が共有された。",
         "image": ""
       },
       {
-        "label": "NEUCHÂTEL ARCHIVES / 2025",
-        "title": "1954–1958年のBT台帳で掲載個体は特定できず",
-        "body": "Neuchâtel州立公文書館は1954–1958年の8冊のBT registerを確認したが、掲載個体に対応する試験を特定できなかった。一方、1956年以降にCyma Watch Co SA, Le Locle名義、Arnold Racine調整の試験記録群が存在すると回答している。",
+        "label": "NEUCHÂTEL / 14 NOV. 2025",
+        "title": "No.489は未特定、La Chaux-de-Fondsの手掛かりが残る",
+        "body": "Movement No.489、ケース内番号8 6525、BT、1954〜1958年を指定して再照会。約100ページずつのBT台帳8冊を確認したが、No.489に対応する試験は特定できなかった。同じ台帳には1956年以降のCyma Watch Co. SA, Le Locle、調整者Arnold Racineの試験記録があり、Cymaのページ上部には「Bulletin: La Chaux-de-Fonds」と鉛筆書きが系統的に残る。担当者は、当該企業の試験結果がその年のObservatory BulletinでLa Chaux-de-Fondsの項に掲載されたことを示すものだろうと説明している。",
         "image": ""
       }
     ],
-    "note": "「見つからなかった」は、Time-O-Vox Chronomètreの不存在証明ではない。現在確認できている記録から、掲載個体との接続ができていないという意味に限る。"
+    "note": "No.489そのものは未特定。ただし調査は「記録がない」で終わらず、該当年のObservatory BulletinとLa Chaux-de-Fonds側の記載へ続く。"
   },
   "tariff": {
     "title": "CYMA / Tavannes と “UNADJUSTED”",
