@@ -1,3 +1,7 @@
+// Policy: src/data/watch-research/README.md
+// These records are optional research-process metadata.
+// Absence from this registry is not a WATCH quality, importance, or completion signal.
+
 import cymaTimeOVox from './watch-research/cyma-time-o-vox.json';
 import pierceDuofon from './watch-research/pierce-duofon.json';
 
