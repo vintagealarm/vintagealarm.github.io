@@ -97,6 +97,7 @@ const getYouTubeId = (value: string) => {
   return input;
 };
 const failureVideoId=getYouTubeId(data.failure.youtubeId||'');
+const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}${value.replace(/^\//,'')}`;
 ---
 <!doctype html>
 <html lang="ja">
@@ -145,6 +146,9 @@ const failureVideoId=getYouTubeId(data.failure.youtubeId||'');
                 <div><dt>HORLBECK</dt><dd><small>専門書</small><strong>5姿勢と温度による試験</strong><p>『The Alarm Wristwatch』には、Cal.R.464のChronomètre仕様と、5姿勢・温度試験の記述がある。 <sup class="proto-cite"><a href="#source-2">[2]</a></sup></p></dd></div>
                 <div><dt>BEITL</dt><dd><small>専門書</small><strong>金製モデルはChronometer仕様</strong><p>『Alarm am Arm』は、14K金ケース・透かしラグのTime-O-Voxについて「この金製モデルは常にChronometer仕様だった」と記す。掲載例には、文字盤とムーブメント双方にChronometer表記を持つ個体と、文字盤に表記がなくムーブメント側だけにChronometer表記を持つ個体がある。 <sup class="proto-cite"><a href="#source-3">[3]</a></sup></p></dd></div>
               </dl>
+              {data.documented.cards.some((card)=>card.image)&&<div class="proto-owner-inline-media">
+                {data.documented.cards.filter((card)=>card.image).map((card)=><figure><img src={resolveMedia(card.image)} alt={card.title}/><figcaption>{card.label} / {card.title}</figcaption></figure>)}
+              </div>}
               <p>Chronomètre仕様は存在した。現存個体を並べると表記は揃わない。 <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-9">[9]</a></sup></p>
             </div>
           </section>
@@ -159,6 +163,9 @@ const failureVideoId=getYouTubeId(data.failure.youtubeId||'');
                 <div><dt>5姿勢</dt><dd><small>YG / FIVE POSITIONS + TEMPERATURE</small><strong>表記なし、5姿勢・温度調整</strong><p>文字盤にChronomètre表記はないが、ムーブメントに「ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE」と刻まれた金色ケース個体がある。</p></dd></div>
                 <div><dt>UNADJUSTED</dt><dd><small>YG / UNADJUSTED</small><strong>金色ケース、UNADJUSTED</strong><p>逆に、金色ケースでムーブメントにUNADJUSTEDと刻まれた個体もある。</p></dd></div>
               </dl>
+              {data.observed.images?.some((item)=>item.image)&&<div class="proto-owner-inline-media">
+                {data.observed.images.filter((item)=>item.image).map((item)=><figure><img src={resolveMedia(item.image)} alt={item.alt||'CYMA Time-O-Vox 観測個体'}/><figcaption>{item.caption}</figcaption></figure>)}
+              </div>}
               <CymaSpecimenTables />
             </div>
           </section>
@@ -168,6 +175,7 @@ const failureVideoId=getYouTubeId(data.failure.youtubeId||'');
             <div class="proto-owner-copy">
               <p>1956年の米国上院公聴会では、調整済みのスイス時計を「unadjusted」と表示して輸入する事例が問題になった。追加関税を避けるためだった。 <sup class="proto-cite"><a href="#source-6">[6]</a></sup></p>
               <blockquote><p lang="en">{proofQuote}</p><footer>{proofQuoteJa} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></footer></blockquote>
+              {data.tariff.image&&<figure class="proto-tariff-media"><img src={resolveMedia(data.tariff.image)} alt="1956年米国上院 Swiss Watches—Adjustments 資料"/><figcaption>{data.tariff.caption}</figcaption></figure>}
               <p>Pritchardが挙げた例の一つがTavannes。工場広告では全ムーブメントを姿勢と温度について調整するとしながら、Washington, D.C.で販売された時計には「unadjusted」と刻まれていた。 <sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup></p>
               <p>CYMA WATCH CO. SAは、PritchardのTavannes項目でグループ企業として記載されている。 <sup class="proto-cite"><a href="#source-5">[5]</a></sup></p>
               <p>Time-O-VoxのUNADJUSTED刻印も、刻印だけで未調整とは決められない。 <sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a><a href="#source-9">[9]</a></sup></p>
@@ -204,15 +212,20 @@ const failureVideoId=getYouTubeId(data.failure.youtubeId||'');
               <p>HumbertのR.464技術解説では、両プッシャーが中央位置のときにアラームが作動し、どちらかを完全に押し込むとロックされる。 <sup class="proto-cite"><a href="#source-4">[4]</a></sup></p>
 
               <div class="proto-owner-field-media" aria-label="掲載個体のプッシャー配置とCal.R.464ムーブメント">
-                <figure>
-                  <img src={`${base}images/cyma-time-o-vox/gallery/cyma-side-pushers.jpg`} alt="CYMA Time-O-Vox 掲載個体の上下プッシャーとリューズ" />
-                  <figcaption>掲載個体。上下のプッシャーとリューズ。</figcaption>
-                </figure>
-                <figure>
-                  <img src={`${base}images/cyma-time-o-vox/gallery/cyma-movement-r464.jpg`} alt="CYMA Time-O-Vox Cal.R.464 ムーブメント" />
-                  <figcaption>掲載個体のCal.R.464。</figcaption>
-                </figure>
+                {data.failure.images?.some((item)=>item.image)
+                  ? data.failure.images.filter((item)=>item.image).map((item)=><figure><img src={resolveMedia(item.image)} alt={item.alt||'CYMA Time-O-Vox Cal.R.464'}/><figcaption>{item.caption}</figcaption></figure>)
+                  : <>
+                    <figure>
+                      <img src={`${base}images/cyma-time-o-vox/gallery/cyma-side-pushers.jpg`} alt="CYMA Time-O-Vox 掲載個体の上下プッシャーとリューズ" />
+                      <figcaption>掲載個体。上下のプッシャーとリューズ。</figcaption>
+                    </figure>
+                    <figure>
+                      <img src={`${base}images/cyma-time-o-vox/gallery/cyma-movement-r464.jpg`} alt="CYMA Time-O-Vox Cal.R.464 ムーブメント" />
+                      <figcaption>掲載個体のCal.R.464。</figcaption>
+                    </figure>
+                  </>}
               </div>
+              {failureVideoId&&<figure class="proto-owner-video"><div class="proto-video-frame"><iframe src={`https://www.youtube.com/embed/${failureVideoId}`} title="CYMA Time-O-Vox アラーム挙動" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>{data.failure.youtubeCaption}</figcaption></figure>}
 
               <div class="proto-owner-field-observation">
                 <div class="proto-owner-field-heading">
