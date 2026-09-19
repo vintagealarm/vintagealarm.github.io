@@ -4,6 +4,7 @@ import OwnerFonts from './OwnerFonts.astro';
 import CymaSpecimenTables from './CymaSpecimenTables.astro';
 import CymaResearchConclusion from './CymaResearchConclusion.astro';
 import SeoHead from './SeoHead.astro';
+import JapaneseProse from './JapaneseProse.astro';
 import data from '../data/cyma-chronometre-research.json';
 import { getGitLastmod, latestDate } from '../lib/git-lastmod';
 
@@ -98,6 +99,7 @@ const getYouTubeId = (value: string) => {
 };
 const failureVideoId=getYouTubeId(data.failure.youtubeId||'');
 const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}${value.replace(/^\//,'')}`;
+const failureImages=data.failure.images?.filter((item)=>item.image)??[];
 ---
 <!doctype html>
 <html lang="ja">
@@ -139,8 +141,8 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
 
         <article class="proto-owner-story shell">
           <section class="proto-owner-section" id="owners-documented">
-            <header><span>01</span><div><small>文献</small><h2>{data.documented.title}</h2></div></header>
-            <div class="proto-owner-copy">
+            <header><span>01</span><div><small>文献</small><h2>{data.documented.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="01 文献を開閉" aria-controls="owners-documented-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-documented-content">
               <dl class="proto-source-ledger">
                 {data.documented.cards.map((card,index)=>(
                   <div>
@@ -148,7 +150,7 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
                     <dd>
                       <small>{index===0?'共有資料':'専門書'}</small>
                       <strong>{card.title}</strong>
-                      <p>{card.body}
+                      <p><JapaneseProse text={card.body}/>
                         {index===0&&<sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-7">[7]</a></sup>}
                         {index===1&&<sup class="proto-cite"><a href="#source-2">[2]</a></sup>}
                         {index===2&&<sup class="proto-cite"><a href="#source-3">[3]</a></sup>}
@@ -160,18 +162,18 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
               {data.documented.cards.some((card)=>card.image)&&<div class="proto-owner-inline-media">
                 {data.documented.cards.filter((card)=>card.image).map((card)=><figure><img src={resolveMedia(card.image)} alt={card.title}/><figcaption>{card.label} / {card.title}</figcaption></figure>)}
               </div>}
-              <p>{data.documented.intro} <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-9">[9]</a></sup></p>
+              <p><JapaneseProse text={data.documented.intro}/> <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-9">[9]</a></sup></p>
             </div>
           </section>
 
           <section class="proto-owner-section" id="owners-observed">
-            <header><span>02</span><div><small>観測個体</small><h2>{data.observed.title}</h2></div></header>
-            <div class="proto-owner-copy">
-              <p>{data.observed.intro} <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
-              {data.observed.refNote&&<p>{data.observed.refNote} <sup class="proto-cite"><a href="#source-9">[9]</a><a href="#source-10">[10]</a><a href="#source-11">[11]</a><a href="#source-12">[12]</a></sup></p>}
+            <header><span>02</span><div><small>観測個体</small><h2>{data.observed.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="02 観測個体を開閉" aria-controls="owners-observed-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-observed-content">
+              <p><JapaneseProse text={data.observed.intro}/> <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+              {data.observed.refNote&&<p><JapaneseProse text={data.observed.refNote}/> <sup class="proto-cite"><a href="#source-9">[9]</a><a href="#source-10">[10]</a><a href="#source-11">[11]</a><a href="#source-12">[12]</a></sup></p>}
               <dl class="proto-source-ledger">
                 {data.mismatch.cards.map((card)=>(
-                  <div><dt>{card.label}</dt><dd><small>{card.meta||''}</small><strong>{card.title}</strong><p>{card.body}</p></dd></div>
+                  <div><dt>{card.label}</dt><dd><small>{card.meta||''}</small><strong>{card.title}</strong><p><JapaneseProse text={card.body}/></p></dd></div>
                 ))}
               </dl>
               {data.observed.images?.some((item)=>item.image)&&<div class="proto-owner-inline-media">
@@ -182,12 +184,12 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
           </section>
 
           <section class="proto-owner-section proto-owner-logic" id="owners-unadjusted">
-            <header><span>03</span><div><small>UNADJUSTED刻印</small><h2>{data.tariff.title}</h2></div></header>
-            <div class="proto-owner-copy">
-              <p>{data.tariff.intro} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></p>
+            <header><span>03</span><div><small>UNADJUSTED刻印</small><h2>{data.tariff.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="03 UNADJUSTED刻印を開閉" aria-controls="owners-unadjusted-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-unadjusted-content">
+              <p><JapaneseProse text={data.tariff.intro}/> <sup class="proto-cite"><a href="#source-6">[6]</a></sup></p>
               <blockquote><p lang="en">{proofQuote}</p><footer>{proofQuoteJa} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></footer></blockquote>
               {data.tariff.image&&<figure class="proto-tariff-media"><img src={resolveMedia(data.tariff.image)} alt="1956年米国上院 Swiss Watches—Adjustments 資料"/><figcaption>{data.tariff.caption}</figcaption></figure>}
-              {data.tariff.body.map((paragraph,index)=><p>{paragraph}
+              {data.tariff.body.map((paragraph,index)=><p><JapaneseProse text={paragraph}/>
                 {index===0&&<sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>}
                 {index===1&&<sup class="proto-cite"><a href="#source-5">[5]</a></sup>}
                 {index===2&&<sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a><a href="#source-9">[9]</a></sup>}
@@ -196,41 +198,42 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
           </section>
 
           <section class="proto-owner-section proto-owner-inquiry" id="owners-archive">
-            <header><span>04</span><div><small>外部照会</small><h2>{data.archive.title}</h2></div></header>
-            <div class="proto-owner-copy">
-              <p class="proto-inquiry-lead">{data.archive.intro}</p>
+            <header><span>04</span><div><small>外部照会</small><h2>{data.archive.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="04 外部照会を開閉" aria-controls="owners-archive-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-archive-content">
+              <p class="proto-inquiry-lead"><JapaneseProse text={data.archive.intro}/></p>
               <div class="proto-inquiry-grid">
                 {data.archive.cards.map((card,index)=>(
-                  <article><small>{card.label}</small><h3>{card.title}</h3><p>{card.body} <sup class="proto-cite"><a href={index===0?'#source-7':'#source-8'}>[{index===0?'7':'8'}]</a></sup></p></article>
+                  <article><small>{card.label}</small><h3>{card.title}</h3><p><JapaneseProse text={card.body}/> <sup class="proto-cite"><a href={index===0?'#source-7':'#source-8'}>[{index===0?'7':'8'}]</a></sup></p></article>
                 ))}
               </div>
               {data.archive.clueBody&&<aside class="proto-archive-clue">
                 <small>{data.archive.clueLabel}</small>
                 <blockquote>“{data.archive.clueQuote}”</blockquote>
-                <p>{data.archive.clueBody} <sup class="proto-cite"><a href="#source-8">[8]</a></sup></p>
+                <p><JapaneseProse text={data.archive.clueBody}/> <sup class="proto-cite"><a href="#source-8">[8]</a></sup></p>
               </aside>}
             </div>
           </section>
 
           <section class="proto-owner-section proto-owner-field-section" id="owners-field-note">
-            <header><span>05</span><div><small>実機観察</small><h2>{data.failure.title}</h2></div></header>
-            <div class="proto-owner-copy">
-              <p>{data.failure.intro} <sup class="proto-cite"><a href="#source-4">[4]</a></sup></p>
+            <header><span>05</span><div><small>実機観察</small><h2>{data.failure.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="05 実機観察を開閉" aria-controls="owners-field-note-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-field-note-content">
+              <p><JapaneseProse text={data.failure.intro}/> <sup class="proto-cite"><a href="#source-4">[4]</a></sup></p>
 
               <div class="proto-owner-field-media" aria-label="掲載個体のプッシャー配置とCal.R.464ムーブメント">
-                {data.failure.images?.some((item)=>item.image)
-                  ? data.failure.images.filter((item)=>item.image).map((item)=><figure><img src={resolveMedia(item.image)} alt={item.alt||'CYMA Time-O-Vox Cal.R.464'}/><figcaption>{item.caption}</figcaption></figure>)
+                {failureImages.length
+                  ? failureImages.map((item)=><figure><div class="proto-owner-field-image"><img src={resolveMedia(item.image)} alt={item.alt||'CYMA Time-O-Vox Cal.R.464'}/></div><figcaption>{item.caption}</figcaption></figure>)
                   : <>
                     <figure>
-                      <img src={`${base}images/cyma-time-o-vox/gallery/cyma-side-pushers.jpg`} alt="CYMA Time-O-Vox 掲載個体の上下プッシャーとリューズ" />
+                      <div class="proto-owner-field-image"><img src={`${base}images/cyma-time-o-vox/gallery/cyma-side-pushers.jpg`} alt="CYMA Time-O-Vox 掲載個体の上下プッシャーとリューズ" /></div>
                       <figcaption>掲載個体。上下のプッシャーとリューズ。</figcaption>
                     </figure>
                     <figure>
-                      <img src={`${base}images/cyma-time-o-vox/gallery/cyma-movement-r464.jpg`} alt="CYMA Time-O-Vox Cal.R.464 ムーブメント" />
+                      <div class="proto-owner-field-image"><img src={`${base}images/cyma-time-o-vox/gallery/cyma-movement-r464.jpg`} alt="CYMA Time-O-Vox Cal.R.464 ムーブメント" /></div>
                       <figcaption>掲載個体のCal.R.464。</figcaption>
                     </figure>
                   </>}
               </div>
+              {(failureImages.length>1||failureImages.length===0)&&<p class="proto-owner-field-swipe-hint">左右にスワイプして画像を見る</p>}
               {failureVideoId&&<figure class="proto-owner-video"><div class="proto-video-frame"><iframe src={`https://www.youtube.com/embed/${failureVideoId}`} title="CYMA Time-O-Vox アラーム挙動" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>{data.failure.youtubeCaption}</figcaption></figure>}
 
               <div class="proto-owner-field-observation">
@@ -238,7 +241,7 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
                   <small>{data.failure.normalTitle}</small>
                   <h3>{data.failure.observedTitle}</h3>
                 </div>
-                <p>{data.failure.observedBody} <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+                <p><JapaneseProse text={data.failure.observedBody}/> <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
                 <ol>
                   {data.failure.examples.map((example, index) => (
                     <li><span>0{index + 1}</span><strong>{example}</strong><small>鳴動を目視確認</small></li>
@@ -249,7 +252,7 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
               <div class="proto-owner-field-hypothesis">
                 <small>掲載個体の仮説</small>
                 <h3>{data.failure.hypothesisTitle}</h3>
-                <p>{data.failure.hypothesisBody} <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+                <p><JapaneseProse text={data.failure.hypothesisBody}/> <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
               </div>
 
             </div>
@@ -354,5 +357,51 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
       <details open={variant === 'owners'}><summary>使用資料</summary><ol>{data.sources.map((source, index) => <li id={`source-${index + 1}`}><span class="proto-source-no">[{index + 1}]</span>{source}</li>)}</ol></details>
       <a href={`${base}cyma-time-o-vox/chronometre/`}>現行RESEARCHページを見る →</a>
     </footer>
+    {variant === 'owners' && <script is:inline>
+      (() => {
+        const story=document.querySelector('.proto-owner-story');
+        const mobile=window.matchMedia('(max-width:760px)');
+        if(!story) return;
+        const chapters=[...story.querySelectorAll('.proto-owner-section')].map((section)=>({
+          section,
+          button:section.querySelector('.proto-owner-section-toggle'),
+          content:section.querySelector('.proto-owner-copy')
+        }));
+        const setOpen=(chapter,open)=>{
+          chapter.content.hidden=!open;
+          chapter.button.setAttribute('aria-expanded',String(open));
+        };
+        const openHash=()=>{
+          if(!mobile.matches||!location.hash) return;
+          const target=document.getElementById(location.hash.slice(1));
+          const chapter=chapters.find(({section})=>section===target||section.contains(target));
+          if(chapter) setOpen(chapter,true);
+        };
+        const sync=()=>{
+          chapters.forEach((chapter)=>setOpen(chapter,!mobile.matches));
+          openHash();
+        };
+        chapters.forEach((chapter)=>chapter.button.addEventListener('click',()=>{
+          if(mobile.matches) setOpen(chapter,chapter.content.hidden);
+        }));
+        mobile.addEventListener('change',sync);
+        window.addEventListener('hashchange',openHash);
+        document.querySelectorAll('.proto-owner-index a[href^="#owners-"]').forEach((link)=>{
+          link.addEventListener('click',()=>{
+            if(!mobile.matches) return;
+            const chapter=chapters.find(({section})=>`#${section.id}`===link.getAttribute('href'));
+            if(chapter) setOpen(chapter,true);
+          });
+        });
+        sync();
+        story.classList.add('is-accordion-ready');
+        const media=story.querySelector('.proto-owner-field-media');
+        if(media&&media.children.length>1){
+          const syncMedia=()=>mobile.matches?media.setAttribute('tabindex','0'):media.removeAttribute('tabindex');
+          mobile.addEventListener('change',syncMedia);
+          syncMedia();
+        }
+      })();
+    </script>}
   </body>
 </html>

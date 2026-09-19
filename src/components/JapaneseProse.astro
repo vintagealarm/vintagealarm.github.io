@@ -1,0 +1,8 @@
+---
+const { text } = Astro.props as { text: string };
+const words = [...new Intl.Segmenter('ja', { granularity: 'word' }).segment(text)].map(({ segment, isWordLike }) => ({
+  text: segment,
+  keep: isWordLike && segment.length > 1 && segment.length <= 8 && /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(segment)
+}));
+---
+{words.map((word) => word.keep ? <span class="proto-jp-word">{word.text}</span> : word.text)}
