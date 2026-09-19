@@ -8,7 +8,7 @@ const total = goldSpecimens.length + steelSpecimens.length;
 ---
 <details class="proto-specimens" open={open}>
   <summary><span>観測個体一覧を見る</span><small>{total}件</small></summary>
-  <div class="proto-table-region" tabindex="0" role="region" aria-label="CYMA Time-O-Vox 18K・金色ケース観測個体一覧">
+  <div class="proto-table-region proto-table-region--desktop" tabindex="0" role="region" aria-label="CYMA Time-O-Vox 18K・金色ケース観測個体一覧">
     <section class="proto-table-group">
       <h3>18K / YG<small>{goldSpecimens.length} OBJECTS</small></h3>
       <table>
@@ -17,15 +17,56 @@ const total = goldSpecimens.length + steelSpecimens.length;
       </table>
     </section>
   </div>
+  <div class="proto-specimen-cards" aria-label="CYMA Time-O-Vox 18K・金色ケース観測個体一覧">
+    <h3>18K / YG <small>{goldSpecimens.length}件</small></h3>
+    {goldSpecimens.map((row) => (
+      <details class="proto-specimen-card">
+        <summary>
+          <span>{row.case}</span>
+          <strong>{row.chronometre === '—' ? '表記なし' : row.chronometre}</strong>
+          <small>{row.movementBand}</small>
+        </summary>
+        <dl>
+          <div><dt>調整刻印</dt><dd>{row.adjustment}</dd></div>
+          <div><dt>掲載Ref.</dt><dd>{row.sellerRef}</dd></div>
+          <div><dt>年代</dt><dd>{row.era}</dd></div>
+          <div><dt>ダイヤル</dt><dd>{row.dial}</dd></div>
+          <div><dt>CASE CODE</dt><dd>{row.caseCode}</dd></div>
+          <div><dt>SOURCE</dt><dd>{row.source}</dd></div>
+          <div><dt>ID</dt><dd>{row.id}</dd></div>
+        </dl>
+      </details>
+    ))}
+  </div>
   <details class="proto-specimen-subgroup">
     <summary><span>STAINLESS STEEL</span><small>{steelSpecimens.length}件</small></summary>
-    <div class="proto-table-region" tabindex="0" role="region" aria-label="CYMA Time-O-Vox ステンレスケース観測個体一覧">
+    <div class="proto-table-region proto-table-region--desktop" tabindex="0" role="region" aria-label="CYMA Time-O-Vox ステンレスケース観測個体一覧">
       <section class="proto-table-group proto-table-group--nested">
         <table>
           <thead><tr><th>CASE</th><th>CHRONOMÈTRE</th><th>ADJUSTMENT</th><th>MOV. No.帯</th><th>掲載Ref.</th><th>年代</th><th>ダイヤル</th><th>CASE CODE</th><th>SOURCE</th><th>ID</th></tr></thead>
           <tbody>{steelSpecimens.map((row) => <tr><td>{row.case}</td><td>{row.chronometre}</td><td>{row.adjustment}</td><td>{row.movementBand}</td><td>{row.sellerRef}</td><td>{row.era}</td><td>{row.dial}</td><td>{row.caseCode}</td><td>{row.source}</td><td>{row.id}</td></tr>)}</tbody>
         </table>
       </section>
+    </div>
+    <div class="proto-specimen-cards" aria-label="CYMA Time-O-Vox ステンレスケース観測個体一覧">
+      {steelSpecimens.map((row) => (
+        <details class="proto-specimen-card">
+          <summary>
+            <span>{row.case}</span>
+            <strong>{row.chronometre === '—' ? '表記なし' : row.chronometre}</strong>
+            <small>{row.movementBand}</small>
+          </summary>
+          <dl>
+            <div><dt>調整刻印</dt><dd>{row.adjustment}</dd></div>
+            <div><dt>掲載Ref.</dt><dd>{row.sellerRef}</dd></div>
+            <div><dt>年代</dt><dd>{row.era}</dd></div>
+            <div><dt>ダイヤル</dt><dd>{row.dial}</dd></div>
+            <div><dt>CASE CODE</dt><dd>{row.caseCode}</dd></div>
+            <div><dt>SOURCE</dt><dd>{row.source}</dd></div>
+            <div><dt>ID</dt><dd>{row.id}</dd></div>
+          </dl>
+        </details>
+      ))}
     </div>
   </details>
   <p class="proto-table-note">{data.observed.note}</p>
