@@ -106,10 +106,6 @@ try {
     }
 
     if (width <= 430) {
-      await page.locator('.category-grid').evaluate((node) => {
-        node.scrollIntoView({ block: 'start', inline: 'nearest' });
-      });
-      await page.waitForTimeout(50);
       const visibility = await page.evaluate(() => {
         const section = document.querySelector('#specimen-panel');
         const grid = document.querySelector('.category-grid');
@@ -117,20 +113,17 @@ try {
         const sectionRect = section.getBoundingClientRect();
         const gridRect = grid.getBoundingClientRect();
         return {
-          sectionTop: Math.round(sectionRect.top),
-          gridTop: Math.round(gridRect.top),
-          gridBottom: Math.round(gridRect.bottom),
           gridHeight: Math.round(gridRect.height),
+          gapToGallery: Math.round(sectionRect.top - gridRect.bottom),
+          combinedHeight: Math.round(gridRect.height + (sectionRect.top - gridRect.bottom)),
           viewportHeight: window.innerHeight
         };
       });
       if (
         !visibility ||
-        visibility.gridTop < -1 ||
-        visibility.gridBottom > visibility.viewportHeight ||
-        visibility.sectionTop >= visibility.viewportHeight
+        visibility.combinedHeight >= visibility.viewportHeight
       ) {
-        failures.push(`${width}px: selector and gallery are not visible together: ${JSON.stringify(visibility)}`);
+        failures.push(`${width}px: selector and gallery cannot share one viewport: ${JSON.stringify(visibility)}`);
       }
     }
 
