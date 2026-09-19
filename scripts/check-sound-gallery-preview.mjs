@@ -15,7 +15,7 @@ async function visibleSpecimens(page) {
 try {
   for (const width of widths) {
     const context = await browser.newContext({
-      viewport: { width, height: 1200 },
+      viewport: { width, height: width <= 390 ? 844 : 1000 },
       deviceScaleFactor: 1
     });
     const page = await context.newPage();
@@ -77,7 +77,7 @@ try {
       failures.push(`${width}px: category order wrong: ${JSON.stringify(shellState.labels)}`);
     }
 
-    const expectedFigureEnds = ['/gong.svg', '/caseback.svg', '/bell.svg', '/pin.svg'];
+    const expectedFigureEnds = ['/gong.webp', '/caseback.webp', '/bell.webp', '/pin.webp'];
     for (let index = 0; index < expectedFigureEnds.length; index += 1) {
       if (!shellState.figures[index]?.endsWith(expectedFigureEnds[index])) {
         failures.push(`${width}px: category ${expectedOrder[index]} diagram wrong: ${shellState.figures[index]}`);
@@ -100,6 +100,24 @@ try {
       !initial.some((item) => item.includes('WITTNAUER'))
     ) {
       failures.push(`${width}px: GONG initial state is wrong: ${JSON.stringify(initial)}`);
+    }
+
+    if (width <= 390) {
+      const visibility = await page.evaluate(() => {
+        const section = document.querySelector('#specimen-panel');
+        const grid = document.querySelector('.category-grid');
+        if (!section || !grid) return null;
+        const sectionRect = section.getBoundingClientRect();
+        const gridRect = grid.getBoundingClientRect();
+        return {
+          sectionTop: Math.round(sectionRect.top),
+          gridBottom: Math.round(gridRect.bottom),
+          viewportHeight: window.innerHeight
+        };
+      });
+      if (!visibility || visibility.sectionTop >= visibility.viewportHeight) {
+        failures.push(`${width}px: gallery does not begin within initial viewport: ${JSON.stringify(visibility)}`);
+      }
     }
 
     const cases = [
