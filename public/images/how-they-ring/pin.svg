@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-labelledby="title desc">
+<title>PIN / ピン</title><desc>腕時計の側面略図。ハンマーが中央ピンを介して底部へ振動を伝える。</desc>
+<style>
+  .ink{fill:none;stroke:#16384a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+  .soft{fill:none;stroke:#16384a;stroke-opacity:.28;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .accent{fill:#d9c6a4;fill-opacity:.74;stroke:#16384a;stroke-width:3;stroke-linejoin:round}
+  .accentLine{fill:none;stroke:#b99c70;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+  .hammer{fill:#16384a;stroke:#16384a;stroke-width:2;stroke-linejoin:round}
+  .hammerArm{fill:none;stroke:#16384a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<!-- lugs -->
+<path class="ink" d="M70 174 C46 176 35 188 28 203 C46 204 58 199 75 187 M410 174 C434 176 445 188 452 203 C434 204 422 199 405 187"/>
+<!-- case -->
+<path class="ink" d="M86 122 C130 102 350 102 394 122 L394 190 C360 211 120 211 86 190 Z"/>
+<!-- top glass / dial -->
+<ellipse class="soft" cx="240" cy="121" rx="154" ry="31"/>
+<path class="soft" d="M240 121 L203 112 M240 121 L278 111"/><circle class="soft" cx="240" cy="121" r="4"/>
+<!-- bottom -->
+<path class="soft" d="M89 188 C132 207 348 207 391 188"/>
+<!-- central pin -->
+<rect class="accent" x="234" y="164" width="12" height="30" rx="3"/>
+<circle class="accent" cx="240" cy="162" r="7"/>
+<!-- hammer striking pin head -->
+<path class="hammerArm" d="M292 150 L250 160"/>
+<circle class="ink" cx="299" cy="149" r="7"/>
+<rect class="hammer" x="246" y="150" width="24" height="14" rx="2" transform="rotate(-12 258 157)"/>
+</svg>
