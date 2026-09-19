@@ -37,6 +37,7 @@ const watches = defineCollection({
       label: z.string().optional(),
       alt: z.string().optional()
     })).optional(),
+    soundGalleryThumbnail: z.string().optional(),
     video: z.object({
       youtubeId: z.string().optional(),
       xUrl: z.string().url().optional()

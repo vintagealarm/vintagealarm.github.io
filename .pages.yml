@@ -1,8 +1,16 @@
 media:
-  input: public/images
-  output: /images
-  rename: false
-  categories: [image]
+  - name: images
+    input: public/images
+    output: /images
+    rename: false
+    categories: [image]
+  - name: alarmAudio
+    label: アラーム音源
+    input: public/audio/alarms
+    output: /audio/alarms
+    rename: safe
+    categories: [audio]
+    extensions: [mp3, m4a, wav]
 
 content:
   - name: watches
@@ -87,6 +95,51 @@ content:
           - { name: image, label: 画像, type: image, required: true }
           - { name: label, label: 表示名（例：正面 / 側面 / 裏面）, type: string }
           - { name: alt, label: altテキスト, type: string }
+      - name: soundGalleryThumbnail
+        label: HOW THEY RING サムネイル
+        description: 空欄ならOWNER'S NOTEの画像を表示。ここで選ぶ画像は鳴らし方ギャラリーだけに使います。
+        type: image
+        options:
+          media: images
+      - name: audio
+        label: HOW THEY RING 音源
+        type: object
+        fields:
+          - name: status
+            label: 再生の公開状態
+            description: readyにすると、ファイルを登録した音源だけ再生できます。
+            type: select
+            default: pending
+            options:
+              values:
+                - { name: pending, label: 準備中 }
+                - { name: ready, label: 再生可能 }
+          - name: recordings
+            label: 録音
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: id
+                label: 音源ID
+                type: uuid
+                options:
+                  editable: false
+              - { name: label, label: 音源名, type: string, required: true }
+              - name: src
+                label: 音声ファイル
+                type: file
+                required: true
+                options:
+                  media: alarmAudio
+                  categories: [audio]
+                  extensions: [mp3, m4a, wav]
+              - { name: recordedWith, label: 録音機材, type: string }
+              - { name: distanceCm, label: 録音距離（cm）, type: number }
+              - { name: position, label: 録音位置, type: string }
+              - { name: processed, label: 加工済み, type: boolean }
       - name: video
         label: 実機鳴動
         type: object

@@ -75,8 +75,10 @@ const specimens = orderedSlugs
       brand: watch.brand,
       model: watch.model,
       caliber: watch.spec.caliber,
-      image: `${base}${watch.ownersNote.image.replace(/^\//, '')}`,
-      audio: watch.audio
+      image: `${base}${(watch.soundGalleryThumbnail?.trim() || watch.ownersNote.image).replace(/^\//, '')}`,
+      recordings: watch.audio?.status === 'ready'
+        ? watch.audio.recordings.filter((recording) => Boolean(recording.src?.trim()))
+        : []
     };
   })
   .filter(Boolean);
@@ -390,6 +392,9 @@ const specimens = orderedSlugs
         width: 100%;
       }
 
+      .audio-slots audio { display: block; max-width: 100%; }
+      .audio-slots p { margin: 0 0 6px; color: var(--lab-soft); font-size: 11px; }
+
       .audio-pending {
         min-height: 52px;
         padding: 9px 11px;
@@ -648,18 +653,12 @@ const specimens = orderedSlugs
                 </div>
 
                 <div class="audio-slots">
-                  {watch.audio?.recordings?.length ? (
-                    watch.audio.recordings.map((recording) => (
-                      recording.src ? (
-                        <div>
-                          <p>{recording.label}</p>
-                          <audio controls preload="none" src={`${base}${recording.src.replace(/^\//, '')}`}></audio>
-                        </div>
-                      ) : (
-                        <button class="audio-pending" type="button" disabled aria-label={recording.label}>
-                          <span>{recording.label}</span>
-                        </button>
-                      )
+                  {watch.recordings.length ? (
+                    watch.recordings.map((recording) => (
+                      <div>
+                        <p>{recording.label}</p>
+                        <audio controls preload="none" src={`${base}${recording.src.replace(/^\//, '')}`}></audio>
+                      </div>
                     ))
                   ) : (
                     <button class="audio-pending" type="button" disabled>
