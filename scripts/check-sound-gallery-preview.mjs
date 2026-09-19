@@ -15,7 +15,7 @@ async function visibleSpecimens(page) {
 try {
   for (const width of widths) {
     const context = await browser.newContext({
-      viewport: { width, height: 1100 },
+      viewport: { width, height: 1200 },
       deviceScaleFactor: 1
     });
     const page = await context.newPage();
@@ -27,60 +27,85 @@ try {
       continue;
     }
 
-    const shellState = await page.evaluate(() => ({
-      overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth,
-      categoryButtons: document.querySelectorAll('button[data-category]').length,
-      variantButtons: document.querySelectorAll('button[data-variant]').length,
-      robots: document.querySelector('meta[name="robots"]')?.getAttribute('content') || '',
-      canonical: !!document.querySelector('link[rel="canonical"]'),
-      analytics: !!document.querySelector('script[src*="static.cloudflareinsights.com"]')
-    }));
+    const shellState = await page.evaluate(() => {
+      const categoryButtons = [...document.querySelectorAll('button[data-category]')];
+      const labels = categoryButtons.map((button) => button.querySelector('.category-name strong')?.textContent?.trim() || '');
+      const figures = categoryButtons.map((button) => button.querySelector('.mechanism-figure img')?.getAttribute('src') || '');
+      const overlapFailures = [];
+
+      for (const button of categoryButtons) {
+        const parts = ['.category-name', '.mechanism-figure', '.category-action', '.category-count']
+          .map((selector) => button.querySelector(selector))
+          .filter(Boolean)
+          .map((node) => ({ selector: node.className, rect: node.getBoundingClientRect() }));
+
+        for (let i = 0; i < parts.length; i += 1) {
+          for (let j = i + 1; j < parts.length; j += 1) {
+            const a = parts[i].rect;
+            const b = parts[j].rect;
+            const overlapX = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+            const overlapY = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+            if (overlapX > 1 && overlapY > 1) {
+              overlapFailures.push(`${parts[i].selector} × ${parts[j].selector}`);
+            }
+          }
+        }
+      }
+
+      return {
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth,
+        categoryButtons: categoryButtons.length,
+        labels,
+        figures,
+        overlapFailures,
+        robots: document.querySelector('meta[name="robots"]')?.getAttribute('content') || '',
+        canonical: !!document.querySelector('link[rel="canonical"]'),
+        analytics: !!document.querySelector('script[src*="static.cloudflareinsights.com"]')
+      };
+    });
 
     if (shellState.overflow > 1) {
-      const offenders = await page.evaluate(() => {
-        const vw = document.documentElement.clientWidth;
-        return [...document.querySelectorAll('body *')]
-          .map((node) => ({ node, rect: node.getBoundingClientRect() }))
-          .filter(({ rect }) => rect.width > 0 && (rect.right > vw + 1 || rect.left < -1))
-          .slice(0, 8)
-          .map(({ node, rect }) => ({
-            tag: node.tagName.toLowerCase(),
-            className: typeof node.className === 'string' ? node.className : '',
-            text: (node.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
-            left: Math.round(rect.left),
-            right: Math.round(rect.right),
-            width: Math.round(rect.width)
-          }))
-          .concat(
-            [...document.querySelectorAll('body *')]
-              .filter((node) => node.scrollWidth > node.clientWidth + 1)
-              .slice(0, 8)
-              .map((node) => ({
-                tag: node.tagName.toLowerCase(),
-                className: typeof node.className === 'string' ? node.className : '',
-                text: (node.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
-                scrollWidth: node.scrollWidth,
-                clientWidth: node.clientWidth
-              }))
-          );
-      });
-      failures.push(`${width}px: horizontal overflow ${shellState.overflow}px offenders=${JSON.stringify(offenders)}`);
+      failures.push(`${width}px: horizontal overflow ${shellState.overflow}px`);
     }
-    if (shellState.categoryButtons !== 4) failures.push(`${width}px: expected 4 category buttons, got ${shellState.categoryButtons}`);
-    if (shellState.variantButtons !== 3) failures.push(`${width}px: expected 3 prototype variants, got ${shellState.variantButtons}`);
+
+    if (shellState.categoryButtons !== 4) {
+      failures.push(`${width}px: expected 4 category buttons, got ${shellState.categoryButtons}`);
+    }
+
+    const expectedOrder = ['GONG', 'CASEBACK', 'BELL', 'PIN'];
+    if (JSON.stringify(shellState.labels) !== JSON.stringify(expectedOrder)) {
+      failures.push(`${width}px: category order wrong: ${JSON.stringify(shellState.labels)}`);
+    }
+
+    const expectedFigureEnds = ['/gong.svg', '/caseback.svg', '/bell.svg', '/pin.svg'];
+    for (let index = 0; index < expectedFigureEnds.length; index += 1) {
+      if (!shellState.figures[index]?.endsWith(expectedFigureEnds[index])) {
+        failures.push(`${width}px: category ${expectedOrder[index]} diagram wrong: ${shellState.figures[index]}`);
+      }
+    }
+
+    if (shellState.overlapFailures.length) {
+      failures.push(`${width}px: category content overlap: ${shellState.overlapFailures.join(', ')}`);
+    }
+
     if (shellState.robots !== 'noindex,nofollow,noarchive') failures.push(`${width}px: robots meta changed`);
     if (shellState.canonical) failures.push(`${width}px: lab page must not emit canonical metadata`);
     if (shellState.analytics) failures.push(`${width}px: analytics must not run on test surface`);
 
     const initial = await visibleSpecimens(page);
-    if (initial.length !== 3 || !initial.some((item) => item.includes('CYMA')) || !initial.some((item) => item.includes('PIERCE')) || !initial.some((item) => item.includes('WITTNAUER'))) {
+    if (
+      initial.length !== 3 ||
+      !initial.some((item) => item.includes('CYMA')) ||
+      !initial.some((item) => item.includes('PIERCE')) ||
+      !initial.some((item) => item.includes('WITTNAUER'))
+    ) {
       failures.push(`${width}px: GONG initial state is wrong: ${JSON.stringify(initial)}`);
     }
 
     const cases = [
+      ['caseback', 1, 'CITIZEN'],
       ['bell', 1, 'BASIS'],
       ['pin', 1, 'WESTCLOX'],
-      ['caseback', 1, 'CITIZEN'],
       ['gong', 3, 'PIERCE']
     ];
 
@@ -92,62 +117,6 @@ try {
       }
       const selected = await page.locator(`button[data-category="${category}"]`).getAttribute('aria-pressed');
       if (selected !== 'true') failures.push(`${width}px: ${category} aria-pressed not updated`);
-    }
-
-    const variantSignatures = new Map();
-    for (const variant of ['a', 'b', 'c']) {
-      await page.locator(`button[data-variant="${variant}"]`).click();
-      const state = await page.evaluate(() => {
-        const active = document.documentElement.dataset.galleryVariant || '';
-        const grid = document.querySelector('.specimen-grid');
-        const visibleCard = document.querySelector('[data-specimen]:not([hidden])');
-        const firstCategory = document.querySelector('button[data-category]');
-        const overlapFailures = [];
-
-        for (const button of document.querySelectorAll('button[data-category]')) {
-          const parts = ['.category-name', '.category-action', '.category-count']
-            .map((selector) => button.querySelector(selector))
-            .filter(Boolean)
-            .map((node) => ({ selector: node.className, rect: node.getBoundingClientRect() }));
-
-          for (let i = 0; i < parts.length; i += 1) {
-            for (let j = i + 1; j < parts.length; j += 1) {
-              const a = parts[i].rect;
-              const b = parts[j].rect;
-              const overlapX = Math.min(a.right, b.right) - Math.max(a.left, b.left);
-              const overlapY = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
-              if (overlapX > 1 && overlapY > 1) {
-                overlapFailures.push(`${parts[i].selector} × ${parts[j].selector}`);
-              }
-            }
-          }
-        }
-
-        const gridStyle = grid ? getComputedStyle(grid) : null;
-        const cardStyle = visibleCard ? getComputedStyle(visibleCard) : null;
-        const categoryStyle = firstCategory ? getComputedStyle(firstCategory) : null;
-
-        return {
-          active,
-          overlapFailures,
-          signature: [
-            gridStyle?.display || '',
-            gridStyle?.gridTemplateColumns || '',
-            cardStyle?.display || '',
-            categoryStyle?.minHeight || ''
-          ].join('|')
-        };
-      });
-
-      if (state.active !== variant) failures.push(`${width}px: variant ${variant} did not activate`);
-      if (state.overlapFailures.length) {
-        failures.push(`${width}px variant ${variant}: category text overlap: ${state.overlapFailures.join(', ')}`);
-      }
-      variantSignatures.set(variant, state.signature);
-    }
-
-    if (new Set(variantSignatures.values()).size !== 3) {
-      failures.push(`${width}px: A/B/C are not structurally distinct: ${JSON.stringify(Object.fromEntries(variantSignatures))}`);
     }
 
     const brokenImages = await page.locator('img').evaluateAll((images) =>
