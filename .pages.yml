@@ -497,7 +497,8 @@ content:
                 collapsed: true
                 summary: "{label} / {title}"
             fields:
-              - { name: label, label: ラベル, type: string }
+              - { name: label, label: 左ラベル, type: string }
+              - { name: meta, label: 補足ラベル, type: string }
               - { name: title, label: タイトル, type: string }
               - { name: body, label: 本文, type: text }
               - { name: image, label: 画像, type: image }
@@ -507,6 +508,7 @@ content:
         fields:
           - { name: title, label: 見出し, type: string }
           - { name: intro, label: 導入, type: text }
+          - { name: refNote, label: Ref.1283 / 1261注記, type: text }
           - { name: note, label: 公開時注記, type: text }
           - name: images
             label: 02 / 補足画像
@@ -573,6 +575,9 @@ content:
               - { name: label, label: ラベル, type: string }
               - { name: title, label: タイトル, type: string }
               - { name: body, label: 本文, type: text }
+          - { name: clueLabel, label: 手掛かりラベル, type: string }
+          - { name: clueQuote, label: 手掛かり引用, type: string }
+          - { name: clueBody, label: 手掛かり本文, type: text }
           - { name: note, label: 断定範囲の注記, type: text }
       - name: tariff
         label: 03 / UNADJUSTED刻印
