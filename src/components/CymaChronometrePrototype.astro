@@ -75,7 +75,7 @@ const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブ�
           <div class="proto-owner-title">
             <p class="proto-kicker">CYMA / CAL. R.464</p>
             <h1><span>Time-O-Vox</span><span>Chronomètre</span></h1>
-            <p class="proto-owner-deck">文字盤に「CHRONOMÈTRE」と記された18KケースのTime-O-Vox。企業資料と専門書にもChronomètre仕様の記録がある。しかし、現存個体の文字盤とムーブメントを見比べると、その表記は一様ではない。</p>
+            <p class="proto-owner-deck">文字盤に「CHRONOMÈTRE」と記された18KケースのTime-O-Vox。企業資料と専門書にはChronomètre仕様の記録がある一方、現存個体の表記と調整刻印は一様ではない。さらに個体を追う過程で、資料上の正常仕様とは異なるアラーム挙動も少なくとも3例で確認した。</p>
           </div>
           <figure class="proto-owner-watch">
             <img src={`${base}images/cyma-time-o-vox/gallery/cyma-front.jpg`} alt="CYMA Time-O-Vox 18K Chronomètre 掲載個体" />
@@ -121,11 +121,50 @@ const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブ�
           </section>
 
           <section class="proto-owner-section" id="owners-archive">
-            <header><span>04</span><div><small>ARCHIVE</small><h2>掲載個体の証明書は見つかっていない</h2></div></header>
+            <header><span>04</span><div><small>ARCHIVE</small><h2>なぜ掲載個体の証明書まで辿れないのか</h2></div></header>
             <div class="proto-owner-copy proto-institution-list">
               <article><small>MIH / 18 SEP. 2025</small><h3>モデルに直接結びつく文書は未発見</h3><p>国際時計博物館（MIH）は、Time-O-Vox Chronomètreに直接関係する文書は見つからなかったと回答した。その一方で、CYMAの企業資料に金製アラーム腕時計へのクロノメーター証明の記述があるとして、D_7938を共有した。</p></article>
               <article><small>NEUCHÂTEL / 14 NOV. 2025</small><h3>掲載個体を特定できず</h3><p>Neuchâtel州立公文書館は、1954年から1958年までの8冊のBT台帳を調べたが、掲載個体に対応する試験記録を特定できなかった。ただし、1956年以降にはCyma Watch Co. SA, Le Locle名義で、Arnold Racineが調整を担当した試験記録が残っている。</p></article>
               <p>掲載個体のムーブメント番号やケース番号は、観測所の記録番号と同じものではない。文字盤のCHRONOMÈTREと、特定の証明書や台帳記録を結びつける資料は、現在まで確認できていない。</p>
+            </div>
+          </section>
+
+          <section class="proto-owner-section proto-owner-field-section" id="owners-field-note">
+            <header><span>05</span><div><small>FIELD NOTE</small><h2>ニュートラル以外でも鳴る</h2></div></header>
+            <div class="proto-owner-copy">
+              <p>{data.failure.normalBody}</p>
+
+              <div class="proto-owner-field-media" aria-label="掲載個体のプッシャー配置とCal.R.464ムーブメント">
+                <figure>
+                  <img src={`${base}images/cyma-time-o-vox/gallery/cyma-side-pushers.jpg`} alt="CYMA Time-O-Vox 掲載個体の上下プッシャーとリューズ" />
+                  <figcaption>掲載個体の操作系。上下のプッシャーがR.464の切替機構を動かす。</figcaption>
+                </figure>
+                <figure>
+                  <img src={`${base}images/cyma-time-o-vox/gallery/cyma-movement-r464.jpg`} alt="CYMA Time-O-Vox Cal.R.464 ムーブメント" />
+                  <figcaption>掲載個体のCal.R.464。内部写真は掲載個体の原因候補を考える材料であり、他個体の内部状態を示すものではない。</figcaption>
+                </figure>
+              </div>
+
+              <div class="proto-owner-field-observation">
+                <div class="proto-owner-field-heading">
+                  <small>OBSERVED / 3 EXAMPLES</small>
+                  <h3>{data.failure.observedTitle}</h3>
+                </div>
+                <p>{data.failure.observedBody}</p>
+                <ol>
+                  {data.failure.examples.map((example, index) => (
+                    <li><span>0{index + 1}</span><strong>{example}</strong><small>片側プッシャー押し込み状態での鳴動を目視確認</small></li>
+                  ))}
+                </ol>
+              </div>
+
+              <div class="proto-owner-field-hypothesis">
+                <small>HYPOTHESIS / LISTED SPECIMEN ONLY</small>
+                <h3>{data.failure.hypothesisTitle}</h3>
+                <p>{data.failure.hypothesisBody}</p>
+              </div>
+
+              <p class="proto-owner-field-caution">3例で共通しているのは「ニュートラルではない状態でも鳴る」という外から確認できる挙動まで。内部原因が同じかどうかは、掲載個体以外では確認できていない。</p>
             </div>
           </section>
         </article>
