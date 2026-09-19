@@ -123,8 +123,8 @@
 .proto-owner-logic .proto-owner-copy>p+p{margin-top:.5em}
 .proto-owner-logic .proto-owner-copy blockquote{margin-bottom:18px}
 .proto-source-ledger{margin:28px 0 0;border-top:1px solid var(--ink)}
-.proto-source-ledger>div{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:15px 0;border-bottom:1px solid var(--rule)}
-.proto-source-ledger dt{color:var(--accent);font:600 10px/1.5 var(--sans)}
+.proto-source-ledger>div{display:grid;grid-template-columns:92px minmax(0,1fr);gap:16px;padding:15px 0;border-bottom:1px solid var(--rule)}
+.proto-source-ledger dt{color:var(--accent);font:600 10px/1.5 var(--sans);white-space:nowrap}
 .proto-source-ledger dd{margin:0}
 .proto-source-ledger dd small{display:block;color:var(--soft);font:600 9px/1.45 var(--sans);letter-spacing:.09em}
 .proto-source-ledger dd strong{display:block;margin-top:3px;font:500 15px/1.7 var(--jp)}
@@ -132,6 +132,15 @@
 .proto-owner-copy blockquote{margin:0 0 28px;padding:22px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
 .proto-owner-copy blockquote p{margin:0;font:italic 20px/1.6 Georgia,serif}
 .proto-owner-copy blockquote footer{margin-top:9px;color:var(--soft);font:12px/1.8 var(--jp)}
+.proto-owner-inline-media{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:22px 0 24px}
+.proto-owner-inline-media figure,.proto-tariff-media,.proto-owner-video{margin:0}
+.proto-owner-inline-media img,.proto-tariff-media img{display:block;width:100%;max-height:520px;object-fit:contain;background:#eef0e9;border:1px solid var(--rule)}
+.proto-owner-inline-media figcaption,.proto-tariff-media figcaption,.proto-owner-video figcaption{margin-top:7px;color:var(--soft);font:10px/1.65 var(--sans)}
+.proto-tariff-media{margin:0 0 20px}
+.proto-video-frame{position:relative;aspect-ratio:16/9;overflow:hidden;background:#111}
+.proto-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.proto-owner-video{margin:22px 0 28px}
+
 .proto-logic-lines{border-top:1px solid var(--ink)}
 .proto-logic-lines article{display:grid;grid-template-columns:66px minmax(0,1fr);gap:18px;padding:19px 0;border-bottom:1px solid var(--rule)}
 .proto-logic-lines article small{color:var(--accent);font:600 10px/1.55 var(--sans);letter-spacing:.1em}
@@ -166,7 +175,7 @@
 .proto-owner-field-section{padding-bottom:64px}
 .proto-owner-field-media{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(220px,.82fr);gap:14px;margin:30px 0 34px;padding:14px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
 .proto-owner-field-media figure{margin:0}
-.proto-owner-field-media img{width:100%;background:#e9ece4;object-fit:cover;filter:saturate(.82) contrast(.98)}
+.proto-owner-field-media img{width:100%;aspect-ratio:4/3;background:#e9ece4;object-fit:cover;filter:saturate(.82) contrast(.98)}
 .proto-owner-field-media figure:first-child img{aspect-ratio:1.42;object-position:center 50%}
 .proto-owner-field-media figure:last-child img{aspect-ratio:1;object-position:center}
 .proto-owner-field-media figcaption{max-width:96%;margin-top:8px;color:var(--soft);font:10px/1.7 var(--sans)}
@@ -293,6 +302,12 @@
   .proto-owner-section>header{grid-template-columns:24px 1fr;gap:10px;margin-bottom:24px}
   .proto-owner-section h2{font-size:21px;line-height:1.6}
   .proto-owner-copy>p{font-size:14px;line-height:1.95}
+  .proto-source-ledger>div{grid-template-columns:88px minmax(0,1fr);gap:12px}
+  .proto-source-ledger dt{font-size:9px;letter-spacing:0}
+  .proto-owner-inline-media{grid-template-columns:1fr;margin:18px 0 20px}
+  .proto-tariff-media{margin-bottom:16px}
+  .proto-owner-copy blockquote p{font-size:18px;line-height:1.5}
+  .proto-owner-copy blockquote footer{font-size:11px;line-height:1.65}
   .proto-owner-logic .proto-owner-copy>p{line-height:1.72}
   .proto-owner-logic .proto-owner-copy>p+p{margin-top:.45em}
   .proto-owner-logic .proto-owner-copy blockquote{margin-bottom:16px}
@@ -369,6 +384,8 @@
   .cyma-proto .proto-mast .mast-link{font-size:17px}
   .proto-switcher>.shell,.proto-history-nav>.shell{padding-inline:18px}
   .proto-owner-title h1{font-size:24px;line-height:1.65}
+  .proto-source-ledger>div{grid-template-columns:84px minmax(0,1fr);gap:10px}
+  .proto-source-ledger dt{font-size:8.5px}
   .proto-history-cover h1>span{font-size:35px}
   .proto-history-cover h1>em{font-size:27px}
   .proto-history-chapters>details>summary{width:calc(100% - 36px);grid-template-columns:34px minmax(0,1fr) 24px;gap:7px}
