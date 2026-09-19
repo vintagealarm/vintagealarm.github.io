@@ -34,7 +34,7 @@ const categories = [
     ja: 'ゴング',
     action: '外周の音響ばねを叩く',
     count: 3,
-    image: '/images/how-they-ring/gong.svg'
+    image: '/images/how-they-ring/gong.webp'
   },
   {
     id: 'caseback',
@@ -43,7 +43,7 @@ const categories = [
     ja: 'ケースバック',
     action: 'ケースバックそのものを響かせる',
     count: 1,
-    image: '/images/how-they-ring/caseback.svg'
+    image: '/images/how-they-ring/caseback.webp'
   },
   {
     id: 'bell',
@@ -52,7 +52,7 @@ const categories = [
     ja: 'ベル',
     action: 'ケース底部の別体ベルを叩く',
     count: 1,
-    image: '/images/how-they-ring/bell.svg'
+    image: '/images/how-they-ring/bell.webp'
   },
   {
     id: 'pin',
@@ -61,7 +61,7 @@ const categories = [
     ja: '底部ピン',
     action: 'ピンを介して底部へ振動を伝える',
     count: 1,
-    image: '/images/how-they-ring/pin.svg'
+    image: '/images/how-they-ring/pin.webp'
   }
 ];
 
@@ -175,7 +175,7 @@ const specimens = orderedSlugs
         appearance: none;
         position: relative;
         min-width: 0;
-        min-height: 344px;
+        min-height: 258px;
         padding: 20px 18px 18px;
         overflow: hidden;
         border: 0;
@@ -238,8 +238,8 @@ const specimens = orderedSlugs
       .mechanism-figure {
         display: grid;
         place-items: center;
-        height: 188px;
-        margin: 16px -4px 8px;
+        height: 112px;
+        margin: 10px -2px 5px;
       }
 
       .mechanism-figure img {
@@ -247,11 +247,12 @@ const specimens = orderedSlugs
         width: 100%;
         height: 100%;
         object-fit: contain;
+        mix-blend-mode: multiply;
       }
 
       .category-action {
         display: block;
-        min-height: 3.5em;
+        min-height: 2.8em;
         margin-top: 6px;
         font-size: 12px;
         line-height: 1.65;
@@ -268,7 +269,7 @@ const specimens = orderedSlugs
       }
 
       .selected-section {
-        margin-top: 48px;
+        margin-top: 24px;
         border-top: 1px solid var(--lab-ink);
       }
 
@@ -350,7 +351,7 @@ const specimens = orderedSlugs
       .specimen-card h3 {
         margin: 0;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 400;
         line-height: 1.05;
       }
@@ -431,16 +432,17 @@ const specimens = orderedSlugs
         .lab-hero {
           grid-template-columns: 1fr;
           gap: 22px;
-          padding: 46px 0 34px;
+          padding: 28px 0 20px;
         }
 
         .lab-hero h1 {
-          font-size: clamp(36px, 11vw, 50px);
+          font-size: clamp(32px, 10vw, 44px);
         }
 
         .lab-hero-copy {
           max-width: 33em;
-          font-size: 14px;
+          font-size: 13px;
+          line-height: 1.75;
         }
 
         .category-grid {
@@ -448,12 +450,12 @@ const specimens = orderedSlugs
         }
 
         .category-button {
-          min-height: 314px;
-          padding: 16px 14px 15px;
+          min-height: 196px;
+          padding: 12px 12px 10px;
         }
 
         .category-no {
-          font-size: 58px;
+          font-size: 44px;
         }
 
         .category-name strong {
@@ -461,16 +463,22 @@ const specimens = orderedSlugs
         }
 
         .mechanism-figure {
-          height: 168px;
-          margin-top: 12px;
+          height: 78px;
+          margin: 7px -2px 3px;
         }
 
         .category-action {
-          font-size: 11px;
+          font-size: 10px;
+          line-height: 1.45;
+        }
+
+        .category-count {
+          margin-top: 4px;
+          font-size: 8px;
         }
 
         .selected-section {
-          margin-top: 38px;
+          margin-top: 16px;
         }
 
         .selected-head {
@@ -495,7 +503,7 @@ const specimens = orderedSlugs
         .lab { width: calc(100% - 24px); }
 
         .category-button {
-          min-height: 290px;
+          min-height: 186px;
           padding-inline: 11px;
         }
 
@@ -508,12 +516,12 @@ const specimens = orderedSlugs
         }
 
         .mechanism-figure {
-          height: 148px;
+          height: 72px;
         }
 
         .category-action {
-          min-height: 4.9em;
-          font-size: 10px;
+          min-height: 2.9em;
+          font-size: 9px;
         }
 
         .category-count {
