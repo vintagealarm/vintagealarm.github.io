@@ -1,36 +1,35 @@
 {
   "published": true,
   "title": "CYMA TIME-O-VOX CHRONOMÈTRE",
-  "heading": "観測個体から追う、クロノメーターの記録",
+  "heading": "Time-O-Vox Chronomètre",
   "lead": [
-    "Time-O-Vox Chronomètreは、資料上その存在を確認できる。",
-    "一方で、現存個体の文字盤表記、調整刻印、ケース番号、seller refは一様ではなく、当時の認定記録と現存個体を結びつける記録はまだ特定できていない。",
-    "このページでは、文献・機関回答・現存個体の観測を分けて並べる。"
+    "文字盤に「CHRONOMÈTRE」と記された18KケースのTime-O-Vox。",
+    "文字盤の「CHRONOMÈTRE」と、現存個体に残る表記の違いを追っていく。"
   ],
   "documented": {
-    "title": "Chronomètre仕様は記録されている",
-    "intro": "存在の確認と、特定の現存個体が認定を受けたことの証明は分けて扱う。",
+    "title": "Time-O-VoxにもChronomètreがあった",
+    "intro": "Chronomètre仕様は存在した。現存個体を並べると表記は揃わない。",
     "cards": [
       {
-        "label": "CYMA企業資料",
+        "label": "MIH",
         "title": "金製Time-O-Voxへのクロノメーター証明",
-        "body": "MIHが共有したCYMA企業資料には、金製アラーム腕時計「Time-O-Vox」がクロノメーター証明を受けた旨が記されている。"
+        "body": "MIHが共有したCyma資料には、金製Time-O-Voxがクロノメーター証明を受けた記録がある。"
       },
       {
         "label": "HORLBECK",
-        "title": "Chronomètre仕様と5姿勢・温度試験",
-        "body": "『The Alarm Wristwatch』は、Time-O-Voxにクロノメーター証明付き仕様が存在し、そのためにムーブメントが5姿勢と温度で試験されたと記している。"
+        "title": "5姿勢と温度による試験",
+        "body": "『The Alarm Wristwatch』には、Cal.R.464のChronomètre仕様と、5姿勢・温度試験の記述がある。"
       },
       {
         "label": "BEITL",
-        "title": "文字盤とムーブメント表記は一様ではない",
+        "title": "金製モデルはChronometer仕様",
         "body": "『Alarm am Arm』は、14K金ケース・透かしラグのTime-O-Voxについて「この金製モデルは常にChronometer仕様だった」と記す。掲載例には、文字盤とムーブメント双方にChronometer表記を持つ個体と、文字盤に表記がなくムーブメント側だけにChronometer表記を持つ個体がある。"
       }
     ]
   },
   "observed": {
-    "title": "観測個体一覧",
-    "intro": "販売ページ、文献、整備記事、動画、SNSで確認できた17件の観測記録を整理した。これは製造台帳ではなく、公開情報から確認できた実例の比較表である。",
+    "title": "表記が揃わない",
+    "intro": "販売ページ、文献、整備記事、動画、SNSから確認できた17件を並べた。",
     "note": "17件は転載・再出品の重複を防ぐため、元資料ではMovement No.を中心に個体識別を行っている。公開版ではMovement No.を番号帯へマスキングしている。",
     "specimens": [
       {
@@ -239,64 +238,71 @@
         "source": "シェルマン銀座",
         "sourceUrl": "https://shellman-online.jp/view/item/000000003957?category_page_id=8"
       }
-    ]
+    ],
+    "refNote": "Ref.1283は、掲載個体の購入書類だけでなく、HODINKEEとPamonoの別個体でも使われている。同系統のSS個体ではRef.1261も確認できるため、CYMA公式の型番なのか、流通側で使われた番号なのかは不明。"
   },
   "mismatch": {
     "title": "表記が揃わない",
     "intro": "観測例を並べると、文字盤表記・調整刻印・ケース素材は単純な一対一対応にならない。",
     "cards": [
       {
-        "label": "A",
-        "title": "CHRONOMÈTRE 文字盤 × 調整刻印なし",
-        "body": "文字盤にChronomètreを掲げながら、ムーブメント側で5姿勢・温度調整刻印を確認できない例がある。"
+        "label": "掲載個体",
+        "title": "文字盤はChronomètre",
+        "body": "掲載個体は18Kケース。文字盤はCHRONOMÈTRE。ムーブメントには5姿勢・温度調整の刻印は見当たらない。",
+        "meta": "18K / CHRONOMÈTRE"
       },
       {
-        "label": "B",
-        "title": "Chronomètre 表記なし × 5姿勢・温度調整",
-        "body": "文字盤にChronomètre表記がない一方、ムーブメント側にADJUSTED TO FIVE POSITION(S) AND TEMPERATUREを持つ例がある。"
+        "label": "5姿勢",
+        "title": "表記なし、5姿勢・温度調整",
+        "body": "文字盤にChronomètre表記はないが、ムーブメントに「ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE」と刻まれた金色ケース個体がある。",
+        "meta": "YG / FIVE POSITIONS + TEMPERATURE"
       },
       {
-        "label": "C",
-        "title": "YGケース × UNADJUSTED",
-        "body": "金色ケースの個体にもUNADJUSTED刻印の例がある。刻印だけからChronomètre仕様の有無を逆算することはできない。"
+        "label": "UNADJUSTED",
+        "title": "金色ケース、UNADJUSTED",
+        "body": "逆に、金色ケースでムーブメントにUNADJUSTEDと刻まれた個体もある。",
+        "meta": "YG / UNADJUSTED"
       }
     ]
   },
   "archive": {
-    "title": "外部照会で残った手掛かり",
-    "intro": "MIHはモデル資料、Neuchâtel州立公文書館はMovement No.4xxの個体照合として回答した。",
+    "title": "照会で分かったこと",
+    "intro": "2025年、MIHとNeuchâtel州立公文書館へ資料照会を行った。MIHはモデル資料、NeuchâtelはMovement No.4xxの個体照合として回答している。",
     "cards": [
       {
         "label": "MIH / 18 SEP. 2025",
-        "title": "モデル直接資料は未発見、金製アラームへの証明記述は確認",
+        "title": "モデル資料",
         "body": "Time-O-Vox Chronomètreに直接関係する文書は確認できなかった。一方、Cyma関連ファイルには金製アラームウォッチへの証明書発行を示す記述があり、その資料が共有された。"
       },
       {
         "label": "NEUCHÂTEL / 14 NOV. 2025",
-        "title": "掲載個体は未特定、La Chaux-de-Fondsの手掛かりが残る",
-        "body": "Movement No.4xx、ケース内番号8 6525、BT、1954〜1958年を指定して再照会。約100ページずつのBT台帳8冊を確認したが、掲載個体に対応する試験は特定できなかった。同じ台帳には1956年以降のCyma Watch Co. SA, Le Locle、調整者Arnold Racineの試験記録があり、Cymaのページ上部には「Bulletin: La Chaux-de-Fonds」と鉛筆書きが系統的に残る。担当者は、当該企業の試験結果がその年のObservatory BulletinでLa Chaux-de-Fondsの項に掲載されたことを示すものだろうと説明している。"
+        "title": "Movement No.4xx",
+        "body": "Movement No.4xx、ケース内番号8 6525、BT、1954〜1958年を指定して再照会。約100ページずつのBT台帳8冊を確認したが、掲載個体に対応する試験は特定できなかった。"
       }
-    ]
+    ],
+    "clueLabel": "台帳に残った手掛かり",
+    "clueQuote": "Bulletin: La Chaux-de-Fonds",
+    "clueBody": "同じ台帳には、1956年以降の Cyma Watch Co. SA, Le Locle、調整者 Arnold Racine の試験記録が残る。さらにCymaのページ上部には「Bulletin: La Chaux-de-Fonds」と鉛筆書きが系統的に入っている。公文書館担当者は、当該企業の試験結果がその年のObservatory BulletinでLa Chaux-de-Fondsの項に掲載されたことを示すものだろう、と説明している。"
   },
   "tariff": {
-    "title": "CYMA / Tavannes と “UNADJUSTED”",
-    "intro": "ADJUSTED / UNADJUSTEDを、技術状態だけの表示として読まないための制度資料。",
+    "title": "Tavannesで起きていたこと",
+    "intro": "1956年の米国上院公聴会では、調整済みのスイス時計を「unadjusted」と表示して輸入する事例が問題になった。追加関税を避けるためだった。",
     "body": [
-      "1956年の米国上院公聴会では、実際には調整されているスイス時計が、adjusted watchへの追加関税を避けるため「unadjusted」と表示されて輸入された問題が扱われた。",
-      "Pritchardはこの公聴会の具体例としてTAVANNES WATCH CO.を挙げる。工場広告では全ムーブメントをpositionとtemperatureに調整するとしていた一方、Washington, D.C.で購入されたTavannes時計には「unadjusted」と刻印されていた。",
-      "同じPritchardの企業項目ではCYMA WATCH CO. SAがTavannes系の企業名として整理されている。このため、本ページではUNADJUSTED刻印を実際の調整状態やクロノメーター認定の直接証明とは扱わない。"
+      "Pritchardが挙げた例の一つがTavannes。工場広告では全ムーブメントを姿勢と温度について調整するとしながら、Washington, D.C.で販売された時計には「unadjusted」と刻まれていた。",
+      "CYMA WATCH CO. SAは、PritchardのTavannes項目でグループ企業として記載されている。",
+      "Time-O-VoxのUNADJUSTED刻印も、刻印だけで未調整とは決められない。"
     ],
     "caption": "U.S. Senate, Swiss Watches—Adjustments (1956) の該当箇所。"
   },
   "failure": {
-    "title": "観測された異常動作",
-    "intro": "修理史ではなく、資料上の正常仕様と現存個体の挙動差だけを残す。",
-    "normalTitle": "資料上の正常な状態",
-    "normalBody": "B. HumbertのR.464技術解説では、両プッシャーが中央位置にあるときのみアラームが作動可能で、どちらか一方を完全に押し込むとアラームはロックされる。",
-    "observedTitle": "観測された症状",
-    "observedBody": "少なくとも3個体で、片側プッシャーを押し込んだ状態でもアラームが鳴動する同一症状を確認している。",
-    "hypothesisTitle": "掲載個体からの原因候補",
-    "hypothesisBody": "掲載個体では、切替レバー支点部の穴／軸まわりの摩耗やガタによりレバー位置がずれ、ロック側への有効ストロークが不足している可能性を考えている。部品が破断していなくても説明できる仮説だが、他2個体の内部状態は未確認で、同一原因とは断定しない。",
+    "title": "アラーム起動での不具合",
+    "intro": "HumbertのR.464技術解説では、両プッシャーが中央位置のときにアラームが作動し、どちらかを完全に押し込むとロックされる。",
+    "normalTitle": "確認した3個体",
+    "normalBody": "片側プッシャーを押し込んだまま鳴る個体を3例確認している。",
+    "observedTitle": "片側を押し込んでも鳴る",
+    "observedBody": "ところが、片側プッシャーを押し込んだまま鳴る個体を3例確認している。",
+    "hypothesisTitle": "切替レバー支点部",
+    "hypothesisBody": "掲載個体では、切替レバー支点部の摩耗やガタでレバー位置がずれ、ロック側へのストロークが足りていないのではないかと考えている。ほか2個体の内部は未確認。",
     "examples": [
       "掲載個体",
       "公開動画で確認した別個体",
