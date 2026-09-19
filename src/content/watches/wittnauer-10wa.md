@@ -49,6 +49,14 @@ specimenGallery:
     label: ケースバック
   - image: /images/IMG_5755.jpeg
     label: 裏蓋内側
+howTheyRing:
+  published: true
+  category: gong
+  image: "/images/Wittnauer10WA.png"
+  audio:
+    status: pending
+    recordings: []
+
 video:
   youtubeId: https://youtu.be/rh0jnIWGmzE?si=BaN2l3qpjRpVo9qX
   xUrl: https://x.com/rimacroissant/status/2100425465349689832?s=46&t=3m8xXI66ZgB96VPG9PtQgw
