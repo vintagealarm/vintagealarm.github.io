@@ -48,6 +48,14 @@ specimenGallery:
     label: 9時側スライダー（ON）
   - image: /images/IMG_2095.jpeg
     label: 裏蓋
+howTheyRing:
+  published: true
+  category: pin
+  image: "/images/C38ECDB0-90CE-432E-AF6A-BC05FF52296F.png"
+  audio:
+    status: pending
+    recordings: []
+
 video:
   youtubeId: https://youtube.com/shorts/GWkY7hPO89E?si=987fWp1q6TmrIHrC
 deepDive:
