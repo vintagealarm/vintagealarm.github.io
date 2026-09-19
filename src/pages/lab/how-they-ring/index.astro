@@ -5,17 +5,10 @@ import '../../../styles/site.css';
 const base = import.meta.env.BASE_URL;
 const watches = await getCollection('watches');
 const published = new Map(
-  watches.filter((item) => item.data.published).map((item) => [item.data.slug, item.data])
+  watches
+    .filter((item) => item.data.published && item.data.howTheyRing?.published)
+    .map((item) => [item.data.slug, item.data])
 );
-
-const categoryBySlug = {
-  'basis-alarm': 'bell',
-  'cyma-time-o-vox': 'gong',
-  'pierce-duofon': 'gong',
-  'wittnauer-10wa': 'gong',
-  'westclox-watchlarm': 'pin',
-  'citizen-alarm': 'caseback'
-};
 
 const orderedSlugs = [
   'cyma-time-o-vox',
@@ -33,7 +26,6 @@ const categories = [
     en: 'GONG',
     ja: 'ゴング',
     action: '外周の音響ばねを叩く',
-    count: 3,
     image: '/images/how-they-ring/gong.jpg'
   },
   {
@@ -42,7 +34,6 @@ const categories = [
     en: 'CASEBACK',
     ja: 'ケースバック',
     action: 'ケースバックそのものを響かせる',
-    count: 1,
     image: '/images/how-they-ring/caseback-hammer.png'
   },
   {
@@ -51,7 +42,6 @@ const categories = [
     en: 'BELL',
     ja: 'ベル',
     action: 'ケース底部の別体ベルを叩く',
-    count: 1,
     image: '/images/how-they-ring/bell.jpg'
   },
   {
@@ -60,7 +50,6 @@ const categories = [
     en: 'PIN',
     ja: '底部ピン',
     action: 'ピンを介して底部へ振動を伝える',
-    count: 1,
     image: '/images/how-they-ring/pin-hammer.png'
   }
 ];
@@ -71,17 +60,24 @@ const specimens = orderedSlugs
     if (!watch) return null;
     return {
       slug,
-      category: categoryBySlug[slug],
+      category: watch.howTheyRing.category,
       brand: watch.brand,
       model: watch.model,
       caliber: watch.spec.caliber,
-      image: `${base}${(watch.soundGalleryThumbnail?.trim() || watch.ownersNote.image).replace(/^\//, '')}`,
-      recordings: watch.audio?.status === 'ready'
-        ? watch.audio.recordings.filter((recording) => Boolean(recording.src?.trim()))
+      image: `${base}${(watch.howTheyRing.image?.trim() || watch.ownersNote.image).replace(/^\//, '')}`,
+      recordings: watch.howTheyRing.audio?.status === 'ready'
+        ? watch.howTheyRing.audio.recordings.filter((recording) => Boolean(recording.src?.trim()))
         : []
     };
   })
   .filter(Boolean);
+
+const categoryCounts = Object.fromEntries(
+  categories.map((category) => [
+    category.id,
+    specimens.filter((watch) => watch.category === category.id).length
+  ])
+);
 ---
 <!doctype html>
 <html lang="ja">
@@ -618,7 +614,7 @@ const specimens = orderedSlugs
                 />
               </span>
               <span class="category-action">{category.action}</span>
-              <span class="category-count">{category.count} {category.count === 1 ? 'WATCH' : 'WATCHES'} / 掲載</span>
+              <span class="category-count">{categoryCounts[category.id]} {categoryCounts[category.id] === 1 ? 'WATCH' : 'WATCHES'} / 掲載</span>
             </button>
           ))}
         </div>
