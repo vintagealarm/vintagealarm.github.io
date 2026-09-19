@@ -37,7 +37,7 @@ const productionSchema={
       description:productionDescription,
       inLanguage:'ja',
       url:productionUrl,
-      image:new URL(productionImage.replace(/^\\//,''),siteRoot).href,
+      image:new URL(productionImage.replace(/^\//,''),siteRoot).href,
       ...(dateModified?{dateModified}:{}),
       author:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
       publisher:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
