@@ -36,6 +36,14 @@ spec:
   winding: "手巻き"
   acoustic: "ゴング式"
   notes: "WECKER / SIGNAL切替、6時位置下 赤／白表示窓"
+howTheyRing:
+  published: true
+  category: gong
+  image: "/images/pierce-duofon/owners-note.jpg"
+  audio:
+    status: pending
+    recordings: []
+
 audio:
   status: pending
   recordings: []
