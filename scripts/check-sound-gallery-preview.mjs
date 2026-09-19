@@ -80,7 +80,7 @@ try {
       failures.push(`${width}px: category order wrong: ${JSON.stringify(shellState.labels)}`);
     }
 
-    const expectedFigureEnds = ['/gong.webp', '/caseback.webp', '/bell.webp', '/pin.webp'];
+    const expectedFigureEnds = ['/gong.jpg', '/caseback.jpg', '/bell.jpg', '/pin.jpg'];
     for (let index = 0; index < expectedFigureEnds.length; index += 1) {
       if (!shellState.figures[index]?.endsWith(expectedFigureEnds[index])) {
         failures.push(`${width}px: category ${expectedOrder[index]} diagram wrong: ${shellState.figures[index]}`);
