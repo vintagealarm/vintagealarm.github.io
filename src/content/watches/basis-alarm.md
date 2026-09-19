@@ -48,6 +48,14 @@ specimenGallery:
     label: ケースバック
   - image: /images/70957643-C7C5-4A86-B1BF-11AB18A28299-2.jpeg
     label: ムーブメント全景
+howTheyRing:
+  published: true
+  category: bell
+  image: "/images/Basis Alarm(BFG90).png"
+  audio:
+    status: pending
+    recordings: []
+
 video:
   youtubeId: https://youtube.com/shorts/MWoqA4L2wdM?si=Y6Z_3_lEy8_hITYM
   xUrl: https://x.com/Rimacroissant/status/2071711307469144447?s=20
