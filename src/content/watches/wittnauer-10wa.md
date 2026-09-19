@@ -38,6 +38,14 @@ spec:
   winding: 手巻き
   acoustic: ゴング式
   notes: 回転ベゼル式アラーム設定＋巻上げ、アラーム側独立香箱
+howTheyRing:
+  published: true
+  category: gong
+  image: "/images/Wittnauer10WA.png"
+  audio:
+    status: pending
+    recordings: []
+
 audio:
   status: pending
   recordings: []
