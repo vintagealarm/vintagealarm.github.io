@@ -194,6 +194,24 @@ try {
     }
 
     if (width <= 430) {
+      const rows = await page.locator('[data-specimen]:not([hidden])').evaluateAll((cards) => cards.map((card) => {
+        const box = (selector) => {
+          const rect = card.querySelector(selector).getBoundingClientRect();
+          return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom };
+        };
+        const rect = card.getBoundingClientRect();
+        return { card: { left: rect.left, right: rect.right }, media: box('.specimen-media'), meta: box('.specimen-meta'), audio: box('.audio-slots') };
+      }));
+      rows.forEach(({ card, media, meta, audio }, index) => {
+        if (media.right >= meta.left || Math.abs(media.top - meta.top) > 2 ||
+            audio.left < meta.left - 1 || audio.left < media.right ||
+            audio.top < meta.bottom - 1 || audio.right > card.right + 1) {
+          failures.push(`${width}px: specimen ${index + 1} mobile media/name/audio layout is wrong`);
+        }
+      });
+    }
+
+    if (width <= 430) {
       const visibility = await page.evaluate(() => {
         const section = document.querySelector('#specimen-panel');
         const grid = document.querySelector('.category-grid');
