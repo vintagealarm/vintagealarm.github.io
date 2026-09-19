@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 
 const root = process.env.LAYOUT_BASE_URL || 'http://127.0.0.1:4321/';
 const route = 'lab/how-they-ring/';
-const widths = [320, 390, 1440];
+const widths = [320, 390, 430, 1440];
 const browser = await chromium.launch({ headless: true });
 const failures = [];
 
@@ -15,7 +15,10 @@ async function visibleSpecimens(page) {
 try {
   for (const width of widths) {
     const context = await browser.newContext({
-      viewport: { width, height: width <= 390 ? 844 : 1000 },
+      viewport: {
+        width,
+        height: width === 320 ? 568 : width === 390 ? 844 : width === 430 ? 932 : 1000
+      },
       deviceScaleFactor: 1
     });
     const page = await context.newPage();
@@ -102,7 +105,8 @@ try {
       failures.push(`${width}px: GONG initial state is wrong: ${JSON.stringify(initial)}`);
     }
 
-    if (width <= 390) {
+    if (width <= 430) {
+      await page.locator('.category-grid').scrollIntoViewIfNeeded();
       const visibility = await page.evaluate(() => {
         const section = document.querySelector('#specimen-panel');
         const grid = document.querySelector('.category-grid');
@@ -111,12 +115,19 @@ try {
         const gridRect = grid.getBoundingClientRect();
         return {
           sectionTop: Math.round(sectionRect.top),
+          gridTop: Math.round(gridRect.top),
           gridBottom: Math.round(gridRect.bottom),
+          gridHeight: Math.round(gridRect.height),
           viewportHeight: window.innerHeight
         };
       });
-      if (!visibility || visibility.sectionTop >= visibility.viewportHeight) {
-        failures.push(`${width}px: gallery does not begin within initial viewport: ${JSON.stringify(visibility)}`);
+      if (
+        !visibility ||
+        visibility.gridTop < -1 ||
+        visibility.gridBottom > visibility.viewportHeight ||
+        visibility.sectionTop >= visibility.viewportHeight
+      ) {
+        failures.push(`${width}px: selector and gallery are not visible together: ${JSON.stringify(visibility)}`);
       }
     }
 
