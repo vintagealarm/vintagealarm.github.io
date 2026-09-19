@@ -18,46 +18,50 @@ const categoryBySlug = {
 };
 
 const orderedSlugs = [
-  'basis-alarm',
   'cyma-time-o-vox',
   'pierce-duofon',
   'wittnauer-10wa',
-  'westclox-watchlarm',
-  'citizen-alarm'
+  'citizen-alarm',
+  'basis-alarm',
+  'westclox-watchlarm'
 ];
 
 const categories = [
   {
-    id: 'bell',
-    no: '01',
-    en: 'BELL',
-    ja: 'ベル',
-    action: '別体のベルを叩く',
-    count: 1
-  },
-  {
     id: 'gong',
-    no: '02',
+    no: '01',
     en: 'GONG',
     ja: 'ゴング',
-    action: '音響ばねを叩く',
-    count: 3
-  },
-  {
-    id: 'pin',
-    no: '03',
-    en: 'PIN',
-    ja: '底部ピン',
-    action: 'ピンを介して底部へ振動を伝える',
-    count: 1
+    action: '外周の音響ばねを叩く',
+    count: 3,
+    image: '/images/how-they-ring/gong.svg'
   },
   {
     id: 'caseback',
-    no: '04',
+    no: '02',
     en: 'CASEBACK',
     ja: 'ケースバック',
-    action: '裏蓋そのものを響かせる',
-    count: 1
+    action: 'ケースバックそのものを響かせる',
+    count: 1,
+    image: '/images/how-they-ring/caseback.svg'
+  },
+  {
+    id: 'bell',
+    no: '03',
+    en: 'BELL',
+    ja: 'ベル',
+    action: 'ケース底部の別体ベルを叩く',
+    count: 1,
+    image: '/images/how-they-ring/bell.svg'
+  },
+  {
+    id: 'pin',
+    no: '04',
+    en: 'PIN',
+    ja: '底部ピン',
+    action: 'ピンを介して底部へ振動を伝える',
+    count: 1,
+    image: '/images/how-they-ring/pin.svg'
   }
 ];
 
@@ -78,7 +82,7 @@ const specimens = orderedSlugs
   .filter(Boolean);
 ---
 <!doctype html>
-<html lang="ja" data-gallery-variant="a">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -92,7 +96,7 @@ const specimens = orderedSlugs
         --lab-rule: #aaa094;
         --lab-paper: #f3eee4;
         --lab-wash: #e9e1d5;
-        --lab-white: rgba(255,255,255,.26);
+        --lab-white: rgba(255,255,255,.20);
       }
 
       body { min-width: 0; }
@@ -160,43 +164,6 @@ const specimens = orderedSlugs
         text-wrap: pretty;
       }
 
-      .variant-switcher {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin: 0 0 20px;
-      }
-
-      .variant-switcher button {
-        appearance: none;
-        padding: 8px 13px 7px;
-        border: 1px solid var(--lab-rule);
-        border-radius: 999px;
-        background: transparent;
-        color: var(--lab-soft);
-        font: inherit;
-        font-size: 11px;
-        line-height: 1.2;
-        cursor: pointer;
-      }
-
-      .variant-switcher button span {
-        font-family: Georgia, "Times New Roman", serif;
-        letter-spacing: .08em;
-      }
-
-      .variant-switcher button[aria-pressed="true"] {
-        border-color: var(--lab-ink);
-        background: var(--lab-ink);
-        color: var(--lab-paper);
-      }
-
-      .variant-switcher button:focus-visible,
-      .category-button:focus-visible {
-        outline: 2px solid var(--lab-ink);
-        outline-offset: 4px;
-      }
-
       .category-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -208,40 +175,54 @@ const specimens = orderedSlugs
         appearance: none;
         position: relative;
         min-width: 0;
-        min-height: 178px;
-        padding: 20px 18px;
+        min-height: 344px;
+        padding: 20px 18px 18px;
+        overflow: hidden;
         border: 0;
         border-right: 1px solid var(--lab-ink);
         border-bottom: 1px solid var(--lab-ink);
-        background: var(--lab-white);
+        background: transparent;
         color: inherit;
         text-align: left;
         cursor: pointer;
       }
 
       .category-button[aria-pressed="true"] {
-        background: var(--lab-wash);
+        box-shadow: inset 0 -6px 0 var(--lab-ink);
+        background: rgba(255,255,255,.10);
+      }
+
+      .category-button:focus-visible {
+        outline: 2px solid var(--lab-ink);
+        outline-offset: 4px;
       }
 
       .category-no {
-        display: block;
-        margin-bottom: 29px;
-        color: var(--lab-soft);
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        color: rgba(36,31,26,.10);
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 11px;
-        letter-spacing: .12em;
+        font-size: 72px;
+        line-height: 1;
+        letter-spacing: -.06em;
+        pointer-events: none;
+      }
+
+      .category-name {
+        position: relative;
+        z-index: 2;
+        display: block;
       }
 
       .category-name strong,
-      .category-name em,
-      .category-action,
-      .category-count {
+      .category-name em {
         display: block;
       }
 
       .category-name strong {
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(22px, 3vw, 30px);
+        font-size: clamp(23px, 2.7vw, 30px);
         font-weight: 400;
         line-height: 1;
         letter-spacing: .035em;
@@ -254,18 +235,36 @@ const specimens = orderedSlugs
         font-style: normal;
       }
 
+      .mechanism-figure {
+        display: grid;
+        place-items: center;
+        height: 188px;
+        margin: 16px -4px 8px;
+      }
+
+      .mechanism-figure img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
       .category-action {
-        margin-top: 22px;
+        display: block;
+        min-height: 3.5em;
+        margin-top: 6px;
         font-size: 12px;
         line-height: 1.65;
       }
 
       .category-count {
-        margin-top: 12px;
+        display: block;
+        margin-top: 8px;
         color: var(--lab-soft);
         font-family: Georgia, "Times New Roman", serif;
         font-size: 10px;
         letter-spacing: .08em;
+        text-align: right;
       }
 
       .selected-section {
@@ -275,10 +274,10 @@ const specimens = orderedSlugs
 
       .selected-head {
         display: grid;
-        grid-template-columns: minmax(0, .85fr) minmax(280px, 1.15fr);
-        gap: 38px;
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 24px;
         align-items: end;
-        padding: 28px 0 24px;
+        padding: 22px 0;
       }
 
       .category-summary[hidden],
@@ -289,7 +288,7 @@ const specimens = orderedSlugs
       .category-summary h2 {
         margin: 0;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(34px, 6vw, 52px);
+        font-size: 34px;
         font-weight: 400;
         line-height: .95;
       }
@@ -310,25 +309,25 @@ const specimens = orderedSlugs
       }
 
       .specimen-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        display: block;
         border-top: 1px solid var(--lab-ink);
-        border-left: 1px solid var(--lab-ink);
       }
 
       .specimen-card {
+        display: grid;
+        grid-template-columns: 124px minmax(0, 1fr) minmax(170px, .72fr);
+        gap: 20px;
+        align-items: center;
         min-width: 0;
-        padding: 19px;
-        border-right: 1px solid var(--lab-ink);
-        border-bottom: 1px solid var(--lab-ink);
-        background: rgba(255,255,255,.13);
+        padding: 14px 0;
+        border-bottom: 1px solid var(--lab-rule);
+        background: transparent;
       }
 
       .specimen-media {
         aspect-ratio: 4 / 3;
-        margin-bottom: 18px;
         overflow: hidden;
-        background: rgba(255,255,255,.30);
+        background: rgba(255,255,255,.28);
       }
 
       .specimen-media img {
@@ -336,6 +335,9 @@ const specimens = orderedSlugs
         height: 100%;
         object-fit: contain;
       }
+
+      .specimen-copy { display: contents; }
+      .specimen-meta { min-width: 0; }
 
       .specimen-type {
         margin: 0 0 7px;
@@ -348,7 +350,7 @@ const specimens = orderedSlugs
       .specimen-card h3 {
         margin: 0;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 25px;
+        font-size: 22px;
         font-weight: 400;
         line-height: 1.05;
       }
@@ -359,12 +361,17 @@ const specimens = orderedSlugs
       }
 
       .specimen-caliber {
-        margin: 14px 0 17px;
+        margin: 14px 0 0;
         color: var(--lab-soft);
         font-size: 12px;
       }
 
-      .audio-slots { display: grid; gap: 8px; }
+      .audio-slots {
+        display: grid;
+        gap: 8px;
+        align-self: stretch;
+        align-content: center;
+      }
 
       .audio-pending,
       .audio-slots audio {
@@ -404,194 +411,9 @@ const specimens = orderedSlugs
         line-height: 1.8;
       }
 
-      /* A — EDITORIAL INDEX / 編集索引 */
-      html[data-gallery-variant="a"] .category-button {
-        min-height: 178px;
-      }
-
-      html[data-gallery-variant="a"] .specimen-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      /* B — WATCH PORTRAIT / 個体写真 */
-      html[data-gallery-variant="b"] .category-grid {
-        background: transparent;
-      }
-
-      html[data-gallery-variant="b"] .category-button {
-        min-height: 214px;
-        background: transparent;
-        overflow: hidden;
-      }
-
-      html[data-gallery-variant="b"] .category-button[aria-pressed="true"] {
-        background: transparent;
-        box-shadow: inset 0 -6px 0 var(--lab-ink);
-      }
-
-      html[data-gallery-variant="b"] .category-no {
-        position: absolute;
-        right: 10px;
-        top: 4px;
-        margin: 0;
-        color: rgba(36,31,26,.10);
-        font-size: 72px;
-        line-height: 1;
-        letter-spacing: -.06em;
-      }
-
-      html[data-gallery-variant="b"] .category-name {
-        position: absolute;
-        left: 18px;
-        bottom: 78px;
-      }
-
-      html[data-gallery-variant="b"] .category-action {
-        position: absolute;
-        left: 18px;
-        right: 18px;
-        bottom: 34px;
-        margin: 0;
-      }
-
-      html[data-gallery-variant="b"] .category-count {
-        position: absolute;
-        right: 18px;
-        bottom: 13px;
-        margin: 0;
-      }
-
-      html[data-gallery-variant="b"] .selected-head {
-        grid-template-columns: 1fr;
-        gap: 13px;
-        max-width: 760px;
-      }
-
-      html[data-gallery-variant="b"] .specimen-grid {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        gap: 0;
-      }
-
-      html[data-gallery-variant="b"] .specimen-card {
-        grid-column: span 2;
-        padding: 0 0 28px;
-        border-right: 1px solid var(--lab-ink);
-        border-bottom: 1px solid var(--lab-ink);
-      }
-
-      html[data-gallery-variant="b"] .specimen-card:not([hidden]) {
-        background: transparent;
-      }
-
-      html[data-gallery-variant="b"] .specimen-card:not([hidden]):only-child {
-        grid-column: 2 / span 4;
-      }
-
-      html[data-gallery-variant="b"] .specimen-media {
-        aspect-ratio: 1 / 1;
-        margin: 0;
-        border-bottom: 1px solid var(--lab-ink);
-      }
-
-      html[data-gallery-variant="b"] .specimen-copy {
-        padding: 20px 20px 0;
-      }
-
-      html[data-gallery-variant="b"] .specimen-card h3 {
-        font-size: clamp(28px, 4vw, 40px);
-      }
-
-      /* C — CATALOG LIST / 比較一覧 */
-      html[data-gallery-variant="c"] .category-button {
-        min-height: 116px;
-        padding: 16px 15px 14px;
-      }
-
-      html[data-gallery-variant="c"] .category-no {
-        margin-bottom: 17px;
-      }
-
-      html[data-gallery-variant="c"] .category-name strong {
-        font-size: 18px;
-      }
-
-      html[data-gallery-variant="c"] .category-action {
-        margin-top: 12px;
-        font-size: 11px;
-      }
-
-      html[data-gallery-variant="c"] .category-count {
-        position: absolute;
-        top: 16px;
-        right: 14px;
-        margin: 0;
-      }
-
-      html[data-gallery-variant="c"] .selected-head {
-        grid-template-columns: 240px minmax(0, 1fr);
-        gap: 24px;
-        padding-block: 22px;
-      }
-
-      html[data-gallery-variant="c"] .category-summary h2 {
-        font-size: 34px;
-      }
-
-      html[data-gallery-variant="c"] .specimen-grid {
-        display: block;
-        border: 0;
-        border-top: 1px solid var(--lab-ink);
-      }
-
-      html[data-gallery-variant="c"] .specimen-card {
-        display: grid;
-        grid-template-columns: 124px minmax(0, 1fr) minmax(170px, .72fr);
-        gap: 20px;
-        align-items: center;
-        padding: 14px 0;
-        border: 0;
-        border-bottom: 1px solid var(--lab-rule);
-        background: transparent;
-      }
-
-      html[data-gallery-variant="c"] .specimen-media {
-        aspect-ratio: 4 / 3;
-        margin: 0;
-      }
-
-      html[data-gallery-variant="c"] .specimen-copy {
-        display: contents;
-      }
-
-      html[data-gallery-variant="c"] .specimen-meta {
-        min-width: 0;
-      }
-
-      html[data-gallery-variant="c"] .specimen-card h3 {
-        font-size: 22px;
-      }
-
-      html[data-gallery-variant="c"] .specimen-caliber {
-        margin-bottom: 0;
-      }
-
-      html[data-gallery-variant="c"] .audio-slots {
-        align-self: stretch;
-        align-content: center;
-      }
-
       @media (hover: hover) and (pointer: fine) {
         .category-button:hover {
-          background: rgba(233,225,213,.58);
-        }
-
-        .variant-switcher button:hover {
-          border-color: var(--lab-ink);
-          color: var(--lab-ink);
-        }
-
-        .variant-switcher button[aria-pressed="true"]:hover {
-          color: var(--lab-paper);
+          background: rgba(233,225,213,.42);
         }
       }
 
@@ -626,20 +448,24 @@ const specimens = orderedSlugs
         }
 
         .category-button {
-          min-height: 154px;
-          padding: 16px 14px;
+          min-height: 314px;
+          padding: 16px 14px 15px;
         }
 
         .category-no {
-          margin-bottom: 22px;
+          font-size: 58px;
         }
 
         .category-name strong {
           font-size: 22px;
         }
 
+        .mechanism-figure {
+          height: 168px;
+          margin-top: 12px;
+        }
+
         .category-action {
-          margin-top: 16px;
           font-size: 11px;
         }
 
@@ -652,113 +478,55 @@ const specimens = orderedSlugs
           gap: 14px;
         }
 
-        .specimen-grid {
-          grid-template-columns: 1fr;
-        }
-
-        html[data-gallery-variant="a"] .specimen-grid {
-          grid-template-columns: 1fr;
-        }
-
-        html[data-gallery-variant="b"] .category-button {
-          min-height: 184px;
-        }
-
-        html[data-gallery-variant="b"] .category-no {
-          font-size: 58px;
-        }
-
-        html[data-gallery-variant="b"] .category-name {
-          bottom: 70px;
-          left: 14px;
-        }
-
-        html[data-gallery-variant="b"] .category-action {
-          left: 14px;
-          right: 14px;
-          bottom: 30px;
-        }
-
-        html[data-gallery-variant="b"] .category-count {
-          right: 14px;
-          bottom: 10px;
-        }
-
-        html[data-gallery-variant="b"] .specimen-grid {
-          grid-template-columns: 1fr;
-        }
-
-        html[data-gallery-variant="b"] .specimen-card,
-        html[data-gallery-variant="b"] .specimen-card:not([hidden]):only-child {
-          grid-column: auto;
-        }
-
-        html[data-gallery-variant="b"] .specimen-media {
-          aspect-ratio: 5 / 4;
-        }
-
-        html[data-gallery-variant="c"] .category-button {
-          min-height: 104px;
-        }
-
-        html[data-gallery-variant="c"] .selected-head {
-          grid-template-columns: 1fr;
-        }
-
-        html[data-gallery-variant="c"] .specimen-card {
+        .specimen-card {
           grid-template-columns: 96px minmax(0, 1fr);
           gap: 14px;
         }
 
-        html[data-gallery-variant="c"] .specimen-copy {
-          display: block;
-        }
+        .specimen-copy { display: block; }
 
-        html[data-gallery-variant="c"] .audio-slots {
+        .audio-slots {
           grid-column: 1 / -1;
+          margin-top: 4px;
         }
       }
 
-      @media (max-width: 340px) {
+      @media (max-width: 380px) {
         .lab { width: calc(100% - 24px); }
 
-        .variant-switcher {
-          display: grid;
-          grid-template-columns: 1fr;
-        }
-
-        .variant-switcher button {
-          text-align: left;
-        }
-
         .category-button {
+          min-height: 290px;
           padding-inline: 11px;
         }
 
+        .category-no {
+          font-size: 48px;
+        }
+
         .category-name strong {
-          font-size: 20px;
+          font-size: 19px;
         }
 
-        html[data-gallery-variant="b"] .category-name {
-          left: 11px;
+        .mechanism-figure {
+          height: 148px;
         }
 
-        html[data-gallery-variant="b"] .category-action {
-          left: 11px;
-          right: 11px;
+        .category-action {
+          min-height: 4.9em;
+          font-size: 10px;
         }
 
-        html[data-gallery-variant="c"] .specimen-card {
+        .category-count {
+          font-size: 9px;
+        }
+
+        .specimen-card {
           grid-template-columns: 1fr;
         }
 
-        html[data-gallery-variant="c"] .specimen-media {
+        .specimen-media {
           max-width: 160px;
         }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
       }
     </style>
   </head>
@@ -780,12 +548,6 @@ const specimens = orderedSlugs
         </p>
       </header>
 
-      <div class="variant-switcher" role="group" aria-label="比較レイアウト">
-        <button type="button" data-variant="a" aria-pressed="true"><span>A INDEX</span>　編集索引</button>
-        <button type="button" data-variant="b" aria-pressed="false"><span>B PORTRAIT</span>　個体写真</button>
-        <button type="button" data-variant="c" aria-pressed="false"><span>C CATALOG</span>　比較一覧</button>
-      </div>
-
       <section aria-label="鳴動方式を選ぶ">
         <div class="category-grid">
           {categories.map((category) => (
@@ -800,6 +562,9 @@ const specimens = orderedSlugs
               <span class="category-name">
                 <strong>{category.en}</strong>
                 <em>{category.ja}</em>
+              </span>
+              <span class="mechanism-figure" aria-hidden="true">
+                <img src={`${base}${category.image.replace(/^\//, '')}`} alt="" />
               </span>
               <span class="category-action">{category.action}</span>
               <span class="category-count">{category.count} {category.count === 1 ? 'WATCH' : 'WATCHES'} / 掲載</span>
@@ -884,12 +649,10 @@ const specimens = orderedSlugs
 
     <script is:inline>
       (() => {
-        const root = document.documentElement;
         const categoryButtons = [...document.querySelectorAll('button[data-category]')];
         const specimenCards = [...document.querySelectorAll('[data-specimen]')];
         const headingBlocks = [...document.querySelectorAll('[data-category-summary]')];
         const descriptionBlocks = [...document.querySelectorAll('[data-category-description]')];
-        const variantButtons = [...document.querySelectorAll('[data-variant]')];
 
         const selectCategory = (category) => {
           categoryButtons.forEach((button) => {
@@ -908,16 +671,6 @@ const specimens = orderedSlugs
 
         categoryButtons.forEach((button) => {
           button.addEventListener('click', () => selectCategory(button.dataset.category));
-        });
-
-        variantButtons.forEach((button) => {
-          button.addEventListener('click', () => {
-            const variant = button.dataset.variant || 'a';
-            root.dataset.galleryVariant = variant;
-            variantButtons.forEach((item) => {
-              item.setAttribute('aria-pressed', item === button ? 'true' : 'false');
-            });
-          });
         });
       })();
     </script>
