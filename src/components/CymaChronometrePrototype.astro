@@ -118,8 +118,8 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
         <header class="proto-owner-hero shell">
           <div class="proto-owner-title">
             <p class="proto-kicker">CYMA / CAL. R.464</p>
-            <h1><span>Time-O-Vox</span><span>Chronomètre</span></h1>
-            <p class="proto-owner-deck"><span>文字盤に「CHRONOMÈTRE」と記された18KケースのTime-O-Vox。</span><span>文字盤の「CHRONOMÈTRE」と、現存個体に残る表記の違いを追っていく。</span></p>
+            <h1>{data.heading}</h1>
+            <p class="proto-owner-deck">{data.lead.map((line)=><span>{line}</span>)}</p>
           </div>
           <figure class="proto-owner-watch">
             <img src={/^https?:\/\//.test(heroImage) ? heroImage : `${base}${heroImage.replace(/^\//,'')}`} alt="CYMA Time-O-Vox 18K Chronomètre 掲載個体" />
@@ -139,29 +139,40 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
 
         <article class="proto-owner-story shell">
           <section class="proto-owner-section" id="owners-documented">
-            <header><span>01</span><div><small>文献</small><h2>Time-O-VoxにもChronomètreがあった</h2></div></header>
+            <header><span>01</span><div><small>文献</small><h2>{data.documented.title}</h2></div></header>
             <div class="proto-owner-copy">
               <dl class="proto-source-ledger">
-                <div><dt>MIH</dt><dd><small>共有資料</small><strong>金製Time-O-Voxへのクロノメーター証明</strong><p>MIHが共有したCyma資料には、金製Time-O-Voxがクロノメーター証明を受けた記録がある。 <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-7">[7]</a></sup></p></dd></div>
-                <div><dt>HORLBECK</dt><dd><small>専門書</small><strong>5姿勢と温度による試験</strong><p>『The Alarm Wristwatch』には、Cal.R.464のChronomètre仕様と、5姿勢・温度試験の記述がある。 <sup class="proto-cite"><a href="#source-2">[2]</a></sup></p></dd></div>
-                <div><dt>BEITL</dt><dd><small>専門書</small><strong>金製モデルはChronometer仕様</strong><p>『Alarm am Arm』は、14K金ケース・透かしラグのTime-O-Voxについて「この金製モデルは常にChronometer仕様だった」と記す。掲載例には、文字盤とムーブメント双方にChronometer表記を持つ個体と、文字盤に表記がなくムーブメント側だけにChronometer表記を持つ個体がある。 <sup class="proto-cite"><a href="#source-3">[3]</a></sup></p></dd></div>
+                {data.documented.cards.map((card,index)=>(
+                  <div>
+                    <dt>{card.label}</dt>
+                    <dd>
+                      <small>{index===0?'共有資料':'専門書'}</small>
+                      <strong>{card.title}</strong>
+                      <p>{card.body}
+                        {index===0&&<sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-7">[7]</a></sup>}
+                        {index===1&&<sup class="proto-cite"><a href="#source-2">[2]</a></sup>}
+                        {index===2&&<sup class="proto-cite"><a href="#source-3">[3]</a></sup>}
+                      </p>
+                    </dd>
+                  </div>
+                ))}
               </dl>
               {data.documented.cards.some((card)=>card.image)&&<div class="proto-owner-inline-media">
                 {data.documented.cards.filter((card)=>card.image).map((card)=><figure><img src={resolveMedia(card.image)} alt={card.title}/><figcaption>{card.label} / {card.title}</figcaption></figure>)}
               </div>}
-              <p>Chronomètre仕様は存在した。現存個体を並べると表記は揃わない。 <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-9">[9]</a></sup></p>
+              <p>{data.documented.intro} <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-9">[9]</a></sup></p>
             </div>
           </section>
 
           <section class="proto-owner-section" id="owners-observed">
-            <header><span>02</span><div><small>観測個体</small><h2>表記が揃わない</h2></div></header>
+            <header><span>02</span><div><small>観測個体</small><h2>{data.observed.title}</h2></div></header>
             <div class="proto-owner-copy">
-              <p>販売ページ、文献、整備記事、動画、SNSから確認できた17件を並べた。 <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
-              <p>Ref.1283は、掲載個体の購入書類だけでなく、HODINKEEとPamonoの別個体でも使われている。同系統のSS個体ではRef.1261も確認できるため、CYMA公式の型番なのか、流通側で使われた番号なのかは不明。 <sup class="proto-cite"><a href="#source-9">[9]</a><a href="#source-10">[10]</a><a href="#source-11">[11]</a><a href="#source-12">[12]</a></sup></p>
+              <p>{data.observed.intro} <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+              {data.observed.refNote&&<p>{data.observed.refNote} <sup class="proto-cite"><a href="#source-9">[9]</a><a href="#source-10">[10]</a><a href="#source-11">[11]</a><a href="#source-12">[12]</a></sup></p>}
               <dl class="proto-source-ledger">
-                <div><dt>掲載個体</dt><dd><small>18K / CHRONOMÈTRE</small><strong>文字盤はChronomètre</strong><p>掲載個体は18Kケース。文字盤はCHRONOMÈTRE。ムーブメントには5姿勢・温度調整の刻印は見当たらない。</p></dd></div>
-                <div><dt>5姿勢</dt><dd><small>YG / FIVE POSITIONS + TEMPERATURE</small><strong>表記なし、5姿勢・温度調整</strong><p>文字盤にChronomètre表記はないが、ムーブメントに「ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE」と刻まれた金色ケース個体がある。</p></dd></div>
-                <div><dt>UNADJUSTED</dt><dd><small>YG / UNADJUSTED</small><strong>金色ケース、UNADJUSTED</strong><p>逆に、金色ケースでムーブメントにUNADJUSTEDと刻まれた個体もある。</p></dd></div>
+                {data.mismatch.cards.map((card)=>(
+                  <div><dt>{card.label}</dt><dd><small>{card.meta||''}</small><strong>{card.title}</strong><p>{card.body}</p></dd></div>
+                ))}
               </dl>
               {data.observed.images?.some((item)=>item.image)&&<div class="proto-owner-inline-media">
                 {data.observed.images.filter((item)=>item.image).map((item)=><figure><img src={resolveMedia(item.image)} alt={item.alt||'CYMA Time-O-Vox 観測個体'}/><figcaption>{item.caption}</figcaption></figure>)}
@@ -171,45 +182,40 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
           </section>
 
           <section class="proto-owner-section proto-owner-logic" id="owners-unadjusted">
-            <header><span>03</span><div><small>UNADJUSTED刻印</small><h2>Tavannesで起きていたこと</h2></div></header>
+            <header><span>03</span><div><small>UNADJUSTED刻印</small><h2>{data.tariff.title}</h2></div></header>
             <div class="proto-owner-copy">
-              <p>1956年の米国上院公聴会では、調整済みのスイス時計を「unadjusted」と表示して輸入する事例が問題になった。追加関税を避けるためだった。 <sup class="proto-cite"><a href="#source-6">[6]</a></sup></p>
+              <p>{data.tariff.intro} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></p>
               <blockquote><p lang="en">{proofQuote}</p><footer>{proofQuoteJa} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></footer></blockquote>
               {data.tariff.image&&<figure class="proto-tariff-media"><img src={resolveMedia(data.tariff.image)} alt="1956年米国上院 Swiss Watches—Adjustments 資料"/><figcaption>{data.tariff.caption}</figcaption></figure>}
-              <p>Pritchardが挙げた例の一つがTavannes。工場広告では全ムーブメントを姿勢と温度について調整するとしながら、Washington, D.C.で販売された時計には「unadjusted」と刻まれていた。 <sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup></p>
-              <p>CYMA WATCH CO. SAは、PritchardのTavannes項目でグループ企業として記載されている。 <sup class="proto-cite"><a href="#source-5">[5]</a></sup></p>
-              <p>Time-O-VoxのUNADJUSTED刻印も、刻印だけで未調整とは決められない。 <sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a><a href="#source-9">[9]</a></sup></p>
+              {data.tariff.body.map((paragraph,index)=><p>{paragraph}
+                {index===0&&<sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>}
+                {index===1&&<sup class="proto-cite"><a href="#source-5">[5]</a></sup>}
+                {index===2&&<sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a><a href="#source-9">[9]</a></sup>}
+              </p>)}
             </div>
           </section>
 
           <section class="proto-owner-section proto-owner-inquiry" id="owners-archive">
-            <header><span>04</span><div><small>外部照会</small><h2>照会で分かったこと</h2></div></header>
+            <header><span>04</span><div><small>外部照会</small><h2>{data.archive.title}</h2></div></header>
             <div class="proto-owner-copy">
-              <p class="proto-inquiry-lead">2025年、MIHとNeuchâtel州立公文書館へ資料照会を行った。MIHはモデル資料、NeuchâtelはMovement No.4xxの個体照合として回答している。</p>
+              <p class="proto-inquiry-lead">{data.archive.intro}</p>
               <div class="proto-inquiry-grid">
-                <article>
-                  <small>MIH / 18 SEP. 2025</small>
-                  <h3>モデル資料</h3>
-                  <p>Time-O-Vox Chronomètreに直接関係する文書は確認できなかった。一方、Cyma関連ファイルには金製アラームウォッチへの証明書発行を示す記述があり、その資料が共有された。 <sup class="proto-cite"><a href="#source-7">[7]</a></sup></p>
-                </article>
-                <article>
-                  <small>NEUCHÂTEL / 14 NOV. 2025</small>
-                  <h3>Movement No.4xx</h3>
-                  <p>Movement No.4xx、ケース内番号8 6525、BT、1954〜1958年を指定して再照会。約100ページずつのBT台帳8冊を確認したが、掲載個体に対応する試験は特定できなかった。 <sup class="proto-cite"><a href="#source-8">[8]</a></sup></p>
-                </article>
+                {data.archive.cards.map((card,index)=>(
+                  <article><small>{card.label}</small><h3>{card.title}</h3><p>{card.body} <sup class="proto-cite"><a href={index===0?'#source-7':'#source-8'}>[{index===0?'7':'8'}]</a></sup></p></article>
+                ))}
               </div>
-              <aside class="proto-archive-clue">
-                <small>台帳に残った手掛かり</small>
-                <blockquote>“Bulletin: La Chaux-de-Fonds”</blockquote>
-                <p>同じ台帳には、1956年以降の <strong>Cyma Watch Co. SA, Le Locle</strong>、調整者 <strong>Arnold Racine</strong> の試験記録が残る。さらにCymaのページ上部には「Bulletin: La Chaux-de-Fonds」と鉛筆書きが系統的に入っている。公文書館担当者は、当該企業の試験結果がその年のObservatory BulletinでLa Chaux-de-Fondsの項に掲載されたことを示すものだろう、と説明している。 <sup class="proto-cite"><a href="#source-8">[8]</a></sup></p>
-              </aside>
+              {data.archive.clueBody&&<aside class="proto-archive-clue">
+                <small>{data.archive.clueLabel}</small>
+                <blockquote>“{data.archive.clueQuote}”</blockquote>
+                <p>{data.archive.clueBody} <sup class="proto-cite"><a href="#source-8">[8]</a></sup></p>
+              </aside>}
             </div>
           </section>
 
           <section class="proto-owner-section proto-owner-field-section" id="owners-field-note">
-            <header><span>05</span><div><small>実機観察</small><h2>アラーム起動での不具合</h2></div></header>
+            <header><span>05</span><div><small>実機観察</small><h2>{data.failure.title}</h2></div></header>
             <div class="proto-owner-copy">
-              <p>HumbertのR.464技術解説では、両プッシャーが中央位置のときにアラームが作動し、どちらかを完全に押し込むとロックされる。 <sup class="proto-cite"><a href="#source-4">[4]</a></sup></p>
+              <p>{data.failure.intro} <sup class="proto-cite"><a href="#source-4">[4]</a></sup></p>
 
               <div class="proto-owner-field-media" aria-label="掲載個体のプッシャー配置とCal.R.464ムーブメント">
                 {data.failure.images?.some((item)=>item.image)
@@ -229,10 +235,10 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
 
               <div class="proto-owner-field-observation">
                 <div class="proto-owner-field-heading">
-                  <small>確認した3個体</small>
-                  <h3>片側を押し込んでも鳴る</h3>
+                  <small>{data.failure.normalTitle}</small>
+                  <h3>{data.failure.observedTitle}</h3>
                 </div>
-                <p>ところが、片側プッシャーを押し込んだまま鳴る個体を3例確認している。 <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+                <p>{data.failure.observedBody} <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
                 <ol>
                   {data.failure.examples.map((example, index) => (
                     <li><span>0{index + 1}</span><strong>{example}</strong><small>鳴動を目視確認</small></li>
@@ -242,8 +248,8 @@ const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}
 
               <div class="proto-owner-field-hypothesis">
                 <small>掲載個体の仮説</small>
-                <h3>切替レバー支点部</h3>
-                <p>掲載個体では、切替レバー支点部の摩耗やガタでレバー位置がずれ、ロック側へのストロークが足りていないのではないかと考えている。ほか2個体の内部は未確認。 <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+                <h3>{data.failure.hypothesisTitle}</h3>
+                <p>{data.failure.hypothesisBody} <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
               </div>
 
             </div>
