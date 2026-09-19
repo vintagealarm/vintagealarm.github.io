@@ -78,6 +78,25 @@ const logic = [
 
 const proofQuote = '“Before leaving the factory, every Tavannes movement is adjusted for position and temperature.”';
 const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブメントは姿勢と温度について調整される。」';
+const heroImage = data.heroImage || '/images/cyma-time-o-vox/gallery/cyma-front.jpg';
+const getYouTubeId = (value: string) => {
+  const input=value?.trim();
+  if(!input) return '';
+  if(!input.includes('/')&&!input.includes('.')) return input;
+  try{
+    const url=new URL(input);
+    const host=url.hostname.replace(/^www\\./,'');
+    if(host==='youtu.be') return url.pathname.split('/').filter(Boolean)[0]??'';
+    if(host==='youtube.com'||host==='m.youtube.com'){
+      const queryId=url.searchParams.get('v');
+      if(queryId) return queryId;
+      const parts=url.pathname.split('/').filter(Boolean);
+      if(['shorts','embed','live'].includes(parts[0])) return parts[1]??'';
+    }
+  }catch{return input;}
+  return input;
+};
+const failureVideoId=getYouTubeId(data.failure.youtubeId||'');
 ---
 <!doctype html>
 <html lang="ja">
@@ -102,7 +121,7 @@ const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブ�
             <p class="proto-owner-deck"><span>文字盤に「CHRONOMÈTRE」と記された18KケースのTime-O-Vox。</span><span>文字盤の「CHRONOMÈTRE」と、現存個体に残る表記の違いを追っていく。</span></p>
           </div>
           <figure class="proto-owner-watch">
-            <img src={`${base}images/cyma-time-o-vox/gallery/cyma-front.jpg`} alt="CYMA Time-O-Vox 18K Chronomètre 掲載個体" />
+            <img src={/^https?:\/\//.test(heroImage) ? heroImage : `${base}${heroImage.replace(/^\//,'')}`} alt="CYMA Time-O-Vox 18K Chronomètre 掲載個体" />
             <figcaption>18K YELLOW GOLD / CAL. R.464</figcaption>
           </figure>
         </header>
@@ -126,7 +145,7 @@ const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブ�
                 <div><dt>HORLBECK</dt><dd><small>専門書</small><strong>5姿勢と温度による試験</strong><p>『The Alarm Wristwatch』には、Cal.R.464のChronomètre仕様と、5姿勢・温度試験の記述がある。 <sup class="proto-cite"><a href="#source-2">[2]</a></sup></p></dd></div>
                 <div><dt>BEITL</dt><dd><small>専門書</small><strong>金製モデルはChronometer仕様</strong><p>『Alarm am Arm』は、14K金ケース・透かしラグのTime-O-Voxについて「この金製モデルは常にChronometer仕様だった」と記す。掲載例には、文字盤とムーブメント双方にChronometer表記を持つ個体と、文字盤に表記がなくムーブメント側だけにChronometer表記を持つ個体がある。 <sup class="proto-cite"><a href="#source-3">[3]</a></sup></p></dd></div>
               </dl>
-              <p>Chronomètre仕様は存在した。 <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-3">[3]</a></sup> ただ、現存個体を並べると表記は揃わない。</p>
+              <p>Chronomètre仕様は存在した。現存個体を並べると表記は揃わない。 <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-9">[9]</a></sup></p>
             </div>
           </section>
 
