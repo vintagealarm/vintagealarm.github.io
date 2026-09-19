@@ -106,7 +106,10 @@ try {
     }
 
     if (width <= 430) {
-      await page.locator('.category-grid').scrollIntoViewIfNeeded();
+      await page.locator('.category-grid').evaluate((node) => {
+        node.scrollIntoView({ block: 'start', inline: 'nearest' });
+      });
+      await page.waitForTimeout(50);
       const visibility = await page.evaluate(() => {
         const section = document.querySelector('#specimen-panel');
         const grid = document.querySelector('.category-grid');
