@@ -135,19 +135,45 @@ try {
       if (item.naturalWidth !== nw || item.naturalHeight !== nh) {
         failures.push(`${width}px: ${expectedOrder[index]} wrong image dimensions ${item.naturalWidth}x${item.naturalHeight}, expected ${nw}x${nh}`);
       }
-      if (item.transform !== 'none') {
+      if (index === 0) {
+        if (item.transform === 'none') failures.push(`${width}px: GONG artwork was not enlarged`);
+      } else if (item.transform !== 'none') {
         failures.push(`${width}px: ${expectedOrder[index]} unexpected transform ${item.transform}`);
       }
       const clipped = item.image.left < item.figure.left - 1 || item.image.right > item.figure.right + 1 || item.image.top < item.figure.top - 1 || item.image.bottom > item.figure.bottom + 1;
-      if (clipped) {
+      if (index !== 0 && clipped) {
         failures.push(`${width}px: ${expectedOrder[index]} image is clipped by figure box: ${JSON.stringify(item)}`);
       }
       const heightRatio = item.figure.height ? item.image.height / item.figure.height : 0;
       const widthRatio = item.figure.width ? item.image.width / item.figure.width : 0;
-      if (heightRatio < 0.55 || heightRatio > 1.01 || widthRatio < 0.35 || widthRatio > 1.01) {
+      if (index !== 0 && (heightRatio < 0.55 || heightRatio > 1.01 || widthRatio < 0.35 || widthRatio > 1.01)) {
         failures.push(`${width}px: ${expectedOrder[index]} visual size out of range: h=${heightRatio.toFixed(2)} w=${widthRatio.toFixed(2)}`);
       }
     });
+
+    const editorialState = await page.evaluate(() => {
+      const bodyText = document.body.innerText;
+      const selected = document.querySelector('.category-button[aria-pressed="true"]');
+      return {
+        bodyText,
+        selectedBoxShadow: selected ? getComputedStyle(selected).boxShadow : 'missing'
+      };
+    });
+    for (const forbidden of [
+      '現在の掲載個体は',
+      '音源は実機録音を追加するまで表示しない',
+      '音源準備中',
+      '実機録音を追加予定',
+      '音源スロットは各掲載個体に用意済み',
+      '複数音源を格納できる構造を維持'
+    ]) {
+      if (editorialState.bodyText.includes(forbidden)) {
+        failures.push(`${width}px: production/meta comment still visible: ${forbidden}`);
+      }
+    }
+    if (editorialState.selectedBoxShadow !== 'none') {
+      failures.push(`${width}px: selected card still renders box-shadow line: ${editorialState.selectedBoxShadow}`);
+    }
 
     if (shellState.overlapFailures.length) {
       failures.push(`${width}px: category content overlap: ${shellState.overlapFailures.join(', ')}`);
