@@ -283,7 +283,7 @@
   },
   "archive": {
     "title": "外部照会で残った手掛かり",
-    "intro": "MIHはモデル資料、Neuchâtel州立公文書館はMovement No.489の個体照合として回答した。",
+    "intro": "MIHはモデル資料、Neuchâtel州立公文書館はMovement No.4xxの個体照合として回答した。",
     "cards": [
       {
         "label": "MIH / 18 SEP. 2025",
@@ -293,12 +293,12 @@
       },
       {
         "label": "NEUCHÂTEL / 14 NOV. 2025",
-        "title": "No.489は未特定、La Chaux-de-Fondsの手掛かりが残る",
-        "body": "Movement No.489、ケース内番号8 6525、BT、1954〜1958年を指定して再照会。約100ページずつのBT台帳8冊を確認したが、No.489に対応する試験は特定できなかった。同じ台帳には1956年以降のCyma Watch Co. SA, Le Locle、調整者Arnold Racineの試験記録があり、Cymaのページ上部には「Bulletin: La Chaux-de-Fonds」と鉛筆書きが系統的に残る。担当者は、当該企業の試験結果がその年のObservatory BulletinでLa Chaux-de-Fondsの項に掲載されたことを示すものだろうと説明している。",
+        "title": "掲載個体は未特定、La Chaux-de-Fondsの手掛かりが残る",
+        "body": "Movement No.4xx、ケース内番号8 6525、BT、1954〜1958年を指定して再照会。約100ページずつのBT台帳8冊を確認したが、掲載個体に対応する試験は特定できなかった。同じ台帳には1956年以降のCyma Watch Co. SA, Le Locle、調整者Arnold Racineの試験記録があり、Cymaのページ上部には「Bulletin: La Chaux-de-Fonds」と鉛筆書きが系統的に残る。担当者は、当該企業の試験結果がその年のObservatory BulletinでLa Chaux-de-Fondsの項に掲載されたことを示すものだろうと説明している。",
         "image": ""
       }
     ],
-    "note": "No.489そのものは未特定。ただし調査は「記録がない」で終わらず、該当年のObservatory BulletinとLa Chaux-de-Fonds側の記載へ続く。"
+    "note": "掲載個体そのものは未特定。ただし調査は「記録がない」で終わらず、該当年のObservatory BulletinとLa Chaux-de-Fonds側の記載へ続く。"
   },
   "tariff": {
     "title": "CYMA / Tavannes と “UNADJUSTED”",
