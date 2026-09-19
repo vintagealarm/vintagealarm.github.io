@@ -20,9 +20,9 @@ const labels = {
   archive: 'C / ARCHIVE'
 };
 const titles = {
-  owners: "OWNER'S NOTE寄り",
-  history: 'HISTORY寄り',
-  archive: 'RESEARCH / ARCHIVE寄り'
+  owners: "OWNER'S NOTE",
+  history: 'HISTORY',
+  archive: 'RESEARCH / ARCHIVE'
 };
 const goldSpecimens = data.observed.specimens.filter((item) => /YG|GOLD|14K|18K/i.test(item.case));
 const steelSpecimens = data.observed.specimens.filter((item) => /SS|STEEL/i.test(item.case));
@@ -57,11 +57,11 @@ const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブ�
     <meta name="robots" content="noindex,nofollow" />
     <meta name="theme-color" content={variant === 'history' ? '#1c201c' : '#f7f8f4'} />
     <OwnerFonts />
-    <title>CYMA Time-O-Vox Chronomètre — {titles[variant]}｜VINTAGE ALARM TEST</title>
+    <title>CYMA Time-O-Vox Chronomètre — {titles[variant]}｜VINTAGE ALARM</title>
   </head>
   <body class:list={['cyma-proto', `cyma-proto--${variant}`, variant === 'owners' && 'owners-v15', variant === 'history' && 'history-v13 history-v18']}>
-    <div class="proto-mast"><SectionMast rightLabel={variant === 'owners' ? 'TEST / A' : variant === 'history' ? 'TEST / B' : 'TEST / C'} /></div>
-    <nav class="proto-switcher" aria-label="3案の切り替え">
+    <div class="proto-mast"><SectionMast rightLabel="CYMA / R.464" /></div>
+    <nav class="proto-switcher" aria-label="表示切り替え">
       <div class="shell">
         {(Object.keys(paths) as Variant[]).map((key) => (
           <a href={paths[key]} aria-current={key === variant ? 'page' : undefined}>{labels[key]}</a>
