@@ -103,8 +103,34 @@ try {
       })
     );
 
-    const expectedNatural = [[161, 180], [300, 130], [300, 98], [300, 134]];
+    const expectedNatural = [[300, 180], [300, 180], [300, 180], [300, 180]];
+    const pixelArtifacts = await page.evaluate(() => {
+      return [...document.querySelectorAll('.mechanism-figure img')].map((img) => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        ctx.drawImage(img, 0, 0);
+        const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        let purple = 0;
+        for (let i = 0; i < data.length; i += 4) {
+          const r = data[i], g = data[i + 1], b = data[i + 2];
+          if (r > 90 && b > 110 && g < 135 && r - g > 20 && b - g > 25) purple += 1;
+        }
+        const corners = [[0,0],[canvas.width-1,0],[0,canvas.height-1],[canvas.width-1,canvas.height-1]].map(([x,y]) => {
+          const p = ctx.getImageData(x,y,1,1).data;
+          return [p[0],p[1],p[2]];
+        });
+        return { src: img.getAttribute('src') || '', purple, corners };
+      });
+    });
+
     diagramState.forEach((item, index) => {
+      const artifact = pixelArtifacts[index];
+      if (artifact?.purple > 0) failures.push(`${width}px: ${expectedOrder[index]} contains ${artifact.purple} purple artifact pixels`);
+      if (artifact?.corners?.some(([r,g,b]) => Math.abs(r - 242) > 4 || Math.abs(g - 238) > 4 || Math.abs(b - 227) > 4)) {
+        failures.push(`${width}px: ${expectedOrder[index]} image background corners do not match approved card paper: ${JSON.stringify(artifact.corners)}`);
+      }
       const [nw, nh] = expectedNatural[index];
       if (item.naturalWidth !== nw || item.naturalHeight !== nh) {
         failures.push(`${width}px: ${expectedOrder[index]} wrong image dimensions ${item.naturalWidth}x${item.naturalHeight}, expected ${nw}x${nh}`);
