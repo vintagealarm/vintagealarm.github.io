@@ -1,0 +1,111 @@
+name: Deploy protected sound gallery preview
+
+on:
+  push:
+    branches: ["feat/how-they-ring-preview"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: protected-sound-gallery-preview
+  cancel-in-progress: true
+
+jobs:
+  build-and-preview:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      PREVIEW_PROJECT: vintage-alarm-preview
+      PREVIEW_BRANCH: sound-gallery
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Require Cloudflare deployment token
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify generated site
+        run: |
+          npm run check:quality
+          npm run test:quality
+          node scripts/check-owner-directory.mjs
+          node scripts/check-build-output.mjs
+          test -f dist/lab/how-they-ring/index.html
+          test -f dist/_worker.js
+
+      - name: Install browser
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Verify public layouts and sound gallery prototype
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/vintage-alarm-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl -fsS http://127.0.0.1:4321/ >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          node scripts/check-layout.mjs
+          node scripts/check-sound-gallery-preview.mjs
+
+      - name: Create isolated preview project if needed
+        run: |
+          npx --yes wrangler@4 pages project list > "$RUNNER_TEMP/pages-projects.txt"
+          if ! grep -Fq "$PREVIEW_PROJECT" "$RUNNER_TEMP/pages-projects.txt"; then
+            npx --yes wrangler@4 pages project create "$PREVIEW_PROJECT" --production-branch preview-only
+          fi
+
+      - name: Deploy protected preview
+        id: deploy
+        run: |
+          set +e
+          deploy_output="$(npx --yes wrangler@4 pages deploy dist --project-name "$PREVIEW_PROJECT" --branch "$PREVIEW_BRANCH" 2>&1)"
+          deploy_status=$?
+          set -e
+          printf '%s\n' "$deploy_output"
+          test "$deploy_status" -eq 0
+          preview_url="$(printf '%s\n' "$deploy_output" | grep -Eo 'https://[^[:space:]]+\.pages\.dev' | head -n 1)"
+          test -n "$preview_url"
+          printf 'url=%s\n' "$preview_url" >> "$GITHUB_OUTPUT"
+
+      - name: Verify login wall
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          sleep 8
+          status=""
+          for attempt in {1..20}; do
+            status="$(curl -sS -o /tmp/preview-body.txt -D /tmp/preview-headers.txt -w '%{http_code}' "$PREVIEW_URL/lab/how-they-ring/" || true)"
+            if [ "$status" = "401" ]; then
+              break
+            fi
+            sleep 2
+          done
+          test "$status" = "401"
+          grep -qi '^www-authenticate: Basic realm="VINTAGE ALARM ANALYTICS"' /tmp/preview-headers.txt
+          grep -qi '^x-robots-tag: noindex, nofollow, noarchive' /tmp/preview-headers.txt
+          {
+            echo "Protected preview: $PREVIEW_URL/lab/how-they-ring/"
+            echo "Authentication wall: verified (HTTP 401 without credentials)"
+          } >> "$GITHUB_STEP_SUMMARY"

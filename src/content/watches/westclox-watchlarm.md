@@ -37,6 +37,18 @@ spec:
   winding: 手巻き
   acoustic: 裏蓋ピン式
   notes: 2時位置プッシャー式アラーム設定、掲載個体は60プッシュで12時間一周、9時位置ON/OFFスライダー、アラーム約10秒
+howTheyRing:
+  published: true
+  category: pin
+  image: "/images/C38ECDB0-90CE-432E-AF6A-BC05FF52296F.png"
+  audio:
+    status: pending
+    recordings: []
+
+audio:
+  status: pending
+  recordings: []
+
 specimenGallery:
   - image: /images/IMG_2093-2.jpeg
     label: 正面

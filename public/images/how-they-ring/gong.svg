@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-labelledby="title desc">
+<title>GONG / ゴング</title><desc>腕時計を上から見た略図。外周を走るC字状の音響ばねをハンマーが叩く。</desc>
+<style>
+  .ink{fill:none;stroke:#16384a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+  .soft{fill:none;stroke:#16384a;stroke-opacity:.28;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .accent{fill:#d9c6a4;fill-opacity:.74;stroke:#16384a;stroke-width:3;stroke-linejoin:round}
+  .accentLine{fill:none;stroke:#b99c70;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+  .hammer{fill:#16384a;stroke:#16384a;stroke-width:2;stroke-linejoin:round}
+  .hammerArm{fill:none;stroke:#16384a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<!-- case and lugs -->
+<circle class="ink" cx="240" cy="150" r="108"/>
+<path class="ink" d="M164 61 L157 22 L176 17 L187 57 M293 57 L304 17 L323 22 L316 61 M164 239 L157 278 L176 283 L187 243 M293 243 L304 283 L323 278 L316 239"/>
+<!-- dial -->
+<circle class="soft" cx="240" cy="150" r="94"/>
+<!-- 10:10 hands -->
+<path class="soft" d="M240 150 L197 116 M240 150 L286 115"/>
+<circle class="soft" cx="240" cy="150" r="6"/>
+<!-- C-shaped gong: 80-85% of circumference -->
+<path class="accentLine" d="M193 79
+ C141 97 113 144 123 191
+ C134 242 188 265 238 255
+ C276 247 306 226 321 195"/>
+<!-- support point -->
+<circle class="accent" cx="193" cy="79" r="4"/>
+<!-- hammer near lower-right gong end -->
+<path class="hammerArm" d="M337 231 L322 207"/>
+<circle class="ink" cx="340" cy="236" r="8"/>
+<rect class="hammer" x="311" y="190" width="24" height="14" rx="2" transform="rotate(24 323 197)"/>
+</svg>
