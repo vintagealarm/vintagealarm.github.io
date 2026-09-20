@@ -3,7 +3,7 @@ title: BASIS ALARM
 watchSlug: basis-alarm
 published: true
 category: bell
-thumbnail: "/images/Basis Alarm(BFG90).png"
+thumbnail: /images/IMG_8890-1.jpeg
 audio:
   status: pending
   recordings: []

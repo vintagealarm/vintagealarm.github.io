@@ -3,7 +3,7 @@ title: CITIZEN ALARM
 watchSlug: citizen-alarm
 published: true
 category: caseback
-thumbnail: /images/citizen-alarm/owners-note.jpg
+thumbnail: /images/owners-thumbnails/citizen-alarm-full.jpg
 audio:
   status: pending
   recordings: []

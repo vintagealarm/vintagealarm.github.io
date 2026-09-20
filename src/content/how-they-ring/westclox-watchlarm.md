@@ -3,7 +3,7 @@ title: WESTCLOX WATCHLARM
 watchSlug: westclox-watchlarm
 published: true
 category: pin
-thumbnail: /images/C38ECDB0-90CE-432E-AF6A-BC05FF52296F.png
+thumbnail: /images/IMG_2093-1.jpeg
 audio:
   status: pending
   recordings: []

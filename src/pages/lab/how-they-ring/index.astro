@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import ownersDirectory from '../../../data/owners-directory.json';
 import '../../../styles/site.css';
 
 const base = import.meta.env.BASE_URL;
@@ -9,6 +10,9 @@ const published = new Map(
   watches.filter((item) => item.data.published).map((item) => [item.data.slug, item.data])
 );
 const galleryBySlug = new Map(galleryEntries.map((item) => [item.data.watchSlug, item.data]));
+const ownerThumbnailBySlug = new Map(
+  ownersDirectory.entries.map((entry) => [entry.historyId, entry.ownersThumbnail ?? entry.image])
+);
 
 const orderedSlugs = [
   'cyma-time-o-vox',
@@ -65,7 +69,7 @@ const specimens = orderedSlugs
       brand: watch.brand,
       model: watch.model,
       caliber: watch.spec.caliber,
-      image: `${base}${(gallery?.thumbnail?.trim() || watch.ownersNote.image).replace(/^\//, '')}`,
+      image: `${base}${(gallery.thumbnail?.trim() || ownerThumbnailBySlug.get(slug) || '').replace(/^\//, '')}`,
       recordings: gallery?.audio.status === 'ready'
         ? gallery.audio.recordings.filter((recording) => Boolean(recording.src?.trim()))
         : []
