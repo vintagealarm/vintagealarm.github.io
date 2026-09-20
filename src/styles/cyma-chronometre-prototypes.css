@@ -172,7 +172,22 @@
 .proto-field-note{display:grid;grid-template-columns:minmax(240px,.9fr) minmax(0,1.1fr);gap:28px;align-items:start}
 .proto-field-note img{width:100%;aspect-ratio:1.25;object-fit:cover;filter:saturate(.78)}
 .proto-field-note p{margin-left:0}
-.proto-owner .proto-conclusion{width:100%}
+.proto-owner .proto-conclusion{border-top:0}
+.proto-owner .proto-conclusion>header{display:block}
+.proto-owner .proto-conclusion>header span{display:block;margin-bottom:8px;font:600 9px/1.4 var(--sans);letter-spacing:.12em}
+.proto-owner .proto-conclusion>div{margin:0;border-top:1px solid var(--ink)}
+.proto-owner .proto-conclusion article+article{padding-left:0;border-left:0}
+
+@media(min-width:761px){
+  .proto-owner .proto-conclusion{display:grid;grid-template-columns:minmax(250px,.72fr) minmax(0,1.28fr);gap:44px;padding-block:48px 58px}
+  .proto-owner .proto-conclusion h2{font-size:24px;line-height:1.65}
+  .proto-owner .proto-conclusion>div{display:block}
+  .proto-owner .proto-conclusion article{display:grid;grid-template-columns:116px minmax(0,1fr);gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--rule)}
+  .proto-owner .proto-conclusion p{margin:0}
+}
+@media(max-width:760px){
+  .proto-owner .proto-conclusion>div{margin-top:22px}
+}
 
 
 /* A / FIELD NOTE — evidence first, no forced crop. */
