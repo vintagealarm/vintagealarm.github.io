@@ -4,6 +4,7 @@ import ownersDirectory from '../../../data/owners-directory.json';
 import '../../../styles/site.css';
 
 const base = import.meta.env.BASE_URL;
+const { production = false } = Astro.props as { production?: boolean };
 const watches = await getCollection('watches');
 const galleryEntries = await getCollection('howTheyRing');
 const published = new Map(
@@ -89,9 +90,10 @@ const categoryCounts = Object.fromEntries(
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex,nofollow,noarchive" />
+    {!production && <meta name="robots" content="noindex,nofollow,noarchive" />}
+    {production && <link rel="canonical" href="https://vintagealarm.github.io/how-they-ring/" />}
     <meta name="theme-color" content="#f3eee4" />
-    <title>鳴らし方で見る、アラーム腕時計。｜VINTAGE ALARM TEST</title>
+    <title>{production ? '鳴らし方で見る、アラーム腕時計。｜VINTAGE ALARM' : '鳴らし方で見る、アラーム腕時計。｜VINTAGE ALARM TEST'}</title>
     <style>
       :root {
         --lab-ink: #241f1a;
@@ -121,6 +123,8 @@ const categoryCounts = Object.fromEntries(
         font-size: 10px;
         letter-spacing: .15em;
       }
+
+      .lab-status a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
       .lab-status strong {
         color: var(--lab-ink);
@@ -582,7 +586,7 @@ const categoryCounts = Object.fromEntries(
     <main class="lab">
       <div class="lab-status">
         <strong>VINTAGE ALARM / TEST SURFACE</strong>
-        <span>非公開プレビュー</span>
+        <span>{production ? 'PUBLIC' : '非公開プレビュー'} / <a href={`${base}admin/`}>CMS EDIT</a></span>
       </div>
 
       <header class="lab-hero">
