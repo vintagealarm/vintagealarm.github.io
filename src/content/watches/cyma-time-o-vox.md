@@ -56,6 +56,14 @@ specimenGallery:
   - image: /images/cyma-time-o-vox/gallery/cyma-movement-r464.jpg
     label: ムーブメント（Cal.R.464）
     alt: CYMA Time-O-Vox Cal.R.464 ムーブメント
+howTheyRing:
+  published: true
+  category: gong
+  image: "/images/cyma-time-o-vox/Cyma timeovox .png"
+  audio:
+    status: pending
+    recordings: []
+
 video:
   youtubeId: https://youtube.com/shorts/OONH0JZqCK0?si=nAgbRc1aJ_TUBi6r
   xUrl: https://x.com/Rimacroissant/status/2072623772142854432?s=20

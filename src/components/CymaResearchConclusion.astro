@@ -1,7 +1,14 @@
 ---
 import data from '../data/cyma-chronometre-research.json';
+const { label = '結び' } = Astro.props as { label?: string };
 ---
 <section class="proto-conclusion shell">
-  <header><span>NOW</span><h2>{data.conclusion.title}</h2></header>
-  <div>{data.conclusion.items.map((item) => <article><small>{item.label}</small><p>{item.text}</p></article>)}</div>
+  <header>
+    <span>{label}</span>
+    <h2>{data.conclusion.title}</h2>
+    <button class="proto-conclusion-toggle" type="button" aria-label="ここまでで言えることを開閉" aria-controls="proto-conclusion-content" aria-expanded="true"></button>
+  </header>
+  <div id="proto-conclusion-content" class="proto-conclusion-body">
+    {data.conclusion.items.map((item) => <article><small>{item.label}</small><p>{item.text}</p></article>)}
+  </div>
 </section>

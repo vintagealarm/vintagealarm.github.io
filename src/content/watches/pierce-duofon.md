@@ -49,6 +49,14 @@ specimenGallery:
   - image: "/images/pierce-duofon/gallery/pierce-duofon-caseback.jpg"
     label: "裏面"
     alt: "Pierce Duofon 掲載個体 裏蓋"
+howTheyRing:
+  published: true
+  category: gong
+  image: "/images/pierce-duofon/owners-note.jpg"
+  audio:
+    status: pending
+    recordings: []
+
 video:
   youtubeId: "xkecjZqr7BY"
   xUrl: "https://x.com/rimacroissant/status/2067230444031209527"

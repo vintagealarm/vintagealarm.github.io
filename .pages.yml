@@ -505,7 +505,8 @@ content:
                 collapsed: true
                 summary: "{label} / {title}"
             fields:
-              - { name: label, label: ラベル, type: string }
+              - { name: label, label: 左ラベル, type: string }
+              - { name: meta, label: 補足ラベル, type: string }
               - { name: title, label: タイトル, type: string }
               - { name: body, label: 本文, type: text }
               - { name: image, label: 画像, type: image }
@@ -515,7 +516,20 @@ content:
         fields:
           - { name: title, label: 見出し, type: string }
           - { name: intro, label: 導入, type: text }
+          - { name: refNote, label: Ref.1283 / 1261注記, type: text }
           - { name: note, label: 公開時注記, type: text }
+          - name: images
+            label: 02 / 補足画像
+            type: object
+            list:
+              max: 8
+              collapsible:
+                collapsed: true
+                summary: "{caption}"
+            fields:
+              - { name: image, label: 画像, type: image }
+              - { name: caption, label: キャプション, type: text }
+              - { name: alt, label: alt, type: string }
           - name: specimens
             label: 観測記録
             type: object
@@ -536,7 +550,7 @@ content:
               - { name: source, label: 情報源, type: string }
               - { name: sourceUrl, label: 情報源URL, type: string }
       - name: mismatch
-        label: 03 / 表記が揃わない
+        label: 内部 / 代表パターン（Aでは直接表示しない）
         type: object
         fields:
           - { name: title, label: 見出し, type: string }
@@ -553,7 +567,7 @@ content:
               - { name: title, label: タイトル, type: string }
               - { name: body, label: 本文, type: text }
       - name: archive
-        label: 04 / 認定記録との接続
+        label: 04 / 外部照会
         type: object
         fields:
           - { name: title, label: 見出し, type: string }
@@ -569,10 +583,12 @@ content:
               - { name: label, label: ラベル, type: string }
               - { name: title, label: タイトル, type: string }
               - { name: body, label: 本文, type: text }
-              - { name: image, label: 画像, type: image }
+          - { name: clueLabel, label: 手掛かりラベル, type: string }
+          - { name: clueQuote, label: 手掛かり引用, type: string }
+          - { name: clueBody, label: 手掛かり本文, type: text }
           - { name: note, label: 断定範囲の注記, type: text }
       - name: tariff
-        label: 05 / CYMA-TavannesとUNADJUSTED
+        label: 03 / UNADJUSTED刻印
         type: object
         fields:
           - { name: title, label: 見出し, type: string }
@@ -584,7 +600,7 @@ content:
           - { name: image, label: 米国上院資料画像, type: image }
           - { name: caption, label: 画像キャプション, type: text }
       - name: failure
-        label: 06 / 観測された異常動作
+        label: 05 / アラーム起動での不具合
         type: object
         fields:
           - { name: title, label: 見出し, type: string }
@@ -593,8 +609,6 @@ content:
           - { name: normalBody, label: 正常仕様本文, type: text }
           - { name: observedTitle, label: 観測症状タイトル, type: string }
           - { name: observedBody, label: 観測症状本文, type: text }
-          - { name: hypothesisTitle, label: 原因候補タイトル, type: string }
-          - { name: hypothesisBody, label: 原因候補本文, type: text }
           - name: examples
             label: 同症状を確認した例
             type: string
@@ -614,7 +628,7 @@ content:
           - { name: youtubeId, label: 押し込み状態鳴動 YouTube URL / ID, type: string }
           - { name: youtubeCaption, label: YouTubeキャプション, type: text }
       - name: conclusion
-        label: 07 / ここまでで言えること
+        label: 結び / ここまでで言えること
         type: object
         fields:
           - { name: title, label: 見出し, type: string }

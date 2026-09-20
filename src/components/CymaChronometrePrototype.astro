@@ -3,26 +3,57 @@ import SectionMast from './SectionMast.astro';
 import OwnerFonts from './OwnerFonts.astro';
 import CymaSpecimenTables from './CymaSpecimenTables.astro';
 import CymaResearchConclusion from './CymaResearchConclusion.astro';
+import SeoHead from './SeoHead.astro';
+import JapaneseProse from './JapaneseProse.astro';
 import data from '../data/cyma-chronometre-research.json';
+import { getGitLastmod, latestDate } from '../lib/git-lastmod';
 
 type Variant = 'owners' | 'history' | 'archive';
-const { variant } = Astro.props as { variant: Variant };
+const { variant, production = false } = Astro.props as { variant: Variant; production?: boolean };
 const base = import.meta.env.BASE_URL;
 
-const paths = {
-  owners: `${base}lab/cyma-chronometre/owners-note/`,
-  history: `${base}lab/cyma-chronometre/history/`,
-  archive: `${base}lab/cyma-chronometre/archive/`
-};
-const labels = {
-  owners: 'A / NOTE',
-  history: 'B / HISTORY',
-  archive: 'C / ARCHIVE'
-};
 const titles = {
-  owners: "OWNER'S NOTE寄り",
-  history: 'HISTORY寄り',
-  archive: 'RESEARCH / ARCHIVE寄り'
+  owners: '個体ノート',
+  history: '年代記',
+  archive: '資料'
+};
+
+const siteRoot='https://vintagealarm.github.io/';
+const productionPath='cyma-time-o-vox/chronometre/';
+const productionUrl=new URL(productionPath,siteRoot).href;
+const productionTitle='Cyma Time-O-Vox Chronomètre｜観測個体と認定記録｜VINTAGE ALARM';
+const productionDescription='Cyma Time-O-Vox Chronomètreを、文献・17件の観測個体・外部照会・UNADJUSTED刻印・実機観察から整理する。';
+const productionImage='/images/cyma-time-o-vox/gallery/cyma-front.jpg';
+const dateModified=latestDate(
+  getGitLastmod('src/data/cyma-chronometre-research.json'),
+  getGitLastmod('src/components/CymaChronometrePrototype.astro'),
+  getGitLastmod('src/pages/cyma-time-o-vox/chronometre/index.astro')
+);
+const productionSchema={
+  '@context':'https://schema.org',
+  '@graph':[
+    {
+      '@type':'Article',
+      headline:'CYMA Time-O-Vox Chronomètre — 観測個体と認定記録',
+      description:productionDescription,
+      inLanguage:'ja',
+      url:productionUrl,
+      image:new URL(productionImage.replace(/^\//,''),siteRoot).href,
+      ...(dateModified?{dateModified}:{}),
+      author:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
+      publisher:{'@type':'Organization',name:'VINTAGE ALARM',url:siteRoot},
+      mainEntityOfPage:{'@type':'WebPage','@id':productionUrl},
+      about:{'@type':'Thing',name:'Cyma Time-O-Vox Chronomètre'}
+    },
+    {
+      '@type':'BreadcrumbList',
+      itemListElement:[
+        {'@type':'ListItem',position:1,name:'VINTAGE ALARM',item:siteRoot},
+        {'@type':'ListItem',position:2,name:'CYMA TIME-O-VOX',item:new URL('cyma-time-o-vox/',siteRoot).href},
+        {'@type':'ListItem',position:3,name:'CHRONOMÈTRE',item:productionUrl}
+      ]
+    }
+  ]
 };
 const goldSpecimens = data.observed.specimens.filter((item) => /YG|GOLD|14K|18K/i.test(item.case));
 const steelSpecimens = data.observed.specimens.filter((item) => /SS|STEEL/i.test(item.case));
@@ -48,87 +79,180 @@ const logic = [
 
 const proofQuote = '“Before leaving the factory, every Tavannes movement is adjusted for position and temperature.”';
 const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブメントは姿勢と温度について調整される。」';
+const heroImage = data.heroImage || '/images/cyma-time-o-vox/gallery/cyma-front.jpg';
+const getYouTubeId = (value: string) => {
+  const input=value?.trim();
+  if(!input) return '';
+  if(!input.includes('/')&&!input.includes('.')) return input;
+  try{
+    const url=new URL(input);
+    const host=url.hostname.replace(/^www\\./,'');
+    if(host==='youtu.be') return url.pathname.split('/').filter(Boolean)[0]??'';
+    if(host==='youtube.com'||host==='m.youtube.com'){
+      const queryId=url.searchParams.get('v');
+      if(queryId) return queryId;
+      const parts=url.pathname.split('/').filter(Boolean);
+      if(['shorts','embed','live'].includes(parts[0])) return parts[1]??'';
+    }
+  }catch{return input;}
+  return input;
+};
+const failureVideoId=getYouTubeId(data.failure.youtubeId||'');
+const resolveMedia=(value:string)=>/^https?:\/\//.test(value) ? value : `${base}${value.replace(/^\//,'')}`;
+const failureImages=data.failure.images?.filter((item)=>item.image)??[];
 ---
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex,nofollow" />
+    {!production && <meta name="robots" content="noindex,nofollow" />}
     <meta name="theme-color" content={variant === 'history' ? '#1c201c' : '#f7f8f4'} />
     <OwnerFonts />
-    <title>CYMA Time-O-Vox Chronomètre — {titles[variant]}｜VINTAGE ALARM TEST</title>
+    {production
+      ? <SeoHead title={productionTitle} description={productionDescription} path={productionPath} image={productionImage} type="article" schema={productionSchema} />
+      : <title>CYMA Time-O-Vox Chronomètre — {titles[variant]}｜VINTAGE ALARM</title>}
   </head>
   <body class:list={['cyma-proto', `cyma-proto--${variant}`, variant === 'owners' && 'owners-v15', variant === 'history' && 'history-v13 history-v18']}>
-    <div class="proto-mast"><SectionMast rightLabel={variant === 'owners' ? 'TEST / A' : variant === 'history' ? 'TEST / B' : 'TEST / C'} /></div>
-    <nav class="proto-switcher" aria-label="3案の切り替え">
-      <div class="shell">
-        {(Object.keys(paths) as Variant[]).map((key) => (
-          <a href={paths[key]} aria-current={key === variant ? 'page' : undefined}>{labels[key]}</a>
-        ))}
-      </div>
-    </nav>
-
+    <div class="proto-mast"><SectionMast rightLabel="CYMA / R.464" /></div>
     {variant === 'owners' && (
       <main class="proto-owner">
         <header class="proto-owner-hero shell">
           <div class="proto-owner-title">
             <p class="proto-kicker">CYMA / CAL. R.464</p>
-            <h1><span>Time-O-Vox</span><span>Chronomètre</span></h1>
-            <p class="proto-owner-deck">文字盤に「CHRONOMÈTRE」と記された18KケースのTime-O-Vox。企業資料と専門書にもChronomètre仕様の記録がある。しかし、現存個体の文字盤とムーブメントを見比べると、その表記は一様ではない。</p>
+            <h1>{data.heading}</h1>
+            <p class="proto-owner-deck">{data.lead.map((line)=><span>{line}</span>)}</p>
           </div>
           <figure class="proto-owner-watch">
-            <img src={`${base}images/cyma-time-o-vox/gallery/cyma-front.jpg`} alt="CYMA Time-O-Vox 18K Chronomètre 掲載個体" />
+            <img src={/^https?:\/\//.test(heroImage) ? heroImage : `${base}${heroImage.replace(/^\//,'')}`} alt="CYMA Time-O-Vox 18K Chronomètre 掲載個体" />
             <figcaption>18K YELLOW GOLD / CAL. R.464</figcaption>
           </figure>
         </header>
 
+        <nav class="proto-owner-index" aria-label="このページの内容">
+          <div class="shell">
+            <a href="#owners-documented"><span>01</span><strong>文献</strong></a>
+            <a href="#owners-observed"><span>02</span><strong>観測17件</strong></a>
+            <a href="#owners-unadjusted"><span>03</span><strong>UNADJUSTED</strong></a>
+            <a href="#owners-archive"><span>04</span><strong>外部照会</strong></a>
+            <a href="#owners-field-note"><span>05</span><strong>不具合</strong></a>
+          </div>
+        </nav>
+
         <article class="proto-owner-story shell">
           <section class="proto-owner-section" id="owners-documented">
-            <header><span>01</span><div><small>DOCUMENTED</small><h2>Time-O-VoxにもChronomètreがあった</h2></div></header>
-            <div class="proto-owner-copy">
+            <header><span>01</span><div><small>文献</small><h2>{data.documented.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="01 文献を開閉" aria-controls="owners-documented-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-documented-content">
               <dl class="proto-source-ledger">
-                <div><dt>01</dt><dd><small>CYMA / D_7938</small><strong>金製Time-O-Voxへのクロノメーター証明</strong><p>MIHから共有されたCYMAの企業資料には、金製アラーム腕時計「Time-O-Vox」がクロノメーター証明を受けたと記されている。</p></dd></div>
-                <div><dt>02</dt><dd><small>MICHAEL PHILIP HORLBECK</small><strong>5姿勢と温度による試験</strong><p>『The Alarm Wristwatch』は、Cal.R.464を搭載したTime-O-Voxにクロノメーター証明付きの仕様があり、そのムーブメントは5姿勢と温度で試験されたと記す。</p></dd></div>
-                <div><dt>03</dt><dd><small>LEONHARD BEITL</small><strong>文字盤に表記がないChronomètre個体</strong><p>『Alarm am Arm』には、文字盤とムーブメントの双方にChronomètre表記を持つ金ケース個体に加え、文字盤には表記がない一方、ムーブメントにChronometerの表記を持つ別個体も掲載されている。</p></dd></div>
+                {data.documented.cards.map((card,index)=>(
+                  <div>
+                    <dt>{card.label}</dt>
+                    <dd>
+                      <small>{index===0?'共有資料':'専門書'}</small>
+                      <strong>{card.title}</strong>
+                      <p><JapaneseProse text={card.body}/>
+                        {index===0&&<sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-7">[7]</a></sup>}
+                        {index===1&&<sup class="proto-cite"><a href="#source-2">[2]</a></sup>}
+                        {index===2&&<sup class="proto-cite"><a href="#source-3">[3]</a></sup>}
+                      </p>
+                    </dd>
+                  </div>
+                ))}
               </dl>
-              <p>Time-O-VoxにChronomètre仕様が存在したことは、複数の資料から確認できる。だが、Chronomètreという語がどこに記されたかは、個体ごとに異なっている。</p>
+              {data.documented.cards.some((card)=>card.image)&&<div class="proto-owner-inline-media">
+                {data.documented.cards.filter((card)=>card.image).map((card)=><figure><img src={resolveMedia(card.image)} alt={card.title}/><figcaption>{card.label} / {card.title}</figcaption></figure>)}
+              </div>}
+              <p><JapaneseProse text={data.documented.intro}/> <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-9">[9]</a></sup></p>
             </div>
           </section>
 
           <section class="proto-owner-section" id="owners-observed">
-            <header><span>02</span><div><small>OBSERVED</small><h2>表記が揃わない</h2></div></header>
-            <div class="proto-owner-copy">
-              <p>公開資料から確認できた17件には、文字盤の表記だけではムーブメントの状態を判断できない例が含まれている。</p>
+            <header><span>02</span><div><small>観測個体</small><h2>{data.observed.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="02 観測個体を開閉" aria-controls="owners-observed-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-observed-content">
+              <p><JapaneseProse text={data.observed.intro}/> <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+              {data.observed.refNote&&<p><JapaneseProse text={data.observed.refNote}/> <sup class="proto-cite"><a href="#source-9">[9]</a><a href="#source-10">[10]</a><a href="#source-11">[11]</a><a href="#source-12">[12]</a></sup></p>}
               <dl class="proto-source-ledger">
-                <div><dt>01</dt><dd><small>18K / CHRONOMÈTRE</small><strong>文字盤はChronomètre</strong><p>掲載個体は18Kケースで、文字盤にCHRONOMÈTREとある。ムーブメント写真では、5姿勢・温度調整を示す刻印を確認できない。</p></dd></div>
-                <div><dt>02</dt><dd><small>YG / FIVE POSITIONS + TEMPERATURE</small><strong>表記なし、5姿勢・温度調整</strong><p>金色ケースの観測例には、文字盤にChronomètre表記がなく、ムーブメントに「ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE」と刻まれた個体がある。</p></dd></div>
-                <div><dt>03</dt><dd><small>YG / UNADJUSTED</small><strong>金色ケース、UNADJUSTED</strong><p>金色ケースには、ムーブメントにUNADJUSTEDと刻まれた個体もある。ケース素材、文字盤表記、調整刻印の組み合わせは一定していない。</p></dd></div>
+                {data.mismatch.cards.map((card)=>(
+                  <div><dt>{card.label}</dt><dd><small>{card.meta||''}</small><strong>{card.title}</strong><p><JapaneseProse text={card.body}/></p></dd></div>
+                ))}
               </dl>
+              {data.observed.images?.some((item)=>item.image)&&<div class="proto-owner-inline-media">
+                {data.observed.images.filter((item)=>item.image).map((item)=><figure><img src={resolveMedia(item.image)} alt={item.alt||'CYMA Time-O-Vox 観測個体'}/><figcaption>{item.caption}</figcaption></figure>)}
+              </div>}
               <CymaSpecimenTables />
             </div>
           </section>
 
           <section class="proto-owner-section proto-owner-logic" id="owners-unadjusted">
-            <header><span>03</span><div><small>UNADJUSTED</small><h2>Tavannesで起きていたこと</h2></div></header>
-            <div class="proto-owner-copy">
-              <p>1956年、米国上院の公聴会は、実際には調整されていたスイス時計が「unadjusted」と表示され、米国へ輸入されていた問題を扱った。調整済み時計に課される追加関税を避けるためだった。</p>
-              <blockquote><p lang="en">{proofQuote}</p><footer>{proofQuoteJa}</footer></blockquote>
-              <p>Pritchardはその具体例としてTavannesを挙げている。工場の広告は、すべてのムーブメントを姿勢と温度について調整すると記していた。一方、Washington, D.C.で購入されたTavannes時計には「unadjusted」と刻印されていた。</p>
-              <p>PritchardのTavannes項目には、CYMA WATCH CO. SAもグループ企業として記載されている。少なくともTavannesの米国向け時計では、UNADJUSTEDという刻印と実際の調整状態が一致しない例があった。</p>
-              <p>金色ケースのTime-O-VoxにあるUNADJUSTED刻印も、それだけで未調整の証拠にはならない。調整済みだった可能性は残るが、クロノメーター試験を通過したかどうかは、別の記録がなければ確定できない。</p>
+            <header><span>03</span><div><small>UNADJUSTED刻印</small><h2>{data.tariff.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="03 UNADJUSTED刻印を開閉" aria-controls="owners-unadjusted-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-unadjusted-content">
+              <p><JapaneseProse text={data.tariff.intro}/> <sup class="proto-cite"><a href="#source-6">[6]</a></sup></p>
+              <blockquote><p lang="en">{proofQuote}</p><footer>{proofQuoteJa} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></footer></blockquote>
+              {data.tariff.image&&<figure class="proto-tariff-media"><img src={resolveMedia(data.tariff.image)} alt="1956年米国上院 Swiss Watches—Adjustments 資料"/><figcaption>{data.tariff.caption}</figcaption></figure>}
+              {data.tariff.body.map((paragraph,index)=><p><JapaneseProse text={paragraph}/>
+                {index===0&&<sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>}
+                {index===1&&<sup class="proto-cite"><a href="#source-5">[5]</a></sup>}
+                {index===2&&<sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a><a href="#source-9">[9]</a></sup>}
+              </p>)}
             </div>
           </section>
 
-          <section class="proto-owner-section" id="owners-archive">
-            <header><span>04</span><div><small>ARCHIVE</small><h2>掲載個体の証明書は見つかっていない</h2></div></header>
-            <div class="proto-owner-copy proto-institution-list">
-              <article><small>MIH / 18 SEP. 2025</small><h3>モデルに直接結びつく文書は未発見</h3><p>国際時計博物館（MIH）は、Time-O-Vox Chronomètreに直接関係する文書は見つからなかったと回答した。その一方で、CYMAの企業資料に金製アラーム腕時計へのクロノメーター証明の記述があるとして、D_7938を共有した。</p></article>
-              <article><small>NEUCHÂTEL / 14 NOV. 2025</small><h3>掲載個体を特定できず</h3><p>Neuchâtel州立公文書館は、1954年から1958年までの8冊のBT台帳を調べたが、掲載個体に対応する試験記録を特定できなかった。ただし、1956年以降にはCyma Watch Co. SA, Le Locle名義で、Arnold Racineが調整を担当した試験記録が残っている。</p></article>
-              <p>掲載個体のムーブメント番号やケース番号は、観測所の記録番号と同じものではない。文字盤のCHRONOMÈTREと、特定の証明書や台帳記録を結びつける資料は、現在まで確認できていない。</p>
+          <section class="proto-owner-section proto-owner-inquiry" id="owners-archive">
+            <header><span>04</span><div><small>外部照会</small><h2>{data.archive.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="04 外部照会を開閉" aria-controls="owners-archive-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-archive-content">
+              <p class="proto-inquiry-lead"><JapaneseProse text={data.archive.intro}/></p>
+              <div class="proto-inquiry-grid">
+                {data.archive.cards.map((card,index)=>(
+                  <article><small>{card.label}</small><h3>{card.title}</h3><p><JapaneseProse text={card.body}/> <sup class="proto-cite"><a href={index===0?'#source-7':'#source-8'}>[{index===0?'7':'8'}]</a></sup></p></article>
+                ))}
+              </div>
+              {data.archive.clueBody&&<aside class="proto-archive-clue">
+                <small>{data.archive.clueLabel}</small>
+                <blockquote>“{data.archive.clueQuote}”</blockquote>
+                <p><JapaneseProse text={data.archive.clueBody}/> <sup class="proto-cite"><a href="#source-8">[8]</a></sup></p>
+              </aside>}
+            </div>
+          </section>
+
+          <section class="proto-owner-section proto-owner-field-section" id="owners-field-note">
+            <header><span>05</span><div><small>実機観察</small><h2>{data.failure.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label="05 実機観察を開閉" aria-controls="owners-field-note-content" aria-expanded="true"></button></header>
+            <div class="proto-owner-copy" id="owners-field-note-content">
+              <p><JapaneseProse text={data.failure.intro}/> <sup class="proto-cite"><a href="#source-4">[4]</a></sup></p>
+
+              <div class="proto-owner-field-media" aria-label="掲載個体のプッシャー配置とCal.R.464ムーブメント">
+                {failureImages.length
+                  ? failureImages.map((item)=><figure><div class="proto-owner-field-image"><img src={resolveMedia(item.image)} alt={item.alt||'CYMA Time-O-Vox Cal.R.464'}/></div><figcaption>{item.caption}</figcaption></figure>)
+                  : <>
+                    <figure>
+                      <div class="proto-owner-field-image"><img src={`${base}images/cyma-time-o-vox/gallery/cyma-side-pushers.jpg`} alt="CYMA Time-O-Vox 掲載個体の上下プッシャーとリューズ" /></div>
+                      <figcaption>掲載個体。上下のプッシャーとリューズ。</figcaption>
+                    </figure>
+                    <figure>
+                      <div class="proto-owner-field-image"><img src={`${base}images/cyma-time-o-vox/gallery/cyma-movement-r464.jpg`} alt="CYMA Time-O-Vox Cal.R.464 ムーブメント" /></div>
+                      <figcaption>掲載個体のCal.R.464。</figcaption>
+                    </figure>
+                  </>}
+              </div>
+              {(failureImages.length>1||failureImages.length===0)&&<p class="proto-owner-field-swipe-hint">左右にスワイプして画像を見る</p>}
+              {failureVideoId&&<figure class="proto-owner-video"><div class="proto-video-frame"><iframe src={`https://www.youtube.com/embed/${failureVideoId}`} title="CYMA Time-O-Vox アラーム挙動" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>{data.failure.youtubeCaption}</figcaption></figure>}
+
+              <div class="proto-owner-field-observation">
+                <div class="proto-owner-field-heading">
+                  <small>{data.failure.normalTitle}</small>
+                  <h3>{data.failure.observedTitle}</h3>
+                </div>
+                <p><JapaneseProse text={data.failure.observedBody}/> <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+                <ol>
+                  {data.failure.examples.map((example, index) => (
+                    <li><span>0{index + 1}</span><strong>{example}</strong><small>鳴動を目視確認</small></li>
+                  ))}
+                </ol>
+              </div>
+
             </div>
           </section>
         </article>
+        <CymaResearchConclusion label="現状の結論" />
       </main>
     )}
 
@@ -225,8 +349,72 @@ const proofQuoteJa = '「工場を出る前に、すべてのTavannesムーブ�
     )}
 
     <footer class="proto-footer shell">
-      <details><summary>SOURCES / 使用資料</summary><ol>{data.sources.map((source) => <li>{source}</li>)}</ol></details>
+      <details open={variant === 'owners'}><summary>使用資料</summary><ol>{data.sources.map((source, index) => <li id={`source-${index + 1}`}><span class="proto-source-no">[{index + 1}]</span>{source}</li>)}</ol></details>
       <a href={`${base}cyma-time-o-vox/chronometre/`}>現行RESEARCHページを見る →</a>
     </footer>
+    {variant === 'owners' && <script is:inline>
+      (() => {
+        const story=document.querySelector('.proto-owner-story');
+        const mobile=window.matchMedia('(max-width:760px)');
+        if(!story) return;
+        const chapters=[...story.querySelectorAll('.proto-owner-section')].map((section)=>({
+          section,
+          button:section.querySelector('.proto-owner-section-toggle'),
+          content:section.querySelector('.proto-owner-copy')
+        }));
+        const setOpen=(chapter,open)=>{
+          chapter.content.hidden=!open;
+          chapter.button.setAttribute('aria-expanded',String(open));
+        };
+        const openHash=()=>{
+          if(!mobile.matches||!location.hash) return;
+          const target=document.getElementById(location.hash.slice(1));
+          const chapter=chapters.find(({section})=>section===target||section.contains(target));
+          if(chapter) setOpen(chapter,true);
+        };
+        const sync=()=>{
+          chapters.forEach((chapter)=>setOpen(chapter,!mobile.matches));
+          openHash();
+        };
+        chapters.forEach((chapter)=>chapter.button.addEventListener('click',()=>{
+          if(mobile.matches) setOpen(chapter,chapter.content.hidden);
+        }));
+        mobile.addEventListener('change',sync);
+        window.addEventListener('hashchange',openHash);
+        document.querySelectorAll('.proto-owner-index a[href^="#owners-"]').forEach((link)=>{
+          link.addEventListener('click',()=>{
+            if(!mobile.matches) return;
+            const chapter=chapters.find(({section})=>`#${section.id}`===link.getAttribute('href'));
+            if(chapter) setOpen(chapter,true);
+          });
+        });
+        sync();
+        story.classList.add('is-accordion-ready');
+
+        const conclusion=document.querySelector('.proto-owner .proto-conclusion');
+        const conclusionButton=conclusion?.querySelector('.proto-conclusion-toggle');
+        const conclusionBody=conclusion?.querySelector('.proto-conclusion-body');
+        const syncConclusion=()=>{
+          if(!conclusion||!conclusionButton||!conclusionBody) return;
+          conclusion.classList.add('is-accordion-ready');
+          conclusionBody.hidden=mobile.matches;
+          conclusionButton.setAttribute('aria-expanded',String(!mobile.matches));
+        };
+        conclusionButton?.addEventListener('click',()=>{
+          if(!mobile.matches||!conclusionBody) return;
+          conclusionBody.hidden=!conclusionBody.hidden;
+          conclusionButton.setAttribute('aria-expanded',String(!conclusionBody.hidden));
+        });
+        mobile.addEventListener('change',syncConclusion);
+        syncConclusion();
+
+        const media=story.querySelector('.proto-owner-field-media');
+        if(media&&media.children.length>1){
+          const syncMedia=()=>mobile.matches?media.setAttribute('tabindex','0'):media.removeAttribute('tabindex');
+          mobile.addEventListener('change',syncMedia);
+          syncMedia();
+        }
+      })();
+    </script>}
   </body>
 </html>
