@@ -1,0 +1,23 @@
+---
+const cmsUrl = 'https://app.pagescms.org/';
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta http-equiv="refresh" content={`0;url=${cmsUrl}`} />
+    <title>CMSを開く｜VINTAGE ALARM</title>
+    <script is:inline define:vars={{ cmsUrl }}>
+      window.location.replace(cmsUrl);
+    </script>
+  </head>
+  <body>
+    <main>
+      <p>Pages CMSを開いています。</p>
+      <p><a href={cmsUrl}>自動で移動しない場合はここを開く</a></p>
+      <p>GitHubでログイン後、vintagealarm/vintagealarm.github.io と編集対象branchを選択してください。</p>
+    </main>
+  </body>
+</html>
