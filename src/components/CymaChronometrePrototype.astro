@@ -390,6 +390,24 @@ const failureImages=data.failure.images?.filter((item)=>item.image)??[];
         });
         sync();
         story.classList.add('is-accordion-ready');
+
+        const conclusion=document.querySelector('.proto-owner .proto-conclusion');
+        const conclusionButton=conclusion?.querySelector('.proto-conclusion-toggle');
+        const conclusionBody=conclusion?.querySelector('.proto-conclusion-body');
+        const syncConclusion=()=>{
+          if(!conclusion||!conclusionButton||!conclusionBody) return;
+          conclusion.classList.add('is-accordion-ready');
+          conclusionBody.hidden=mobile.matches;
+          conclusionButton.setAttribute('aria-expanded',String(!mobile.matches));
+        };
+        conclusionButton?.addEventListener('click',()=>{
+          if(!mobile.matches||!conclusionBody) return;
+          conclusionBody.hidden=!conclusionBody.hidden;
+          conclusionButton.setAttribute('aria-expanded',String(!conclusionBody.hidden));
+        });
+        mobile.addEventListener('change',syncConclusion);
+        syncConclusion();
+
         const media=story.querySelector('.proto-owner-field-media');
         if(media&&media.children.length>1){
           const syncMedia=()=>mobile.matches?media.setAttribute('tabindex','0'):media.removeAttribute('tabindex');
