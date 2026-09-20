@@ -1,10 +1,21 @@
 ---
 import { getCollection } from 'astro:content';
 import ownersDirectory from '../../../data/owners-directory.json';
+import SeoHead from '../../../components/SeoHead.astro';
 import '../../../styles/site.css';
 
 const base = import.meta.env.BASE_URL;
 const { production = false } = Astro.props as { production?: boolean };
+const productionTitle = 'HOW THEY RING｜鳴らし方で見る、アラーム腕時計｜VINTAGE ALARM';
+const productionDescription = '機械式アラーム腕時計を、GONG・CASEBACK・BELL・PINの4つの鳴動方式から、掲載実機と音で見比べる。';
+const productionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'HOW THEY RING',
+  description: productionDescription,
+  inLanguage: 'ja',
+  url: 'https://vintagealarm.github.io/how-they-ring/'
+};
 const watches = await getCollection('watches');
 const galleryEntries = await getCollection('howTheyRing');
 const published = new Map(
@@ -90,10 +101,20 @@ const categoryCounts = Object.fromEntries(
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {!production && <meta name="robots" content="noindex,nofollow,noarchive" />}
-    {production && <link rel="canonical" href="https://vintagealarm.github.io/how-they-ring/" />}
+    {production
+      ? <SeoHead
+          title={productionTitle}
+          description={productionDescription}
+          path="how-they-ring/"
+          image="/images/how-they-ring/gong.jpg"
+          type="website"
+          schema={productionSchema}
+        />
+      : <>
+          <meta name="robots" content="noindex,nofollow,noarchive" />
+          <title>鳴らし方で見る、アラーム腕時計。｜VINTAGE ALARM TEST</title>
+        </>}
     <meta name="theme-color" content="#f3eee4" />
-    <title>{production ? '鳴らし方で見る、アラーム腕時計。｜VINTAGE ALARM' : '鳴らし方で見る、アラーム腕時計。｜VINTAGE ALARM TEST'}</title>
     <style>
       :root {
         --lab-ink: #241f1a;
