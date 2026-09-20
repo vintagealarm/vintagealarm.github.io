@@ -177,6 +177,7 @@
 .proto-owner .proto-conclusion>header span{display:block;margin-bottom:8px;font:600 9px/1.4 var(--sans);letter-spacing:.12em}
 .proto-conclusion-toggle{display:none}
 .proto-owner .proto-conclusion>div{margin:0;border-top:1px solid var(--ink)}
+.proto-owner .proto-conclusion .proto-conclusion-body[hidden]{display:none}
 .proto-owner .proto-conclusion article+article{padding-left:0;border-left:0}
 
 @media(min-width:761px){
