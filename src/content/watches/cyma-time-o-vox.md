@@ -40,18 +40,6 @@ spec:
   winding: 手巻き
   acoustic: ゴング式
   notes: 18KYG、Chronomètre表記、2プッシャー、透かしラグ
-howTheyRing:
-  published: true
-  category: gong
-  image: "/images/cyma-time-o-vox/Cyma timeovox .png"
-  audio:
-    status: pending
-    recordings: []
-
-audio:
-  status: pending
-  recordings: []
-
 specimenGallery:
   - image: /images/cyma-time-o-vox/gallery/cyma-front.jpg
     label: 正面（リストショット）

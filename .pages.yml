@@ -95,72 +95,6 @@ content:
           - { name: image, label: 画像, type: image, required: true }
           - { name: label, label: 表示名（例：正面 / 側面 / 裏面）, type: string }
           - { name: alt, label: altテキスト, type: string }
-      - name: howTheyRing
-        label: HOW THEY RING
-        description: 鳴らし方ギャラリー専用。掲載/非掲載、分類、画像、音源をここで管理します。
-        type: object
-        fields:
-          - name: published
-            label: HOW THEY RING に掲載
-            description: OFFにするとこの個体だけHOW THEY RINGから非公開になります。
-            type: boolean
-            default: false
-          - name: category
-            label: 鳴動方式
-            type: select
-            required: true
-            options:
-              values:
-                - { name: gong, label: "01 GONG / ゴング" }
-                - { name: caseback, label: "02 CASEBACK / ケースバック" }
-                - { name: bell, label: "03 BELL / ベル" }
-                - { name: pin, label: "04 PIN / 底部ピン" }
-          - name: image
-            label: 掲載画像
-            description: HOW THEY RINGの個体一覧で使う画像。未指定ならOWNER'S NOTE画像へフォールバックします。
-            type: image
-            options:
-              media: images
-          - name: audio
-            label: 音源
-            type: object
-            fields:
-              - name: status
-                label: 音源の公開状態
-                description: readyにすると、ファイル登録済みの音源だけ公開ページで再生できます。
-                type: select
-                default: pending
-                options:
-                  values:
-                    - { name: pending, label: 非公開 / 準備中 }
-                    - { name: ready, label: 公開 / 再生可能 }
-              - name: recordings
-                label: 録音
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{label}"
-                fields:
-                  - name: id
-                    label: 音源ID
-                    type: uuid
-                    options:
-                      editable: false
-                  - { name: label, label: 音源名, type: string, required: true }
-                  - name: src
-                    label: 音声ファイル
-                    type: file
-                    required: true
-                    options:
-                      media: alarmAudio
-                      categories: [audio]
-                      extensions: [mp3, m4a, wav]
-                  - { name: recordedWith, label: 録音機材, type: string }
-                  - { name: distanceCm, label: 録音距離（cm）, type: number }
-                  - { name: position, label: 録音位置, type: string }
-                  - { name: processed, label: 加工済み, type: boolean }
-
       - name: video
         label: 実機鳴動
         type: object
@@ -698,3 +632,80 @@ content:
         label: 参考資料・確認範囲
         type: string
         list: true
+
+  - name: howTheyRing
+    label: HOW THEY RING
+    type: collection
+    path: src/content/how-they-ring
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    view:
+      fields: [title, category, published, audio.status]
+      primary: title
+      search: [title, watchSlug]
+    fields:
+      - { name: title, label: 時計, type: string, required: true, readonly: true }
+      - { name: watchSlug, label: 対応するWATCH, type: string, required: true, readonly: true }
+      - name: published
+        label: HOW THEY RING に掲載
+        description: OFFにすると、この個体だけHOW THEY RINGから非表示になります。
+        type: boolean
+        default: false
+      - name: category
+        label: 鳴動方式
+        type: select
+        required: true
+        options:
+          values:
+            - { name: gong, label: "01 GONG / ゴング" }
+            - { name: caseback, label: "02 CASEBACK / ケースバック" }
+            - { name: bell, label: "03 BELL / ベル" }
+            - { name: pin, label: "04 PIN / 底部ピン" }
+      - name: thumbnail
+        label: サムネイル
+        description: 空欄なら対応するOWNER'S NOTEの画像を表示します。
+        type: image
+        options:
+          media: images
+      - name: audio
+        label: 音源
+        type: object
+        fields:
+          - name: status
+            label: 再生の公開状態
+            description: 再生可能にすると、ファイルを登録した音源だけ再生できます。
+            type: select
+            default: pending
+            options:
+              values:
+                - { name: pending, label: 準備中 }
+                - { name: ready, label: 再生可能 }
+          - name: recordings
+            label: 録音
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: id
+                label: 音源ID
+                type: uuid
+                options:
+                  editable: false
+              - { name: label, label: 音源名, type: string, required: true }
+              - name: src
+                label: 音声ファイル
+                type: file
+                required: true
+                options:
+                  media: alarmAudio
+                  categories: [audio]
+                  extensions: [mp3, m4a, wav]
+              - { name: recordedWith, label: 録音機材, type: string }
+              - { name: distanceCm, label: 録音距離（cm）, type: number }
+              - { name: position, label: 録音位置, type: string }
+              - { name: processed, label: 加工済み, type: boolean }

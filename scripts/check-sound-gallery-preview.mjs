@@ -183,14 +183,24 @@ try {
     if (shellState.canonical) failures.push(`${width}px: lab page must not emit canonical metadata`);
     if (shellState.analytics) failures.push(`${width}px: analytics must not run on test surface`);
 
+    const specimenCategories = await page.locator('[data-specimen]').evaluateAll((cards) =>
+      cards.map((card) => card.dataset.category)
+    );
+    const expectedCounts = Object.fromEntries(
+      ['gong', 'caseback', 'bell', 'pin'].map((category) => [
+        category,
+        specimenCategories.filter((value) => value === category).length
+      ])
+    );
     const initial = await visibleSpecimens(page);
-    if (
-      initial.length !== 3 ||
-      !initial.some((item) => item.includes('CYMA')) ||
-      !initial.some((item) => item.includes('PIERCE')) ||
-      !initial.some((item) => item.includes('WITTNAUER'))
-    ) {
+    if (initial.length !== expectedCounts.gong) {
       failures.push(`${width}px: GONG initial state is wrong: ${JSON.stringify(initial)}`);
+    }
+    for (const category of Object.keys(expectedCounts)) {
+      const countText = await page.locator(`button[data-category="${category}"] .category-count`).innerText();
+      if (!countText.startsWith(`${expectedCounts[category]} `)) {
+        failures.push(`${width}px: ${category} count label does not match its specimens: ${countText}`);
+      }
     }
 
     if (width <= 430) {
@@ -233,17 +243,13 @@ try {
       }
     }
 
-    const cases = [
-      ['caseback', 1, 'CITIZEN'],
-      ['bell', 1, 'BASIS'],
-      ['pin', 1, 'WESTCLOX'],
-      ['gong', 3, 'PIERCE']
-    ];
-
-    for (const [category, count, marker] of cases) {
+    for (const category of ['caseback', 'bell', 'pin', 'gong']) {
       await page.locator(`button[data-category="${category}"]`).click();
       const visible = await visibleSpecimens(page);
-      if (visible.length !== count || !visible.some((item) => item.includes(marker))) {
+      const visibleCategories = await page.locator('[data-specimen]:not([hidden])').evaluateAll((cards) =>
+        cards.map((card) => card.dataset.category)
+      );
+      if (visible.length !== expectedCounts[category] || visibleCategories.some((value) => value !== category)) {
         failures.push(`${width}px: ${category} filter wrong: ${JSON.stringify(visible)}`);
       }
       const selected = await page.locator(`button[data-category="${category}"]`).getAttribute('aria-pressed');
@@ -256,26 +262,28 @@ try {
     if (brokenImages.length) failures.push(`${width}px: broken images: ${brokenImages.join(', ')}`);
 
     const thumbnailLinks = await page.locator('[data-specimen] .specimen-media').evaluateAll((links) =>
-      links.map((link) => ({ href: link.getAttribute('href'), label: link.getAttribute('aria-label') }))
+      links.map((link) => ({
+        slug: link.closest('[data-specimen]')?.dataset.watchSlug,
+        href: link.getAttribute('href'),
+        label: link.getAttribute('aria-label')
+      }))
     );
-    const expectedSlugs = [
-      'cyma-time-o-vox', 'pierce-duofon', 'wittnauer-10wa',
-      'citizen-alarm', 'basis-alarm', 'westclox-watchlarm'
-    ];
-    expectedSlugs.forEach((slug, index) => {
-      if (thumbnailLinks[index]?.href !== `/${slug}/#owners-note` || !thumbnailLinks[index]?.label?.includes("OWNER'S NOTE")) {
-        failures.push(`${width}px: ${slug} thumbnail does not link to its OWNER'S NOTE`);
+    thumbnailLinks.forEach(({ slug, href, label }) => {
+      if (!slug || href !== `/${slug}/#owners-note` || !label?.includes("OWNER'S NOTE")) {
+        failures.push(`${width}px: ${slug || 'unknown'} thumbnail does not link to its OWNER'S NOTE`);
       }
     });
 
-    if (width === 390) {
+    if (width === 390 && expectedCounts.bell > 0) {
       await page.locator('button[data-category="bell"]').click();
-      await page.locator('[data-specimen]:not([hidden]) .specimen-media').click();
+      const bellLink = page.locator('[data-specimen]:not([hidden]) .specimen-media').first();
+      const destinationHref = await bellLink.getAttribute('href');
+      await bellLink.click();
       await page.locator('#owners-note').waitFor({ state: 'attached' });
       const destination = page.url();
       const ownersNoteAnchors = await page.locator('#owners-note').count();
-      if (!destination.endsWith('/basis-alarm/#owners-note') || ownersNoteAnchors !== 1) {
-        failures.push(`390px: BELL thumbnail did not open the BASIS OWNER'S NOTE (${destination}, anchors: ${ownersNoteAnchors})`);
+      if (!destination.endsWith(destinationHref) || ownersNoteAnchors !== 1) {
+        failures.push(`390px: BELL thumbnail did not open its OWNER'S NOTE (${destination}, anchors: ${ownersNoteAnchors})`);
       }
     }
 

@@ -162,11 +162,29 @@ for (const marker of [
   '公開（OFFで下書き）',
   'label: HISTORY 本文・MILESTONES',
   'label: Watches',
+  'name: howTheyRing',
+  'path: src/content/how-they-ring',
   'name: ownerDirectory',
   'name: ownedGroup',
   'name: fallbackThumbnail'
 ]) {
   if (!pagesConfig.includes(marker)) failures.push(`Pages CMS marker missing: ${marker}`);
+}
+
+const soundGalleryDir = path.join(root, 'src/content/how-they-ring');
+const soundGallerySlugs = [
+  'basis-alarm', 'citizen-alarm', 'cyma-time-o-vox',
+  'pierce-duofon', 'westclox-watchlarm', 'wittnauer-10wa'
+];
+const soundGalleryFiles = fs.readdirSync(soundGalleryDir).filter((file) => file.endsWith('.md')).sort();
+if (JSON.stringify(soundGalleryFiles) !== JSON.stringify(soundGallerySlugs.map((slug) => `${slug}.md`))) {
+  failures.push(`Independent sound gallery CMS entries differ from the six published watches: ${soundGalleryFiles.join(', ')}`);
+}
+for (const slug of soundGallerySlugs) {
+  const entryPath = path.join(soundGalleryDir, `${slug}.md`);
+  if (fs.existsSync(entryPath) && !new RegExp(`^watchSlug: ${slug}\\r?$`, 'm').test(fs.readFileSync(entryPath, 'utf8'))) {
+    failures.push(`Sound gallery CMS entry is linked to the wrong watch: ${slug}`);
+  }
 }
 
 for (const file of fs.readdirSync(dist, { recursive: true }).filter((file) => String(file).endsWith('.html'))) {
