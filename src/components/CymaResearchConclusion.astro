@@ -1,7 +1,8 @@
 ---
 import data from '../data/cyma-chronometre-research.json';
+const { label = '結び' } = Astro.props as { label?: string };
 ---
 <section class="proto-conclusion shell">
-  <header><span>結び</span><h2>{data.conclusion.title}</h2></header>
+  <header><span>{label}</span><h2>{data.conclusion.title}</h2></header>
   <div>{data.conclusion.items.map((item) => <article><small>{item.label}</small><p>{item.text}</p></article>)}</div>
 </section>
