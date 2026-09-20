@@ -680,7 +680,7 @@ content:
             - { name: pin, label: "04 PIN / 底部ピン" }
       - name: thumbnail
         label: サムネイル
-        description: 空欄なら対応するOWNER'S NOTEの画像を表示します。
+        description: 空欄ならOWNER'S NOTES一覧と同じ時計写真を表示します。
         type: image
         options:
           media: images
