@@ -633,6 +633,20 @@ content:
         type: string
         list: true
 
+  - name: howTheyRingRelease
+    label: HOW THEY RING 公開設定
+    type: file
+    path: src/data/how-they-ring-settings.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: productionPublished
+        label: 本番公開する
+        description: mainブランチでONにして保存すると /how-they-ring/ を本番公開します。OFFでは本番ページ内容を公開しません。preview branchでの変更は本番公開にはなりません。
+        type: boolean
+        default: false
+
   - name: howTheyRing
     label: HOW THEY RING
     type: collection
@@ -650,8 +664,8 @@ content:
       - { name: title, label: 時計, type: string, required: true, readonly: true }
       - { name: watchSlug, label: 対応するWATCH, type: string, required: true, readonly: true }
       - name: published
-        label: HOW THEY RING に掲載
-        description: OFFにすると、この個体だけHOW THEY RINGから非表示になります。
+        label: ギャラリー内に掲載
+        description: OFFにすると、この個体だけHOW THEY RINGから非表示になります。ページ全体の本番公開は「HOW THEY RING 公開設定」で切り替えます。
         type: boolean
         default: false
       - name: category
