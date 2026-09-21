@@ -42,6 +42,7 @@ const categories = [
     en: 'GONG',
     ja: 'ゴング',
     action: '外周の音響ばねを叩く',
+    examples: 'CYMA / PIERCE / WITTNAUER',
     image: '/images/how-they-ring/gong.jpg'
   },
   {
@@ -50,6 +51,7 @@ const categories = [
     en: 'CASEBACK',
     ja: 'ケースバック',
     action: 'ケースバックそのものを響かせる',
+    examples: 'CITIZEN / WESTCLOX',
     image: '/images/how-they-ring/caseback-hammer.png'
   },
   {
@@ -58,6 +60,7 @@ const categories = [
     en: 'BELL',
     ja: 'ベル',
     action: 'ケース底部の別体ベルを叩く',
+    examples: 'BASIS',
     image: '/images/how-they-ring/bell.jpg'
   }
 ];
@@ -81,12 +84,6 @@ const specimens = orderedSlugs
   })
   .filter(Boolean);
 
-const categoryCounts = Object.fromEntries(
-  categories.map((category) => [
-    category.id,
-    specimens.filter((watch) => watch.category === category.id).length
-  ])
-);
 ---
 <!doctype html>
 <html lang="ja">
@@ -125,31 +122,8 @@ const categoryCounts = Object.fromEntries(
         padding: 34px 0 96px;
       }
 
-      .lab-status {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        padding-bottom: 13px;
-        border-bottom: 1px solid var(--lab-rule);
-        color: var(--lab-soft);
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 10px;
-        letter-spacing: .15em;
-      }
-
-      .lab-status a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-
-      .lab-status strong {
-        color: var(--lab-ink);
-        font-weight: 400;
-      }
-
       .lab-hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr);
-        gap: 50px;
-        align-items: end;
-        padding: 62px 0 42px;
+        padding: 28px 0 42px;
       }
 
       .lab-kicker {
@@ -174,14 +148,6 @@ const categoryCounts = Object.fromEntries(
         font-weight: 500;
         line-height: 1.25;
         letter-spacing: .01em;
-      }
-
-      .lab-hero-copy {
-        margin: 0;
-        color: var(--lab-soft);
-        font-size: 15px;
-        line-height: 1.95;
-        text-wrap: pretty;
       }
 
       .category-grid {
@@ -273,7 +239,7 @@ const categoryCounts = Object.fromEntries(
 
 
       .category-button[data-category="gong"] .mechanism-figure > img {
-        transform: scale(1.28);
+        transform: scale(1.82);
         transform-origin: center 52%;
       }
 
@@ -291,14 +257,24 @@ const categoryCounts = Object.fromEntries(
         line-height: 1.65;
       }
 
-      .category-count {
+      .category-examples {
         display: block;
-        margin-top: 8px;
+        margin-top: 9px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(36,31,26,.24);
         color: var(--lab-soft);
         font-family: Georgia, "Times New Roman", serif;
         font-size: 10px;
-        letter-spacing: .08em;
-        text-align: right;
+        line-height: 1.45;
+        letter-spacing: .045em;
+      }
+
+      .category-examples small {
+        display: block;
+        margin-bottom: 2px;
+        font-family: "Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;
+        font-size: 8px;
+        letter-spacing: .06em;
       }
 
       .selected-section {
@@ -463,25 +439,12 @@ const categoryCounts = Object.fromEntries(
           padding-top: 24px;
         }
 
-        .lab-status {
-          font-size: 9px;
-          letter-spacing: .09em;
-        }
-
         .lab-hero {
-          grid-template-columns: 1fr;
-          gap: 22px;
-          padding: 28px 0 20px;
+          padding: 18px 0 20px;
         }
 
         .lab-hero h1 {
           font-size: clamp(32px, 10vw, 44px);
-        }
-
-        .lab-hero-copy {
-          max-width: 33em;
-          font-size: 13px;
-          line-height: 1.75;
         }
 
         .category-grid {
@@ -489,7 +452,7 @@ const categoryCounts = Object.fromEntries(
         }
 
         .category-button {
-          min-height: 166px;
+          min-height: 184px;
           padding: 10px 10px 8px;
         }
 
@@ -502,12 +465,12 @@ const categoryCounts = Object.fromEntries(
         }
 
         .mechanism-figure {
-          height: 62px;
+          height: 68px;
           margin: 5px -2px 2px;
         }
 
         .category-button[data-category="gong"] .mechanism-figure > img {
-          transform: scale(1.20);
+          transform: scale(1.72);
         }
 
         .category-action {
@@ -517,8 +480,16 @@ const categoryCounts = Object.fromEntries(
           line-height: 1.4;
         }
 
-        .category-count {
-          margin-top: 2px;
+        .category-examples {
+          margin-top: 4px;
+          padding-top: 4px;
+          font-size: 8.5px;
+          line-height: 1.35;
+          overflow-wrap: anywhere;
+        }
+
+        .category-examples small {
+          margin-bottom: 1px;
           font-size: 8px;
         }
 
@@ -562,7 +533,7 @@ const categoryCounts = Object.fromEntries(
         .lab { width: calc(100% - 24px); }
 
         .category-button {
-          min-height: 158px;
+          min-height: 180px;
           padding-inline: 11px;
         }
 
@@ -583,8 +554,8 @@ const categoryCounts = Object.fromEntries(
           font-size: 8.5px;
         }
 
-        .category-count {
-          font-size: 9px;
+        .category-examples {
+          font-size: 8px;
         }
 
         .specimen-card {
@@ -596,20 +567,9 @@ const categoryCounts = Object.fromEntries(
   </head>
   <body>
     <main class="lab">
-      <div class="lab-status">
-        <strong>VINTAGE ALARM / TEST SURFACE</strong>
-        <span>{production ? 'PUBLIC' : '非公開プレビュー'} / <a href={`${base}admin/`}>CMS EDIT</a></span>
-      </div>
-
       <header class="lab-hero">
-        <div>
-          <p class="lab-kicker">HOW THEY RING<span>鳴らし方で見る</span></p>
-          <h1>鳴らし方で見る、<br />アラーム腕時計。</h1>
-        </div>
-        <p class="lab-hero-copy">
-          ブランドや年代ではなく、何を叩き、何を響かせるのかで分ける。
-          3つの方式から、対応する掲載個体へ切り替える。
-        </p>
+        <p class="lab-kicker">HOW THEY RING<span>鳴らし方で見る</span></p>
+        <h1>鳴らし方で見る、<br />アラーム腕時計。</h1>
       </header>
 
       <section aria-label="鳴動方式を選ぶ">
@@ -635,7 +595,7 @@ const categoryCounts = Object.fromEntries(
                 />
               </span>
               <span class="category-action">{category.action}</span>
-              <span class="category-count">{categoryCounts[category.id]} {categoryCounts[category.id] === 1 ? 'WATCH' : 'WATCHES'} / 掲載</span>
+              <span class="category-examples"><small>代表個体</small>{category.examples}</span>
             </button>
           ))}
         </div>

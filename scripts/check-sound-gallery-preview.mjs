@@ -34,10 +34,13 @@ try {
       const categoryButtons = [...document.querySelectorAll('button[data-category]')];
       const labels = categoryButtons.map((button) => button.querySelector('.category-name strong')?.textContent?.trim() || '');
       const figures = categoryButtons.map((button) => button.querySelector('.mechanism-figure img')?.getAttribute('src') || '');
+      const examples = categoryButtons.map((button) =>
+        (button.querySelector('.category-examples')?.textContent || '').replace(/\s+/g, ' ').trim()
+      );
       const overlapFailures = [];
 
       for (const button of categoryButtons) {
-        const parts = ['.category-name', '.mechanism-figure', '.category-action', '.category-count']
+        const parts = ['.category-name', '.mechanism-figure', '.category-action', '.category-examples']
           .map((selector) => button.querySelector(selector))
           .filter(Boolean)
           .map((node) => ({ selector: node.className, rect: node.getBoundingClientRect() }));
@@ -60,6 +63,7 @@ try {
         categoryButtons: categoryButtons.length,
         labels,
         figures,
+        examples,
         overlapFailures,
         robots: document.querySelector('meta[name="robots"]')?.getAttribute('content') || '',
         canonical: !!document.querySelector('link[rel="canonical"]'),
@@ -85,6 +89,15 @@ try {
       if (!shellState.figures[index]?.endsWith(expectedFigureEnds[index])) {
         failures.push(`${width}px: category ${expectedOrder[index]} diagram wrong: ${shellState.figures[index]}`);
       }
+    }
+
+    const expectedExamples = [
+      '代表個体CYMA / PIERCE / WITTNAUER',
+      '代表個体CITIZEN / WESTCLOX',
+      '代表個体BASIS'
+    ];
+    if (JSON.stringify(shellState.examples) !== JSON.stringify(expectedExamples)) {
+      failures.push(`${width}px: representative watches missing or wrong: ${JSON.stringify(shellState.examples)}`);
     }
 
     const diagramState = await page.evaluate(() =>
@@ -156,6 +169,8 @@ try {
       const selected = document.querySelector('.category-button[aria-pressed="true"]');
       return {
         bodyText,
+        statusBars: document.querySelectorAll('.lab-status').length,
+        heroCopy: document.querySelectorAll('.lab-hero-copy').length,
         selectedBoxShadow: selected ? getComputedStyle(selected).boxShadow : 'missing'
       };
     });
@@ -165,11 +180,25 @@ try {
       '音源準備中',
       '実機録音を追加予定',
       '音源スロットは各掲載個体に用意済み',
-      '複数音源を格納できる構造を維持'
+      '複数音源を格納できる構造を維持',
+      'TEST SURFACE',
+      '非公開プレビュー',
+      'PUBLIC',
+      'CMS EDIT',
+      '現在の掲載数',
+      'WATCHES / 掲載',
+      'WATCH / 掲載',
+      'ブランドや年代ではなく、何を叩き、何を響かせるのかで分ける。',
+      '3つの方式から、対応する掲載個体へ切り替える。',
+      'coming soon',
+      '追加予定'
     ]) {
       if (editorialState.bodyText.includes(forbidden)) {
         failures.push(`${width}px: production/meta comment still visible: ${forbidden}`);
       }
+    }
+    if (editorialState.statusBars || editorialState.heroCopy) {
+      failures.push(`${width}px: viewer still contains status/editorial blocks`);
     }
     if (editorialState.selectedBoxShadow !== 'none') {
       failures.push(`${width}px: selected card still renders box-shadow line: ${editorialState.selectedBoxShadow}`);
@@ -196,13 +225,6 @@ try {
     if (initial.length !== expectedCounts.gong) {
       failures.push(`${width}px: GONG initial state is wrong: ${JSON.stringify(initial)}`);
     }
-    for (const category of Object.keys(expectedCounts)) {
-      const countText = await page.locator(`button[data-category="${category}"] .category-count`).innerText();
-      if (!countText.startsWith(`${expectedCounts[category]} `)) {
-        failures.push(`${width}px: ${category} count label does not match its specimens: ${countText}`);
-      }
-    }
-
     if (width <= 430) {
       const rows = await page.locator('[data-specimen]:not([hidden])').evaluateAll((cards) => cards.map((card) => {
         const box = (selector) => {

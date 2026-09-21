@@ -64,6 +64,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
+- 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
@@ -142,6 +143,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - Calibre DB化、ブランド百科事典化、FAQ大量生成、検索語差し替え型ページ量産
 - AIOだけを理由にllms.txtやQ&A分割、本文細切れ化を増やす
 - build成功だけでデザイン変更を検証済みとする
+- `TEST SURFACE`、`非公開プレビュー`、`PUBLIC`、`CMS EDIT`、音源準備中、追加予定などの制作メタを視聴者画面へ表示する
 - Council V1の「焼いて」で即2chスレを開始する仕様
 - Council V1の `quick / project / deep-web-10` が人数と継続ラウンド数を一体で固定する仕様
 - Council V1の QUICK=継続×2 / PROJECT=×3 / DEEP WEB=×4 の固定反復
