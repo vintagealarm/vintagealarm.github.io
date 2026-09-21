@@ -1,13 +1,23 @@
 ---
-const { nextHref, nextName, nextReason, historyHref = 'history/#1950s' } = Astro.props;
+const { nextHref, nextName, nextHeadline, nextReason, historyHref = 'history/#1950s' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const resolveLocal = (path: string) => `${base}${path.replace(/^\//, '')}`;
 ---
 <nav class="owner-note-end-nav shell" aria-label="OWNER'S NOTE 次のページ">
   <a class="owner-note-next" href={resolveLocal(nextHref)}>
     <small>NEXT OWNER'S NOTE <em>／ 次の一本</em></small>
-    <strong>{nextName} →</strong>
-    {nextReason && <span class="owner-note-next-reason">{nextReason}</span>}
+    {nextHeadline ? (
+      <>
+        <strong>{nextHeadline}</strong>
+        {nextReason && <span class="owner-note-next-reason">{nextReason}</span>}
+        <strong>{nextName} →</strong>
+      </>
+    ) : (
+      <>
+        <strong>{nextName} →</strong>
+        {nextReason && <span class="owner-note-next-reason">{nextReason}</span>}
+      </>
+    )}
   </a>
   <a class="owner-note-history" href={resolveLocal(historyHref)}>HISTORYへ戻る →</a>
 </nav>

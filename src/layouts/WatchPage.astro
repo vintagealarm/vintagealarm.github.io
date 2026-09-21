@@ -96,7 +96,8 @@ const nextDirectoryEntry = recommendation
 const nextOwnerNote = nextDirectoryEntry && recommendation
   ? {
       href: nextDirectoryEntry.href,
-      name: `${nextDirectoryEntry.brand} ${nextDirectoryEntry.name}`,
+      name: recommendation.label ?? `${nextDirectoryEntry.brand} ${nextDirectoryEntry.name}`,
+      headline: recommendation.headline,
       reason: recommendation.reason
     }
   : null;
@@ -188,6 +189,7 @@ const schema = {
         <OwnerNoteEndNav
           nextHref={nextOwnerNote.href}
           nextName={nextOwnerNote.name}
+          nextHeadline={nextOwnerNote.headline}
           nextReason={nextOwnerNote.reason}
           historyHref={historyHref}
         />
