@@ -1,0 +1,730 @@
+---
+import { getCollection } from 'astro:content';
+import ownersDirectory from '../../../data/owners-directory.json';
+import SeoHead from '../../../components/SeoHead.astro';
+import '../../../styles/site.css';
+
+const base = import.meta.env.BASE_URL;
+const { production = false } = Astro.props as { production?: boolean };
+const productionTitle = 'HOW THEY RING｜鳴らし方で見る、アラーム腕時計｜VINTAGE ALARM';
+const productionDescription = '機械式アラーム腕時計を、GONG・CASEBACK・BELLの3つの鳴動方式から、掲載実機と音で見比べる。';
+const productionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'HOW THEY RING',
+  description: productionDescription,
+  inLanguage: 'ja',
+  url: 'https://vintagealarm.github.io/how-they-ring/'
+};
+const watches = await getCollection('watches');
+const galleryEntries = await getCollection('howTheyRing');
+const published = new Map(
+  watches.filter((item) => item.data.published).map((item) => [item.data.slug, item.data])
+);
+const galleryBySlug = new Map(galleryEntries.map((item) => [item.data.watchSlug, item.data]));
+const ownerThumbnailBySlug = new Map(
+  ownersDirectory.entries.map((entry) => [entry.historyId, entry.ownersThumbnail ?? entry.image])
+);
+
+const orderedSlugs = [
+  'cyma-time-o-vox',
+  'pierce-duofon',
+  'wittnauer-10wa',
+  'citizen-alarm',
+  'basis-alarm',
+  'westclox-watchlarm'
+];
+
+const categories = [
+  {
+    id: 'gong',
+    no: '01',
+    en: 'GONG',
+    ja: 'ゴング',
+    action: '外周の音響ばねを叩く',
+    image: '/images/how-they-ring/gong.jpg'
+  },
+  {
+    id: 'caseback',
+    no: '02',
+    en: 'CASEBACK',
+    ja: 'ケースバック',
+    action: 'ケースバックそのものを響かせる',
+    image: '/images/how-they-ring/caseback-hammer.png'
+  },
+  {
+    id: 'bell',
+    no: '03',
+    en: 'BELL',
+    ja: 'ベル',
+    action: 'ケース底部の別体ベルを叩く',
+    image: '/images/how-they-ring/bell.jpg'
+  }
+];
+
+const specimens = orderedSlugs
+  .map((slug) => {
+    const watch = published.get(slug);
+    const gallery = galleryBySlug.get(slug);
+    if (!watch || !gallery?.published) return null;
+    return {
+      slug,
+      category: gallery.category,
+      brand: watch.brand,
+      model: watch.model,
+      caliber: watch.spec.caliber,
+      image: `${base}${(gallery.thumbnail?.trim() || ownerThumbnailBySlug.get(slug) || '').replace(/^\//, '')}`,
+      recordings: gallery?.audio.status === 'ready'
+        ? gallery.audio.recordings.filter((recording) => Boolean(recording.src?.trim()))
+        : []
+    };
+  })
+  .filter(Boolean);
+
+const categoryCounts = Object.fromEntries(
+  categories.map((category) => [
+    category.id,
+    specimens.filter((watch) => watch.category === category.id).length
+  ])
+);
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {production
+      ? <SeoHead
+          title={productionTitle}
+          description={productionDescription}
+          path="how-they-ring/"
+          image="/images/how-they-ring/gong.jpg"
+          type="website"
+          schema={productionSchema}
+        />
+      : <>
+          <meta name="robots" content="noindex,nofollow,noarchive" />
+          <title>鳴らし方で見る、アラーム腕時計。｜VINTAGE ALARM TEST</title>
+        </>}
+    <meta name="theme-color" content="#f3eee4" />
+    <style>
+      :root {
+        --lab-ink: #241f1a;
+        --lab-soft: #6a6158;
+        --lab-rule: #aaa094;
+        --lab-paper: #f3eee4;
+        --lab-wash: #e9e1d5;
+        --lab-white: rgba(255,255,255,.20);
+      }
+
+      body { min-width: 0; }
+
+      .lab {
+        width: min(calc(100% - 40px), 1060px);
+        margin-inline: auto;
+        padding: 34px 0 96px;
+      }
+
+      .lab-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 13px;
+        border-bottom: 1px solid var(--lab-rule);
+        color: var(--lab-soft);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 10px;
+        letter-spacing: .15em;
+      }
+
+      .lab-status a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+      .lab-status strong {
+        color: var(--lab-ink);
+        font-weight: 400;
+      }
+
+      .lab-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr);
+        gap: 50px;
+        align-items: end;
+        padding: 62px 0 42px;
+      }
+
+      .lab-kicker {
+        margin: 0 0 16px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 13px;
+        letter-spacing: .22em;
+      }
+
+      .lab-kicker span {
+        display: block;
+        margin-top: 3px;
+        color: var(--lab-soft);
+        font-family: "Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;
+        font-size: 10px;
+        letter-spacing: .08em;
+      }
+
+      .lab-hero h1 {
+        margin: 0;
+        font-size: clamp(38px, 6vw, 62px);
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: .01em;
+      }
+
+      .lab-hero-copy {
+        margin: 0;
+        color: var(--lab-soft);
+        font-size: 15px;
+        line-height: 1.95;
+        text-wrap: pretty;
+      }
+
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-top: 1px solid var(--lab-ink);
+        border-left: 1px solid var(--lab-ink);
+      }
+
+      .category-button {
+        appearance: none;
+        position: relative;
+        min-width: 0;
+        min-height: 258px;
+        padding: 20px 18px 18px;
+        overflow: hidden;
+        border: 0;
+        border-right: 1px solid var(--lab-ink);
+        border-bottom: 1px solid var(--lab-ink);
+        background: transparent;
+        color: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .category-button[aria-pressed="true"] {
+        background: rgba(255,255,255,.10);
+      }
+
+      .category-button:focus-visible {
+        outline: 2px solid var(--lab-ink);
+        outline-offset: 4px;
+      }
+
+      .category-no {
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        color: rgba(36,31,26,.10);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 72px;
+        line-height: 1;
+        letter-spacing: -.06em;
+        pointer-events: none;
+      }
+
+      .category-name {
+        position: relative;
+        z-index: 2;
+        display: block;
+      }
+
+      .category-name strong,
+      .category-name em {
+        display: block;
+      }
+
+      .category-name strong {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(23px, 2.7vw, 30px);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: .035em;
+      }
+
+      .category-name em {
+        margin-top: 7px;
+        color: var(--lab-soft);
+        font-size: 12px;
+        font-style: normal;
+      }
+
+      .mechanism-figure {
+        position: relative;
+        display: block;
+        height: 112px;
+        margin: 10px -2px 5px;
+        overflow: hidden;
+      }
+
+      .mechanism-figure > img {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: contain !important;
+        background: transparent;
+      }
+
+
+      .category-button[data-category="gong"] .mechanism-figure > img {
+        transform: scale(1.28);
+        transform-origin: center 52%;
+      }
+
+      .category-button[data-category="caseback"] .mechanism-figure > img,
+      .category-button[data-category="bell"] .mechanism-figure > img {
+        object-fit: cover !important;
+        object-position: center center;
+      }
+
+      .category-action {
+        display: block;
+        min-height: 2.8em;
+        margin-top: 6px;
+        font-size: 12px;
+        line-height: 1.65;
+      }
+
+      .category-count {
+        display: block;
+        margin-top: 8px;
+        color: var(--lab-soft);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 10px;
+        letter-spacing: .08em;
+        text-align: right;
+      }
+
+      .selected-section {
+        margin-top: 12px;
+        border-top: 1px solid var(--lab-ink);
+      }
+
+      .selected-head {
+        display: block;
+        padding: 18px 0 14px;
+      }
+
+      .category-summary[hidden],
+      .specimen-card[hidden] {
+        display: none !important;
+      }
+
+      .category-summary h2 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 34px;
+        font-weight: 400;
+        line-height: .95;
+      }
+
+      .category-summary h2 small {
+        display: block;
+        margin-top: 9px;
+        color: var(--lab-soft);
+        font-family: "Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;
+        font-size: 13px;
+      }
+
+      .category-summary p {
+        margin: 0;
+        color: var(--lab-soft);
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .specimen-grid {
+        display: block;
+        border-top: 1px solid var(--lab-ink);
+      }
+
+      .specimen-card {
+        display: grid;
+        grid-template-columns: 124px minmax(0, 1fr) minmax(170px, .72fr);
+        gap: 20px;
+        align-items: center;
+        min-width: 0;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--lab-rule);
+        background: transparent;
+      }
+
+      .specimen-media {
+        display: block;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: rgba(255,255,255,.28);
+      }
+
+      .specimen-media:focus-visible {
+        outline: 2px solid var(--lab-ink);
+        outline-offset: 2px;
+      }
+
+      .specimen-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .specimen-copy { display: contents; }
+      .specimen-meta { min-width: 0; }
+
+      .specimen-type {
+        margin: 0 0 7px;
+        color: var(--lab-soft);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 10px;
+        letter-spacing: .12em;
+      }
+
+      .specimen-card h3 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .specimen-model {
+        margin: 6px 0 0;
+        font-size: 14px;
+      }
+
+      .specimen-caliber {
+        margin: 14px 0 0;
+        color: var(--lab-soft);
+        font-size: 12px;
+      }
+
+      .audio-slots {
+        display: grid;
+        gap: 8px;
+        align-self: stretch;
+        align-content: center;
+      }
+
+      .audio-pending,
+      .audio-slots audio {
+        width: 100%;
+      }
+
+      .audio-slots audio { display: block; max-width: 100%; }
+      .audio-slots p { margin: 0 0 6px; color: var(--lab-soft); font-size: 11px; }
+
+      .audio-pending {
+        min-height: 52px;
+        padding: 9px 11px;
+        border: 1px solid var(--lab-rule);
+        background: transparent;
+        color: var(--lab-soft);
+        font: inherit;
+        text-align: left;
+      }
+
+      .audio-pending span,
+      .audio-pending small {
+        display: block;
+      }
+
+      .audio-pending span {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 11px;
+        letter-spacing: .06em;
+      }
+
+      .audio-pending small {
+        margin-top: 4px;
+        font-size: 10px;
+      }
+
+      .lab-footnote {
+        margin: 24px 0 0;
+        color: var(--lab-soft);
+        font-size: 11px;
+        line-height: 1.8;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .category-button:hover {
+          background: rgba(233,225,213,.42);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .lab {
+          width: min(calc(100% - 32px), 1060px);
+          padding-top: 24px;
+        }
+
+        .lab-status {
+          font-size: 9px;
+          letter-spacing: .09em;
+        }
+
+        .lab-hero {
+          grid-template-columns: 1fr;
+          gap: 22px;
+          padding: 28px 0 20px;
+        }
+
+        .lab-hero h1 {
+          font-size: clamp(32px, 10vw, 44px);
+        }
+
+        .lab-hero-copy {
+          max-width: 33em;
+          font-size: 13px;
+          line-height: 1.75;
+        }
+
+        .category-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .category-button {
+          min-height: 166px;
+          padding: 10px 10px 8px;
+        }
+
+        .category-no {
+          font-size: 36px;
+        }
+
+        .category-name strong {
+          font-size: clamp(14px, 4.6vw, 17px);
+        }
+
+        .mechanism-figure {
+          height: 62px;
+          margin: 5px -2px 2px;
+        }
+
+        .category-button[data-category="gong"] .mechanism-figure > img {
+          transform: scale(1.20);
+        }
+
+        .category-action {
+          min-height: 2.7em;
+          margin-top: 3px;
+          font-size: 9px;
+          line-height: 1.4;
+        }
+
+        .category-count {
+          margin-top: 2px;
+          font-size: 8px;
+        }
+
+        .selected-section {
+          margin-top: 8px;
+        }
+
+        .selected-head {
+          padding: 8px 0 7px;
+        }
+
+        .category-summary h2 {
+          font-size: 22px;
+        }
+
+        .category-summary h2 small {
+          margin-top: 3px;
+          font-size: 9px;
+        }
+
+        .category-summary p {
+          font-size: 10px;
+          line-height: 1.45;
+        }
+
+        .specimen-card {
+          grid-template-columns: 96px minmax(0, 1fr);
+          gap: 14px;
+          align-items: start;
+        }
+
+        .specimen-copy { display: block; }
+
+        .audio-slots {
+          min-width: 0;
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .lab { width: calc(100% - 24px); }
+
+        .category-button {
+          min-height: 158px;
+          padding-inline: 11px;
+        }
+
+        .category-no {
+          font-size: 40px;
+        }
+
+        .category-name strong {
+          font-size: 18px;
+        }
+
+        .mechanism-figure {
+          height: 58px;
+        }
+
+        .category-action {
+          min-height: 2.6em;
+          font-size: 8.5px;
+        }
+
+        .category-count {
+          font-size: 9px;
+        }
+
+        .specimen-card {
+          grid-template-columns: 84px minmax(0, 1fr);
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="lab">
+      <div class="lab-status">
+        <strong>VINTAGE ALARM / TEST SURFACE</strong>
+        <span>{production ? 'PUBLIC' : '非公開プレビュー'} / <a href={`${base}admin/`}>CMS EDIT</a></span>
+      </div>
+
+      <header class="lab-hero">
+        <div>
+          <p class="lab-kicker">HOW THEY RING<span>鳴らし方で見る</span></p>
+          <h1>鳴らし方で見る、<br />アラーム腕時計。</h1>
+        </div>
+        <p class="lab-hero-copy">
+          ブランドや年代ではなく、何を叩き、何を響かせるのかで分ける。
+          3つの方式から、対応する掲載個体へ切り替える。
+        </p>
+      </header>
+
+      <section aria-label="鳴動方式を選ぶ">
+        <div class="category-grid">
+          {categories.map((category) => (
+            <button
+              type="button"
+              class="category-button"
+              data-category={category.id}
+              aria-controls="specimen-panel"
+              aria-pressed={category.id === 'gong' ? 'true' : 'false'}
+            >
+              <span class="category-no">{category.no}</span>
+              <span class="category-name">
+                <strong>{category.en}</strong>
+                <em>{category.ja}</em>
+              </span>
+              <span class="mechanism-figure" aria-hidden="true">
+                <img
+                  src={`${base}${category.image.replace(/^\//, '')}`}
+                  alt=""
+                  style="position:absolute;inset:0;display:block;width:100%;height:100%;min-height:100%;max-height:100%;max-width:none;object-fit:contain;"
+                />
+              </span>
+              <span class="category-action">{category.action}</span>
+              <span class="category-count">{categoryCounts[category.id]} {categoryCounts[category.id] === 1 ? 'WATCH' : 'WATCHES'} / 掲載</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section class="selected-section" id="specimen-panel" aria-live="polite">
+        <div class="selected-head">
+          <div>
+            {categories.map((category) => (
+              <div class="category-summary" data-category-summary={category.id} hidden={category.id !== 'gong'}>
+                <h2>{category.en}<small>{category.ja}</small></h2>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+        <div class="specimen-grid">
+          {specimens.map((watch) => (
+            <article
+              class="specimen-card"
+              data-specimen
+              data-watch-slug={watch.slug}
+              data-category={watch.category}
+              hidden={watch.category !== 'gong'}
+            >
+              <a
+                class="specimen-media"
+                href={`${base}${watch.slug}/#owners-note`}
+                aria-label={`${watch.brand} ${watch.model} のOWNER'S NOTEへ`}
+              >
+                <img src={watch.image} alt={`${watch.brand} ${watch.model} 掲載個体`} loading="lazy" />
+              </a>
+              <div class="specimen-copy">
+                <div class="specimen-meta">
+                  <p class="specimen-type">
+                    {categories.find((item) => item.id === watch.category)?.en}
+                    ／{categories.find((item) => item.id === watch.category)?.ja}
+                  </p>
+                  <h3>{watch.brand}</h3>
+                  <p class="specimen-model">{watch.model}</p>
+                  <p class="specimen-caliber">{watch.caliber}</p>
+                </div>
+
+                <div class="audio-slots">
+                  {watch.recordings.length ? (
+                    watch.recordings.map((recording) => (
+                      <div>
+                        <p>{recording.label}</p>
+                        <audio controls preload="none" src={`${base}${recording.src.replace(/^\//, '')}`}></audio>
+                      </div>
+                    ))
+                  ) : (
+                    <button class="audio-pending" type="button" disabled>
+                      <span>AUDIO / 音源</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+
+      </section>
+    </main>
+
+    <script is:inline>
+      (() => {
+        const categoryButtons = [...document.querySelectorAll('button[data-category]')];
+        const specimenCards = [...document.querySelectorAll('[data-specimen]')];
+        const headingBlocks = [...document.querySelectorAll('[data-category-summary]')];
+
+        const selectCategory = (category) => {
+          categoryButtons.forEach((button) => {
+            button.setAttribute('aria-pressed', button.dataset.category === category ? 'true' : 'false');
+          });
+          specimenCards.forEach((card) => {
+            card.hidden = card.dataset.category !== category;
+          });
+          headingBlocks.forEach((block) => {
+            block.hidden = block.dataset.categorySummary !== category;
+          });
+        };
+
+        categoryButtons.forEach((button) => {
+          button.addEventListener('click', () => selectCategory(button.dataset.category));
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -39,7 +39,7 @@ const watches = defineCollection({
     })).optional(),
     howTheyRing: z.object({
       published: z.boolean().default(false),
-      category: z.enum(['gong', 'caseback', 'bell', 'pin']),
+      category: z.enum(['gong', 'caseback', 'bell']),
       image: z.string().optional(),
       audio: z.object({
         status: z.enum(['pending', 'ready']).default('pending'),
@@ -83,4 +83,28 @@ const watches = defineCollection({
   })
 });
 
-export const collections = { watches };
+
+const howTheyRing = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/how-they-ring' }),
+  schema: z.object({
+    title: z.string(),
+    watchSlug: z.string(),
+    published: z.boolean().default(false),
+    category: z.enum(['gong', 'caseback', 'bell']),
+    thumbnail: z.string().nullish(),
+    audio: z.object({
+      status: z.enum(['pending', 'ready']).default('pending'),
+      recordings: z.array(z.object({
+        id: z.string(),
+        label: z.string(),
+        src: z.string().optional(),
+        recordedWith: z.string().optional(),
+        distanceCm: z.number().positive().optional(),
+        position: z.string().optional(),
+        processed: z.boolean().optional()
+      })).default([])
+    })
+  })
+});
+
+export const collections = { watches, howTheyRing };

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-labelledby="title desc">
+<title>BELL / ベル</title><desc>腕時計の側面略図。ケースバック近くに、外装とは別体のベル状共鳴体が取り付けられている。</desc>
+<style>
+  .ink{fill:none;stroke:#16384a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+  .soft{fill:none;stroke:#16384a;stroke-opacity:.28;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .accent{fill:#d9c6a4;fill-opacity:.74;stroke:#16384a;stroke-width:3;stroke-linejoin:round}
+  .accentLine{fill:none;stroke:#b99c70;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+  .hammer{fill:#16384a;stroke:#16384a;stroke-width:2;stroke-linejoin:round}
+  .hammerArm{fill:none;stroke:#16384a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<!-- lugs -->
+<path class="ink" d="M70 174 C46 176 35 188 28 203 C46 204 58 199 75 187 M410 174 C434 176 445 188 452 203 C434 204 422 199 405 187"/>
+<!-- case -->
+<path class="ink" d="M86 122 C130 102 350 102 394 122 L394 190 C360 211 120 211 86 190 Z"/>
+<!-- top glass / dial -->
+<ellipse class="soft" cx="240" cy="121" rx="154" ry="31"/>
+<path class="soft" d="M240 121 L203 112 M240 121 L278 111"/><circle class="soft" cx="240" cy="121" r="4"/>
+<!-- outer caseback kept pale -->
+<path class="soft" d="M89 188 C132 207 348 207 391 188"/>
+<!-- separate bell: shallow dome close to caseback, clearly separate -->
+<path class="accent" d="M118 181
+ C136 158 174 151 240 151
+ C306 151 344 158 362 181
+ L362 191
+ C327 203 153 203 118 191 Z"/>
+<!-- tiny mounting/support cues -->
+<path class="soft" d="M153 191 L153 198 M327 191 L327 198"/>
+<!-- hammer to separate bell -->
+<path class="hammerArm" d="M339 159 L321 179"/>
+<circle class="ink" cx="343" cy="154" r="7"/>
+<rect class="hammer" x="310" y="171" width="24" height="14" rx="2" transform="rotate(28 322 178)"/>
+</svg>

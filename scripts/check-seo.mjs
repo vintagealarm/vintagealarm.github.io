@@ -2,6 +2,8 @@ import { files, document, attr, content, route, resolve, origin, finish } from '
 import { readFileSync } from 'node:fs';
 import { readWatchPublicationState } from './watch-publication.mjs';
 
+const howTheyRingRelease = JSON.parse(readFileSync(new URL('../src/data/how-they-ring-settings.json', import.meta.url), 'utf8'));
+
 const watchStates = readWatchPublicationState();
 const englishEntrySource = readFileSync(new URL('../src/data/en-watch-entry.ts', import.meta.url), 'utf8');
 const englishWatchSlugs = new Set([...englishEntrySource.matchAll(/^  '([^']+)': \\{/gm)].map((match) => match[1]));
@@ -24,12 +26,15 @@ for (const watch of watchStates.filter((item) => item.published)) {
 if (watchStates.some((item) => item.slug === 'cyma-time-o-vox' && item.published)) {
   required['/cyma-time-o-vox/owners-note/'] = [];
 }
+if (howTheyRingRelease.productionPublished) required['/how-they-ring/'] = ['CollectionPage'];
 
 const errors = [], seen = new Set();
 const titles = new Map(), descriptions = new Map();
 for (const file of files().filter(f => f.endsWith('.html'))) {
   const page = route(file), nodes = document(file);
   const canonicalNodes = nodes.filter(n => n.tagName === 'link' && attr(n, 'rel')?.split(/\s+/).includes('canonical'));
+  // HOW THEY RING release OFF generates only a static redirect shell; do not audit it as a public SEO page.
+  if (page === '/how-they-ring/' && !howTheyRingRelease.productionPublished) continue;
   if (!required[page] && !canonicalNodes.length) continue;
   seen.add(page);
   const fail = message => errors.push(`${page}: ${message}`);

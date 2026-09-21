@@ -44,6 +44,7 @@ const sitemap = fs.existsSync(path.join(dist, 'sitemap.xml'))
   : '';
 const ownersDirectory = JSON.parse(fs.readFileSync(path.join(root, 'src/data/owners-directory.json'), 'utf8'));
 const researchSettings = JSON.parse(fs.readFileSync(path.join(root, 'src/data/research-settings.json'), 'utf8'));
+const howTheyRingRelease = JSON.parse(fs.readFileSync(path.join(root, 'src/data/how-they-ring-settings.json'), 'utf8'));
 const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.historyId));
 const researchDir = path.join(root, 'src/data/watch-research');
 const researchSlugs = new Set(
@@ -162,11 +163,55 @@ for (const marker of [
   '公開（OFFで下書き）',
   'label: HISTORY 本文・MILESTONES',
   'label: Watches',
+  'name: howTheyRingRelease',
+  'path: src/data/how-they-ring-settings.json',
+  'label: 本番公開する',
+  'name: howTheyRing',
+  'path: src/content/how-they-ring',
   'name: ownerDirectory',
   'name: ownedGroup',
   'name: fallbackThumbnail'
 ]) {
   if (!pagesConfig.includes(marker)) failures.push(`Pages CMS marker missing: ${marker}`);
+}
+
+
+// HOW THEY RING production release gate + CMS entrance.
+const soundProdPath = path.join(dist, 'how-they-ring', 'index.html');
+const adminPath = path.join(dist, 'admin', 'index.html');
+const soundProdHtml = fs.existsSync(soundProdPath) ? fs.readFileSync(soundProdPath, 'utf8') : '';
+const adminHtml = fs.existsSync(adminPath) ? fs.readFileSync(adminPath, 'utf8') : '';
+const soundProdUrl = 'https://vintagealarm.github.io/how-they-ring/';
+
+if (!fs.existsSync(adminPath)) failures.push('CMS admin entrance missing: dist/admin/index.html');
+if (adminHtml && !adminHtml.includes('https://app.pagescms.org/')) failures.push('CMS admin entrance does not target hosted Pages CMS');
+if (adminHtml && !adminHtml.includes('noindex,nofollow,noarchive')) failures.push('CMS admin entrance lost noindex');
+
+if (howTheyRingRelease.productionPublished) {
+  if (!fs.existsSync(soundProdPath)) failures.push('HOW THEY RING: production release ON but route is missing');
+  if (!sitemap.includes(soundProdUrl)) failures.push('HOW THEY RING: production release ON but sitemap entry is missing');
+  if (soundProdHtml.includes('noindex,nofollow,noarchive')) failures.push('HOW THEY RING: production release ON but page is still noindex');
+  if (soundProdHtml.includes('非公開プレビュー')) failures.push('HOW THEY RING: production release ON but preview label leaked');
+  if (!soundProdHtml.includes('HOW THEY RING')) failures.push('HOW THEY RING: production release ON but gallery content is missing');
+} else {
+  if (sitemap.includes(soundProdUrl)) failures.push('HOW THEY RING: production release OFF but sitemap entry leaked');
+  if (soundProdHtml.includes('data-specimen')) failures.push('HOW THEY RING: production release OFF but gallery content leaked');
+}
+
+const soundGalleryDir = path.join(root, 'src/content/how-they-ring');
+const soundGallerySlugs = [
+  'basis-alarm', 'citizen-alarm', 'cyma-time-o-vox',
+  'pierce-duofon', 'westclox-watchlarm', 'wittnauer-10wa'
+];
+const soundGalleryFiles = fs.readdirSync(soundGalleryDir).filter((file) => file.endsWith('.md')).sort();
+if (JSON.stringify(soundGalleryFiles) !== JSON.stringify(soundGallerySlugs.map((slug) => `${slug}.md`))) {
+  failures.push(`Independent sound gallery CMS entries differ from the six published watches: ${soundGalleryFiles.join(', ')}`);
+}
+for (const slug of soundGallerySlugs) {
+  const entryPath = path.join(soundGalleryDir, `${slug}.md`);
+  if (fs.existsSync(entryPath) && !new RegExp(`^watchSlug: ${slug}\\r?$`, 'm').test(fs.readFileSync(entryPath, 'utf8'))) {
+    failures.push(`Sound gallery CMS entry is linked to the wrong watch: ${slug}`);
+  }
 }
 
 for (const file of fs.readdirSync(dist, { recursive: true }).filter((file) => String(file).endsWith('.html'))) {

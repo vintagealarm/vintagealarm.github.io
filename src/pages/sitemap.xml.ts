@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { englishWatchEntries } from '../data/en-watch-entry';
 import { germanWatchEntriesWithCyma } from '../data/cyma-localizations';
 import cymaChronometreResearch from '../data/cyma-chronometre-research.json';
+import howTheyRingRelease from '../data/how-they-ring-settings.json';
 
 function getGitLastmod(filePath: string) {
   try {
@@ -34,6 +35,7 @@ export async function GET() {
     { loc: `${root}owners-notes/` },
     { loc: `${root}en/` },
     { loc: `${root}de/` },
+    ...(howTheyRingRelease.productionPublished ? [{ loc: `${root}how-they-ring/` }] : []),
     ...(cymaChronometreResearch.published ? [{
       loc: `${root}cyma-time-o-vox/chronometre/`,
       lastmod: getGitLastmod('src/data/cyma-chronometre-research.json')
