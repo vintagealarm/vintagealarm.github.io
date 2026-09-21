@@ -166,6 +166,8 @@ for (const marker of [
   'name: howTheyRingRelease',
   'path: src/data/how-they-ring-settings.json',
   'label: 本番公開する',
+  'name: showOnTop',
+  'label: TOPに「音で選ぶ」を表示',
   'name: howTheyRing',
   'path: src/content/how-they-ring',
   'name: ownerDirectory',
@@ -196,6 +198,17 @@ if (howTheyRingRelease.productionPublished) {
 } else {
   if (sitemap.includes(soundProdUrl)) failures.push('HOW THEY RING: production release OFF but sitemap entry leaked');
   if (soundProdHtml.includes('data-specimen')) failures.push('HOW THEY RING: production release OFF but gallery content leaked');
+}
+
+const shouldShowSoundOnTop = howTheyRingRelease.productionPublished && howTheyRingRelease.showOnTop;
+for (const [name, html] of [['TOP', homeHtml], ['X', xHtml]]) {
+  const hasTopLink = html.includes('how-they-ring/') && html.includes('音で選ぶ');
+  if (shouldShowSoundOnTop && !hasTopLink) {
+    failures.push(`${name}: HOW THEY RING is enabled for TOP but the 「音で選ぶ」 link is missing`);
+  }
+  if (!shouldShowSoundOnTop && hasTopLink) {
+    failures.push(`${name}: hidden HOW THEY RING TOP link leaked into generated HTML`);
+  }
 }
 
 const soundGalleryDir = path.join(root, 'src/content/how-they-ring');

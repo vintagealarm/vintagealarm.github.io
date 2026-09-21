@@ -1,9 +1,12 @@
 ---
 import SectionMast from './SectionMast.astro';
 import researchSettings from '../data/research-settings.json';
+import howTheyRingSettings from '../data/how-they-ring-settings.json';
 const base = import.meta.env.BASE_URL;
 const researchPublished = researchSettings.published;
-const contentCount = researchPublished ? '01—04' : '01—03';
+const showSoundOnTop = howTheyRingSettings.productionPublished && howTheyRingSettings.showOnTop;
+const contentCount = `01—${String(3 + Number(showSoundOnTop) + Number(researchPublished)).padStart(2, '0')}`;
+const researchIndexNo = showSoundOnTop ? '05' : '04';
 ---
 <SectionMast rightLabel="INDEX" />
 <main>
@@ -42,9 +45,17 @@ const contentCount = researchPublished ? '01—04' : '01—03';
       <span class="home-index-arrow" aria-hidden="true">→</span>
     </a>
 
+    {showSoundOnTop && (
+      <a href={`${base}how-they-ring/`}>
+        <span class="home-index-no">04</span>
+        <div class="home-index-copy"><strong>音で選ぶ</strong><small>GONG・CASEBACK・BELLから、掲載実機と音を見る。</small></div>
+        <span class="home-index-arrow" aria-hidden="true">→</span>
+      </a>
+    )}
+
     {researchPublished && (
       <a href={`${base}history/#research`}>
-        <span class="home-index-no">04</span>
+        <span class="home-index-no">{researchIndexNo}</span>
         <div class="home-index-copy"><strong>RESEARCH</strong><small>気になっているもの、調査中の個体</small></div>
         <span class="home-index-arrow" aria-hidden="true">→</span>
       </a>

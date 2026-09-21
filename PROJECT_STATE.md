@@ -1,6 +1,6 @@
 # VINTAGE ALARM — CURRENT PROJECT STATE
 
-更新日: 2026-09-19
+更新日: 2026-09-21
 
 この文書は、VINTAGE ALARMで作業を再開するときに最初に読む「現在位置の索引」です。
 
@@ -64,6 +64,9 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
+- HOW THEY RINGの現行分類は GONG / CASEBACK / BELL の3種類。PINは独立分類として使わず、Westclox WatchlarmはCASEBACKに含める
+- HOW THEY RINGの個体・分類・サムネイル・音源は `src/content/how-they-ring/`、本番公開とTOP「音で選ぶ」表示は `src/data/how-they-ring-settings.json` で制御する
+- TOPの「音で選ぶ」は `productionPublished` と `showOnTop` が両方ONの場合だけ表示する
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
@@ -137,6 +140,8 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 所有個体年代からHISTORY年代を自動生成する
 - WATCH末尾の「次の一本」を年代順へ自動フォールバックする
 - RESEARCH非公開をCSSで隠す。非公開時は生成HTML自体へ出さない
+- HOW THEY RINGを GONG / CASEBACK / BELL / PIN の4分類へ戻す
+- 本番公開がOFFのHOW THEY RING導線をTOPへ表示する
 - SMARTWATCHを通常の検索流入ページとして扱う
 - SEO目的だけでOWNER'S NOTEや完成済みWATCH本文を書き換える
 - Calibre DB化、ブランド百科事典化、FAQ大量生成、検索語差し替え型ページ量産
