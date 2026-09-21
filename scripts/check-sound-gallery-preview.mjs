@@ -94,7 +94,7 @@ try {
     const expectedExamples = [
       '代表機OMEGA MEMOMATIC',
       '代表機VULCAIN CRICKET',
-      '代表機JAEGER-LECOULTRE MEMOVOX'
+      '代表機ETERNA ALARM / CAL.68'
     ];
     if (JSON.stringify(shellState.examples) !== JSON.stringify(expectedExamples)) {
       failures.push(`${width}px: representative watches missing or wrong: ${JSON.stringify(shellState.examples)}`);
