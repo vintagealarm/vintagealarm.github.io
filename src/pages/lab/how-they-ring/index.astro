@@ -7,7 +7,7 @@ import '../../../styles/site.css';
 const base = import.meta.env.BASE_URL;
 const { production = false } = Astro.props as { production?: boolean };
 const productionTitle = 'HOW THEY RING｜鳴らし方で見る、アラーム腕時計｜VINTAGE ALARM';
-const productionDescription = '機械式アラーム腕時計を、GONG・CASEBACK・BELL・PINの4つの鳴動方式から、掲載実機と音で見比べる。';
+const productionDescription = '機械式アラーム腕時計を、GONG・CASEBACK・BELLの3つの鳴動方式から、掲載実機と音で見比べる。';
 const productionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -59,14 +59,6 @@ const categories = [
     ja: 'ベル',
     action: 'ケース底部の別体ベルを叩く',
     image: '/images/how-they-ring/bell.jpg'
-  },
-  {
-    id: 'pin',
-    no: '04',
-    en: 'PIN',
-    ja: '底部ピン',
-    action: 'ピンを介して底部へ振動を伝える',
-    image: '/images/how-they-ring/pin-hammer.png'
   }
 ];
 
@@ -194,7 +186,7 @@ const categoryCounts = Object.fromEntries(
 
       .category-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         border-top: 1px solid var(--lab-ink);
         border-left: 1px solid var(--lab-ink);
       }
@@ -286,8 +278,7 @@ const categoryCounts = Object.fromEntries(
       }
 
       .category-button[data-category="caseback"] .mechanism-figure > img,
-      .category-button[data-category="bell"] .mechanism-figure > img,
-      .category-button[data-category="pin"] .mechanism-figure > img {
+      .category-button[data-category="bell"] .mechanism-figure > img {
         object-fit: cover !important;
         object-position: center center;
       }
@@ -494,7 +485,7 @@ const categoryCounts = Object.fromEntries(
         }
 
         .category-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         .category-button {
@@ -507,7 +498,7 @@ const categoryCounts = Object.fromEntries(
         }
 
         .category-name strong {
-          font-size: 17px;
+          font-size: clamp(14px, 4.6vw, 17px);
         }
 
         .mechanism-figure {
@@ -617,7 +608,7 @@ const categoryCounts = Object.fromEntries(
         </div>
         <p class="lab-hero-copy">
           ブランドや年代ではなく、何を叩き、何を響かせるのかで分ける。
-          4つの方式から、対応する掲載個体へ切り替える。
+          3つの方式から、対応する掲載個体へ切り替える。
         </p>
       </header>
 
