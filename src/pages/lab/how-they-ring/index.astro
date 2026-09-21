@@ -42,7 +42,7 @@ const categories = [
     en: 'GONG',
     ja: 'ゴング',
     action: '外周の音響ばねを叩く',
-    examples: 'CYMA / PIERCE / WITTNAUER',
+    example: 'OMEGA MEMOMATIC',
     image: '/images/how-they-ring/gong.jpg'
   },
   {
@@ -51,7 +51,7 @@ const categories = [
     en: 'CASEBACK',
     ja: 'ケースバック',
     action: 'ケースバックそのものを響かせる',
-    examples: 'CITIZEN / WESTCLOX',
+    example: 'VULCAIN CRICKET',
     image: '/images/how-they-ring/caseback-hammer.png'
   },
   {
@@ -60,7 +60,7 @@ const categories = [
     en: 'BELL',
     ja: 'ベル',
     action: 'ケース底部の別体ベルを叩く',
-    examples: 'BASIS',
+    example: 'JAEGER-LECOULTRE MEMOVOX',
     image: '/images/how-they-ring/bell.jpg'
   }
 ];
@@ -223,7 +223,7 @@ const specimens = orderedSlugs
       .mechanism-figure {
         position: relative;
         display: block;
-        height: 112px;
+        height: 156px;
         margin: 10px -2px 5px;
         overflow: hidden;
       }
@@ -238,13 +238,13 @@ const specimens = orderedSlugs
       }
 
 
-      .category-button[data-category="gong"] .mechanism-figure > img {
-        transform: scale(1.82);
-        transform-origin: center 52%;
-      }
-
       .category-button[data-category="caseback"] .mechanism-figure > img,
       .category-button[data-category="bell"] .mechanism-figure > img {
+        top: 22px !important;
+        bottom: auto !important;
+        height: 112px !important;
+        min-height: 112px !important;
+        max-height: 112px !important;
         object-fit: cover !important;
         object-position: center center;
       }
@@ -465,12 +465,16 @@ const specimens = orderedSlugs
         }
 
         .mechanism-figure {
-          height: 68px;
+          height: 90px;
           margin: 5px -2px 2px;
         }
 
-        .category-button[data-category="gong"] .mechanism-figure > img {
-          transform: scale(1.72);
+        .category-button[data-category="caseback"] .mechanism-figure > img,
+        .category-button[data-category="bell"] .mechanism-figure > img {
+          top: 11px !important;
+          height: 68px !important;
+          min-height: 68px !important;
+          max-height: 68px !important;
         }
 
         .category-action {
@@ -546,7 +550,7 @@ const specimens = orderedSlugs
         }
 
         .mechanism-figure {
-          height: 58px;
+          height: 90px;
         }
 
         .category-action {
@@ -595,7 +599,7 @@ const specimens = orderedSlugs
                 />
               </span>
               <span class="category-action">{category.action}</span>
-              <span class="category-examples"><small>代表個体</small>{category.examples}</span>
+              <span class="category-examples"><small>代表機</small>{category.example}</span>
             </button>
           ))}
         </div>

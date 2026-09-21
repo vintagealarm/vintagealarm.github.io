@@ -65,6 +65,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
 - 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
+- HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）

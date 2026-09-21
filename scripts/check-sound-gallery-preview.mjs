@@ -92,9 +92,9 @@ try {
     }
 
     const expectedExamples = [
-      '代表個体CYMA / PIERCE / WITTNAUER',
-      '代表個体CITIZEN / WESTCLOX',
-      '代表個体BASIS'
+      '代表機OMEGA MEMOMATIC',
+      '代表機VULCAIN CRICKET',
+      '代表機JAEGER-LECOULTRE MEMOVOX'
     ];
     if (JSON.stringify(shellState.examples) !== JSON.stringify(expectedExamples)) {
       failures.push(`${width}px: representative watches missing or wrong: ${JSON.stringify(shellState.examples)}`);
@@ -116,7 +116,7 @@ try {
       })
     );
 
-    const expectedNatural = [[300, 180], [300, 180], [300, 180]];
+    const expectedNatural = [[161, 180], [300, 180], [300, 180]];
     const pixelArtifacts = await page.evaluate(() => {
       return [...document.querySelectorAll('.mechanism-figure img')].map((img) => {
         const canvas = document.createElement('canvas');
@@ -148,18 +148,16 @@ try {
       if (item.naturalWidth !== nw || item.naturalHeight !== nh) {
         failures.push(`${width}px: ${expectedOrder[index]} wrong image dimensions ${item.naturalWidth}x${item.naturalHeight}, expected ${nw}x${nh}`);
       }
-      if (index === 0) {
-        if (item.transform === 'none') failures.push(`${width}px: GONG artwork was not enlarged`);
-      } else if (item.transform !== 'none') {
+      if (item.transform !== 'none') {
         failures.push(`${width}px: ${expectedOrder[index]} unexpected transform ${item.transform}`);
       }
       const clipped = item.image.left < item.figure.left - 1 || item.image.right > item.figure.right + 1 || item.image.top < item.figure.top - 1 || item.image.bottom > item.figure.bottom + 1;
-      if (index !== 0 && clipped) {
+      if (clipped) {
         failures.push(`${width}px: ${expectedOrder[index]} image is clipped by figure box: ${JSON.stringify(item)}`);
       }
       const heightRatio = item.figure.height ? item.image.height / item.figure.height : 0;
       const widthRatio = item.figure.width ? item.image.width / item.figure.width : 0;
-      if (index !== 0 && (heightRatio < 0.55 || heightRatio > 1.01 || widthRatio < 0.35 || widthRatio > 1.01)) {
+      if (heightRatio < 0.55 || heightRatio > 1.01 || widthRatio < 0.35 || widthRatio > 1.01) {
         failures.push(`${width}px: ${expectedOrder[index]} visual size out of range: h=${heightRatio.toFixed(2)} w=${widthRatio.toFixed(2)}`);
       }
     });
