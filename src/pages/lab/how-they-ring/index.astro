@@ -7,7 +7,7 @@ import '../../../styles/site.css';
 const base = import.meta.env.BASE_URL;
 const { production = false } = Astro.props as { production?: boolean };
 const productionTitle = 'HOW THEY RING｜鳴らし方で見る、アラーム腕時計｜VINTAGE ALARM';
-const productionDescription = '機械式アラーム腕時計を、GONG・CASEBACK・BELLの3つの鳴動方式から、掲載実機と音で見比べる。';
+const productionDescription = '機械式アラーム腕時計を、GONG・CASEBACK・BELL・PINの4つの鳴動方式から、掲載実機と音で見比べる。';
 const productionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -41,7 +41,7 @@ const categories = [
     no: '01',
     en: 'GONG',
     ja: 'ゴング',
-    action: '外周の音響ばねを叩く',
+    action: '音響ばね／ゴングを直接叩く',
     example: 'OMEGA MEMOMATIC',
     image: '/images/how-they-ring/gong.jpg'
   },
@@ -50,8 +50,8 @@ const categories = [
     no: '02',
     en: 'CASEBACK',
     ja: 'ケースバック',
-    action: 'ケースバックそのものを響かせる',
-    example: 'VULCAIN CRICKET',
+    action: 'ケースバック／音響底板を直接叩く',
+    example: 'CITIZEN ALARM / CAL.A (1958)',
     image: '/images/how-they-ring/caseback-hammer.png'
   },
   {
@@ -59,11 +59,20 @@ const categories = [
     no: '03',
     en: 'BELL',
     ja: 'ベル',
-    action: 'ケース底部の別体ベルを叩く',
-    example: 'JAEGER-LECOULTRE GRAND REVEIL / CAL.919',
+    action: '独立したベル本体を直接叩く',
+    example: 'LANCO-FON / CAL.1241',
     image: '/images/how-they-ring/bell.jpg'
+  },
+  {
+    id: 'pin',
+    no: '04',
+    en: 'PIN',
+    ja: '底部ピン',
+    action: '底部ピンを叩き、膜・裏蓋へ振動を伝える',
+    example: 'VULCAIN CRICKET',
+    image: '/images/how-they-ring/pin-hammer.png'
   }
-];
+]
 
 const specimens = orderedSlugs
   .map((slug) => {
@@ -152,7 +161,7 @@ const specimens = orderedSlugs
 
       .category-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         border-top: 1px solid var(--lab-ink);
         border-left: 1px solid var(--lab-ink);
       }
@@ -239,7 +248,8 @@ const specimens = orderedSlugs
 
 
       .category-button[data-category="caseback"] .mechanism-figure > img,
-      .category-button[data-category="bell"] .mechanism-figure > img {
+      .category-button[data-category="bell"] .mechanism-figure > img,
+      .category-button[data-category="pin"] .mechanism-figure > img {
         top: 22px !important;
         bottom: auto !important;
         height: 112px !important;
@@ -448,7 +458,7 @@ const specimens = orderedSlugs
         }
 
         .category-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .category-button {
@@ -470,7 +480,8 @@ const specimens = orderedSlugs
         }
 
         .category-button[data-category="caseback"] .mechanism-figure > img,
-        .category-button[data-category="bell"] .mechanism-figure > img {
+        .category-button[data-category="bell"] .mechanism-figure > img,
+        .category-button[data-category="pin"] .mechanism-figure > img {
           top: 11px !important;
           height: 68px !important;
           min-height: 68px !important;
