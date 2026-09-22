@@ -66,7 +66,9 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
 - 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
-- HOW THEY RINGのBELL代表機は、別体ブロンズベルを備える「JAEGER-LECOULTRE GRAND REVEIL / CAL.919」。Eternaは代表機候補から除外する。通常の歴史的Memovoxは裏蓋のピンを打つ方式、SEIKO BELL-MATIC / Cal.4006は音響ばね式なので、このBELL代表には使わない。BASIS / BFG90は掲載個体としてBELLに属するが、上段の著名代表機とは分ける
+- HOW THEY RINGは発音体の名称ではなく、ハンマーが最初に何へ機械的に作用するかで4分類する。GONG＝音響ばね／ゴングを直接打撃、CASEBACK＝ケースバック／音響底板を直接打撃、BELL＝ケースとは独立したベル本体を直接打撃、PIN＝底部・膜・裏蓋に設けたピン／スタッドを打撃して振動を伝達。
+- 上段代表機は GONG「OMEGA MEMOMATIC」、CASEBACK「CITIZEN ALARM / CAL.A (1958)」、BELL「JAEGER-LECOULTRE GRAND REVEIL / CAL.919」、PIN「VULCAIN CRICKET」。掲載・所有個体の画像を代表機画像として流用しない。
+- 資料確認済みの分類例：BASIS / BFG90＝BELL（独立したBodenglocke）、LANCO-FON 1241系＝BELL（Glocke）、通常の歴史的MEMOVOX＝PIN、VULCAIN CRICKET＝PIN、SEIKO BELL-MATIC＝GONG。CITIZEN Cal.980系は実機資料でケースバック側のピンをハンマーが打つため、掲載個体はPINとして扱う。
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
