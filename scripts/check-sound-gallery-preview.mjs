@@ -75,16 +75,16 @@ try {
       failures.push(`${width}px: horizontal overflow ${shellState.overflow}px`);
     }
 
-    if (shellState.categoryButtons !== 3) {
-      failures.push(`${width}px: expected 3 category buttons, got ${shellState.categoryButtons}`);
+    if (shellState.categoryButtons !== 4) {
+      failures.push(`${width}px: expected 4 category buttons, got ${shellState.categoryButtons}`);
     }
 
-    const expectedOrder = ['GONG', 'CASEBACK', 'BELL'];
+    const expectedOrder = ['GONG', 'CASEBACK', 'BELL', 'PIN'];
     if (JSON.stringify(shellState.labels) !== JSON.stringify(expectedOrder)) {
       failures.push(`${width}px: category order wrong: ${JSON.stringify(shellState.labels)}`);
     }
 
-    const expectedFigureEnds = ['/gong.jpg', '/caseback-hammer.png', '/bell.jpg'];
+    const expectedFigureEnds = ['/gong.jpg', '/caseback-hammer.png', '/bell.jpg', '/pin-hammer.png'];
     for (let index = 0; index < expectedFigureEnds.length; index += 1) {
       if (!shellState.figures[index]?.endsWith(expectedFigureEnds[index])) {
         failures.push(`${width}px: category ${expectedOrder[index]} diagram wrong: ${shellState.figures[index]}`);
@@ -93,8 +93,9 @@ try {
 
     const expectedExamples = [
       '代表機OMEGA MEMOMATIC',
-      '代表機VULCAIN CRICKET',
-      '代表機JAEGER-LECOULTRE GRAND REVEIL / CAL.919'
+      '代表機CITIZEN ALARM / CAL.A (1958)',
+      '代表機LANCO-FON / CAL.1241',
+      '代表機VULCAIN CRICKET'
     ];
     if (JSON.stringify(shellState.examples) !== JSON.stringify(expectedExamples)) {
       failures.push(`${width}px: representative watches missing or wrong: ${JSON.stringify(shellState.examples)}`);
@@ -116,7 +117,7 @@ try {
       })
     );
 
-    const expectedNatural = [[161, 180], [300, 180], [300, 180]];
+    const expectedNatural = [[161, 180], [300, 180], [300, 180], [300, 180]];
     const pixelArtifacts = await page.evaluate(() => {
       return [...document.querySelectorAll('.mechanism-figure img')].map((img) => {
         const canvas = document.createElement('canvas');
@@ -214,11 +215,28 @@ try {
       cards.map((card) => card.dataset.category)
     );
     const expectedCounts = Object.fromEntries(
-      ['gong', 'caseback', 'bell'].map((category) => [
+      ['gong', 'caseback', 'bell', 'pin'].map((category) => [
         category,
         specimenCategories.filter((value) => value === category).length
       ])
     );
+    const classifiedSpecimens = await page.locator('[data-specimen]').evaluateAll((cards) =>
+      Object.fromEntries(cards.map((card) => [card.dataset.watchSlug, card.dataset.category]))
+    );
+    const expectedSpecimenCategories = {
+      'cyma-time-o-vox': 'gong',
+      'pierce-duofon': 'gong',
+      'wittnauer-10wa': 'gong',
+      'basis-alarm': 'bell',
+      'citizen-alarm': 'pin',
+      'westclox-watchlarm': 'pin'
+    };
+    for (const [slug, category] of Object.entries(expectedSpecimenCategories)) {
+      if (classifiedSpecimens[slug] !== category) {
+        failures.push(`${width}px: ${slug} classified as ${classifiedSpecimens[slug] || 'missing'}, expected ${category}`);
+      }
+    }
+
     const initial = await visibleSpecimens(page);
     if (initial.length !== expectedCounts.gong) {
       failures.push(`${width}px: GONG initial state is wrong: ${JSON.stringify(initial)}`);
@@ -263,7 +281,7 @@ try {
       }
     }
 
-    for (const category of ['caseback', 'bell', 'gong']) {
+    for (const category of ['caseback', 'bell', 'pin', 'gong']) {
       await page.locator(`button[data-category="${category}"]`).click();
       const visible = await visibleSpecimens(page);
       const visibleCategories = await page.locator('[data-specimen]:not([hidden])').evaluateAll((cards) =>
