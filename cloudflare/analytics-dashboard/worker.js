@@ -582,7 +582,7 @@ const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 function parseJstDay(value, endExclusive = false) {
-  if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(String(value || ""))) return null;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value || ""))) return null;
   const base = new Date(String(value) + "T00:00:00+09:00");
   if (!Number.isFinite(base.getTime())) return null;
   return new Date(base.getTime() + (endExclusive ? DAY_MS : 0));
@@ -658,7 +658,7 @@ function monthEndDay(year, month) {
 
 function pointTime(point) {
   const value = String(point?.bucket || "");
-  if (/^\\d{4}-\\d{2}-\\d{2}$/.test(value)) return Date.parse(value + "T00:00:00+09:00");
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return Date.parse(value + "T00:00:00+09:00");
   return Date.parse(value);
 }
 
