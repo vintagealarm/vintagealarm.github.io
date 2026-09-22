@@ -122,7 +122,15 @@ SMARTWATCHなど、motion自体が表現内容の一部であるページは例�
 - CMS編集入口は管理画面側で提供し、視聴者向けページへ編集導線を混在させない。
 - 未実装の要素は空表示または非表示とし、`準備中` や `coming soon` で制作事情を見せない。
 
-HOW THEY RINGの上部は、ページ名・見出し・鳴動方式カード・方式ごとの歴史的な代表機だけで構成する。右側の編集意図説明やページ構成説明は置かない。代表機には著名機を使い、下段へ表示する所有・掲載個体と混同しない。BELLは、別体ブロンズベルを備えるJAEGER-LECOULTRE GRAND REVEIL / CAL.919を代表機とする。Eternaは候補から除外する。通常の歴史的Memovoxは裏蓋のピンを打つ構造、SEIKO BELL-MATIC / Cal.4006は音響ばね式なのでBELLへ分類しない。BASIS / BFG90は掲載個体としてBELLに属するが上段代表には使わない。
+HOW THEY RINGの上部は、ページ名・見出し・鳴動方式カード・方式ごとの歴史的な代表機だけで構成する。右側の編集意図説明やページ構成説明は置かない。代表機には著名機を使い、下段へ表示する所有・掲載個体の画像と混同しない。
+
+鳴動方式は「ハンマーが最初に何へ作用するか」で判定する。
+- GONG：音響ばね／ゴングを直接叩く。
+- CASEBACK：ケースバックまたは音響底板そのものを直接叩く。
+- BELL：ケースとは別体のベル本体を直接叩く。
+- PIN：ケースバック・膜・底板へ設けたピン／スタッドを叩き、その振動を発音体へ伝える。
+
+代表機は GONG＝OMEGA MEMOMATIC、CASEBACK＝CITIZEN ALARM / CAL.A (1958)、BELL＝JAEGER-LECOULTRE GRAND REVEIL / CAL.919、PIN＝VULCAIN CRICKET。EternaはBELL代表候補から除外する。通常の歴史的MemovoxとAS1475系は底部ピンを打つためPIN、SEIKO BELL-MATIC / Cal.4006は音響ばね式なのでGONG。BASIS / BFG90とベル実体を確認できるLANCO-FON 1241系はBELL。
 
 ## 実寸監査
 
