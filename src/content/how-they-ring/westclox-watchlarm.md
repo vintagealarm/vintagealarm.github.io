@@ -2,7 +2,7 @@
 title: WESTCLOX WATCHLARM
 watchSlug: westclox-watchlarm
 published: true
-category: pin
+category: bell
 thumbnail: /images/IMG_2093-1.jpeg
 audio:
   status: pending
