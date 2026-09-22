@@ -94,7 +94,7 @@ try {
     const expectedExamples = [
       '代表機OMEGA MEMOMATIC',
       '代表機CITIZEN ALARM / CAL.A (1958)',
-      '代表機LANCO-FON / CAL.1241',
+      '代表機JAEGER-LECOULTRE GRAND REVEIL / CAL.919',
       '代表機VULCAIN CRICKET'
     ];
     if (JSON.stringify(shellState.examples) !== JSON.stringify(expectedExamples)) {
