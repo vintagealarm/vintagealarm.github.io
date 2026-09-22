@@ -718,6 +718,7 @@ content:
                 - { name: ready, label: 再生可能 }
           - name: recordings
             label: 録音
+            description: Pierce Duofonは WECKER（赤・鳴音）/ SIGNAL（白・静音）の2音源で統一。その他の時計は通常1音源。
             type: object
             list:
               collapsible:
