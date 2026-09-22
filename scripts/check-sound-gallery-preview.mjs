@@ -71,16 +71,16 @@ try {
       failures.push(`${width}px: horizontal overflow ${shellState.overflow}px`);
     }
 
-    if (shellState.categoryButtons !== 3) {
-      failures.push(`${width}px: expected 3 category buttons, got ${shellState.categoryButtons}`);
+    if (shellState.categoryButtons !== 4) {
+      failures.push(`${width}px: expected 4 category buttons, got ${shellState.categoryButtons}`);
     }
 
-    const expectedOrder = ['GONG', 'CASEBACK', 'BELL'];
+    const expectedOrder = ['GONG', 'CASEBACK', 'BELL', 'PIN'];
     if (JSON.stringify(shellState.labels) !== JSON.stringify(expectedOrder)) {
       failures.push(`${width}px: category order wrong: ${JSON.stringify(shellState.labels)}`);
     }
 
-    const expectedFigureEnds = ['/gong.jpg', '/caseback-hammer.png', '/bell.jpg'];
+    const expectedFigureEnds = ['/gong.jpg', '/caseback-hammer.png', '/bell.jpg', '/pin-hammer.png'];
     for (let index = 0; index < expectedFigureEnds.length; index += 1) {
       if (!shellState.figures[index]?.endsWith(expectedFigureEnds[index])) {
         failures.push(`${width}px: category ${expectedOrder[index]} diagram wrong: ${shellState.figures[index]}`);
@@ -187,7 +187,7 @@ try {
       cards.map((card) => card.dataset.category)
     );
     const expectedCounts = Object.fromEntries(
-      ['gong', 'caseback', 'bell'].map((category) => [
+      ['gong', 'caseback', 'bell', 'pin'].map((category) => [
         category,
         specimenCategories.filter((value) => value === category).length
       ])
@@ -243,7 +243,7 @@ try {
       }
     }
 
-    for (const category of ['caseback', 'bell', 'gong']) {
+    for (const category of ['caseback', 'bell', 'pin', 'gong']) {
       await page.locator(`button[data-category="${category}"]`).click();
       const visible = await visibleSpecimens(page);
       const visibleCategories = await page.locator('[data-specimen]:not([hidden])').evaluateAll((cards) =>

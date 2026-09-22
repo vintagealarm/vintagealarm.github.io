@@ -64,7 +64,8 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
-- HOW THEY RINGの現行分類は GONG / CASEBACK / BELL の3種類。PINは独立分類として使わず、Westclox WatchlarmはCASEBACKに含める
+- HOW THEY RINGの現行分類は GONG / CASEBACK / BELL / PIN の4種類。判定は発音体と打撃の伝達経路で行う。GONG＝独立した音響ばね／ゴング、CASEBACK＝ケース／保持リング自体を直接打撃、BELL＝独立したベル／ベル底、PIN＝底部・膜・裏蓋に設けたピン／スタッド経由。
+- 資料確認済みの分類例：BASIS / BFG90＝BELL、LANCO-FON 1241系＝BELL、JUNGHANS MINIVOX J89量産型＝BELL、WESTCLOX W5＝BELL、VULCAIN CRICKET＝PIN、通常の歴史的MEMOVOX＝PIN、AS1475系＝PIN、CITIZEN Cal.980系＝PIN、SEIKO BELL-MATIC＝GONG。
 - HOW THEY RINGの個体・分類・サムネイル・音源は `src/content/how-they-ring/`、本番公開とTOP「音で選ぶ」表示は `src/data/how-they-ring-settings.json` で制御する
 - TOPの「音で選ぶ」は `productionPublished` と `showOnTop` が両方ONの場合だけ表示する
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
@@ -140,7 +141,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 所有個体年代からHISTORY年代を自動生成する
 - WATCH末尾の「次の一本」を年代順へ自動フォールバックする
 - RESEARCH非公開をCSSで隠す。非公開時は生成HTML自体へ出さない
-- HOW THEY RINGを GONG / CASEBACK / BELL / PIN の4分類へ戻す
+- HOW THEY RINGを3分類へ固定し、PINをCASEBACKへ吸収する
 - 本番公開がOFFのHOW THEY RING導線をTOPへ表示する
 - SMARTWATCHを通常の検索流入ページとして扱う
 - SEO目的だけでOWNER'S NOTEや完成済みWATCH本文を書き換える
