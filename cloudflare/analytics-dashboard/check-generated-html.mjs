@@ -137,8 +137,10 @@ const fakeAnalyticsFetch = async (_url, options) => {
     : [
         { count: 1, sum: { visits: 0 }, dimensions: { requestPath: "/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
       ];
+  const queryStart = request.variables.filter.AND.find(part => part.datetime_geq)?.datetime_geq || "2026-09-10T00:00:00Z";
+  const trendBucket = new Date(queryStart).toISOString().slice(0, 10);
   const account = request.query.includes("VintageAlarmTrend")
-    ? { totals: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 }, dimensions: { bucket: "2026-09-10" } }], acquisition: [], navigation: [] }
+    ? { totals: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 }, dimensions: { bucket: trendBucket } }], acquisition: [], navigation: [] }
     : {
         total: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 } }],
         pages: [{ count: value, sum: { visits: value }, dimensions: { requestPath: "/" } }],
