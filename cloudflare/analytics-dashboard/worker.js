@@ -234,6 +234,7 @@ async function aiShareLinkResponse(request, url, env) {
     );
 
     const shareUrl = new URL("/api/ai-export", url.origin);
+    shareUrl.searchParams.set("window", rangeKey);
     shareUrl.searchParams.set("range", rangeKey);
     const bucket = String(url.searchParams.get("bucket") || "auto").toLowerCase();
     if (bucket !== "auto") shareUrl.searchParams.set("bucket", bucket);
