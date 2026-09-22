@@ -93,7 +93,7 @@ try {
 
     const expectedExamples = [
       '代表機OMEGA MEMOMATIC',
-      '代表機CITIZEN ALARM / CAL.A (1958)',
+      '代表機SICURA SIGNAL / RONDA 1243-21',
       '代表機JAEGER-LECOULTRE GRAND REVEIL / CAL.919',
       '代表機VULCAIN CRICKET'
     ];
@@ -229,7 +229,7 @@ try {
       'wittnauer-10wa': 'gong',
       'basis-alarm': 'bell',
       'citizen-alarm': 'pin',
-      'westclox-watchlarm': 'pin'
+      'westclox-watchlarm': 'bell'
     };
     for (const [slug, category] of Object.entries(expectedSpecimenCategories)) {
       if (classifiedSpecimens[slug] !== category) {
