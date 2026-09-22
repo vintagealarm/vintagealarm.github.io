@@ -192,3 +192,18 @@ AI ImpressionとAI ReferralとAI Citationを同一指標にしない。
 
 VINTAGE ALARM ANALYTICSの現段階では追加月額0円を優先する。
 Billing accountや有料APIを前提とする実装は採用前に明示的に再評価する。
+
+
+## Range / bucket comparison
+
+Dashboard range and grouping are independent.
+
+- Range presets: 1H / 3H / 24H / 7D / 30D / ALL
+- CUSTOM: choose an inclusive JST start/end date.
+- GROUP BY: AUTO / 30 MIN / 1 HOUR / 1 DAY / 7 DAYS / MONTH.
+- AUTO maps short windows to 30m/1h, 7D to daily, 30D to fixed calendar 7-day blocks, and long ranges to monthly blocks.
+- Seven-day buckets are calendar-fixed inside each month (1–7, 8–14, 15–21, 22–28, 29–month end), not rolling seven-day slices.
+- The bucket comparison table shows PV / Visits / X / Search / Direct / Internal PV and the Visits delta from the previous bucket.
+- Cloudflare `sampleInterval` is surfaced as ACTUAL / ESTIMATE. A bucket cut by the selected range or current time is PARTIAL.
+- ALL begins at the 2026-09-08 JST Web Analytics measurement baseline. ALL has no previous-period comparison.
+- Signed AI export links preserve RANGE / CUSTOM dates / GROUP BY so dashboard and AI analysis use the same slice.

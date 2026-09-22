@@ -1,5 +1,5 @@
 import vm from "node:vm";
-import worker, { aggregateSnsEntries, campaignWindow, campaignSummary, mergePeriodData, mergeTrendPoints, parseYouTubeVideoUrl, splitPeriod } from "./worker.js";
+import worker, { aggregateSnsEntries, aggregateTrendBuckets, campaignWindow, campaignSummary, mergePeriodData, mergeTrendPoints, normalizeTrendBucket, parseYouTubeVideoUrl, resolveAnalyticsRange, splitPeriod } from "./worker.js";
 import assert from "node:assert/strict";
 
 const start = '2026-09-08T00:00:00Z';
@@ -73,22 +73,43 @@ assert.ok(thirtyDayRanges.every((range, index) =>
   range.end - range.start <= 7 * 24 * 60 * 60 * 1000 &&
   (!index || range.start.getTime() === thirtyDayRanges[index - 1].end.getTime())
 ));
-const periodPart = (count, visits, path) => ({ viewer: { accounts: [{
-  total: [{ count, sum: { visits } }],
+const rangeUrl = new URL("https://dashboard.test/api/analytics?range=custom&start=2026-09-01&end=2026-09-21&bucket=7d");
+const resolvedRange = resolveAnalyticsRange(rangeUrl, new Date("2026-09-22T00:00:00+09:00"));
+assert.equal(resolvedRange.start.toISOString(), "2026-08-31T15:00:00.000Z");
+assert.equal(resolvedRange.end.toISOString(), "2026-09-21T15:00:00.000Z");
+assert.equal(normalizeTrendBucket("auto", 3 * 3600000).key, "30m");
+assert.equal(normalizeTrendBucket("auto", 7 * 24 * 3600000).key, "1d");
+assert.equal(normalizeTrendBucket("auto", 30 * 24 * 3600000).key, "7d");
+const grouped = aggregateTrendBuckets([
+  { bucket: "2026-09-01", pageviews: 2, visits: 1, x: 1, internalPV: 1, sampleInterval: 1 },
+  { bucket: "2026-09-07", pageviews: 3, visits: 2, search: 1, sampleInterval: 1 },
+  { bucket: "2026-09-08", pageviews: 4, visits: 3, direct: 2, sampleInterval: 10 },
+  { bucket: "2026-09-15", pageviews: 5, visits: 4, sampleInterval: 1 },
+], "7d", resolvedRange.start, resolvedRange.end, resolvedRange.end);
+assert.deepEqual(grouped.map(row => [row.label, row.pageviews, row.visits, row.status]), [
+  ["9/1–9/7", 5, 3, "ACTUAL"],
+  ["9/8–9/14", 4, 3, "ESTIMATE"],
+  ["9/15–9/21", 5, 4, "ACTUAL"],
+]);
+assert.equal(grouped[0].internalPV, 1);
+
+const periodPart = (count, visits, path, sampleInterval = 1) => ({ viewer: { accounts: [{
+  total: [{ count, sum: { visits }, avg: { sampleInterval } }],
   pages: [{ count, sum: { visits }, dimensions: { requestPath: path } }],
   referers: [], flows: [], entries: [], countries: [], devices: [],
 }] } });
-const mergedPeriod = mergePeriodData([periodPart(20, 20, "/"), periodPart(6, 6, "/")]);
+const mergedPeriod = mergePeriodData([periodPart(20, 20, "/", 1), periodPart(6, 6, "/", 10)]);
 assert.equal(mergedPeriod.viewer.accounts[0].total[0].count, 26);
 assert.equal(mergedPeriod.viewer.accounts[0].total[0].sum.visits, 26);
 assert.equal(mergedPeriod.viewer.accounts[0].pages[0].count, 26);
+assert.equal(mergedPeriod.viewer.accounts[0].total[0].avg.sampleInterval, 10);
 const mergedTrend = mergeTrendPoints([
-  [{ bucket: "2026-09-09", pageviews: 20, visits: 20, x: 0 }],
-  [{ bucket: "2026-09-09", pageviews: 2, visits: 2, x: 1 }, { bucket: "2026-09-10", pageviews: 4, visits: 4, x: 1 }],
+  [{ bucket: "2026-09-09", pageviews: 20, visits: 20, x: 0, sampleInterval: 1 }],
+  [{ bucket: "2026-09-09", pageviews: 2, visits: 2, x: 1, sampleInterval: 10 }, { bucket: "2026-09-10", pageviews: 4, visits: 4, x: 1, sampleInterval: 1 }],
 ]);
-assert.deepEqual(mergedTrend.map(point => [point.bucket, point.pageviews, point.visits, point.x]), [
-  ["2026-09-09", 22, 22, 1],
-  ["2026-09-10", 4, 4, 1],
+assert.deepEqual(mergedTrend.map(point => [point.bucket, point.pageviews, point.visits, point.x, point.sampleInterval]), [
+  ["2026-09-09", 22, 22, 1, 10],
+  ["2026-09-10", 4, 4, 1, 1],
 ]);
 
 const apiPassword = "api-test-password";
@@ -117,9 +138,9 @@ const fakeAnalyticsFetch = async (_url, options) => {
         { count: 1, sum: { visits: 0 }, dimensions: { requestPath: "/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
       ];
   const account = request.query.includes("VintageAlarmTrend")
-    ? { totals: [{ count: value, sum: { visits: value }, dimensions: { bucket: "2026-09-10" } }], acquisition: [] }
+    ? { totals: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 }, dimensions: { bucket: "2026-09-10" } }], acquisition: [], navigation: [] }
     : {
-        total: [{ count: value, sum: { visits: value } }],
+        total: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 } }],
         pages: [{ count: value, sum: { visits: value }, dimensions: { requestPath: "/" } }],
         referers, flows, entries: [], countries: [], devices: [],
       };
@@ -212,6 +233,11 @@ assert.ok(html.includes("SNS → SITE ENTRY"));
 assert.ok(html.includes("HOST MIGRATION FLOW"));
 assert.ok(html.includes("SITE FLOWから分離"));
 assert.ok(html.includes("同一ホスト内の内部遷移"));
+assert.ok(html.includes('data-window="all"'));
+assert.ok(html.includes('id="customApply"'));
+assert.ok(html.includes('id="bucketSelect"'));
+assert.ok(html.includes("BUCKET COMPARISON"));
+assert.ok(html.includes("GROUP BY"));
 // Exercise the actual generated chart function without the dashboard's DOM boot.
 const chartSource = dashboardScript.slice(dashboardScript.indexOf('const HOST_MIGRATION ='), dashboardScript.indexOf('function entryBars('));
 assert.ok(chartSource.includes('function lineChart('));

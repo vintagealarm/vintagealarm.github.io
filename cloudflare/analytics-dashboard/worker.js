@@ -215,7 +215,9 @@ async function aiShareLinkResponse(request, url, env) {
   try {
     requireEnv(env, "DASHBOARD_PASSWORD");
 
-    const windowSpec = normalizeWindow(url.searchParams.get("window"));
+    const rawRange = String(url.searchParams.get("range") || url.searchParams.get("window") || "7d").toLowerCase();
+    const rangeKey = rawRange === "all" || rawRange === "custom" || ["1h","3h","24h","7d","30d"].includes(rawRange) ? rawRange : "7d";
+    const scopeKey = canonicalAnalyticsScope(url);
     const requestedTtl = Number(url.searchParams.get("ttl") || 24 * 60 * 60);
     const ttlSeconds = Math.min(
       AI_EXPORT_MAX_TTL_SECONDS,
@@ -227,18 +229,26 @@ async function aiShareLinkResponse(request, url, env) {
     const expires = Math.floor(Date.now() / 1000) + ttlSeconds;
     const signature = await signAiExport(
       env,
-      windowSpec.key,
+      scopeKey,
       expires,
     );
 
     const shareUrl = new URL("/api/ai-export", url.origin);
-    shareUrl.searchParams.set("window", windowSpec.key);
+    shareUrl.searchParams.set("range", rangeKey);
+    const bucket = String(url.searchParams.get("bucket") || "auto").toLowerCase();
+    if (bucket !== "auto") shareUrl.searchParams.set("bucket", bucket);
+    if (rangeKey === "custom") {
+      shareUrl.searchParams.set("start", String(url.searchParams.get("start") || ""));
+      shareUrl.searchParams.set("end", String(url.searchParams.get("end") || ""));
+    }
     shareUrl.searchParams.set("expires", String(expires));
     shareUrl.searchParams.set("sig", signature);
 
     return jsonResponse({
       url: shareUrl.toString(),
-      windowKey: windowSpec.key,
+      windowKey: rangeKey,
+      rangeKey,
+      scopeKey,
       expiresAt: new Date(expires * 1000).toISOString(),
       ttlSeconds,
       scope: "aggregate analytics read-only",
@@ -259,7 +269,7 @@ async function aiExportResponse(request, url, env) {
   try {
     requireEnv(env, "DASHBOARD_PASSWORD");
 
-    const windowSpec = normalizeWindow(url.searchParams.get("window"));
+    const scopeKey = canonicalAnalyticsScope(url);
     const expires = Number(url.searchParams.get("expires"));
     const signature = String(url.searchParams.get("sig") || "");
 
@@ -277,7 +287,7 @@ async function aiExportResponse(request, url, env) {
 
     const expected = await signAiExport(
       env,
-      windowSpec.key,
+      scopeKey,
       expires,
     );
     if (!timingSafeHexEqual(signature, expected)) {
@@ -292,6 +302,9 @@ async function aiExportResponse(request, url, env) {
       schemaVersion: "vintage-alarm-ai-export-v1",
       generatedAt: payload.generatedAt,
       windowKey: payload.windowKey,
+      rangeKey: payload.rangeKey,
+      bucketKey: payload.bucketKey,
+      bucketLabel: payload.bucketLabel,
       windowLabel: payload.windowLabel,
       windowStart: payload.windowStart,
       windowEnd: payload.windowEnd,
@@ -301,6 +314,7 @@ async function aiExportResponse(request, url, env) {
       previous: aiExportPeriod(payload.previous),
       trend: payload.trend,
       trendBucket: payload.trendBucket,
+      trendSourceBucket: payload.trendSourceBucket,
       trendWarning: payload.trendWarning,
       legacy: {
         host: payload.legacy.host,
@@ -308,6 +322,7 @@ async function aiExportResponse(request, url, env) {
         previous: aiExportPeriod(payload.legacy.previous),
         trend: payload.legacy.trend,
         trendBucket: payload.legacy.trendBucket,
+        trendSourceBucket: payload.legacy.trendSourceBucket,
         trendWarning: payload.legacy.trendWarning,
       },
       combined: {
@@ -315,6 +330,7 @@ async function aiExportResponse(request, url, env) {
         previous: aiExportPeriod(payload.combined.previous),
         trend: payload.combined.trend,
         trendBucket: payload.combined.trendBucket,
+        trendSourceBucket: payload.combined.trendSourceBucket,
         trendWarning: payload.combined.trendWarning,
         note: payload.combined.note,
       },
@@ -342,6 +358,8 @@ function aiExportPeriod(period) {
   return {
     pageviews: period?.pageviews || 0,
     visits: period?.visits || 0,
+    sampleInterval: period?.sampleInterval || 1,
+    quality: period?.quality || "ACTUAL",
     pages: period?.pages || [],
     entryPages: [...(period?.pages || [])]
       .filter((page) => (page?.visits || 0) > 0)
@@ -364,7 +382,7 @@ function aiExportPeriod(period) {
   };
 }
 
-async function signAiExport(env, windowKey, expires) {
+async function signAiExport(env, scopeKey, expires) {
   requireEnv(env, "DASHBOARD_PASSWORD");
   requireEnv(env, "CF_API_TOKEN");
 
@@ -389,7 +407,7 @@ async function signAiExport(env, windowKey, expires) {
     ["sign"],
   );
   const message = encoder.encode(
-    "vintage-alarm-ai-export:" + windowKey + ":" + expires,
+    "vintage-alarm-ai-export:" + scopeKey + ":" + expires,
   );
   const signature = await crypto.subtle.sign("HMAC", key, message);
   return [...new Uint8Array(signature)]
@@ -414,52 +432,76 @@ async function analyticsResponse(url, env) {
     requireEnv(env, "CF_API_TOKEN");
     requireEnv(env, "CF_ACCOUNT_ID");
 
-    const windowSpec = normalizeWindow(url.searchParams.get("window"));
     const now = new Date();
-    const currentStart = new Date(now.getTime() - windowSpec.ms);
-    const previousStart = new Date(now.getTime() - windowSpec.ms * 2);
+    const rangeSpec = resolveAnalyticsRange(url, now);
+    const durationMs = rangeSpec.end.getTime() - rangeSpec.start.getTime();
+    const bucketSpec = normalizeTrendBucket(url.searchParams.get("bucket"), durationMs);
+    const trendSpec = { bucketCandidates: bucketSpec.sourceCandidates };
+    const currentStart = rangeSpec.start;
+    const currentEnd = rangeSpec.end;
+    const previousStart = rangeSpec.previousStart;
+    const previousEnd = rangeSpec.previousEnd;
     const host = env.REQUEST_HOST || DEFAULT_HOST;
     const legacyHost = env.LEGACY_REQUEST_HOST || HOST_MIGRATION.oldHost;
+    const emptyData = { viewer: { accounts: [{ total: [{ count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } }], pages: [], referers: [], flows: [], entries: [], countries: [], devices: [] }] } };
 
     const [current, previous, trendResult, legacyCurrent, legacyPrevious, legacyTrendResult] = await Promise.all([
-      fetchPeriod(env, host, currentStart, now),
-      fetchPeriod(env, host, previousStart, currentStart),
-      fetchTrend(env, host, currentStart, now, windowSpec),
-      fetchPeriod(env, legacyHost, currentStart, now),
-      fetchPeriod(env, legacyHost, previousStart, currentStart),
-      fetchTrend(env, legacyHost, currentStart, now, windowSpec),
+      fetchPeriod(env, host, currentStart, currentEnd),
+      previousStart ? fetchPeriod(env, host, previousStart, previousEnd) : Promise.resolve(emptyData),
+      fetchTrend(env, host, currentStart, currentEnd, trendSpec),
+      fetchPeriod(env, legacyHost, currentStart, currentEnd),
+      previousStart ? fetchPeriod(env, legacyHost, previousStart, previousEnd) : Promise.resolve(emptyData),
+      fetchTrend(env, legacyHost, currentStart, currentEnd, trendSpec),
     ]);
 
     const currentPeriod = normalizePeriod(current, host);
     const previousPeriod = normalizePeriod(previous, host);
     const legacyCurrentPeriod = normalizePeriod(legacyCurrent, legacyHost);
     const legacyPreviousPeriod = normalizePeriod(legacyPrevious, legacyHost);
+    const currentTrend = aggregateTrendBuckets(trendResult.points, bucketSpec.key, currentStart, currentEnd, now);
+    const legacyTrend = aggregateTrendBuckets(legacyTrendResult.points, bucketSpec.key, currentStart, currentEnd, now);
+    const combinedTrend = aggregateTrendBuckets(
+      mergeTrendPoints([trendResult.points, legacyTrendResult.points]),
+      bucketSpec.key,
+      currentStart,
+      currentEnd,
+      now,
+    );
     const payload = {
       generatedAt: now.toISOString(),
-      windowKey: windowSpec.key,
-      windowLabel: windowSpec.label,
+      windowKey: rangeSpec.key,
+      rangeKey: rangeSpec.key,
+      bucketKey: bucketSpec.key,
+      bucketLabel: bucketSpec.label,
+      windowLabel: rangeSpec.label + " · " + bucketSpec.label + "区切り",
       windowStart: currentStart.toISOString(),
-      windowEnd: now.toISOString(),
+      windowEnd: currentEnd.toISOString(),
+      previousStart: previousStart?.toISOString() || null,
+      previousEnd: previousEnd?.toISOString() || null,
+      compareMode: previousStart ? "previous-period" : "none",
       host,
       hostMigration: HOST_MIGRATION,
       current: currentPeriod,
       previous: previousPeriod,
-      trend: trendResult.points,
-      trendBucket: trendResult.bucketField,
+      trend: currentTrend,
+      trendBucket: bucketSpec.key,
+      trendSourceBucket: trendResult.bucketField,
       trendWarning: trendResult.warning || null,
       legacy: {
         host: legacyHost,
         current: legacyCurrentPeriod,
         previous: legacyPreviousPeriod,
-        trend: legacyTrendResult.points,
-        trendBucket: legacyTrendResult.bucketField,
+        trend: legacyTrend,
+        trendBucket: bucketSpec.key,
+        trendSourceBucket: legacyTrendResult.bucketField,
         trendWarning: legacyTrendResult.warning || null,
       },
       combined: {
         current: combinePeriods([currentPeriod, legacyCurrentPeriod]),
         previous: combinePeriods([previousPeriod, legacyPreviousPeriod]),
-        trend: mergeTrendPoints([trendResult.points, legacyTrendResult.points]),
-        trendBucket: trendResult.bucketField || legacyTrendResult.bucketField,
+        trend: combinedTrend,
+        trendBucket: bucketSpec.key,
+        trendSourceBucket: trendResult.bucketField || legacyTrendResult.bucketField,
         trendWarning: [trendResult.warning, legacyTrendResult.warning].filter(Boolean).join(" / ") || null,
         note: "Host-scoped visits summed across NEW and OLD; this is not a cross-host unique-person count.",
       },
@@ -526,38 +568,186 @@ async function campaignResponse(url, env) {
 
 function normalizeWindow(value) {
   const windows = {
-    "1h": {
-      key: "1h",
-      label: "直近1時間",
-      ms: 60 * 60 * 1000,
-      bucketCandidates: ["datetimeFiveMinutes", "datetimeFifteenMinutes", "datetimeHour"],
-    },
-    "3h": {
-      key: "3h",
-      label: "直近3時間",
-      ms: 3 * 60 * 60 * 1000,
-      bucketCandidates: ["datetimeFifteenMinutes", "datetimeFiveMinutes", "datetimeHour"],
-    },
-    "24h": {
-      key: "24h",
-      label: "直近24時間",
-      ms: 24 * 60 * 60 * 1000,
-      bucketCandidates: ["datetimeHour", "datetimeFifteenMinutes"],
-    },
-    "7d": {
-      key: "7d",
-      label: "直近7日",
-      ms: 7 * 24 * 60 * 60 * 1000,
-      bucketCandidates: ["date", "datetimeHour"],
-    },
-    "30d": {
-      key: "30d",
-      label: "直近30日",
-      ms: 30 * 24 * 60 * 60 * 1000,
-      bucketCandidates: ["date", "datetimeHour"],
-    },
+    "1h": { key: "1h", label: "直近1時間", ms: 60 * 60 * 1000 },
+    "3h": { key: "3h", label: "直近3時間", ms: 3 * 60 * 60 * 1000 },
+    "24h": { key: "24h", label: "直近24時間", ms: 24 * 60 * 60 * 1000 },
+    "7d": { key: "7d", label: "直近7日", ms: 7 * 24 * 60 * 60 * 1000 },
+    "30d": { key: "30d", label: "直近30日", ms: 30 * 24 * 60 * 60 * 1000 },
   };
   return windows[value] || windows["7d"];
+}
+
+export const ANALYTICS_STARTED_AT = "2026-09-08T00:00:00+09:00";
+const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function parseJstDay(value, endExclusive = false) {
+  if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(String(value || ""))) return null;
+  const base = new Date(String(value) + "T00:00:00+09:00");
+  if (!Number.isFinite(base.getTime())) return null;
+  return new Date(base.getTime() + (endExclusive ? DAY_MS : 0));
+}
+
+export function resolveAnalyticsRange(url, nowValue = new Date()) {
+  const now = new Date(nowValue);
+  if (!Number.isFinite(now.getTime())) throw new Error("Invalid analytics clock.");
+  const rawRange = String(url.searchParams.get("range") || url.searchParams.get("window") || "7d").toLowerCase();
+  if (rawRange === "all") {
+    const start = new Date(ANALYTICS_STARTED_AT);
+    return { key: "all", label: "全期間", start, end: now, previousStart: null, previousEnd: null };
+  }
+  if (rawRange === "custom") {
+    const start = parseJstDay(url.searchParams.get("start"));
+    const requestedEnd = parseJstDay(url.searchParams.get("end"), true);
+    if (!start || !requestedEnd) throw new Error("CUSTOMは開始日と終了日を指定してください。");
+    const end = new Date(Math.min(requestedEnd.getTime(), now.getTime()));
+    if (end <= start) throw new Error("CUSTOMの終了日は開始日より後にしてください。");
+    const duration = end.getTime() - start.getTime();
+    return {
+      key: "custom",
+      label: start.toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo" }) + "–" + new Date(end.getTime() - 1).toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo" }),
+      start,
+      end,
+      previousStart: new Date(start.getTime() - duration),
+      previousEnd: start,
+    };
+  }
+  const windowSpec = normalizeWindow(rawRange);
+  const start = new Date(now.getTime() - windowSpec.ms);
+  return {
+    key: windowSpec.key,
+    label: windowSpec.label,
+    start,
+    end: now,
+    previousStart: new Date(start.getTime() - windowSpec.ms),
+    previousEnd: start,
+  };
+}
+
+export function normalizeTrendBucket(value, durationMs) {
+  const supported = new Set(["30m", "1h", "1d", "7d", "1mo"]);
+  let key = String(value || "auto").toLowerCase();
+  if (key === "auto" || !supported.has(key)) {
+    if (durationMs <= 3 * 60 * 60 * 1000) key = "30m";
+    else if (durationMs <= DAY_MS) key = "1h";
+    else if (durationMs <= 7 * DAY_MS) key = "1d";
+    else if (durationMs <= 60 * DAY_MS) key = "7d";
+    else key = "1mo";
+  }
+  const labels = { "30m": "30分", "1h": "1時間", "1d": "1日", "7d": "7日", "1mo": "月" };
+  const sourceCandidates = key === "30m"
+    ? ["datetimeFifteenMinutes", "datetimeFiveMinutes"]
+    : key === "1h"
+      ? ["datetimeHour", "datetimeFifteenMinutes"]
+      : ["date", "datetimeHour"];
+  return { key, label: labels[key], sourceCandidates };
+}
+
+function jstDateParts(ms) {
+  const d = new Date(ms + JST_OFFSET_MS);
+  return { year: d.getUTCFullYear(), month: d.getUTCMonth() + 1, day: d.getUTCDate() };
+}
+
+function jstDateMs(year, month, day) {
+  return Date.UTC(year, month - 1, day) - JST_OFFSET_MS;
+}
+
+function monthEndDay(year, month) {
+  return new Date(Date.UTC(year, month, 0)).getUTCDate();
+}
+
+function pointTime(point) {
+  const value = String(point?.bucket || "");
+  if (/^\\d{4}-\\d{2}-\\d{2}$/.test(value)) return Date.parse(value + "T00:00:00+09:00");
+  return Date.parse(value);
+}
+
+function naturalBucketFor(point, bucketKey) {
+  const raw = pointTime(point);
+  if (!Number.isFinite(raw)) return null;
+  if (bucketKey === "30m" || bucketKey === "1h") {
+    const size = bucketKey === "30m" ? 30 * 60 * 1000 : 60 * 60 * 1000;
+    const shifted = raw + JST_OFFSET_MS;
+    const start = Math.floor(shifted / size) * size - JST_OFFSET_MS;
+    return { start, end: start + size };
+  }
+  const parts = jstDateParts(raw);
+  if (bucketKey === "1d") {
+    const start = jstDateMs(parts.year, parts.month, parts.day);
+    return { start, end: start + DAY_MS };
+  }
+  if (bucketKey === "7d") {
+    const startDay = Math.floor((parts.day - 1) / 7) * 7 + 1;
+    const lastDay = monthEndDay(parts.year, parts.month);
+    const endDay = Math.min(startDay + 7, lastDay + 1);
+    return {
+      start: jstDateMs(parts.year, parts.month, startDay),
+      end: endDay <= lastDay
+        ? jstDateMs(parts.year, parts.month, endDay)
+        : jstDateMs(parts.month === 12 ? parts.year + 1 : parts.year, parts.month === 12 ? 1 : parts.month + 1, 1),
+    };
+  }
+  const start = jstDateMs(parts.year, parts.month, 1);
+  const end = jstDateMs(parts.month === 12 ? parts.year + 1 : parts.year, parts.month === 12 ? 1 : parts.month + 1, 1);
+  return { start, end };
+}
+
+function bucketDisplay(start, end, bucketKey) {
+  const fmtDate = (value) => new Intl.DateTimeFormat("ja-JP", { month: "numeric", day: "numeric", timeZone: "Asia/Tokyo" }).format(new Date(value));
+  if (bucketKey === "30m" || bucketKey === "1h") {
+    return new Intl.DateTimeFormat("ja-JP", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Asia/Tokyo" }).format(new Date(start));
+  }
+  if (bucketKey === "1d") return fmtDate(start);
+  if (bucketKey === "7d") return fmtDate(start) + "–" + fmtDate(end - 1);
+  const p = jstDateParts(start);
+  return p.year + "/" + p.month;
+}
+
+export function aggregateTrendBuckets(points, bucketKey, rangeStart, rangeEnd, nowValue = Date.now()) {
+  const startMs = new Date(rangeStart).getTime();
+  const endMs = new Date(rangeEnd).getTime();
+  const nowMs = new Date(nowValue).getTime();
+  const groups = new Map();
+  for (const point of points || []) {
+    const natural = naturalBucketFor(point, bucketKey);
+    if (!natural || natural.end <= startMs || natural.start >= endMs) continue;
+    const key = String(natural.start);
+    const current = groups.get(key) || {
+      bucket: new Date(natural.start).toISOString(),
+      bucketStart: new Date(natural.start).toISOString(),
+      bucketEnd: new Date(natural.end).toISOString(),
+      label: bucketDisplay(natural.start, natural.end, bucketKey),
+      pageviews: 0, visits: 0, x: 0, youtube: 0, instagram: 0, facebook: 0, otherSns: 0,
+      search: 0, direct: 0, ai: 0, other: 0, internalPV: 0, sampleInterval: 1,
+    };
+    for (const field of ["pageviews","visits","x","youtube","instagram","facebook","otherSns","search","direct","ai","other","internalPV"]) {
+      current[field] += Number(point?.[field] || 0);
+    }
+    current.sampleInterval = Math.max(current.sampleInterval, Number(point?.sampleInterval || 1));
+    groups.set(key, current);
+  }
+  return [...groups.values()].sort((a, b) => Date.parse(a.bucketStart) - Date.parse(b.bucketStart)).map((item) => {
+    const bucketStart = Date.parse(item.bucketStart);
+    const bucketEnd = Date.parse(item.bucketEnd);
+    const partial = bucketStart < startMs || bucketEnd > endMs || bucketEnd > nowMs;
+    const estimated = Number(item.sampleInterval || 1) > 1;
+    return {
+      ...item,
+      partial,
+      estimated,
+      status: partial ? (estimated ? "PARTIAL / ESTIMATE" : "PARTIAL") : (estimated ? "ESTIMATE" : "ACTUAL"),
+    };
+  });
+}
+
+function canonicalAnalyticsScope(url) {
+  const raw = String(url.searchParams.get("range") || url.searchParams.get("window") || "7d").toLowerCase();
+  const range = raw === "all" || raw === "custom" || ["1h","3h","24h","7d","30d"].includes(raw) ? raw : "7d";
+  const bucket = String(url.searchParams.get("bucket") || "auto").toLowerCase();
+  if (range === "custom") {
+    return ["custom", url.searchParams.get("start") || "", url.searchParams.get("end") || "", bucket].join("|");
+  }
+  return bucket === "auto" ? range : [range, bucket].join("|");
 }
 
 const ANALYTICS_CHUNK_MS = 7 * 24 * 60 * 60 * 1000;
@@ -604,8 +794,9 @@ export function mergePeriodData(parts) {
     const row = account.total?.[0];
     result.count += Number(row?.count || 0);
     result.sum.visits += Number(row?.sum?.visits || 0);
+    result.avg.sampleInterval = Math.max(result.avg.sampleInterval, Number(row?.avg?.sampleInterval || 1));
     return result;
-  }, { count: 0, sum: { visits: 0 } });
+  }, { count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } });
 
   return { viewer: { accounts: [{
     total: [total],
@@ -636,6 +827,7 @@ query VintageAlarmAnalytics(
       total: rumPageloadEventsAdaptiveGroups(filter: $filter, limit: 1) {
         count
         sum { visits }
+        avg { sampleInterval }
       }
       pages: rumPageloadEventsAdaptiveGroups(
         filter: $filter
@@ -728,6 +920,7 @@ query VintageAlarmTrend(
       ) {
         count
         sum { visits }
+        avg { sampleInterval }
         dimensions { bucket: ${bucketField} }
       }
       acquisition: rumPageloadEventsAdaptiveGroups(
@@ -737,7 +930,17 @@ query VintageAlarmTrend(
       ) {
         count
         sum { visits }
+        avg { sampleInterval }
         dimensions { bucket: ${bucketField} refererHost }
+      }
+      navigation: rumPageloadEventsAdaptiveGroups(
+        filter: $filter
+        limit: 5000
+        orderBy: [${orderBy}]
+      ) {
+        count
+        avg { sampleInterval }
+        dimensions { bucket: ${bucketField} requestPath refererHost refererPath }
       }
     }
   }
@@ -782,7 +985,9 @@ export function mergeTrendPoints(pointSets) {
     for (const point of set || []) {
       const current = points.get(point.bucket) || Object.fromEntries(Object.keys(point).map((key) => [key, key === "bucket" ? point.bucket : 0]));
       for (const [key, value] of Object.entries(point)) {
-        if (key !== "bucket") current[key] = Number(current[key] || 0) + Number(value || 0);
+        if (key === "bucket") continue;
+        if (key === "sampleInterval") current[key] = Math.max(Number(current[key] || 1), Number(value || 1));
+        else current[key] = Number(current[key] || 0) + Number(value || 0);
       }
       points.set(point.bucket, current);
     }
@@ -810,6 +1015,8 @@ function normalizeTrend(data, targetHost = DEFAULT_HOST) {
         direct: 0,
         ai: 0,
         other: 0,
+        internalPV: 0,
+        sampleInterval: 1,
       });
     }
     return points.get(key);
@@ -819,12 +1026,14 @@ function normalizeTrend(data, targetHost = DEFAULT_HOST) {
     const point = ensure(row?.dimensions?.bucket);
     point.pageviews += row?.count || 0;
     point.visits += row?.sum?.visits || 0;
+    point.sampleInterval = Math.max(point.sampleInterval, Number(row?.avg?.sampleInterval || 1));
   }
 
   for (const row of account.acquisition || []) {
     const point = ensure(row?.dimensions?.bucket);
     const channel = classifyReferrer(row?.dimensions?.refererHost || "", targetHost);
     const visits = row?.sum?.visits || 0;
+    point.sampleInterval = Math.max(point.sampleInterval, Number(row?.avg?.sampleInterval || 1));
 
     if (channel === "X") point.x += visits;
     else if (channel === "YouTube") point.youtube += visits;
@@ -835,6 +1044,13 @@ function normalizeTrend(data, targetHost = DEFAULT_HOST) {
     else if (channel === "Direct / Unknown") point.direct += visits;
     else if (channel === "AI Assistant") point.ai += visits;
     else if (channel === "Other Referral") point.other += visits;
+  }
+
+  for (const row of account.navigation || []) {
+    const point = ensure(row?.dimensions?.bucket);
+    const channel = classifyReferrer(row?.dimensions?.refererHost || "", targetHost);
+    if (channel === "Internal Navigation") point.internalPV += Number(row?.count || 0);
+    point.sampleInterval = Math.max(point.sampleInterval, Number(row?.avg?.sampleInterval || 1));
   }
 
   return [...points.values()].sort((a, b) => String(a.bucket).localeCompare(String(b.bucket)));
@@ -897,9 +1113,12 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
     visits: row?.sum?.visits || 0,
   }));
 
+  const sampleInterval = Number(total.avg?.sampleInterval || 1);
   return {
     pageviews: total.count || 0,
     visits: total.sum?.visits || 0,
+    sampleInterval,
+    quality: sampleInterval > 1 ? "ESTIMATE" : "ACTUAL",
     pages,
     referrers: rawReferers,
     flows: buildFlows(rawFlows, targetHost),
@@ -944,6 +1163,8 @@ export function combinePeriods(periods) {
   return {
     pageviews: periods.reduce((sum, period) => sum + Number(period?.pageviews || 0), 0),
     visits: periods.reduce((sum, period) => sum + Number(period?.visits || 0), 0),
+    sampleInterval: Math.max(1, ...periods.map((period) => Number(period?.sampleInterval || 1))),
+    quality: periods.some((period) => Number(period?.sampleInterval || 1) > 1) ? "ESTIMATE" : "ACTUAL",
     pages: mergeRowsBy(periods.flatMap((period) => period?.pages || []), ["path"], ["pageviews", "visits"]),
     referrers: mergeRowsBy(periods.flatMap((period) => period?.referrers || []), ["host", "path"], ["pageviews", "visits"]),
     flows: mergeRowsBy(periods.flatMap((period) => period?.flows || []), ["sourceHost", "sourcePath", "destinationHost", "destinationPath", "channel", "country", "device"], ["pageviews", "visits"]),
@@ -1219,6 +1440,7 @@ details.drawer{grid-column:1/-1;padding:0}details.drawer>summary,details.discove
 footer{margin-top:16px;color:var(--muted);font-size:9px;line-height:1.6}
 @media(max-width:980px){.kpi,.seo-kpi{grid-column:span 4}.health{grid-column:span 4}.primary-chart,.summary-chart{grid-column:span 6}.inbox-controls{grid-template-columns:1fr}.campaign-form{grid-template-columns:1fr 1fr}.campaign-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){main{width:min(100% - 20px,1240px);padding-top:18px}header{align-items:flex-start;flex-direction:column}.actions{justify-content:flex-start}.host-grid{grid-template-columns:1fr}.kpi,.seo-kpi,.health{grid-column:span 6}.pages,.channels,.referrers,.half,.chart-half,.primary-chart,.summary-chart{grid-column:1/-1}.donut-grid{grid-template-columns:100px minmax(0,1fr)}.campaign-grid{grid-template-columns:repeat(2,1fr)}.campaign-form{grid-template-columns:1fr}.flow-viz-row{grid-template-columns:1fr auto 1fr}.flow-viz-row .flow-track,.flow-viz-row .flow-count{grid-column:1/-1}.status{flex-direction:column}.detail-grid>.card{grid-column:1/-1}}@media(max-width:390px){main{width:calc(100% - 14px)}.actions{gap:4px}.actions button{padding:6px 8px}.seo-kpi,.health{grid-column:1/-1}details.drawer>summary,details.discovery-shell>summary{align-items:flex-start;flex-direction:column}.drawer-meta{line-height:1.5}}
 .campaign-form{grid-template-columns:repeat(3,minmax(0,1fr))}.campaign-form label{min-width:0;font-size:11px}.campaign-form label input{display:block;width:100%;box-sizing:border-box;margin-top:4px}.campaign-item span{min-width:0;overflow-wrap:anywhere}#campaignCompare{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin:12px 0}#campaignCompare select{max-width:100%;padding:6px}#campaignCompare label{min-width:0;max-width:100%}#campaignResult{font-size:12px;line-height:1.5;overflow-wrap:anywhere}#campaignResult th,#campaignResult td{padding:7px 4px;white-space:normal}@media(max-width:760px){.campaign-form{grid-template-columns:minmax(0,1fr)}}
+.range-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin:0 0 14px}.range-tools label{font-size:10px;letter-spacing:.08em;color:var(--soft)}.range-tools input,.range-tools select,.range-tools button{display:block;margin-top:4px;padding:7px 9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit}.range-tools button{cursor:pointer}.bucket-status{font-size:10px;font-weight:700;letter-spacing:.06em}.bucket-status.estimate{color:#8d2c23}.bucket-status.partial{color:#9a7b4f}.bucket-compare td,.bucket-compare th{white-space:nowrap}.bucket-compare .period-cell{white-space:normal;min-width:92px}@media(max-width:760px){.range-tools{display:grid;grid-template-columns:1fr 1fr}.range-tools .bucket-control{grid-column:1/-1}.bucket-compare{overflow:auto}.bucket-compare table{min-width:760px}}
 </style>
 </head>
 <body>
@@ -1231,17 +1453,34 @@ footer{margin-top:16px;color:var(--muted);font-size:9px;line-height:1.6}
 <button data-window="24h">24H</button>
 <button data-window="7d" class="active">7D</button>
 <button data-window="30d">30D</button>
+<button data-window="all">ALL</button>
 <button class="refresh" id="aiShare">AI COPY</button>
 <button class="refresh" id="refresh">REFRESH</button>
 </div>
 </header>
 <div class="status"><span id="period">Loading…</span><span id="updated"></span></div>
+<div class="range-tools" aria-label="Analytics range controls">
+  <label>FROM<input type="date" id="customStart" /></label>
+  <label>TO<input type="date" id="customEnd" /></label>
+  <button type="button" id="customApply">CUSTOM</button>
+  <label class="bucket-control">GROUP BY
+    <select id="bucketSelect">
+      <option value="auto">AUTO</option>
+      <option value="30m">30 MIN</option>
+      <option value="1h">1 HOUR</option>
+      <option value="1d">1 DAY</option>
+      <option value="7d">7 DAYS</option>
+      <option value="1mo">MONTH</option>
+    </select>
+  </label>
+</div>
 <div id="content"></div>
 <div id="discovery"></div>
 <footer>Cloudflare Web Analytics / RUM。Page views と Visits は別定義。ページ表の ENTRY VISITS は、そのページが外部流入・直接流入の入口になった回数。内部遷移は0になり得る。検索露出は Search Console と分離して扱う。</footer>
 </main>
 <script>
 let windowKey="7d";
+let bucketKey="auto";
 const esc=(v)=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\\\"":"&quot;","'":"&#039;"}[c]));
 const n=(v)=>new Intl.NumberFormat("ja-JP").format(Number(v||0));
 const pct=(current,previous)=>{
@@ -1271,8 +1510,8 @@ function bucketTime(value){
 function bucketLabel(value){
   const t=bucketTime(value);
   if(!Number.isFinite(t))return value;
-  const opts=(windowKey==="1h"||windowKey==="3h"||windowKey==="24h")
-    ?{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"Asia/Tokyo"}
+  const opts=/T/.test(String(value))
+    ?{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"Asia/Tokyo"}
     :{month:"numeric",day:"numeric",timeZone:"Asia/Tokyo"};
   return new Intl.DateTimeFormat("ja-JP",opts).format(new Date(t));
 }
@@ -1575,6 +1814,24 @@ function bindCampaignUi(){
     render(window.__vaLastData);
   }));
 }
+function bucketComparison(points){
+  if(!points?.length)return "";
+  let previous=null;
+  const body=points.map(point=>{
+    const visits=Number(point.visits||0);
+    const diff=previous===null?null:visits-previous;
+    const deltaText=diff===null?"—":(diff>0?"+":"")+n(diff);
+    previous=visits;
+    const status=String(point.status||"ACTUAL");
+    const cls=status.includes("PARTIAL")?"partial":status.includes("ESTIMATE")?"estimate":"";
+    return '<tr><td class="period-cell"><strong>'+esc(point.label||bucketLabel(point.bucket))+'</strong></td>'+
+      '<td><span class="bucket-status '+cls+'">'+esc(status)+'</span>'+(Number(point.sampleInterval||1)>1?'<span class="path">sample ×'+n(point.sampleInterval)+'</span>':'')+'</td>'+
+      '<td class="num">'+n(point.pageviews)+'</td><td class="num">'+n(visits)+'</td><td class="num">'+n(point.x)+'</td>'+
+      '<td class="num">'+n(point.search)+'</td><td class="num">'+n(point.direct)+'</td><td class="num">'+n(point.internalPV)+'</td><td class="num">'+deltaText+'</td></tr>';
+  }).join("");
+  return '<section class="card bucket-compare"><div class="section-head"><div class="section-title">BUCKET COMPARISON</div><span>同じ選択期間の中を比較 · PARTIALは途中区間</span></div>'+
+    '<table><thead><tr><th>PERIOD</th><th>QUALITY</th><th class="num">PV</th><th class="num">VISITS</th><th class="num">X</th><th class="num">SEARCH</th><th class="num">DIRECT</th><th class="num">INTERNAL PV</th><th class="num">Δ VISITS</th></tr></thead><tbody>'+body+'</tbody></table></section>';
+}
 function render(data){
   window.__vaLastData=data;
   window.__vaWindowStart=data.windowStart;
@@ -1621,11 +1878,12 @@ function render(data){
   '<div class="path">'+esc(HOST_MIGRATION.note)+'</div>'+
   '<div class="grid analytics-grid">'+audit+lowSample+
     '<section class="card host-scope"><div class="section-head"><div class="section-title">TOTAL + HOST BREAKDOWN</div><span>合計はhost別Visitsの足し算。ユニーク人数ではありません</span></div><div class="host-grid">'+
-      '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · host別Visitsの合計</div></div>'+
+      '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · '+esc(c.quality||"ACTUAL")+(Number(c.sampleInterval||1)>1?' · sample ×'+n(c.sampleInterval):'')+'</div></div>'+
       '<div class="host-block"><span class="path">NEW · '+esc(data.host)+'</span><strong>'+n(nc.visits)+' visits</strong><div class="delta">'+n(nc.pageviews)+' page views · '+(c.visits?((nc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
       '<div class="host-block"><span class="path">OLD · '+esc(legacy.host||HOST_MIGRATION.oldHost)+'</span><strong>'+n(lc.visits)+' visits</strong><div class="delta">'+n(lc.pageviews)+' page views · '+(c.visits?((lc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
     '</div></section>'+
     eventIndex(campaigns)+
+    bucketComparison(trend)+
     '<section class="card kpi"><div class="label">TOTAL VISITS</div><div class="value">'+n(c.visits)+'</div>'+delta(c.visits,p.visits)+'</section>'+
     '<section class="card kpi"><div class="label">TOTAL PAGE VIEWS</div><div class="value">'+n(c.pageviews)+'</div>'+delta(c.pageviews,p.pageviews)+'</section>'+
     '<section class="card kpi"><div class="label">X VISITS</div><div class="value">'+n(xNow)+'</div>'+delta(xNow,xPrev)+'</section>'+
@@ -1878,10 +2136,28 @@ function bindDiscoveryInbox(){
   });
 }
 
+function analyticsQuery(){
+  const params=new URLSearchParams();
+  params.set("range",windowKey);
+  params.set("bucket",bucketKey);
+  if(windowKey==="custom"){
+    params.set("start",document.getElementById("customStart").value);
+    params.set("end",document.getElementById("customEnd").value);
+  }
+  return params;
+}
+function initCustomDates(){
+  const now=new Date();
+  const end=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Tokyo",year:"numeric",month:"2-digit",day:"2-digit"}).format(now);
+  const startDate=new Date(now.getTime()-6*24*60*60*1000);
+  const start=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Tokyo",year:"numeric",month:"2-digit",day:"2-digit"}).format(startDate);
+  document.getElementById("customStart").value=start;
+  document.getElementById("customEnd").value=end;
+}
 async function load(){
   document.getElementById("content").innerHTML='<div class="card">Loading Cloudflare Web Analytics…</div>';
   try{
-    const res=await fetch('/api/analytics?window='+encodeURIComponent(windowKey),{cache:"no-store"});
+    const res=await fetch('/api/analytics?'+analyticsQuery().toString(),{cache:"no-store"});
     const data=await res.json();
     if(!res.ok||data.error)throw new Error(data.error||('HTTP '+res.status));
     render(data);
@@ -1894,13 +2170,24 @@ document.querySelectorAll("[data-window]").forEach(btn=>btn.addEventListener("cl
   document.querySelectorAll("[data-window]").forEach(x=>x.classList.toggle("active",x===btn));
   load();
 }));
+document.getElementById("customApply").addEventListener("click",()=>{
+  if(!document.getElementById("customStart").value||!document.getElementById("customEnd").value){alert("開始日と終了日を指定してください");return;}
+  windowKey="custom";
+  document.querySelectorAll("[data-window]").forEach(x=>x.classList.remove("active"));
+  load();
+});
+document.getElementById("bucketSelect").addEventListener("change",(event)=>{
+  bucketKey=event.target.value||"auto";
+  load();
+});
 document.getElementById("aiShare").addEventListener("click",async()=>{
   const button=document.getElementById("aiShare");
   const original=button.textContent;
   button.disabled=true;
   button.textContent="WAIT";
   try{
-    const linkResponse=await fetch("/api/ai-share-link?window="+encodeURIComponent(windowKey)+"&ttl=604800",{cache:"no-store"});
+    const shareParams=analyticsQuery();shareParams.set("ttl","604800");
+    const linkResponse=await fetch("/api/ai-share-link?"+shareParams.toString(),{cache:"no-store"});
     const linkData=await linkResponse.json();
     if(!linkResponse.ok||linkData.error)throw new Error(linkData.error||("HTTP "+linkResponse.status));
 
@@ -1924,6 +2211,7 @@ document.getElementById("aiShare").addEventListener("click",async()=>{
   }
 });
 document.getElementById("refresh").addEventListener("click",()=>{load();renderDiscoveryInbox();});
+initCustomDates();
 renderDiscoveryInbox();
 load();
 </script>
