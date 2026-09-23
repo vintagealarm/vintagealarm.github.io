@@ -7,8 +7,8 @@ import '../../../styles/site.css';
 
 const base = import.meta.env.BASE_URL;
 const { production = false } = Astro.props as { production?: boolean };
-const productionTitle = 'HOW THEY RING｜鳴らし方で見る、アラーム腕時計｜VINTAGE ALARM';
-const productionDescription = '機械式アラーム腕時計を、GONGとCASEBACKの2つの鳴動方式から、掲載実機と音で見比べる。';
+const productionTitle = 'HOW THEY RING｜音で見る、アラーム腕時計｜VINTAGE ALARM';
+const productionDescription = '機械式アラーム腕時計を、実機の音とGONG・CASEBACKの鳴らし方から見る。';
 const productionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -113,7 +113,7 @@ const specimens = orderedSlugs
         />
       : <>
           <meta name="robots" content="noindex,nofollow,noarchive" />
-          <title>鳴らし方で見る、アラーム腕時計。｜VINTAGE ALARM TEST</title>
+          <title>音で見る、アラーム腕時計。｜VINTAGE ALARM TEST</title>
         </>}
     <meta name="theme-color" content="#f3eee4" />
     <style>
@@ -635,15 +635,15 @@ const specimens = orderedSlugs
     </style>
   </head>
   <body>
-    {production && <SectionMast rightLabel="HOW THEY RING" />}
+    {production && <SectionMast rightLabel="鳴らし方" />}
     <main class="lab">
       <header class="lab-hero">
-        <p class="lab-kicker">HOW THEY RING<span>鳴らし方で見る</span></p>
-        <h1>鳴らし方で見る、<br />アラーム腕時計。</h1>
+        <p class="lab-kicker">HOW THEY RING</p>
+        <h1>音で見る、<br />アラーム腕時計。</h1>
       </header>
 
       <section aria-label="鳴動方式を選ぶ">
-        <p class="category-guide"><span class="category-guide-arrow" aria-hidden="true"><svg viewBox="0 0 14 28" focusable="false"><path d="M7 1V24M2.5 19.5L7 24L11.5 19.5" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>音と鳴らし方で時計を見る</span><span class="category-guide-arrow" aria-hidden="true"><svg viewBox="0 0 14 28" focusable="false"><path d="M7 1V24M2.5 19.5L7 24L11.5 19.5" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span></p>
+        
         <div class="category-grid">
           {categories.map((category) => (
             <button
