@@ -143,7 +143,8 @@ assert(patchedHtml.includes('Xプロフィール専用URL発行'), 'system timel
 assert(patchedHtml.includes('X PROFILE ENTRY'), 'profile KPI was not injected');
 assert(patchedHtml.includes('X Profile'), 'profile event platform was not injected');
 assert(patchedHtml.includes('id="aiReadable">AI URL</button>'), 'AI URL button was not injected');
-assert(patchedHtml.includes('/api/ai-readable-link?window='), 'AI URL handler was not injected');
+assert(patchedHtml.includes('/api/ai-readable-link?'), 'AI URL handler was not injected');
+assert(patchedHtml.includes('analyticsQuery'), 'AI URL handler must preserve current range/bucket query');
 assert(patchedHtml.includes('["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]'), 'WATCH share list changed unexpectedly');
 assert(patchedHtml.includes('{name:"HISTORY",path:"/history/"}'), 'Japanese HISTORY key page was not injected');
 assert(patchedHtml.includes('{name:"HISTORY (EN)",path:"/en/history/"}'), 'English HISTORY key page was not injected');
