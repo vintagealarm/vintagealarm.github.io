@@ -53,7 +53,8 @@ Cloudflare Web Analytics / RUMをGraphQL APIから読み、VINTAGE ALARM用の�
 `profile-worker.js` は基礎集計を壊さず、公開済みWATCH 5ページの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。本番のWATCH範囲はBasis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarmの5ページとする。
 
 表示:
-- 1時間 / 3時間 / 24時間 / 7日 / 30日
+- RANGE: 1時間 / 3時間 / 24時間 / 7日 / 30日 / ALL / CUSTOM
+- GROUP BY: AUTO / 30分 / 1時間 / 1日 / 7日 / 月
 - Page views / Visits
 - 直前同期間比
 - URL → ページ名
@@ -83,7 +84,7 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 
 - `/api/ai-share-link` はBasic Auth必須。
 - WorkerがHMAC署名付きの `/api/ai-export` URLを発行する。
-- 署名はwindowと有効期限に結び付ける。
+- 署名はRANGE / GROUP BY / CUSTOM日付を含むanalytics scopeと有効期限に結び付ける。
 - 有効期限は最小5分、最大7日。
 - exportはCloudflare Web Analyticsの集計値だけを返す。
 - flowは `externalEntryFlows` / `internalFlows` / `migrationFlows` に分離する。旧ホスト↔新ホストの遷移を内部回遊へ混ぜない。
