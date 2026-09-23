@@ -309,6 +309,8 @@ async function aiExportResponse(request, url, env) {
       windowLabel: payload.windowLabel,
       windowStart: payload.windowStart,
       windowEnd: payload.windowEnd,
+      compareMode: payload.compareMode,
+      availability: payload.availability,
       host: payload.host,
       hostMigration: payload.hostMigration,
       current: aiExportPeriod(payload.current),
@@ -344,6 +346,8 @@ async function aiExportResponse(request, url, env) {
           "X/YouTube/SNS referrer paths can help diagnosis but do not guarantee post-level attribution.",
         hostSeparation:
           "NEW and OLD are queried separately. A host-scoped sum is also provided with its breakdown; it is not a cross-host unique-person count.",
+        availability:
+          "Data before the analytics baseline is unavailable. Buckets marked PARTIAL, SHORT, or MIGRATION are not valid like-for-like comparison buckets.",
       },
     });
   } catch (error) {
@@ -360,7 +364,7 @@ function aiExportPeriod(period) {
     pageviews: period?.pageviews || 0,
     visits: period?.visits || 0,
     sampleInterval: period?.sampleInterval || 1,
-    quality: period?.quality || "ACTUAL",
+    quality: period?.quality || "UNSAMPLED",
     pages: period?.pages || [],
     entryPages: [...(period?.pages || [])]
       .filter((page) => (page?.visits || 0) > 0)
