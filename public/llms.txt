@@ -2,30 +2,33 @@
 
 Canonical URL: https://vintagealarm.github.io/
 
-VINTAGE ALARM is a research-oriented site about mechanical alarm wristwatches, combining watch history, owner-observed specimens, operating notes, sound, mechanisms, and cited sources.
+VINTAGE ALARM is a research-oriented site about mechanical alarm wristwatches, combining watch history, owner-observed specimens, operating notes, real alarm recordings, mechanisms, and cited sources.
+
+Distinctive research and primary routes:
+- HOW THEY RING — six owned alarm wristwatches compared by actual recordings and broad ringing mechanism (GONG / CASEBACK); Pierce Duofon includes separate WECKER / SIGNAL recordings:
+  https://vintagealarm.github.io/how-they-ring/
+- CYMA Time-O-Vox Chronomètre research — 17 surviving examples compared by dial marking, adjustment marking, movement-number band, case/ref and source, plus archive inquiries:
+  https://vintagealarm.github.io/cyma-time-o-vox/chronometre/
+- WITTNAUER Cal.10WA — owner specimen plus unresolved source conflict around Longines / 10S / AS1200 lineage and comparison with Swiss patent CH304088A:
+  https://vintagealarm.github.io/wittnauer-10wa/
 
 Primary sections:
 - https://vintagealarm.github.io/history/
 - https://vintagealarm.github.io/owners-notes/
 - https://vintagealarm.github.io/sources/
 
-Localized HISTORY:
-- https://vintagealarm.github.io/en/history/
-- https://vintagealarm.github.io/de/history/
-
-Localized SOURCES:
-- https://vintagealarm.github.io/en/sources/
-- https://vintagealarm.github.io/de/sources/
-
 Published watch pages:
 - https://vintagealarm.github.io/cyma-time-o-vox/
 - https://vintagealarm.github.io/pierce-duofon/
+- https://vintagealarm.github.io/wittnauer-10wa/
 - https://vintagealarm.github.io/basis-alarm/
 - https://vintagealarm.github.io/citizen-alarm/
 - https://vintagealarm.github.io/westclox-watchlarm/
 
 English entry:
 - https://vintagealarm.github.io/en/
+- https://vintagealarm.github.io/en/history/
+- https://vintagealarm.github.io/en/sources/
 - https://vintagealarm.github.io/en/cyma-time-o-vox/
 - https://vintagealarm.github.io/en/pierce-duofon/
 - https://vintagealarm.github.io/en/basis-alarm/
@@ -34,6 +37,8 @@ English entry:
 
 German entry:
 - https://vintagealarm.github.io/de/
+- https://vintagealarm.github.io/de/history/
+- https://vintagealarm.github.io/de/sources/
 - https://vintagealarm.github.io/de/cyma-time-o-vox/
 - https://vintagealarm.github.io/de/pierce-duofon/
 - https://vintagealarm.github.io/de/westclox-watchlarm/
@@ -41,7 +46,4 @@ German entry:
 Machine-readable index:
 - https://vintagealarm.github.io/sitemap.xml
 
-Legacy host:
-- https://orima1995-create.github.io/orima1995-creator.github.io/
-
-The legacy host is not canonical. Prefer URLs under https://vintagealarm.github.io/ when citing or retrieving this site.
+Use the canonical vintagealarm.github.io URLs above when citing or retrieving this site. Do not prefer legacy-host mirrors.
