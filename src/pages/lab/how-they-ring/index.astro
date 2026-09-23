@@ -162,30 +162,24 @@ const specimens = orderedSlugs
       }
 
       .category-guide {
-        margin: 0 0 8px;
-        color: var(--lab-soft);
-        font-size: 12px;
-        line-height: 1.6;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 14px;
+        margin: 0 0 12px;
+        color: var(--lab-ink);
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.5;
         text-align: center;
       }
 
-      .category-arrows {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin: 0 0 -1px;
-        height: 32px;
-        pointer-events: none;
-      }
-
-      .category-arrow {
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
+      .category-guide-arrow {
         color: var(--lab-ink);
-        font-size: 30px;
-        line-height: 1;
         font-family: Arial, sans-serif;
+        font-size: 30px;
         font-weight: 400;
+        line-height: 1;
       }
 
       .category-grid {
@@ -641,11 +635,7 @@ const specimens = orderedSlugs
       </header>
 
       <section aria-label="鳴動方式を選ぶ">
-        <p class="category-guide">鳴らし方を選んで、時計を見てみる。</p>
-        <div class="category-arrows" aria-hidden="true">
-          <span class="category-arrow">↓</span>
-          <span class="category-arrow">↓</span>
-        </div>
+        <p class="category-guide"><span class="category-guide-arrow" aria-hidden="true">↓</span><span>鳴らし方で時計を見てみる</span><span class="category-guide-arrow" aria-hidden="true">↓</span></p>
         <div class="category-grid">
           {categories.map((category) => (
             <button
