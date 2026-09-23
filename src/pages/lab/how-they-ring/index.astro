@@ -598,6 +598,31 @@ const specimens = orderedSlugs
         font-size: 10px;
       }
 
+      .recording-condition {
+        margin-top: 20px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(36,31,26,.18);
+        color: var(--lab-soft);
+        font-size: 9px;
+        line-height: 1.6;
+      }
+
+      .recording-condition summary {
+        cursor: pointer;
+      }
+
+      .recording-condition summary strong {
+        margin-right: .45em;
+        color: var(--lab-ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        letter-spacing: .08em;
+      }
+
+      .recording-condition p {
+        margin: 6px 0 0;
+      }
+
       .lab-footnote {
         margin: 24px 0 0;
         color: var(--lab-soft);
@@ -935,6 +960,10 @@ const specimens = orderedSlugs
           ))}
         </div>
 
+        <details class="recording-condition">
+          <summary><strong>REC. CONDITION</strong> iPhone 16 / 約20 cm / 無加工</summary>
+          <p>※録音音量は実環境での絶対的な音量を示すものではありません。</p>
+        </details>
 
       </section>
     </main>
