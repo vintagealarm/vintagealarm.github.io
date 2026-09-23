@@ -44,6 +44,14 @@
 - 過去は短時間で反映していた本番が長時間変わらない場合、「GitHub Pagesが遅い」「キャッシュ」「連続push」等を証拠なしに原因認定しない。最後に成功した公開以降の差分と、deploy前に走るgateの不整合を先に調べる。
 - ユーザーが本番反映まで求めた作業は、main pushを完了としない。liveで目的物を確認するまで `DEPLOYED` と報告しない。
 
+## 公開変更の原子性とデプロイ監査
+
+- 公開対象の変更は1 deploy単位で完結させる。表示実装、build gate、live gate、必要なlayout検査を同じ変更セットで揃えてからmainへ反映し、実装→gate→gateの分割pushをしない。
+- deploy起動だけを目的としたダミーコメント・無意味なソース変更を入れない。再実行はActionsのrerun / workflow_dispatch等の正規手段を優先する。
+- push後は triggered / queued / running / failed / deployed / live verified を区別する。取得できていない状態を推測で補完せず、「trigger条件を満たした」を「deployを発火した」と表現しない。
+- 本番未反映時は追加pushより先に main対象実装 → workflow → build gate → layout gate → upload/deploy → live gate の順で監査し、最初に不整合が見つかった層だけを修正する。
+- UI変更でmobile表示が合格条件に含まれるページは、文字列検査だけでなく check-layout の対象routeへ含める。
+
 ## 作業中 / 本番 / 公開の区別
 
 - 作業中の現在状態: 現在のbranch / PR + 対象ファイル + `main`との差分
