@@ -1,5 +1,5 @@
 import vm from "node:vm";
-import worker, { aggregateSnsEntries, aggregateTrendBuckets, campaignWindow, campaignSummary, mergePeriodData, mergeTrendPoints, normalizeTrendBucket, parseYouTubeVideoUrl, resolveAnalyticsRange, splitPeriod } from "./worker.js";
+import worker, { aggregateSnsEntries, aggregateTrendBuckets, campaignWindow, campaignSummary, mapWithConcurrency, mergePeriodData, mergeTrendPoints, normalizeTrendBucket, parseYouTubeVideoUrl, resolveAnalyticsRange, splitPeriod } from "./worker.js";
 import assert from "node:assert/strict";
 
 const start = '2026-09-08T00:00:00Z';
@@ -75,23 +75,46 @@ assert.ok(thirtyDayRanges.every((range, index) =>
 ));
 const rangeUrl = new URL("https://dashboard.test/api/analytics?range=custom&start=2026-09-01&end=2026-09-21&bucket=7d");
 const resolvedRange = resolveAnalyticsRange(rangeUrl, new Date("2026-09-22T00:00:00+09:00"));
-assert.equal(resolvedRange.start.toISOString(), "2026-08-31T15:00:00.000Z");
+assert.equal(resolvedRange.start.toISOString(), "2026-09-07T21:41:34.000Z");
 assert.equal(resolvedRange.end.toISOString(), "2026-09-21T15:00:00.000Z");
+assert.equal(resolvedRange.rangeClipped, true);
+assert.equal(resolvedRange.previousStart, null);
+assert.throws(() => resolveAnalyticsRange(
+  new URL("https://dashboard.test/api/analytics?range=custom&start=2026-09-01&end=2026-09-07"),
+  new Date("2026-09-22T00:00:00+09:00"),
+));
 assert.equal(normalizeTrendBucket("auto", 3 * 3600000).key, "30m");
 assert.equal(normalizeTrendBucket("auto", 7 * 24 * 3600000).key, "1d");
 assert.equal(normalizeTrendBucket("auto", 30 * 24 * 3600000).key, "7d");
 const grouped = aggregateTrendBuckets([
-  { bucket: "2026-09-01", pageviews: 2, visits: 1, x: 1, internalPV: 1, sampleInterval: 1 },
-  { bucket: "2026-09-07", pageviews: 3, visits: 2, search: 1, sampleInterval: 1 },
-  { bucket: "2026-09-08", pageviews: 4, visits: 3, direct: 2, sampleInterval: 10 },
+  { bucket: "2026-09-08", pageviews: 4, visits: 3, direct: 2, internalPV: 1, sampleInterval: 10 },
   { bucket: "2026-09-15", pageviews: 5, visits: 4, sampleInterval: 1 },
 ], "7d", resolvedRange.start, resolvedRange.end, resolvedRange.end);
-assert.deepEqual(grouped.map(row => [row.label, row.pageviews, row.visits, row.status]), [
-  ["9/1–9/7", 5, 3, "UNSAMPLED"],
-  ["9/8–9/14", 4, 3, "SAMPLED / ESTIMATE"],
-  ["9/15–9/21", 5, 4, "UNSAMPLED"],
+assert.deepEqual(grouped.map(row => [row.label, row.pageviews, row.visits, row.status, row.comparable]), [
+  ["9/8–9/14", 4, 3, "PARTIAL / MIGRATION / SAMPLED / ESTIMATE", false],
+  ["9/15–9/21", 5, 4, "UNSAMPLED", true],
 ]);
 assert.equal(grouped[0].internalPV, 1);
+
+const shortWeek = aggregateTrendBuckets([
+  { bucket: "2026-09-29", pageviews: 2, visits: 2, sampleInterval: 1 },
+  { bucket: "2026-09-30", pageviews: 1, visits: 1, sampleInterval: 1 },
+], "7d", new Date("2026-09-29T00:00:00+09:00"), new Date("2026-10-01T00:00:00+09:00"), new Date("2026-10-02T00:00:00+09:00"));
+assert.deepEqual(shortWeek.map(row => [row.label, row.status, row.comparable]), [
+  ["9/29–9/30", "SHORT / UNSAMPLED", false],
+]);
+
+let activeMaps = 0;
+let maxActiveMaps = 0;
+const mapped = await mapWithConcurrency([1,2,3,4,5], 2, async (value) => {
+  activeMaps += 1;
+  maxActiveMaps = Math.max(maxActiveMaps, activeMaps);
+  await new Promise((resolve) => setTimeout(resolve, 1));
+  activeMaps -= 1;
+  return value * 2;
+});
+assert.deepEqual(mapped, [2,4,6,8,10]);
+assert.equal(maxActiveMaps, 2);
 
 const periodPart = (count, visits, path, sampleInterval = 1) => ({ viewer: { accounts: [{
   total: [{ count, sum: { visits }, avg: { sampleInterval } }],
