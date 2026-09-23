@@ -1,7 +1,8 @@
 const ALLOWED_SOURCE_HOST = "vintage-alarm-analytics.orima1995.workers.dev";
 const ALLOWED_SOURCE_PATH = "/api/ai-export";
-const ALLOWED_SOURCE_PARAMS = new Set(["window", "expires", "sig"]);
-const ALLOWED_WINDOWS = new Set(["1h", "3h", "24h", "7d", "30d"]);
+const ALLOWED_SOURCE_PARAMS = new Set(["window", "range", "bucket", "start", "end", "expires", "sig"]);
+const ALLOWED_RANGES = new Set(["1h", "3h", "24h", "7d", "30d", "all", "custom"]);
+const ALLOWED_BUCKETS = new Set(["auto", "30m", "1h", "1d", "7d", "1mo"]);
 const MAX_PUBLIC_CACHE_SECONDS = 15 * 60;
 
 function text(value) {
@@ -27,7 +28,15 @@ function validateSource(raw) {
   if (!source.searchParams.get("window") || !source.searchParams.get("expires") || !source.searchParams.get("sig")) {
     throw new Error("Signed analytics source is incomplete.");
   }
-  if (!ALLOWED_WINDOWS.has(source.searchParams.get("window"))) throw new Error("Signed analytics window is invalid.");
+  const range = source.searchParams.get("range") || source.searchParams.get("window");
+  const bucket = source.searchParams.get("bucket") || "auto";
+  if (!ALLOWED_RANGES.has(range)) throw new Error("Signed analytics range is invalid.");
+  if (!ALLOWED_BUCKETS.has(bucket)) throw new Error("Signed analytics bucket is invalid.");
+  if (range === "custom") {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(source.searchParams.get("start") || "") || !/^\d{4}-\d{2}-\d{2}$/.test(source.searchParams.get("end") || "")) {
+      throw new Error("Signed analytics custom dates are invalid.");
+    }
+  }
   if (!/^[0-9a-f]{64}$/i.test(source.searchParams.get("sig"))) throw new Error("Signed analytics signature is invalid.");
   const expires = Number(source.searchParams.get("expires"));
   if (!Number.isInteger(expires) || expires <= Math.floor(Date.now() / 1000)) {
@@ -37,12 +46,31 @@ function validateSource(raw) {
 }
 
 export function sourceFromRelayUrl(requestUrl) {
-  const short = requestUrl.pathname.match(/^\/s\/v1\/(1h|3h|24h|7d|30d)\/(\d{10,})\/([0-9a-f]{64})\/?$/i);
-  if (short) {
+  const shortV2 = requestUrl.pathname.match(/^\/s\/v2\/(1h|3h|24h|7d|30d|all|custom)\/(auto|30m|1h|1d|7d|1mo)\/([^/]+)\/([^/]+)\/(\d{10,})\/([0-9a-f]{64})\/?$/i);
+  if (shortV2) {
+    const range = shortV2[1].toLowerCase();
+    const bucket = shortV2[2].toLowerCase();
+    const start = decodeURIComponent(shortV2[3]);
+    const end = decodeURIComponent(shortV2[4]);
     const source = new URL(`https://${ALLOWED_SOURCE_HOST}${ALLOWED_SOURCE_PATH}`);
-    source.searchParams.set("window", short[1]);
-    source.searchParams.set("expires", short[2]);
-    source.searchParams.set("sig", short[3].toLowerCase());
+    source.searchParams.set("window", range);
+    source.searchParams.set("range", range);
+    if (bucket !== "auto") source.searchParams.set("bucket", bucket);
+    if (range === "custom") {
+      source.searchParams.set("start", start);
+      source.searchParams.set("end", end);
+    }
+    source.searchParams.set("expires", shortV2[5]);
+    source.searchParams.set("sig", shortV2[6].toLowerCase());
+    return validateSource(source.toString());
+  }
+
+  const shortV1 = requestUrl.pathname.match(/^\/s\/v1\/(1h|3h|24h|7d|30d)\/(\d{10,})\/([0-9a-f]{64})\/?$/i);
+  if (shortV1) {
+    const source = new URL(`https://${ALLOWED_SOURCE_HOST}${ALLOWED_SOURCE_PATH}`);
+    source.searchParams.set("window", shortV1[1]);
+    source.searchParams.set("expires", shortV1[2]);
+    source.searchParams.set("sig", shortV1[3].toLowerCase());
     return validateSource(source.toString());
   }
   return validateSource(requestUrl.searchParams.get("source"));
@@ -124,7 +152,9 @@ function renderDevices(period) {
 
 function renderTrend(payload) {
   const rows = (payload?.trend || []).slice(0, 60).map((row) => [
-    row.bucket,
+    row.label || row.bucket,
+    row.status || (number(row.sampleInterval) > 1 ? "SAMPLED / ESTIMATE" : "UNSAMPLED"),
+    number(row.sampleInterval || 1),
     number(row.pageviews),
     number(row.visits),
     number(row.x),
@@ -133,10 +163,11 @@ function renderTrend(payload) {
     number(row.facebook),
     number(row.search),
     number(row.direct),
+    number(row.internalPV),
     number(row.ai),
     number(row.other),
   ]);
-  return table(["Bucket", "PV", "Visits", "X", "YouTube", "Instagram", "Facebook", "Search", "Direct", "AI", "Other"], rows);
+  return table(["Bucket", "Quality", "Sample", "PV", "Visits", "X", "YouTube", "Instagram", "Facebook", "Search", "Direct", "Internal PV", "AI", "Other"], rows);
 }
 
 function renderPeriod(title, period) {
@@ -145,6 +176,8 @@ function renderPeriod(title, period) {
     `## ${title}`,
     `- Visits: ${number(period.visits)}`,
     `- Page views: ${number(period.pageviews)}`,
+    `- Quality: ${text(period.quality || (number(period.sampleInterval) > 1 ? "SAMPLED / ESTIMATE" : "UNSAMPLED"))}`,
+    `- Sample interval: ${number(period.sampleInterval || 1)}`,
     `- X profile entries (/x/): ${number(period.xProfileEntries)}`,
     "",
     "### Channels",
@@ -179,6 +212,8 @@ export function renderAnalyticsMarkdown(payload) {
     "",
     `- Generated: ${text(payload?.generatedAt)}`,
     `- Window: ${text(payload?.windowLabel || payload?.windowKey)}`,
+    `- Range key: ${text(payload?.rangeKey || payload?.windowKey)}`,
+    `- Group by: ${text(payload?.bucketLabel || payload?.bucketKey || payload?.trendBucket)}`,
     `- Window start: ${text(payload?.windowStart)}`,
     `- Window end: ${text(payload?.windowEnd)}`,
     `- Current host: ${text(payload?.host)}`,
