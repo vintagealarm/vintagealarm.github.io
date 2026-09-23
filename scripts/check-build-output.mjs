@@ -167,7 +167,7 @@ for (const marker of [
   'path: src/data/how-they-ring-settings.json',
   'label: 本番公開する',
   'name: showOnTop',
-  'label: TOPに「音で選ぶ」を表示',
+  'label: TOPに「HOW THEY RING」を表示',
   'name: howTheyRing',
   'path: src/content/how-they-ring',
   'name: ownerDirectory',
@@ -195,6 +195,9 @@ if (howTheyRingRelease.productionPublished) {
   if (soundProdHtml.includes('noindex,nofollow,noarchive')) failures.push('HOW THEY RING: production release ON but page is still noindex');
   if (soundProdHtml.includes('非公開プレビュー')) failures.push('HOW THEY RING: production release ON but preview label leaked');
   if (!soundProdHtml.includes('HOW THEY RING')) failures.push('HOW THEY RING: production release ON but gallery content is missing');
+  for (const marker of ['音と鳴らし方で時計を見る', '棒状の音バネを叩く', 'section-menu', 'href=\"/\"']) {
+    if (!soundProdHtml.includes(marker)) failures.push(`HOW THEY RING: current production marker missing: ${marker}`);
+  }
 } else {
   if (sitemap.includes(soundProdUrl)) failures.push('HOW THEY RING: production release OFF but sitemap entry leaked');
   if (soundProdHtml.includes('data-specimen')) failures.push('HOW THEY RING: production release OFF but gallery content leaked');
