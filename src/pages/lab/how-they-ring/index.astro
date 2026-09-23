@@ -47,7 +47,9 @@ const categories = [
         no: '01',
         image: '/images/how-they-ring/gong.jpg',
         label: '棒状の音バネを叩く',
-        example: 'OMEGA MEMOMATIC'
+        example: 'OMEGA MEMOMATIC',
+        evidence: 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。',
+        source: 'The Alarm Wristwatch'
       }
     ]
   },
@@ -61,19 +63,25 @@ const categories = [
         no: '02',
         image: '/images/how-they-ring/caseback-hammer.png',
         label: '振動板型',
-        example: 'VULCAIN CRICKET'
+        example: 'VULCAIN CRICKET',
+        evidence: 'ハンマーが、振動板（membrane）に設けられたピンを打撃する。',
+        source: 'The Alarm Wristwatch'
       },
       {
         no: '03',
         image: '/images/how-they-ring/pin-hammer.png',
         label: 'ピン／レバー伝達型',
-        example: 'JUNGHANS MINIVOX'
+        example: 'JUNGHANS MINIVOX',
+        evidence: '量産型J89は、底部に組み込まれたベルを発音体とする。',
+        source: 'The Alarm Wristwatch'
       },
       {
         no: '04',
         image: '/images/how-they-ring/bell.jpg',
         label: 'BELL-BASE型',
-        example: 'LANCO-FON · CAL.1241'
+        example: 'LANCO-FON · CAL.1241',
+        evidence: 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。',
+        source: 'ALARM AM ARM'
       }
     ]
   }
@@ -368,6 +376,49 @@ const specimens = orderedSlugs
         letter-spacing: .04em;
       }
 
+      .mechanism-evidence {
+        margin-top: 14px;
+        border-top: 1px solid rgba(36,31,26,.24);
+      }
+
+      .mechanism-evidence summary {
+        padding: 11px 0 2px;
+        color: var(--lab-soft);
+        font-size: 10px;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+
+      .mechanism-evidence-list {
+        display: grid;
+        gap: 9px;
+        margin-top: 10px;
+      }
+
+      .mechanism-evidence-item {
+        margin: 0;
+        font-size: 10px;
+        line-height: 1.65;
+      }
+
+      .mechanism-evidence-item strong {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        letter-spacing: .04em;
+      }
+
+      .mechanism-evidence-item cite {
+        color: var(--lab-soft);
+        font-style: normal;
+      }
+
+      .mechanism-evidence-note {
+        margin: 10px 0 0;
+        color: var(--lab-soft);
+        font-size: 9px;
+        line-height: 1.6;
+      }
+
       .selected-section {
         margin-top: 12px;
         border-top: 1px solid var(--lab-ink);
@@ -605,6 +656,19 @@ const specimens = orderedSlugs
           overflow-wrap: anywhere;
         }
 
+        .mechanism-evidence {
+          margin-top: 9px;
+        }
+
+        .mechanism-evidence summary,
+        .mechanism-evidence-item {
+          font-size: 8.5px;
+        }
+
+        .mechanism-evidence-note {
+          font-size: 8px;
+        }
+
         .selected-section {
           margin-top: 8px;
         }
@@ -734,6 +798,18 @@ const specimens = orderedSlugs
                   </div>
                 ))}
               </div>
+              <details class="mechanism-evidence">
+                <summary>機構図の根拠・資料を見る</summary>
+                <div class="mechanism-evidence-list">
+                  {category.figures.map((figure) => (
+                    <p class="mechanism-evidence-item">
+                      <strong>FIG.{figure.no}</strong> — {figure.evidence}
+                      {' '}<cite>出典：{figure.source}</cite>
+                    </p>
+                  ))}
+                </div>
+                <p class="mechanism-evidence-note">GONG / CASEBACKと各型名は、ハンマーの打撃先と発音構造をもとにしたVINTAGE ALARMでの整理です。</p>
+              </details>
             </div>
           ))}
         </div>

@@ -17,6 +17,7 @@ const routes = [
   '',
   'history/',
   'owners-notes/',
+  'how-they-ring/',
   ...publishedWatchRoutes,
   'en/',
   ...englishWatchRoutes,

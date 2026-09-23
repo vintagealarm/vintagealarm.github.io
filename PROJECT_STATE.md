@@ -72,6 +72,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - FIG.02 CASEBACK: 「振動板型 — VULCAIN CRICKET」。旧「膜状バック型」は失効。
 - FIG.03 CASEBACK: 「ピン／レバー伝達型 — JUNGHANS MINIVOX」。
 - FIG.04 CASEBACK: 「BELL-BASE型 — LANCO-FON · CAL.1241」。Lanco-Fon全体へ一般化しない。Cal.1241は資料上hammerがGlockeを打つことを確認したため、このcaliberに限定する。
+- HOW THEY RINGの機構図根拠は、各FIGにつき確定的な1出典だけを折りたたみ表示する。原則『The Alarm Wristwatch』『ALARM AM ARM』を優先し、2冊で直接支えられない場合のみ外部資料1件を採用する。補助資料は内部検証用で、閲覧者へ列挙しない。GONG / CASEBACKと各型名はVINTAGE ALARMでの整理として明示する。
 - 掲載個体の大分類は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK。
 - Pierce Duofonの二音源表示は **WECKER / 音あり** と **SIGNAL / 音無し**。ファイル名由来の WAKER / SILENT を表示ラベルへ戻さない。
 - HOW THEY RINGの入口表示名は **HOW THEY RING**。旧「音で選ぶ」は失効。TOPではOWNER'S NOTES直下に置く。
