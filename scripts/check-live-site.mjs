@@ -38,11 +38,13 @@ let lastFailures = [];
 
 for (let attempt = 1; attempt <= 12; attempt += 1) {
   const failures = [];
-  const [home, history, englishHistory, germanHistory, owners, sitemap] = await Promise.all([
-    get(''), get('history/'), get('en/history/'), get('de/history/'), get('owners-notes/'), get('sitemap.xml')
+  const [home, englishHome, germanHome, history, englishHistory, germanHistory, owners, sitemap] = await Promise.all([
+    get(''), get('en/'), get('de/'), get('history/'), get('en/history/'), get('de/history/'), get('owners-notes/'), get('sitemap.xml')
   ]);
   for (const [name, result] of [
     ['home', home],
+    ['en', englishHome],
+    ['de', germanHome],
     ['history', history],
     ['en/history', englishHistory],
     ['de/history', germanHistory],
@@ -54,8 +56,12 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
 
   if (home.ok && !home.text.includes('owners-notes/')) failures.push('home: OWNER\'S NOTES link missing');
   if (howTheyRingSettings.productionPublished) {
-    const howTheyRing = await get('how-they-ring/');
+    const [howTheyRing, englishHowTheyRing, germanHowTheyRing] = await Promise.all([
+      get('how-they-ring/'), get('en/how-they-ring/'), get('de/how-they-ring/')
+    ]);
     if (!howTheyRing.ok) failures.push(`how-they-ring: published page HTTP ${howTheyRing.status}`);
+    if (!englishHowTheyRing.ok) failures.push(`en/how-they-ring: published page HTTP ${englishHowTheyRing.status}`);
+    if (!germanHowTheyRing.ok) failures.push(`de/how-they-ring: published page HTTP ${germanHowTheyRing.status}`);
     if (howTheyRingSettings.showOnTop && home.ok && !home.text.includes('how-they-ring/')) failures.push('home: published HOW THEY RING link missing');
     if (howTheyRing.ok && !howTheyRing.text.includes('HOW THEY RING')) failures.push('how-they-ring: expected heading missing');
     if (howTheyRing.ok) {
@@ -67,6 +73,21 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
         if (howTheyRing.text.includes(stale)) failures.push(`how-they-ring: stale live copy remains: ${stale}`);
       }
     }
+
+    if (englishHowTheyRing.ok) {
+      for (const marker of ['lang="en"', 'Alarm wristwatches,', 'Strikes a rod-shaped sound spring', 'Multiple recordings can be played at the same time']) {
+        if (!englishHowTheyRing.text.includes(marker)) failures.push(`en/how-they-ring: localized marker missing: ${marker}`);
+      }
+    }
+    if (germanHowTheyRing.ok) {
+      for (const marker of ['lang="de"', 'Wecker-Armbanduhren,', 'Schlägt eine stabförmige Tonfeder an', 'Mehrere Aufnahmen können gleichzeitig abgespielt werden']) {
+        if (!germanHowTheyRing.text.includes(marker)) failures.push(`de/how-they-ring: localized marker missing: ${marker}`);
+      }
+    }
+    if (englishHome.ok && !englishHome.text.includes('When notifications still ran on gears.')) failures.push('en: localized TOP lead missing');
+    if (germanHome.ok && !germanHome.text.includes('Als Benachrichtigungen noch mit Zahnrädern liefen.')) failures.push('de: localized TOP lead missing');
+    if (englishHome.ok && !englishHome.text.includes('en/how-they-ring/')) failures.push('en: HOW THEY RING link missing');
+    if (germanHome.ok && !germanHome.text.includes('de/how-they-ring/')) failures.push('de: HOW THEY RING link missing');
   } else if (home.ok && home.text.includes('how-they-ring/')) {
     failures.push('home: unpublished HOW THEY RING link leaked');
   }
@@ -77,7 +98,7 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   if (germanHistory.ok && !germanHistory.text.includes('Literatur &amp; Quellen') && !germanHistory.text.includes('Literatur & Quellen')) failures.push('de/history: localized sources label missing');
 
   if (sitemap.ok) {
-    for (const path of ['history/', 'en/history/', 'de/history/']) {
+    for (const path of ['history/', 'en/history/', 'de/history/', ...(howTheyRingSettings.productionPublished ? ['how-they-ring/', 'en/how-they-ring/', 'de/how-they-ring/'] : [])]) {
       const expected = `https://vintagealarm.github.io/${path}`;
       if (!sitemap.text.includes(expected)) failures.push(`${path}: missing from sitemap`);
     }
