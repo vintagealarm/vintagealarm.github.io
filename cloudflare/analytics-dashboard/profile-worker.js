@@ -13,6 +13,7 @@ export const X_PROFILE_TRACKING = Object.freeze({
 
 export const WATCH_PAGE_NAMES = Object.freeze({
   "/basis-alarm/": "Basis Alarm",
+  "/wittnauer-10wa/": "Wittnauer Cal.10WA",
   "/pierce-duofon/": "Pierce Duofon",
   "/cyma-time-o-vox/": "Cyma Time-O-Vox",
   "/citizen-alarm/": "Citizen Alarm",
@@ -41,11 +42,16 @@ export const HISTORY_GATEWAY_NAMES = Object.freeze({
   "/de/history/": "HISTORY (DE)",
 });
 
+export const RESEARCH_PAGE_NAMES = Object.freeze({
+  "/how-they-ring/": "How They Ring",
+});
+
 const TRACKED_PAGE_NAMES = Object.freeze({
   ...WATCH_PAGE_NAMES,
   ...ENGLISH_GATEWAY_NAMES,
   ...GERMAN_GATEWAY_NAMES,
   ...HISTORY_GATEWAY_NAMES,
+  ...RESEARCH_PAGE_NAMES,
 });
 
 const SNS_PAGE_NAMES = Object.freeze({
@@ -315,7 +321,7 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   return String(html)
     .replace(
       '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox"]',
-      '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]',
+      '["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]',
     )
     .replace(
       '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"}\n];',
