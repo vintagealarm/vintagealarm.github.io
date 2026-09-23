@@ -35,7 +35,11 @@ export async function GET() {
     { loc: `${root}owners-notes/` },
     { loc: `${root}en/` },
     { loc: `${root}de/` },
-    ...(howTheyRingRelease.productionPublished ? [{ loc: `${root}how-they-ring/` }] : []),
+    ...(howTheyRingRelease.productionPublished ? [
+      { loc: `${root}how-they-ring/` },
+      { loc: `${root}en/how-they-ring/` },
+      { loc: `${root}de/how-they-ring/` }
+    ] : []),
     ...(cymaChronometreResearch.published ? [{
       loc: `${root}cyma-time-o-vox/chronometre/`,
       lastmod: getGitLastmod('src/data/cyma-chronometre-research.json')
