@@ -1,4 +1,4 @@
-import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
+import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, RESEARCH_PAGE_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -35,6 +35,8 @@ const payload = patchAnalyticsPayload({
       { path: '/de/pierce-duofon/', name: '/de/pierce-duofon/', mapped: false, pageviews: 1, visits: 1 },
       { path: '/en/history/', name: '/en/history/', mapped: false, pageviews: 1, visits: 1 },
       { path: '/de/history/', name: '/de/history/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/how-they-ring/', name: '/how-they-ring/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/wittnauer-10wa/', name: '/wittnauer-10wa/', mapped: false, pageviews: 1, visits: 1 },
     ],
     flows: [
       { sourcePath: '', sourceCleanPath: '', destinationPath: '/x/', destinationName: '/x/', destinationMapped: false, channel: 'Direct / Unknown', visits: 2, pageviews: 3 },
@@ -63,10 +65,12 @@ const payload = patchAnalyticsPayload({
   },
 });
 
-assert(Object.keys(WATCH_PAGE_NAMES).length === 5, 'analytics must keep exactly five published Japanese WATCH pages');
+assert(Object.keys(WATCH_PAGE_NAMES).length === 6, 'analytics must keep all six published Japanese WATCH pages');
 assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 6, 'analytics must track English index plus five WATCH gateways');
 assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 4, 'analytics must track German index plus Duofon, Cyma and Westclox gateways');
 assert(Object.keys(HISTORY_GATEWAY_NAMES).length === 3, 'analytics must track Japanese, English and German HISTORY pages');
+assert(RESEARCH_PAGE_NAMES['/how-they-ring/'] === 'How They Ring', 'How They Ring research mapping missing');
+assert(WATCH_PAGE_NAMES['/wittnauer-10wa/'] === 'Wittnauer Cal.10WA', 'Wittnauer WATCH mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/history/'] === 'HISTORY', 'Japanese HISTORY mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/en/history/'] === 'HISTORY (EN)', 'English HISTORY mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/de/history/'] === 'HISTORY (DE)', 'German HISTORY mapping missing');
@@ -78,6 +82,8 @@ assert(payload.current.pages[3].name === 'Basis Alarm (EN)' && payload.current.p
 assert(payload.current.pages[4].name === 'Pierce Duofon (DE)' && payload.current.pages[4].mapped === true, 'Duofon German gateway was not mapped');
 assert(payload.current.pages[5].name === 'HISTORY (EN)' && payload.current.pages[5].mapped === true, 'English HISTORY page was not mapped');
 assert(payload.current.pages[6].name === 'HISTORY (DE)' && payload.current.pages[6].mapped === true, 'German HISTORY page was not mapped');
+assert(payload.current.pages[7].name === 'How They Ring' && payload.current.pages[7].mapped === true, 'How They Ring page was not mapped');
+assert(payload.current.pages[8].name === 'Wittnauer Cal.10WA' && payload.current.pages[8].mapped === true, 'Wittnauer page was not mapped');
 assert(payload.current.xProfileEntries === 2, 'profile entry count mismatch');
 assert(payload.current.flows[0].destinationName === 'X Profile', 'profile flow destination was not mapped');
 assert(payload.current.flows[1].destinationName === 'Citizen Alarm', 'Citizen flow destination was not mapped');
@@ -85,13 +91,15 @@ assert(payload.current.flows[3].destinationName === 'Basis Alarm (EN)', 'Basis E
 assert(payload.current.flows[4].destinationName === 'HISTORY (EN)', 'English HISTORY flow destination was not mapped');
 
 const snsTotals = Object.fromEntries(payload.current.snsEntries.pages.map((row) => [row.name, row.total]));
-assert(payload.current.snsEntries.pages.length === 20, 'SNS chart must contain tracked WATCH/gateway/HISTORY rows, X Profile, plus Other pages');
+assert(payload.current.snsEntries.pages.length === 22, 'SNS chart must contain tracked WATCH/gateway/HISTORY/research rows, X Profile, plus Other pages');
 assert(snsTotals['Citizen Alarm'] === 2, 'Citizen SNS visits mismatch');
 assert(snsTotals['Westclox Watchlarm'] === 3, 'Westclox SNS visits mismatch');
 assert(snsTotals['Basis Alarm (EN)'] === 1, 'Basis English SNS visits mismatch');
 assert(snsTotals['HISTORY'] === 0, 'Japanese HISTORY SNS row missing');
 assert(snsTotals['HISTORY (EN)'] === 1, 'English HISTORY SNS visits mismatch');
 assert(snsTotals['HISTORY (DE)'] === 0, 'German HISTORY SNS row missing');
+assert(snsTotals['How They Ring'] === 0, 'How They Ring SNS row missing');
+assert(snsTotals['Wittnauer Cal.10WA'] === 0, 'Wittnauer SNS row missing');
 assert(snsTotals['X Profile'] === 2, 'X Profile SNS visits must not remain in Other pages');
 assert(snsTotals['Other pages'] === 1, 'Other SNS visits mismatch');
 assert(payload.current.snsEntries.total === 10, 'SNS base total must be preserved while reallocating rows');
@@ -145,10 +153,12 @@ assert(patchedHtml.includes('X Profile'), 'profile event platform was not inject
 assert(patchedHtml.includes('id="aiReadable">AI URL</button>'), 'AI URL button was not injected');
 assert(patchedHtml.includes('/api/ai-readable-link?'), 'AI URL handler was not injected');
 assert(patchedHtml.includes('analyticsQuery'), 'AI URL handler must preserve current range/bucket query');
-assert(patchedHtml.includes('["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]'), 'WATCH share list changed unexpectedly');
+assert(patchedHtml.includes('["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]'), 'WATCH share list changed unexpectedly');
 assert(patchedHtml.includes('{name:"HISTORY",path:"/history/"}'), 'Japanese HISTORY key page was not injected');
 assert(patchedHtml.includes('{name:"HISTORY (EN)",path:"/en/history/"}'), 'English HISTORY key page was not injected');
 assert(patchedHtml.includes('{name:"HISTORY (DE)",path:"/de/history/"}'), 'German HISTORY key page was not injected');
+assert(patchedHtml.includes('{name:"Wittnauer Cal.10WA",path:"/wittnauer-10wa/"}'), 'Wittnauer key page was not injected');
+assert(patchedHtml.includes('{name:"How They Ring",path:"/how-they-ring/"}'), 'How They Ring key page was not injected');
 assert(X_PROFILE_TRACKING.url === 'https://vintagealarm.github.io/x/', 'profile URL changed unexpectedly');
 
 const freshness = buildFreshness({
@@ -184,6 +194,8 @@ assert(dashboardHtml.includes('id="aiReadable">AI URL</button>'), 'real dashboar
 assert(dashboardHtml.includes('{name:"HISTORY",path:"/history/"}'), 'real dashboard is missing Japanese HISTORY key page');
 assert(dashboardHtml.includes('{name:"HISTORY (EN)",path:"/en/history/"}'), 'real dashboard is missing English HISTORY key page');
 assert(dashboardHtml.includes('{name:"HISTORY (DE)",path:"/de/history/"}'), 'real dashboard is missing German HISTORY key page');
+assert(dashboardHtml.includes('{name:"Wittnauer Cal.10WA",path:"/wittnauer-10wa/"}'), 'real dashboard is missing Wittnauer key page');
+assert(dashboardHtml.includes('{name:"How They Ring",path:"/how-they-ring/"}'), 'real dashboard is missing How They Ring key page');
 
 const originalFetch = globalThis.fetch;
 let probeHeaders;
