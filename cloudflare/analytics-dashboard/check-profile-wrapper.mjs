@@ -164,9 +164,9 @@ const freshness = buildFreshness({
     }],
   },
 });
-assert.equal(freshness.bucketKind, '7d', 'new aggregated bucket kind must be recognized');
-assert.equal(freshness.bucketEnd, '2026-09-21T15:00:00.000Z', 'event gap must use explicit bucket end');
-assert.equal(freshness.eventGapSeconds, 205200, 'event gap must be measured from bucket end, not bucket start');
+assert(freshness.bucketKind === '7d', 'new aggregated bucket kind must be recognized');
+assert(freshness.bucketEnd === '2026-09-21T15:00:00.000Z', 'event gap must use explicit bucket end');
+assert(freshness.eventGapSeconds === 205200, 'event gap must be measured from bucket end, not bucket start');
 
 const auth = `Basic ${Buffer.from('admin:test-password').toString('base64')}`;
 const env = { DASHBOARD_PASSWORD: 'test-password', CF_API_TOKEN: 'test-cloudflare-token' };
