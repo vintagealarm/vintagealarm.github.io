@@ -126,6 +126,8 @@ Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始�
 - `/citizen-alarm/` → Citizen Alarm
 - `/westclox-watchlarm/` → Westclox Watchlarm
 - `/how-they-ring/` → How They Ring
+- `/en/how-they-ring/` → How They Ring (EN)
+- `/de/how-they-ring/` → How They Ring (DE)
 - `/cyma-time-o-vox/chronometre/` → Cyma Time-O-Vox Chronomètre
 - `/cyma-time-o-vox/owners-note/` → Cyma OWNER'S NOTE
 - `/history/smartwatch/` → Smartwatch / HISTORY
