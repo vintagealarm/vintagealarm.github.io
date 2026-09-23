@@ -75,10 +75,16 @@ assert(
   JSON.stringify(analyticsWatchPaths) === JSON.stringify(publishedWatchPaths),
   `analytics WATCH mapping must exactly match published WATCH routes: ${publishedWatchPaths.join(', ')}`
 );
-assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 6, 'analytics must track English index plus five WATCH gateways');
-assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 4, 'analytics must track German index plus Duofon, Cyma and Westclox gateways');
+assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 7, 'analytics must track English index plus all six WATCH gateways');
+assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 7, 'analytics must track German index plus all six WATCH gateways');
 assert(Object.keys(HISTORY_GATEWAY_NAMES).length === 3, 'analytics must track Japanese, English and German HISTORY pages');
 assert(RESEARCH_PAGE_NAMES['/how-they-ring/'] === 'How They Ring', 'How They Ring research mapping missing');
+assert(RESEARCH_PAGE_NAMES['/en/how-they-ring/'] === 'How They Ring (EN)', 'English How They Ring mapping missing');
+assert(RESEARCH_PAGE_NAMES['/de/how-they-ring/'] === 'How They Ring (DE)', 'German How They Ring mapping missing');
+assert(ENGLISH_GATEWAY_NAMES['/en/wittnauer-10wa/'] === 'Wittnauer Cal.10WA (EN)', 'Wittnauer English gateway mapping missing');
+assert(GERMAN_GATEWAY_NAMES['/de/basis-alarm/'] === 'Basis Alarm (DE)', 'Basis German gateway mapping missing');
+assert(GERMAN_GATEWAY_NAMES['/de/citizen-alarm/'] === 'Citizen Alarm (DE)', 'Citizen German gateway mapping missing');
+assert(GERMAN_GATEWAY_NAMES['/de/wittnauer-10wa/'] === 'Wittnauer Cal.10WA (DE)', 'Wittnauer German gateway mapping missing');
 assert(WATCH_PAGE_NAMES['/wittnauer-10wa/'] === 'Wittnauer Cal.10WA', 'Wittnauer WATCH mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/history/'] === 'HISTORY', 'Japanese HISTORY mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/en/history/'] === 'HISTORY (EN)', 'English HISTORY mapping missing');
@@ -100,7 +106,7 @@ assert(payload.current.flows[3].destinationName === 'Basis Alarm (EN)', 'Basis E
 assert(payload.current.flows[4].destinationName === 'HISTORY (EN)', 'English HISTORY flow destination was not mapped');
 
 const snsTotals = Object.fromEntries(payload.current.snsEntries.pages.map((row) => [row.name, row.total]));
-assert(payload.current.snsEntries.pages.length === 22, 'SNS chart must contain tracked WATCH/gateway/HISTORY/research rows, X Profile, plus Other pages');
+assert(payload.current.snsEntries.pages.length === 28, 'SNS chart must contain all tracked WATCH/gateway/HISTORY/research rows, X Profile, plus Other pages');
 assert(snsTotals['Citizen Alarm'] === 2, 'Citizen SNS visits mismatch');
 assert(snsTotals['Westclox Watchlarm'] === 3, 'Westclox SNS visits mismatch');
 assert(snsTotals['Basis Alarm (EN)'] === 1, 'Basis English SNS visits mismatch');
@@ -236,4 +242,4 @@ assert(!(await failed.json()).url, 'failed preflight must not return a URL');
 const unauthenticated = await profileWorker.fetch(new Request('https://dashboard.example/api/ai-readable-link'), env, {});
 assert(unauthenticated.status === 401, 'issuance still needs authentication');
 globalThis.fetch = originalFetch;
-console.log('Five-WATCH analytics + English/German gateways + localized HISTORY + SNS reallocation + X profile attribution + AI readable URL wrapper: OK');
+console.log('Six-WATCH analytics + English/German gateways + localized HISTORY + SNS reallocation + X profile attribution + AI readable URL wrapper: OK');

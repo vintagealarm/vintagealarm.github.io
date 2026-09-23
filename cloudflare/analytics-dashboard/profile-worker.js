@@ -23,6 +23,7 @@ export const WATCH_PAGE_NAMES = Object.freeze({
 export const ENGLISH_GATEWAY_NAMES = Object.freeze({
   "/en/": "English Entry",
   "/en/basis-alarm/": "Basis Alarm (EN)",
+  "/en/wittnauer-10wa/": "Wittnauer Cal.10WA (EN)",
   "/en/pierce-duofon/": "Pierce Duofon (EN)",
   "/en/cyma-time-o-vox/": "Cyma Time-O-Vox (EN)",
   "/en/citizen-alarm/": "Citizen Alarm (EN)",
@@ -31,8 +32,11 @@ export const ENGLISH_GATEWAY_NAMES = Object.freeze({
 
 export const GERMAN_GATEWAY_NAMES = Object.freeze({
   "/de/": "German Entry",
+  "/de/basis-alarm/": "Basis Alarm (DE)",
+  "/de/wittnauer-10wa/": "Wittnauer Cal.10WA (DE)",
   "/de/pierce-duofon/": "Pierce Duofon (DE)",
   "/de/cyma-time-o-vox/": "Cyma Time-O-Vox (DE)",
+  "/de/citizen-alarm/": "Citizen Alarm (DE)",
   "/de/westclox-watchlarm/": "Westclox Watchlarm (DE)",
 });
 
@@ -44,6 +48,8 @@ export const HISTORY_GATEWAY_NAMES = Object.freeze({
 
 export const RESEARCH_PAGE_NAMES = Object.freeze({
   "/how-they-ring/": "How They Ring",
+  "/en/how-they-ring/": "How They Ring (EN)",
+  "/de/how-they-ring/": "How They Ring (DE)",
 });
 
 const TRACKED_PAGE_NAMES = Object.freeze({
