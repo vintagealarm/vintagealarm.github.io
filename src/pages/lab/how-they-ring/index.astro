@@ -162,64 +162,30 @@ const specimens = orderedSlugs
       }
 
       .category-guide {
-        position: relative;
-        margin: 0 0 12px;
+        margin: 0 0 8px;
         color: var(--lab-soft);
         font-size: 12px;
         line-height: 1.6;
         text-align: center;
       }
 
-      .category-guide-arrow {
-        position: absolute;
-        top: 17px;
-        width: 30%;
-        height: 20px;
-        color: var(--lab-ink);
+      .category-arrows {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0 0 -1px;
+        height: 32px;
         pointer-events: none;
       }
 
-      .category-guide-arrow.left { left: 5%; }
-      .category-guide-arrow.right { right: 5%; }
-
-      .category-guide-arrow::before {
-        content: '';
-        position: absolute;
-        top: 7px;
-        width: calc(100% - 10px);
-        border-top: 1.5px solid currentColor;
-      }
-
-      .category-guide-arrow.left::before {
-        left: 0;
-        transform: rotate(10deg);
-        transform-origin: left center;
-      }
-
-      .category-guide-arrow.right::before {
-        right: 0;
-        transform: rotate(-10deg);
-        transform-origin: right center;
-      }
-
-      .category-guide-arrow::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        width: 8px;
-        height: 8px;
-        border-right: 1.5px solid currentColor;
-        border-bottom: 1.5px solid currentColor;
-      }
-
-      .category-guide-arrow.left::after {
-        left: 0;
-        transform: rotate(45deg);
-      }
-
-      .category-guide-arrow.right::after {
-        right: 0;
-        transform: rotate(45deg);
+      .category-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        color: var(--lab-ink);
+        font-size: 30px;
+        line-height: 1;
+        font-family: Arial, sans-serif;
+        font-weight: 400;
       }
 
       .category-grid {
@@ -675,7 +641,11 @@ const specimens = orderedSlugs
       </header>
 
       <section aria-label="鳴動方式を選ぶ">
-        <p class="category-guide"><span class="category-guide-arrow left" aria-hidden="true"></span><span>鳴らし方を選んで、時計を見てみる。</span><span class="category-guide-arrow right" aria-hidden="true"></span></p>
+        <p class="category-guide">鳴らし方を選んで、時計を見てみる。</p>
+        <div class="category-arrows" aria-hidden="true">
+          <span class="category-arrow">↓</span>
+          <span class="category-arrow">↓</span>
+        </div>
         <div class="category-grid">
           {categories.map((category) => (
             <button
