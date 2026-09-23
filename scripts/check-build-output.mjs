@@ -198,7 +198,7 @@ if (howTheyRingRelease.productionPublished) {
   for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る']) {
     if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale hero copy remains: ${stale}`);
   }
-  if (!soundProdHtml.includes('href=\"/how-they-ring/\">音で見る</a>')) failures.push('HOW THEY RING: shared Japanese menu label must be 音で見る');
+  if (!/<a[^>]+href=\"\/how-they-ring\/?\"[^>]*>\s*音で見る\s*<\/a>/.test(soundProdHtml)) failures.push('HOW THEY RING: shared Japanese menu label must be 音で見る');
   for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
     if (!soundProdHtml.includes(marker)) failures.push(`HOW THEY RING: current production marker missing: ${marker}`);
   }
