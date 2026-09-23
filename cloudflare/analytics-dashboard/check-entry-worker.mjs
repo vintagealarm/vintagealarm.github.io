@@ -78,7 +78,7 @@ assert(fallback.includes('external=X@t.co~/pierce-duofon/:6,OTHER@www.watchuseek
 assert(fallback.includes('flow=vintagealarm.github.io@/cyma-time-o-vox/~/pierce-duofon/:1/0'), 'portable snapshot internal flow missing host context');
 assert(fallback.includes('handoff=orima1995-create.github.io@/>vintagealarm.github.io@/cyma-time-o-vox/:2/2'), 'portable snapshot host migration flow missing');
 assert(fallback.includes('sns=/pierce-duofon/:7/0/0/0/7'), 'SNS landing summary missing');
-assert(fallback.includes('trend=9/16/7/3/2/0/0/0/0/0/1/0/0/1/UNSAMPLED/1,9/17/9/6/4/0/0/0/0/0/2/0/0/2/SAMPLED_/_ESTIMATE/10'), 'trend summary with quality metadata missing');
+assert(fallback.includes('trend=9-16/7/3/2/0/0/0/0/0/1/0/0/1/UNSAMPLED/1,9-17/9/6/4/0/0/0/0/0/2/0/0/2/SAMPLED-ESTIMATE/10'), 'trend summary with delimiter-safe quality metadata missing');
 
 const signed = 'https://vintage-alarm-analytics.orima1995.workers.dev/api/ai-export?window=custom&range=custom&bucket=7d&start=2026-09-08&end=2026-09-21&expires=1999999999&sig=' + 'a'.repeat(64);
 const shortRelay = buildShortRelayUrl(signed);
