@@ -163,6 +163,13 @@ const specimens = orderedSlugs
         letter-spacing: .01em;
       }
 
+      .category-guide {
+        margin: 0 0 10px;
+        color: var(--lab-soft);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
       .category-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -184,7 +191,13 @@ const specimens = orderedSlugs
       }
 
       .category-button[aria-pressed="true"] {
-        background: rgba(255,255,255,.14);
+        background: rgba(36,31,26,.08);
+      }
+
+      .category-button[aria-pressed="true"] .category-name strong {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 6px;
       }
 
       .category-button:focus-visible {
@@ -605,6 +618,7 @@ const specimens = orderedSlugs
       </header>
 
       <section aria-label="鳴動方式を選ぶ">
+        <p class="category-guide">鳴らし方を選んで、時計を見てみる。</p>
         <div class="category-grid">
           {categories.map((category) => (
             <button
