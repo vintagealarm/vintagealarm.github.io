@@ -236,3 +236,80 @@ CYMA判定は、
 
 この結果から、全WATCHを同じ検索難易度・同じ順位目標で評価しない。
 固有名詞の狭さ、ブランド規模、語義競合、画像母集団、検索エンジン差を分けて追う。
+
+
+## 2026-09-24｜VINTAGE ALARM ANALYTICS｜ALL / AUTO観測とマッピング更新
+
+### 観測条件
+
+ユーザーがダッシュボードのAI URL（`/s/v2/all/auto/...`）で共有したVA2スナップショットを記録する。
+
+- range: ALL
+- bucket: AUTO → 7D
+- generated: 2026-09-24 08:23 JST相当
+- quality: SAMPLED / ESTIMATE
+- sampleInterval: 10
+- 旧→新host migration: 2026-09-10
+
+このスナップショットはsamplingを含むため、Visits / Page viewsを実人数・確定実数として断定しない。
+
+### 全期間スナップショット
+
+- Visits: 136
+- Page views: 146
+- NEW: 116 Visits / 126 PV
+- OLD: 20 Visits / 20 PV
+- X: 51
+- Organic Search: 3
+- Direct / Unknown: 81
+- Other Referral: 1
+- AI Assistant: 0
+- Internal Navigation Visits: 0
+- Internal PV: 10
+- X Profile entry: 1
+
+主要Entry:
+
+- TOP: 53
+- Pierce Duofon: 50
+- Pierce Duofon (DE): 13
+- Westclox Watchlarm: 10
+- Pierce Duofon (EN): 3
+- Cyma Time-O-Vox: 2
+- Cyma Time-O-Vox Chronomètre: 1
+- How They Ring: 1
+- English Entry: 1
+- X Profile: 1
+- Citizen Alarm: 1
+
+確認できたSearch entryは `Bing → /en/pierce-duofon/` 3 Visits。
+確認できた内部flowは `TOP → HISTORY` 10 PV / 0 Visits。
+
+### 7日bucket
+
+- 9/8–9/14: 100 PV / 100 Visits。X 50、Direct 50。PARTIAL / MIGRATION / sampling対象のため同条件比較に使わない。
+- 9/15–9/21: 41 PV / 31 Visits。X 1、Search 2、Direct 27、Other 1、Internal PV 10。sampleInterval 10のため推定を含む。
+- 9/22–9/28: 5 PV / 5 Visits。Search 1、Direct 4。観測時点ではPARTIAL / UNSAMPLED。
+
+判定:
+
+- X → Pierce / Westclox の入口は継続観測されている。
+- Organic Searchは小標本だが、Bing → English Pierceが複数回観測された。
+- このexportで記録された追加PVは `TOP → HISTORY` に集中している。
+- WATCH → WATCHはこのexportでは観測されていない。
+- `/cyma-time-o-vox/chronometre/` と `/how-they-ring/` が各1 Visitで入口として現れた。各1件なので成果傾向とは判定しない。
+
+### Analytics保守
+
+この観測で `MAPPING AUDIT` に出た以下の公開Pathを現行マッピングへ追加した。
+
+- `/how-they-ring/` → How They Ring
+- `/wittnauer-10wa/` → Wittnauer Cal.10WA
+- `/cyma-time-o-vox/chronometre/` → Cyma Time-O-Vox Chronomètre
+
+またVA2のtrendで、表示ラベル `9/8–9/14` やstatus `SAMPLED / ESTIMATE` の `/` が列区切りと衝突していたため、AI URL fallbackではtrend fieldをdelimiter-safe表現へ変更した。
+
+運用ルール:
+- 新しい公開PathがAnalyticsで初観測され、MAPPING AUDITに出た場合は、ページ実体を確認してAnalytics mappingと `measurement/metrics.md` を同期する。
+- 観測値・施策結果はこの `experiment-log.md` に追記する。
+- 数時間〜数日で変動する集計値を `PROJECT_STATE.md` に重複保存しない。
