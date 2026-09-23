@@ -1,4 +1,4 @@
-import profileWorker, { ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
+import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -150,6 +150,23 @@ assert(patchedHtml.includes('{name:"HISTORY",path:"/history/"}'), 'Japanese HIST
 assert(patchedHtml.includes('{name:"HISTORY (EN)",path:"/en/history/"}'), 'English HISTORY key page was not injected');
 assert(patchedHtml.includes('{name:"HISTORY (DE)",path:"/de/history/"}'), 'German HISTORY key page was not injected');
 assert(X_PROFILE_TRACKING.url === 'https://vintagealarm.github.io/x/', 'profile URL changed unexpectedly');
+
+const freshness = buildFreshness({
+  generatedAt: '2026-09-24T00:00:00.000Z',
+  combined: {
+    trendBucket: '7d',
+    trend: [{
+      bucket: '2026-09-14T15:00:00.000Z',
+      bucketStart: '2026-09-14T15:00:00.000Z',
+      bucketEnd: '2026-09-21T15:00:00.000Z',
+      pageviews: 42,
+      visits: 32,
+    }],
+  },
+});
+assert.equal(freshness.bucketKind, '7d', 'new aggregated bucket kind must be recognized');
+assert.equal(freshness.bucketEnd, '2026-09-21T15:00:00.000Z', 'event gap must use explicit bucket end');
+assert.equal(freshness.eventGapSeconds, 118800, 'event gap must be measured from bucket end, not bucket start');
 
 const auth = `Basic ${Buffer.from('admin:test-password').toString('base64')}`;
 const env = { DASHBOARD_PASSWORD: 'test-password', CF_API_TOKEN: 'test-cloudflare-token' };
