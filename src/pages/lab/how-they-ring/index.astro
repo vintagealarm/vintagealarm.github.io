@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import ownersDirectory from '../../../data/owners-directory.json';
 import SeoHead from '../../../components/SeoHead.astro';
+import SectionMast from '../../../components/SectionMast.astro';
 import '../../../styles/site.css';
 
 const base = import.meta.env.BASE_URL;
@@ -40,12 +41,12 @@ const categories = [
     id: 'gong',
     en: 'GONG',
     ja: 'ゴング',
-    action: '専用の発音体を鳴らす',
+    action: '棒状の音バネを叩く',
     figures: [
       {
         no: '01',
         image: '/images/how-they-ring/gong.jpg',
-        label: '棒状の音ばねを叩く',
+        label: '棒状の音バネを叩く',
         example: 'OMEGA MEMOMATIC'
       }
     ]
@@ -634,6 +635,7 @@ const specimens = orderedSlugs
     </style>
   </head>
   <body>
+    {production && <SectionMast rightLabel="HOW THEY RING" />}
     <main class="lab">
       <header class="lab-hero">
         <p class="lab-kicker">HOW THEY RING<span>鳴らし方で見る</span></p>
@@ -641,7 +643,7 @@ const specimens = orderedSlugs
       </header>
 
       <section aria-label="鳴動方式を選ぶ">
-        <p class="category-guide"><span class="category-guide-arrow" aria-hidden="true"><svg viewBox="0 0 14 28" focusable="false"><path d="M7 1V24M2.5 19.5L7 24L11.5 19.5" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>鳴らし方で時計を見てみる</span><span class="category-guide-arrow" aria-hidden="true"><svg viewBox="0 0 14 28" focusable="false"><path d="M7 1V24M2.5 19.5L7 24L11.5 19.5" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span></p>
+        <p class="category-guide"><span class="category-guide-arrow" aria-hidden="true"><svg viewBox="0 0 14 28" focusable="false"><path d="M7 1V24M2.5 19.5L7 24L11.5 19.5" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>音と鳴らし方で時計を見る</span><span class="category-guide-arrow" aria-hidden="true"><svg viewBox="0 0 14 28" focusable="false"><path d="M7 1V24M2.5 19.5L7 24L11.5 19.5" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span></p>
         <div class="category-grid">
           {categories.map((category) => (
             <button
