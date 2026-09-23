@@ -267,6 +267,7 @@ assert.ok(html.includes('data-window="all"'));
 assert.ok(html.includes('id="customApply"'));
 assert.ok(html.includes('id="bucketSelect"'));
 assert.ok(html.includes("BUCKET COMPARISON"));
+assert.ok(html.includes(".bucket-compare{grid-column:1/-1}"), "bucket comparison must span the analytics grid");
 assert.ok(html.includes("GROUP BY"));
 assert.ok(html.includes("比較対象なし"));
 // Exercise the actual generated chart function without the dashboard's DOM boot.
