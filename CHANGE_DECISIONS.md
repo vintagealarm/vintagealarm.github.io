@@ -21,7 +21,7 @@
 - **旧状態・棄却**：共通メニューだけ `HOW THEY RING` のまま残す状態。
 - **影響範囲**：`SectionMast.astro` の日本語メニュー1箇所のみ。build/live gateはその1箇所を回帰検査するため同期。
 - **再検討条件**：共通メニュー全体の言語設計を変更する明示判断があった場合。
-- **検証状態**：PR内でsource/build/live gateの一致を確認し、merge後mainを再取得して確認する。
+- **検証状態**：初回CIで生成HTMLのAstro属性を考慮しない厳密文字列gateが失敗。実装不良ではなく検査式の問題と確認し、属性を許容するHTML-safeな正規表現へ修正して再検証中。merge後mainを再取得して確認する。
 - **関連**：このPR
 ### 2026-09-24 07:54 JST — Wittnauer 10WAの公開状態を明確化
 - **変更**：公開済みWATCHの計測対象は Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm の5本だけと明記。Wittnauer 10WAは所有個体／HOW THEY RING側のデータには含まれるが、公開済みWATCH 5ページの計測対象には含めないことを `PROJECT_STATE.md` に追記。
