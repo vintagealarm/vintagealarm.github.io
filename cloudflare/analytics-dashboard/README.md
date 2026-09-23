@@ -12,7 +12,8 @@ VINTAGE ALARM専用の非公開アクセス解析ダッシュボード。
 
 ## 主な表示
 
-- 1H / 3H / 24H / 7D / 30D
+- RANGE: 1H / 3H / 24H / 7D / 30D / ALL / CUSTOM
+- GROUP BY: AUTO / 30 MIN / 1 HOUR / 1 DAY / 7 DAYS / MONTH
 - Visits / Page views
 - X Visits / YouTube Visits / Organic Search
 - Pages per Visit
@@ -80,13 +81,17 @@ Workerは `vintagealarm.github.io` と `orima1995-create.github.io` を別々の
 
 手動でも、Basic Auth済みのブラウザで `/api/ai-share-link?window=7d` を開けば同じURLを取得できる。
 
-対応window:
+対応range:
 
 - 1h
 - 3h
 - 24h
 - 7d
 - 30d
+- all
+- custom（start / end必須）
+
+`bucket` には auto / 30m / 1h / 1d / 7d / 1mo を指定できる。
 
 `ttl` を秒で指定できる。最小5分、最大7日。省略時は24時間。
 
@@ -118,7 +123,7 @@ export対象:
 
 Search Console / Google生成AIのCSV Importは現時点でブラウザlocalStorageだけに保存されるため、Worker側exportには含まれない。取得不能なデータを自動取得済みとして扱わない。
 
-署名鍵はWorker内だけにある `DASHBOARD_PASSWORD` と `CF_API_TOKEN` から専用鍵を導出し、HMAC-SHA256でwindowと有効期限に結び付ける。どちらのSecretもURLやレスポンスには出さない。署名付きURLはread-onlyだが、有効期限内はURLを知る相手が閲覧できるため、必要な相手以外へ共有しない。
+署名鍵はWorker内だけにある `DASHBOARD_PASSWORD` と `CF_API_TOKEN` から専用鍵を導出し、HMAC-SHA256でRANGE / GROUP BY / CUSTOM日付を含むanalytics scopeと有効期限に結び付ける。どちらのSecretもURLやレスポンスには出さない。署名付きURLはread-onlyだが、有効期限内はURLを知る相手が閲覧できるため、必要な相手以外へ共有しない。
 
 ## URL表示名
 
