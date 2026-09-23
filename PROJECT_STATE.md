@@ -1,6 +1,6 @@
 # VINTAGE ALARM — CURRENT PROJECT STATE
 
-更新日: 2026-09-19
+更新日: 2026-09-23
 
 この文書は、VINTAGE ALARMで作業を再開するときに最初に読む「現在位置の索引」です。
 
@@ -66,10 +66,15 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
 - 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
-- HOW THEY RINGの現行分類は GONG / CASEBACK の2種類だけ。GONG＝専用の発音体を鳴らす、CASEBACK＝ケースバック構造を共鳴させて鳴らす
-- CASEBACKの図示02〜04は下位分類ではなく構造バリエーションの例示。02「膜状バック型 — VULCAIN CRICKET」、03「ピン／レバー伝達型 — JUNGHANS MINIVOX」、04「BELL-BASE型 — LANCO-FON」。個体カードには02/03/04等の詳細分類を付けない
-- 掲載個体の分類は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK
-- FIG.01はGONGの参考図として OMEGA MEMOMATIC を表示する
+- HOW THEY RINGの現行分類は **GONG / CASEBACK の2種類だけ**。詳細機構を第三・第四カテゴリへ増やさない。
+- 上段の図は分類体系ではなく「同じ大分類でも鳴らし方の構造差がある」ことを見せる代表例。個体カードへFIG番号や詳細機構分類を持ち込まない。
+- FIG.01 GONG: OMEGA MEMOMATIC。現行表示は「棒状の音ばねを叩く」。この機構文言はMemomatic固有資料との再照合を未完了事項として扱い、一般的なTonfeder資料だけで確定扱いしない。
+- FIG.02 CASEBACK: 「振動板型 — VULCAIN CRICKET」。旧「膜状バック型」は失効。
+- FIG.03 CASEBACK: 「ピン／レバー伝達型 — JUNGHANS MINIVOX」。
+- FIG.04 CASEBACK: 「BELL-BASE型 — LANCO-FON · CAL.1241」。Lanco-Fon全体へ一般化しない。Cal.1241は資料上hammerがGlockeを打つことを確認したため、このcaliberに限定する。
+- 掲載個体の大分類は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK。
+- Pierce Duofonの二音源表示は **WECKER / 音あり** と **SIGNAL / 音無し**。ファイル名由来の WAKER / SILENT を表示ラベルへ戻さない。
+- HOW THEY RINGの入口表示名は **HOW THEY RING**。旧「音で選ぶ」は失効。TOPではOWNER'S NOTES直下に置く。
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
@@ -136,6 +141,13 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 
 ## 7. SUPERSEDED / REJECTED BASELINES
 
+- HOW THEY RINGを GONG / CASEBACK / BELL / PIN 等の4分類へ戻す
+- CASEBACK個体をFIG.02/03/04の詳細分類でカード分類する
+- FIG.02の「膜状バック型」表記を復活させる
+- FIG.04をcaliber指定なしの「LANCO-FON」全体へ一般化する
+- HOW THEY RING入口名を「音で選ぶ」へ戻す
+- Pierce Duofonの表示ラベルへ WAKER / SILENT を使う
+
 新証拠または明示的な仕様変更がない限り復活させない。
 
 - 旧公開ホストをcanonicalとして扱う
@@ -181,7 +193,9 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 
 通常の完了順序:
 
-調査 → 作業コンテキスト確認 → 対象特定 → 差分編集 → 必要な検証 → diff確認 → 必要なら公開確認 → 必要なら成果観測
+調査 → 作業コンテキスト確認 → 対象特定 → 差分編集 → **変更した表示文言・公開フラグと全build/live gateの旧文字列・旧仕様を突合** → 必要な検証 → diff確認 → deploy → live確認 → 必要なら成果観測
+
+公開導線・ラベル・release flagを変更した場合は、`scripts/check-build-output.mjs` / `scripts/check-live-site.mjs` / layout対象route / workflowの該当gateを同時監査する。旧ラベルを検査条件に残したまま「反映待ち」と判断しない。過去に通常数分で反映していたサイトで長時間liveが変わらない場合は、待機やキャッシュを先に推測せず、**最後に成功したdeploy以降の変更とgateの不整合を最優先で調べる**。IMPLEMENTEDやmain pushを完了報告に使わず、ユーザーが公開まで求めた作業はliveで目的物を確認してDEPLOYEDとする。
 
 エラーが自力で解決可能な場合は、そのままユーザーへ返さず原因を特定して再試行する。
 
