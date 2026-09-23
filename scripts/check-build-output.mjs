@@ -195,10 +195,10 @@ if (howTheyRingRelease.productionPublished) {
   if (soundProdHtml.includes('noindex,nofollow,noarchive')) failures.push('HOW THEY RING: production release ON but page is still noindex');
   if (soundProdHtml.includes('非公開プレビュー')) failures.push('HOW THEY RING: production release ON but preview label leaked');
   if (!soundProdHtml.includes('HOW THEY RING')) failures.push('HOW THEY RING: production release ON but gallery content is missing');
-  for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る']) {
-    if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale hero copy remains: ${stale}`);
+  for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。']) {
+    if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale hero/evidence copy remains: ${stale}`);
   }
-  for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
+  for (const marker of ['音で見る、', 'アラーム腕時計。', '内蔵の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'OMEGA MEMOMATICのOmega/Lemania Cal.980は、内蔵された音バネ（tone spring）を打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
     if (!soundProdHtml.includes(marker)) failures.push(`HOW THEY RING: current production marker missing: ${marker}`);
   }
 } else {
