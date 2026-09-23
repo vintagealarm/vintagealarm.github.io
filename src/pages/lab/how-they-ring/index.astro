@@ -737,7 +737,13 @@ const specimens = orderedSlugs
                     watch.recordings.map((recording) => (
                       <div>
                         <p>{recording.label}</p>
-                        <audio controls preload="none" src={`${base}${recording.src.replace(/^\//, '')}`}></audio>
+                        {recording.src?.trim() ? (
+                          <audio controls preload="none" src={`${base}${recording.src.replace(/^\//, '')}`}></audio>
+                        ) : (
+                          <button class="audio-pending" type="button" disabled>
+                            <span>AUDIO / 音源</span>
+                          </button>
+                        )}
                       </div>
                     ))
                   ) : (
