@@ -1,6 +1,6 @@
 # VINTAGE ALARM — 計測定義
 
-更新日: 2026-09-13
+更新日: 2026-09-24
 
 ## 公開URL移行
 
@@ -50,7 +50,7 @@ Cloudflare Web Analytics / RUMをGraphQL APIから読み、VINTAGE ALARM用の�
 - Worker: `vintage-alarm-analytics.orima1995.workers.dev`
 - Basic Authで管理者だけが閲覧する
 
-`profile-worker.js` は基礎集計を壊さず、公開済みWATCH 5ページの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。本番のWATCH範囲はBasis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarmの5ページとする。
+`profile-worker.js` は基礎集計を壊さず、公開済みWATCH 6ページの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。本番のWATCH範囲は Basis Alarm / Wittnauer Cal.10WA / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm / Pierce Duofon の6ページとする。公開WATCHは発見性・計測とも同じ6本の集合を使う。
 
 表示:
 - RANGE: 1時間 / 3時間 / 24時間 / 7日 / 30日 / ALL / CUSTOM
@@ -120,6 +120,7 @@ Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始�
 - `/history/` → HISTORY
 - `/owners-notes/` → OWNER'S NOTES
 - `/basis-alarm/` → Basis Alarm
+- `/wittnauer-10wa/` → Wittnauer Cal.10WA
 - `/pierce-duofon/` → Pierce Duofon
 - `/cyma-time-o-vox/` → Cyma Time-O-Vox
 - `/citizen-alarm/` → Citizen Alarm
@@ -191,6 +192,7 @@ Cloudflare:
 - HISTORY
 - OWNER'S NOTES
 - Basis Alarm
+- Wittnauer Cal.10WA
 - Pierce Duofon
 - Cyma Time-O-Vox
 - Citizen Alarm

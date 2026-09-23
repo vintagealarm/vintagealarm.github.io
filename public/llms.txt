@@ -17,7 +17,7 @@ Primary sections:
 - https://vintagealarm.github.io/owners-notes/
 - https://vintagealarm.github.io/sources/
 
-Published watch pages:
+Published WATCH pages — six owned specimens, treated as one public set for discovery and measurement:
 - https://vintagealarm.github.io/cyma-time-o-vox/
 - https://vintagealarm.github.io/pierce-duofon/
 - https://vintagealarm.github.io/wittnauer-10wa/

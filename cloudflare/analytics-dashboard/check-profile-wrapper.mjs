@@ -1,4 +1,5 @@
 import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, RESEARCH_PAGE_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
+import { readWatchPublicationState } from '../../scripts/watch-publication.mjs';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -65,7 +66,15 @@ const payload = patchAnalyticsPayload({
   },
 });
 
-assert(Object.keys(WATCH_PAGE_NAMES).length === 6, 'analytics must keep all six published Japanese WATCH pages');
+const publishedWatchPaths = readWatchPublicationState()
+  .filter((watch) => watch.published)
+  .map((watch) => `/${watch.slug}/`)
+  .sort();
+const analyticsWatchPaths = Object.keys(WATCH_PAGE_NAMES).sort();
+assert(
+  JSON.stringify(analyticsWatchPaths) === JSON.stringify(publishedWatchPaths),
+  `analytics WATCH mapping must exactly match published WATCH routes: ${publishedWatchPaths.join(', ')}`
+);
 assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 6, 'analytics must track English index plus five WATCH gateways');
 assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 4, 'analytics must track German index plus Duofon, Cyma and Westclox gateways');
 assert(Object.keys(HISTORY_GATEWAY_NAMES).length === 3, 'analytics must track Japanese, English and German HISTORY pages');
