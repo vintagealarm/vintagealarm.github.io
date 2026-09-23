@@ -6,13 +6,15 @@
 
 英語版を「日本語サイトの完全複製」として一括生成するのではなく、海外からの発見と初回理解を補う入口として実装する。
 
-対象は現在公開済みの5 WATCH:
+英語WATCHページを公開しているのは現在5本:
 
 - Basis Alarm
 - Pierce Duofon
 - Cyma Time-O-Vox
 - Citizen Alarm
 - Westclox Watchlarm
+
+Wittnauer Cal.10WAの日本語WATCHは公開済みだが、英語WATCHページはまだ作っていない。英語HOW THEY RINGからは日本語WATCHへフォールバックする。
 
 英語入口は `/en/`、`/en/history/`、`/en/how-they-ring/`、`/en/<watch>/` に置く。
 
