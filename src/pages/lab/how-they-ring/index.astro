@@ -175,11 +175,17 @@ const specimens = orderedSlugs
       }
 
       .category-guide-arrow {
-        color: var(--lab-ink);
-        font-family: Arial, sans-serif;
-        font-size: 30px;
-        font-weight: 400;
-        line-height: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--lab-soft);
+      }
+
+      .category-guide-arrow svg {
+        display: block;
+        width: 14px;
+        height: 28px;
+        overflow: visible;
       }
 
       .category-grid {
@@ -635,7 +641,7 @@ const specimens = orderedSlugs
       </header>
 
       <section aria-label="鳴動方式を選ぶ">
-        <p class="category-guide"><span class="category-guide-arrow" aria-hidden="true">↓</span><span>鳴らし方で時計を見てみる</span><span class="category-guide-arrow" aria-hidden="true">↓</span></p>
+        <p class="category-guide"><span class="category-guide-arrow" aria-hidden="true"><svg viewBox="0 0 14 28" focusable="false"><path d="M7 1V24M2.5 19.5L7 24L11.5 19.5" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>鳴らし方で時計を見てみる</span><span class="category-guide-arrow" aria-hidden="true"><svg viewBox="0 0 14 28" focusable="false"><path d="M7 1V24M2.5 19.5L7 24L11.5 19.5" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span></p>
         <div class="category-grid">
           {categories.map((category) => (
             <button
