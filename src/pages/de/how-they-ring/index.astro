@@ -1,0 +1,8 @@
+---
+import Gallery from '../../lab/how-they-ring/index.astro';
+import release from '../../../data/how-they-ring-settings.json';
+
+const base = import.meta.env.BASE_URL;
+if (!release.productionPublished) return Astro.redirect(`${base}de/`);
+---
+<Gallery production locale="de" />
