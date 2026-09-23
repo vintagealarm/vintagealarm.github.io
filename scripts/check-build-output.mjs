@@ -42,6 +42,8 @@ const historyHtml = fs.existsSync(path.join(dist, 'history/index.html'))
 const sitemap = fs.existsSync(path.join(dist, 'sitemap.xml'))
   ? fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8')
   : '';
+const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
+const llms = fs.readFileSync(path.join(root, 'public', 'llms.txt'), 'utf8');
 const ownersDirectory = JSON.parse(fs.readFileSync(path.join(root, 'src/data/owners-directory.json'), 'utf8'));
 const researchSettings = JSON.parse(fs.readFileSync(path.join(root, 'src/data/research-settings.json'), 'utf8'));
 const howTheyRingRelease = JSON.parse(fs.readFileSync(path.join(root, 'src/data/how-they-ring-settings.json'), 'utf8'));
@@ -62,7 +64,10 @@ for (const watch of watches) {
   if (watch.published) {
     if (!ownersHtml.includes(historyHref)) failures.push(`${watch.slug}: missing from OWNER'S NOTES`);
     if (historyOwnerSlugs.has(watch.slug) && !historyHtml.includes(historyHref)) failures.push(`${watch.slug}: missing from HISTORY owner rail`);
-    if (!sitemap.includes(`https://vintagealarm.github.io/${href}`)) failures.push(`${watch.slug}: missing from sitemap`);
+    const canonicalWatchUrl = `https://vintagealarm.github.io/${href}`;
+    if (!sitemap.includes(canonicalWatchUrl)) failures.push(`${watch.slug}: missing from sitemap`);
+    if (!readme.includes(canonicalWatchUrl)) failures.push(`${watch.slug}: missing from README published WATCH discovery list`);
+    if (!llms.includes(canonicalWatchUrl)) failures.push(`${watch.slug}: missing from llms.txt published WATCH discovery list`);
     const sitemapEntryPattern = new RegExp(
       `<url><loc>https://vintagealarm\\.github\\.io/${watch.slug}/</loc><lastmod>\\d{4}-\\d{2}-\\d{2}</lastmod></url>`
     );

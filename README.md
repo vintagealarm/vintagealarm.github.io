@@ -24,9 +24,15 @@ VINTAGE ALARM favors a small number of durable, source-traceable WATCH pages ove
 Key public sections:
 - HISTORY: https://vintagealarm.github.io/history/
 - OWNER'S NOTES: https://vintagealarm.github.io/owners-notes/
-- Cyma Time-O-Vox: https://vintagealarm.github.io/cyma-time-o-vox/
-- Pierce Duofon: https://vintagealarm.github.io/pierce-duofon/
+- HOW THEY RING: https://vintagealarm.github.io/how-they-ring/
+
+Published WATCH pages — six owned specimens:
 - Basis Alarm: https://vintagealarm.github.io/basis-alarm/
+- Wittnauer Cal.10WA: https://vintagealarm.github.io/wittnauer-10wa/
+- Cyma Time-O-Vox: https://vintagealarm.github.io/cyma-time-o-vox/
+- Citizen Alarm: https://vintagealarm.github.io/citizen-alarm/
+- Westclox Watchlarm: https://vintagealarm.github.io/westclox-watchlarm/
+- Pierce Duofon: https://vintagealarm.github.io/pierce-duofon/
 
 Machine-readable discovery:
 - Sitemap: https://vintagealarm.github.io/sitemap.xml

@@ -15,6 +15,14 @@
 
 ## 2026-09-24
 
+### 2026-09-24 08:25 JST — 公開WATCHを6本の同一セットへ統一
+- **変更**：Basis Alarm / Wittnauer Cal.10WA / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm / Pierce Duofon の6本を、公開WATCH・計測・発見性の共通セットとして扱う。README / llms.txt / measurement定義も6本で揃える。
+- **理由**：Wittnauerは `src/content/watches/wittnauer-10wa.md` で `published: true` の一般公開WATCHで、OWNER'S NOTESとsitemapにも同じ公開個体として入っている。5本だけをmeasurement targetとして別集合にすると、公開状態・計測・機械発見性の間で同じWATCH集合が分裂するため。
+- **旧状態・棄却**：Wittnauerだけを所有個体／HOW THEY RING側へ分離し、公開WATCH 5本の計測対象外とする扱い。
+- **影響範囲**：PROJECT_STATE、measurement/metrics、README、llms.txt、analytics回帰テスト、build discovery gate。WATCH本文・OWNER'S NOTE本文・分類・レイアウトは変更しない。
+- **検証状態**：実装後、published WATCH集合とanalytics mapping、README / llms.txt / sitemapの整合をCIで確認する。
+- **関連**：PR #100
+
 ### 2026-09-24 08:13 JST — HOW THEY RING FIG.01のMemomatic根拠を再照合
 - **変更**：FIG.01の公開文言を「棒状の音バネを叩く」から「内蔵の音バネを叩く」へ修正し、根拠文を「OMEGA MEMOMATICのOmega/Lemania Cal.980は、内蔵された音バネ（tone spring）を打撃する。」へ明確化。
 - **理由**：公開HTMLの「Cal.980」だけではCitizen Cal.980との識別ができず、さらに「棒状」という形状表現は今回確認したMemomatic固有資料だけでは確定できないため。『The Alarm Wristwatch』のOmega/Lemania SL 980項には「Striking on integrated tone spring」とあり、980がOmega向けに開発されたcaliberであることも明記されている。
@@ -29,7 +37,7 @@
 - **旧状態・棄却**：Wittnauerを6本目の公開済みWATCHとして扱う解釈。
 - **影響範囲**：状態文書のみ。既存の `measurement/metrics.md` はすでに公開済みWATCH 5ページを同じ5本として定義しており、計測実装の変更は不要。
 - **検証状態**：`PROJECT_STATE.md` と `measurement/metrics.md` を突合して整合確認済み。
-- **再検討条件**：Wittnauer 10WAのWATCHページが正式公開され、計測対象へ追加する明示変更が行われた場合。
+- **後続変更**：2026-09-24 08:25 JSTに失効。Wittnauerはすでに `published: true` の公開WATCHであり、他5本と同じ公開WATCHセット／計測対象として扱う。
 - **関連**：このPR
 ## 2026-09-23 — 復元履歴
 
