@@ -661,8 +661,8 @@ content:
         type: boolean
         default: false
       - name: showOnTop
-        label: TOPに「音で選ぶ」を表示
-        description: 本番公開がONのときだけ、TOPのOWNER'S NOTESの次に「音で選ぶ」を表示します。
+        label: TOPに「HOW THEY RING」を表示
+        description: 本番公開がONのときだけ、TOPのOWNER'S NOTESの次に「HOW THEY RING」を表示します。
         type: boolean
         default: false
 
