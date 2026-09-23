@@ -130,7 +130,7 @@ function trendRows(payload) {
   return rows
     .slice(-31)
     .map((row) => [
-      token(row?.bucket, 16),
+      token(row?.label || row?.bucket, 40),
       finiteNumber(row?.pageviews),
       finiteNumber(row?.visits),
       finiteNumber(row?.x),
@@ -142,6 +142,9 @@ function trendRows(payload) {
       finiteNumber(row?.direct),
       finiteNumber(row?.ai),
       finiteNumber(row?.other),
+      finiteNumber(row?.internalPV),
+      token(row?.status || "UNSAMPLED", 24),
+      finiteNumber(row?.sampleInterval || 1),
     ].join("/"))
     .join(",");
 }
@@ -155,11 +158,15 @@ export function buildAiFallbackFragment(payload) {
   const legacy = payload?.legacy?.current || {};
   const generated = token(String(payload?.generatedAt || "").replace(/[-:.]/g, ""), 32);
   const migration = token(payload?.hostMigration?.date || "", 16);
-  const latestEvent = token(payload?.freshness?.latestEventBucket || "", 16);
+  const latestEvent = token(payload?.freshness?.latestEventBucket || "", 40);
 
   const fields = [
     "VA2",
     `window=${token(payload?.windowKey, 10)}`,
+    `range=${token(payload?.rangeKey || payload?.windowKey, 10)}`,
+    `bucket=${token(payload?.bucketKey || payload?.trendBucket || "auto", 10)}`,
+    `quality=${token(combined?.quality || "UNSAMPLED", 24)}`,
+    `sample=${finiteNumber(combined?.sampleInterval || 1)}`,
     `generated=${generated}`,
     `visits=${finiteNumber(combined?.visits)}`,
     `pageviews=${finiteNumber(combined?.pageviews)}`,
@@ -207,15 +214,25 @@ export function buildAiFallbackFragment(payload) {
 
 export function buildShortRelayUrl(signedUrl) {
   const source = new URL(signedUrl);
-  const windowKey = source.searchParams.get("window") || "";
+  const rangeKey = source.searchParams.get("range") || source.searchParams.get("window") || "";
+  const bucketKey = source.searchParams.get("bucket") || "auto";
+  const start = source.searchParams.get("start") || "-";
+  const end = source.searchParams.get("end") || "-";
   const expires = source.searchParams.get("expires") || "";
   const sig = source.searchParams.get("sig") || "";
 
-  if (!/^(1h|3h|24h|7d|30d)$/.test(windowKey)) throw new Error("Signed export window is invalid.");
+  if (!/^(1h|3h|24h|7d|30d|all|custom)$/.test(rangeKey)) throw new Error("Signed export range is invalid.");
+  if (!/^(auto|30m|1h|1d|7d|1mo)$/.test(bucketKey)) throw new Error("Signed export bucket is invalid.");
+  if (rangeKey === "custom" && (!/^\d{4}-\d{2}-\d{2}$/.test(start) || !/^\d{4}-\d{2}-\d{2}$/.test(end))) {
+    throw new Error("Signed export custom dates are invalid.");
+  }
   if (!/^\d{10,}$/.test(expires)) throw new Error("Signed export expiry is invalid.");
   if (!/^[0-9a-f]{64}$/i.test(sig)) throw new Error("Signed export signature is invalid.");
 
-  return new URL(`/s/v1/${windowKey}/${expires}/${sig}`, AI_READABLE_RELAY);
+  return new URL(
+    `/s/v2/${rangeKey}/${bucketKey}/${encodeURIComponent(start)}/${encodeURIComponent(end)}/${expires}/${sig}`,
+    AI_READABLE_RELAY,
+  );
 }
 
 async function fallbackFragmentFromSignedExport(signedUrl, env, ctx) {
@@ -238,7 +255,15 @@ async function issueAiReadableLink(request, url, env, ctx) {
   if (request.method !== "GET") return jsonResponse({ error: "GET only." }, 405);
 
   const shareUrl = new URL("/api/ai-share-link", url.origin);
-  shareUrl.searchParams.set("window", url.searchParams.get("window") || "7d");
+  const range = url.searchParams.get("range") || url.searchParams.get("window") || "7d";
+  shareUrl.searchParams.set("window", range);
+  shareUrl.searchParams.set("range", range);
+  const bucket = url.searchParams.get("bucket");
+  if (bucket) shareUrl.searchParams.set("bucket", bucket);
+  if (range === "custom") {
+    shareUrl.searchParams.set("start", url.searchParams.get("start") || "");
+    shareUrl.searchParams.set("end", url.searchParams.get("end") || "");
+  }
   shareUrl.searchParams.set("ttl", String(AI_READABLE_TTL_SECONDS));
 
   const headers = new Headers();
