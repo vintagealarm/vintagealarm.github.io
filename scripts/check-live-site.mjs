@@ -8,6 +8,7 @@ const site = root.endsWith('/') ? root : `${root}/`;
 const watches = readWatchPublicationState();
 const ownersDirectory = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/owners-directory.json'), 'utf8'));
 const researchSettings = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/research-settings.json'), 'utf8'));
+const howTheyRingSettings = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/how-they-ring-settings.json'), 'utf8'));
 const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.historyId));
 
 const get = async (path) => {
@@ -52,6 +53,14 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   }
 
   if (home.ok && !home.text.includes('owners-notes/')) failures.push('home: OWNER\'S NOTES link missing');
+  if (howTheyRingSettings.productionPublished) {
+    const howTheyRing = await get('how-they-ring/');
+    if (!howTheyRing.ok) failures.push(`how-they-ring: published page HTTP ${howTheyRing.status}`);
+    if (howTheyRingSettings.showOnTop && home.ok && !home.text.includes('how-they-ring/')) failures.push('home: published HOW THEY RING link missing');
+    if (howTheyRing.ok && !howTheyRing.text.includes('HOW THEY RING')) failures.push('how-they-ring: expected heading missing');
+  } else if (home.ok && home.text.includes('how-they-ring/')) {
+    failures.push('home: unpublished HOW THEY RING link leaked');
+  }
   if (history.ok && !history.text.includes('id="milestones"')) failures.push('history: milestones missing');
   if (englishHistory.ok && !englishHistory.text.includes('lang="en"')) failures.push('en/history: html lang missing');
   if (germanHistory.ok && !germanHistory.text.includes('lang="de"')) failures.push('de/history: html lang missing');
