@@ -28,6 +28,15 @@ function token(value, max = 90) {
     .slice(0, max);
 }
 
+function trendFieldToken(value, max = 40) {
+  return token(
+    String(value ?? "")
+      .replace(/[–—]/g, "-")
+      .replace(/\s*\/\s*/g, "-"),
+    max,
+  );
+}
+
 function channelVisits(period, name) {
   const row = (period?.channels || []).find((item) => item?.name === name);
   return finiteNumber(row?.visits);
@@ -130,7 +139,7 @@ function trendRows(payload) {
   return rows
     .slice(-31)
     .map((row) => [
-      token(row?.label || row?.bucket, 40),
+      trendFieldToken(row?.label || row?.bucket, 40),
       finiteNumber(row?.pageviews),
       finiteNumber(row?.visits),
       finiteNumber(row?.x),
@@ -143,7 +152,7 @@ function trendRows(payload) {
       finiteNumber(row?.ai),
       finiteNumber(row?.other),
       finiteNumber(row?.internalPV),
-      token(row?.status || "UNSAMPLED", 24),
+      trendFieldToken(row?.status || "UNSAMPLED", 24),
       finiteNumber(row?.sampleInterval || 1),
     ].join("/"))
     .join(",");
