@@ -1,22 +1,45 @@
 ---
 import { getCollection } from 'astro:content';
 import ownersDirectory from '../../../data/owners-directory.json';
+import { englishWatchEntries } from '../../../data/en-watch-entry';
+import { germanWatchEntriesWithCyma } from '../../../data/cyma-localizations';
+import { howTheyRingLocalizations, type HowTheyRingLocale } from '../../../data/how-they-ring-localizations';
 import SeoHead from '../../../components/SeoHead.astro';
 import SectionMast from '../../../components/SectionMast.astro';
 import '../../../styles/site.css';
 
 const base = import.meta.env.BASE_URL;
-const { production = false } = Astro.props as { production?: boolean };
-const productionTitle = 'HOW THEY RING｜音で見る、アラーム腕時計｜VINTAGE ALARM';
-const productionDescription = '機械式アラーム腕時計を、実機の音とGONG・CASEBACKの鳴らし方から見る。';
+const { production = false, locale = 'ja' } = Astro.props as { production?: boolean; locale?: HowTheyRingLocale };
+const copy = howTheyRingLocalizations[locale];
 const productionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'HOW THEY RING',
-  description: productionDescription,
-  inLanguage: 'ja',
-  url: 'https://vintagealarm.github.io/how-they-ring/'
+  description: copy.description,
+  inLanguage: copy.htmlLang,
+  url: `https://vintagealarm.github.io/${copy.path}`
 };
+const alternates = [
+  { hreflang: 'ja', href: '/how-they-ring/' },
+  { hreflang: 'en', href: '/en/how-they-ring/' },
+  { hreflang: 'de', href: '/de/how-they-ring/' },
+  { hreflang: 'x-default', href: '/how-they-ring/' }
+];
+const languageLinks = locale === 'ja'
+  ? [
+      { href: `${base}en/how-they-ring/`, label: 'EN', hreflang: 'en' },
+      { href: `${base}de/how-they-ring/`, label: 'DE', hreflang: 'de' }
+    ]
+  : locale === 'en'
+    ? [
+        { href: `${base}how-they-ring/`, label: '日本語', hreflang: 'ja' },
+        { href: `${base}de/how-they-ring/`, label: 'DE', hreflang: 'de' }
+      ]
+    : [
+        { href: `${base}how-they-ring/`, label: '日本語', hreflang: 'ja' },
+        { href: `${base}en/how-they-ring/`, label: 'EN', hreflang: 'en' }
+      ];
+
 const watches = await getCollection('watches');
 const galleryEntries = await getCollection('howTheyRing');
 const published = new Map(
@@ -36,56 +59,44 @@ const orderedSlugs = [
   'westclox-watchlarm'
 ];
 
+const figureExamples = {
+  '01': 'OMEGA MEMOMATIC',
+  '02': 'VULCAIN CRICKET',
+  '03': 'JUNGHANS MINIVOX',
+  '04': 'LANCO-FON · CAL.1241'
+} as const;
+const figureSources = {
+  '01': 'The Alarm Wristwatch',
+  '02': 'The Alarm Wristwatch',
+  '03': 'The Alarm Wristwatch',
+  '04': 'ALARM AM ARM'
+} as const;
+const figureImages = {
+  '01': '/images/how-they-ring/gong.jpg',
+  '02': '/images/how-they-ring/caseback-hammer.png',
+  '03': '/images/how-they-ring/pin-hammer.png',
+  '04': '/images/how-they-ring/bell.jpg'
+} as const;
+
+const makeFigure = (no: '01' | '02' | '03' | '04') => ({
+  no,
+  image: figureImages[no],
+  label: copy.figureLabel[no],
+  example: figureExamples[no],
+  evidence: copy.evidence[no],
+  source: figureSources[no]
+});
+
 const categories = [
-  {
-    id: 'gong',
-    en: 'GONG',
-    ja: 'ゴング',
-    action: '棒状の音バネを叩く',
-    figures: [
-      {
-        no: '01',
-        image: '/images/how-they-ring/gong.jpg',
-        label: '棒状の音バネを叩く',
-        example: 'OMEGA MEMOMATIC',
-        evidence: 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。',
-        source: 'The Alarm Wristwatch'
-      }
-    ]
-  },
-  {
-    id: 'caseback',
-    en: 'CASEBACK',
-    ja: 'ケースバック',
-    action: 'ケースバックを共鳴させて鳴らす',
-    figures: [
-      {
-        no: '02',
-        image: '/images/how-they-ring/caseback-hammer.png',
-        label: '振動板型',
-        example: 'VULCAIN CRICKET',
-        evidence: 'ハンマーが、振動板（membrane）に設けられたピンを打撃する。',
-        source: 'The Alarm Wristwatch'
-      },
-      {
-        no: '03',
-        image: '/images/how-they-ring/pin-hammer.png',
-        label: 'ピン／レバー伝達型',
-        example: 'JUNGHANS MINIVOX',
-        evidence: '量産型J89は、底部に組み込まれたベルを発音体とする。',
-        source: 'The Alarm Wristwatch'
-      },
-      {
-        no: '04',
-        image: '/images/how-they-ring/bell.jpg',
-        label: 'BELL-BASE型',
-        example: 'LANCO-FON · CAL.1241',
-        evidence: 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。',
-        source: 'ALARM AM ARM'
-      }
-    ]
-  }
-]
+  { id: 'gong', en: 'GONG', sub: copy.categorySub.gong, action: copy.action.gong, figures: [makeFigure('01')] },
+  { id: 'caseback', en: 'CASEBACK', sub: copy.categorySub.caseback, action: copy.action.caseback, figures: [makeFigure('02'), makeFigure('03'), makeFigure('04')] }
+];
+
+const localizedWatchPath = (slug: string) => {
+  if (locale === 'en' && englishWatchEntries[slug]) return `en/${slug}/`;
+  if (locale === 'de' && germanWatchEntriesWithCyma[slug]) return `de/${slug}/`;
+  return `${slug}/`;
+};
 
 const specimens = orderedSlugs
   .map((slug) => {
@@ -106,22 +117,24 @@ const specimens = orderedSlugs
 
 ---
 <!doctype html>
-<html lang="ja">
+<html lang={copy.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {production
       ? <SeoHead
-          title={productionTitle}
-          description={productionDescription}
-          path="how-they-ring/"
+          title={copy.title}
+          description={copy.description}
+          path={copy.path}
           image="/images/how-they-ring/gong.jpg"
           type="website"
+          locale={copy.ogLocale}
           schema={productionSchema}
+          alternates={alternates}
         />
       : <>
           <meta name="robots" content="noindex,nofollow,noarchive" />
-          <title>音で見る、アラーム腕時計。｜VINTAGE ALARM TEST</title>
+          <title>{copy.title} — TEST</title>
         </>}
     <meta name="theme-color" content="#f3eee4" />
     <style>
@@ -831,14 +844,14 @@ const specimens = orderedSlugs
     </style>
   </head>
   <body>
-    {production && <SectionMast rightLabel="鳴らし方" />}
+    {production && <SectionMast rightLabel={copy.mastLabel} lang={locale} languageLinks={languageLinks} />}
     <main class="lab">
       <header class="lab-hero">
         <p class="lab-kicker">HOW THEY RING</p>
-        <h1>音で見る、<br />アラーム腕時計。</h1>
+        <h1>{copy.hero[0]}<br />{copy.hero[1]}</h1>
       </header>
 
-      <section aria-label="鳴動方式を選ぶ">
+      <section aria-label={copy.selectAria}>
         
         <div class="category-grid">
           {categories.map((category) => (
@@ -851,7 +864,7 @@ const specimens = orderedSlugs
             >
               <span class="category-name">
                 <strong>{category.en}</strong>
-                <em>{category.ja}</em>
+                <em>{category.sub}</em>
               </span>
               <span class="category-tap" aria-hidden="true">
                 <svg viewBox="0 0 32 34" focusable="false">
@@ -886,16 +899,16 @@ const specimens = orderedSlugs
                 ))}
               </div>
               <details class="mechanism-evidence">
-                <summary>機構図の根拠・資料を見る</summary>
+                <summary>{copy.evidenceSummary}</summary>
                 <div class="mechanism-evidence-list">
                   {category.figures.map((figure) => (
                     <p class="mechanism-evidence-item">
                       <strong>FIG.{figure.no}</strong> — {figure.evidence}
-                      {' '}<cite>出典：{figure.source}</cite>
+                      {' '}<cite>{copy.sourcePrefix}{figure.source}</cite>
                     </p>
                   ))}
                 </div>
-                <p class="mechanism-evidence-note">GONG / CASEBACKと各型名は、ハンマーの打撃先と発音構造をもとにしたVINTAGE ALARMでの整理です。</p>
+                <p class="mechanism-evidence-note">{copy.evidenceNote}</p>
               </details>
             </div>
           ))}
@@ -907,13 +920,13 @@ const specimens = orderedSlugs
           <div>
             {categories.map((category) => (
               <div class="category-summary" data-category-summary={category.id} hidden={category.id !== 'gong'}>
-                <h2>{category.en}<small>{category.ja}</small></h2>
+                <h2>{category.en}<small>{category.sub}</small></h2>
               </div>
             ))}
           </div>
           <p class="selected-guide">
-            <span><strong>COMPARE</strong>複数の音源は同時再生できます</span>
-            <span><strong>DETAIL</strong>写真から個体詳細へ</span>
+            <span><strong>COMPARE</strong>{copy.compare}</span>
+            <span><strong>DETAIL</strong>{copy.detail}</span>
           </p>
         </div>
 
@@ -928,16 +941,16 @@ const specimens = orderedSlugs
             >
               <a
                 class="specimen-media"
-                href={`${base}${watch.slug}/#owners-note`}
-                aria-label={`${watch.brand} ${watch.model} のOWNER'S NOTEへ`}
+                href={`${base}${localizedWatchPath(watch.slug)}#owners-note`}
+                aria-label={copy.detailsAria(watch.brand, watch.model)}
               >
-                <img src={watch.image} alt={`${watch.brand} ${watch.model} 掲載個体`} loading="lazy" />
+                <img src={watch.image} alt={copy.specimenAlt(watch.brand, watch.model)} loading="lazy" />
               </a>
               <div class="specimen-copy">
                 <div class="specimen-meta">
                   <p class="specimen-type">
                     {categories.find((item) => item.id === watch.category)?.en}
-                    ／{categories.find((item) => item.id === watch.category)?.ja}
+                    ／{categories.find((item) => item.id === watch.category)?.sub}
                   </p>
                   <h3>{watch.brand}</h3>
                   <p class="specimen-model">{watch.model}</p>
@@ -948,19 +961,19 @@ const specimens = orderedSlugs
                   {watch.recordings.length ? (
                     watch.recordings.map((recording) => (
                       <div>
-                        <p>{recording.label}</p>
+                        <p>{copy.recordingLabel(recording.label)}</p>
                         {recording.src?.trim() ? (
                           <audio controls preload="none" src={`${base}${recording.src.replace(/^\//, '')}`}></audio>
                         ) : (
                           <button class="audio-pending" type="button" disabled>
-                            <span>AUDIO / 音源</span>
+                            <span>{copy.audioPending}</span>
                           </button>
                         )}
                       </div>
                     ))
                   ) : (
                     <button class="audio-pending" type="button" disabled>
-                      <span>AUDIO / 音源</span>
+                      <span>{copy.audioPending}</span>
                     </button>
                   )}
                 </div>
@@ -971,8 +984,8 @@ const specimens = orderedSlugs
 
         <details class="recording-condition">
           <summary><strong>REC. CONDITION</strong></summary>
-          <p>iPhone 16 / 約20 cm / audio file unprocessed</p>
-          <p>※録音音量は実環境での絶対的な音量を示すものではありません。</p>
+          <p>{copy.recordingLine}</p>
+          <p>{copy.recordingNote}</p>
         </details>
 
       </section>
