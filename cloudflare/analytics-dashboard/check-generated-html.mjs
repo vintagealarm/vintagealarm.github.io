@@ -161,7 +161,12 @@ const fakeAnalyticsFetch = async (_url, options) => {
         { count: 1, sum: { visits: 0 }, dimensions: { requestPath: "/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
       ];
   const queryStart = request.variables.filter.AND.find(part => part.datetime_geq)?.datetime_geq || "2026-09-10T00:00:00Z";
-  const trendBucket = new Date(queryStart).toISOString().slice(0, 10);
+  const trendBucket = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(queryStart));
   const account = request.query.includes("VintageAlarmTrend")
     ? { totals: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 }, dimensions: { bucket: trendBucket } }], acquisition: [], navigation: [] }
     : {
