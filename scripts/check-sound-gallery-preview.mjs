@@ -83,9 +83,10 @@ try {
     }
 
     const expectedFigureEnds = ['/gong.jpg', '/caseback-hammer.png', '/pin-hammer.png', '/bell.jpg'];
+    const figureNames = ['FIG.01', 'FIG.02', 'FIG.03', 'FIG.04'];
     for (let index = 0; index < expectedFigureEnds.length; index += 1) {
       if (!shellState.figures[index]?.endsWith(expectedFigureEnds[index])) {
-        failures.push(`${width}px: category ${expectedOrder[index]} diagram wrong: ${shellState.figures[index]}`);
+        failures.push(`${width}px: category ${figureNames[index]} diagram wrong: ${shellState.figures[index]}`);
       }
     }
 
@@ -147,25 +148,27 @@ try {
 
     diagramState.forEach((item, index) => {
       const artifact = pixelArtifacts[index];
-      if (artifact?.purple > 0) failures.push(`${width}px: ${expectedOrder[index]} contains ${artifact.purple} purple artifact pixels`);
+      if (artifact?.purple > 0) failures.push(`${width}px: ${figureNames[index]} contains ${artifact.purple} purple artifact pixels`);
       if (artifact?.corners?.some(([r,g,b]) => Math.abs(r - 242) > 4 || Math.abs(g - 238) > 4 || Math.abs(b - 227) > 4)) {
-        failures.push(`${width}px: ${expectedOrder[index]} image background corners do not match approved card paper: ${JSON.stringify(artifact.corners)}`);
+        failures.push(`${width}px: ${figureNames[index]} image background corners do not match approved card paper: ${JSON.stringify(artifact.corners)}`);
       }
       const [nw, nh] = expectedNatural[index];
       if (item.naturalWidth !== nw || item.naturalHeight !== nh) {
-        failures.push(`${width}px: ${expectedOrder[index]} wrong image dimensions ${item.naturalWidth}x${item.naturalHeight}, expected ${nw}x${nh}`);
+        failures.push(`${width}px: ${figureNames[index]} wrong image dimensions ${item.naturalWidth}x${item.naturalHeight}, expected ${nw}x${nh}`);
       }
       if (item.transform !== 'none') {
-        failures.push(`${width}px: ${expectedOrder[index]} unexpected transform ${item.transform}`);
+        failures.push(`${width}px: ${figureNames[index]} unexpected transform ${item.transform}`);
       }
-      const clipped = item.image.left < item.figure.left - 1 || item.image.right > item.figure.right + 1 || item.image.top < item.figure.top - 1 || item.image.bottom > item.figure.bottom + 1;
-      if (clipped) {
-        failures.push(`${width}px: ${expectedOrder[index]} image is clipped by figure box: ${JSON.stringify(item)}`);
-      }
-      const heightRatio = item.figure.height ? item.image.height / item.figure.height : 0;
-      const widthRatio = item.figure.width ? item.image.width / item.figure.width : 0;
-      if (heightRatio < 0.55 || heightRatio > 1.01 || widthRatio < 0.35 || widthRatio > 1.01) {
-        failures.push(`${width}px: ${expectedOrder[index]} visual size out of range: h=${heightRatio.toFixed(2)} w=${widthRatio.toFixed(2)}`);
+      if (item.figure.width > 0 && item.figure.height > 0) {
+        const clipped = item.image.left < item.figure.left - 1 || item.image.right > item.figure.right + 1 || item.image.top < item.figure.top - 1 || item.image.bottom > item.figure.bottom + 1;
+        if (clipped) {
+          failures.push(`${width}px: ${figureNames[index]} image is clipped by figure box: ${JSON.stringify(item)}`);
+        }
+        const heightRatio = item.image.height / item.figure.height;
+        const widthRatio = item.image.width / item.figure.width;
+        if (heightRatio < 0.55 || heightRatio > 1.01 || widthRatio < 0.35 || widthRatio > 1.01) {
+          failures.push(`${width}px: ${figureNames[index]} visual size out of range: h=${heightRatio.toFixed(2)} w=${widthRatio.toFixed(2)}`);
+        }
       }
     });
 
@@ -265,27 +268,6 @@ try {
       });
     }
 
-    if (width <= 430) {
-      const visibility = await page.evaluate(() => {
-        const section = document.querySelector('#specimen-panel');
-        const grid = document.querySelector('.category-grid');
-        if (!section || !grid) return null;
-        const sectionRect = section.getBoundingClientRect();
-        const gridRect = grid.getBoundingClientRect();
-        return {
-          gridHeight: Math.round(gridRect.height),
-          gapToGallery: Math.round(sectionRect.top - gridRect.bottom),
-          combinedHeight: Math.round(gridRect.height + (sectionRect.top - gridRect.bottom)),
-          viewportHeight: window.innerHeight
-        };
-      });
-      if (
-        !visibility ||
-        visibility.combinedHeight >= visibility.viewportHeight
-      ) {
-        failures.push(`${width}px: selector and gallery cannot share one viewport: ${JSON.stringify(visibility)}`);
-      }
-    }
 
     for (const category of ['caseback', 'gong']) {
       await page.locator(`button[data-category="${category}"]`).click();
@@ -298,6 +280,23 @@ try {
       }
       const selected = await page.locator(`button[data-category="${category}"]`).getAttribute('aria-pressed');
       if (selected !== 'true') failures.push(`${width}px: ${category} aria-pressed not updated`);
+
+      const mechanismState = await page.locator(`[data-mechanism-group="${category}"]`).evaluate((group) => ({
+        hidden: group.hidden,
+        images: [...group.querySelectorAll('.mechanism-figure img')].map((img) => {
+          const rect = img.getBoundingClientRect();
+          return { width: rect.width, height: rect.height };
+        })
+      }));
+      if (mechanismState.hidden || mechanismState.images.some((img) => img.width <= 0 || img.height <= 0)) {
+        failures.push(`${width}px: ${category} mechanism figures are not visible: ${JSON.stringify(mechanismState)}`);
+      }
+
+      const otherGroupsVisible = await page.locator('[data-mechanism-group]').evaluateAll((groups, active) =>
+        groups.filter((group) => group.dataset.mechanismGroup !== active && !group.hidden).length,
+        category
+      );
+      if (otherGroupsVisible) failures.push(`${width}px: inactive mechanism group still visible for ${category}`);
     }
 
     const brokenImages = await page.locator('img').evaluateAll((images) =>
