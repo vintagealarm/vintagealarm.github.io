@@ -166,30 +166,41 @@ const specimens = orderedSlugs
         grid-template-columns: 1fr auto 1fr;
         align-items: end;
         gap: 12px;
-        margin: 0 0 8px;
+        margin: 0 0 6px;
         color: var(--lab-soft);
         font-size: 12px;
         line-height: 1.6;
         text-align: center;
       }
 
-      .category-guide::before,
-      .category-guide::after {
-        content: '↘';
+      .category-guide-arrow {
+        position: relative;
+        height: 22px;
         color: var(--lab-ink);
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 24px;
-        line-height: 1;
       }
 
-      .category-guide::before {
-        justify-self: end;
-        transform: scaleX(-1);
+      .category-guide-arrow::before {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        width: 46%;
+        border-top: 1px solid currentColor;
       }
 
-      .category-guide::after {
-        justify-self: start;
+      .category-guide-arrow::after {
+        content: '';
+        position: absolute;
+        bottom: 1px;
+        width: 7px;
+        height: 7px;
+        border-right: 1px solid currentColor;
+        border-bottom: 1px solid currentColor;
       }
+
+      .category-guide-arrow.left::before { right: 8px; transform: rotate(13deg); transform-origin: right center; }
+      .category-guide-arrow.left::after { right: 7px; transform: rotate(45deg); }
+      .category-guide-arrow.right::before { left: 8px; transform: rotate(-13deg); transform-origin: left center; }
+      .category-guide-arrow.right::after { left: 7px; transform: rotate(45deg); }
 
       .category-grid {
         display: grid;
@@ -516,11 +527,6 @@ const specimens = orderedSlugs
           font-size: 11px;
         }
 
-        .category-guide::before,
-        .category-guide::after {
-          font-size: 22px;
-        }
-
         .category-button {
           padding: 11px 12px 10px;
         }
@@ -649,7 +655,7 @@ const specimens = orderedSlugs
       </header>
 
       <section aria-label="鳴動方式を選ぶ">
-        <p class="category-guide">鳴らし方を選んで、時計を見てみる。</p>
+        <p class="category-guide"><span class="category-guide-arrow left" aria-hidden="true"></span><span>鳴らし方を選んで、時計を見てみる。</span><span class="category-guide-arrow right" aria-hidden="true"></span></p>
         <div class="category-grid">
           {categories.map((category) => (
             <button
