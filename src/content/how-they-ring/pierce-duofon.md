@@ -8,7 +8,7 @@ audio:
   status: pending
   recordings:
     - id: 17b16950-6826-473f-8ba0-e5e891fb1bbd
-      label: WAKER / 音あり
+      label: WECKER / 音あり
       src: /audio/alarms/duofon-waker.m4a
       recordedWith: iPhone16
       distanceCm: 20
