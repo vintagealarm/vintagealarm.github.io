@@ -39,6 +39,18 @@ const ownersHtml = fs.existsSync(path.join(dist, 'owners-notes/index.html'))
 const historyHtml = fs.existsSync(path.join(dist, 'history/index.html'))
   ? fs.readFileSync(path.join(dist, 'history/index.html'), 'utf8')
   : '';
+const englishHomeHtml = fs.existsSync(path.join(dist, 'en/index.html'))
+  ? fs.readFileSync(path.join(dist, 'en/index.html'), 'utf8')
+  : '';
+const germanHomeHtml = fs.existsSync(path.join(dist, 'de/index.html'))
+  ? fs.readFileSync(path.join(dist, 'de/index.html'), 'utf8')
+  : '';
+const englishHowTheyRingHtml = fs.existsSync(path.join(dist, 'en/how-they-ring/index.html'))
+  ? fs.readFileSync(path.join(dist, 'en/how-they-ring/index.html'), 'utf8')
+  : '';
+const germanHowTheyRingHtml = fs.existsSync(path.join(dist, 'de/how-they-ring/index.html'))
+  ? fs.readFileSync(path.join(dist, 'de/how-they-ring/index.html'), 'utf8')
+  : '';
 const sitemap = fs.existsSync(path.join(dist, 'sitemap.xml'))
   ? fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8')
   : '';
@@ -101,6 +113,17 @@ for (const [name, html] of [['TOP', homeHtml], ['X', xHtml]]) {
     if (!html.includes(marker)) failures.push(`${name}: shared landing marker missing: ${marker}`);
   }
 }
+
+for (const [name, html, lang, lead, howPath] of [
+  ['EN TOP', englishHomeHtml, 'en', 'When notifications still ran on gears.', 'en/how-they-ring/'],
+  ['DE TOP', germanHomeHtml, 'de', 'Als Benachrichtigungen noch mit Zahnrädern liefen.', 'de/how-they-ring/']
+]) {
+  if (!html.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
+  if (!html.includes(lead)) failures.push(`${name}: localized TOP lead missing`);
+  if (howTheyRingRelease.productionPublished && !html.includes(howPath)) failures.push(`${name}: localized HOW THEY RING link missing`);
+  if (!html.includes('id="owners-notes"')) failures.push(`${name}: localized OWNER'S NOTES anchor missing`);
+}
+
 for (const stale of ['鐘から現在まで。アラーム腕時計の歴史を読む', '所有個体を、実機・操作・音から読む']) {
   if (xHtml.includes(stale)) failures.push(`X: stale duplicated TOP copy remains: ${stale}`);
 }
@@ -201,6 +224,18 @@ if (howTheyRingRelease.productionPublished) {
   if (!/<a[^>]+href=\"\/how-they-ring\/?\"[^>]*>\s*音で見る\s*<\/a>/.test(soundProdHtml)) failures.push('HOW THEY RING: shared Japanese menu label must be 音で見る');
   for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
     if (!soundProdHtml.includes(marker)) failures.push(`HOW THEY RING: current production marker missing: ${marker}`);
+  }
+  for (const [name, html, lang, marker, action] of [
+    ['EN HOW THEY RING', englishHowTheyRingHtml, 'en', 'Alarm wristwatches,', 'Strikes a rod-shaped sound spring'],
+    ['DE HOW THEY RING', germanHowTheyRingHtml, 'de', 'Wecker-Armbanduhren,', 'Schlägt eine stabförmige Tonfeder an']
+  ]) {
+    if (!html.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
+    if (!html.includes(marker)) failures.push(`${name}: localized hero missing`);
+    if (!html.includes(action)) failures.push(`${name}: localized mechanism copy missing`);
+    if (!html.includes('GONG') || !html.includes('CASEBACK')) failures.push(`${name}: ringing categories missing`);
+  }
+  for (const pathName of ['en/how-they-ring/', 'de/how-they-ring/']) {
+    if (!sitemap.includes(`https://vintagealarm.github.io/${pathName}`)) failures.push(`${pathName}: missing from sitemap`);
   }
 } else {
   if (sitemap.includes(soundProdUrl)) failures.push('HOW THEY RING: production release OFF but sitemap entry leaked');
