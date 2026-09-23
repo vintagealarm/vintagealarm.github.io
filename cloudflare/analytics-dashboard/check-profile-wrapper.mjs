@@ -71,6 +71,8 @@ assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 6, 'analytics must track En
 assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 4, 'analytics must track German index plus Duofon, Cyma and Westclox gateways');
 assert(Object.keys(HISTORY_GATEWAY_NAMES).length === 3, 'analytics must track Japanese, English and German HISTORY pages');
 assert(RESEARCH_PAGE_NAMES['/how-they-ring/'] === 'How They Ring', 'How They Ring research mapping missing');
+assert(RESEARCH_PAGE_NAMES['/en/how-they-ring/'] === 'How They Ring (EN)', 'English How They Ring mapping missing');
+assert(RESEARCH_PAGE_NAMES['/de/how-they-ring/'] === 'How They Ring (DE)', 'German How They Ring mapping missing');
 assert(RESEARCH_PAGE_NAMES['/cyma-time-o-vox/chronometre/'] === 'Cyma Time-O-Vox Chronomètre', 'Cyma Chronometre research mapping missing');
 assert(WATCH_PAGE_NAMES['/wittnauer-10wa/'] === 'Wittnauer Cal.10WA', 'Wittnauer WATCH mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/history/'] === 'HISTORY', 'Japanese HISTORY mapping missing');
@@ -94,7 +96,7 @@ assert(payload.current.flows[3].destinationName === 'Basis Alarm (EN)', 'Basis E
 assert(payload.current.flows[4].destinationName === 'HISTORY (EN)', 'English HISTORY flow destination was not mapped');
 
 const snsTotals = Object.fromEntries(payload.current.snsEntries.pages.map((row) => [row.name, row.total]));
-assert(payload.current.snsEntries.pages.length === 23, 'SNS chart must contain tracked WATCH/gateway/HISTORY/research rows, X Profile, plus Other pages');
+assert(payload.current.snsEntries.pages.length === 25, 'SNS chart must contain tracked WATCH/gateway/HISTORY/research rows, X Profile, plus Other pages');
 assert(snsTotals['Citizen Alarm'] === 2, 'Citizen SNS visits mismatch');
 assert(snsTotals['Westclox Watchlarm'] === 3, 'Westclox SNS visits mismatch');
 assert(snsTotals['Basis Alarm (EN)'] === 1, 'Basis English SNS visits mismatch');
@@ -102,6 +104,8 @@ assert(snsTotals['HISTORY'] === 0, 'Japanese HISTORY SNS row missing');
 assert(snsTotals['HISTORY (EN)'] === 1, 'English HISTORY SNS visits mismatch');
 assert(snsTotals['HISTORY (DE)'] === 0, 'German HISTORY SNS row missing');
 assert(snsTotals['How They Ring'] === 0, 'How They Ring SNS row missing');
+assert(snsTotals['How They Ring (EN)'] === 0, 'English How They Ring SNS row missing');
+assert(snsTotals['How They Ring (DE)'] === 0, 'German How They Ring SNS row missing');
 assert(snsTotals['Cyma Time-O-Vox Chronomètre'] === 0, 'Cyma Chronometre SNS row missing');
 assert(snsTotals['Wittnauer Cal.10WA'] === 0, 'Wittnauer SNS row missing');
 assert(snsTotals['X Profile'] === 2, 'X Profile SNS visits must not remain in Other pages');
@@ -163,6 +167,8 @@ assert(patchedHtml.includes('{name:"HISTORY (EN)",path:"/en/history/"}'), 'Engli
 assert(patchedHtml.includes('{name:"HISTORY (DE)",path:"/de/history/"}'), 'German HISTORY key page was not injected');
 assert(patchedHtml.includes('{name:"Wittnauer Cal.10WA",path:"/wittnauer-10wa/"}'), 'Wittnauer key page was not injected');
 assert(patchedHtml.includes('{name:"How They Ring",path:"/how-they-ring/"}'), 'How They Ring key page was not injected');
+assert(patchedHtml.includes('{name:"How They Ring (EN)",path:"/en/how-they-ring/"}'), 'English How They Ring key page was not injected');
+assert(patchedHtml.includes('{name:"How They Ring (DE)",path:"/de/how-they-ring/"}'), 'German How They Ring key page was not injected');
 assert(patchedHtml.includes('{name:"Cyma Time-O-Vox Chronomètre",path:"/cyma-time-o-vox/chronometre/"}'), 'Cyma Chronometre key page was not injected');
 assert(X_PROFILE_TRACKING.url === 'https://vintagealarm.github.io/x/', 'profile URL changed unexpectedly');
 
@@ -201,6 +207,8 @@ assert(dashboardHtml.includes('{name:"HISTORY (EN)",path:"/en/history/"}'), 'rea
 assert(dashboardHtml.includes('{name:"HISTORY (DE)",path:"/de/history/"}'), 'real dashboard is missing German HISTORY key page');
 assert(dashboardHtml.includes('{name:"Wittnauer Cal.10WA",path:"/wittnauer-10wa/"}'), 'real dashboard is missing Wittnauer key page');
 assert(dashboardHtml.includes('{name:"How They Ring",path:"/how-they-ring/"}'), 'real dashboard is missing How They Ring key page');
+assert(dashboardHtml.includes('{name:"How They Ring (EN)",path:"/en/how-they-ring/"}'), 'real dashboard is missing English How They Ring key page');
+assert(dashboardHtml.includes('{name:"How They Ring (DE)",path:"/de/how-they-ring/"}'), 'real dashboard is missing German How They Ring key page');
 assert(dashboardHtml.includes('{name:"Cyma Time-O-Vox Chronomètre",path:"/cyma-time-o-vox/chronometre/"}'), 'real dashboard is missing Cyma Chronometre key page');
 
 const originalFetch = globalThis.fetch;
