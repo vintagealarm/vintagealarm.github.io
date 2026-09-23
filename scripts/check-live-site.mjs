@@ -58,6 +58,14 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     if (!howTheyRing.ok) failures.push(`how-they-ring: published page HTTP ${howTheyRing.status}`);
     if (howTheyRingSettings.showOnTop && home.ok && !home.text.includes('how-they-ring/')) failures.push('home: published HOW THEY RING link missing');
     if (howTheyRing.ok && !howTheyRing.text.includes('HOW THEY RING')) failures.push('how-they-ring: expected heading missing');
+    if (howTheyRing.ok) {
+      for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'section-menu']) {
+        if (!howTheyRing.text.includes(marker)) failures.push(`how-they-ring: current live marker missing: ${marker}`);
+      }
+      for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る']) {
+        if (howTheyRing.text.includes(stale)) failures.push(`how-they-ring: stale live copy remains: ${stale}`);
+      }
+    }
   } else if (home.ok && home.text.includes('how-they-ring/')) {
     failures.push('home: unpublished HOW THEY RING link leaked');
   }
