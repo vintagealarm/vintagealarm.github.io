@@ -87,9 +87,9 @@ const grouped = aggregateTrendBuckets([
   { bucket: "2026-09-15", pageviews: 5, visits: 4, sampleInterval: 1 },
 ], "7d", resolvedRange.start, resolvedRange.end, resolvedRange.end);
 assert.deepEqual(grouped.map(row => [row.label, row.pageviews, row.visits, row.status]), [
-  ["9/1–9/7", 5, 3, "ACTUAL"],
-  ["9/8–9/14", 4, 3, "ESTIMATE"],
-  ["9/15–9/21", 5, 4, "ACTUAL"],
+  ["9/1–9/7", 5, 3, "UNSAMPLED"],
+  ["9/8–9/14", 4, 3, "SAMPLED / ESTIMATE"],
+  ["9/15–9/21", 5, 4, "UNSAMPLED"],
 ]);
 assert.equal(grouped[0].internalPV, 1);
 
@@ -240,6 +240,7 @@ assert.ok(html.includes('id="customApply"'));
 assert.ok(html.includes('id="bucketSelect"'));
 assert.ok(html.includes("BUCKET COMPARISON"));
 assert.ok(html.includes("GROUP BY"));
+assert.ok(html.includes("比較対象なし"));
 // Exercise the actual generated chart function without the dashboard's DOM boot.
 const chartSource = dashboardScript.slice(dashboardScript.indexOf('const HOST_MIGRATION ='), dashboardScript.indexOf('function entryBars('));
 assert.ok(chartSource.includes('function lineChart('));
