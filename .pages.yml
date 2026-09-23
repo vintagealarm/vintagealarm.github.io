@@ -676,7 +676,7 @@ content:
       rename: false
       delete: false
     view:
-      fields: [title, category, published, audio.status]
+      fields: [title, category, published]
       primary: title
       search: [title, watchSlug]
     fields:
@@ -705,15 +705,6 @@ content:
         label: 音源
         type: object
         fields:
-          - name: status
-            label: 再生の公開状態
-            description: 再生可能にすると、ファイルを登録した音源だけ再生できます。
-            type: select
-            default: pending
-            options:
-              values:
-                - { name: pending, label: 準備中 }
-                - { name: ready, label: 再生可能 }
           - name: recordings
             label: 録音
             type: object

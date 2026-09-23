@@ -54,7 +54,6 @@ howTheyRing:
   category: gong
   image: "/images/pierce-duofon/owners-note.jpg"
   audio:
-    status: pending
     recordings: []
 
 video:

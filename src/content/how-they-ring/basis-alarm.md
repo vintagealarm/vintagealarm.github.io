@@ -5,7 +5,6 @@ published: true
 category: caseback
 thumbnail: /images/IMG_8890-1.jpeg
 audio:
-  status: pending
   recordings:
     - id: af2017d8-9c12-400b-9e4d-ad42eb686340
       label: Basis alarm（BFG90)

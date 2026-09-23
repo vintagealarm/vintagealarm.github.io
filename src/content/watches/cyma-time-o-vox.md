@@ -61,7 +61,6 @@ howTheyRing:
   category: gong
   image: "/images/cyma-time-o-vox/Cyma timeovox .png"
   audio:
-    status: pending
     recordings: []
 
 video:

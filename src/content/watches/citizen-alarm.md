@@ -44,7 +44,6 @@ howTheyRing:
   category: caseback
   image: "/images/citizen-alarm/owners-note.jpg"
   audio:
-    status: pending
     recordings: []
 
 video:
