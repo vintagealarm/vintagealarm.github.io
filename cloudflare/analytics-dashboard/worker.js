@@ -205,7 +205,7 @@ function decodeHtmlText(value) {
 }
 
 const AI_EXPORT_MAX_TTL_SECONDS = 7 * 24 * 60 * 60;
-const DASHBOARD_UI_VERSION = "2026-09-24-range-v2";
+const DASHBOARD_UI_VERSION = "2026-09-24-range-v3";
 const AI_EXPORT_MIN_TTL_SECONDS = 5 * 60;
 
 async function aiShareLinkResponse(request, url, env) {
@@ -1572,7 +1572,7 @@ footer{margin-top:16px;color:var(--muted);font-size:9px;line-height:1.6}
 <footer>Cloudflare Web Analytics / RUM。Page views と Visits は別定義。ページ表の ENTRY VISITS は、そのページが外部流入・直接流入の入口になった回数。内部遷移は0になり得る。検索露出は Search Console と分離して扱う。</footer>
 </main>
 <script>
-const DASHBOARD_UI_VERSION="2026-09-24-range-v2";
+const DASHBOARD_UI_VERSION="2026-09-24-range-v3";
 let windowKey="7d";
 let bucketKey="auto";
 const esc=(v)=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\\\"":"&quot;","'":"&#039;"}[c]));
