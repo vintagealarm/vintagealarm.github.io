@@ -202,9 +202,9 @@ if (howTheyRingRelease.productionPublished) {
 
 const shouldShowSoundOnTop = howTheyRingRelease.productionPublished && howTheyRingRelease.showOnTop;
 for (const [name, html] of [['TOP', homeHtml], ['X', xHtml]]) {
-  const hasTopLink = html.includes('how-they-ring/') && html.includes('音で選ぶ');
+  const hasTopLink = html.includes('how-they-ring/') && html.includes('HOW THEY RING');
   if (shouldShowSoundOnTop && !hasTopLink) {
-    failures.push(`${name}: HOW THEY RING is enabled for TOP but the 「音で選ぶ」 link is missing`);
+    failures.push(`${name}: HOW THEY RING is enabled for TOP but the HOW THEY RING link is missing`);
   }
   if (!shouldShowSoundOnTop && hasTopLink) {
     failures.push(`${name}: hidden HOW THEY RING TOP link leaked into generated HTML`);
