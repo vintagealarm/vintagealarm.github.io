@@ -198,7 +198,7 @@ if (howTheyRingRelease.productionPublished) {
   for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る']) {
     if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale hero copy remains: ${stale}`);
   }
-  for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'section-menu', 'href=\"/\"']) {
+  for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'category-tap', 'TAP', 'section-menu', 'href=\"/\"']) {
     if (!soundProdHtml.includes(marker)) failures.push(`HOW THEY RING: current production marker missing: ${marker}`);
   }
 } else {
