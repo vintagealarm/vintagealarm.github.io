@@ -58,6 +58,10 @@ const TREND_BUCKET_MS = Object.freeze({
   datetimeFifteenMinutes: 15 * 60 * 1000,
   datetimeHour: 60 * 60 * 1000,
   date: 24 * 60 * 60 * 1000,
+  "30m": 30 * 60 * 1000,
+  "1h": 60 * 60 * 1000,
+  "1d": 24 * 60 * 60 * 1000,
+  "7d": 7 * 24 * 60 * 60 * 1000,
 });
 
 function mappedPageName(path) {
@@ -175,7 +179,7 @@ export function buildFreshness(payload) {
   let latestMs = -Infinity;
   for (const row of trend) {
     if (Number(row?.pageviews || 0) <= 0 && Number(row?.visits || 0) <= 0) continue;
-    const startMs = bucketStartMs(row?.bucket);
+    const startMs = bucketStartMs(row?.bucketStart || row?.bucket);
     if (!Number.isFinite(startMs) || startMs <= latestMs) continue;
     latest = row;
     latestMs = startMs;
@@ -194,9 +198,12 @@ export function buildFreshness(payload) {
     };
   }
 
-  const bucketEndMs = latestMs + bucketWidthMs;
+  const explicitEndMs = bucketStartMs(latest?.bucketEnd);
+  const bucketEndMs = Number.isFinite(explicitEndMs)
+    ? explicitEndMs
+    : (bucketWidthMs ? latestMs + bucketWidthMs : latestMs);
   const gapMs = Number.isFinite(queryAtMs)
-    ? Math.max(0, queryAtMs - (bucketWidthMs ? bucketEndMs : latestMs))
+    ? Math.max(0, queryAtMs - bucketEndMs)
     : null;
 
   return {
@@ -205,7 +212,7 @@ export function buildFreshness(payload) {
     bucketKind,
     latestEventBucket: String(latest.bucket || ""),
     bucketStart: new Date(latestMs).toISOString(),
-    bucketEnd: bucketWidthMs ? new Date(bucketEndMs).toISOString() : null,
+    bucketEnd: bucketEndMs > latestMs ? new Date(bucketEndMs).toISOString() : null,
     eventGapSeconds: gapMs == null ? null : Math.floor(gapMs / 1000),
     note: "EVENT GAP is time since the latest non-zero Cloudflare trend bucket, not a guaranteed ingestion-lag measurement. It also includes periods with no visitors.",
   };
@@ -270,7 +277,8 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   button.disabled=true;
   button.textContent="ISSUING…";
   try{
-    const response=await fetch('/api/ai-readable-link?window='+encodeURIComponent(windowKey),{cache:"no-store"});
+    const params=typeof analyticsQuery==="function"?analyticsQuery():new URLSearchParams({range:windowKey});
+    const response=await fetch('/api/ai-readable-link?'+params.toString(),{cache:"no-store"});
     const data=await response.json();
     if(!response.ok||data.error)throw new Error(data.error||("HTTP "+response.status));
     try{
@@ -372,7 +380,15 @@ async function aiReadableLinkResponse(request, url, env, ctx) {
   if (request.method !== "GET") return jsonResponse({ error: "GET only." }, 405);
 
   const shareUrl = new URL("/api/ai-share-link", url.origin);
-  shareUrl.searchParams.set("window", url.searchParams.get("window") || "7d");
+  const range = url.searchParams.get("range") || url.searchParams.get("window") || "7d";
+  shareUrl.searchParams.set("window", range);
+  shareUrl.searchParams.set("range", range);
+  const bucket = url.searchParams.get("bucket");
+  if (bucket) shareUrl.searchParams.set("bucket", bucket);
+  if (range === "custom") {
+    shareUrl.searchParams.set("start", url.searchParams.get("start") || "");
+    shareUrl.searchParams.set("end", url.searchParams.get("end") || "");
+  }
   shareUrl.searchParams.set("ttl", String(AI_READABLE_TTL_SECONDS));
 
   const headers = new Headers();
