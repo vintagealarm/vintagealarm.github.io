@@ -90,9 +90,7 @@ const specimens = orderedSlugs
       model: watch.model,
       caliber: watch.spec.caliber,
       image: `${base}${(gallery.thumbnail?.trim() || ownerThumbnailBySlug.get(slug) || '').replace(/^\//, '')}`,
-      recordings: gallery?.audio.status === 'ready'
-        ? gallery.audio.recordings.filter((recording) => Boolean(recording.src?.trim()))
-        : []
+      recordings: gallery.audio.recordings
     };
   })
   .filter(Boolean);
