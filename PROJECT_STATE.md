@@ -1,6 +1,6 @@
 # VINTAGE ALARM — CURRENT PROJECT STATE
 
-更新日: 2026-09-23
+更新日: 2026-09-24
 
 この文書は、VINTAGE ALARMで作業を再開するときに最初に読む「現在位置の索引」です。
 
@@ -48,7 +48,9 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 外部AI観測: `measurement/aio-observation-log.md`
 - Council / 焼いて: `council-worker/README.md` + `council-worker/src/index.ts`
 
-`CHANGE_DECISIONS.md` は仕様・判断の時系列台帳です。「いつ・何を・なぜ変えたか」を追う場合はここを確認します。`PROJECT_STATE.md` は現在値、`CHANGE_DECISIONS.md` は履歴を担当し、役割を分離します。\n\n`MIGRATION.md`、`REFACTOR_AUDIT.md`、日付付き監査記録は履歴資料です。現在仕様と衝突する場合は、上記の作業コンテキスト、現在の `main`、分野別正本を順に確認します.
+`CHANGE_DECISIONS.md` は仕様・判断の時系列台帳です。「いつ・何を・なぜ変えたか」を追う場合はここを確認します。`PROJECT_STATE.md` は現在値、`CHANGE_DECISIONS.md` は履歴を担当し、役割を分離します。
+
+`MIGRATION.md`、`REFACTOR_AUDIT.md`、日付付き監査記録は履歴資料です。現在仕様と衝突する場合は、上記の作業コンテキスト、現在の `main`、分野別正本を順に確認します.
 
 ## 3. CURRENT BASELINE
 
@@ -59,7 +61,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 主セクション: HISTORY / OWNER'S NOTES / WATCH / RESEARCH
 - SMARTWATCHはHISTORYのエピローグ。検索流入目的ではなく `noindex,follow`、sitemap対象外
 - 日本語WATCH本文が多言語版の意味上の正本
-- 公開済みWATCHの計測対象は Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm
+- 公開済みWATCHの計測対象は **Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm の5本だけ**。**Wittnauer 10WAは所有個体／HOW THEY RING側のデータには含まれるが、公開済みWATCH 5ページの計測対象には含めない**
 - OWNER'S NOTES一覧の正本は `src/data/owners-directory.json`
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
