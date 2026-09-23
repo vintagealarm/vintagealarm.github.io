@@ -33,14 +33,12 @@ try {
     const shellState = await page.evaluate(() => {
       const categoryButtons = [...document.querySelectorAll('button[data-category]')];
       const labels = categoryButtons.map((button) => button.querySelector('.category-name strong')?.textContent?.trim() || '');
-      const figures = categoryButtons.map((button) => button.querySelector('.mechanism-figure img')?.getAttribute('src') || '');
-      const examples = categoryButtons.map((button) =>
-        (button.querySelector('.category-examples')?.textContent || '').replace(/\s+/g, ' ').trim()
-      );
+      const figures = [...document.querySelectorAll('.mechanism-figure img')].map((img) => img.getAttribute('src') || '');
+      const examples = [];
       const overlapFailures = [];
 
       for (const button of categoryButtons) {
-        const parts = ['.category-name', '.mechanism-figure', '.category-action', '.category-examples']
+        const parts = ['.category-name', '.category-action']
           .map((selector) => button.querySelector(selector))
           .filter(Boolean)
           .map((node) => ({ selector: node.className, rect: node.getBoundingClientRect() }));
@@ -75,30 +73,38 @@ try {
       failures.push(`${width}px: horizontal overflow ${shellState.overflow}px`);
     }
 
-    if (shellState.categoryButtons !== 4) {
-      failures.push(`${width}px: expected 4 category buttons, got ${shellState.categoryButtons}`);
+    if (shellState.categoryButtons !== 2) {
+      failures.push(`${width}px: expected 2 category buttons, got ${shellState.categoryButtons}`);
     }
 
-    const expectedOrder = ['GONG', 'CASEBACK', 'BELL', 'PIN'];
+    const expectedOrder = ['GONG', 'CASEBACK'];
     if (JSON.stringify(shellState.labels) !== JSON.stringify(expectedOrder)) {
       failures.push(`${width}px: category order wrong: ${JSON.stringify(shellState.labels)}`);
     }
 
-    const expectedFigureEnds = ['/gong.jpg', '/caseback-hammer.png', '/bell.jpg', '/pin-hammer.png'];
+    const expectedFigureEnds = ['/gong.jpg', '/caseback-hammer.png', '/pin-hammer.png', '/bell.jpg'];
     for (let index = 0; index < expectedFigureEnds.length; index += 1) {
       if (!shellState.figures[index]?.endsWith(expectedFigureEnds[index])) {
         failures.push(`${width}px: category ${expectedOrder[index]} diagram wrong: ${shellState.figures[index]}`);
       }
     }
 
-    const expectedExamples = [
-      '代表機OMEGA MEMOMATIC',
-      '代表機SICURA SIGNAL / RONDA 1243-21',
-      '代表機JAEGER-LECOULTRE GRAND REVEIL / CAL.919',
-      '代表機VULCAIN CRICKET'
+    const expectedExamples = [];
+    const figureCaptions = await page.locator('.mechanism-variation').evaluateAll((items) =>
+      items.map((item) => ({
+        no: item.dataset.figure,
+        label: item.querySelector('.variation-caption strong')?.textContent?.trim() || '',
+        example: item.querySelector('.variation-caption em')?.textContent?.trim() || ''
+      }))
+    );
+    const expectedFigureCaptions = [
+      { no: '01', label: '専用発音体', example: 'OMEGA MEMOMATIC' },
+      { no: '02', label: '膜状バック型', example: 'VULCAIN CRICKET' },
+      { no: '03', label: 'ピン／レバー伝達型', example: 'JUNGHANS MINIVOX' },
+      { no: '04', label: 'BELL-BASE型', example: 'LANCO-FON' }
     ];
-    if (JSON.stringify(shellState.examples) !== JSON.stringify(expectedExamples)) {
-      failures.push(`${width}px: representative watches missing or wrong: ${JSON.stringify(shellState.examples)}`);
+    if (JSON.stringify(figureCaptions) !== JSON.stringify(expectedFigureCaptions)) {
+      failures.push(`${width}px: figure captions wrong: ${JSON.stringify(figureCaptions)}`);
     }
 
     const diagramState = await page.evaluate(() =>
@@ -215,7 +221,7 @@ try {
       cards.map((card) => card.dataset.category)
     );
     const expectedCounts = Object.fromEntries(
-      ['gong', 'caseback', 'bell', 'pin'].map((category) => [
+      ['gong', 'caseback'].map((category) => [
         category,
         specimenCategories.filter((value) => value === category).length
       ])
@@ -227,9 +233,9 @@ try {
       'cyma-time-o-vox': 'gong',
       'pierce-duofon': 'gong',
       'wittnauer-10wa': 'gong',
-      'basis-alarm': 'bell',
-      'citizen-alarm': 'pin',
-      'westclox-watchlarm': 'bell'
+      'basis-alarm': 'caseback',
+      'citizen-alarm': 'caseback',
+      'westclox-watchlarm': 'caseback'
     };
     for (const [slug, category] of Object.entries(expectedSpecimenCategories)) {
       if (classifiedSpecimens[slug] !== category) {
@@ -281,7 +287,7 @@ try {
       }
     }
 
-    for (const category of ['caseback', 'bell', 'pin', 'gong']) {
+    for (const category of ['caseback', 'gong']) {
       await page.locator(`button[data-category="${category}"]`).click();
       const visible = await visibleSpecimens(page);
       const visibleCategories = await page.locator('[data-specimen]:not([hidden])').evaluateAll((cards) =>
@@ -312,18 +318,6 @@ try {
       }
     });
 
-    if (width === 390 && expectedCounts.bell > 0) {
-      await page.locator('button[data-category="bell"]').click();
-      const bellLink = page.locator('[data-specimen]:not([hidden]) .specimen-media').first();
-      const destinationHref = await bellLink.getAttribute('href');
-      await bellLink.click();
-      await page.locator('#owners-note').waitFor({ state: 'attached' });
-      const destination = page.url();
-      const ownersNoteAnchors = await page.locator('#owners-note').count();
-      if (!destination.endsWith(destinationHref) || ownersNoteAnchors !== 1) {
-        failures.push(`390px: BELL thumbnail did not open its OWNER'S NOTE (${destination}, anchors: ${ownersNoteAnchors})`);
-      }
-    }
 
     await context.close();
   }

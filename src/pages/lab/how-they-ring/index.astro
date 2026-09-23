@@ -7,7 +7,7 @@ import '../../../styles/site.css';
 const base = import.meta.env.BASE_URL;
 const { production = false } = Astro.props as { production?: boolean };
 const productionTitle = 'HOW THEY RING｜鳴らし方で見る、アラーム腕時計｜VINTAGE ALARM';
-const productionDescription = '機械式アラーム腕時計を、GONG・CASEBACK・BELL・PINの4つの鳴動方式から、掲載実機と音で見比べる。';
+const productionDescription = '機械式アラーム腕時計を、GONGとCASEBACKの2つの鳴動方式から、掲載実機と音で見比べる。';
 const productionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -38,39 +38,43 @@ const orderedSlugs = [
 const categories = [
   {
     id: 'gong',
-    no: '01',
     en: 'GONG',
     ja: 'ゴング',
-    action: '音響ばね／ゴングを直接叩く',
-    example: 'OMEGA MEMOMATIC',
-    image: '/images/how-they-ring/gong.jpg'
+    action: '専用の発音体を鳴らす',
+    figures: [
+      {
+        no: '01',
+        image: '/images/how-they-ring/gong.jpg',
+        label: '専用発音体',
+        example: 'OMEGA MEMOMATIC'
+      }
+    ]
   },
   {
     id: 'caseback',
-    no: '02',
     en: 'CASEBACK',
     ja: 'ケースバック',
-    action: 'ケース／保持リングそのものを直接叩く',
-    example: 'SICURA SIGNAL / RONDA 1243-21',
-    image: '/images/how-they-ring/caseback-hammer.png'
-  },
-  {
-    id: 'bell',
-    no: '03',
-    en: 'BELL',
-    ja: 'ベル',
-    action: '独立したベル／ベル底を響かせる',
-    example: 'JAEGER-LECOULTRE GRAND REVEIL / CAL.919',
-    image: '/images/how-they-ring/bell.jpg'
-  },
-  {
-    id: 'pin',
-    no: '04',
-    en: 'PIN',
-    ja: '底部ピン',
-    action: '底部ピンを叩き、膜・裏蓋へ振動を伝える',
-    example: 'VULCAIN CRICKET',
-    image: '/images/how-they-ring/pin-hammer.png'
+    action: 'ケースバックを共鳴させて鳴らす',
+    figures: [
+      {
+        no: '02',
+        image: '/images/how-they-ring/caseback-hammer.png',
+        label: '膜状バック型',
+        example: 'VULCAIN CRICKET'
+      },
+      {
+        no: '03',
+        image: '/images/how-they-ring/pin-hammer.png',
+        label: 'ピン／レバー伝達型',
+        example: 'JUNGHANS MINIVOX'
+      },
+      {
+        no: '04',
+        image: '/images/how-they-ring/bell.jpg',
+        label: 'BELL-BASE型',
+        example: 'LANCO-FON'
+      }
+    ]
   }
 ]
 
@@ -161,18 +165,15 @@ const specimens = orderedSlugs
 
       .category-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         border-top: 1px solid var(--lab-ink);
         border-left: 1px solid var(--lab-ink);
       }
 
       .category-button {
         appearance: none;
-        position: relative;
         min-width: 0;
-        min-height: 258px;
-        padding: 20px 18px 18px;
-        overflow: hidden;
+        padding: 16px 18px 15px;
         border: 0;
         border-right: 1px solid var(--lab-ink);
         border-bottom: 1px solid var(--lab-ink);
@@ -183,30 +184,12 @@ const specimens = orderedSlugs
       }
 
       .category-button[aria-pressed="true"] {
-        background: rgba(255,255,255,.10);
+        background: rgba(255,255,255,.14);
       }
 
       .category-button:focus-visible {
         outline: 2px solid var(--lab-ink);
         outline-offset: 4px;
-      }
-
-      .category-no {
-        position: absolute;
-        top: 4px;
-        right: 10px;
-        color: rgba(36,31,26,.10);
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 72px;
-        line-height: 1;
-        letter-spacing: -.06em;
-        pointer-events: none;
-      }
-
-      .category-name {
-        position: relative;
-        z-index: 2;
-        display: block;
       }
 
       .category-name strong,
@@ -216,28 +199,69 @@ const specimens = orderedSlugs
 
       .category-name strong {
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(23px, 2.7vw, 30px);
+        font-size: clamp(25px, 3vw, 32px);
         font-weight: 400;
         line-height: 1;
         letter-spacing: .035em;
       }
 
       .category-name em {
-        margin-top: 7px;
+        margin-top: 6px;
         color: var(--lab-soft);
-        font-size: 12px;
+        font-size: 11px;
         font-style: normal;
+      }
+
+      .category-action {
+        display: block;
+        margin-top: 12px;
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .mechanism-groups {
+        border-left: 1px solid var(--lab-ink);
+        border-right: 1px solid var(--lab-ink);
+        border-bottom: 1px solid var(--lab-ink);
+      }
+
+      .mechanism-group {
+        padding: 18px;
+      }
+
+      .mechanism-group[hidden] {
+        display: none !important;
+      }
+
+      .mechanism-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--figure-count), minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .mechanism-variation {
+        min-width: 0;
+      }
+
+      .variation-no {
+        display: block;
+        color: var(--lab-soft);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 10px;
+        letter-spacing: .11em;
       }
 
       .mechanism-figure {
         position: relative;
         display: block;
-        height: 156px;
-        margin: 10px -2px 5px;
+        height: 142px;
+        margin-top: 4px;
         overflow: hidden;
       }
 
       .mechanism-figure > img {
+        position: absolute;
+        inset: 0;
         display: block;
         width: 100% !important;
         height: 100% !important;
@@ -246,11 +270,8 @@ const specimens = orderedSlugs
         background: transparent;
       }
 
-
-      .category-button[data-category="caseback"] .mechanism-figure > img,
-      .category-button[data-category="bell"] .mechanism-figure > img,
-      .category-button[data-category="pin"] .mechanism-figure > img {
-        top: 22px !important;
+      .mechanism-variation:not([data-figure="01"]) .mechanism-figure > img {
+        top: 15px !important;
         bottom: auto !important;
         height: 112px !important;
         min-height: 112px !important;
@@ -259,32 +280,31 @@ const specimens = orderedSlugs
         object-position: center center;
       }
 
-      .category-action {
+      .variation-caption {
         display: block;
-        min-height: 2.8em;
-        margin-top: 6px;
-        font-size: 12px;
-        line-height: 1.65;
+        margin-top: 7px;
+        padding-top: 7px;
+        border-top: 1px solid rgba(36,31,26,.24);
+        line-height: 1.45;
       }
 
-      .category-examples {
+      .variation-caption strong,
+      .variation-caption em {
         display: block;
-        margin-top: 9px;
-        padding-top: 8px;
-        border-top: 1px solid rgba(36,31,26,.24);
+        font-style: normal;
+      }
+
+      .variation-caption strong {
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .variation-caption em {
+        margin-top: 2px;
         color: var(--lab-soft);
         font-family: Georgia, "Times New Roman", serif;
         font-size: 10px;
-        line-height: 1.45;
-        letter-spacing: .045em;
-      }
-
-      .category-examples small {
-        display: block;
-        margin-bottom: 2px;
-        font-family: "Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;
-        font-size: 8px;
-        letter-spacing: .06em;
+        letter-spacing: .04em;
       }
 
       .selected-section {
@@ -457,55 +477,50 @@ const specimens = orderedSlugs
           font-size: clamp(32px, 10vw, 44px);
         }
 
-        .category-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
         .category-button {
-          min-height: 184px;
-          padding: 10px 10px 8px;
-        }
-
-        .category-no {
-          font-size: 36px;
+          padding: 11px 12px 10px;
         }
 
         .category-name strong {
-          font-size: clamp(14px, 4.6vw, 17px);
+          font-size: clamp(18px, 6vw, 24px);
+        }
+
+        .category-action {
+          margin-top: 7px;
+          font-size: 9.5px;
+        }
+
+        .mechanism-group {
+          padding: 11px;
+        }
+
+        .mechanism-grid {
+          gap: 7px;
         }
 
         .mechanism-figure {
-          height: 90px;
-          margin: 5px -2px 2px;
+          height: 86px;
         }
 
-        .category-button[data-category="caseback"] .mechanism-figure > img,
-        .category-button[data-category="bell"] .mechanism-figure > img,
-        .category-button[data-category="pin"] .mechanism-figure > img {
-          top: 11px !important;
+        .mechanism-variation:not([data-figure="01"]) .mechanism-figure > img {
+          top: 9px !important;
           height: 68px !important;
           min-height: 68px !important;
           max-height: 68px !important;
         }
 
-        .category-action {
-          min-height: 2.7em;
-          margin-top: 3px;
-          font-size: 9px;
-          line-height: 1.4;
-        }
-
-        .category-examples {
+        .variation-caption {
           margin-top: 4px;
           padding-top: 4px;
-          font-size: 8.5px;
-          line-height: 1.35;
-          overflow-wrap: anywhere;
         }
 
-        .category-examples small {
-          margin-bottom: 1px;
-          font-size: 8px;
+        .variation-caption strong {
+          font-size: 8.5px;
+        }
+
+        .variation-caption em {
+          font-size: 7.5px;
+          overflow-wrap: anywhere;
         }
 
         .selected-section {
@@ -548,29 +563,31 @@ const specimens = orderedSlugs
         .lab { width: calc(100% - 24px); }
 
         .category-button {
-          min-height: 180px;
-          padding-inline: 11px;
-        }
-
-        .category-no {
-          font-size: 40px;
+          padding-inline: 9px;
         }
 
         .category-name strong {
-          font-size: 18px;
-        }
-
-        .mechanism-figure {
-          height: 90px;
+          font-size: 17px;
         }
 
         .category-action {
-          min-height: 2.6em;
           font-size: 8.5px;
         }
 
-        .category-examples {
+        .mechanism-group {
+          padding-inline: 9px;
+        }
+
+        .mechanism-grid {
+          gap: 5px;
+        }
+
+        .variation-caption strong {
           font-size: 8px;
+        }
+
+        .variation-caption em {
+          font-size: 7px;
         }
 
         .specimen-card {
@@ -597,21 +614,36 @@ const specimens = orderedSlugs
               aria-controls="specimen-panel"
               aria-pressed={category.id === 'gong' ? 'true' : 'false'}
             >
-              <span class="category-no">{category.no}</span>
               <span class="category-name">
                 <strong>{category.en}</strong>
                 <em>{category.ja}</em>
               </span>
-              <span class="mechanism-figure" aria-hidden="true">
-                <img
-                  src={`${base}${category.image.replace(/^\//, '')}`}
-                  alt=""
-                  style="position:absolute;inset:0;display:block;width:100%;height:100%;min-height:100%;max-height:100%;max-width:none;object-fit:contain;"
-                />
-              </span>
               <span class="category-action">{category.action}</span>
-              <span class="category-examples"><small>代表機</small>{category.example}</span>
             </button>
+          ))}
+        </div>
+        <div class="mechanism-groups">
+          {categories.map((category) => (
+            <div
+              class="mechanism-group"
+              data-mechanism-group={category.id}
+              hidden={category.id !== 'gong'}
+            >
+              <div class="mechanism-grid" style={`--figure-count:${category.figures.length}`}>
+                {category.figures.map((figure) => (
+                  <div class="mechanism-variation" data-figure={figure.no}>
+                    <span class="variation-no">FIG.{figure.no}</span>
+                    <span class="mechanism-figure" aria-hidden="true">
+                      <img src={`${base}${figure.image.replace(/^\//, '')}`} alt="" />
+                    </span>
+                    <span class="variation-caption">
+                      <strong>{figure.label}</strong>
+                      <em>{figure.example}</em>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </section>
@@ -683,6 +715,7 @@ const specimens = orderedSlugs
         const categoryButtons = [...document.querySelectorAll('button[data-category]')];
         const specimenCards = [...document.querySelectorAll('[data-specimen]')];
         const headingBlocks = [...document.querySelectorAll('[data-category-summary]')];
+        const mechanismGroups = [...document.querySelectorAll('[data-mechanism-group]')];
 
         const selectCategory = (category) => {
           categoryButtons.forEach((button) => {
@@ -693,6 +726,9 @@ const specimens = orderedSlugs
           });
           headingBlocks.forEach((block) => {
             block.hidden = block.dataset.categorySummary !== category;
+          });
+          mechanismGroups.forEach((group) => {
+            group.hidden = group.dataset.mechanismGroup !== category;
           });
         };
 

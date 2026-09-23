@@ -122,15 +122,16 @@ SMARTWATCHなど、motion自体が表現内容の一部であるページは例�
 - CMS編集入口は管理画面側で提供し、視聴者向けページへ編集導線を混在させない。
 - 未実装の要素は空表示または非表示とし、`準備中` や `coming soon` で制作事情を見せない。
 
-HOW THEY RINGの上部は、ページ名・見出し・鳴動方式カード・方式ごとの歴史的な代表機だけで構成する。右側の編集意図説明やページ構成説明は置かない。代表機には著名機を使い、下段へ表示する所有・掲載個体の画像と混同しない。
+HOW THEY RINGは、サイト上の大分類を GONG / CASEBACK の2つだけに固定する。細部機構は個体分類に使わず、CASEBACK側の図示バリエーションとして見せる。
 
-鳴動方式は発音体と打撃の伝達経路で判定する。
-- GONG：独立した音響ばね／ゴングが共鳴する。
-- CASEBACK：ケース／保持リング自体をハンマーが直接叩いて共鳴させる。
-- BELL：独立したベル／ベル底が共鳴する。ベルに固定された小レバー等を介して打撃する構造もここへ含める。
-- PIN：底部・膜・裏蓋に設けたピン／スタッドをハンマーが叩き、その振動を膜・底板へ伝える。
-
-代表機は GONG＝OMEGA MEMOMATIC、CASEBACK＝SICURA SIGNAL / RONDA 1243-21、BELL＝JAEGER-LECOULTRE GRAND REVEIL / CAL.919、PIN＝VULCAIN CRICKET。EternaはBELL代表候補から除外する。通常の歴史的MemovoxとAS1475系は底部ピンを打つためPIN、SEIKO BELL-MATIC / Cal.4006は音響ばね式なのでGONG。BASIS / BFG90、ベル実体を確認できるLANCO-FON 1241系、量産型JUNGHANS MINIVOX J89と同系のbell-base構造を持つWESTCLOX W5はBELL。CITIZEN Cal.980系とAS1475系はケースバック側のピンを叩くためPIN。
+- GONG：専用の発音体を鳴らす。
+- CASEBACK：ケースバック構造を共鳴させて鳴らす。
+- FIG.01：GONGの参考図。OMEGA MEMOMATIC。
+- FIG.02：CASEBACKの構造例「膜状バック型 — VULCAIN CRICKET」。
+- FIG.03：CASEBACKの構造例「ピン／レバー伝達型 — JUNGHANS MINIVOX」。
+- FIG.04：CASEBACKの構造例「BELL-BASE型 — LANCO-FON」。
+- FIG.02〜04はCASEBACK内部の下位分類ではない。掲載個体へ図番号や「膜状」「PIN」「BELL」等の詳細タグを付けず、個体カードはGONGまたはCASEBACKだけを表示する。
+- 掲載個体は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK。
 
 ## 実寸監査
 

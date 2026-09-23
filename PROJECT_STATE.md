@@ -66,9 +66,10 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
 - 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
-- HOW THEY RINGは発音体と打撃の伝達経路で4分類する。GONG＝独立した音響ばね／ゴングが共鳴、CASEBACK＝ケース／保持リング自体をハンマーが直接打撃、BELL＝独立したベル／ベル底が共鳴（ベルに固定されたレバー等を介す構造を含む）、PIN＝底部・膜・裏蓋に設けたピン／スタッドをハンマーが打撃し、その振動を発音体へ伝達。
-- 上段代表機は GONG「OMEGA MEMOMATIC」、CASEBACK「SICURA SIGNAL / RONDA 1243-21」、BELL「JAEGER-LECOULTRE GRAND REVEIL / CAL.919」、PIN「VULCAIN CRICKET」。掲載・所有個体の画像を代表機画像として流用しない。
-- 資料確認済みの分類例：BASIS / BFG90＝BELL（Bodenglocke）、LANCO-FON 1241系＝BELL（Glocke）、JUNGHANS MINIVOX J89標準量産型＝BELL（simple bell / bell base）、WESTCLOX W5＝BELL（Minivoxと同系のbell-base構造）、通常の歴史的MEMOVOX＝PIN、VULCAIN CRICKET＝PIN、AS1475系＝PIN、CITIZEN Cal.980系＝PIN（ケースバック側のピンを打撃）、SEIKO BELL-MATIC＝GONG。
+- HOW THEY RINGの現行分類は GONG / CASEBACK の2種類だけ。GONG＝専用の発音体を鳴らす、CASEBACK＝ケースバック構造を共鳴させて鳴らす
+- CASEBACKの図示02〜04は下位分類ではなく構造バリエーションの例示。02「膜状バック型 — VULCAIN CRICKET」、03「ピン／レバー伝達型 — JUNGHANS MINIVOX」、04「BELL-BASE型 — LANCO-FON」。個体カードには02/03/04等の詳細分類を付けない
+- 掲載個体の分類は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK
+- FIG.01はGONGの参考図として OMEGA MEMOMATIC を表示する
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
