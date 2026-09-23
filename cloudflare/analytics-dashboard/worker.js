@@ -446,14 +446,14 @@ async function analyticsResponse(url, env) {
     const legacyHost = env.LEGACY_REQUEST_HOST || HOST_MIGRATION.oldHost;
     const emptyData = { viewer: { accounts: [{ total: [{ count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } }], pages: [], referers: [], flows: [], entries: [], countries: [], devices: [] }] } };
 
-    const [current, previous, trendResult, legacyCurrent, legacyPrevious, legacyTrendResult] = await Promise.all([
-      fetchPeriod(env, host, currentStart, currentEnd),
-      previousStart ? fetchPeriod(env, host, previousStart, previousEnd) : Promise.resolve(emptyData),
-      fetchTrend(env, host, currentStart, currentEnd, trendSpec),
-      fetchPeriod(env, legacyHost, currentStart, currentEnd),
-      previousStart ? fetchPeriod(env, legacyHost, previousStart, previousEnd) : Promise.resolve(emptyData),
-      fetchTrend(env, legacyHost, currentStart, currentEnd, trendSpec),
-    ]);
+    const [current, previous, trendResult, legacyCurrent, legacyPrevious, legacyTrendResult] = await mapWithConcurrency([
+      () => fetchPeriod(env, host, currentStart, currentEnd),
+      () => previousStart ? fetchPeriod(env, host, previousStart, previousEnd) : Promise.resolve(emptyData),
+      () => fetchTrend(env, host, currentStart, currentEnd, trendSpec),
+      () => fetchPeriod(env, legacyHost, currentStart, currentEnd),
+      () => previousStart ? fetchPeriod(env, legacyHost, previousStart, previousEnd) : Promise.resolve(emptyData),
+      () => fetchTrend(env, legacyHost, currentStart, currentEnd, trendSpec),
+    ], 2, (task) => task());
 
     const currentPeriod = normalizePeriod(current, host);
     const previousPeriod = normalizePeriod(previous, host);
@@ -480,6 +480,12 @@ async function analyticsResponse(url, env) {
       previousStart: previousStart?.toISOString() || null,
       previousEnd: previousEnd?.toISOString() || null,
       compareMode: previousStart ? "previous-period" : "none",
+      availability: {
+        availableFrom: rangeSpec.availableFrom.toISOString(),
+        rangeClipped: Boolean(rangeSpec.rangeClipped),
+        requestedStart: rangeSpec.requestedStart?.toISOString() || null,
+        note: "Data before the analytics baseline is unavailable; the first measured day may be partial because activation time is not independently verified.",
+      },
       host,
       hostMigration: HOST_MIGRATION,
       current: currentPeriod,
@@ -578,9 +584,11 @@ function normalizeWindow(value) {
   return windows[value] || windows["7d"];
 }
 
-export const ANALYTICS_STARTED_AT = "2026-09-08T00:00:00+09:00";
+export const ANALYTICS_STARTED_AT = "2026-09-08T06:41:34+09:00";
 const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
 const DAY_MS = 24 * 60 * 60 * 1000;
+const HOST_MIGRATION_DAY_START = Date.parse(HOST_MIGRATION.date + "T00:00:00+09:00");
+const HOST_MIGRATION_DAY_END = HOST_MIGRATION_DAY_START + DAY_MS;
 
 function parseJstDay(value, endExclusive = false) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value || ""))) return null;
@@ -589,39 +597,80 @@ function parseJstDay(value, endExclusive = false) {
   return new Date(base.getTime() + (endExclusive ? DAY_MS : 0));
 }
 
+function clampRangeToAnalyticsStart(start, end) {
+  const availableFrom = new Date(ANALYTICS_STARTED_AT);
+  if (end <= availableFrom) {
+    throw new Error("指定期間はVINTAGE ALARM Analyticsの計測開始前です。");
+  }
+  const clipped = start < availableFrom;
+  return {
+    start: clipped ? availableFrom : start,
+    end,
+    clipped,
+    availableFrom,
+  };
+}
+
 export function resolveAnalyticsRange(url, nowValue = new Date()) {
   const now = new Date(nowValue);
   if (!Number.isFinite(now.getTime())) throw new Error("Invalid analytics clock.");
   const rawRange = String(url.searchParams.get("range") || url.searchParams.get("window") || "7d").toLowerCase();
+  const availableFrom = new Date(ANALYTICS_STARTED_AT);
+
   if (rawRange === "all") {
-    const start = new Date(ANALYTICS_STARTED_AT);
-    return { key: "all", label: "全期間", start, end: now, previousStart: null, previousEnd: null };
-  }
-  if (rawRange === "custom") {
-    const start = parseJstDay(url.searchParams.get("start"));
-    const requestedEnd = parseJstDay(url.searchParams.get("end"), true);
-    if (!start || !requestedEnd) throw new Error("CUSTOMは開始日と終了日を指定してください。");
-    const end = new Date(Math.min(requestedEnd.getTime(), now.getTime()));
-    if (end <= start) throw new Error("CUSTOMの終了日は開始日より後にしてください。");
-    const duration = end.getTime() - start.getTime();
     return {
-      key: "custom",
-      label: start.toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo" }) + "–" + new Date(end.getTime() - 1).toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo" }),
-      start,
-      end,
-      previousStart: new Date(start.getTime() - duration),
-      previousEnd: start,
+      key: "all",
+      label: "全期間",
+      start: availableFrom,
+      end: now,
+      previousStart: null,
+      previousEnd: null,
+      rangeClipped: false,
+      availableFrom,
     };
   }
+
+  if (rawRange === "custom") {
+    const requestedStart = parseJstDay(url.searchParams.get("start"));
+    const requestedEnd = parseJstDay(url.searchParams.get("end"), true);
+    if (!requestedStart || !requestedEnd) throw new Error("CUSTOMは開始日と終了日を指定してください。");
+    const cappedEnd = new Date(Math.min(requestedEnd.getTime(), now.getTime()));
+    if (cappedEnd <= requestedStart) throw new Error("CUSTOMの終了日は開始日より後にしてください。");
+    const clamped = clampRangeToAnalyticsStart(requestedStart, cappedEnd);
+    const duration = clamped.end.getTime() - clamped.start.getTime();
+    const previousCandidate = new Date(clamped.start.getTime() - duration);
+    const previousAvailable = previousCandidate >= availableFrom;
+
+    return {
+      key: "custom",
+      label: clamped.start.toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo" }) + "–" + new Date(clamped.end.getTime() - 1).toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo" }),
+      start: clamped.start,
+      end: clamped.end,
+      previousStart: previousAvailable ? previousCandidate : null,
+      previousEnd: previousAvailable ? clamped.start : null,
+      rangeClipped: clamped.clipped,
+      requestedStart,
+      availableFrom,
+    };
+  }
+
   const windowSpec = normalizeWindow(rawRange);
-  const start = new Date(now.getTime() - windowSpec.ms);
+  const requestedStart = new Date(now.getTime() - windowSpec.ms);
+  const clamped = clampRangeToAnalyticsStart(requestedStart, now);
+  const duration = clamped.end.getTime() - clamped.start.getTime();
+  const previousCandidate = new Date(clamped.start.getTime() - duration);
+  const previousAvailable = !clamped.clipped && previousCandidate >= availableFrom;
+
   return {
     key: windowSpec.key,
     label: windowSpec.label,
-    start,
-    end: now,
-    previousStart: new Date(start.getTime() - windowSpec.ms),
-    previousEnd: start,
+    start: clamped.start,
+    end: clamped.end,
+    previousStart: previousAvailable ? previousCandidate : null,
+    previousEnd: previousAvailable ? clamped.start : null,
+    rangeClipped: clamped.clipped,
+    requestedStart,
+    availableFrom,
   };
 }
 
@@ -727,18 +776,35 @@ export function aggregateTrendBuckets(points, bucketKey, rangeStart, rangeEnd, n
     current.sampleInterval = Math.max(current.sampleInterval, Number(point?.sampleInterval || 1));
     groups.set(key, current);
   }
-  return [...groups.values()].sort((a, b) => Date.parse(a.bucketStart) - Date.parse(b.bucketStart)).map((item) => {
-    const bucketStart = Date.parse(item.bucketStart);
-    const bucketEnd = Date.parse(item.bucketEnd);
-    const partial = bucketStart < startMs || bucketEnd > endMs || bucketEnd > nowMs;
-    const estimated = Number(item.sampleInterval || 1) > 1;
-    return {
-      ...item,
-      partial,
-      estimated,
-      status: partial ? (estimated ? "PARTIAL / SAMPLED" : "PARTIAL") : (estimated ? "SAMPLED / ESTIMATE" : "UNSAMPLED"),
-    };
-  });
+
+  return [...groups.values()]
+    .sort((a, b) => Date.parse(a.bucketStart) - Date.parse(b.bucketStart))
+    .map((item) => {
+      const bucketStart = Date.parse(item.bucketStart);
+      const bucketEnd = Date.parse(item.bucketEnd);
+      const naturalDuration = bucketEnd - bucketStart;
+      const rangePartial = bucketStart < startMs || bucketEnd > endMs || bucketEnd > nowMs;
+      const shortBucket = bucketKey === "7d" && naturalDuration < 7 * DAY_MS;
+      const migrationMixed = bucketStart < HOST_MIGRATION_DAY_END && bucketEnd > HOST_MIGRATION_DAY_START;
+      const estimated = Number(item.sampleInterval || 1) > 1;
+      const comparable = !rangePartial && !shortBucket && !migrationMixed;
+
+      const statusParts = [];
+      if (rangePartial) statusParts.push("PARTIAL");
+      if (shortBucket) statusParts.push("SHORT");
+      if (migrationMixed) statusParts.push("MIGRATION");
+      statusParts.push(estimated ? "SAMPLED / ESTIMATE" : "UNSAMPLED");
+
+      return {
+        ...item,
+        partial: rangePartial,
+        shortBucket,
+        migrationMixed,
+        estimated,
+        comparable,
+        status: statusParts.join(" / "),
+      };
+    });
 }
 
 function canonicalAnalyticsScope(url) {
@@ -770,6 +836,24 @@ export function splitPeriod(start, end, maxMs = ANALYTICS_CHUNK_MS) {
     });
   }
   return ranges.reverse();
+}
+
+export async function mapWithConcurrency(items, limit, mapper) {
+  const values = Array.from(items || []);
+  const max = Math.max(1, Math.floor(Number(limit) || 1));
+  const results = new Array(values.length);
+  let cursor = 0;
+
+  async function worker() {
+    while (true) {
+      const index = cursor++;
+      if (index >= values.length) return;
+      results[index] = await mapper(values[index], index);
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(max, values.length) }, () => worker()));
+  return results;
 }
 
 function mergeGroupedRows(accounts, field, dimensionKeys, limit) {
@@ -811,8 +895,10 @@ export function mergePeriodData(parts) {
 }
 
 async function fetchPeriod(env, host, start, end) {
-  const parts = await Promise.all(
-    splitPeriod(start, end).map((range) => fetchPeriodSlice(env, host, range.start, range.end)),
+  const parts = await mapWithConcurrency(
+    splitPeriod(start, end),
+    2,
+    (range) => fetchPeriodSlice(env, host, range.start, range.end),
   );
   return parts.length === 1 ? parts[0] : mergePeriodData(parts);
 }
@@ -949,19 +1035,19 @@ query VintageAlarmTrend(
 `;
 
     try {
-      const data = await Promise.all(ranges.map((range) => cloudflareGraphQL(env, query, {
-          accountTag: env.CF_ACCOUNT_ID,
-          filter: {
-            AND: [
-              {
-                datetime_geq: range.start.toISOString(),
-                datetime_lt: range.end.toISOString(),
-              },
-              { requestHost: host },
-              { bot: 0 },
-            ],
-          },
-        })));
+      const data = await mapWithConcurrency(ranges, 2, (range) => cloudflareGraphQL(env, query, {
+        accountTag: env.CF_ACCOUNT_ID,
+        filter: {
+          AND: [
+            {
+              datetime_geq: range.start.toISOString(),
+              datetime_lt: range.end.toISOString(),
+            },
+            { requestHost: host },
+            { bot: 0 },
+          ],
+        },
+      }));
 
       return {
         bucketField,
@@ -1820,19 +1906,21 @@ function bucketComparison(points){
   let previous=null;
   const body=points.map(point=>{
     const visits=Number(point.visits||0);
-    const diff=previous===null?null:visits-previous;
+    const canCompare=Boolean(point.comparable);
+    const diff=previous&&previous.comparable&&canCompare?visits-previous.visits:null;
     const deltaText=diff===null?"—":(diff>0?"+":"")+n(diff);
-    previous=visits;
+    previous={visits,comparable:canCompare};
     const status=String(point.status||"UNSAMPLED");
-    const cls=status.includes("PARTIAL")?"partial":status.includes("ESTIMATE")?"estimate":"";
+    const cls=status.includes("PARTIAL")||status.includes("SHORT")||status.includes("MIGRATION")?"partial":status.includes("ESTIMATE")?"estimate":"";
     return '<tr><td class="period-cell"><strong>'+esc(point.label||bucketLabel(point.bucket))+'</strong></td>'+
       '<td><span class="bucket-status '+cls+'">'+esc(status)+'</span>'+(Number(point.sampleInterval||1)>1?'<span class="path">sample ×'+n(point.sampleInterval)+'</span>':'')+'</td>'+
       '<td class="num">'+n(point.pageviews)+'</td><td class="num">'+n(visits)+'</td><td class="num">'+n(point.x)+'</td>'+
       '<td class="num">'+n(point.search)+'</td><td class="num">'+n(point.direct)+'</td><td class="num">'+n(point.internalPV)+'</td><td class="num">'+deltaText+'</td></tr>';
   }).join("");
-  return '<section class="card bucket-compare"><div class="section-head"><div class="section-title">BUCKET COMPARISON</div><span>同じ選択期間の中を比較 · PARTIALは途中区間</span></div>'+
+  return '<section class="card bucket-compare"><div class="section-head"><div class="section-title">BUCKET COMPARISON</div><span>同じ長さ・同条件の区間だけΔ比較 · PARTIAL/SHORT/MIGRATIONは比較対象外</span></div>'+
     '<table><thead><tr><th>PERIOD</th><th>QUALITY</th><th class="num">PV</th><th class="num">VISITS</th><th class="num">X</th><th class="num">SEARCH</th><th class="num">DIRECT</th><th class="num">INTERNAL PV</th><th class="num">Δ VISITS</th></tr></thead><tbody>'+body+'</tbody></table></section>';
 }
+
 function render(data){
   window.__vaLastData=data;
   window.__vaWindowStart=data.windowStart;
@@ -1876,9 +1964,13 @@ function render(data){
   const trafficSeries=[{key:"pageviews",label:"Page views",color:COLORS.pageviews},{key:"visits",label:"Visits",color:COLORS.visits}];
   const hostSeries=[{key:"newVisits",label:"NEW · "+data.host,color:COLORS.newHost},{key:"legacyVisits",label:"OLD · "+(legacy.host||HOST_MIGRATION.oldHost),color:COLORS.legacyHost}];
   const acquisitionSeries=[{key:"x",label:"X",color:COLORS.X},{key:"youtube",label:"YouTube",color:COLORS.YouTube},{key:"search",label:"Search",color:COLORS.Search},{key:"direct",label:"Direct",color:COLORS.Direct},{key:"instagram",label:"Instagram",color:channelColor("Instagram")},{key:"facebook",label:"Facebook",color:channelColor("Facebook")},{key:"otherSns",label:"Other SNS",color:channelColor("Other SNS")}];
+  const availability=data.availability||{};
+  const availabilityNote=availability.rangeClipped
+    ? '<section class="card low-sample"><strong>RANGE CLIPPED</strong><span>計測開始前は集計せず '+esc(new Date(availability.availableFrom).toLocaleString("ja-JP"))+' から表示</span></section>'
+    : '';
   document.getElementById("content").innerHTML=
   '<div class="path">'+esc(HOST_MIGRATION.note)+'</div>'+
-  '<div class="grid analytics-grid">'+audit+lowSample+
+  '<div class="grid analytics-grid">'+audit+availabilityNote+lowSample+
     '<section class="card host-scope"><div class="section-head"><div class="section-title">TOTAL + HOST BREAKDOWN</div><span>合計はhost別Visitsの足し算。ユニーク人数ではありません</span></div><div class="host-grid">'+
       '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · '+esc(c.quality||"UNSAMPLED")+(Number(c.sampleInterval||1)>1?' · sample ×'+n(c.sampleInterval):'')+'</div></div>'+
       '<div class="host-block"><span class="path">NEW · '+esc(data.host)+'</span><strong>'+n(nc.visits)+' visits</strong><div class="delta">'+n(nc.pageviews)+' page views · '+(c.visits?((nc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
