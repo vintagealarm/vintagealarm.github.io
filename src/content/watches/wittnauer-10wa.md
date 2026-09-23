@@ -54,7 +54,6 @@ howTheyRing:
   category: gong
   image: "/images/Wittnauer10WA.png"
   audio:
-    status: pending
     recordings: []
 
 video:

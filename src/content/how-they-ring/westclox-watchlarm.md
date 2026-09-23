@@ -5,7 +5,6 @@ published: true
 category: caseback
 thumbnail: /images/IMG_2093-1.jpeg
 audio:
-  status: pending
   recordings:
     - id: e796de8b-cf05-4e69-8cf1-088971e39303
       label: Westclox watchlarm

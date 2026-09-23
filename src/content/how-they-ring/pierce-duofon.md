@@ -5,7 +5,6 @@ published: true
 category: gong
 thumbnail: /images/owners-thumbnails/pierce-duofon-full.png
 audio:
-  status: pending
   recordings:
     - id: 17b16950-6826-473f-8ba0-e5e891fb1bbd
       label: WECKER / 音あり

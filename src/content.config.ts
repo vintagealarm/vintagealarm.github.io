@@ -42,7 +42,6 @@ const watches = defineCollection({
       category: z.enum(['gong', 'caseback']),
       image: z.string().optional(),
       audio: z.object({
-        status: z.enum(['pending', 'ready']).default('pending'),
         recordings: z.array(z.object({
           id: z.string(),
           label: z.string(),
@@ -93,7 +92,6 @@ const howTheyRing = defineCollection({
     category: z.enum(['gong', 'caseback']),
     thumbnail: z.string().nullish(),
     audio: z.object({
-      status: z.enum(['pending', 'ready']).default('pending'),
       recordings: z.array(z.object({
         id: z.string(),
         label: z.string(),

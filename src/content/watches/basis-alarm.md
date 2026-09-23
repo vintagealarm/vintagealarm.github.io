@@ -53,7 +53,6 @@ howTheyRing:
   category: caseback
   image: "/images/Basis Alarm(BFG90).png"
   audio:
-    status: pending
     recordings: []
 
 video:

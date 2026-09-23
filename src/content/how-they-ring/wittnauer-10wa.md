@@ -5,7 +5,6 @@ published: true
 category: gong
 thumbnail: /images/IMG_5792.jpeg
 audio:
-  status: pending
   recordings:
     - id: 81096a57-66a3-4bd4-8169-fadc5ad38aad
       label: Wittnauer 10WA
