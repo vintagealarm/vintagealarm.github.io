@@ -326,6 +326,17 @@ Campaign FunnelのCloudflare側値は選択期間全体の比較値であり、S
 
 Visitsが30未満の選択期間ではLOW SAMPLEを表示し、数件差を傾向として断定しない。
 
+### 期間比較 / samplingの扱い
+
+- RANGEとGROUP BYは別概念として扱う。RANGEは 1H / 3H / 24H / 7D / 30D / ALL / CUSTOM、GROUP BYは AUTO / 30分 / 1時間 / 1日 / 7日 / 月。
+- 7日bucketは暦固定で 1–7 / 8–14 / 15–21 / 22–28 / 29–月末。29–月末は7日未満なので SHORT とし、通常の前bucket差分比較から除外する。
+- 選択期間や現在時刻で切れたbucketは PARTIAL。2026-09-10のホスト移行日を含むbucketは MIGRATION。PARTIAL / SHORT / MIGRATION は表示しても同条件比較として扱わない。
+- Cloudflare `sampleInterval=1` はそのquery groupがsamplingされていないことを示すだけで、過去値が永久に確定したことを意味しない。表示は UNSAMPLED / SAMPLED / ESTIMATE とする。
+- Web Analyticsの利用可能期間は、repository上でbeacon追加を確認できる 2026-09-08 06:41:34 JST を保守的な下限とする。それより前を0アクセスとして扱わず、完全に開始前の期間は取得不可、開始前を含む期間は下限までclipする。初日の完全性は別途未確認。
+- previous-periodは同じ長さの直前期間が上記下限以後に全て収まる場合だけ表示する。
+- ALL / 長期CUSTOMでもCloudflare問い合わせは最大7日sliceを維持するが、GraphQL burstを避けるため並列数を制限する。
+- AI COPY / AI URL / relay / VA2も同じRANGE・GROUP BY・CUSTOM日付・sampling状態を保持し、ダッシュボードとAI分析の切り口を一致させる。
+
 
 ## Evidence-gated実装ループ
 
