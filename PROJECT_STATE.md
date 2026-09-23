@@ -81,7 +81,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - HOW THEY RINGの機構図根拠は、各FIGにつき確定的な1出典だけを折りたたみ表示する。原則『The Alarm Wristwatch』『ALARM AM ARM』を優先し、2冊で直接支えられない場合のみ外部資料1件を採用する。補助資料は内部検証用で、閲覧者へ列挙しない。GONG / CASEBACKと各型名はVINTAGE ALARMでの整理として明示する。
 - 掲載個体の大分類は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK。
 - Pierce Duofonの二音源表示は **WECKER / 音あり** と **SIGNAL / 音無し**。ファイル名由来の WAKER / SILENT を表示ラベルへ戻さない。
-- HOW THEY RINGの入口表示名は **HOW THEY RING**。旧「音で選ぶ」は失効。TOPではOWNER'S NOTES直下に置く。
+- HOW THEY RINGのページ名／TOP入口表示名は **HOW THEY RING**。旧「音で選ぶ」は失効。TOPではOWNER'S NOTES直下に置く。**共通ハンバーガーメニュー内の日本語ラベルだけは「音で見る」**とする。
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
