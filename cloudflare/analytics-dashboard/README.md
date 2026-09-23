@@ -127,14 +127,18 @@ Search Console / Google生成AIのCSV Importは現時点でブラウザlocalStor
 
 ## URL表示名
 
-Worker内のPAGE_NAMESで管理する。
+本番表示は `profile-worker.js` のWATCH / gateway mappingで正規化する。公開WATCHは6本を同一セットとして扱う。
 
 - TOP
 - HISTORY
 - OWNER'S NOTES
+- HOW THEY RING
 - Basis Alarm
-- Pierce Duofon
+- Wittnauer Cal.10WA
 - Cyma Time-O-Vox
+- Citizen Alarm
+- Westclox Watchlarm
+- Pierce Duofon
 - Cyma OWNER'S NOTE
 - Smartwatch / HISTORY
 
