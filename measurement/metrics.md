@@ -120,10 +120,13 @@ Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始�
 - `/history/` → HISTORY
 - `/owners-notes/` → OWNER'S NOTES
 - `/basis-alarm/` → Basis Alarm
+- `/wittnauer-10wa/` → Wittnauer Cal.10WA
 - `/pierce-duofon/` → Pierce Duofon
 - `/cyma-time-o-vox/` → Cyma Time-O-Vox
 - `/citizen-alarm/` → Citizen Alarm
 - `/westclox-watchlarm/` → Westclox Watchlarm
+- `/how-they-ring/` → How They Ring
+- `/cyma-time-o-vox/chronometre/` → Cyma Time-O-Vox Chronomètre
 - `/cyma-time-o-vox/owners-note/` → Cyma OWNER'S NOTE
 - `/history/smartwatch/` → Smartwatch / HISTORY
 
@@ -131,6 +134,7 @@ base path、末尾スラッシュ、URLエンコード差を正規化する。
 既知マッピングに一致しないPathは`UNMAPPED`として表示し、勝手に既存ページ名へ丸めない。
 
 新規ページ公開時は表示名マッピング、WATCH share、SNS → WATCH ENTRY、主要ページリストを同時に更新する。
+Analyticsの実測で新しい公開Pathが `MAPPING AUDIT` に出た場合は、その場で対象ページの実体を確認し、正規表示名・分類・主要ページリストを `measurement/metrics.md` と実装へ同期する。観測値そのものは `measurement/experiment-log.md` に残し、トップレベル状態ファイルへ重複保存しない。
 
 ## 管理者アクセス除外
 
