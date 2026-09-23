@@ -736,7 +736,7 @@ export function aggregateTrendBuckets(points, bucketKey, rangeStart, rangeEnd, n
       ...item,
       partial,
       estimated,
-      status: partial ? (estimated ? "PARTIAL / ESTIMATE" : "PARTIAL") : (estimated ? "ESTIMATE" : "ACTUAL"),
+      status: partial ? (estimated ? "PARTIAL / SAMPLED" : "PARTIAL") : (estimated ? "SAMPLED / ESTIMATE" : "UNSAMPLED"),
     };
   });
 }
@@ -1119,7 +1119,7 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
     pageviews: total.count || 0,
     visits: total.sum?.visits || 0,
     sampleInterval,
-    quality: sampleInterval > 1 ? "ESTIMATE" : "ACTUAL",
+    quality: sampleInterval > 1 ? "SAMPLED / ESTIMATE" : "UNSAMPLED",
     pages,
     referrers: rawReferers,
     flows: buildFlows(rawFlows, targetHost),
@@ -1165,7 +1165,7 @@ export function combinePeriods(periods) {
     pageviews: periods.reduce((sum, period) => sum + Number(period?.pageviews || 0), 0),
     visits: periods.reduce((sum, period) => sum + Number(period?.visits || 0), 0),
     sampleInterval: Math.max(1, ...periods.map((period) => Number(period?.sampleInterval || 1))),
-    quality: periods.some((period) => Number(period?.sampleInterval || 1) > 1) ? "ESTIMATE" : "ACTUAL",
+    quality: periods.some((period) => Number(period?.sampleInterval || 1) > 1) ? "SAMPLED / ESTIMATE" : "UNSAMPLED",
     pages: mergeRowsBy(periods.flatMap((period) => period?.pages || []), ["path"], ["pageviews", "visits"]),
     referrers: mergeRowsBy(periods.flatMap((period) => period?.referrers || []), ["host", "path"], ["pageviews", "visits"]),
     flows: mergeRowsBy(periods.flatMap((period) => period?.flows || []), ["sourceHost", "sourcePath", "destinationHost", "destinationPath", "channel", "country", "device"], ["pageviews", "visits"]),
@@ -1823,7 +1823,7 @@ function bucketComparison(points){
     const diff=previous===null?null:visits-previous;
     const deltaText=diff===null?"—":(diff>0?"+":"")+n(diff);
     previous=visits;
-    const status=String(point.status||"ACTUAL");
+    const status=String(point.status||"UNSAMPLED");
     const cls=status.includes("PARTIAL")?"partial":status.includes("ESTIMATE")?"estimate":"";
     return '<tr><td class="period-cell"><strong>'+esc(point.label||bucketLabel(point.bucket))+'</strong></td>'+
       '<td><span class="bucket-status '+cls+'">'+esc(status)+'</span>'+(Number(point.sampleInterval||1)>1?'<span class="path">sample ×'+n(point.sampleInterval)+'</span>':'')+'</td>'+
@@ -1841,6 +1841,7 @@ function render(data){
   const legacy=data.legacy||{};
   const lc=legacy.current||{pageviews:0,visits:0,pages:[],channels:[],referrers:[],flows:[],countries:[],devices:[]};
   const c=data.combined?.current||nc,p=data.combined?.previous||np;
+  const compareDelta=(current,previous)=>data.compareMode==="none"?'<div class="delta">比較対象なし</div>':delta(current,previous);
   document.getElementById("period").textContent=data.windowLabel || windowKey;
   document.getElementById("updated").textContent='更新 '+new Date(data.generatedAt).toLocaleString("ja-JP");
   const xNow=c.channels.find(x=>x.name==="X")?.visits||0;
@@ -1879,16 +1880,16 @@ function render(data){
   '<div class="path">'+esc(HOST_MIGRATION.note)+'</div>'+
   '<div class="grid analytics-grid">'+audit+lowSample+
     '<section class="card host-scope"><div class="section-head"><div class="section-title">TOTAL + HOST BREAKDOWN</div><span>合計はhost別Visitsの足し算。ユニーク人数ではありません</span></div><div class="host-grid">'+
-      '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · '+esc(c.quality||"ACTUAL")+(Number(c.sampleInterval||1)>1?' · sample ×'+n(c.sampleInterval):'')+'</div></div>'+
+      '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · '+esc(c.quality||"UNSAMPLED")+(Number(c.sampleInterval||1)>1?' · sample ×'+n(c.sampleInterval):'')+'</div></div>'+
       '<div class="host-block"><span class="path">NEW · '+esc(data.host)+'</span><strong>'+n(nc.visits)+' visits</strong><div class="delta">'+n(nc.pageviews)+' page views · '+(c.visits?((nc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
       '<div class="host-block"><span class="path">OLD · '+esc(legacy.host||HOST_MIGRATION.oldHost)+'</span><strong>'+n(lc.visits)+' visits</strong><div class="delta">'+n(lc.pageviews)+' page views · '+(c.visits?((lc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
     '</div></section>'+
     eventIndex(campaigns)+
     bucketComparison(trend)+
-    '<section class="card kpi"><div class="label">TOTAL VISITS</div><div class="value">'+n(c.visits)+'</div>'+delta(c.visits,p.visits)+'</section>'+
-    '<section class="card kpi"><div class="label">TOTAL PAGE VIEWS</div><div class="value">'+n(c.pageviews)+'</div>'+delta(c.pageviews,p.pageviews)+'</section>'+
-    '<section class="card kpi"><div class="label">X VISITS</div><div class="value">'+n(xNow)+'</div>'+delta(xNow,xPrev)+'</section>'+
-    '<section class="card kpi"><div class="label">ORGANIC SEARCH</div><div class="value">'+n(searchNow)+'</div>'+delta(searchNow,searchPrev)+'</section>'+
+    '<section class="card kpi"><div class="label">TOTAL VISITS</div><div class="value">'+n(c.visits)+'</div>'+compareDelta(c.visits,p.visits)+'</section>'+
+    '<section class="card kpi"><div class="label">TOTAL PAGE VIEWS</div><div class="value">'+n(c.pageviews)+'</div>'+compareDelta(c.pageviews,p.pageviews)+'</section>'+
+    '<section class="card kpi"><div class="label">X VISITS</div><div class="value">'+n(xNow)+'</div>'+compareDelta(xNow,xPrev)+'</section>'+
+    '<section class="card kpi"><div class="label">ORGANIC SEARCH</div><div class="value">'+n(searchNow)+'</div>'+compareDelta(searchNow,searchPrev)+'</section>'+
     '<section class="card kpi"><div class="label">YOUTUBE VISITS</div><div class="value">'+n(youtubeNow)+'</div><div class="delta">Referer判別。0は流入なし／Referer消失を区別不可</div></section>'+
     '<section class="card kpi"><div class="label">WATCH ENTRY SHARE</div><div class="value">'+watchShare.toFixed(0)+'%</div><div class="delta">全流入 '+n(c.visits)+'件中 '+n(watchEntry)+'件</div></section>'+
     '<section class="card chart-card"><div class="section-head"><div class="section-title">HOST TRANSITION · VISITS</div><span>旧・新を別系列で表示</span></div>'+lineChart(transitionTrend,hostSeries,campaigns,true)+((data.trendWarning||legacy.trendWarning)?'<div class="path">'+esc([data.trendWarning,legacy.trendWarning].filter(Boolean).join(" / "))+'</div>':'')+'</section>'+
