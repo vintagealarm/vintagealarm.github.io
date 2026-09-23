@@ -22,12 +22,12 @@ export type GermanWatchEntry = {
     acoustic: string;
     notes: string;
   };
-  specimenGallery: Array<{
+  specimenGallery?: Array<{
     image: string;
     label: string;
     alt: string;
   }>;
-  deepDive: Array<{
+  deepDive?: Array<{
     number: string;
     title: string;
     subtitle?: string;
@@ -42,9 +42,9 @@ export type GermanWatchEntry = {
       fullRow?: boolean;
     }>;
   }>;
-  sourceMeta: Array<{ id: string; type: string }>;
-  sources: string[];
-  related: {
+  sourceMeta?: Array<{ id: string; type: string }>;
+  sources?: string[];
+  related?: {
     href: string;
     hreflang: string;
     name: string;
@@ -385,6 +385,129 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       hreflang: 'en',
       name: 'BASIS ALARM',
       reason: 'Eine andere Richtung als die Luxusmodelle: eine weitere Antwort für den Massenmarkt.'
+    }
+  },
+  'basis-alarm': {
+    slug: 'basis-alarm',
+    title: 'Basis Alarm (BFG 90) — Deutsche Seite | VINTAGE ALARM',
+    description: 'Deutsche Seite zur Basis Alarm mit Baumgartner BFG 90: zwei Federhäuser, eine Aufzugsrichtung, zwei Kontrollfenster, drehbare Alarm-Lünette, EIN/AUS-Schieber und Original-Alarmvideo.',
+    indexBlurb: 'Zwei Federhäuser, eine Drehrichtung, zwei rotierende Kontrollscheiben — und ein Alarm wie eine Zikade.',
+    catch: ['Eine kleine mechanische Spielzeugkiste zum Anfassen, Anschauen und Anhören.'],
+    ownersNote: {
+      lead: [
+        'Eine kleine mechanische Spielzeugkiste zum Anfassen, Anschauen und Anhören.',
+        'Die Alarmzeit wird mit der Lünette eingestellt.',
+        'Beim Aufziehen drehen sich die Scheiben in den beiden kleinen Fenstern.',
+        'Schieber auf EIN — und dann klingt sie wie eine Zikade.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        '① Aufziehen — Krone in Normalstellung: Gehwerk und Wecker werden in derselben Drehrichtung aufgezogen',
+        '② Uhrzeit einstellen — Krone herausziehen und die Zeiger stellen',
+        '③ Alarmzeit einstellen — Lünette gegen den Uhrzeigersinn drehen',
+        '④ Alarm EIN/AUS — Schieber bei 9 Uhr: oben = AUS / unten = EIN',
+        '⑤ Aufzugskontrolle — Fenster bei 1 Uhr für das Gehwerk, bei 5 Uhr für den Wecker; die rot-weiß-blauen Scheiben drehen sich beim Aufziehen'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Die Basis Alarm verwendet das Baumgartner BFG 90, ein frühes Wecker-Armbanduhrwerk.',
+        'Neben Basis wurde das BFG 90 unter anderem auch von Lantex, Sheffield, Simplon und Tior verwendet.',
+        'Statt die Funktionen zu verstecken, zeigt diese Konstruktion sie über drehbare Lünette, Schieber und zwei Aufzugskontrollfenster nach außen.',
+        'Gerade dadurch bleibt heute viel vom Reiz des Anschauens, Bedienens und Klingelnlassens erhalten.'
+      ]
+    },
+    spec: {
+      era: 'um 1948 (Unterlagen zum gleichen Typ)',
+      caseSize: '34 mm',
+      caliber: 'Baumgartner BFG 90',
+      jewels: '17 Steine',
+      frequency: '18.000 A/h',
+      barrels: '2 Federhäuser',
+      winding: 'Handaufzug',
+      acoustic: 'Bodenglocken-System',
+      notes: 'Alarm ca. 10 Sekunden, Alarmzeiteinstellung über drehbare Lünette, EIN/AUS-Schieber bei 9 Uhr, Aufzugskontrollfenster bei 1 und 5 Uhr'
+    }
+  },
+  'citizen-alarm': {
+    slug: 'citizen-alarm',
+    title: 'Citizen Alarm Cal. 980 — Deutsche Seite | VINTAGE ALARM',
+    description: 'Deutsche Seite zur Citizen Alarm von 1958, Japans erster Armbanduhr mit Glockenalarm: Cal. 980, zwei Federhäuser, zentrale Alarm-Scheibe, zwei Kronen und Original-Alarmvideo.',
+    indexBlurb: 'Japans erste Armbanduhr mit Glockenalarm: zwei Federhäuser, zwei Kronen und eine drehbare Alarm-Scheibe in der Zifferblattmitte.',
+    catch: ['Japans erste Armbanduhr mit Glockenalarm — und der Beginn einer ganzen Linie.'],
+    ownersNote: {
+      lead: [
+        '1958: Japans erste Armbanduhr mit Glockenalarm.',
+        'Eine drehbare Alarm-Scheibe in der Mitte und zwei Kronen prägen die frühe Ausführung.',
+        'Das Gesicht erinnert an die frühere Memovox.',
+        'Später entstand die Erzählung, Jaeger-LeCoultre habe sich über die Ähnlichkeit beschwert; in den zugrunde liegenden Quellen ist das bislang nicht bestätigt.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        '① Krone bei 4 Uhr — Gehwerk aufziehen; herausziehen, um die Uhrzeit einzustellen',
+        '② Krone bei 2 Uhr — Wecker aufziehen; herausziehen, um die Alarmzeit einzustellen'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Auf die erste Ausführung mit zentraler Scheibe folgten Modelle mit vier Zeigern.',
+        'Später kamen Alarm Date, College Alarm, Sport- und Taucher-Ausführungen sowie Damenmodelle hinzu.',
+        'Was als Japans erste Armbanduhr mit Glockenalarm begann, entwickelte sich zu einer ganzen Citizen-Alarmfamilie.'
+      ]
+    },
+    spec: {
+      era: 'um 1958 (frühe Ausführung)',
+      caseSize: '37 mm (Unterlagen zum gleichen Typ)',
+      caliber: 'Citizen 980 (Unterlagen zum gleichen Typ)',
+      jewels: '17 Steine (für Cal. 980 dokumentierte Ausführung)',
+      frequency: '18.000 A/h (Unterlagen zum gleichen Typ)',
+      barrels: '2 Federhäuser',
+      winding: 'Handaufzug',
+      acoustic: 'Doppelboden-System',
+      notes: 'Zentrale drehbare Alarm-Scheibe, zwei Kronen, Parashock'
+    }
+  },
+  'wittnauer-10wa': {
+    slug: 'wittnauer-10wa',
+    title: 'Wittnauer Cal. 10WA — Deutsche Seite | VINTAGE ALARM',
+    description: 'Deutsche Seite zur Wittnauer Cal. 10WA: separates Alarmmodul auf der Zifferblattseite, eigenes Alarm-Federhaus und eine drehbare Lünette, die den Alarm sowohl aufzieht als auch einstellt.',
+    indexBlurb: 'Eine Lünette für zwei Aufgaben: Sie zieht den Alarm auf und stellt zugleich seine Zeit ein, während das Alarmmodul auf der Zifferblattseite verborgen bleibt.',
+    catch: [
+      'Harte Schicht in der Alarmabteilung.',
+      'Und die Lünette macht heute wieder alles allein. 🔔'
+    ],
+    ownersNote: {
+      lead: [
+        'Aufziehen mit der Lünette. Einstellen mit derselben Lünette.',
+        'Auf der Zifferblattseite des Gehwerks sitzt ein eigenes Alarmmodul.',
+        'Der Alarm besitzt ein separates Federhaus.',
+        'Trotzdem wird die gesamte Alarmseite nur über die Lünette bedient.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        '① Aufziehen — Gehwerk: Krone / Wecker: Lünette gegen den Uhrzeigersinn drehen',
+        'Beim Alarm ungefähr eine volle Umdrehung als Richtwert verwenden, um das Risiko einer Beschädigung zu verringern.',
+        '② Uhrzeit einstellen — Krone herausziehen und im Uhrzeigersinn drehen',
+        '③ Alarmzeit einstellen — Lünette gegen den Uhrzeigersinn drehen',
+        'Eine separate Alarm-EIN/AUS-Funktion gibt es nicht.'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Eigenwillige Ziffernindizes.',
+        'Ein wellenförmiger Alarmzeiger.',
+        'Eine weit vorstehende Drehlünette und eine kleine, halb vom Gehäuse verdeckte Krone.',
+        'Durch den Sichtboden ist nur das Gehwerk zu sehen.',
+        'Der Alarmmechanismus bleibt auf der Zifferblattseite verborgen.'
+      ]
+    },
+    spec: {
+      era: 'frühe 1950er-Jahre',
+      caseSize: 'ca. 36 mm (gezeigtes Exemplar)',
+      caliber: 'Wittnauer Cal. 10WA',
+      jewels: '17 Steine',
+      frequency: '18.000 A/h',
+      barrels: '2 Federhäuser',
+      winding: 'Handaufzug',
+      acoustic: 'Gong',
+      notes: 'Alarmzeiteinstellung und Alarmaufzug über drehbare Lünette, separates Alarm-Federhaus'
     }
   }
 };

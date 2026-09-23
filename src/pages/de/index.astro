@@ -6,10 +6,12 @@ import OwnerThumbnailFrame from '../../components/OwnerThumbnailFrame.astro';
 import OwnerFonts from '../../components/OwnerFonts.astro';
 import ownersDirectory from '../../data/owners-directory.json';
 import { germanWatchEntriesWithCyma } from '../../data/cyma-localizations';
+import howTheyRingSettings from '../../data/how-they-ring-settings.json';
 import '../../styles/site.css';
 import '../../styles/owners-v15.css';
 
 const base = import.meta.env.BASE_URL;
+const howTheyRingPublished = howTheyRingSettings.productionPublished;
 const watches = await getCollection('watches');
 const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
 const entries = ownersDirectory.entries
@@ -29,7 +31,7 @@ const entries = ownersDirectory.entries
   .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
 
 const title = 'Mechanische Wecker-Armbanduhren — Deutsch | VINTAGE ALARM';
-const description = 'VINTAGE ALARM auf Deutsch: die Geschichte der Wecker-Armbanduhr sowie vollständige Seiten zu Pierce Duofon, Cyma Time-O-Vox und Westclox Watchlarm mit OWNER’S NOTE, DEEP DIVE und Quellen.';
+const description = 'VINTAGE ALARM auf Deutsch: Geschichte und sechs eigene Wecker-Armbanduhren. Pierce Duofon, Cyma Time-O-Vox und Westclox Watchlarm mit vollständiger Quellenrecherche; Basis, Citizen und Wittnauer als kompakte deutsche Seiten.';
 const socialImage = '/images/pierce-duofon/gallery/pierce-duofon-wrist-front.jpg';
 const schema = {
   '@context': 'https://schema.org',
@@ -68,9 +70,10 @@ const schema = {
       </header>
       <section class="shell section" aria-label="Über die deutschen Seiten">
         <p class="german-intro">
-          Die deutschen Seiten folgen direkt dem japanischen Originaltext und behalten OWNER'S NOTE, Bedienung, Spezifikationen, DEEP DIVE, Quellen sowie die Trennung zwischen dokumentierten Angaben, Beobachtungen am Exemplar und vorsichtigen Einordnungen bei. Derzeit sind vollständige deutsche WATCH-Seiten für Cyma Time-O-Vox, Pierce Duofon und Westclox Watchlarm veröffentlicht; Basis Alarm und Citizen Alarm sind noch nicht auf Deutsch veröffentlicht. Die vollständige Geschichte der Wecker-Armbanduhr ist ebenfalls auf Deutsch verfügbar.
+          Deutsche Seiten sind jetzt für alle sechs eigenen Wecker-Armbanduhren verfügbar. Cyma Time-O-Vox, Pierce Duofon und Westclox Watchlarm enthalten die vollständige quellenbasierte Detailrecherche; Basis Alarm, Citizen Alarm und Wittnauer Cal. 10WA stehen als kompakte deutsche Seiten mit OWNER'S NOTE, Bedienung, Spezifikationen und Original-Alarmvideo bereit. Die vollständige Geschichte der Wecker-Armbanduhr ist ebenfalls auf Deutsch verfügbar.
         </p>
         <p class="german-history-link"><a href={`${base}de/history/`}>GESCHICHTE DER WECKER-ARMBANDUHR →</a></p>
+        {howTheyRingPublished && <p class="german-history-link"><a href={`${base}de/how-they-ring/`}>HOW THEY RING — SECHS EIGENE WECKER-ARMBANDUHREN HÖREN →</a></p>}
       </section>
       <section class="shell directory-eras" aria-label="Deutsche Uhrenseiten">
         <section class="directory-era">

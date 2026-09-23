@@ -12,7 +12,7 @@ const publishedWatchRoutes = watchStates
 const englishWatchRoutes = watchStates
   .filter((watch) => watch.published && englishWatchSlugs.has(watch.slug))
   .map((watch) => `en/${watch.slug}/`);
-const germanWatchRoutes = ['de/pierce-duofon/', 'de/westclox-watchlarm/', 'de/cyma-time-o-vox/'];
+const germanWatchRoutes = ['de/pierce-duofon/', 'de/westclox-watchlarm/', 'de/cyma-time-o-vox/', 'de/basis-alarm/', 'de/citizen-alarm/', 'de/wittnauer-10wa/'];
 const routes = [
   '',
   'history/',
@@ -20,8 +20,10 @@ const routes = [
   'how-they-ring/',
   ...publishedWatchRoutes,
   'en/',
+  'en/how-they-ring/',
   ...englishWatchRoutes,
   'de/',
+  'de/how-they-ring/',
   ...germanWatchRoutes,
   'history/smartwatch/'
 ];
@@ -88,7 +90,7 @@ try {
         if (japaneseState.oversizedEnglishCta) failures.push(`${width}px ${route}: legacy ENGLISH ENTRY CTA remains`);
       }
 
-      if (route.startsWith('en/') && route !== 'en/' && width <= 390) {
+      if (englishWatchRoutes.includes(route) && width <= 390) {
         const englishState = await page.evaluate(() => ({
           lang: document.documentElement.lang,
           japaneseLanguageLink: [...document.links].some((link) =>
@@ -107,6 +109,32 @@ try {
         if (!englishState.ownerTextOpen) failures.push(`${width}px ${route}: English OWNER'S NOTE text is not open by default`);
         if (englishState.alarmHeading && englishState.alarmHeading !== 'ORIGINAL ALARM VIDEO') failures.push(`${width}px ${route}: alarm video heading is not localized`);
         if (/OWNER OBSERVATION\s+OWNER OBSERVATION/i.test(englishState.sourcesText)) failures.push(`${width}px ${route}: duplicate owner-observation source label`);
+      }
+
+      if (['en/how-they-ring/', 'de/how-they-ring/'].includes(route) && width <= 390) {
+        const soundState = await page.evaluate(() => ({
+          lang: document.documentElement.lang,
+          japaneseLanguageLink: [...document.links].some((link) =>
+            link.getAttribute('hreflang') === 'ja' && (link.textContent || '').trim() === '日本語'
+          ),
+          englishLanguageLink: [...document.links].some((link) =>
+            link.getAttribute('hreflang') === 'en' && (link.textContent || '').trim() === 'EN'
+          ),
+          germanLanguageLink: [...document.links].some((link) =>
+            link.getAttribute('hreflang') === 'de' && (link.textContent || '').trim() === 'DE'
+          ),
+          recClosed: !document.querySelector('.recording-condition')?.hasAttribute('open'),
+          specimenLinks: [...document.querySelectorAll('a.specimen-media')].map((link) => link.getAttribute('href') || '')
+        }));
+        const expectedLang = route.startsWith('en/') ? 'en' : 'de';
+        if (soundState.lang !== expectedLang) failures.push(`${width}px ${route}: html lang is not ${expectedLang}`);
+        if (!soundState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
+        if (expectedLang === 'en' && !soundState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
+        if (expectedLang === 'de' && !soundState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
+        if (!soundState.recClosed) failures.push(`${width}px ${route}: REC. CONDITION should be closed by default`);
+        if (soundState.specimenLinks.some((href) => !href.startsWith(`/${expectedLang}/`))) {
+          failures.push(`${width}px ${route}: localized specimen link fell back outside /${expectedLang}/`);
+        }
       }
 
       if (germanWatchRoutes.includes(route) && width <= 390) {

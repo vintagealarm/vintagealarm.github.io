@@ -74,7 +74,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
   - **この判断で守るもの**：掲載個体はGONG / CASEBACKだけで切り替え、各カードにFIG番号・詳細型名を付けない。音を聴く導線を分類学より前に置き、同じCASEBACKでも構造が大きく違うこと自体を発見要素にする。
   - **旧4分類を棄却した理由**：GONG / CASEBACK / BELL / PINを同階層に置くと、大枠とCASEBACK内部の機構差が混在する。分類粒度が揃わず、個体ごとの細分類まで波及するため不採用。新しい一次資料で大枠そのものを変更すべき根拠が出ない限り復活させない。
 - 上段の図は分類体系ではなく「同じ大分類でも鳴らし方の構造差がある」ことを見せる代表例。個体カードへFIG番号や詳細機構分類を持ち込まない。
-- FIG.01 GONG: OMEGA MEMOMATIC。現行表示は「棒状の音ばねを叩く」。この機構文言はMemomatic固有資料との再照合を未完了事項として扱い、一般的なTonfeder資料だけで確定扱いしない。
+- FIG.01 GONG: OMEGA MEMOMATIC。2026-09-24に『The Alarm Wristwatch』のOmega/Lemania SL 980項を再照合し、同caliberが **integrated tone spring を打撃する**ことを確認。公開表示は「内蔵の音バネを叩く」、根拠文はCitizen Cal.980との混同を避けるため **OMEGA MEMOMATICのOmega/Lemania Cal.980** とブランド／系統を明記する。「棒状」という形状表現はこの確認だけでは確定しないため現行表示から外す。
 - FIG.02 CASEBACK: 「振動板型 — VULCAIN CRICKET」。旧「膜状バック型」は失効。
 - FIG.03 CASEBACK: 「ピン／レバー伝達型 — JUNGHANS MINIVOX」。
 - FIG.04 CASEBACK: 「BELL-BASE型 — LANCO-FON · CAL.1241」。Lanco-Fon全体へ一般化しない。Cal.1241は資料上hammerがGlockeを打つことを確認したため、このcaliberに限定する。

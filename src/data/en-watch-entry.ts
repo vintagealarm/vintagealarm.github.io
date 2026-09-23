@@ -55,7 +55,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
     },
     spec: {
       era: 'c. 1948 (same-type documentation)',
-      caseSize: '37 mm (same-type documentation)',
+      caseSize: '34 mm',
       caliber: 'Baumgartner BFG 90',
       jewels: '17 jewels',
       frequency: '18,000 vph',
@@ -222,6 +222,51 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       winding: 'Manual winding',
       acoustic: 'Gong system',
       notes: 'WECKER / SIGNAL mode selection, red/white indicator below 6 o’clock'
+    }
+  },
+  'wittnauer-10wa': {
+    slug: 'wittnauer-10wa',
+    title: 'Wittnauer Cal. 10WA — English entry | VINTAGE ALARM',
+    description: 'English entry to the Wittnauer Cal. 10WA: a separate alarm module on the dial side, its own alarm barrel, and a rotating bezel that both winds and sets the alarm.',
+    indexBlurb: 'One bezel does both jobs: it winds the alarm and sets its time, while the alarm module stays hidden on the dial side.',
+    catch: [
+      'Hard-working alarm department.',
+      'The bezel is running the whole shift by itself. 🔔'
+    ],
+    ownersNote: {
+      lead: [
+        'Wind it with the bezel. Set it with the bezel.',
+        'An alarm-only module is stacked on the dial side of the timekeeping movement.',
+        'The alarm has its own barrel.',
+        'And yet the entire alarm side is operated with a single bezel.'
+      ],
+      guideTitle: 'Quick operating guide',
+      guide: [
+        '① Winding — timekeeping: crown / alarm: rotate the bezel counter-clockwise',
+        'For the alarm, use about one full turn as a practical limit to reduce the risk of damage.',
+        '② Time setting — pull the crown and turn clockwise',
+        '③ Alarm setting — rotate the bezel counter-clockwise',
+        'There is no separate alarm ON / OFF control.'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Distinctive numeral indexes.',
+        'A wavy alarm hand.',
+        'A projecting rotating bezel and a small crown half-hidden by the case.',
+        'Through the display back, only the timekeeping movement is visible.',
+        'The alarm mechanism is hidden on the dial side.'
+      ]
+    },
+    spec: {
+      era: 'Early 1950s',
+      caseSize: 'Approx. 36 mm (shown specimen)',
+      caliber: 'Wittnauer Cal. 10WA',
+      jewels: '17 jewels',
+      frequency: '18,000 vph',
+      barrels: '2 barrels',
+      winding: 'Manual winding',
+      acoustic: 'Gong system',
+      notes: 'Rotating-bezel alarm setting and winding, separate alarm barrel'
     }
   }
 };

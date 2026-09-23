@@ -180,10 +180,16 @@ for (const marker of [
 
 // HOW THEY RING production release gate + CMS entrance.
 const soundProdPath = path.join(dist, 'how-they-ring', 'index.html');
+const soundEnPath = path.join(dist, 'en', 'how-they-ring', 'index.html');
+const soundDePath = path.join(dist, 'de', 'how-they-ring', 'index.html');
 const adminPath = path.join(dist, 'admin', 'index.html');
 const soundProdHtml = fs.existsSync(soundProdPath) ? fs.readFileSync(soundProdPath, 'utf8') : '';
+const soundEnHtml = fs.existsSync(soundEnPath) ? fs.readFileSync(soundEnPath, 'utf8') : '';
+const soundDeHtml = fs.existsSync(soundDePath) ? fs.readFileSync(soundDePath, 'utf8') : '';
 const adminHtml = fs.existsSync(adminPath) ? fs.readFileSync(adminPath, 'utf8') : '';
 const soundProdUrl = 'https://vintagealarm.github.io/how-they-ring/';
+const soundEnUrl = 'https://vintagealarm.github.io/en/how-they-ring/';
+const soundDeUrl = 'https://vintagealarm.github.io/de/how-they-ring/';
 
 if (!fs.existsSync(adminPath)) failures.push('CMS admin entrance missing: dist/admin/index.html');
 if (adminHtml && !adminHtml.includes('https://app.pagescms.org/')) failures.push('CMS admin entrance does not target hosted Pages CMS');
@@ -191,19 +197,36 @@ if (adminHtml && !adminHtml.includes('noindex,nofollow,noarchive')) failures.pus
 
 if (howTheyRingRelease.productionPublished) {
   if (!fs.existsSync(soundProdPath)) failures.push('HOW THEY RING: production release ON but route is missing');
+  if (!fs.existsSync(soundEnPath)) failures.push('HOW THEY RING EN: production release ON but route is missing');
+  if (!fs.existsSync(soundDePath)) failures.push('HOW THEY RING DE: production release ON but route is missing');
   if (!sitemap.includes(soundProdUrl)) failures.push('HOW THEY RING: production release ON but sitemap entry is missing');
+  if (!sitemap.includes(soundEnUrl)) failures.push('HOW THEY RING EN: sitemap entry is missing');
+  if (!sitemap.includes(soundDeUrl)) failures.push('HOW THEY RING DE: sitemap entry is missing');
   if (soundProdHtml.includes('noindex,nofollow,noarchive')) failures.push('HOW THEY RING: production release ON but page is still noindex');
   if (soundProdHtml.includes('非公開プレビュー')) failures.push('HOW THEY RING: production release ON but preview label leaked');
   if (!soundProdHtml.includes('HOW THEY RING')) failures.push('HOW THEY RING: production release ON but gallery content is missing');
-  for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る']) {
-    if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale hero copy remains: ${stale}`);
+  for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。']) {
+    if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale hero/evidence copy remains: ${stale}`);
   }
-  for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
+  for (const marker of ['音で見る、', 'アラーム腕時計。', '内蔵の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'OMEGA MEMOMATICのOmega/Lemania Cal.980は、内蔵された音バネ（tone spring）を打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
     if (!soundProdHtml.includes(marker)) failures.push(`HOW THEY RING: current production marker missing: ${marker}`);
+  }
+  for (const [label, html, markers] of [
+    ['EN', soundEnHtml, ['lang="en"', 'seen through sound.', 'Multiple recordings can be played at the same time', 'On the OMEGA MEMOMATIC, the Omega/Lemania Cal. 980 strikes an integrated tone spring.', 'Recording level does not represent absolute loudness']],
+    ['DE', soundDeHtml, ['lang="de"', 'durch Klang betrachtet.', 'Mehrere Aufnahmen lassen sich gleichzeitig abspielen', 'Bei der OMEGA MEMOMATIC schlägt das Omega/Lemania Cal. 980 auf eine integrierte Tonfeder.', 'Die Aufnahmelautstärke entspricht nicht der absoluten Lautstärke']]
+  ]) {
+    if (html.includes('noindex,nofollow,noarchive')) failures.push(`HOW THEY RING ${label}: localized page is still noindex`);
+    for (const marker of markers) {
+      if (!html.includes(marker)) failures.push(`HOW THEY RING ${label}: localized marker missing: ${marker}`);
+    }
   }
 } else {
   if (sitemap.includes(soundProdUrl)) failures.push('HOW THEY RING: production release OFF but sitemap entry leaked');
+  if (sitemap.includes(soundEnUrl)) failures.push('HOW THEY RING EN: production release OFF but sitemap entry leaked');
+  if (sitemap.includes(soundDeUrl)) failures.push('HOW THEY RING DE: production release OFF but sitemap entry leaked');
   if (soundProdHtml.includes('data-specimen')) failures.push('HOW THEY RING: production release OFF but gallery content leaked');
+  if (soundEnHtml.includes('data-specimen')) failures.push('HOW THEY RING EN: production release OFF but gallery content leaked');
+  if (soundDeHtml.includes('data-specimen')) failures.push('HOW THEY RING DE: production release OFF but gallery content leaked');
 }
 
 const shouldShowSoundOnTop = howTheyRingRelease.productionPublished && howTheyRingRelease.showOnTop;

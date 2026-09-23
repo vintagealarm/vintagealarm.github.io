@@ -6,10 +6,12 @@ import OwnerThumbnailFrame from '../../components/OwnerThumbnailFrame.astro';
 import OwnerFonts from '../../components/OwnerFonts.astro';
 import ownersDirectory from '../../data/owners-directory.json';
 import { englishWatchEntries } from '../../data/en-watch-entry';
+import howTheyRingSettings from '../../data/how-they-ring-settings.json';
 import '../../styles/site.css';
 import '../../styles/owners-v15.css';
 
 const base = import.meta.env.BASE_URL;
+const howTheyRingPublished = howTheyRingSettings.productionPublished;
 const watches = await getCollection('watches');
 const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
 const entries = ownersDirectory.entries
@@ -29,7 +31,7 @@ const entries = ownersDirectory.entries
   .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
 
 const title = 'Vintage Mechanical Alarm Wristwatches — English | VINTAGE ALARM';
-const description = 'English VINTAGE ALARM: the full history of the alarm wristwatch plus five owned vintage mechanical alarm watches. Duofon, Cyma Time-O-Vox and Westclox Watchlarm include full source-backed research.';
+const description = 'English VINTAGE ALARM: the full history of the alarm wristwatch plus six owned vintage mechanical alarm watches. Duofon, Cyma Time-O-Vox and Westclox Watchlarm include full source-backed research.';
 const socialImage = '/images/owners-thumbnails/cyma-time-o-vox-full.png';
 const schema = {
   '@context': 'https://schema.org',
@@ -61,9 +63,10 @@ const schema = {
       </header>
       <section class="shell section" aria-label="About the English pages">
         <p class="english-intro">
-          English pages for five owned mechanical alarm wristwatches. Pierce Duofon, Cyma Time-O-Vox and Westclox Watchlarm include the complete source-backed DEEP DIVE, specimen gallery and references; Basis Alarm and Citizen Alarm currently provide concise English specimen pages.
+          English pages for six owned mechanical alarm wristwatches. Pierce Duofon, Cyma Time-O-Vox and Westclox Watchlarm include the complete source-backed DEEP DIVE, specimen gallery and references; Basis Alarm, Citizen Alarm and Wittnauer Cal. 10WA provide concise English specimen pages.
         </p>
         <p class="english-history-link"><a href={`${base}en/history/`}>HISTORY OF THE ALARM WRISTWATCH →</a></p>
+        {howTheyRingPublished && <p class="english-history-link"><a href={`${base}en/how-they-ring/`}>HOW THEY RING — LISTEN TO SIX OWNED ALARM WATCHES →</a></p>}
       </section>
       <section class="shell directory-eras" aria-label="English watch pages">
         <section class="directory-era">

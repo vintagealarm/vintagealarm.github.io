@@ -28,6 +28,11 @@ const translatedOwnersNote = {
   image: watch.ownersNote.image,
   ...entry.ownersNote
 };
+const hasFullResearch = Boolean(
+  entry.specimenGallery?.length &&
+  entry.deepDive?.length &&
+  entry.sources?.length
+);
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -109,22 +114,38 @@ const schema = {
     <main>
       <WatchHero brand={watch.brand} model={watch.model} catchLines={entry.catch} ownerNumber={watch.ownerNumber} />
 
+      {!hasFullResearch && (
+        <section class="shell section german-gateway-note" aria-label="Hinweis zu dieser deutschen Seite">
+          <p>
+            Diese Seite ist eine kompakte deutsche Fassung zum gezeigten Exemplar, seiner Bedienung,
+            den technischen Daten und dem Original-Alarmvideo. Die vollständige quellenbasierte
+            Detailrecherche bleibt derzeit auf der japanischen Originalseite.
+          </p>
+        </section>
+      )}
+
       <div class="shell owners-grid">
         <OwnersNote data={translatedOwnersNote} alt={`${watch.brand} ${watch.model} Exemplar`} lang="de" />
         <WatchSpec spec={entry.spec} lang="de" />
       </div>
 
       {watch.video && <AlarmVideo video={watch.video} title={`${watch.brand} ${watch.model}`} lang="de" />}
-      <SpecimenGallery items={entry.specimenGallery} title={`${watch.brand} ${watch.model}`} lang="de" />
-      <DeepDive items={entry.deepDive} lang="de" />
-      <Sources sources={entry.sources} meta={entry.sourceMeta} lang="de" />
+      {hasFullResearch && (
+        <>
+          <SpecimenGallery items={entry.specimenGallery} title={`${watch.brand} ${watch.model}`} lang="de" />
+          <DeepDive items={entry.deepDive} lang="de" />
+          <Sources sources={entry.sources} meta={entry.sourceMeta} lang="de" />
+        </>
+      )}
 
-      <nav class="german-related-nav shell" aria-label="Navigation zu verwandten Uhren">
-        <a class="german-related-next" href={entry.related.href} hreflang={entry.related.hreflang}>
-          <small>NÄCHSTE OWNER'S NOTE · EN</small>
-          <strong>{entry.related.name} →</strong>
-          <span>{entry.related.reason}</span>
-        </a>
+      <nav class:list={['german-related-nav', 'shell', !hasFullResearch && 'is-compact']} aria-label="Navigation zu verwandten Uhren">
+        {hasFullResearch && entry.related && (
+          <a class="german-related-next" href={entry.related.href} hreflang={entry.related.hreflang}>
+            <small>NÄCHSTE OWNER'S NOTE · {entry.related.hreflang?.toUpperCase()}</small>
+            <strong>{entry.related.name} →</strong>
+            <span>{entry.related.reason}</span>
+          </a>
+        )}
         <a class="german-related-back" href="/de/">ZURÜCK ZUR DEUTSCHEN ÜBERSICHT →</a>
       </nav>
     </main>
@@ -132,8 +153,12 @@ const schema = {
 </html>
 
 <style>
+  .german-gateway-note{max-width:980px;padding-top:18px;padding-bottom:12px}
+  .german-gateway-note p{max-width:760px;line-height:1.8;color:var(--soft)}
   .german-related-nav{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding-block:52px 82px;border-top:1px solid var(--ink)}
   .german-related-nav a{text-decoration:none}
+  .german-related-nav.is-compact{grid-template-columns:1fr}
+  .german-related-nav.is-compact .german-related-back{justify-self:start}
   .german-related-next{display:grid;gap:8px;min-width:0}
   .german-related-next small{color:var(--soft);font-size:11px;letter-spacing:.12em}
   .german-related-next strong{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.45rem,4vw,2.4rem);font-weight:400;line-height:1.12;overflow-wrap:normal;word-break:normal}
