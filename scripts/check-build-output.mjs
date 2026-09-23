@@ -195,7 +195,10 @@ if (howTheyRingRelease.productionPublished) {
   if (soundProdHtml.includes('noindex,nofollow,noarchive')) failures.push('HOW THEY RING: production release ON but page is still noindex');
   if (soundProdHtml.includes('非公開プレビュー')) failures.push('HOW THEY RING: production release ON but preview label leaked');
   if (!soundProdHtml.includes('HOW THEY RING')) failures.push('HOW THEY RING: production release ON but gallery content is missing');
-  for (const marker of ['音と鳴らし方で時計を見る', '棒状の音バネを叩く', 'section-menu', 'href=\"/\"']) {
+  for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る']) {
+    if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale hero copy remains: ${stale}`);
+  }
+  for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'section-menu', 'href=\"/\"']) {
     if (!soundProdHtml.includes(marker)) failures.push(`HOW THEY RING: current production marker missing: ${marker}`);
   }
 } else {
