@@ -12,7 +12,9 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # Do not cancel an active production deployment when CMS/editorial commits
+  # arrive in quick succession. Queue the newest run instead.
+  cancel-in-progress: false
 
 jobs:
   deploy:
