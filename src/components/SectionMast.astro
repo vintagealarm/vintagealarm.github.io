@@ -1,5 +1,6 @@
 ---
 import researchSettings from '../data/research-settings.json';
+import howTheyRingSettings from '../data/how-they-ring-settings.json';
 const {
   rightLabel = 'ALARM WRISTWATCHES',
   lang = 'ja',
@@ -10,6 +11,7 @@ const {
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const researchPublished = researchSettings.published;
+const howTheyRingPublished = howTheyRingSettings.productionPublished;
 const isEnglish = lang === 'en';
 const isGerman = lang === 'de';
 const menuLabel = isEnglish
@@ -49,6 +51,7 @@ const homeHref = isEnglish ? `${base}en/` : isGerman ? `${base}de/` : base;
             <a href={`${base}history/`}>歴史</a>
             <a href={`${base}history/#milestones`}>マイルストーン</a>
             <a href={`${base}owners-notes/`}>オーナーズノート</a>
+            {howTheyRingPublished && <a href={`${base}how-they-ring/`}>HOW THEY RING</a>}
             <a href={`${base}sources/`}>資料・出典</a>
             {researchPublished && <a href={`${base}history/#research`}>調査個体</a>}
           </>
