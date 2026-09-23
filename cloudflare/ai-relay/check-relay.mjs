@@ -8,7 +8,10 @@ const sample = {
   schemaVersion: 'vintage-alarm-ai-export-v1',
   generatedAt: '2026-09-12T00:00:00.000Z',
   windowKey: '7d',
-  windowLabel: '直近7日',
+  rangeKey: '7d',
+  bucketKey: '1d',
+  bucketLabel: '1日',
+  windowLabel: '直近7日 · 1日区切り',
   windowStart: '2026-09-05T00:00:00.000Z',
   windowEnd: '2026-09-12T00:00:00.000Z',
   host: 'vintagealarm.github.io',
@@ -20,11 +23,11 @@ const sample = {
   legacy: { host: 'orima1995-create.github.io', current: { pageviews: 3, visits: 2, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [], migrationFlows: [], countries: [], devices: [], xProfileEntries: 0 } },
   combined: {
     current: {
-      pageviews: 13, visits: 10, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [],
+      pageviews: 13, visits: 10, sampleInterval: 1, quality: 'UNSAMPLED', channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [],
       migrationFlows: [{ sourceHost: 'orima1995-create.github.io', sourceCleanPath: '/', destinationHost: 'vintagealarm.github.io', destinationPath: '/cyma-time-o-vox/', destinationName: 'Cyma Time-O-Vox', visits: 2, pageviews: 2 }],
       countries: [], devices: [], xProfileEntries: 2,
     },
-    trend: [], note: 'host-scoped sum',
+    trend: [{ bucket: '2026-09-08T00:00:00.000Z', label: '9/8', status: 'SAMPLED / ESTIMATE', sampleInterval: 10, pageviews: 13, visits: 10, x: 1, youtube: 0, instagram: 0, facebook: 0, search: 0, direct: 9, internalPV: 3, ai: 0, other: 0 }], note: 'host-scoped sum',
   },
   profileTracking: { path: '/x/' },
   limitations: { attribution: 'not post-level attribution' },
@@ -37,6 +40,9 @@ assert(markdown.includes('Host migration flows'), 'host migration section missin
 assert(markdown.includes('orima1995-create.github.io'), 'migration source host missing');
 assert(markdown.includes('vintagealarm.github.io'), 'migration destination host missing');
 assert(markdown.includes('not post-level attribution'), 'limitations missing');
+assert(markdown.includes('Group by: 1日'), 'group-by metadata missing');
+assert(markdown.includes('SAMPLED / ESTIMATE'), 'sampling quality missing');
+assert(markdown.includes('Internal PV'), 'internal PV trend column missing');
 
 const noSource = await onRequestGet({ request: new Request('https://relay.example/') });
 assert(noSource.status === 200, 'landing page should be readable without exporting data');
@@ -78,6 +84,14 @@ try {
   assert(reconstructed.searchParams.get('window') === '7d', 'short path window mismatch');
   assert(reconstructed.searchParams.get('expires') === String(expires), 'short path expiry mismatch');
   assert(reconstructed.searchParams.get('sig') === 'a'.repeat(64), 'short path signature mismatch');
+
+  const shortV2 = new URL(`https://relay.example/s/v2/custom/7d/2026-09-08/2026-09-21/${expires}/${'b'.repeat(64)}`);
+  const reconstructedV2 = sourceFromRelayUrl(shortV2);
+  assert(reconstructedV2.searchParams.get('window') === 'custom', 'v2 window compatibility param missing');
+  assert(reconstructedV2.searchParams.get('range') === 'custom', 'v2 range mismatch');
+  assert(reconstructedV2.searchParams.get('bucket') === '7d', 'v2 bucket mismatch');
+  assert(reconstructedV2.searchParams.get('start') === '2026-09-08', 'v2 start mismatch');
+  assert(reconstructedV2.searchParams.get('end') === '2026-09-21', 'v2 end mismatch');
 
   fetchedUrl = '';
   const shortResponse = await onRequestGet({ request: new Request(shortUrl.toString()) });
