@@ -13,6 +13,16 @@
 
 ---
 
+## 2026-09-24
+
+### 2026-09-24 07:54 JST — Wittnauer 10WAの公開状態を明確化
+- **変更**：公開済みWATCHの計測対象は Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm の5本だけと明記。Wittnauer 10WAは所有個体／HOW THEY RING側のデータには含まれるが、公開済みWATCH 5ページの計測対象には含めないことを `PROJECT_STATE.md` に追記。
+- **理由**：所有個体データへの掲載と、公開済みWATCHとしての計測対象を混同しないため。
+- **旧状態・棄却**：Wittnauerを6本目の公開済みWATCHとして扱う解釈。
+- **影響範囲**：状態文書のみ。既存の `measurement/metrics.md` はすでに公開済みWATCH 5ページを同じ5本として定義しており、計測実装の変更は不要。
+- **検証状態**：`PROJECT_STATE.md` と `measurement/metrics.md` を突合して整合確認済み。
+- **再検討条件**：Wittnauer 10WAのWATCHページが正式公開され、計測対象へ追加する明示変更が行われた場合。
+- **関連**：このPR
 ## 2026-09-23 — 復元履歴
 
 以下は、GitHub commit時刻と保存済み会話の時刻・判断内容を突合して復元した。commitだけで判断理由を確定できない箇所は、会話で確認できた範囲だけを記載する。
