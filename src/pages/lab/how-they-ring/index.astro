@@ -162,11 +162,8 @@ const specimens = orderedSlugs
       }
 
       .category-guide {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: end;
-        gap: 12px;
-        margin: 0 0 6px;
+        position: relative;
+        margin: 0 0 12px;
         color: var(--lab-soft);
         font-size: 12px;
         line-height: 1.6;
@@ -174,33 +171,56 @@ const specimens = orderedSlugs
       }
 
       .category-guide-arrow {
-        position: relative;
-        height: 22px;
+        position: absolute;
+        top: 17px;
+        width: 30%;
+        height: 20px;
         color: var(--lab-ink);
+        pointer-events: none;
       }
+
+      .category-guide-arrow.left { left: 5%; }
+      .category-guide-arrow.right { right: 5%; }
 
       .category-guide-arrow::before {
         content: '';
         position: absolute;
-        bottom: 4px;
-        width: 46%;
-        border-top: 1px solid currentColor;
+        top: 7px;
+        width: calc(100% - 10px);
+        border-top: 1.5px solid currentColor;
+      }
+
+      .category-guide-arrow.left::before {
+        left: 0;
+        transform: rotate(10deg);
+        transform-origin: left center;
+      }
+
+      .category-guide-arrow.right::before {
+        right: 0;
+        transform: rotate(-10deg);
+        transform-origin: right center;
       }
 
       .category-guide-arrow::after {
         content: '';
         position: absolute;
-        bottom: 1px;
-        width: 7px;
-        height: 7px;
-        border-right: 1px solid currentColor;
-        border-bottom: 1px solid currentColor;
+        bottom: 0;
+        width: 8px;
+        height: 8px;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
       }
 
-      .category-guide-arrow.left::before { right: 8px; transform: rotate(13deg); transform-origin: right center; }
-      .category-guide-arrow.left::after { right: 7px; transform: rotate(45deg); }
-      .category-guide-arrow.right::before { left: 8px; transform: rotate(-13deg); transform-origin: left center; }
-      .category-guide-arrow.right::after { left: 7px; transform: rotate(45deg); }
+      .category-guide-arrow.left::after {
+        left: 0;
+        transform: rotate(45deg);
+      }
+
+      .category-guide-arrow.right::after {
+        right: 0;
+        transform: rotate(45deg);
+      }
 
       .category-grid {
         display: grid;
