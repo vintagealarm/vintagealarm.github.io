@@ -429,6 +429,26 @@ const specimens = orderedSlugs
         padding: 18px 0 14px;
       }
 
+      .selected-guide {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 6px 18px;
+        margin: 10px 0 0;
+        color: var(--lab-soft);
+        font-size: 10px;
+        line-height: 1.55;
+      }
+
+      .selected-guide strong {
+        margin-right: .45em;
+        color: var(--lab-ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 9px;
+        font-weight: 400;
+        letter-spacing: .10em;
+      }
+
       .category-summary[hidden],
       .specimen-card[hidden] {
         display: none !important;
@@ -474,10 +494,26 @@ const specimens = orderedSlugs
       }
 
       .specimen-media {
+        position: relative;
         display: block;
         aspect-ratio: 4 / 3;
         overflow: hidden;
         background: rgba(255,255,255,.28);
+      }
+
+      .specimen-media::after {
+        content: "WATCH DETAILS →";
+        position: absolute;
+        right: 6px;
+        bottom: 6px;
+        padding: 3px 5px 2px;
+        background: rgba(243,238,228,.88);
+        color: var(--lab-ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 8px;
+        line-height: 1.15;
+        letter-spacing: .07em;
+        pointer-events: none;
       }
 
       .specimen-media:focus-visible {
@@ -677,6 +713,16 @@ const specimens = orderedSlugs
           padding: 8px 0 7px;
         }
 
+        .selected-guide {
+          gap: 2px 12px;
+          margin-top: 6px;
+          font-size: 8.5px;
+        }
+
+        .selected-guide strong {
+          font-size: 8px;
+        }
+
         .category-summary h2 {
           font-size: 22px;
         }
@@ -695,6 +741,13 @@ const specimens = orderedSlugs
           grid-template-columns: 96px minmax(0, 1fr);
           gap: 14px;
           align-items: start;
+        }
+
+        .specimen-media::after {
+          right: 4px;
+          bottom: 4px;
+          padding: 2px 4px;
+          font-size: 6.5px;
         }
 
         .specimen-copy { display: block; }
@@ -824,7 +877,10 @@ const specimens = orderedSlugs
               </div>
             ))}
           </div>
-
+          <p class="selected-guide">
+            <span><strong>COMPARE</strong>複数の音源は同時再生できます</span>
+            <span><strong>DETAIL</strong>写真から個体詳細へ</span>
+          </p>
         </div>
 
         <div class="specimen-grid">
