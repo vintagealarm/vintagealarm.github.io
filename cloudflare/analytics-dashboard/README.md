@@ -203,9 +203,13 @@ Dashboard range and grouping are independent.
 - GROUP BY: AUTO / 30 MIN / 1 HOUR / 1 DAY / 7 DAYS / MONTH.
 - AUTO maps short windows to 30m/1h, 7D to daily, 30D to fixed calendar 7-day blocks, and long ranges to monthly blocks.
 - Seven-day buckets are calendar-fixed inside each month (1–7, 8–14, 15–21, 22–28, 29–month end), not rolling seven-day slices.
-- The bucket comparison table shows PV / Visits / X / Search / Direct / Internal PV and the Visits delta from the previous bucket.
+- The 29–month-end bucket is shorter than seven days and is marked SHORT. PARTIAL / SHORT / MIGRATION buckets are shown for context but are excluded from like-for-like delta comparison.
+- The bucket containing the 2026-09-10 host migration is marked MIGRATION because OLD and NEW host conditions are mixed.
+- The bucket comparison table shows PV / Visits / X / Search / Direct / Internal PV and the Visits delta only when both adjacent buckets are comparable.
 - Cloudflare `sampleInterval` is surfaced as UNSAMPLED / SAMPLED / ESTIMATE. `sampleInterval=1` means the returned query group was not sampled; it does not mean the historical value can never be revised. A bucket cut by the selected range or current time is PARTIAL.
-- ALL begins at the 2026-09-08 JST Web Analytics measurement baseline. ALL has no previous-period comparison.
+- Analytics availability is conservatively bounded from the first repository evidence of the Web Analytics beacon on 2026-09-08 06:41:34 JST. Requests beginning earlier are clipped; periods entirely before the baseline return an error. The first measured day remains partial because activation time is not independently verified.
+- ALL begins at the analytics availability baseline and has no previous-period comparison. Previous-period comparison is omitted whenever the preceding equal-length period would begin before the baseline.
+- Long ALL / CUSTOM requests still use <=7-day Cloudflare slices, but slice fetching and top-level analytics tasks are concurrency-limited to avoid an unbounded GraphQL burst.
 - Signed AI export links preserve RANGE / CUSTOM dates / GROUP BY so dashboard and AI analysis use the same slice.
 
 - AI URL v2 preserves RANGE / GROUP BY / CUSTOM dates in the short relay path. Existing /s/v1/ preset links remain readable for compatibility.
