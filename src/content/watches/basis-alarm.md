@@ -50,7 +50,7 @@ specimenGallery:
     label: ムーブメント全景
 howTheyRing:
   published: true
-  category: bell
+  category: caseback
   image: "/images/Basis Alarm(BFG90).png"
   audio:
     status: pending
