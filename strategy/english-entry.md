@@ -14,7 +14,9 @@
 - Citizen Alarm
 - Westclox Watchlarm
 
-英語入口は `/en/` と `/en/<watch>/` に置く。
+英語入口は `/en/`、`/en/history/`、`/en/how-they-ring/`、`/en/<watch>/` に置く。
+
+`/en/` は日本語TOPと同じVINTAGE ALARMの入口構造を英語化し、その下に英語化済みWATCH一覧をOWNER'S NOTESとして置く。HOW THEY RINGも日本語正本のGONG / CASEBACK 2分類、FIG.01–04、実機音、録音条件、資料注記を同じ構造で公開する。
 
 ## 現在の公開深度
 
