@@ -2,19 +2,76 @@
 import SectionMast from './SectionMast.astro';
 import researchSettings from '../data/research-settings.json';
 import howTheyRingSettings from '../data/how-they-ring-settings.json';
+
+type Locale = 'ja' | 'en' | 'de';
+const { locale = 'ja' } = Astro.props as { locale?: Locale };
 const base = import.meta.env.BASE_URL;
 const researchPublished = researchSettings.published;
 const showSoundOnTop = howTheyRingSettings.productionPublished && howTheyRingSettings.showOnTop;
 const contentCount = `01—${String(3 + Number(showSoundOnTop) + Number(researchPublished)).padStart(2, '0')}`;
 const researchIndexNo = showSoundOnTop ? '05' : '04';
+
+const localized = {
+  ja: {
+    lead: '通知が、まだ歯車だった頃。',
+    sub: 'スマホも電池も使わず、決めた時刻を腕の上で知らせる。',
+    navAria: 'VINTAGE ALARM メインコンテンツ',
+    history: 'なぜ腕時計は鳴るようになった？',
+    milestones: '歴史の節目になったアラーム腕時計',
+    owners: '実物を巻いて、鳴らして、確かめる。',
+    sound: '実機の音を聴いて、鳴らし方を見る。',
+    research: '気になっているもの、調査中の個体'
+  },
+  en: {
+    lead: 'When notifications still ran on gears.',
+    sub: 'No smartphone, no battery — a set time announced on the wrist.',
+    navAria: 'VINTAGE ALARM main contents',
+    history: 'Why did wristwatches start to ring?',
+    milestones: 'Alarm wristwatches that marked turning points in history',
+    owners: 'Wind them, ring them, check the real watches.',
+    sound: 'Hear the real watches and see how they make sound.',
+    research: 'Questions and specimens still under investigation'
+  },
+  de: {
+    lead: 'Als Benachrichtigungen noch mit Zahnrädern liefen.',
+    sub: 'Ohne Smartphone und Batterie — die festgelegte Zeit direkt am Handgelenk melden.',
+    navAria: 'VINTAGE ALARM Hauptinhalte',
+    history: 'Warum begannen Armbanduhren zu klingeln?',
+    milestones: 'Wecker-Armbanduhren an Wendepunkten der Geschichte',
+    owners: 'Aufziehen, klingeln lassen, am echten Exemplar prüfen.',
+    sound: 'Die echten Uhren hören und sehen, wie sie ihren Klang erzeugen.',
+    research: 'Fragen und Exemplare, die noch untersucht werden'
+  }
+} as const;
+
+const copy = localized[locale];
+const prefix = locale === 'ja' ? '' : `${locale}/`;
+const historyHref = `${base}${prefix}history/`;
+const ownersHref = locale === 'ja' ? `${base}owners-notes/` : '#owners-notes';
+const soundHref = `${base}${prefix}how-they-ring/`;
+const researchHref = `${base}${prefix}history/#research`;
+const languageLinks = locale === 'ja'
+  ? [
+      { href: `${base}en/`, label: 'EN', hreflang: 'en' },
+      { href: `${base}de/`, label: 'DE', hreflang: 'de' }
+    ]
+  : locale === 'en'
+    ? [
+        { href: base, label: '日本語', hreflang: 'ja' },
+        { href: `${base}de/`, label: 'DE', hreflang: 'de' }
+      ]
+    : [
+        { href: base, label: '日本語', hreflang: 'ja' },
+        { href: `${base}en/`, label: 'EN', hreflang: 'en' }
+      ];
 ---
-<SectionMast rightLabel="INDEX" />
+<SectionMast rightLabel="INDEX" lang={locale} languageLinks={languageLinks} />
 <main>
   <section class="shell home-cover" aria-labelledby="home-title">
     <h1 id="home-title"><span>VINTAGE</span><span>ALARM</span></h1>
     <div class="home-cover-lead">
-      <p>通知が、まだ歯車だった頃。</p>
-      <small>スマホも電池も使わず、決めた時刻を腕の上で知らせる。</small>
+      <p>{copy.lead}</p>
+      <small>{copy.sub}</small>
     </div>
     <div class="home-cover-art" aria-hidden="true">
       <img class="art-before" src={`${base}images/history-motifs/before-watercolor.png`} alt="" />
@@ -24,39 +81,34 @@ const researchIndexNo = showSoundOnTop ? '05' : '04';
     </div>
   </section>
 
-  <nav class="shell home-index" aria-label="VINTAGE ALARM メインコンテンツ">
+  <nav class="shell home-index" aria-label={copy.navAria}>
     <div class="home-index-head" aria-hidden="true"><span>CONTENTS</span><span>{contentCount}</span></div>
-
-    <a href={`${base}history/`}>
+    <a href={historyHref}>
       <span class="home-index-no">01</span>
-      <div class="home-index-copy"><strong>HISTORY</strong><small>なぜ腕時計は鳴るようになった？</small></div>
+      <div class="home-index-copy"><strong>HISTORY</strong><small>{copy.history}</small></div>
       <span class="home-index-arrow" aria-hidden="true">→</span>
     </a>
-
-    <a href={`${base}history/#milestones`}>
+    <a href={`${historyHref}#milestones`}>
       <span class="home-index-no">02</span>
-      <div class="home-index-copy"><strong>MILESTONES</strong><small>歴史の節目になったアラーム腕時計</small></div>
+      <div class="home-index-copy"><strong>MILESTONES</strong><small>{copy.milestones}</small></div>
       <span class="home-index-arrow" aria-hidden="true">→</span>
     </a>
-
-    <a href={`${base}owners-notes/`}>
+    <a href={ownersHref}>
       <span class="home-index-no">03</span>
-      <div class="home-index-copy"><strong>OWNER'S NOTES</strong><small>実物を巻いて、鳴らして、確かめる。</small></div>
+      <div class="home-index-copy"><strong>OWNER'S NOTES</strong><small>{copy.owners}</small></div>
       <span class="home-index-arrow" aria-hidden="true">→</span>
     </a>
-
     {showSoundOnTop && (
-      <a href={`${base}how-they-ring/`}>
+      <a href={soundHref}>
         <span class="home-index-no">04</span>
-        <div class="home-index-copy"><strong>HOW THEY RING</strong><small>実機の音を聴いて、鳴らし方を見る。</small></div>
+        <div class="home-index-copy"><strong>HOW THEY RING</strong><small>{copy.sound}</small></div>
         <span class="home-index-arrow" aria-hidden="true">→</span>
       </a>
     )}
-
     {researchPublished && (
-      <a href={`${base}history/#research`}>
+      <a href={researchHref}>
         <span class="home-index-no">{researchIndexNo}</span>
-        <div class="home-index-copy"><strong>RESEARCH</strong><small>気になっているもの、調査中の個体</small></div>
+        <div class="home-index-copy"><strong>RESEARCH</strong><small>{copy.research}</small></div>
         <span class="home-index-arrow" aria-hidden="true">→</span>
       </a>
     )}
