@@ -48,7 +48,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 外部AI観測: `measurement/aio-observation-log.md`
 - Council / 焼いて: `council-worker/README.md` + `council-worker/src/index.ts`
 
-`MIGRATION.md`、`REFACTOR_AUDIT.md`、日付付き監査記録は履歴資料です。現在仕様と衝突する場合は、上記の作業コンテキスト、現在の `main`、分野別正本を順に確認します。
+`CHANGE_DECISIONS.md` は仕様・判断の時系列台帳です。「いつ・何を・なぜ変えたか」を追う場合はここを確認します。`PROJECT_STATE.md` は現在値、`CHANGE_DECISIONS.md` は履歴を担当し、役割を分離します。\n\n`MIGRATION.md`、`REFACTOR_AUDIT.md`、日付付き監査記録は履歴資料です。現在仕様と衝突する場合は、上記の作業コンテキスト、現在の `main`、分野別正本を順に確認します.
 
 ## 3. CURRENT BASELINE
 
@@ -194,7 +194,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 変更する内容
 - 変更しない内容
 - 合格条件
-- どの状態まで行うか: IMPLEMENTED / VERIFIED / DEPLOYED / OBSERVED
+- どの状態まで行うか: IMPLEMENTED / VERIFIED / DEPLOYED / OBSERVED\n- 現行仕様・判断・方針・棄却候補が変わる場合、`CHANGE_DECISIONS.md` へJST日時・変更・理由・旧状態/棄却・影響範囲・検証状態・関連PR/commitを同じ変更セットで記録する
 
 通常の完了順序:
 
