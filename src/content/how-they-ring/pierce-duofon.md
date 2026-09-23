@@ -11,8 +11,8 @@ audio:
       label: WAKER / 音あり
       src: ""
       processed: false
-    - id: duofon-silent
-      label: SILENT / 音無し
+    - id: duofon-signal
+      label: SIGNAL / 音無し
       src: ""
       processed: false
 ---
