@@ -164,10 +164,33 @@ const specimens = orderedSlugs
       }
 
       .category-guide {
-        margin: 0 0 10px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: end;
+        gap: 12px;
+        margin: 0 0 8px;
         color: var(--lab-soft);
         font-size: 12px;
         line-height: 1.6;
+        text-align: center;
+      }
+
+      .category-guide::before,
+      .category-guide::after {
+        content: '↘';
+        color: var(--lab-ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .category-guide::before {
+        justify-self: end;
+        transform: scaleX(-1);
+      }
+
+      .category-guide::after {
+        justify-self: start;
       }
 
       .category-grid {
@@ -488,6 +511,16 @@ const specimens = orderedSlugs
 
         .lab-hero h1 {
           font-size: clamp(32px, 10vw, 44px);
+        }
+
+        .category-guide {
+          gap: 8px;
+          font-size: 11px;
+        }
+
+        .category-guide::before,
+        .category-guide::after {
+          font-size: 22px;
         }
 
         .category-button {
