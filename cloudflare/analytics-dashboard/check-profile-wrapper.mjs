@@ -136,7 +136,7 @@ const fixture = [
   'const platform=item.platform==="YouTube"?"YouTube":"X";',
   'const color=item.migration?"#706d67":platform==="YouTube"?COLORS.YouTube:COLORS.X;',
   'eventIndex(campaigns)+',
-  'document.getElementById("refresh").addEventListener("click",()=>{load();renderDiscoveryInbox();});'
+  'document.getElementById("refresh").addEventListener("click",()=>{window.location.reload();});'
 ].join('\n');
 const patchedHtml = patchDashboardHtml(fixture);
 assert(patchedHtml.includes('Xプロフィール専用URL発行'), 'system timeline event was not injected');
