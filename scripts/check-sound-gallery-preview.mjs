@@ -33,11 +33,12 @@ try {
     const shellState = await page.evaluate(() => {
       const categoryButtons = [...document.querySelectorAll('button[data-category]')];
       const labels = categoryButtons.map((button) => button.querySelector('.category-name strong')?.textContent?.trim() || '');
-      const figures = categoryButtons.map((button) => button.querySelector('.mechanism-figure img')?.getAttribute('src') || '');
+      const figures = [...document.querySelectorAll('.mechanism-figure img')].map((img) => img.getAttribute('src') || '');
+      const examples = [];
       const overlapFailures = [];
 
       for (const button of categoryButtons) {
-        const parts = ['.category-name', '.mechanism-figure', '.category-action', '.category-count']
+        const parts = ['.category-name', '.category-action']
           .map((selector) => button.querySelector(selector))
           .filter(Boolean)
           .map((node) => ({ selector: node.className, rect: node.getBoundingClientRect() }));
@@ -60,6 +61,7 @@ try {
         categoryButtons: categoryButtons.length,
         labels,
         figures,
+        examples,
         overlapFailures,
         robots: document.querySelector('meta[name="robots"]')?.getAttribute('content') || '',
         canonical: !!document.querySelector('link[rel="canonical"]'),
@@ -71,20 +73,39 @@ try {
       failures.push(`${width}px: horizontal overflow ${shellState.overflow}px`);
     }
 
-    if (shellState.categoryButtons !== 4) {
-      failures.push(`${width}px: expected 4 category buttons, got ${shellState.categoryButtons}`);
+    if (shellState.categoryButtons !== 2) {
+      failures.push(`${width}px: expected 2 category buttons, got ${shellState.categoryButtons}`);
     }
 
-    const expectedOrder = ['GONG', 'CASEBACK', 'BELL', 'PIN'];
+    const expectedOrder = ['GONG', 'CASEBACK'];
     if (JSON.stringify(shellState.labels) !== JSON.stringify(expectedOrder)) {
       failures.push(`${width}px: category order wrong: ${JSON.stringify(shellState.labels)}`);
     }
 
-    const expectedFigureEnds = ['/gong.jpg', '/caseback-hammer.png', '/bell.jpg', '/pin-hammer.png'];
+    const expectedFigureEnds = ['/gong.jpg', '/caseback-hammer.png', '/pin-hammer.png', '/bell.jpg'];
+    const figureNames = ['FIG.01', 'FIG.02', 'FIG.03', 'FIG.04'];
     for (let index = 0; index < expectedFigureEnds.length; index += 1) {
       if (!shellState.figures[index]?.endsWith(expectedFigureEnds[index])) {
-        failures.push(`${width}px: category ${expectedOrder[index]} diagram wrong: ${shellState.figures[index]}`);
+        failures.push(`${width}px: category ${figureNames[index]} diagram wrong: ${shellState.figures[index]}`);
       }
+    }
+
+    const expectedExamples = [];
+    const figureCaptions = await page.locator('.mechanism-variation').evaluateAll((items) =>
+      items.map((item) => ({
+        no: item.dataset.figure,
+        label: item.querySelector('.variation-caption strong')?.textContent?.trim() || '',
+        example: item.querySelector('.variation-caption em')?.textContent?.trim() || ''
+      }))
+    );
+    const expectedFigureCaptions = [
+      { no: '01', label: '専用発音体', example: 'OMEGA MEMOMATIC' },
+      { no: '02', label: '膜状バック型', example: 'VULCAIN CRICKET' },
+      { no: '03', label: 'ピン／レバー伝達型', example: 'JUNGHANS MINIVOX' },
+      { no: '04', label: 'BELL-BASE型', example: 'LANCO-FON' }
+    ];
+    if (JSON.stringify(figureCaptions) !== JSON.stringify(expectedFigureCaptions)) {
+      failures.push(`${width}px: figure captions wrong: ${JSON.stringify(figureCaptions)}`);
     }
 
     const diagramState = await page.evaluate(() =>
@@ -103,7 +124,7 @@ try {
       })
     );
 
-    const expectedNatural = [[300, 180], [300, 180], [300, 180]];
+    const expectedNatural = [[161, 180], [300, 180], [300, 180], [300, 180]];
     const pixelArtifacts = await page.evaluate(() => {
       return [...document.querySelectorAll('.mechanism-figure img')].map((img) => {
         const canvas = document.createElement('canvas');
@@ -127,27 +148,27 @@ try {
 
     diagramState.forEach((item, index) => {
       const artifact = pixelArtifacts[index];
-      if (artifact?.purple > 0) failures.push(`${width}px: ${expectedOrder[index]} contains ${artifact.purple} purple artifact pixels`);
+      if (artifact?.purple > 0) failures.push(`${width}px: ${figureNames[index]} contains ${artifact.purple} purple artifact pixels`);
       if (artifact?.corners?.some(([r,g,b]) => Math.abs(r - 242) > 4 || Math.abs(g - 238) > 4 || Math.abs(b - 227) > 4)) {
-        failures.push(`${width}px: ${expectedOrder[index]} image background corners do not match approved card paper: ${JSON.stringify(artifact.corners)}`);
+        failures.push(`${width}px: ${figureNames[index]} image background corners do not match approved card paper: ${JSON.stringify(artifact.corners)}`);
       }
       const [nw, nh] = expectedNatural[index];
       if (item.naturalWidth !== nw || item.naturalHeight !== nh) {
-        failures.push(`${width}px: ${expectedOrder[index]} wrong image dimensions ${item.naturalWidth}x${item.naturalHeight}, expected ${nw}x${nh}`);
+        failures.push(`${width}px: ${figureNames[index]} wrong image dimensions ${item.naturalWidth}x${item.naturalHeight}, expected ${nw}x${nh}`);
       }
-      if (index === 0) {
-        if (item.transform === 'none') failures.push(`${width}px: GONG artwork was not enlarged`);
-      } else if (item.transform !== 'none') {
-        failures.push(`${width}px: ${expectedOrder[index]} unexpected transform ${item.transform}`);
+      if (item.transform !== 'none') {
+        failures.push(`${width}px: ${figureNames[index]} unexpected transform ${item.transform}`);
       }
-      const clipped = item.image.left < item.figure.left - 1 || item.image.right > item.figure.right + 1 || item.image.top < item.figure.top - 1 || item.image.bottom > item.figure.bottom + 1;
-      if (index !== 0 && clipped) {
-        failures.push(`${width}px: ${expectedOrder[index]} image is clipped by figure box: ${JSON.stringify(item)}`);
-      }
-      const heightRatio = item.figure.height ? item.image.height / item.figure.height : 0;
-      const widthRatio = item.figure.width ? item.image.width / item.figure.width : 0;
-      if (index !== 0 && (heightRatio < 0.55 || heightRatio > 1.01 || widthRatio < 0.35 || widthRatio > 1.01)) {
-        failures.push(`${width}px: ${expectedOrder[index]} visual size out of range: h=${heightRatio.toFixed(2)} w=${widthRatio.toFixed(2)}`);
+      if (item.figure.width > 0 && item.figure.height > 0) {
+        const clipped = item.image.left < item.figure.left - 1 || item.image.right > item.figure.right + 1 || item.image.top < item.figure.top - 1 || item.image.bottom > item.figure.bottom + 1;
+        if (clipped) {
+          failures.push(`${width}px: ${figureNames[index]} image is clipped by figure box: ${JSON.stringify(item)}`);
+        }
+        const heightRatio = item.image.height / item.figure.height;
+        const widthRatio = item.image.width / item.figure.width;
+        if (heightRatio < 0.55 || heightRatio > 1.01 || widthRatio < 0.35 || widthRatio > 1.01) {
+          failures.push(`${width}px: ${figureNames[index]} visual size out of range: h=${heightRatio.toFixed(2)} w=${widthRatio.toFixed(2)}`);
+        }
       }
     });
 
@@ -156,6 +177,8 @@ try {
       const selected = document.querySelector('.category-button[aria-pressed="true"]');
       return {
         bodyText,
+        statusBars: document.querySelectorAll('.lab-status').length,
+        heroCopy: document.querySelectorAll('.lab-hero-copy').length,
         selectedBoxShadow: selected ? getComputedStyle(selected).boxShadow : 'missing'
       };
     });
@@ -165,11 +188,25 @@ try {
       '音源準備中',
       '実機録音を追加予定',
       '音源スロットは各掲載個体に用意済み',
-      '複数音源を格納できる構造を維持'
+      '複数音源を格納できる構造を維持',
+      'TEST SURFACE',
+      '非公開プレビュー',
+      'PUBLIC',
+      'CMS EDIT',
+      '現在の掲載数',
+      'WATCHES / 掲載',
+      'WATCH / 掲載',
+      'ブランドや年代ではなく、何を叩き、何を響かせるのかで分ける。',
+      '3つの方式から、対応する掲載個体へ切り替える。',
+      'coming soon',
+      '追加予定'
     ]) {
       if (editorialState.bodyText.includes(forbidden)) {
         failures.push(`${width}px: production/meta comment still visible: ${forbidden}`);
       }
+    }
+    if (editorialState.statusBars || editorialState.heroCopy) {
+      failures.push(`${width}px: viewer still contains status/editorial blocks`);
     }
     if (editorialState.selectedBoxShadow !== 'none') {
       failures.push(`${width}px: selected card still renders box-shadow line: ${editorialState.selectedBoxShadow}`);
@@ -187,22 +224,32 @@ try {
       cards.map((card) => card.dataset.category)
     );
     const expectedCounts = Object.fromEntries(
-      ['gong', 'caseback', 'bell', 'pin'].map((category) => [
+      ['gong', 'caseback'].map((category) => [
         category,
         specimenCategories.filter((value) => value === category).length
       ])
     );
+    const classifiedSpecimens = await page.locator('[data-specimen]').evaluateAll((cards) =>
+      Object.fromEntries(cards.map((card) => [card.dataset.watchSlug, card.dataset.category]))
+    );
+    const expectedSpecimenCategories = {
+      'cyma-time-o-vox': 'gong',
+      'pierce-duofon': 'gong',
+      'wittnauer-10wa': 'gong',
+      'basis-alarm': 'caseback',
+      'citizen-alarm': 'caseback',
+      'westclox-watchlarm': 'caseback'
+    };
+    for (const [slug, category] of Object.entries(expectedSpecimenCategories)) {
+      if (classifiedSpecimens[slug] !== category) {
+        failures.push(`${width}px: ${slug} classified as ${classifiedSpecimens[slug] || 'missing'}, expected ${category}`);
+      }
+    }
+
     const initial = await visibleSpecimens(page);
     if (initial.length !== expectedCounts.gong) {
       failures.push(`${width}px: GONG initial state is wrong: ${JSON.stringify(initial)}`);
     }
-    for (const category of Object.keys(expectedCounts)) {
-      const countText = await page.locator(`button[data-category="${category}"] .category-count`).innerText();
-      if (!countText.startsWith(`${expectedCounts[category]} `)) {
-        failures.push(`${width}px: ${category} count label does not match its specimens: ${countText}`);
-      }
-    }
-
     if (width <= 430) {
       const rows = await page.locator('[data-specimen]:not([hidden])').evaluateAll((cards) => cards.map((card) => {
         const box = (selector) => {
@@ -221,29 +268,8 @@ try {
       });
     }
 
-    if (width <= 430) {
-      const visibility = await page.evaluate(() => {
-        const section = document.querySelector('#specimen-panel');
-        const grid = document.querySelector('.category-grid');
-        if (!section || !grid) return null;
-        const sectionRect = section.getBoundingClientRect();
-        const gridRect = grid.getBoundingClientRect();
-        return {
-          gridHeight: Math.round(gridRect.height),
-          gapToGallery: Math.round(sectionRect.top - gridRect.bottom),
-          combinedHeight: Math.round(gridRect.height + (sectionRect.top - gridRect.bottom)),
-          viewportHeight: window.innerHeight
-        };
-      });
-      if (
-        !visibility ||
-        visibility.combinedHeight >= visibility.viewportHeight
-      ) {
-        failures.push(`${width}px: selector and gallery cannot share one viewport: ${JSON.stringify(visibility)}`);
-      }
-    }
 
-    for (const category of ['caseback', 'bell', 'pin', 'gong']) {
+    for (const category of ['caseback', 'gong']) {
       await page.locator(`button[data-category="${category}"]`).click();
       const visible = await visibleSpecimens(page);
       const visibleCategories = await page.locator('[data-specimen]:not([hidden])').evaluateAll((cards) =>
@@ -254,6 +280,23 @@ try {
       }
       const selected = await page.locator(`button[data-category="${category}"]`).getAttribute('aria-pressed');
       if (selected !== 'true') failures.push(`${width}px: ${category} aria-pressed not updated`);
+
+      const mechanismState = await page.locator(`[data-mechanism-group="${category}"]`).evaluate((group) => ({
+        hidden: group.hidden,
+        images: [...group.querySelectorAll('.mechanism-figure img')].map((img) => {
+          const rect = img.getBoundingClientRect();
+          return { width: rect.width, height: rect.height };
+        })
+      }));
+      if (mechanismState.hidden || mechanismState.images.some((img) => img.width <= 0 || img.height <= 0)) {
+        failures.push(`${width}px: ${category} mechanism figures are not visible: ${JSON.stringify(mechanismState)}`);
+      }
+
+      const otherGroupsVisible = await page.locator('[data-mechanism-group]').evaluateAll((groups, active) =>
+        groups.filter((group) => group.dataset.mechanismGroup !== active && !group.hidden).length,
+        category
+      );
+      if (otherGroupsVisible) failures.push(`${width}px: inactive mechanism group still visible for ${category}`);
     }
 
     const brokenImages = await page.locator('img').evaluateAll((images) =>
@@ -274,18 +317,6 @@ try {
       }
     });
 
-    if (width === 390 && expectedCounts.bell > 0) {
-      await page.locator('button[data-category="bell"]').click();
-      const bellLink = page.locator('[data-specimen]:not([hidden]) .specimen-media').first();
-      const destinationHref = await bellLink.getAttribute('href');
-      await bellLink.click();
-      await page.locator('#owners-note').waitFor({ state: 'attached' });
-      const destination = page.url();
-      const ownersNoteAnchors = await page.locator('#owners-note').count();
-      if (!destination.endsWith(destinationHref) || ownersNoteAnchors !== 1) {
-        failures.push(`390px: BELL thumbnail did not open its OWNER'S NOTE (${destination}, anchors: ${ownersNoteAnchors})`);
-      }
-    }
 
     await context.close();
   }

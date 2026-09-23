@@ -1,6 +1,6 @@
 # VINTAGE ALARM — CURRENT PROJECT STATE
 
-更新日: 2026-09-21
+更新日: 2026-09-19
 
 この文書は、VINTAGE ALARMで作業を再開するときに最初に読む「現在位置の索引」です。
 
@@ -64,10 +64,12 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
-- HOW THEY RINGの現行分類は GONG / CASEBACK / BELL / PIN の4種類。判定は発音体と打撃の伝達経路で行う。GONG＝独立した音響ばね／ゴング、CASEBACK＝ケース／保持リング自体を直接打撃、BELL＝独立したベル／ベル底、PIN＝底部・膜・裏蓋に設けたピン／スタッド経由。
-- 資料確認済みの分類例：BASIS / BFG90＝BELL、LANCO-FON 1241系＝BELL、JUNGHANS MINIVOX J89量産型＝BELL、WESTCLOX W5＝BELL、VULCAIN CRICKET＝PIN、通常の歴史的MEMOVOX＝PIN、AS1475系＝PIN、CITIZEN Cal.980系＝PIN、SEIKO BELL-MATIC＝GONG。
-- HOW THEY RINGの個体・分類・サムネイル・音源は `src/content/how-they-ring/`、本番公開とTOP「音で選ぶ」表示は `src/data/how-they-ring-settings.json` で制御する
-- TOPの「音で選ぶ」は `productionPublished` と `showOnTop` が両方ONの場合だけ表示する
+- 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
+- HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
+- HOW THEY RINGの現行分類は GONG / CASEBACK の2種類だけ。GONG＝専用の発音体を鳴らす、CASEBACK＝ケースバック構造を共鳴させて鳴らす
+- CASEBACKの図示02〜04は下位分類ではなく構造バリエーションの例示。02「膜状バック型 — VULCAIN CRICKET」、03「ピン／レバー伝達型 — JUNGHANS MINIVOX」、04「BELL-BASE型 — LANCO-FON」。個体カードには02/03/04等の詳細分類を付けない
+- 掲載個体の分類は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK
+- FIG.01はGONGの参考図として OMEGA MEMOMATIC を表示する
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
 - Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
@@ -141,13 +143,12 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 所有個体年代からHISTORY年代を自動生成する
 - WATCH末尾の「次の一本」を年代順へ自動フォールバックする
 - RESEARCH非公開をCSSで隠す。非公開時は生成HTML自体へ出さない
-- HOW THEY RINGを3分類へ固定し、PINをCASEBACKへ吸収する
-- 本番公開がOFFのHOW THEY RING導線をTOPへ表示する
 - SMARTWATCHを通常の検索流入ページとして扱う
 - SEO目的だけでOWNER'S NOTEや完成済みWATCH本文を書き換える
 - Calibre DB化、ブランド百科事典化、FAQ大量生成、検索語差し替え型ページ量産
 - AIOだけを理由にllms.txtやQ&A分割、本文細切れ化を増やす
 - build成功だけでデザイン変更を検証済みとする
+- `TEST SURFACE`、`非公開プレビュー`、`PUBLIC`、`CMS EDIT`、音源準備中、追加予定などの制作メタを視聴者画面へ表示する
 - Council V1の「焼いて」で即2chスレを開始する仕様
 - Council V1の `quick / project / deep-web-10` が人数と継続ラウンド数を一体で固定する仕様
 - Council V1の QUICK=継続×2 / PROJECT=×3 / DEEP WEB=×4 の固定反復

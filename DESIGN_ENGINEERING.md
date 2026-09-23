@@ -112,6 +112,27 @@ SMARTWATCHなど、motion自体が表現内容の一部であるページは例�
 - 320pxで文字や操作要素が押し出されないことを確認する。
 - 文字サイズ変更時にも主要操作と本文が欠けないよう、固定高を避ける。
 
+## 視聴者画面に制作メタを出さない
+
+公開ページと認証付きプレビューの視聴者画面には、制作・運用・編集状態を説明する文言を出さない。
+
+- `TEST SURFACE`、`非公開プレビュー`、`PUBLIC`、`CMS EDIT` などの環境表示を本文へ置かない。
+- CMSの公開状態、掲載数の管理表示、音源の準備状況、追加予定、実装方針を視聴者向けコピーとして置かない。
+- プレビューの保護は認証と `noindex` で行い、その状態をページ上で説明しない。
+- CMS編集入口は管理画面側で提供し、視聴者向けページへ編集導線を混在させない。
+- 未実装の要素は空表示または非表示とし、`準備中` や `coming soon` で制作事情を見せない。
+
+HOW THEY RINGは、サイト上の大分類を GONG / CASEBACK の2つだけに固定する。細部機構は個体分類に使わず、CASEBACK側の図示バリエーションとして見せる。
+
+- GONG：専用の発音体を鳴らす。
+- CASEBACK：ケースバック構造を共鳴させて鳴らす。
+- FIG.01：GONGの参考図。OMEGA MEMOMATIC。
+- FIG.02：CASEBACKの構造例「膜状バック型 — VULCAIN CRICKET」。
+- FIG.03：CASEBACKの構造例「ピン／レバー伝達型 — JUNGHANS MINIVOX」。
+- FIG.04：CASEBACKの構造例「BELL-BASE型 — LANCO-FON」。
+- FIG.02〜04はCASEBACK内部の下位分類ではない。掲載個体へ図番号や「膜状」「PIN」「BELL」等の詳細タグを付けず、個体カードはGONGまたはCASEBACKだけを表示する。
+- 掲載個体は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK。
+
 ## 実寸監査
 
 デザイン変更の完了条件は、build成功だけではない。

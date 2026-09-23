@@ -2,7 +2,7 @@
 title: CITIZEN ALARM
 watchSlug: citizen-alarm
 published: true
-category: pin
+category: caseback
 thumbnail: /images/owners-thumbnails/citizen-alarm-full.jpg
 audio:
   status: pending
