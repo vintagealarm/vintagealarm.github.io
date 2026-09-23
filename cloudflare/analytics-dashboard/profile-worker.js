@@ -350,8 +350,8 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
       freshnessRenderer,
     )
     .replace(
-      'document.getElementById("refresh").addEventListener("click",()=>{load();renderDiscoveryInbox();});',
-      aiReadableHandler+'document.getElementById("refresh").addEventListener("click",()=>{load();renderDiscoveryInbox();});',
+      'document.getElementById("refresh").addEventListener("click",()=>{window.location.reload();});',
+      aiReadableHandler+'document.getElementById("refresh").addEventListener("click",()=>{window.location.reload();});',
     );
 }
 
