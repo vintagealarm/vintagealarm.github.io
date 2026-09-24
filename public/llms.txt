@@ -32,6 +32,7 @@ English entry:
 - https://vintagealarm.github.io/en/how-they-ring/
 - https://vintagealarm.github.io/en/sources/
 - https://vintagealarm.github.io/en/cyma-time-o-vox/
+- https://vintagealarm.github.io/en/cyma-time-o-vox/chronometre/
 - https://vintagealarm.github.io/en/pierce-duofon/
 - https://vintagealarm.github.io/en/basis-alarm/
 - https://vintagealarm.github.io/en/citizen-alarm/
@@ -45,7 +46,10 @@ German entry:
 - https://vintagealarm.github.io/de/how-they-ring/
 - https://vintagealarm.github.io/de/sources/
 - https://vintagealarm.github.io/de/cyma-time-o-vox/
+- https://vintagealarm.github.io/de/cyma-time-o-vox/chronometre/
 - https://vintagealarm.github.io/de/pierce-duofon/
+- https://vintagealarm.github.io/de/basis-alarm/
+- https://vintagealarm.github.io/de/citizen-alarm/
 - https://vintagealarm.github.io/de/westclox-watchlarm/
 - https://vintagealarm.github.io/de/wittnauer-10wa/
 
