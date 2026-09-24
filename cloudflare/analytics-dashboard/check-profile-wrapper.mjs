@@ -165,6 +165,9 @@ assert(patchedHtml.includes('X Profile'), 'profile event platform was not inject
 assert(patchedHtml.includes('id="aiReadable">AI URL</button>'), 'AI URL button was not injected');
 assert(patchedHtml.includes('/api/ai-readable-link?'), 'AI URL handler was not injected');
 assert(patchedHtml.includes('analyticsQuery'), 'AI URL handler must preserve current range/bucket query');
+assert(patchedHtml.includes('LATEST NONZERO BUCKET'), 'dashboard must label freshness as aggregate bucket, not last event');
+assert(patchedHtml.includes('GAP LOWER BOUND'), 'dashboard must label freshness gap as a lower bound');
+assert(!patchedHtml.includes(' · LAST EVENT '), 'dashboard must not claim bucket boundary is the last event timestamp');
 assert(patchedHtml.includes('["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]'), 'WATCH share list changed unexpectedly');
 assert(patchedHtml.includes('{name:"OWNER\'S NOTES (EN)",path:"/en/owners-notes/"}'), 'English OWNER\'S NOTES key page was not injected');
 assert(patchedHtml.includes('{name:"OWNER\'S NOTES (DE)",path:"/de/owners-notes/"}'), 'German OWNER\'S NOTES key page was not injected');
@@ -192,8 +195,27 @@ const freshness = buildFreshness({
   },
 });
 assert(freshness.bucketKind === '7d', 'new aggregated bucket kind must be recognized');
-assert(freshness.bucketEnd === '2026-09-21T15:00:00.000Z', 'event gap must use explicit bucket end');
-assert(freshness.eventGapSeconds === 205200, 'event gap must be measured from bucket end, not bucket start');
+assert(freshness.bucketEnd === '2026-09-21T15:00:00.000Z', 'closed aggregate bucket must preserve explicit bucket end');
+assert(freshness.bucketOpen === false, 'past aggregate bucket must be closed');
+assert(freshness.eventGapLowerBoundSeconds === 205200, 'freshness must be a lower bound measured from aggregate bucket end');
+
+const openFreshness = buildFreshness({
+  generatedAt: '2026-09-24T11:02:56.807Z',
+  combined: {
+    trendBucket: '7d',
+    trend: [{
+      bucket: '2026-09-21T15:00:00.000Z',
+      bucketStart: '2026-09-21T15:00:00.000Z',
+      bucketEnd: '2026-09-28T15:00:00.000Z',
+      pageviews: 8,
+      visits: 8,
+    }],
+  },
+});
+assert(openFreshness.bucketOpen === true, 'current 7d aggregate bucket must be marked open');
+assert(openFreshness.bucketEnd === '2026-09-24T11:02:56.807Z', 'open bucket display end must be capped at query time');
+assert(openFreshness.eventGapLowerBoundSeconds === 0, 'open bucket can only establish a zero lower bound, not zero event lag');
+assert(openFreshness.note.includes('not the timestamp'), 'freshness note must reject event-timestamp interpretation');
 
 const auth = `Basic ${Buffer.from('admin:test-password').toString('base64')}`;
 const env = { DASHBOARD_PASSWORD: 'test-password', CF_API_TOKEN: 'test-cloudflare-token' };
