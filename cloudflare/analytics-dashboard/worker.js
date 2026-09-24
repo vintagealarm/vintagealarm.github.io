@@ -1546,7 +1546,7 @@ function buildChannels(rows, targetHost = DEFAULT_HOST) {
     .map(([name, values]) => ({ name, ...values }));
 }
 
-function classifyReferrer(host, targetHost = DEFAULT_HOST) {
+export function classifyReferrer(host, targetHost = DEFAULT_HOST) {
   const value = String(host || "").toLowerCase().replace(/\.$/, "");
   const target = String(targetHost || DEFAULT_HOST).toLowerCase().replace(/\.$/, "");
   const isDomain = (domain) => value === domain || value.endsWith("." + domain);
@@ -1565,15 +1565,8 @@ function classifyReferrer(host, targetHost = DEFAULT_HOST) {
     return "Other SNS";
   }
 
-  if (
-    isSearchFamily("google") ||
-    isDomain("bing.com") ||
-    isDomain("yahoo.com") ||
-    isDomain("yahoo.co.jp") ||
-    isDomain("duckduckgo.com") ||
-    isSearchFamily("yandex")
-  ) return "Organic Search";
-
+  // Known AI assistant hosts must be classified before broad search
+  // families. Otherwise gemini.google.com is swallowed by google.* search.
   if (
     isDomain("chatgpt.com") ||
     isDomain("chat.openai.com") ||
@@ -1582,6 +1575,15 @@ function classifyReferrer(host, targetHost = DEFAULT_HOST) {
     isDomain("gemini.google.com") ||
     isDomain("copilot.microsoft.com")
   ) return "AI Assistant";
+
+  if (
+    isSearchFamily("google") ||
+    isDomain("bing.com") ||
+    isDomain("yahoo.com") ||
+    isDomain("yahoo.co.jp") ||
+    isDomain("duckduckgo.com") ||
+    isSearchFamily("yandex")
+  ) return "Organic Search";
 
   return "Other Referral";
 }
