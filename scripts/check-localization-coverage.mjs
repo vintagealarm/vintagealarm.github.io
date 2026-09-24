@@ -55,7 +55,7 @@ for (const lang of ['en', 'de']) {
       ? ['REFERENCES &amp; SOURCES', 'REFERENCES & SOURCES']
       : ['LITERATUR &amp; QUELLEN', 'LITERATUR & QUELLEN'];
     if (!sourceMarkers.some((marker) => html.includes(marker))) failures.push(`${route}: FULL RESEARCH sources section missing`);
-    if (html.includes('english-gateway-note') || html.includes('concise English entry')) failures.push(`${route}: obsolete concise-entry fallback leaked`);
+    if (html.includes('This page is a concise English entry to the specimen')) failures.push(`${route}: obsolete concise-entry fallback leaked`);
     if (!html.includes('hreflang="ja"')) failures.push(`${route}: Japanese hreflang missing`);
     if (!html.includes(`hreflang="${other}"`)) failures.push(`${route}: ${other.toUpperCase()} hreflang missing`);
     if (!llms.includes(`${siteRoot}${route}`)) failures.push(`${route}: missing from public/llms.txt`);

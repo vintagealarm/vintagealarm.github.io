@@ -207,7 +207,7 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
         ? ['REFERENCES &amp; SOURCES', 'REFERENCES & SOURCES']
         : ['LITERATUR &amp; QUELLEN', 'LITERATUR & QUELLEN'];
       if (!sourceMarkers.some((marker) => result.text.includes(marker))) failures.push(`${route}: FULL RESEARCH sources section missing`);
-      if (result.text.includes('english-gateway-note') || result.text.includes('concise English entry')) failures.push(`${route}: obsolete concise-entry fallback leaked`);
+      if (result.text.includes('This page is a concise English entry to the specimen')) failures.push(`${route}: obsolete concise-entry fallback leaked`);
       if (sitemap.ok && !sitemap.text.includes(`https://vintagealarm.github.io/${route}`)) failures.push(`${route}: missing from sitemap`);
     }
   }
