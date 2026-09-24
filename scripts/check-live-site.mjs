@@ -121,7 +121,6 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     if (owners.ok && owners.text.includes('history/#research')) failures.push('owners-notes: unpublished RESEARCH menu link leaked');
   }
 
-  if (history.ok && history.text.includes('WITTNAUER ALARM')) failures.push('history: unpublished Wittnauer leaked into OWNER\'S NOTE rail');
   if (owners.ok && !owners.text.includes('c.1959–early 1960s')) failures.push('owners-notes: compact Westclox uncertain-era label missing');
   if (owners.ok && owners.text.includes('id="owners-1950年代末〜1960年代初頭"')) failures.push('owners-notes: long uncertain Westclox era leaked into section heading');
 

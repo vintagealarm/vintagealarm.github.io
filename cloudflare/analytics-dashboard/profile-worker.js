@@ -20,6 +20,14 @@ export const WATCH_PAGE_NAMES = Object.freeze({
   "/westclox-watchlarm/": "Westclox Watchlarm",
 });
 
+export const MEASUREMENT_TARGET_PAGE_NAMES = Object.freeze({
+  "/basis-alarm/": "Basis Alarm",
+  "/pierce-duofon/": "Pierce Duofon",
+  "/cyma-time-o-vox/": "Cyma Time-O-Vox",
+  "/citizen-alarm/": "Citizen Alarm",
+  "/westclox-watchlarm/": "Westclox Watchlarm",
+});
+
 export const ENGLISH_GATEWAY_NAMES = Object.freeze({
   "/en/": "English Entry",
   "/en/owners-notes/": "OWNER\'S NOTES (EN)",
@@ -28,6 +36,7 @@ export const ENGLISH_GATEWAY_NAMES = Object.freeze({
   "/en/cyma-time-o-vox/": "Cyma Time-O-Vox (EN)",
   "/en/citizen-alarm/": "Citizen Alarm (EN)",
   "/en/westclox-watchlarm/": "Westclox Watchlarm (EN)",
+  "/en/wittnauer-10wa/": "Wittnauer Cal.10WA (EN)",
 });
 
 export const GERMAN_GATEWAY_NAMES = Object.freeze({
@@ -36,6 +45,7 @@ export const GERMAN_GATEWAY_NAMES = Object.freeze({
   "/de/pierce-duofon/": "Pierce Duofon (DE)",
   "/de/cyma-time-o-vox/": "Cyma Time-O-Vox (DE)",
   "/de/westclox-watchlarm/": "Westclox Watchlarm (DE)",
+  "/de/wittnauer-10wa/": "Wittnauer Cal.10WA (DE)",
 });
 
 export const HISTORY_GATEWAY_NAMES = Object.freeze({
@@ -326,11 +336,11 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   return String(html)
     .replace(
       '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox"]',
-      '["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]',
+      JSON.stringify(Object.values(MEASUREMENT_TARGET_PAGE_NAMES)),
     )
     .replace(
       '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"}\n];',
-      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"},\n  {name:"Cyma Time-O-Vox Chronomètre",path:"/cyma-time-o-vox/chronometre/"},\n  {name:"Wittnauer Cal.10WA",path:"/wittnauer-10wa/"},\n  {name:"How They Ring",path:"/how-they-ring/"},\n  {name:"How They Ring (EN)",path:"/en/how-they-ring/"},\n  {name:"How They Ring (DE)",path:"/de/how-they-ring/"},\n  {name:"Citizen Alarm",path:"/citizen-alarm/"},\n  {name:"Westclox Watchlarm",path:"/westclox-watchlarm/"},\n  {name:"English Entry",path:"/en/"},\n  {name:"OWNER\'S NOTES (EN)",path:"/en/owners-notes/"},\n  {name:"Basis Alarm (EN)",path:"/en/basis-alarm/"},\n  {name:"Pierce Duofon (EN)",path:"/en/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (EN)",path:"/en/cyma-time-o-vox/"},\n  {name:"Citizen Alarm (EN)",path:"/en/citizen-alarm/"},\n  {name:"Westclox Watchlarm (EN)",path:"/en/westclox-watchlarm/"},\n  {name:"German Entry",path:"/de/"},\n  {name:"OWNER\'S NOTES (DE)",path:"/de/owners-notes/"},\n  {name:"Pierce Duofon (DE)",path:"/de/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (DE)",path:"/de/cyma-time-o-vox/"},\n  {name:"Westclox Watchlarm (DE)",path:"/de/westclox-watchlarm/"},\n  {name:"HISTORY",path:"/history/"},\n  {name:"HISTORY (EN)",path:"/en/history/"},\n  {name:"HISTORY (DE)",path:"/de/history/"}\n];',
+      '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"},\n  {name:"Cyma Time-O-Vox Chronomètre",path:"/cyma-time-o-vox/chronometre/"},\n  {name:"Wittnauer Cal.10WA",path:"/wittnauer-10wa/"},\n  {name:"How They Ring",path:"/how-they-ring/"},\n  {name:"How They Ring (EN)",path:"/en/how-they-ring/"},\n  {name:"How They Ring (DE)",path:"/de/how-they-ring/"},\n  {name:"Citizen Alarm",path:"/citizen-alarm/"},\n  {name:"Westclox Watchlarm",path:"/westclox-watchlarm/"},\n  {name:"English Entry",path:"/en/"},\n  {name:"OWNER\'S NOTES (EN)",path:"/en/owners-notes/"},\n  {name:"Basis Alarm (EN)",path:"/en/basis-alarm/"},\n  {name:"Pierce Duofon (EN)",path:"/en/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (EN)",path:"/en/cyma-time-o-vox/"},\n  {name:"Citizen Alarm (EN)",path:"/en/citizen-alarm/"},\n  {name:"Westclox Watchlarm (EN)",path:"/en/westclox-watchlarm/"},\n  {name:"Wittnauer Cal.10WA (EN)",path:"/en/wittnauer-10wa/"},\n  {name:"German Entry",path:"/de/"},\n  {name:"OWNER\'S NOTES (DE)",path:"/de/owners-notes/"},\n  {name:"Pierce Duofon (DE)",path:"/de/pierce-duofon/"},\n  {name:"Cyma Time-O-Vox (DE)",path:"/de/cyma-time-o-vox/"},\n  {name:"Westclox Watchlarm (DE)",path:"/de/westclox-watchlarm/"},\n  {name:"Wittnauer Cal.10WA (DE)",path:"/de/wittnauer-10wa/"},\n  {name:"HISTORY",path:"/history/"},\n  {name:"HISTORY (EN)",path:"/en/history/"},\n  {name:"HISTORY (DE)",path:"/de/history/"}\n];',
     )
     .replace(
       '<button class="refresh" id="aiShare">AI COPY</button>',

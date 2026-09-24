@@ -15,6 +15,16 @@
 
 ## 2026-09-24
 
+### 2026-09-24 12:26 JST — 公開済みWATCH 6本とmeasurement target 5本を分離
+- **訂正**：Wittnauer 10WAは一般公開済みの日本語WATCH。公開済み日本語WATCHは6本で、基準計測対象（measurement target）はBasis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarmの5本とする。
+- **理由**：公開状態と計測上の比較対象を同一の集合として扱うと、Wittnauerの公開状態を誤って非公開扱いするため。ユーザー訂正と現行route / analytics mappingを突合した。
+- **旧状態・棄却**：`公開済みWATCH 5ページ`という表現、およびWittnauerを「公開済みWATCHではない」と読む解釈。07:54 JSTの記録はこの点を混同していたため、本項で訂正する。
+- **影響範囲**：`PROJECT_STATE.md`、`measurement/metrics.md`、Analytics wrapper / test、live / mobile gate。WittnauerのEN/DE公開routeもAnalytics mappingへ追加し、ドイツ語WATCHのmobile検査を固定3本から現行データ追従へ変更。WATCH本文・公開route・HOW THEY RING・進行中の翻訳PR #104は変更しない。
+- **検証状態**：Analytics worker / Astro foundation / mobile layoutをexact-head CIで再確認する。
+- **再検討条件**：measurement target自体を5本から変更する明示判断があった場合。
+- **関連**：本修正PR
+
+
 ### 2026-09-24 07:54 JST — 共通メニューだけ「音で見る」へ変更
 - **変更**：日本語の共通ハンバーガーメニュー内だけ `HOW THEY RING` → `音で見る` に変更。URL、ページ内の `HOW THEY RING` 表記、TOP入口名、主見出しは変更しない。
 - **理由**：日本語メニュー内でこの項目だけ英字表記になっていたため、周囲の「歴史 / マイルストーン / オーナーズノート / 資料・出典」と表記体系を揃える。
