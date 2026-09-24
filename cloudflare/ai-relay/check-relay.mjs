@@ -102,6 +102,15 @@ try {
   assert((await shortResponse.text()).includes('VINTAGE ALARM ANALYTICS'), 'short relay rendered markdown missing title');
   assert(fetchedUrl.includes('window=7d'), 'short path did not reconstruct signed source query');
 
+  fetchedUrl = '';
+  const shortV2Response = await onRequestGet({ request: new Request(shortV2.toString()) });
+  assert(shortV2Response.status === 200, 'v2 signed relay path should render');
+  assert(shortV2Response.headers.get('content-type').includes('text/markdown'), 'v2 short relay path must default to AI-friendly markdown');
+  assert(shortV2Response.headers.get('cache-control')?.startsWith('public, max-age='), 'v2 short relay path must use signed-expiry cache TTL');
+  assert(shortV2Response.headers.get('CDN-Cache-Control')?.startsWith('public, max-age='), 'v2 short relay path must advertise CDN cache TTL');
+  assert((await shortV2Response.text()).includes('VINTAGE ALARM ANALYTICS'), 'v2 short relay rendered markdown missing title');
+  assert(fetchedUrl.includes('range=custom') && fetchedUrl.includes('bucket=7d'), 'v2 short path did not preserve range and bucket');
+
   const malformedShort = await onRequestGet({ request: new Request(`https://relay.example/s/v1/7d/${expires}/bad`) });
   assert(malformedShort.status === 400, 'malformed short relay token must fail closed');
 
@@ -122,4 +131,4 @@ try {
   globalThis.fetch = originalFetch;
 }
 
-console.log('AI relay: legacy no-store query + short cacheable signed path: OK');
+console.log('AI relay: legacy no-store query + v1/v2 cacheable signed paths: OK');
