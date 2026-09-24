@@ -2008,7 +2008,7 @@ function render(data){
   const youtubeNow=c.channels.find(x=>x.name==="YouTube")?.visits||0;
   const searchNow=c.channels.find(x=>x.name==="Organic Search")?.visits||0;
   const searchPrev=p.channels.find(x=>x.name==="Organic Search")?.visits||0;
-  const entryFlows=c.flows.filter(x=>x.visits>0 && x.channel!=="Internal Navigation");
+  const entryFlows=c.flows.filter(x=>x.visits>0 && x.channel!=="Internal Navigation" && x.channel!=="Host Migration");
   const internalFlows=c.flows.filter(x=>x.channel==="Internal Navigation"&&x.sourceCleanPath!==x.destinationPath);
   const migrationFlows=c.flows.filter(x=>x.channel==="Host Migration");
   const campaigns=getCampaigns();
@@ -2032,6 +2032,14 @@ function render(data){
     '<td class="num">'+n(x.pageviews)+'</td><td class="num">'+n(x.visits)+'</td></tr>'
   ).join("");
   const lowSample=c.visits<30?'<section class="card low-sample"><strong>LOW SAMPLE</strong><span>'+n(c.visits)+' visits · まだ傾向断定は保留</span></section>':'';
+  const sampledSections=Object.entries(c.sampling||{}).filter(([,value])=>Number(value||1)>1).map(([key,value])=>key+' ×'+n(value));
+  const incompleteSections=Object.entries(c.completeness||{}).filter(([,complete])=>complete===false).map(([key])=>key);
+  const dataQualityNote=(sampledSections.length||incompleteSections.length)
+    ? '<section class="card low-sample"><strong>DATA QUALITY</strong><span>'+
+      (sampledSections.length?'Sampling: '+esc(sampledSections.join(", ")):'Sampling: none')+
+      (incompleteSections.length?' · Row limit reached / completeness not guaranteed: '+esc(incompleteSections.join(", ")):'')+
+      '</span></section>'
+    : '';
   const trafficSeries=[{key:"pageviews",label:"Page views",color:COLORS.pageviews},{key:"visits",label:"Visits",color:COLORS.visits}];
   const hostSeries=[{key:"newVisits",label:"NEW · "+data.host,color:COLORS.newHost},{key:"legacyVisits",label:"OLD · "+(legacy.host||HOST_MIGRATION.oldHost),color:COLORS.legacyHost}];
   const acquisitionSeries=[{key:"x",label:"X",color:COLORS.X},{key:"youtube",label:"YouTube",color:COLORS.YouTube},{key:"search",label:"Search",color:COLORS.Search},{key:"direct",label:"Direct",color:COLORS.Direct},{key:"instagram",label:"Instagram",color:channelColor("Instagram")},{key:"facebook",label:"Facebook",color:channelColor("Facebook")},{key:"otherSns",label:"Other SNS",color:channelColor("Other SNS")}];
@@ -2041,7 +2049,7 @@ function render(data){
     : '';
   document.getElementById("content").innerHTML=
   '<div class="path">'+esc(HOST_MIGRATION.note)+'</div>'+
-  '<div class="grid analytics-grid">'+audit+availabilityNote+lowSample+
+  '<div class="grid analytics-grid">'+audit+availabilityNote+dataQualityNote+lowSample+
     '<section class="card host-scope"><div class="section-head"><div class="section-title">TOTAL + HOST BREAKDOWN</div><span>合計はhost別Visitsの足し算。ユニーク人数ではありません</span></div><div class="host-grid">'+
       '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · '+esc(c.quality||"UNSAMPLED")+(Number(c.sampleInterval||1)>1?' · sample ×'+n(c.sampleInterval):'')+'</div></div>'+
       '<div class="host-block"><span class="path">NEW · '+esc(data.host)+'</span><strong>'+n(nc.visits)+' visits</strong><div class="delta">'+n(nc.pageviews)+' page views · '+(c.visits?((nc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
