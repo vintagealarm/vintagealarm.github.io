@@ -52,6 +52,25 @@ export const GERMAN_GATEWAY_NAMES = Object.freeze({
   "/de/westclox-watchlarm/": "Westclox Watchlarm (DE)",
 });
 
+const WATCH_SLUGS = new Set(
+  Object.keys(WATCH_PAGE_NAMES).map((path) => path.replace(/^\//, "").replace(/\/$/, "")),
+);
+
+function localizedWatchNames(map, locale) {
+  return Object.entries(map)
+    .filter(([path]) => {
+      const match = path.match(new RegExp("^/" + locale + "/([^/]+)/$"));
+      return Boolean(match && WATCH_SLUGS.has(match[1]));
+    })
+    .map(([, name]) => name);
+}
+
+export const WATCH_ENTRY_PAGE_NAMES = Object.freeze([
+  ...Object.values(WATCH_PAGE_NAMES),
+  ...localizedWatchNames(ENGLISH_GATEWAY_NAMES, "en"),
+  ...localizedWatchNames(GERMAN_GATEWAY_NAMES, "de"),
+]);
+
 export const HISTORY_GATEWAY_NAMES = Object.freeze({
   "/history/": "HISTORY",
   "/en/history/": "HISTORY (EN)",
@@ -364,7 +383,7 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   return String(html)
     .replace(
       '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox"]',
-      '["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]',
+      JSON.stringify(WATCH_ENTRY_PAGE_NAMES),
     )
     .replace(
       '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"}\n];',
