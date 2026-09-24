@@ -20,6 +20,14 @@ export const WATCH_PAGE_NAMES = Object.freeze({
   "/westclox-watchlarm/": "Westclox Watchlarm",
 });
 
+export const MEASUREMENT_TARGET_PAGE_NAMES = Object.freeze({
+  "/basis-alarm/": "Basis Alarm",
+  "/pierce-duofon/": "Pierce Duofon",
+  "/cyma-time-o-vox/": "Cyma Time-O-Vox",
+  "/citizen-alarm/": "Citizen Alarm",
+  "/westclox-watchlarm/": "Westclox Watchlarm",
+});
+
 export const ENGLISH_GATEWAY_NAMES = Object.freeze({
   "/en/": "English Entry",
   "/en/owners-notes/": "OWNER\'S NOTES (EN)",
@@ -326,7 +334,7 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   return String(html)
     .replace(
       '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox"]',
-      '["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]',
+      JSON.stringify(Object.values(MEASUREMENT_TARGET_PAGE_NAMES)),
     )
     .replace(
       '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"}\n];',
