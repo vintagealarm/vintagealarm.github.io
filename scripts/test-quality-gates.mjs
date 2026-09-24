@@ -23,7 +23,7 @@ function run(script, success, reason) {
 try {
   copy(path.resolve('dist'), fixture);
   const home = path.join(fixture, 'index.html'), original = fs.readFileSync(home, 'utf8');
-  run('check-internal-links', true); run('check-seo', true);
+  run('check-internal-links', true); run('check-seo', true); run('check-localized-visible-text', true);
   for (const [markup, message] of [
     ['<a href="/does-not-exist/">test</a>', 'missing file/page'],
     ['<a href="/history/#does-not-exist">test</a>', 'missing fragment'],
@@ -40,8 +40,14 @@ try {
   fs.writeFileSync(home, original.replace('</body>', '<a href="mailto:test@example.com">mail</a><a href="tel:123">phone</a><a href="https://example.com/missing#fragment">external</a></body>'));
   run('check-internal-links', true);
   fs.writeFileSync(home, original);
-  run('check-internal-links', true); run('check-seo', true);
-  console.log('Quality gate regression tests: PASS — URL, fragment, asset, srcset, canonical, description, exclusions and restored output');
+  const localizedProbe = path.join(fixture, 'en', 'how-they-ring', 'index.html');
+  const localizedOriginal = fs.readFileSync(localizedProbe, 'utf8');
+  fs.writeFileSync(localizedProbe, localizedOriginal.replace('</body>', '<p>未翻訳（テスト）</p></body>'));
+  run('check-localized-visible-text', false, 'Japanese leakage');
+  fs.writeFileSync(localizedProbe, localizedOriginal);
+  run('check-localized-visible-text', true);
+  run('check-internal-links', true); run('check-seo', true); run('check-localized-visible-text', true);
+  console.log('Quality gate regression tests: PASS — URL, fragment, asset, srcset, canonical, description, localized-language leakage, exclusions and restored output');
 } finally {
   fs.rmSync(fixture, { recursive: true, force: true });
 }

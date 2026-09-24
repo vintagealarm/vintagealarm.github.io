@@ -23,6 +23,7 @@ const entries = ownersDirectory.entries
       brand: watch.data.brand,
       name: watch.data.model,
       href: `/de/${watch.data.slug}/#owners-note`,
+      ownedEra: meta.ownedEra !== meta.ownedGroup ? localized.spec.era : meta.ownedEra,
       directoryCatch: localized.indexBlurb
     }];
   })
