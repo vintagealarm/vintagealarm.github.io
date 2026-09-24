@@ -21,6 +21,8 @@
 
 `/en/` は日本語TOPと同じVINTAGE ALARMの入口構造だけを英語化する。英語化済みWATCH一覧はTOPへ埋め込まず、`/en/owners-notes/` に分離する。HOW THEY RINGも日本語正本のGONG / CASEBACK 2分類、FIG.01–04、実機音、録音条件、資料注記を同じ構造で公開する。
 
+HISTORYのエピローグ `SMARTWATCH` も `/en/history/smartwatch/` へローカライズする。ただしこれは検索入口ではなくHISTORYの結びなので、`noindex,follow` を維持し、sitemap / llms.txt の公開インデックスには載せない。日本語版の画像内テキストをそのまま流用せず、意味・順序・温度を保った英語表示に置き換える。
+
 ## 現在の公開深度
 
 ### FULL RESEARCH
