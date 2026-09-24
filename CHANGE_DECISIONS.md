@@ -23,7 +23,7 @@
 - **旧状態・棄却**：FIG.01「棒状の音ばねを叩く」、FIG.03「ピン／レバー伝達型」。新証拠または明示変更なしに復活させない。
 - **影響範囲**：HOW THEY RING JA / EN / DE、PROJECT_STATE、DESIGN_ENGINEERING、build / live gate、protected preview gate。GONG / CASEBACKの2分類、掲載個体カード分類、FIG.02 / FIG.04の現行仕様は変更しない。
 - **再発防止**：build / liveで旧FIG.01 / FIG.03文言を拒否し、新ラベルとJ89の発音経路を確認する。protected previewの期待値も現行4図（FIG.02振動板型、FIG.04 LANCO-FON · CAL.1241を含む）へ同期。
-- **検証状態**：PR側でbuild / quality / rendered mobileを確認する。
+- **検証状態**：PR #110 exact-headでbuild / internal links / SEO / quality gates / publication-aware output / rendered mobile layoutsまで成功。protected preview専用workflowはbranch限定のため、このPRでは未実行。
 - **関連**：本修正PR
 
 
