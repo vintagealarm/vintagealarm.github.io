@@ -208,7 +208,7 @@ function trendRows(payload) {
       finiteNumber(row?.ai),
       finiteNumber(row?.other),
       finiteNumber(row?.internalPV),
-      trendFieldToken(row?.status || "UNSAMPLED", 24),
+      trendFieldToken(row?.status || "UNSAMPLED", 48),
       finiteNumber(row?.sampleInterval || 1),
     ].join("/"))
     .join(",");
@@ -232,6 +232,10 @@ export function buildAiFallbackFragment(payload) {
   const extShown = extGroups.slice(0, 20);
   const extTotalVisits = extGroups.reduce((sum, row) => sum + finiteNumber(row?.visits), 0);
   const extShownVisits = extShown.reduce((sum, row) => sum + finiteNumber(row?.visits), 0);
+  const compareMode = payload?.compareMode === "previous-period" ? "previous-period" : "none";
+  const previousValue = compareMode === "previous-period"
+    ? `${finiteNumber(previous?.visits)}/${finiteNumber(previous?.pageviews)}`
+    : "NA";
 
   const fields = [
     "VA2",
@@ -250,7 +254,8 @@ export function buildAiFallbackFragment(payload) {
     `pageviews=${finiteNumber(combined?.pageviews)}`,
     `new=${finiteNumber(current?.visits)}/${finiteNumber(current?.pageviews)}`,
     `old=${finiteNumber(legacy?.visits)}/${finiteNumber(legacy?.pageviews)}`,
-    `previous=${finiteNumber(previous?.visits)}/${finiteNumber(previous?.pageviews)}`,
+    `compare=${compareMode}`,
+    `previous=${previousValue}`,
     `x=${channelVisits(combined, "X")}`,
     `youtube=${channelVisits(combined, "YouTube")}`,
     `instagram=${channelVisits(combined, "Instagram")}`,
