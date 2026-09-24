@@ -1237,9 +1237,9 @@ export function buildPeriodIntegrity(period) {
   const definitions = [
     ["pages.pageviews", expectedPageviews, sum(period?.pages, "pageviews"), completeness.pages !== false, Number(sampling.pages || period?.sampleInterval || 1)],
     ["pages.visits", expectedVisits, sum(period?.pages, "visits"), completeness.pages !== false, Number(sampling.pages || period?.sampleInterval || 1)],
-    ["channels.visits", expectedVisits, sum(period?.channels, "visits"), completeness.channels !== false, Number(sampling.channels || period?.sampleInterval || 1)],
-    ["flowSummary.pageviews", expectedPageviews, sum(period?.flowSummary || period?.flows, "pageviews"), completeness.flowSummary !== false, Number(sampling.flowSummary || period?.sampleInterval || 1)],
-    ["flowSummary.visits", expectedVisits, sum(period?.flowSummary || period?.flows, "visits"), completeness.flowSummary !== false, Number(sampling.flowSummary || period?.sampleInterval || 1)],
+    ["channels.visits", expectedVisits, sum(period?.channels, "visits"), (completeness.channels ?? completeness.referrers) !== false, Number(sampling.channels || sampling.referrers || period?.sampleInterval || 1)],
+    ["flowSummary.pageviews", expectedPageviews, sum(period?.flowSummary || period?.flows, "pageviews"), (completeness.flowSummary ?? completeness.flows) !== false, Number(sampling.flowSummary || sampling.flows || period?.sampleInterval || 1)],
+    ["flowSummary.visits", expectedVisits, sum(period?.flowSummary || period?.flows, "visits"), (completeness.flowSummary ?? completeness.flows) !== false, Number(sampling.flowSummary || sampling.flows || period?.sampleInterval || 1)],
     ["countries.pageviews", expectedPageviews, sum(period?.countries, "pageviews"), completeness.countries !== false, Number(sampling.countries || period?.sampleInterval || 1)],
     ["devices.pageviews", expectedPageviews, sum(period?.devices, "pageviews"), completeness.devices !== false, Number(sampling.devices || period?.sampleInterval || 1)],
   ];
