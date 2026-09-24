@@ -53,6 +53,247 @@ export type GermanWatchEntry = {
 };
 
 export const germanWatchEntries: Record<string, GermanWatchEntry> = {
+  'basis-alarm': {
+    slug: 'basis-alarm',
+    title: 'Basis Alarm BFG 90 — Mechanischer Wecker mit zwei Federhäusern | VINTAGE ALARM',
+    description: 'Basis Alarm mit Baumgartner BFG 90: zwei Federhäuser, Aufzug beider Seiten in derselben Drehrichtung, Rutschkupplungen, zwei Aufzugskontrollfenster, Alarmzeiteinstellung über die Drehlünette, Fotos des gezeigten Exemplars, Original-Alarmton und Quellen.',
+    indexBlurb: 'Zwei Federhäuser, eine Drehrichtung, zwei rotierende Kontrollfenster — und ein Alarm, der wie eine Zikade klingt.',
+    catch: ['Ein kleines mechanisches Spielzeugkästchen zum Anfassen, Anschauen und Anhören.'],
+    ownersNote: {
+      lead: [
+        'Ein kleines mechanisches Spielzeugkästchen zum Anfassen, Anschauen und Anhören.',
+        'Den Alarm stellt man mit der Lünette ein.',
+        'Beim Aufziehen drehen sich die Scheiben in den beiden kleinen Fenstern.',
+        'Den Schieber auf EIN — und dann kommt der Zikadenklang.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        '① Aufziehen — Krone in Normalposition: zieht die Zugfedern von Gehwerk und Alarm in derselben Drehrichtung auf',
+        '② Uhrzeit einstellen — Krone herausziehen und die Zeiger stellen',
+        '③ Alarmzeit einstellen — Lünette gegen den Uhrzeigersinn drehen',
+        '④ Alarm EIN/AUS — Schieber bei 9 Uhr: oben = AUS / unten = EIN',
+        '⑤ Aufzugskontrollfenster — bei 1 Uhr für das Gehwerk, bei 5 Uhr für den Alarm; die rot-weiß-blauen Scheiben drehen sich beim Aufziehen'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Die Basis Alarm verwendet das Baumgartner BFG 90, ein frühes Werk für Wecker-Armbanduhren, das auch unter Namen wie Lantex, Sheffield, Simplon und Tior zu finden ist.',
+        'Anders als bei hochpreisigen Modellen wie Memovox oder Cricket liegen beim BFG 90 viele Funktionen offen sichtbar an der Uhr: Drehlünette, Schieber und zwei Aufzugskontrollfenster.',
+        'Gerade diese direkte Mechanik macht die Uhr heute so angenehm sichtbar und fühlbar.'
+      ]
+    },
+    spec: {
+      era: 'um 1948 (Dokumentation eines vergleichbaren Typs)',
+      caseSize: '34 mm (gezeigtes Exemplar)',
+      caliber: 'Baumgartner BFG 90',
+      jewels: '17 Steine',
+      frequency: '18.000 A/h',
+      barrels: '2 Federhäuser',
+      winding: 'Handaufzug',
+      acoustic: 'Bodenglocke',
+      notes: 'Alarmdauer ca. 10 Sekunden (Horlbeck / gezeigtes Exemplar), Alarmzeiteinstellung über Drehlünette, EIN/AUS-Schieber bei 9 Uhr, Aufzugskontrollfenster bei 1 und 5 Uhr'
+    },
+    specimenGallery: [
+      { image: '/images/IMG_8890-1.jpeg', label: 'Vorderseite — am Handgelenk', alt: 'Basis Alarm BFG 90, gezeigtes Exemplar, Vorderseite am Handgelenk' },
+      { image: '/images/IMG_9196.jpeg', label: 'Weckerzeiger — direkt mit der Lünette verbunden', alt: 'Basis Alarm BFG 90, Weckerzeiger und Drehlünette' },
+      { image: '/images/IMG_1969.jpeg', label: 'EIN/AUS-Schieber bei 9 Uhr', alt: 'Basis Alarm BFG 90, Alarm-EIN/AUS-Schieber bei 9 Uhr' },
+      { image: '/images/IMG_1968.jpeg', label: 'Gehäuseboden', alt: 'Gehäuseboden der gezeigten Basis Alarm BFG 90' },
+      { image: '/images/70957643-C7C5-4A86-B1BF-11AB18A28299-2.jpeg', label: 'Werk', alt: 'Baumgartner BFG 90 im gezeigten Basis-Alarm-Exemplar' }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: 'Baumgartner Frères — Werke für den Massenmarkt bauen',
+        paragraphs: [
+          'Baumgartner Frères war ein Ébauche-Hersteller, der Uhrwerke an andere Firmen lieferte. Viele BFG-Werke waren konstruktiv auf vergleichsweise preisgünstige Uhren ausgerichtet. Die Stiftankerhemmung war ein Beispiel dafür.',
+          'Das BFG 90 ist in Säulenbauweise aufgebaut. Flache Platinen werden durch Säulen auf Abstand gehalten und verbunden, wodurch aufwendige Fräsarbeiten reduziert werden. Auch der Zeigerstellmechanismus liegt auf der Werkseite statt unter dem Zifferblatt. Der Kupplungshebel benötigt keine separate Feder; der Hebel selbst übernimmt die Federwirkung.',
+          'An der Unruh sitzen Vorsprünge, die auf den ersten Blick wie Schrauben einer Schraubenunruh wirken. Tatsächlich sind es keine Schrauben, sondern fest mitgeformte halbrunde Verzierungen.',
+          'Bearbeitung, die entfallen konnte, wurde gestrichen. Teile, die sich reduzieren ließen, wurden reduziert. Die konstruktive Idee des BFG 90 liegt damit an einer ganz anderen Stelle als die Finissierung eines hochwertigen Werks.'
+        ],
+        citationRefs: ['2', '2', '2', '2']
+      },
+      {
+        number: '02',
+        title: 'Eine Krone, eine Drehrichtung, zwei Federhäuser',
+        paragraphs: [
+          'Das BFG 90 besitzt je ein Federhaus für Gehwerk und Alarm. Zwei Federhäuser an sich sind nicht ungewöhnlich. Ungewöhnlich ist die Art des Aufzugs: Mit einer einzigen Krone werden beide in derselben Drehrichtung aufgezogen.',
+          'Man wählt also nicht durch Wechsel der Drehrichtung zwischen Gehwerk und Alarm. Beim Weiterdrehen in derselben Richtung erhalten beide Zugfedern Energie. Dabei müssen beide Federhäuser nicht gleichzeitig voll aufgezogen sein. Ist eines zuerst voll, muss das andere weiter aufgezogen werden können, ohne die bereits volle Seite weiter zu belasten.',
+          'Dafür besitzt das BFG 90 an jeder Aufzugsseite eine Rutschkupplung. Sie lässt nur die bereits voll aufgezogene Seite durchrutschen.',
+          'Das Sperrrad ist zweiteilig ausgeführt; dazwischen drückt eine kreuzförmige Feder. Im normalen Aufzug drehen beide Teile gemeinsam. Sobald die Zugfeder dieser Seite voll aufgezogen ist, beginnt nur diese Seite zu rutschen.',
+          'Wenn ein Federhaus voll ist, endet der Aufzug deshalb konstruktiv noch nicht. Die Kupplung der vollen Seite kann durchrutschen, während das andere Federhaus weiter bis zum Vollaufzug gebracht wird.'
+        ],
+        citationRefs: ['1,2', '2', '2', '2', '2'],
+        images: [
+          {
+            src: '/images/70957643-C7C5-4A86-B1BF-11AB18A28299.jpeg',
+            caption: 'BFG 90 — der Aufzug versorgt zwei Federhäuser über eine einzige Krone.',
+            alt: 'Baumgartner BFG 90 mit Aufzugsmechanismus für zwei Federhäuser',
+            afterParagraph: 4
+          }
+        ]
+      },
+      {
+        number: '03',
+        title: 'Warum zwei kleine Fenster im Zifferblatt sitzen',
+        paragraphs: [
+          'Eine Rutschkupplung nimmt dem Aufzug nicht jedes Gefühl für den Vollaufzug. Beim gezeigten Exemplar steigt der Widerstand deutlich an, wenn sich eine Zugfeder dem Vollaufzug nähert; die Krone fühlt sich dann beinahe wie an einem normalen Aufzugsanschlag an.',
+          'Wer den Aufbau nicht kennt, würde an dieser Stelle vermutlich stoppen. Beim BFG 90 kann aber ein Federhaus bereits voll sein, während im anderen noch Aufzugsweg übrig ist. Dann muss weitergedreht werden, während die Kupplung der bereits vollen Seite rutscht.',
+          'Ohne Kenntnis der Konstruktion fühlt sich das etwas beunruhigend an: Man dreht weiter, obwohl die Krone bereits signalisiert, dass eigentlich Schluss sein müsste.',
+          'Genau dafür sind die beiden kleinen Fenster im Zifferblatt da. Bei dieser Basis gehört das Fenster bei 1 Uhr zum Gehwerk, das bei 5 Uhr zum Alarm. Eine mit dem jeweiligen Federhaus gekoppelte Scheibe dreht sich beim Aufziehen; ist die Zugfeder voll, bleibt diese Scheibe stehen.',
+          'Es sind keine Gangreserveanzeigen für die verbleibende Laufzeit. Es sind Aufzugskontrollfenster: Sie zeigen, welche Seite noch aufgezogen wird und welche bereits voll ist.',
+          'Eine Krone zieht zwei Federhäuser in derselben Richtung auf. Ist eines zuerst voll, lässt seine Rutschkupplung die weitere Kraft passieren. Die Krone kann sich dabei wie am Anschlag anfühlen, obwohl das andere Federhaus noch weiter aufgezogen werden muss. Die beiden Fenster machen den Zustand jeder Seite sichtbar. Zwei Federhäuser, Rutschkupplungen und Aufzugskontrollfenster sind deshalb keine voneinander unabhängigen Spielereien, sondern Teile eines einzigen Bedienprinzips.'
+        ],
+        citationRefs: ['3', '2,3', '3', '1,2,3', '1,2', '2,3']
+      },
+      {
+        number: '04',
+        title: 'Ein BFG 90, viele Gesichter',
+        paragraphs: [
+          'Das BFG 90 war kein exklusives Basis-Werk. Es wurde unter mehreren Marken eingesetzt, darunter Lantex, Sheffield, Simplon und Tior.',
+          'Trotz identischem Werk können die Uhren deutlich unterschiedlich aussehen. Bei Sheffield und Lantex finden sich relativ schlanke, dekorative Gehäuse; Simplon und Tior zeigen auch größere, kräftigere Ausführungen. Bandanstöße, Lünetten und Zifferblattgestaltung unterscheiden sich von Marke zu Marke.',
+          'Viele BFG-90-Uhren teilen dennoch sichtbare Merkmale: Drehlünette, EIN/AUS-Schieber bei 9 Uhr und zwei Aufzugskontrollfenster. Die Konstruktion des Werks zeichnet sich damit direkt auf Zifferblatt und Gehäuse ab.',
+          'Unter wechselnden Markennamen und Gehäusen wurde dasselbe BFG 90 zu ganz unterschiedlichen Uhren. Gerade daran lässt sich die Rolle von Baumgartner Frères als Ébauche-Lieferant besonders deutlich ablesen.'
+        ],
+        citationRefs: ['1,2', '2', '1,2', '1,2']
+      },
+      {
+        number: '05',
+        title: 'BFG 90 → BFG 902 — die außenliegenden Funktionen verschwinden',
+        paragraphs: [
+          'Beim späteren BFG 902 wurden die Bedienelemente des BFG 90 zusammengefasst. Beim BFG 90 wird die Alarmzeit über die Drehlünette eingestellt und der Alarm mit dem Schieber bei 9 Uhr ein- und ausgeschaltet. Beim BFG 902 wandert auch die Alarmzeiteinstellung an die Krone.',
+          'In einer Drehrichtung werden beide Federhäuser aufgezogen, in der anderen wird die Alarmzeit verstellt. Damit wird die Drehlünette überflüssig; auch der Schieber bei 9 Uhr verschwindet.',
+          'Mit den weniger gewordenen Bedienelementen ändert sich auch das Abstellen des Alarms. Ohne separaten Schieber wird der Alarm beendet, indem die eingestellte Alarmzeit weiterbewegt wird. Spätere Ausführungen gibt es zudem mit Stoßsicherung.',
+          'Der Schritt vom BFG 90 zum BFG 902 ist eher Vereinfachung und Rationalisierung als Veredelung. Die Grundidee, zwei Federhäuser über eine Krone zu bedienen, bleibt erhalten, während Lünette und Schieber von der Außenseite verschwinden.',
+          'Die Bedienelemente, die beim BFG 90 offen um das Gehäuse lagen, wanderten beim Nachfolger Stück für Stück zurück in die Uhr.'
+        ],
+        citationRefs: ['1', '1', '1', '1', '1']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'reference' },
+      { id: '2', type: 'reference' },
+      { id: '3', type: 'owner' }
+    ],
+    sources: [
+      'Leonhard Beitl, Alarm am Arm (2009), S. 20, 87, 109, 172, 308, 398, 419, 622 — BFG 90 / BFG 902, Basis / Fabry / Maxor / Triwera, Bedienung und technische Angaben.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 88–91, 168–170 — Säulenbauweise, Rutschkupplung, Aufzugskontrolle, Gehäuse und Markenvarianten des BFG 90.',
+      'OWNER OBSERVATION — Aufzugswiderstand sowie die beiden Aufzugskontrollfenster bei 1 und 5 Uhr und die Bewegung ihrer Scheiben am gezeigten Exemplar.'
+    ],
+    related: {
+      href: '/de/westclox-watchlarm/',
+      hreflang: 'de',
+      name: 'WESTCLOX WATCHLARM',
+      reason: 'Eine andere Antwort für den Massenmarkt: noch radikalere Kostensenkung, diesmal mit 0 Steinen.'
+    }
+  },
+  'citizen-alarm': {
+    slug: 'citizen-alarm',
+    title: 'Citizen Alarm Cal. 980 — Japans erste Wecker-Armbanduhr mit hörbarem Alarm | VINTAGE ALARM',
+    description: 'Citizen Alarm von 1958 mit Cal. 980: Japans erste Wecker-Armbanduhr mit hörbarem Alarm, zwei Federhäuser, zentrale drehbare Weckscheibe, zwei Kronen, doppelter Gehäuseboden, Entwicklung zur Four Hands und belegte Quellen.',
+    indexBlurb: 'Japans erste Wecker-Armbanduhr mit hörbarem Alarm: zwei Federhäuser, zwei Kronen und eine zentrale drehbare Weckscheibe.',
+    catch: ['Japans erste Wecker-Armbanduhr mit hörbarem Alarm — und der Beginn einer ganzen Linie.'],
+    ownersNote: {
+      lead: [
+        '1958: Japans erste Wecker-Armbanduhr mit hörbarem Alarm.',
+        'Eine drehbare Scheibe in der Mitte, dazu zwei Kronen.',
+        'Ihr Gesicht erinnert an die frühere Memovox.',
+        'Später kam sogar die Legende dazu, Jaeger-LeCoultre habe sich beschwert, weil sie zu ähnlich aussehe.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        '① Krone bei 4 Uhr — Gehwerk aufziehen; herausziehen zum Einstellen der Uhrzeit',
+        '② Krone bei 2 Uhr — Alarmwerk aufziehen; herausziehen zum Einstellen der Alarmzeit'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Auf die erste Ausführung mit zentraler Scheibe folgte später die Four-Hands-Version.',
+        'Danach kamen Alarm Date, College Alarm, Modelle mit Drehlünette im Taucherstil sowie Weckermodelle für Damen.',
+        'Aus Japans erster Uhr dieser Art wurde eine ganze Citizen-Alarmfamilie.'
+      ]
+    },
+    spec: {
+      era: 'um 1958 (frühe Ausführung)',
+      caseSize: '37 mm (Dokumentation eines vergleichbaren Typs)',
+      caliber: 'Citizen 980 (Dokumentation eines vergleichbaren Typs)',
+      jewels: '17 Steine (Dokumentation eines vergleichbaren Typs)',
+      frequency: '18.000 A/h (Dokumentation eines vergleichbaren Typs)',
+      barrels: '2 Federhäuser',
+      winding: 'Handaufzug',
+      acoustic: 'Doppelter Gehäuseboden',
+      notes: 'Zentrale drehbare Weckscheibe, zwei Kronen, Parashock'
+    },
+    specimenGallery: [
+      { image: '/images/IMG_1695.jpeg', label: 'Vorderseite — am Handgelenk', alt: 'Citizen Alarm Cal. 980, gezeigtes Exemplar, Vorderseite am Handgelenk' },
+      { image: '/images/IMG_2088.jpeg', label: 'Kronenseite', alt: 'Citizen Alarm Cal. 980, Seitenansicht mit zwei Kronen' },
+      { image: '/images/IMG_2089.jpeg', label: 'Gehäuseboden', alt: 'Gehäuseboden des gezeigten Citizen-Alarm-Cal.-980-Exemplars' }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: '1958: Japans erste Wecker-Armbanduhr',
+        paragraphs: [
+          'In den Nachkriegsjahren erweiterte Citizen seine technische Basis und brachte zugleich neue Funktionen wie Kalender und Stoßsicherungen in seine Uhren. 1957 entwickelte das Unternehmen außerdem eigene Drehautomaten und Messgeräte für die Fertigung von Uhrenteilen.',
+          '1958 folgten mehrere wichtige Neuheiten in kurzem Abstand: Im Mai erschien die Herren-Automatikuhr „Auto“, im Juni die „Alarm“, im August die flache hochwertige „Super Deluxe“.',
+          'Die Citizen Alarm war Japans erste Armbanduhr mit hörbarem Weckalarm. Sie besitzt getrennte Federhäuser für Gehwerk und Alarm; zur eingestellten Zeit schlägt ein Hammer gegen den Gehäuseboden. Der Alarm läuft ungefähr zehn Sekunden. Auf das frühe Cal. A folgte Cal. 980.',
+          'In der Schweiz waren Zusatzfunktionen wie Wasserdichtigkeit, Kalender, Chronograph und Alarm zu dieser Zeit zu wichtigen Verkaufsmerkmalen geworden. Auch Citizen brachte den Alarm als Uhr mit besonderer Zusatzfunktion auf den Markt.',
+          '1958 war damit eine Phase erreicht, in der japanische Uhren nicht mehr nur über die Zeitanzeige, sondern auch über ihre Funktionen konkurrieren konnten.'
+        ],
+        citationRefs: ['3', '3', '1', '2', '2,3']
+      },
+      {
+        number: '02',
+        title: 'Citizen Cal. 980',
+        paragraphs: [
+          'Cal. 980 in den frühen Citizen-Alarm-Uhren besitzt getrennte Federhäuser für Gehwerk und Alarm. Die beiden Systeme werden über Kronen bei 2 und 4 Uhr bedient.',
+          'Der Aufbau ähnelt dem Schweizer A. Schild AS 1475 deutlich. Beitl nennt die Möglichkeit einer Lizenzfertigung auf Grundlage des AS 1475 und geht davon aus, dass Citizen das Werk anschließend veränderte und weiterentwickelte. Frühe 980-Ausführungen mit 17 Steinen und Parashock sind dokumentiert.',
+          'Die Alarmkonstruktion prägt auch das Erscheinungsbild der frühen Uhren. In der Zifferblattmitte sitzt eine drehbare Weckscheibe, rechts am Gehäuse zwei große Kronen. Frühe Ausführungen besitzen außerdem einen doppelten Gehäuseboden: Der innen erzeugte Klang kann durch Öffnungen im äußeren Boden nach außen treten.',
+          'Die zentrale Scheibe war für Cal. 980 selbst allerdings nicht zwingend. Später erschienen Uhren mit demselben Kaliber, bei denen ein vierter Zeiger die Alarmzeit anzeigt.'
+        ],
+        citationRefs: ['1,4', '4,5', '2', '4']
+      },
+      {
+        number: '03',
+        title: 'Von der zentralen Scheibe zur Four Hands',
+        paragraphs: [
+          'Das prägende Merkmal der ersten Citizen Alarm ist die zentrale Scheibe zur Alarmzeiteinstellung. Die gesamte Scheibe wird gedreht, um die Alarmzeit anzuzeigen; Citizen selbst beschreibt die Gestaltung als auf gute Ablesbarkeit und einfache Bedienung ausgelegt.',
+          'Um 1960 erscheinen „Four Hands“-Modelle, bei denen ein vierter Zeiger die Alarmzeit zeigt. Auch sie verwenden Cal. 980. Gleichzeitig blieben Ausführungen mit Scheibe und Cal. 980 im Umlauf; die zentrale Scheibe verschwand also nicht in dem Moment, in dem Four Hands auftauchte.',
+          'In Japan wird die Geschichte erzählt, die erste Ausführung habe der Memovox zu ähnlich gesehen, Jaeger-LeCoultre habe sich beschwert und Citizen sei deshalb auf Four Hands umgestiegen. In den für diese Seite verwendeten Unterlagen von Citizen, Beitl und Horlbeck findet sich dafür jedoch kein Beleg.',
+          'Was zwischen der ersten Ausführung und Four Hands tatsächlich geschah, bleibt in den hier verwendeten Quellen offen. Die Erzählung über eine Beschwerde von LeCoultre ist damit weiterhin eine Legende und kein bestätigter Vorgang.'
+        ],
+        citationRefs: ['2', '4', '1,2,4,5', '1,2,4,5']
+      },
+      {
+        number: '04',
+        title: 'Die weitere Entwicklung der Citizen Alarm',
+        paragraphs: [
+          'Die Citizen Alarm endete nicht mit Four Hands. Von Cal. 981 sind Übergangsausführungen bekannt, deren Zifferblatt „Alarm Date“ trägt, obwohl kein Datumsfenster vorhanden ist. Beim späteren Cal. 3100 kam dann eine Datumsanzeige bei 3 Uhr hinzu.',
+          'Die Reihe wurde weiter auf Parawater- und andere wassergeschützte Modelle, Sportuhren, Taucherstil-Ausführungen sowie Alarm und Lady Alarm für Damen ausgeweitet. Der Weckmechanismus wanderte damit in sehr unterschiedliche Uhrentypen.',
+          'Citizens eigene historische Darstellung führt die Reihe bis in die frühen 1970er-Jahre. Das letzte dort genannte Modell war keine Armbanduhr mehr, sondern eine Taschenuhr mit Alarm.',
+          'Was 1958 als Japans erste „Armbanduhr mit klingelndem Alarm“ begann, endete schließlich damit, dass der Alarm das Handgelenk verließ und in die Taschenuhr wanderte.'
+        ],
+        citationRefs: ['4', '2,4', '2', '2']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'primary' },
+      { id: '2', type: 'primary' },
+      { id: '3', type: 'primary' },
+      { id: '4', type: 'reference' },
+      { id: '5', type: 'reference' }
+    ],
+    sources: [
+      'Citizen Watch, historisches Modell „Alarm“ (1958) — Erscheinungszeitraum, Cal. A → 980, zwei Federhäuser und ca. zehn Sekunden Alarmdauer.',
+      'CITIZEN DESIGN, „The Beauty of Utility / CITIZEN ALARM“ (2024) — zentrale Scheibe, zwei Kronen, doppelter Gehäuseboden und Modellentwicklung.',
+      'Citizen Watch, Produkt- und Technikgeschichte — Produktentwicklung der 1950er-Jahre, Drehautomaten und Messtechnik.',
+      'Leonhard Beitl, Alarm am Arm (2009), S. 122–125 und Werk-Tabelle — Cal. 980, Four Hands, Alarm Date und spätere Modelle.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 26, 80–83, 95–96 — Beziehung zu AS 1475 und Citizen-Alarmkaliber.'
+    ],
+    related: {
+      href: '/de/cyma-time-o-vox/',
+      hreflang: 'de',
+      name: 'CYMA TIME-O-VOX',
+      reason: 'Ein zeitgenössischer Schweizer Wecker mit völlig anderem Bedienkonzept: ein Federhaus und zwei Drücker.'
+    }
+  },
   'wittnauer-10wa': {
     slug: 'wittnauer-10wa',
     title: 'Wittnauer Cal. 10WA — Mechanischer Alarm mit Lünettenaufzug | VINTAGE ALARM',

@@ -1,20 +1,21 @@
 # VINTAGE ALARM — English entry strategy
 
-更新日: 2026-09-15
+更新日: 2026-09-24
 
 ## 目的
 
 英語版を「日本語サイトの完全複製」として一括生成するのではなく、海外からの発見と初回理解を補う入口として実装する。
 
-英語WATCHページを公開しているのは現在5本:
+英語WATCHページは所有6本すべてを公開し、6本すべてを FULL RESEARCH とする。
 
 - Basis Alarm
 - Pierce Duofon
 - Cyma Time-O-Vox
 - Citizen Alarm
 - Westclox Watchlarm
+- Wittnauer Cal.10WA
 
-Wittnauer Cal.10WAの日本語WATCHは公開済みだが、英語WATCHページはまだ作っていない。英語HOW THEY RINGからは日本語WATCHへフォールバックする。
+加えて、Cyma Time-O-Vox Chronomètre の独立研究ページも `/en/cyma-time-o-vox/chronometre/` で全文ローカライズする。
 
 英語入口は `/en/`、`/en/history/`、`/en/owners-notes/`、`/en/how-they-ring/`、`/en/<watch>/` に置く。
 
@@ -24,20 +25,18 @@ Wittnauer Cal.10WAの日本語WATCHは公開済みだが、英語WATCHページ�
 
 ### FULL RESEARCH
 
+- Basis Alarm
 - Pierce Duofon
 - Cyma Time-O-Vox
-- Westclox Watchlarm
-
-これらはOWNER'S NOTE / SPEC / 実機鳴動に加えて、掲載個体ギャラリー、DEEP DIVE、段落単位の出典、参考資料・出典、関連WATCHまで英語で提供する。
-
-### CONCISE ENTRY
-
-- Basis Alarm
 - Citizen Alarm
+- Westclox Watchlarm
+- Wittnauer Cal.10WA
 
-これらはOWNER'S NOTE、簡易操作ガイド、SPEC、実機鳴動を英語で提供し、完全な研究本文は日本語版を正本として残す。
+OWNER'S NOTE / SPEC / 実機鳴動に加え、掲載個体ギャラリー、DEEP DIVE、段落単位の出典、参考資料・出典、関連WATCHまで英語で提供する。
 
-英語版は全WATCHを同じ深度へ揃えること自体を目的にしない。`FULL RESEARCH` と `CONCISE ENTRY` の併存は意図的な公開戦略であり、短縮版であることと、事実が古いことを混同しない。
+旧 `CONCISE ENTRY` は廃止。Basis Alarm / Citizen Alarm も日本語正本と同じ研究深度へ昇格する。
+
+独立研究ページでは Cyma Time-O-Vox Chronomètre を EN / DE とも全文展開し、17件の観測個体、UNADJUSTED論点、外部照会、実機不具合観察まで日本語正本と同じ論理階層で保持する。
 
 ## なぜブラウザ翻訳だけにしないか
 
@@ -45,7 +44,7 @@ Chrome等のブラウザ翻訳は、ユーザーが日本語ページへ到達�
 
 Google Search Centralは、多言語版を提供する場合は言語ごとに別URLを使い、明示的なリンクや `hreflang` を使うことを推奨している。またGoogleはページ言語を可視本文から判断し、`lang`属性だけでは判定しない。
 
-そのため、英語利用者向けの可視本文を持つ別URLを用意する。一方、5 WATCHすべての完全なDEEP DIVEを一括複製せず、完全版へ昇格するWATCHは資料価値・実機価値・海外での不足情報を見て個別に選ぶ。
+そのため、英語利用者向けの可視本文を持つ別URLを用意する。現行方針では、公開済みの所有6 WATCHはすべて完全なDEEP DIVEを英語化する。独立研究ページも、公開するものは同じ研究内容までローカライズする。
 
 ## 基本実装方針
 
@@ -60,7 +59,7 @@ Google Search Centralは、多言語版を提供する場合は言語ごとに�
 - 実機アラーム動画
 - 日本語の完全研究ページへのリンク
 
-FULL RESEARCHへ昇格するWATCHではさらに含める:
+全WATCHでさらに含める:
 
 - 掲載個体ギャラリー
 - DEEP DIVE全文
@@ -104,19 +103,34 @@ Pierce創業年の1888→1883修正で起きたようなrevision driftを再発�
 - 英語TOP: `/en/`
 - 英語OWNER'S NOTES一覧: `/en/owners-notes/`
 
-5 WATCHの日本語ページと英語URLは相互リンクし、`hreflang="ja" / "en" / "x-default"` を設定する。
+6 WATCHの日本語ページと英語URLは相互リンクし、`hreflang="ja" / "en" / "x-default"` を設定する。
 
 英語URLはsitemapへ追加する。`public/llms.txt` には実際に公開されている英語URLだけを列挙する。
 
 ## ブラウザ翻訳の役割
 
-ブラウザ翻訳を否定しない。役割を分ける。
+ブラウザ翻訳は日本語原文を直接読みたい場合の補助として残すが、英語版の研究深度を補う代替手段にはしない。公開中の所有6 WATCHと公開中の独立研究ページは、英語URL側だけで内容を最後まで読める状態を基本とする。
 
-- CONCISE ENTRY: 発見、クリック、最初の理解、共有
-- FULL RESEARCH: VINTAGE ALARMが英語で直接提供する研究本文
-- 日本語完全版 + ブラウザ翻訳: 日本語原文を読みたい場合、またはCONCISE ENTRYしかないWATCHのDEEP DIVE・資料差・長文研究を読む場合
+## 2026-09-24｜Basis / Citizen / Chronomètre 用語準備
 
-これにより、5 WATCHの全文を二重管理せず、必要なWATCHだけ段階的にFULL RESEARCHへ昇格できる。
+日本語正本を翻訳する前に、既存の英語時計記事・技術資料で自然な専門語を確認する。
+
+| 日本語の概念 | 英語 |
+| --- | --- |
+| エボーシュメーカー | `ébauche manufacturer` |
+| ピンレバー脱進機 | `pin-lever escapement` |
+| 柱式構造 | `pillar construction` |
+| 滑りクラッチ | `slipping clutch` |
+| 巻上げ確認窓 | `winding-state window / indicator` |
+| 二重裏蓋 | `double caseback` |
+| 中央回転ディスク | `rotating centre alarm disc` |
+| 調整刻印 | `adjustment marking` |
+| Werk/Movement No. | `movement number` |
+| クロノメーター証明 | `chronometer certification` |
+| 現存個体 | `surviving / observed specimen` |
+| 外部照会 | `archive / institutional inquiry` |
+
+`UNADJUSTED`、`ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE`、`CHRONOMÈTRE` は刻印・文字盤表記として原綴りを維持する。
 
 ## 計測
 

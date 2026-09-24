@@ -1,0 +1,92 @@
+---
+import research from '../data/cyma-chronometre-research.json';
+import { cymaChronometreLocalized, type CymaChronometreLocale } from '../data/cyma-chronometre-localized';
+
+const { locale, open = false } = Astro.props as { locale: CymaChronometreLocale; open?: boolean };
+const copy = cymaChronometreLocalized[locale];
+const labels = copy.table;
+const goldSpecimens = research.observed.specimens.filter((item) => /YG|GOLD|14K|18K/i.test(item.case));
+const steelSpecimens = research.observed.specimens.filter((item) => /SS|STEEL/i.test(item.case));
+const total = goldSpecimens.length + steelSpecimens.length;
+
+const localize = (value: string) => {
+  if (value === '—') return value;
+  if (/^1950年代$/.test(value)) return locale === 'en' ? '1950s' : '1950er-Jahre';
+  if (/^1956年頃$/.test(value)) return locale === 'en' ? 'c. 1956' : 'um 1956';
+  if (/^1965年$/.test(value)) return '1965';
+  if (/^不明$/.test(value)) return labels.unknown;
+  if (/^画像無し$/.test(value)) return labels.imageUnavailable;
+  if (/^刻印を確認できず$/.test(value)) return labels.markingNotVisible;
+  if (/^6インデックスあり$/.test(value)) return labels.sixIndex;
+  if (/^6インデックスなし$/.test(value)) return labels.noSixIndex;
+  if (/^削除済み記録$/.test(value)) return labels.deletedRecord;
+  if (/^4桁・不明瞭$/.test(value)) return locale === 'en' ? '4 digits / unclear' : '4-stellig / unklar';
+  if (/^シェルマン銀座$/.test(value)) return 'Shellman Ginza';
+  return value;
+};
+---
+<details class="proto-specimens" open={open}>
+  <summary><span>{labels.open}</span><small>{total} {labels.count}</small></summary>
+  <div class="proto-table-region proto-table-region--desktop" tabindex="0" role="region" aria-label={'CYMA Time-O-Vox 18K / gold — ' + labels.open}>
+    <section class="proto-table-group">
+      <h3>18K / YG<small>{goldSpecimens.length} OBJECTS</small></h3>
+      <table>
+        <thead><tr><th>CASE</th><th>CHRONOMÈTRE</th><th>{labels.adjustment}</th><th>{labels.movementBand}</th><th>{labels.sellerRef}</th><th>{labels.era}</th><th>{labels.dial}</th><th>CASE CODE</th><th>SOURCE</th><th>ID</th></tr></thead>
+        <tbody>{goldSpecimens.map((row) => <tr><td>{row.case}</td><td>{localize(row.chronometre)}</td><td>{localize(row.adjustment)}</td><td>{localize(row.movementBand)}</td><td>{localize(row.sellerRef)}</td><td>{localize(row.era)}</td><td>{localize(row.dial)}</td><td>{localize(row.caseCode)}</td><td>{localize(row.source)}</td><td>{row.id}</td></tr>)}</tbody>
+      </table>
+    </section>
+  </div>
+  <div class="proto-specimen-cards" aria-label={'CYMA Time-O-Vox 18K / gold — ' + labels.open}>
+    <h3>18K / YG <small>{goldSpecimens.length} {labels.count}</small></h3>
+    {goldSpecimens.map((row) => (
+      <details class="proto-specimen-card">
+        <summary>
+          <span>{row.case}</span>
+          <strong>{row.chronometre === '—' ? labels.noMarking : row.chronometre}</strong>
+          <small>{localize(row.movementBand)}</small>
+        </summary>
+        <dl>
+          <div><dt>{labels.adjustment}</dt><dd>{localize(row.adjustment)}</dd></div>
+          <div><dt>{labels.sellerRef}</dt><dd>{localize(row.sellerRef)}</dd></div>
+          <div><dt>{labels.era}</dt><dd>{localize(row.era)}</dd></div>
+          <div><dt>{labels.dial}</dt><dd>{localize(row.dial)}</dd></div>
+          <div><dt>CASE CODE</dt><dd>{localize(row.caseCode)}</dd></div>
+          <div><dt>SOURCE</dt><dd>{localize(row.source)}</dd></div>
+          <div><dt>ID</dt><dd>{row.id}</dd></div>
+        </dl>
+      </details>
+    ))}
+  </div>
+  <details class="proto-specimen-subgroup">
+    <summary><span>STAINLESS STEEL</span><small>{steelSpecimens.length} {labels.count}</small></summary>
+    <div class="proto-table-region proto-table-region--desktop" tabindex="0" role="region" aria-label={'CYMA Time-O-Vox stainless steel — ' + labels.open}>
+      <section class="proto-table-group proto-table-group--nested">
+        <table>
+          <thead><tr><th>CASE</th><th>CHRONOMÈTRE</th><th>{labels.adjustment}</th><th>{labels.movementBand}</th><th>{labels.sellerRef}</th><th>{labels.era}</th><th>{labels.dial}</th><th>CASE CODE</th><th>SOURCE</th><th>ID</th></tr></thead>
+          <tbody>{steelSpecimens.map((row) => <tr><td>{row.case}</td><td>{localize(row.chronometre)}</td><td>{localize(row.adjustment)}</td><td>{localize(row.movementBand)}</td><td>{localize(row.sellerRef)}</td><td>{localize(row.era)}</td><td>{localize(row.dial)}</td><td>{localize(row.caseCode)}</td><td>{localize(row.source)}</td><td>{row.id}</td></tr>)}</tbody>
+        </table>
+      </section>
+    </div>
+    <div class="proto-specimen-cards" aria-label={'CYMA Time-O-Vox stainless steel — ' + labels.open}>
+      {steelSpecimens.map((row) => (
+        <details class="proto-specimen-card">
+          <summary>
+            <span>{row.case}</span>
+            <strong>{row.chronometre === '—' ? labels.noMarking : row.chronometre}</strong>
+            <small>{localize(row.movementBand)}</small>
+          </summary>
+          <dl>
+            <div><dt>{labels.adjustment}</dt><dd>{localize(row.adjustment)}</dd></div>
+            <div><dt>{labels.sellerRef}</dt><dd>{localize(row.sellerRef)}</dd></div>
+            <div><dt>{labels.era}</dt><dd>{localize(row.era)}</dd></div>
+            <div><dt>{labels.dial}</dt><dd>{localize(row.dial)}</dd></div>
+            <div><dt>CASE CODE</dt><dd>{localize(row.caseCode)}</dd></div>
+            <div><dt>SOURCE</dt><dd>{localize(row.source)}</dd></div>
+            <div><dt>ID</dt><dd>{row.id}</dd></div>
+          </dl>
+        </details>
+      ))}
+    </div>
+  </details>
+  <p class="proto-table-note">{copy.observed.note}</p>
+</details>

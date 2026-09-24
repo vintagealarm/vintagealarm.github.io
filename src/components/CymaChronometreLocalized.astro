@@ -1,0 +1,248 @@
+---
+import SectionMast from './SectionMast.astro';
+import OwnerFonts from './OwnerFonts.astro';
+import SeoHead from './SeoHead.astro';
+import CymaSpecimenTablesLocalized from './CymaSpecimenTablesLocalized.astro';
+import research from '../data/cyma-chronometre-research.json';
+import { cymaChronometreLocalized, type CymaChronometreLocale } from '../data/cyma-chronometre-localized';
+import { getGitLastmod, latestDate } from '../lib/git-lastmod';
+
+const { locale } = Astro.props as { locale: CymaChronometreLocale };
+const copy = cymaChronometreLocalized[locale];
+const base = import.meta.env.BASE_URL;
+const siteRoot = 'https://vintagealarm.github.io/';
+const pageUrl = new URL(copy.path, siteRoot).href;
+const image = '/images/cyma-time-o-vox/gallery/cyma-front.jpg';
+const imageUrl = new URL(image.replace(/^\//, ''), siteRoot).href;
+const dateModified = latestDate(
+  getGitLastmod('src/data/cyma-chronometre-research.json'),
+  getGitLastmod('src/data/cyma-chronometre-localized.ts'),
+  getGitLastmod('src/components/CymaChronometreLocalized.astro')
+);
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: copy.title.replace(' | VINTAGE ALARM', '').replace('｜VINTAGE ALARM', ''),
+      description: copy.description,
+      inLanguage: copy.lang,
+      url: pageUrl,
+      image: imageUrl,
+      ...(dateModified ? { dateModified } : {}),
+      author: { '@type': 'Organization', name: 'VINTAGE ALARM', url: siteRoot },
+      publisher: { '@type': 'Organization', name: 'VINTAGE ALARM', url: siteRoot },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+      about: { '@type': 'Thing', name: 'Cyma Time-O-Vox Chronomètre' }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'VINTAGE ALARM', item: new URL(locale + '/', siteRoot).href },
+        { '@type': 'ListItem', position: 2, name: 'CYMA TIME-O-VOX', item: new URL(locale + '/cyma-time-o-vox/', siteRoot).href },
+        { '@type': 'ListItem', position: 3, name: 'CHRONOMÈTRE', item: pageUrl }
+      ]
+    }
+  ]
+};
+const proofQuote = '“Before leaving the factory, every Tavannes movement is adjusted for position and temperature.”';
+const getYouTubeId = (value: string) => {
+  const input = value?.trim();
+  if (!input) return '';
+  if (!input.includes('/') && !input.includes('.')) return input;
+  try {
+    const url = new URL(input);
+    const host = url.hostname.replace(/^www\./, '');
+    if (host === 'youtu.be') return url.pathname.split('/').filter(Boolean)[0] ?? '';
+    if (host === 'youtube.com' || host === 'm.youtube.com') {
+      const queryId = url.searchParams.get('v');
+      if (queryId) return queryId;
+      const parts = url.pathname.split('/').filter(Boolean);
+      if (['shorts', 'embed', 'live'].includes(parts[0])) return parts[1] ?? '';
+    }
+  } catch {
+    return input;
+  }
+  return input;
+};
+const failureVideoId = getYouTubeId(research.failure.youtubeId || '');
+const resolveMedia = (value: string) => /^https?:\/\//.test(value) ? value : base + value.replace(/^\//, '');
+const failureImages = research.failure.images?.filter((item) => item.image) ?? [];
+const languageLinks = locale === 'en'
+  ? [
+      { href: '/cyma-time-o-vox/chronometre/', label: '日本語', hreflang: 'ja' },
+      { href: '/de/cyma-time-o-vox/chronometre/', label: 'DE', hreflang: 'de' }
+    ]
+  : [
+      { href: '/cyma-time-o-vox/chronometre/', label: '日本語', hreflang: 'ja' },
+      { href: '/en/cyma-time-o-vox/chronometre/', label: 'EN', hreflang: 'en' }
+    ];
+const backHref = '/' + locale + '/cyma-time-o-vox/';
+const fieldImageCopy = locale === 'en'
+  ? [
+      'Alarm spring on the movement, extending roughly from 5 to 11 o’clock.',
+      'On the shown specimen, contact marks are visible away from the intended operating hole. The repairer’s explanation was that excessive spring tension can reproduce the same condition and trigger the alarm there as well. Whether the two other R.464 examples with the same symptom share this cause is unknown.'
+    ]
+  : [
+      'Alarmfeder auf dem Werk, ungefähr von 5 bis 11 Uhr verlaufend.',
+      'Beim gezeigten Exemplar sind Kontaktspuren außerhalb der vorgesehenen Auslösebohrung zu sehen. Nach Erklärung des Uhrmachers kann eine zu hohe Federspannung dort denselben Zustand erzeugen und den Alarm ebenfalls auslösen. Ob die beiden anderen R.464 mit demselben Symptom dieselbe Ursache haben, ist unbekannt.'
+    ];
+---
+<!doctype html>
+<html lang={copy.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <OwnerFonts />
+    <SeoHead
+      title={copy.title}
+      description={copy.description}
+      path={copy.path}
+      image={image}
+      type="article"
+      locale={copy.locale}
+      schema={schema}
+      alternates={[
+        { hreflang: 'ja', href: new URL('cyma-time-o-vox/chronometre/', siteRoot).href },
+        { hreflang: 'en', href: new URL('en/cyma-time-o-vox/chronometre/', siteRoot).href },
+        { hreflang: 'de', href: new URL('de/cyma-time-o-vox/chronometre/', siteRoot).href },
+        { hreflang: 'x-default', href: new URL('cyma-time-o-vox/chronometre/', siteRoot).href }
+      ]}
+    />
+  </head>
+  <body class="cyma-proto cyma-proto--owners owners-v15">
+    <div class="proto-mast">
+      <SectionMast rightLabel="CYMA / R.464" lang={copy.lang} languageLinks={languageLinks} />
+    </div>
+    <main class="proto-owner">
+      <header class="proto-owner-hero shell">
+        <div class="proto-owner-title">
+          <p class="proto-kicker">CYMA / CAL. R.464</p>
+          <h1>{copy.heading}</h1>
+          <p class="proto-owner-deck">{copy.lead.map((line) => <span>{line}</span>)}</p>
+        </div>
+        <figure class="proto-owner-watch">
+          <img src={base + image.replace(/^\//, '')} alt="CYMA Time-O-Vox 18K Chronomètre" />
+          <figcaption>18K YELLOW GOLD / CAL. R.464</figcaption>
+        </figure>
+      </header>
+
+      <nav class="proto-owner-index" aria-label={locale === 'en' ? 'On this page' : 'Auf dieser Seite'}>
+        <div class="shell">
+          {copy.nav.map((label, index) => <a href={'#owners-' + ['documented','observed','unadjusted','archive','field-note'][index]}><span>{String(index + 1).padStart(2, '0')}</span><strong>{label}</strong></a>)}
+        </div>
+      </nav>
+
+      <article class="proto-owner-story shell">
+        <section class="proto-owner-section" id="owners-documented">
+          <header><span>01</span><div><small>{copy.sectionLabels[0]}</small><h2>{copy.documented.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label={copy.nav[0]} aria-controls="owners-documented-content" aria-expanded="true"></button></header>
+          <div class="proto-owner-copy" id="owners-documented-content">
+            <dl class="proto-source-ledger">
+              {copy.documented.cards.map((card, index) => (
+                <div>
+                  <dt>{card.label}</dt>
+                  <dd>
+                    <small>{index === 0 ? (locale === 'en' ? 'SHARED ARCHIVE MATERIAL' : 'BEREITGESTELLTES ARCHIVMATERIAL') : (locale === 'en' ? 'SPECIALIST BOOK' : 'FACHLITERATUR')}</small>
+                    <strong>{card.title}</strong>
+                    <p>{card.body}
+                      {index === 0 && <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-7">[7]</a></sup>}
+                      {index === 1 && <sup class="proto-cite"><a href="#source-2">[2]</a></sup>}
+                      {index === 2 && <sup class="proto-cite"><a href="#source-3">[3]</a></sup>}
+                    </p>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p>{copy.documented.intro} <sup class="proto-cite"><a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-9">[9]</a></sup></p>
+          </div>
+        </section>
+
+        <section class="proto-owner-section" id="owners-observed">
+          <header><span>02</span><div><small>{copy.sectionLabels[1]}</small><h2>{copy.observed.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label={copy.nav[1]} aria-controls="owners-observed-content" aria-expanded="true"></button></header>
+          <div class="proto-owner-copy" id="owners-observed-content">
+            <p>{copy.observed.intro} <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+            <dl class="proto-source-ledger">
+              {copy.mismatch.cards.map((card) => <div><dt>{card.label}</dt><dd><strong>{card.title}</strong><p>{card.body}</p></dd></div>)}
+            </dl>
+            <CymaSpecimenTablesLocalized locale={locale} />
+          </div>
+        </section>
+
+        <section class="proto-owner-section proto-owner-logic" id="owners-unadjusted">
+          <header><span>03</span><div><small>{copy.sectionLabels[2]}</small><h2>{copy.tariff.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label={copy.nav[2]} aria-controls="owners-unadjusted-content" aria-expanded="true"></button></header>
+          <div class="proto-owner-copy" id="owners-unadjusted-content">
+            <p>{copy.tariff.intro} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></p>
+            <blockquote><p lang="en">{proofQuote}</p><footer>{copy.tariff.quoteTranslation} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></footer></blockquote>
+            {copy.tariff.body.map((paragraph, index) => <p>{paragraph}
+              {index === 0 && <sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>}
+              {index === 1 && <sup class="proto-cite"><a href="#source-5">[5]</a></sup>}
+              {index === 2 && <sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a><a href="#source-9">[9]</a></sup>}
+            </p>)}
+          </div>
+        </section>
+
+        <section class="proto-owner-section proto-owner-inquiry" id="owners-archive">
+          <header><span>04</span><div><small>{copy.sectionLabels[3]}</small><h2>{copy.archive.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label={copy.nav[3]} aria-controls="owners-archive-content" aria-expanded="true"></button></header>
+          <div class="proto-owner-copy" id="owners-archive-content">
+            <p class="proto-inquiry-lead">{copy.archive.intro}</p>
+            <div class="proto-inquiry-grid">
+              {copy.archive.cards.map((card, index) => (
+                <article><small>{card.label}</small><h3>{card.title}</h3><p>{card.body} <sup class="proto-cite"><a href={index === 0 ? '#source-7' : '#source-8'}>[{index === 0 ? '7' : '8'}]</a></sup></p></article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section class="proto-owner-section proto-owner-field-section" id="owners-field-note">
+          <header><span>05</span><div><small>{copy.sectionLabels[4]}</small><h2>{copy.failure.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label={copy.nav[4]} aria-controls="owners-field-note-content" aria-expanded="true"></button></header>
+          <div class="proto-owner-copy" id="owners-field-note-content">
+            <p>{copy.failure.intro} <sup class="proto-cite"><a href="#source-4">[4]</a></sup></p>
+            <div class="proto-owner-field-media">
+              {failureImages.map((item, index) => <figure><div class="proto-owner-field-image"><img src={resolveMedia(item.image)} alt={fieldImageCopy[index] || 'CYMA Time-O-Vox Cal. R.464'} /></div><figcaption>{fieldImageCopy[index]}</figcaption></figure>)}
+            </div>
+            {failureImages.length > 1 && <p class="proto-owner-field-swipe-hint">{copy.failure.swipe}</p>}
+            {failureVideoId && <figure class="proto-owner-video"><div class="proto-video-frame"><iframe src={'https://www.youtube.com/embed/' + failureVideoId} title="CYMA Time-O-Vox alarm behaviour" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>{copy.failure.youtubeCaption}</figcaption></figure>}
+            <div class="proto-owner-field-observation">
+              <div class="proto-owner-field-heading"><small>{copy.failure.normalTitle}</small><h3>{copy.failure.observedTitle}</h3></div>
+              <p>{copy.failure.observedBody} <sup class="proto-cite"><a href="#source-9">[9]</a></sup></p>
+              <ol>{copy.failure.examples.map((example, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><strong>{example}</strong><small>{copy.failure.seen}</small></li>)}</ol>
+              <h3>{copy.failure.hypothesisTitle}</h3>
+              <p>{copy.failure.hypothesisBody}</p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <section class="proto-conclusion shell">
+        <header><span>{copy.conclusion.label}</span><h2>{copy.conclusion.title}</h2><button class="proto-conclusion-toggle" type="button" aria-label={copy.conclusion.title} aria-controls="proto-conclusion-content" aria-expanded="true"></button></header>
+        <div id="proto-conclusion-content" class="proto-conclusion-body">
+          {copy.conclusion.items.map((item) => <article><small>{item.label}</small><p>{item.text}</p></article>)}
+        </div>
+      </section>
+    </main>
+
+    <footer class="proto-footer shell">
+      <details open><summary>{copy.sourceHeading}</summary><ol>{copy.sources.map((source, index) => <li id={'source-' + (index + 1)}><span class="proto-source-no">[{index + 1}]</span>{source}</li>)}</ol></details>
+      <a href={backHref}>{copy.backLabel} →</a>
+    </footer>
+
+    <script is:inline>
+      (() => {
+        const story=document.querySelector('.proto-owner-story');
+        const mobile=window.matchMedia('(max-width:760px)');
+        if(!story) return;
+        const chapters=[...story.querySelectorAll('.proto-owner-section')].map((section)=>({section,button:section.querySelector('.proto-owner-section-toggle'),content:section.querySelector('.proto-owner-copy')}));
+        const setOpen=(chapter,open)=>{chapter.content.hidden=!open;chapter.button.setAttribute('aria-expanded',String(open));};
+        const openHash=()=>{if(!mobile.matches||!location.hash)return;const target=document.getElementById(location.hash.slice(1));const chapter=chapters.find(({section})=>section===target||section.contains(target));if(chapter)setOpen(chapter,true);};
+        const sync=()=>{chapters.forEach((chapter)=>setOpen(chapter,!mobile.matches));openHash();};
+        chapters.forEach((chapter)=>chapter.button.addEventListener('click',()=>{if(mobile.matches)setOpen(chapter,chapter.content.hidden);}));
+        mobile.addEventListener('change',sync);window.addEventListener('hashchange',openHash);sync();story.classList.add('is-accordion-ready');
+        const conclusion=document.querySelector('.proto-conclusion');const conclusionButton=conclusion?.querySelector('.proto-conclusion-toggle');const conclusionBody=conclusion?.querySelector('.proto-conclusion-body');
+        const syncConclusion=()=>{if(!conclusion||!conclusionButton||!conclusionBody)return;conclusion.classList.add('is-accordion-ready');conclusionBody.hidden=mobile.matches;conclusionButton.setAttribute('aria-expanded',String(!mobile.matches));};
+        conclusionButton?.addEventListener('click',()=>{if(!mobile.matches||!conclusionBody)return;conclusionBody.hidden=!conclusionBody.hidden;conclusionButton.setAttribute('aria-expanded',String(!conclusionBody.hidden));});
+        mobile.addEventListener('change',syncConclusion);syncConclusion();
+      })();
+    </script>
+  </body>
+</html>

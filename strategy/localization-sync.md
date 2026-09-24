@@ -1,6 +1,6 @@
 # VINTAGE ALARM — Multilingual revision sync
 
-更新日: 2026-09-15
+更新日: 2026-09-24
 
 ## 結論
 
@@ -14,19 +14,17 @@
 
 ### English
 
-- FULL RESEARCH: Cyma Time-O-Vox / Pierce Duofon / Westclox Watchlarm
-- CONCISE ENTRY: Basis Alarm / Citizen Alarm
-
-英語版は全WATCHを同じ深度で複製する方針ではない。`CONCISE ENTRY` と `FULL RESEARCH` は意図的に併存する。
+- FULL RESEARCH: Basis Alarm / Citizen Alarm / Cyma Time-O-Vox / Pierce Duofon / Westclox Watchlarm / Wittnauer Cal.10WA
+- 独立研究: Cyma Time-O-Vox Chronomètre
 
 ### Deutsch
 
-- FULL RESEARCH: Cyma Time-O-Vox / Pierce Duofon / Westclox Watchlarm
-- 未展開: Basis Alarm / Citizen Alarm
+- FULL RESEARCH: Basis Alarm / Citizen Alarm / Cyma Time-O-Vox / Pierce Duofon / Westclox Watchlarm / Wittnauer Cal.10WA
+- 独立研究: Cyma Time-O-Vox Chronomètre
 
-ドイツ語版は部分展開中とする。`/de/` でもこの公開範囲を明示し、「ドイツ語版が全WATCH揃っている」と誤解させない。
+旧 `CONCISE ENTRY` は廃止。所有6 WATCHは EN / DE とも詳細版を正とする。
 
-`public/llms.txt` は「実際に公開されているURL」の一覧として扱い、完全版・短縮版を同一品質であるかのように解釈しない。
+`public/llms.txt` は実際に公開されているURLの一覧として扱い、独立研究ページの言語版も明示する。
 
 ## 事実修正の同期ルール
 
@@ -107,11 +105,9 @@
 
 ## 翻訳深度と同期は別問題
 
-ページが `CONCISE ENTRY` か `FULL RESEARCH` かは編集・公開戦略の問題。
+2026-09-24時点で、所有6 WATCHは EN / DE とも FULL RESEARCH へ統一した。今後「短縮版だから同期対象外」という扱いはしない。
 
-一方、**その言語版に既に存在する事実が古いまま残ることは許容しない。**
-
-したがって短縮英語版であっても、日本語正本の修正対象と同じ事実を掲載しているなら同期対象になる。
+独立研究ページも、その言語版を公開した時点で日本語正本の事実修正と同じ同期対象になる。
 
 ## 言語品質は「日本語語彙の移植」ではなく意味の保持で見る
 

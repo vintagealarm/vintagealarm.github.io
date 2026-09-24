@@ -57,10 +57,42 @@ for (const lang of ['en', 'de']) {
   }
 }
 
+
+const fullResearchSlugs = [
+  'basis-alarm',
+  'citizen-alarm',
+  'cyma-time-o-vox',
+  'pierce-duofon',
+  'westclox-watchlarm',
+  'wittnauer-10wa'
+];
+const englishFullResearchSource = await fs.readFile('src/data/en-watch-full-research.ts', 'utf8');
+const cymaLocalizationSource = await fs.readFile('src/data/cyma-localizations.ts', 'utf8');
+for (const slug of fullResearchSlugs) {
+  const registered = slug === 'cyma-time-o-vox'
+    ? cymaLocalizationSource.includes('englishCymaFullResearch')
+    : englishFullResearchSource.includes(`'${slug}': {`);
+  if (!registered) {
+    failures.push(`en: ${slug} is published but is not registered as FULL RESEARCH`);
+  }
+}
+
+for (const lang of ['en', 'de']) {
+  const chronometrePath = path.join('dist', lang, 'cyma-time-o-vox', 'chronometre', 'index.html');
+  const chronometreUrl = `${siteRoot}${lang}/cyma-time-o-vox/chronometre/`;
+  try {
+    const html = await fs.readFile(chronometrePath, 'utf8');
+    if (!html.includes(`lang="${lang}"`)) failures.push(`${lang}: Chronometre page html lang missing`);
+    if (!llms.includes(chronometreUrl)) failures.push(`${lang}: localized Chronometre URL missing from public/llms.txt`);
+  } catch (error) {
+    failures.push(`${lang}: localized Chronometre page missing: ${error.message}`);
+  }
+}
+
 if (failures.length) {
   console.error('Localized publication coverage check failed:');
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log('Localized publication coverage check passed for EN / DE watch routes and public/llms.txt.');
+console.log('Localized publication coverage check passed for EN / DE full WATCH routes, Chronometre research and public/llms.txt.');

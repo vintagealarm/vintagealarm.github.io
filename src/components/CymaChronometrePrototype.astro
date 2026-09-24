@@ -110,11 +110,11 @@ const failureImages=data.failure.images?.filter((item)=>item.image)??[];
     <meta name="theme-color" content={variant === 'history' ? '#1c201c' : '#f7f8f4'} />
     <OwnerFonts />
     {production
-      ? <SeoHead title={productionTitle} description={productionDescription} path={productionPath} image={productionImage} type="article" schema={productionSchema} />
+      ? <SeoHead title={productionTitle} description={productionDescription} path={productionPath} image={productionImage} type="article" schema={productionSchema} alternates={[{hreflang:'ja',href:productionUrl},{hreflang:'en',href:new URL('en/cyma-time-o-vox/chronometre/',siteRoot).href},{hreflang:'de',href:new URL('de/cyma-time-o-vox/chronometre/',siteRoot).href},{hreflang:'x-default',href:productionUrl}]} />
       : <title>CYMA Time-O-Vox Chronomètre — {titles[variant]}｜VINTAGE ALARM</title>}
   </head>
   <body class:list={['cyma-proto', `cyma-proto--${variant}`, variant === 'owners' && 'owners-v15', variant === 'history' && 'history-v13 history-v18']}>
-    <div class="proto-mast"><SectionMast rightLabel="CYMA / R.464" /></div>
+    <div class="proto-mast"><SectionMast rightLabel="CYMA / R.464" languageLinks={production ? [{ href: '/en/cyma-time-o-vox/chronometre/', label: 'EN', hreflang: 'en' }, { href: '/de/cyma-time-o-vox/chronometre/', label: 'DE', hreflang: 'de' }] : undefined} /></div>
     {variant === 'owners' && (
       <main class="proto-owner">
         <header class="proto-owner-hero shell">

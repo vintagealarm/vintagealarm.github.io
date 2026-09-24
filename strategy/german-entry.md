@@ -1,7 +1,7 @@
 # VINTAGE ALARM — German translation preparation
 
-更新日: 2026-09-14
-状態: ドイツ語入口を拡張済み。TOP `/de/` は日本語TOPと同じ入口構造だけを持ち、画像付きOWNER'S NOTES一覧は `/de/owners-notes/` に分離する。HOW THEY RING `/de/how-they-ring/` も日本語正本に沿ってローカライズし、既存のHISTORY・WATCH・SOURCESと接続する。Duofonドイツ語パイロット公開済み。`/de/`・`/de/pierce-duofon/`・日本語/英語/ドイツ語の言語切替・hreflang・sitemap・llms.txt・Analyticsパスマッピングまで実装済み。ユーザー本人による逐語逆翻訳監査を実施し、事実・構造・確度・資料差は高い忠実性を確認。OWNER'S NOTE周辺の4点（「祖先」の比喩、SIGNAL「静音」、WECKER「ベル音」、締めの「未来の空気」）を日本語正本へ寄せて修正した。OWNER'S NOTE画像も日本語版と同じ `/images/pierce-duofon/owners-note.jpg` を使うよう修正済み。逆翻訳の合格基準は日本語正本との一字一句一致ではなく、ドイツ語だけから意味・構造・温度感を十分に再構成できることとする。
+更新日: 2026-09-24
+状態: 所有6 WATCHをすべてFULL RESEARCHでドイツ語公開する。Cyma Time-O-Vox Chronomètreの独立研究も `/de/cyma-time-o-vox/chronometre/` へ全文展開する。日本語正本→ドイツ語を主ルートとし、既存の逆翻訳監査・用語準備・revision drift防止を継続する。
 
 ## 目的
 
@@ -189,3 +189,33 @@ Duofon資料には、少なくとも次の差がある。
 - URLだけから全文逐語訳を拒否したことが、著者性・所有者性の否定を意味すること。
 
 公開Webページの全文翻訳要求は著作権処理で止まる場合があるため、今後の監査は `URLだけで発見・言語版対応を見るテスト` と `貼付した本文で逐語逆翻訳を見るテスト` を分離する。URL全文翻訳の拒否は翻訳品質の失敗として数えない。
+
+## 2026-09-24｜Basis / Citizen / Chronomètre 用語準備
+
+既存のDuofonパイロットとWestclox用語修正を踏襲し、実装前に日本語正本の概念と自然なドイツ語時計語を対応づける。
+
+| 日本語の概念 | ドイツ語候補 | 運用 |
+| --- | --- | --- |
+| エボーシュメーカー | `Ébauche-Hersteller` | BFGの供給側の役割。 |
+| ピンレバー脱進機 | `Stiftankerhemmung` | 一般的な時計技術語。 |
+| 柱式構造 | `Säulenbauweise` | BFG 90の構造説明。 |
+| カップリングレバー | `Kupplungshebel` | 文脈で機能が明確な場合。 |
+| 滑りクラッチ | `Rutschkupplung` | BFG 90の巻上げ機構。 |
+| ラチェット／角穴車側 | `Sperrrad` | 一般本文では部品の役割を優先。 |
+| 巻上げ確認窓 | `Aufzugskontrollfenster` | `Gangreserveanzeige` と誤認させない。 |
+| 二重裏蓋 | `doppelter Gehäuseboden` | Citizen。 |
+| 中央回転ディスク | `zentrale drehbare Weckscheibe` | Citizen。 |
+| アラーム針 | `Weckerzeiger` | 既存基準を継続。 |
+| 調整／歩度調整 | `Regulierung` / `reguliert` | Chronomètre。刻印原文は訳さない。 |
+| 調整刻印 | `Regulierungsgravur` | 現存個体の観測記述。 |
+| Werknummer | `Werknummer` | Movement No. の独語本文。表では原表記も可。 |
+| クロノメーター証明 | `Chronometerzertifizierung` / `Chronometerzertifikat` | 証明行為と証明書を区別。 |
+| 現存個体 | `erhaltenes Exemplar` | 単なる「モデル」と混同しない。 |
+| 観測個体 | `beobachtetes Exemplar` | VINTAGE ALARMの観測集合。 |
+| 外部照会 | `Archivanfrage` / `Anfrage an Institutionen` | 相手が博物館・公文書館の場合。 |
+
+`CHRONOMÈTRE`、`UNADJUSTED`、`ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE` は文字盤・刻印の証拠なので原綴りを維持する。
+
+Chronometerの一般説明では、現代ドイツ語の `Chronometer`、`Chronometerzertifikat`、`Regulierung` を使い、フランス語の文字盤表記 `CHRONOMÈTRE` と混同しない。
+
+Westcloxで実施したように、直訳調の複合語を作るより既存の短い時計語を優先する。例: `Bodenglocke`、`Klangaufbau`、`Aufzugskontrollfenster`。
