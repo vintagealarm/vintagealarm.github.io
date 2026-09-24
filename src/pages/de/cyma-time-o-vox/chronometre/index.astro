@@ -1,0 +1,11 @@
+---
+import CymaChronometreLocalized from '../../../../components/CymaChronometreLocalized.astro';
+import data from '../../../../data/cyma-chronometre-research.json';
+import '../../../../styles/site.css';
+import '../../../../styles/owners-v15.css';
+import '../../../../styles/cyma-chronometre-prototypes.css';
+
+const base=import.meta.env.BASE_URL;
+if(!data.published) return Astro.redirect(`${base}de/cyma-time-o-vox/`);
+---
+<CymaChronometreLocalized locale="de" />
