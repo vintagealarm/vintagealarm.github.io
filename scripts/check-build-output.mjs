@@ -270,20 +270,23 @@ if (howTheyRingRelease.productionPublished) {
   if (soundProdHtml.includes('noindex,nofollow,noarchive')) failures.push('HOW THEY RING: production release ON but page is still noindex');
   if (soundProdHtml.includes('非公開プレビュー')) failures.push('HOW THEY RING: production release ON but preview label leaked');
   if (!soundProdHtml.includes('HOW THEY RING')) failures.push('HOW THEY RING: production release ON but gallery content is missing');
-  for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る']) {
-    if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale hero copy remains: ${stale}`);
+  for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る', '棒状の音バネを叩く', 'ピン／レバー伝達型']) {
+    if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale copy remains: ${stale}`);
   }
   if (!/<a[^>]+href=\"\/how-they-ring\/?\"[^>]*>\s*音で見る\s*<\/a>/.test(soundProdHtml)) failures.push('HOW THEY RING: shared Japanese menu label must be 音で見る');
-  for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
+  for (const marker of ['音で見る、', 'アラーム腕時計。', '輪状の音バネを叩く', 'ピン伝達型', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', '量産型J89は、ハンマーがピンを打撃し、その振動を底部のベルへ伝えて鳴らす。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
     if (!soundProdHtml.includes(marker)) failures.push(`HOW THEY RING: current production marker missing: ${marker}`);
   }
-  for (const [name, html, lang, marker, action] of [
-    ['EN HOW THEY RING', englishHowTheyRingHtml, 'en', 'Alarm wristwatches,', 'Strikes a rod-shaped sound spring'],
-    ['DE HOW THEY RING', germanHowTheyRingHtml, 'de', 'Wecker-Armbanduhren,', 'Schlägt eine stabförmige Tonfeder an']
+  for (const [name, html, lang, marker, action, pinLabel, pinEvidence, staleAction, stalePinLabel] of [
+    ['EN HOW THEY RING', englishHowTheyRingHtml, 'en', 'Alarm wristwatches,', 'Strikes a ring-shaped sound spring', 'Pin-transmission type', 'In the production J89, the hammer strikes a pin, transmitting the impact to the bell built into the bottom.', 'Strikes a rod-shaped sound spring', 'Pin / lever transmission type'],
+    ['DE HOW THEY RING', germanHowTheyRingHtml, 'de', 'Wecker-Armbanduhren,', 'Schlägt eine ringförmige Tonfeder an', 'Stiftübertragung', 'Beim Serien-J89 schlägt der Hammer auf einen Stift; der Stoß wird auf die im Boden eingebaute Glocke übertragen.', 'Schlägt eine stabförmige Tonfeder an', 'Stift-/Hebelübertragung']
   ]) {
     if (!html.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
     if (!html.includes(marker)) failures.push(`${name}: localized hero missing`);
     if (!html.includes(action)) failures.push(`${name}: localized mechanism copy missing`);
+    if (!html.includes(pinLabel)) failures.push(`${name}: localized FIG.03 label missing`);
+    if (!html.includes(pinEvidence)) failures.push(`${name}: localized FIG.03 evidence missing`);
+    if (html.includes(staleAction) || html.includes(stalePinLabel)) failures.push(`${name}: stale FIG.01/03 copy remains`);
     if (!html.includes('GONG') || !html.includes('CASEBACK')) failures.push(`${name}: ringing categories missing`);
   }
   for (const pathName of ['en/how-they-ring/', 'de/how-they-ring/']) {
