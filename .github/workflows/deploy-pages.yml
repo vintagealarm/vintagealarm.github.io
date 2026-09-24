@@ -71,6 +71,11 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify complete live artifact parity
+        env:
+          LIVE_SITE_ROOT: ${{ steps.deployment.outputs.page_url }}
+          DEPLOY_SHA: ${{ github.sha }}
+        run: npm run check:live-parity
       - name: Verify live publication state
         env:
           LIVE_SITE_ROOT: ${{ steps.deployment.outputs.page_url }}

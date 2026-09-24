@@ -18,7 +18,8 @@
     "check:quality": "npm run check:decision-log && npm run check:links && npm run check:seo && npm run check:citations && npm run check:source-traceability && npm run check:localization-sync && npm run check:localization-coverage && npm run check:spec-evidence && npm run check:japanese-style && npm run check:images",
     "test:japanese-style": "node scripts/test-japanese-style.mjs",
     "test:quality": "node scripts/test-quality-gates.mjs && npm run test:japanese-style",
-    "check:decision-log": "node scripts/check-decision-log.mjs"
+    "check:decision-log": "node scripts/check-decision-log.mjs",
+    "check:live-parity": "node scripts/check-live-parity.mjs"
   },
   "dependencies": {
     "astro": "^7.0.0"

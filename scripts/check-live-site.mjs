@@ -9,6 +9,7 @@ const watches = readWatchPublicationState();
 const ownersDirectory = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/owners-directory.json'), 'utf8'));
 const researchSettings = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/research-settings.json'), 'utf8'));
 const howTheyRingSettings = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/how-they-ring-settings.json'), 'utf8'));
+const chronometreResearch = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/cyma-chronometre-research.json'), 'utf8'));
 const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.historyId));
 
 const get = async (path) => {
@@ -163,8 +164,85 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     failures.push('cyma-time-o-vox/owners-note: still public while Cyma is unpublished');
   }
 
+  // Full multilingual live audit. A successful deploy is not enough:
+  // every public localized route must expose its complete current content.
+  const localizedStaticCases = [
+    ['en/', 'en', ['When notifications still ran on gears.']],
+    ['de/', 'de', ['Als Benachrichtigungen noch mit Zahnrädern liefen.']],
+    ['en/history/', 'en', ['References &amp; Sources', 'References & Sources']],
+    ['de/history/', 'de', ['Literatur &amp; Quellen', 'Literatur & Quellen']],
+    ['en/owners-notes/', 'en', ["OWNER'S NOTES", 'owner-frame']],
+    ['de/owners-notes/', 'de', ["OWNER'S NOTES", 'owner-frame']],
+    ['en/sources/', 'en', ['Sources &amp; References', 'Sources & References']],
+    ['de/sources/', 'de', ['Quellen &amp; Literatur', 'Quellen & Literatur']],
+    ...(howTheyRingSettings.productionPublished ? [
+      ['en/how-they-ring/', 'en', ['Alarm wristwatches,', 'GONG', 'CASEBACK']],
+      ['de/how-they-ring/', 'de', ['Wecker-Armbanduhren,', 'GONG', 'CASEBACK']]
+    ] : [])
+  ];
+
+  for (const [route, lang, markers] of localizedStaticCases) {
+    const result = await get(route);
+    if (!result.ok) {
+      failures.push(`${route}: HTTP ${result.status}`);
+      continue;
+    }
+    if (!result.text.includes(`lang="${lang}"`)) failures.push(`${route}: html lang missing`);
+    if (!markers.some((marker) => result.text.includes(marker))) failures.push(`${route}: expected localized content marker missing`);
+  }
+
+  for (const watch of watches.filter((item) => item.published)) {
+    for (const lang of ['en', 'de']) {
+      const route = `${lang}/${watch.slug}/`;
+      const result = await get(route);
+      if (!result.ok) {
+        failures.push(`${route}: HTTP ${result.status}`);
+        continue;
+      }
+      if (!result.text.includes(`lang="${lang}"`)) failures.push(`${route}: html lang missing`);
+      for (const marker of ["OWNER'S NOTE", 'id="spec"', 'specimen-gallery', 'id="deep"']) {
+        if (!result.text.includes(marker)) failures.push(`${route}: FULL RESEARCH marker missing: ${marker}`);
+      }
+      const sourceMarkers = lang === 'en'
+        ? ['REFERENCES &amp; SOURCES', 'REFERENCES & SOURCES']
+        : ['LITERATUR &amp; QUELLEN', 'LITERATUR & QUELLEN'];
+      if (!sourceMarkers.some((marker) => result.text.includes(marker))) failures.push(`${route}: FULL RESEARCH sources section missing`);
+      if (result.text.includes('english-gateway-note') || result.text.includes('concise English entry')) failures.push(`${route}: obsolete concise-entry fallback leaked`);
+      if (sitemap.ok && !sitemap.text.includes(`https://vintagealarm.github.io/${route}`)) failures.push(`${route}: missing from sitemap`);
+    }
+  }
+
+  if (chronometreResearch.published) {
+    const chronometreCases = [
+      ['en/cyma-time-o-vox/chronometre/', 'en',
+        ['Observed Examples and Certification Records', 'Seventeen examples were documented', 'MOV. No. BAND'],
+        ['Observed Specimens and Certification Records', 'could be checked across sale pages']],
+      ['de/cyma-time-o-vox/chronometre/', 'de',
+        ['dokumentierte Exemplare und Zertifizierungsunterlagen', '17 Exemplare dokumentiert', 'WERKNR. (MASKIERT)'],
+        ['beobachtete Exemplare und Zertifizierungsunterlagen', 'WERKNR.-BEREICH']]
+    ];
+    for (const [route, lang, currentMarkers, staleMarkers] of chronometreCases) {
+      const result = await get(route);
+      if (!result.ok) {
+        failures.push(`${route}: HTTP ${result.status}`);
+        continue;
+      }
+      if (!result.text.includes(`lang="${lang}"`)) failures.push(`${route}: html lang missing`);
+      for (const marker of ['owners-documented', 'owners-observed', 'owners-unadjusted', 'owners-archive', 'owners-field-note', 'proto-conclusion']) {
+        if (!result.text.includes(marker)) failures.push(`${route}: full research section missing: ${marker}`);
+      }
+      for (const marker of currentMarkers) {
+        if (!result.text.includes(marker)) failures.push(`${route}: current localized correction missing: ${marker}`);
+      }
+      for (const stale of staleMarkers) {
+        if (result.text.includes(stale)) failures.push(`${route}: stale localized copy remains: ${stale}`);
+      }
+      if (sitemap.ok && !sitemap.text.includes(`https://vintagealarm.github.io/${route}`)) failures.push(`${route}: missing from sitemap`);
+    }
+  }
+
   if (!failures.length) {
-    console.log(`Live publication check: PASS — localized HISTORY plus ${watches.filter((watch) => watch.published).length} published watch pages, owner thumbnails/fallbacks reachable.`);
+    console.log('Live publication check: PASS — all localized public sections, EN/DE FULL RESEARCH WATCH pages, Chronomètre research and Japanese publication state verified.');
     process.exit(0);
   }
   lastFailures = failures;

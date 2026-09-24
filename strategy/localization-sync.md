@@ -74,6 +74,19 @@
 
 `llms.txt` は権威付けやAIO専用テキストではなく、現在公開されているURLの機械可読インデックスとして扱う。
 
+## 公開反映の完了条件 — 全ページ対象
+
+翻訳修正は、branch / PR / GitHub上に文章が存在するだけでは完了としない。**mainにmergeされ、同じmainから生成したHTMLが本番liveへ出ていることを確認した時点だけDEPLOYED**とする。
+
+公開確認は一部の代表ページや数個の文字列へ絞らない。
+
+- `scripts/check-localization-coverage.mjs` は EN / DE のTOP、HISTORY、OWNER'S NOTES、HOW THEY RING、SOURCES、公開中の全WATCH、独立研究ページをbuild出力で確認する。
+- `scripts/check-layout.mjs` は公開中の全EN / DE WATCHを動的に対象化し、旧3本固定のような対象漏れを禁止する。
+- `scripts/check-live-site.mjs` は同じ公開範囲をlive HTMLで意味的に確認する。
+- `scripts/check-live-parity.mjs` はdeploy直後、dist内の**全生成HTML**と `sitemap.xml` / `llms.txt` / `robots.txt` をlive取得し、内容が一致しない限りdeploy workflowを成功扱いしない。
+
+翻訳修正PRが未mergeのまま残っている状態は `IMPLEMENTED` 以下であり、「GitHubに記載済み」を本番反映の代わりにしない。個別の修正文言だけをlive gateへ足して終わらせず、全公開routeのartifact parityを共通の最終gateとする。
+
 ## 最初の登録事例 — Pierce創業年
 
 2026-09-15、Pierce創業年について日本語本文を1888年から1883年へ修正した。

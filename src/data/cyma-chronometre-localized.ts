@@ -114,28 +114,28 @@ export const cymaChronometreLocalized = {
     lang: 'de',
     locale: 'de_DE',
     path: 'de/cyma-time-o-vox/chronometre/',
-    title: 'Cyma Time-O-Vox Chronomètre — beobachtete Exemplare und Zertifizierungsunterlagen | VINTAGE ALARM',
-    description: 'Recherche zur Cyma Time-O-Vox Chronomètre auf Grundlage von Fachliteratur, 17 beobachteten Exemplaren, Archivanfragen, UNADJUSTED-Gravuren und Beobachtungen am gezeigten Exemplar.',
+    title: 'Cyma Time-O-Vox Chronomètre — dokumentierte Exemplare und Zertifizierungsunterlagen | VINTAGE ALARM',
+    description: 'Recherche zur Cyma Time-O-Vox Chronomètre auf Grundlage von Fachliteratur, 17 dokumentierten Exemplaren, Archivanfragen, UNADJUSTED-Gravuren und Beobachtungen am gezeigten Exemplar.',
     heading: 'Time-O-Vox Chronomètre',
     lead: [
       'Eine Time-O-Vox im 18K-Gehäuse mit „CHRONOMÈTRE“ auf dem Zifferblatt.',
-      'Diese Seite verfolgt die Unterschiede zwischen dieser Zifferblattaufschrift und den Kennzeichnungen erhaltener Exemplare.'
+      'Diese Seite untersucht das Verhältnis zwischen dieser Zifferblattaufschrift und den Kennzeichnungen erhaltener Exemplare.'
     ],
     nav: ['Literatur', '17 Exemplare', 'UNADJUSTED', 'Archivanfragen', 'Beobachtung'],
-    sectionLabels: ['DOKUMENTATION', 'BEOBACHTETE EXEMPLARE', 'UNADJUSTED-GRAVUR', 'EXTERNE ANFRAGEN', 'BEOBACHTUNG AM EXEMPLAR'],
+    sectionLabels: ['DOKUMENTATION', 'DOKUMENTIERTE EXEMPLARE', 'UNADJUSTED-GRAVUR', 'EXTERNE ANFRAGEN', 'BEOBACHTUNG AM EXEMPLAR'],
     documented: {
       title: 'Die Time-O-Vox gab es auch als Chronomètre',
       intro: 'Eine Chronomètre-Ausführung ist dokumentiert. Bei den erhaltenen Exemplaren sind die Kennzeichnungen jedoch nicht einheitlich.',
       cards: [
         { label: 'MIH', title: 'Chronometerzertifizierung für eine goldene Time-O-Vox', body: 'Von der MIH bereitgestellte Cyma-Unterlagen enthalten einen Eintrag, nach dem eine goldene Time-O-Vox eine Chronometerzertifizierung erhielt.' },
-        { label: 'HORLBECK', title: 'Prüfung in fünf Lagen und bei Temperatur', body: 'The Alarm Wristwatch beschreibt eine Chronomètre-Ausführung des Cal. R.464 sowie eine Prüfung in fünf Lagen und bei Temperatur.' },
+        { label: 'HORLBECK', title: 'Prüfung in fünf Lagen und bei unterschiedlichen Temperaturen', body: 'The Alarm Wristwatch beschreibt eine Chronomètre-Ausführung des Cal. R.464 und hält fest, dass qualifizierende Werke in fünf Lagen und bei unterschiedlichen Temperaturen geprüft wurden.' },
         { label: 'BEITL', title: 'Goldmodelle als Chronometer-Ausführung', body: 'Alarm am Arm hält für die abgebildete Time-O-Vox im 14K-Goldgehäuse mit durchbrochenen Anstößen fest, dass dieses Goldmodell stets als Chronometer-Ausführung geliefert wurde. Gezeigt werden sowohl ein Exemplar mit Chronometer-Kennzeichnung auf Zifferblatt und Werk als auch eines ohne entsprechende Zifferblattaufschrift, aber mit Chronometer-Kennzeichnung auf dem Werk.' }
       ]
     },
     observed: {
       title: 'Die Kennzeichnungen passen nicht in ein einziges Schema',
-      intro: 'Aus Verkaufsseiten, Fachliteratur, Reparaturberichten, Videos und sozialen Medien ließen sich 17 Exemplare überprüfen.',
-      note: 'Um Doppelzählungen durch weiterverwendete Fotos oder erneute Angebote zu vermeiden, werden die Exemplare in den Arbeitsdaten vor allem über die Werknummer unterschieden. In der öffentlichen Tabelle sind die Werknummern zu Nummernbereichen maskiert.'
+      intro: 'Aus Verkaufsseiten, Fachliteratur, Reparaturberichten, Videos und sozialen Medien konnten 17 Exemplare dokumentiert werden.',
+      note: 'Um Doppelzählungen durch weiterverwendete Fotos oder erneute Angebote zu vermeiden, werden die Exemplare in den Arbeitsdaten vor allem über die Werknummer unterschieden. In der öffentlichen Tabelle sind die Werknummern teilweise maskiert (z. B. 10xx).'
     },
     mismatch: {
       cards: [
@@ -149,7 +149,7 @@ export const cymaChronometreLocalized = {
       intro: 'In einer Anhörung des US-Senats von 1956 wurden Fälle behandelt, in denen tatsächlich regulierte Schweizer Uhren mit der Kennzeichnung „unadjusted“ importiert wurden, um zusätzliche Zölle zu vermeiden.',
       body: [
         'Eines der von Pritchard angeführten Beispiele betrifft Tavannes. In einer Werksanzeige hieß es, sämtliche Werke würden in Lagen und bei Temperatur reguliert; eine in Washington, D.C. gekaufte Uhr war dennoch mit „unadjusted“ graviert.',
-        'CYMA WATCH CO. SA wird in Pritchards Tavannes-Eintrag als Unternehmen der Gruppe aufgeführt.',
+        'CYMA WATCH CO. SA wird in Pritchards Tavannes-Eintrag als Unternehmen der Tavannes-Gruppe aufgeführt.',
         'Auch bei einer Time-O-Vox lässt sich deshalb aus der Gravur UNADJUSTED allein nicht ableiten, dass das Werk tatsächlich unreguliert war.'
       ],
       quoteTranslation: '„Bevor sie das Werk verlassen, werden sämtliche Tavannes-Werke in Lagen und bei Temperatur reguliert.“',
@@ -157,7 +157,7 @@ export const cymaChronometreLocalized = {
     },
     archive: {
       title: 'Was die Archivanfragen ergaben',
-      intro: '2025 wurden Anfragen an die MIH und das Staatsarchiv Neuenburg gerichtet. Die MIH antwortete auf Ebene der Modellunterlagen; Neuenburg prüfte das konkrete Exemplar mit Movement No.4xx.',
+      intro: '2025 wurden Anfragen an die MIH und das Staatsarchiv Neuenburg gerichtet. Die Antwort des MIH bezog sich auf die Modellunterlagen; Neuenburg prüfte das konkrete Exemplar mit Movement No.4xx.',
       cards: [
         { label: 'MIH / 18. SEP. 2025', title: 'Modellunterlagen', body: 'Ein Dokument mit direktem Bezug zu einer Time-O-Vox Chronomètre konnte nicht identifiziert werden. In den Cyma-Unterlagen fand sich jedoch ein Hinweis auf die Ausstellung eines Zertifikats für eine goldene Weckeruhr; dieses Material wurde zur Verfügung gestellt.' },
         { label: 'NEUCHÂTEL / 14. NOV. 2025', title: 'Movement No.4xx', body: 'Für eine erneute Anfrage wurden Movement No.4xx, die Gehäuse-Innennummer 8 6525, BT sowie der Zeitraum 1954–1958 angegeben. Acht BT-Register mit jeweils ungefähr 100 Seiten wurden geprüft; eine zum gezeigten Exemplar passende Prüfung ließ sich nicht identifizieren.' }
@@ -189,7 +189,7 @@ export const cymaChronometreLocalized = {
     table: {
       open: 'Beobachtete Exemplare anzeigen',
       count: 'Exemplare',
-      movementBand: 'WERKNR.-BEREICH',
+      movementBand: 'WERKNR. (MASKIERT)',
       sellerRef: 'ANGEGEBENE REF.',
       era: 'ZEITRAUM',
       dial: 'ZIFFERBLATT',
@@ -199,8 +199,8 @@ export const cymaChronometreLocalized = {
       markingNotVisible: 'Gravur nicht erkennbar',
       unknown: 'unbekannt',
       deletedRecord: 'gelöschter Eintrag',
-      sixIndex: 'Index bei 6 vorhanden',
-      noSixIndex: 'kein Index bei 6'
+      sixIndex: '6-Uhr-Index vorhanden',
+      noSixIndex: '6-Uhr-Index fehlt'
     },
     sourceHeading: 'Verwendete Quellen',
     backLabel: 'ZURÜCK ZUR CYMA TIME-O-VOX',

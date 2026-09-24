@@ -248,7 +248,19 @@
             "A record exists of chronometer certification being issued for a gold Time-O-Vox, confirming that a Time-O-Vox Chronomètre specification existed.",
             "It is still not possible to identify which surviving watch corresponds to which period certification record.",
             "Es existiert ein Eintrag über eine Chronometerzertifizierung für eine goldene Time-O-Vox",
-            "Welches erhaltene Exemplar zu welchem damaligen Zertifizierungsdatensatz gehört"
+            "Welches erhaltene Exemplar zu welchem damaligen Zertifizierungsdatensatz gehört",
+            "Observed Examples and Certification Records",
+            "Seventeen examples were documented across sale pages, literature, service articles, video and social media.",
+            "movement numbers are partially masked (e.g. 10xx)",
+            "dokumentierte Exemplare und Zertifizierungsunterlagen",
+            "Aus Verkaufsseiten, Fachliteratur, Reparaturberichten, Videos und sozialen Medien konnten 17 Exemplare dokumentiert werden.",
+            "WERKNR. (MASKIERT)"
+          ],
+          "mustNotContain": [
+            "Observed Specimens and Certification Records",
+            "could be checked across sale pages, literature, service articles, video and social media",
+            "beobachtete Exemplare und Zertifizierungsunterlagen",
+            "WERKNR.-BEREICH"
           ]
         }
       ],
@@ -264,14 +276,28 @@
           "path": "dist/en/cyma-time-o-vox/chronometre/index.html",
           "mustContain": [
             "Seventeen examples",
-            "UNRESOLVED"
+            "UNRESOLVED",
+            "Observed Examples and Certification Records",
+            "Seventeen examples were documented",
+            "MOV. No. BAND"
+          ],
+          "mustNotContain": [
+            "Observed Specimens and Certification Records",
+            "could be checked across sale pages"
           ]
         },
         {
           "path": "dist/de/cyma-time-o-vox/chronometre/index.html",
           "mustContain": [
             "17 Exemplare",
-            "OFFEN"
+            "OFFEN",
+            "dokumentierte Exemplare und Zertifizierungsunterlagen",
+            "17 Exemplare dokumentiert",
+            "WERKNR. (MASKIERT)"
+          ],
+          "mustNotContain": [
+            "beobachtete Exemplare und Zertifizierungsunterlagen",
+            "WERKNR.-BEREICH"
           ]
         }
       ]
