@@ -31,6 +31,81 @@ export type EnglishFullResearch = {
 };
 
 export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
+  'citizen-alarm': {
+    title: 'Citizen Alarm Cal. 980 — Japan’s First Bell-Ringing Alarm Wristwatch | VINTAGE ALARM',
+    description: 'Citizen Alarm Cal. 980: the 1958 Japanese bell-ringing alarm wristwatch with two barrels, twin crowns, rotating center alarm disc, double-caseback sound construction, later four-hand variants, specimen photographs and cited sources.',
+    specimenGallery: [
+      { image: '/images/IMG_1695.jpeg', label: 'Front — wrist shot', alt: 'Citizen Alarm Cal. 980 specimen, front wrist shot' },
+      { image: '/images/IMG_2088.jpeg', label: 'Crown side', alt: 'Citizen Alarm Cal. 980 specimen showing the two crowns' },
+      { image: '/images/IMG_2089.jpeg', label: 'Caseback', alt: 'Citizen Alarm Cal. 980 specimen caseback' }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: '1958 — Japan’s first alarm wristwatch',
+        paragraphs: [
+          'In the post-war years Citizen expanded its technical range by adding functions such as calendars and shock protection. In 1957 the company also developed its own automatic lathes and measuring equipment for watch-part production.',
+          'The following year was particularly busy. Citizen introduced the men’s automatic “Auto” in May 1958, the “Alarm” in June, and the thin high-grade “Super Deluxe” in August.',
+          'The Citizen Alarm was Japan’s first wristwatch with an audible bell alarm. It had separate barrels for timekeeping and the alarm; at the set time a hammer struck the back of the case. The alarm ran for about ten seconds. The earliest Cal. A was followed by Cal. 980.',
+          'In Switzerland at the time, water resistance, calendars, chronographs and alarms were increasingly used as product features. Citizen likewise introduced the Alarm as part of this broader move toward watches differentiated by function.',
+          'By 1958, Japanese wristwatches were competing not only on timekeeping, but on what else they could do.'
+        ],
+        citationRefs: ['3','3','1','2','2,3']
+      },
+      {
+        number: '02',
+        title: 'Citizen Cal. 980',
+        paragraphs: [
+          'Cal. 980, used in early Citizen Alarm watches, has two barrels: one for timekeeping and one for the alarm. The two crowns at 2 and 4 o’clock operate the two sides separately.',
+          'Its layout closely resembles the Swiss A. Schild AS 1475. Beitl raises the possibility that it began as a licensed derivative of AS 1475 and was subsequently modified and developed by Citizen. Early 980 examples are documented with 17 jewels and Parashock.',
+          'The alarm mechanism is also visible in the external design. Early watches use a rotating centre disc to indicate the alarm time, two large crowns on the right side of the case and a double-caseback construction that lets sound produced by the inner back escape through openings in the outer back.',
+          'The centre disc was not mechanically required by Cal. 980 itself. Later watches using the same calibre also appeared with a fourth hand to indicate the alarm time.'
+        ],
+        citationRefs: ['1,4','4,5','2','4']
+      },
+      {
+        number: '03',
+        title: 'From the centre disc to Four Hands',
+        paragraphs: [
+          'The rotating alarm-setting disc at the centre of the dial became one of the defining features of the first Citizen Alarm. Citizen itself presents the layout as a design intended to make the alarm indication easy to see and operate.',
+          'By around 1960, a “Four Hands” version had appeared, using a fourth hand to indicate the alarm time. It still used Cal. 980. Disc-type 980 watches also remained in production around the same period, so the centre disc did not disappear the moment the Four Hands version arrived.',
+          'A story often repeated in Japan says that the original design looked so much like Jaeger-LeCoultre’s Memovox that Jaeger-LeCoultre complained, prompting the switch to Four Hands. No supporting account for that sequence has been found in the Citizen sources, Beitl or Horlbeck used for this page.',
+          'Whatever actually happened between the first version and Four Hands remains undocumented in the sources checked here. The complaint story survives as a legend rather than a confirmed explanation.'
+        ],
+        citationRefs: ['2','4','1,2,4,5','1,2,4,5']
+      },
+      {
+        number: '04',
+        title: 'What came after the Citizen Alarm',
+        paragraphs: [
+          'The Citizen Alarm line did not end with Four Hands. Cal. 981 examples exist with “Alarm Date” printed on the dial even though they have no date window, and the later Cal. 3100 added a date display at 3 o’clock.',
+          'The family expanded further into Parawater and water-resistant versions, sports models, diver-style watches and women’s Alarm / Lady Alarm models.',
+          'Citizen’s own historical material carries the lineage into the early 1970s. The last development recorded there was not another wristwatch, but an alarm pocket watch.',
+          'The line that began in 1958 with Japan’s first bell-ringing wristwatch ultimately ended away from the wrist, in a pocket watch.'
+        ],
+        citationRefs: ['4','2,4','2','2']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'primary' },
+      { id: '2', type: 'primary' },
+      { id: '3', type: 'primary' },
+      { id: '4', type: 'reference' },
+      { id: '5', type: 'reference' }
+    ],
+    sources: [
+      'Citizen Watch, historical model entry “Alarm” (1958) — launch timing, Cal. A to Cal. 980, two barrels and approximately 10-second alarm duration.',
+      'CITIZEN DESIGN, “The Beauty of Utility / CITIZEN ALARM” (2024) — rotating centre disc, twin crowns, double caseback and later model development.',
+      'Citizen Watch, product and technology history — 1950s product launches and in-house automatic-lathe / measurement technology.',
+      'Leonhard Beitl, Alarm am Arm (2009), pp. 122–125 and movement table — Cal. 980, Four Hands, Alarm Date and later Citizen alarm models.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), pp. 26, 80–83, 95–96 — AS 1475 relationship and Citizen alarm calibres.'
+    ],
+    related: {
+      href: '/en/basis-alarm/',
+      name: 'BASIS ALARM',
+      reason: 'Another early alarm solution, but built around a very different two-barrel operating system and visible winding indicators.'
+    }
+  },
   'basis-alarm': {
     title: 'Basis Alarm BFG 90 — Twin-Barrel Mechanical Alarm | VINTAGE ALARM',
     description: 'Basis Alarm with Baumgartner BFG 90: two barrels wound in the same direction from one crown, slipping clutches, twin winding indicators, rotating-bezel alarm setting, specimen photographs, original alarm sound and cited sources.',
