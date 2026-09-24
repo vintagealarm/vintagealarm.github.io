@@ -17,6 +17,15 @@
 
 ## 2026-09-24
 
+### 2026-09-24 22:54 JST — llms.txtへAI向けのサイト性格・証拠取扱いを明示
+- **変更**：人向けABOUTページやメインナビを追加せず、`public/llms.txt` に独立運営であること、非販売・非鑑定・非メーカー公式アーカイブであること、OWNER'S NOTESが主に所有・観察個体を扱うこと、選択バイアス、証拠種別の分離、資料差の保持、n=1観察・測定・音源の一般化禁止、訂正の証拠レビュー方針を追記した。
+- **理由**：サイト内部では研究ルール・多言語・音源・計測・CI・訂正受付が定義済みだが、AI / crawlerがサイト全体を解釈するときに「誰が・何の目的で・何をどこまで保証するか」を機械可読な入口で一括取得できなかったため。一般読者向けに運営者説明を前面化する必要はないと判断した。
+- **旧状態・棄却**：人向けABOUTページを新設し、TOPや共通ナビから運営思想を説明する案は棄却。既存の公開UIは研究内容そのものを前面に置き、運営定義はllms.txt内だけに置く。
+- **影響範囲**：`public/llms.txt` のみ。TOP / HISTORY / MILESTONES / OWNER'S NOTES / HOW THEY RING / SOURCES、共通ナビ、sitemap、公開HTML本文・デザインは変更しない。
+- **検証状態**：branchでAstro build成功。PR CIのdecision-log gateで本台帳追記が必要と判明したため追加し、全Astro foundation checkを再実行して確認する。
+- **関連**：implementation commit `1bf1697d` / branch `feat/llms-site-identity` / PR #120。
+- **日時根拠**：GitHub implementation commit `2026-09-24T13:54:56Z → 2026-09-24 22:54 JST`。実装commit時刻を見出し時刻に採用。
+
 ### 2026-09-24 21:32 JST — localized routeの可視日本語漏れを生成HTMLで禁止
 - **変更**：EN / DE OWNER'S NOTESの年代ラベルをlocalized WATCH specから取得し、HOW THEY RINGのキャリバー表示・録音ラベル・区切り記号もlocale別表示へ切替。さらに全EN / DE生成HTMLの可視テキストとuser-facing属性を走査し、言語切替「日本語」と明示許可した固有名を除く日本語文字・日本語式全角記号が残ればCIを失敗させる `check:localization-purity` を追加した。
 - **理由**：翻訳本文自体が正しくても、`owners-directory.json` の `ownedEra`、日本語WATCH正本の `spec.caliber`、HOW THEY RING録音CMSの生ラベル、共通テンプレートの全角区切り記号が別経路でlocalized routeへ流入していた。具体的にWittnauerの「1950年代前半」、Citizenの「同型資料」「シチズンアラーム」、Basisの全角括弧が本番で確認された。
