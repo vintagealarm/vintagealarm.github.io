@@ -31,6 +31,148 @@ export type EnglishFullResearch = {
 };
 
 export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
+  'wittnauer-10wa': {
+    title: 'Wittnauer Cal. 10WA — Bezel-Wound Mechanical Alarm | VINTAGE ALARM',
+    description: 'Wittnauer Cal. 10WA from the early 1950s: two barrels, a dial-side alarm module, a rotating bezel that both winds the alarm and sets its time, surviving variants, a 1952 patent comparison, specimen photographs, original alarm sound and cited sources.',
+    specimenGallery: [
+      {
+        image: '/images/IMG_5792.jpeg',
+        label: 'Front — wrist shot',
+        alt: 'Wittnauer Cal. 10WA specimen, front wrist shot'
+      },
+      {
+        image: '/images/IMG_7643.jpeg',
+        label: 'Original pyramid-shaped crown',
+        alt: 'Wittnauer Cal. 10WA original pyramid-shaped crown'
+      },
+      {
+        image: '/images/IMG_6609.jpeg',
+        label: 'Movement',
+        alt: 'Wittnauer Cal. 10WA timekeeping movement visible from the back'
+      },
+      {
+        image: '/images/IMG_5752.jpeg',
+        label: 'Caseback',
+        alt: 'Wittnauer Cal. 10WA specimen caseback'
+      },
+      {
+        image: '/images/IMG_5755.jpeg',
+        label: 'Inside caseback',
+        alt: 'Inside of the Wittnauer Cal. 10WA specimen caseback'
+      }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: 'About Wittnauer',
+        paragraphs: [
+          'Wittnauer’s history can be traced to the Swiss-watch importing business run by J. Eugene Robert in New York. According to Hans Weil, Albert Wittnauer was born in 1856, moved to New York at age sixteen in 1872 and joined Robert’s business. André Francillon’s history of Longines records that Robert and Albert became partners in 1885 and that the business passed to Albert in 1890.',
+          'Wittnauer did not manufacture every part of every watch entirely in-house. Horlbeck records watches using movements from Longines and Girard-Perregaux, as well as examples assembled and adjusted in the United States from Swiss-made components and fitted into American-made cases.',
+          'For Cal. 10WA, however, the identity of the underlying timekeeping movement is itself disputed in the sources, as discussed below.'
+        ],
+        citationRefs: ['11,12', '1', '1,2,4,5']
+      },
+      {
+        number: '02',
+        title: 'Wittnauer’s first alarm: the 10WA',
+        paragraphs: [
+          'Leonhard Beitl presents Cal. 10WA as Wittnauer’s first alarm wristwatch. He places it in the early 1950s and describes a 17-jewel, 18,000-vph, two-barrel manually wound alarm movement.',
+          'The first unusual feature is the way the alarm side is operated. Ordinary time setting and winding of the timekeeping side are handled by the crown. The alarm time, however, is set with the rotating bezel: turning the bezel counter-clockwise moves the alarm hand on the dial.',
+          'The bezel does not only set the alarm time. The same rotation also winds the alarm mainspring. On the 10WA, deciding when the alarm should sound and storing the energy needed to make it sound are combined in a single operation.',
+          'According to Horlbeck, the alarm side reaches full wind after roughly one and a half turns of the bezel and then stops. Continuing to force the bezel while fully wound risks damaging the teeth of the transmission wheel. The specimen shown here has also experienced a fault in this operating train once, so stopping at about one turn is the cautious operating practice used on this watch.',
+          'Giving one bezel two jobs is both one of the 10WA’s most distinctive ideas and one reason it requires a little more care in use.'
+        ],
+        citationRefs: ['1,2', '1,2', '1,2', '1,13', '1,2']
+      },
+      {
+        number: '03',
+        title: 'Inside Cal. 10WA',
+        paragraphs: [
+          'The 10WA gives the timekeeping mechanism and the alarm mechanism separate barrels. The alarm works as a module stacked on the dial side of a conventional timekeeping movement, with its own barrel, setting train and hammer.',
+          'The unresolved question is what timekeeping movement sits underneath. Horlbeck describes it as based on a manually wound Longines calibre, and Beitl likewise calls it a “Longines-Basiskaliber”. In 2025 HODINKEE also described the 10WA as a modular alarm movement based on Longines Cal. 10. The Longines attribution therefore appears not only in specialist books but also in later watch-media reporting.',
+          'Repair-parts literature provides a different clue. In the 1966 C. & E. Marshall Handy Manual, Wittnauer 10WA and Wittnauer 10S share major timekeeping-side parts including the mainspring, balance staff, winding stem, roller table and pallet staff. The 10WA is separately listed with its own alarm mainspring.',
+          'A 1969 American Watchmakers Institute reference identifies Wittnauer 10S with AS 1200. The Marshall interchange listings therefore show a close relationship between 10WA and 10S, while AWI links 10S to AS 1200.',
+          'In other words, the 10WA’s timekeeping side shows strong interchange evidence pointing toward the 10S / AS 1200 family, while specialist books retain the Longines-base attribution.',
+          'With the sources currently available, the conflict cannot be resolved: the timekeeping base of the 10WA cannot yet be identified with certainty as either Longines or the 10S / AS 1200 family.'
+        ],
+        citationRefs: ['1,2', '1,2,14', '4', '4,5', '1,2,4,5,14', '1,2,4,5,14']
+      },
+      {
+        number: '04',
+        title: 'The 1952 patent and the production 10WA',
+        paragraphs: [
+          'A key document when studying the 10WA is Swiss patent CH304088A. It was filed in the name of Marcel Bliss on 4 December 1952 and published on 31 December 1954.',
+          'The patent shows an alarm mechanism mounted on the dial side, separate from the ordinary timekeeping movement. A rotating bezel drives the internal gearing to wind the alarm barrel, and rotation of the same bezel also sets the alarm time.',
+          'A separate dial-side alarm mechanism, bezel winding and alarm-time setting with that same bezel all closely resemble the production 10WA. However, the patent is in Marcel Bliss’s name and the bibliographic record does not name Wittnauer. No assignment, licence or other document directly connecting the patent to Wittnauer has yet been found.',
+          'The clearest difference appears after full wind. CH304088A shows a slipping bridle at the outer end of the alarm mainspring so that the bezel can continue to rotate and the alarm time can still be changed after the spring has reached full wind.',
+          'By contrast, Horlbeck records that the production 10WA stops when the alarm mainspring becomes fully wound. Forcing it further may damage the teeth of the transmission wheel.',
+          'The patent therefore includes a way to keep operating the bezel after full wind; the production 10WA, as documented by Horlbeck, stops at full wind.',
+          'The inside of a production 10WA alarm barrel has not yet been directly verified in the sources used here, so it cannot be stated that the production movement definitively lacks a slipping bridle. Even so, the documented behaviour of the production watch differs from the behaviour described in the patent.',
+          'They are very similar, but they are not the same.'
+        ],
+        citationRefs: ['3', '3', '1,2,3', '3', '1', '1,3', '1,3', '1,3']
+      },
+      {
+        number: '05',
+        title: 'By 1955, Wittnauer also had an AS alarm',
+        paragraphs: [
+          'Beitl presents the 10WA as an early-1950s model. At the same time, he records a Wittnauer alarm from 1955 fitted with AS 1475 and describes it as one of the early examples of Wittnauer using an AS alarm calibre.',
+          'The exact start and end dates of 10WA production are not known. The AS 1475 watch therefore cannot simply be called its successor, and the circumstances behind any transition between the two systems remain unclear.',
+          'What can be said is that the 10WA existed in the early 1950s and that by 1955 at least one Wittnauer alarm wristwatch using AS 1475 also existed. Two different alarm approaches are therefore documented within a closely overlapping period.'
+        ],
+        citationRefs: ['2', '2', '2']
+      },
+      {
+        number: '06',
+        title: '10WA variants',
+        paragraphs: [
+          'The 10WA survives in several external configurations as well as in its unusual mechanism. Beitl illustrates a stainless-steel case with a light-coloured dial, along with black-dial and gold-coloured examples; the black dial is presented as a particularly uncommon variant.',
+          'Among surviving Ref. 1216 watches, multiple examples are explicitly marked “10K GOLD FILLED” and paired with stainless-steel casebacks. Stainless-steel 10WA examples also survive.',
+          'For reference numbers, surviving sales records confirm Ref. 1215 and Ref. 1216. Another observation record uses the designation Ref. 1216A, but an independently confirmed surviving example carrying that reference has not yet been located.',
+          'Beitl also illustrates a Longines-signed Cal. 10WA and dates it to 1956. His account of how Longines came to sell the watch remains partly speculative.',
+          'The same Cal. 10WA therefore survives in several different external forms: one mechanism was cased and presented in notably different ways.'
+        ],
+        citationRefs: ['2', '6,7,8', '6,7,9,10', '2', '2,6,7,8,9,10']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'reference' },
+      { id: '2', type: 'reference' },
+      { id: '3', type: 'primary' },
+      { id: '4', type: 'reference' },
+      { id: '5', type: 'reference' },
+      { id: '6', type: 'provenance' },
+      { id: '7', type: 'provenance' },
+      { id: '8', type: 'provenance' },
+      { id: '9', type: 'provenance' },
+      { id: '10', type: 'provenance' },
+      { id: '11', type: 'reference' },
+      { id: '12', type: 'reference' },
+      { id: '13', type: 'owner' },
+      { id: '14', type: 'reference' }
+    ],
+    sources: [
+      'Michael Philip Horlbeck, The Alarm Wrist Watch (Schiffer Publishing, 2007), pp. 152–153, Wittnauer / Cal. 10WA sections — two barrels, bezel operation, Longines-base attribution, full-wind warning, and Wittnauer manufacturing / sourcing background.',
+      'Leonhard Beitl, Alarm am Arm (2009), pp. 295, 499–500, 629, Wittnauer / Longines sections — 10WA, “Longines-Basiskaliber” attribution, early-1950s dating, Wittnauer with AS 1475, external variants and Longines-signed 10WA.',
+      'Swiss patent CH304088A, Marcel Bliss, filed 1952-12-04, published 1954-12-31 — dial-side alarm mechanism, bezel winding + setting, slipping bridle. https://patents.google.com/patent/CH304088A/en',
+      'C. & E. Marshall, Handy Manual (1966), Wittnauer interchange listings — shared timekeeping-side parts between 10S / 10WA and a separate alarm mainspring for 10WA. https://www.phfactor.net/wtf/Marshall%20Handy%20Manual/Marshall%202.pdf',
+      'American Watchmakers Institute, Technical Bulletin / AWI News (1969), Wittnauer 10S = AS 1200. https://www.awci.com/wp-content/uploads/2018/01/10-1969-AWI-News.pdf',
+      'Anti-Watchman, Wittnauer Alarm Watch Ref. 1216, 10K GOLD FILLED / SS. https://antiwatchman.com/products/detail.php?product_id=10821',
+      'Meticulous Watches, Wittnauer Alarm Watch Ref. 1216, 10k gold filled / stainless steel back. https://meticulouswatches.com/products/wittnauer-alarm-watch-bezel-set-cal-10wa-sold-265',
+      'Sweetroad, surviving Wittnauer 10WA stainless-case example. https://www.sweetroad.com/view/item/000000009921',
+      'Private Eyes / Antiquorum surviving Ref. 1215 examples — confirmation of the Ref. 1215 designation.',
+      'EveryWatch / Mister Wolf surviving Ref. 1216A / Ref. 1216 observation records — surviving-reference observations; independent reconfirmation of Ref. 1216A remains pending.',
+      'André Francillon, History of Longines — records J. Eugene Robert and Albert Wittnauer becoming partners in 1885 and the business passing to Albert in 1890. https://theindex.nawcc.org/Articles/Francillon.pdf',
+      'Hans Weil, Wittnauer history — Albert Wittnauer born in 1856, moved to New York at age sixteen in 1872; partnership with Robert in 1885; A. Wittnauer from 1890. https://hans-weil.faszination-uhrwerk.de/wittnauer.pdf',
+      'OWNER OBSERVATION / repair record for the shown specimen — the alarm-side bezel operating train has experienced one fault.',
+      'Rich Fordon, HODINKEE, “Bring a Loupe: A Parmigiani Fleurier Toric Memory Time, A Cartier Trianon, And Two Picks From Goodwill” (2025-08-15), “1950s Wittnauer Alarm Watch With Caliber 10WA” section — describes Cal. 10WA as a modular alarm movement based on Longines Cal. 10. https://www.hodinkee.com/articles/bring-a-loupe-august-15-2025'
+    ],
+    related: {
+      href: '/en/cyma-time-o-vox/',
+      name: 'CYMA TIME-O-VOX',
+      reason: 'Another early-1950s answer to the same problem: one barrel, two pushers, and the alarm integrated in a very different way.'
+    }
+  },
   'pierce-duofon': {
     title: 'Pierce Duofon Cal. 135 — Two-Stage Mechanical Alarm | VINTAGE ALARM',
     description: 'Pierce Duofon with Cal. 135: two barrels, selectable WECKER / SIGNAL alarm modes, red/white indicator, model evolution, Gruen Duo-Tone relationship, specimen photographs, original alarm sound and sources.',
