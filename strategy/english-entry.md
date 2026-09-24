@@ -16,9 +16,9 @@
 
 Wittnauer Cal.10WAの日本語WATCHは公開済みだが、英語WATCHページはまだ作っていない。英語HOW THEY RINGからは日本語WATCHへフォールバックする。
 
-英語入口は `/en/`、`/en/history/`、`/en/how-they-ring/`、`/en/<watch>/` に置く。
+英語入口は `/en/`、`/en/history/`、`/en/owners-notes/`、`/en/how-they-ring/`、`/en/<watch>/` に置く。
 
-`/en/` は日本語TOPと同じVINTAGE ALARMの入口構造を英語化し、その下に英語化済みWATCH一覧をOWNER'S NOTESとして置く。HOW THEY RINGも日本語正本のGONG / CASEBACK 2分類、FIG.01–04、実機音、録音条件、資料注記を同じ構造で公開する。
+`/en/` は日本語TOPと同じVINTAGE ALARMの入口構造だけを英語化する。英語化済みWATCH一覧はTOPへ埋め込まず、`/en/owners-notes/` に分離する。HOW THEY RINGも日本語正本のGONG / CASEBACK 2分類、FIG.01–04、実機音、録音条件、資料注記を同じ構造で公開する。
 
 ## 現在の公開深度
 
@@ -101,7 +101,8 @@ Pierce創業年の1888→1883修正で起きたようなrevision driftを再発�
 
 - 日本語: `/<slug>/`
 - 英語入口 / 英語版: `/en/<slug>/`
-- 英語一覧: `/en/`
+- 英語TOP: `/en/`
+- 英語OWNER'S NOTES一覧: `/en/owners-notes/`
 
 5 WATCHの日本語ページと英語URLは相互リンクし、`hreflang="ja" / "en" / "x-default"` を設定する。
 
