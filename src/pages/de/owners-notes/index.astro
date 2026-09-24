@@ -5,6 +5,7 @@ import SectionMast from '../../../components/SectionMast.astro';
 import OwnerThumbnailFrame from '../../../components/OwnerThumbnailFrame.astro';
 import OwnerFonts from '../../../components/OwnerFonts.astro';
 import ownersDirectory from '../../../data/owners-directory.json';
+import { ownersDirectoryLocalizedEra } from '../../../data/owners-directory-localized';
 import { germanWatchEntriesWithCyma } from '../../../data/cyma-localizations';
 import '../../../styles/site.css';
 import '../../../styles/owners-v15.css';
@@ -23,7 +24,9 @@ const entries = ownersDirectory.entries
       brand: watch.data.brand,
       name: watch.data.model,
       href: `/de/${watch.data.slug}/#owners-note`,
-      ownedEra: meta.ownedEra !== meta.ownedGroup ? localized.spec.era : meta.ownedEra,
+      ownedEra: meta.ownedEra !== meta.ownedGroup
+        ? ownersDirectoryLocalizedEra.de[meta.historyId] ?? localized.spec.era
+        : meta.ownedEra,
       directoryCatch: localized.indexBlurb
     }];
   })
