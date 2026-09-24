@@ -11,6 +11,8 @@ const mustExist = [
   'x/index.html',
   'history/index.html',
   'history/smartwatch/index.html',
+  'en/history/smartwatch/index.html',
+  'de/history/smartwatch/index.html',
   'owners-notes/index.html',
   'robots.txt',
   'sitemap.xml',
@@ -56,6 +58,15 @@ const englishHowTheyRingHtml = fs.existsSync(path.join(dist, 'en/how-they-ring/i
   : '';
 const germanHowTheyRingHtml = fs.existsSync(path.join(dist, 'de/how-they-ring/index.html'))
   ? fs.readFileSync(path.join(dist, 'de/how-they-ring/index.html'), 'utf8')
+  : '';
+const japaneseSmartwatchHtml = fs.existsSync(path.join(dist, 'history/smartwatch/index.html'))
+  ? fs.readFileSync(path.join(dist, 'history/smartwatch/index.html'), 'utf8')
+  : '';
+const englishSmartwatchHtml = fs.existsSync(path.join(dist, 'en/history/smartwatch/index.html'))
+  ? fs.readFileSync(path.join(dist, 'en/history/smartwatch/index.html'), 'utf8')
+  : '';
+const germanSmartwatchHtml = fs.existsSync(path.join(dist, 'de/history/smartwatch/index.html'))
+  ? fs.readFileSync(path.join(dist, 'de/history/smartwatch/index.html'), 'utf8')
   : '';
 const sitemap = fs.existsSync(path.join(dist, 'sitemap.xml'))
   ? fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8')
@@ -140,6 +151,22 @@ for (const [name, html, lang, pathName] of [
   if (!html.includes("OWNER'S NOTES")) failures.push(`${name}: heading missing`);
   if (!html.includes('owner-frame')) failures.push(`${name}: owner image cards missing`);
   if (!sitemap.includes(`https://vintagealarm.github.io/${pathName}`)) failures.push(`${pathName}: missing from sitemap`);
+}
+
+for (const [name, html, lang, marker] of [
+  ['JA SMARTWATCH', japaneseSmartwatchHtml, 'ja', 'まだ、足りませんか。'],
+  ['EN SMARTWATCH', englishSmartwatchHtml, 'en', 'Still not enough?'],
+  ['DE SMARTWATCH', germanSmartwatchHtml, 'de', 'Reicht es immer noch nicht?']
+]) {
+  if (!html.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
+  if (!html.includes('noindex,follow')) failures.push(`${name}: noindex,follow missing`);
+  if (!html.includes(marker)) failures.push(`${name}: localized epilogue marker missing: ${marker}`);
+}
+if (!historyHtml.includes('href="/history/smartwatch/"')) failures.push('HISTORY: Japanese SMARTWATCH link missing');
+if (!englishHomeHtml || !englishSmartwatchHtml) failures.push('EN SMARTWATCH: localized output missing');
+if (!germanHomeHtml || !germanSmartwatchHtml) failures.push('DE SMARTWATCH: localized output missing');
+for (const route of ['history/smartwatch/', 'en/history/smartwatch/', 'de/history/smartwatch/']) {
+  if (sitemap.includes(`https://vintagealarm.github.io/${route}`)) failures.push(`${route}: noindex SMARTWATCH route leaked into sitemap`);
 }
 
 for (const stale of ['鐘から現在まで。アラーム腕時計の歴史を読む', '所有個体を、実機・操作・音から読む']) {
