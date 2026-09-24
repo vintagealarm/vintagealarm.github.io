@@ -78,7 +78,7 @@ const sample = {
 const fallback = buildAiFallbackFragment(sample);
 assert(fallback.startsWith('VA2;window=7d;range=7d;bucket=1d;'), 'portable snapshot range/bucket prefix missing');
 assert(fallback.includes('quality=SAMPLED_/_ESTIMATE;sample=10;sampleParts=1/1/1/10/1/1/1;coverage=1/1/1/1/1/1'), 'portable snapshot sampling/coverage metadata missing');
-assert(fallback.includes(';integrity=PASS;'), 'portable snapshot integrity status missing');
+assert(fallback.includes(';structSample=1/10;structCoverage=1/1;integrity=PASS;'), 'portable snapshot structural sampling/coverage/integrity metadata missing');
 assert(fallback.includes('visits=68;pageviews=80'), 'portable snapshot totals missing');
 assert(fallback.includes('new=63/75;old=5/5;previous=10/10'), 'host or previous totals missing');
 assert(fallback.includes('x=19'), 'portable snapshot channel totals missing');
