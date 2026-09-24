@@ -31,6 +31,168 @@ export type EnglishFullResearch = {
 };
 
 export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
+  'basis-alarm': {
+    title: 'Basis Alarm BFG 90 — Two-Barrel Bezel-Set Alarm | VINTAGE ALARM',
+    description: 'Basis Alarm with Baumgartner BFG 90: two barrels wound from one crown in the same direction, sliding clutches, two winding indicators, rotating-bezel alarm setting, specimen photographs, original alarm sound and cited sources.',
+    specimenGallery: [
+      { image: '/images/IMG_8890-1.jpeg', label: 'Front — wrist shot', alt: 'Basis Alarm BFG 90 specimen, front wrist shot' },
+      { image: '/images/IMG_9196.jpeg', label: 'Alarm hand and rotating bezel', alt: 'Basis Alarm BFG 90 alarm hand linked directly to the rotating bezel' },
+      { image: '/images/IMG_1969.jpeg', label: '9 o’clock alarm ON/OFF slider', alt: 'Basis Alarm BFG 90 alarm ON/OFF slider at 9 o’clock' },
+      { image: '/images/IMG_1968.jpeg', label: 'Caseback', alt: 'Basis Alarm BFG 90 specimen caseback' },
+      { image: '/images/70957643-C7C5-4A86-B1BF-11AB18A28299-2.jpeg', label: 'Movement', alt: 'Baumgartner BFG 90 movement in the Basis Alarm specimen' }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: 'Baumgartner Frères — engineering for the mass market',
+        paragraphs: [
+          'Baumgartner Frères was an ébauche maker that supplied movements to other watch companies. Many BFG movements were designed for relatively affordable watches, and the pin-lever escapement was one part of that approach.',
+          'The BFG 90 uses a pillar construction. Building the movement from flat plates separated by pillars reduced the need for more complex machining. The hand-setting mechanism was also placed on the movement side instead of being recessed beneath the dial, while the coupling lever itself was shaped to provide its own spring action rather than relying on a separate spring.',
+          'The balance appears at first glance to carry screw-like projections around its rim. They are not screws: they are integral half-round bosses formed as part of the balance.',
+          'Machining that could be avoided was avoided, and parts that could be eliminated were eliminated. The ingenuity of the BFG 90 lies in a different place from the finishing priorities of a high-grade movement.'
+        ],
+        citationRefs: ['2', '2', '2', '2']
+      },
+      {
+        number: '02',
+        title: 'One crown, one direction, two barrels',
+        paragraphs: [
+          'The BFG 90 has separate barrels for timekeeping and the alarm. Two barrels are not unusual by themselves. What is unusual is how they are wound: one crown winds both in the same direction.',
+          'The wearer does not choose the timekeeping barrel or alarm barrel by reversing the crown. Both are wound simply by continuing in the same direction. The two mainsprings will not necessarily reach full wind at the same moment, so once one is fully wound the mechanism must still allow the other to keep winding without continuing to load the first spring.',
+          'The BFG 90 solves this with a sliding clutch in the winding mechanism of each barrel. Once one spring reaches full wind, that side can slip while winding continues on the other side.',
+          'Each ratchet wheel is made in two parts and the pair is pressed together by a cross-shaped spring. During normal winding they rotate together; once the mainspring is fully wound, the driven part begins to slip.',
+          'The result is that reaching full wind on one barrel does not end the winding operation. That side can slip while the remaining barrel is wound to full tension.'
+        ],
+        citationRefs: ['1,2', '2', '2', '2', '2']
+      },
+      {
+        number: '03',
+        title: 'Why there are two winding windows',
+        paragraphs: [
+          'A sliding clutch prevents overwinding, but it does not make the winding feel disappear. On the specimen shown here, resistance rises as a spring approaches full wind and can feel much like a conventional winding stop.',
+          'Without knowing the mechanism, that resistance invites the wearer to stop. Yet on the BFG 90 one barrel may already be fully wound while the other still has capacity. In that situation winding continues by allowing the clutch on the full barrel to slip while the other spring keeps taking power.',
+          'That can feel slightly alarming if the mechanism is unfamiliar: the crown is being turned beyond the point that feels as though the watch is already fully wound.',
+          'The two small dial windows solve that problem. On this Basis specimen the window at 1 o’clock corresponds to the timekeeping barrel and the one at 5 o’clock to the alarm barrel. Each barrel drives a coloured disc while it is being wound; when that spring reaches full wind, its disc stops.',
+          'These are not power-reserve displays that show how much running time remains. They are winding indicators that tell the wearer which spring is still being wound and which one has reached full tension.',
+          'The two barrels, sliding clutches and winding windows therefore form one connected system: one crown winds both barrels in the same direction; a full barrel is allowed to slip; the crown can continue turning to wind the other barrel; and the two windows show when each side has finished winding.'
+        ],
+        citationRefs: ['3', '2,3', '3', '1,2,3', '1,2', '2,3']
+      },
+      {
+        number: '04',
+        title: 'One BFG 90, many faces',
+        paragraphs: [
+          'The BFG 90 was not exclusive to Basis. The same movement appeared under a number of brands, including Lantex, Sheffield, Simplon and Tior.',
+          'The watches can look very different despite sharing the same movement. Sheffield and Lantex examples include relatively slim, decorative cases, while Simplon and Tior examples can be larger and more substantial. Lug shapes, bezels and dial treatments also vary by brand.',
+          'Even so, watches using the BFG 90 tend to share several visible clues: the rotating bezel, the ON/OFF slider around 9 o’clock and the two winding-indicator windows. The movement architecture shows through into the case and dial design.',
+          'One movement became many different watches as brand names and exterior designs changed — a particularly visible example of Baumgartner Frères’ role as an ébauche supplier.'
+        ],
+        citationRefs: ['1,2', '2', '1,2', '1,2']
+      },
+      {
+        number: '05',
+        title: 'BFG 90 → BFG 902 — the external controls disappear',
+        paragraphs: [
+          'The later BFG 902 simplified the controls used on the BFG 90. On the BFG 90 the alarm time is set with a rotating bezel and the alarm is switched ON or OFF with a slider at 9 o’clock. On the BFG 902, alarm-time setting moved to the crown.',
+          'Turning the crown in one direction winds both barrels; turning it in the opposite direction moves the alarm setting. The rotating bezel was no longer needed, and the 9 o’clock slider disappeared as well.',
+          'With the separate slider gone, stopping the alarm also changed. The alarm is cancelled by moving the set alarm time instead. Later versions also appeared with shock protection.',
+          'The change from BFG 90 to BFG 902 is better understood as simplification and rationalisation than as a move upmarket. The basic idea of handling two barrels through one crown remained, while the bezel and slider that had been exposed on the outside were removed.',
+          'The controls that had been spread around the BFG 90 gradually moved back inside the watch.'
+        ],
+        citationRefs: ['1', '1', '1', '1', '1']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'reference' },
+      { id: '2', type: 'reference' },
+      { id: '3', type: 'owner' }
+    ],
+    sources: [
+      'Leonhard Beitl, Alarm am Arm (2009), pp. 20, 87, 109, 172, 308, 398, 419, 622 — BFG 90 / BFG 902, Basis / Fabry / Maxor / Triwera, operation and specifications.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), pp. 88–91, 168–170 — BFG 90 pillar construction, sliding clutches, winding indicators and brand / case variants.',
+      'OWNER OBSERVATION — resistance during winding and the behaviour of the winding-indicator discs at 1 and 5 o’clock on the specimen shown here.'
+    ],
+    related: {
+      href: '/en/westclox-watchlarm/',
+      name: 'WESTCLOX WATCHLARM',
+      reason: 'Another mass-market answer to the alarm wristwatch, but with zero jewels, one barrel and push-button alarm setting.'
+    }
+  },
+  'citizen-alarm': {
+    title: 'Citizen Alarm Cal. 980 — Japan’s First Domestic Alarm Wristwatch | VINTAGE ALARM',
+    description: 'Citizen Alarm from 1958: Japan’s first domestically produced alarm wristwatch, Cal. 980, two barrels, twin crowns, a rotating centre alarm disc, double-caseback sound construction, later Four Hands variants and cited sources.',
+    specimenGallery: [
+      { image: '/images/IMG_1695.jpeg', label: 'Front — wrist shot', alt: 'Early Citizen Alarm specimen, front wrist shot' },
+      { image: '/images/IMG_2088.jpeg', label: 'Crown side', alt: 'Citizen Alarm specimen showing the two crowns' },
+      { image: '/images/IMG_2089.jpeg', label: 'Caseback', alt: 'Citizen Alarm specimen caseback' }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: '1958 — Japan’s first alarm wristwatch',
+        paragraphs: [
+          'In the post-war years Citizen expanded its watchmaking capabilities while adding functions such as calendars and shock protection. In 1957 the company was also developing its own automatic lathes and measuring equipment for watch-part production.',
+          'The following year brought several new products in quick succession: the men’s automatic “Auto” in May 1958, the “Alarm” in June and the thin high-grade “Super Deluxe” in August.',
+          'The Citizen Alarm was Japan’s first domestically produced wristwatch with an audible alarm. It has separate barrels for timekeeping and the alarm, and at the set time a hammer strikes the caseback. Citizen records an alarm duration of about ten seconds. The early Cal. A was followed by Cal. 980.',
+          'In Switzerland at the time, additional functions such as water resistance, calendars, chronographs and alarms had become important product features. Citizen likewise introduced the Alarm as one of its watches built around a specialised function.',
+          'By 1958, Japanese wristwatches were no longer competing only on the basic task of telling time; manufacturers were increasingly able to compete through mechanical functions as well.'
+        ],
+        citationRefs: ['3', '3', '1', '2', '2,3']
+      },
+      {
+        number: '02',
+        title: 'Citizen Cal. 980',
+        paragraphs: [
+          'Cal. 980, used in early Citizen Alarm watches, has two barrels: one for timekeeping and one for the alarm. The two mechanisms are operated from the crowns at 2 and 4 o’clock.',
+          'Its layout closely resembles the Swiss A. Schild Cal. AS 1475. Beitl raises the possibility that it began as a licensed copy of the AS 1475 and was subsequently modified and improved by Citizen. Early Cal. 980 examples with 17 jewels and Parashock are documented.',
+          'The alarm mechanism also shaped the appearance of the earliest watches. A rotating disc in the centre of the dial indicates the alarm time, while two large crowns sit on the right side of the case. Early examples also use a double-caseback construction, allowing the sound generated at the inner back to escape through openings in the outer back.',
+          'The centre disc was not required by Cal. 980 itself. Later watches using the same movement also appeared with a fourth hand indicating the alarm time.'
+        ],
+        citationRefs: ['1,4', '4,5', '2', '4']
+      },
+      {
+        number: '03',
+        title: 'From the centre disc to Four Hands',
+        paragraphs: [
+          'One of the defining visual features of the first Citizen Alarm is the rotating alarm-setting disc at the centre of the dial. The entire disc turns to indicate the set alarm time; Citizen itself presents the design as one intended to make the alarm easy to read and operate.',
+          'By around 1960, “Four Hands” models appeared, indicating the alarm time with a fourth hand. These watches still used Cal. 980. Disc-set Cal. 980 watches also remained in circulation during the same period, so the arrival of Four Hands did not instantly eliminate the centre-disc design.',
+          'A story often repeated in Japan says that the original design looked so similar to the Memovox that Jaeger-LeCoultre complained, prompting Citizen to switch to the Four Hands layout. No supporting account for that sequence has been confirmed in Citizen’s official material, Beitl or Horlbeck.',
+          'What happened between the centre-disc version and Four Hands remains undocumented in the sources used here. The Jaeger-LeCoultre complaint survives as a story, not as a confirmed explanation.'
+        ],
+        citationRefs: ['2', '4', '1,2,4,5', '1,2,4,5']
+      },
+      {
+        number: '04',
+        title: 'What came after the first Citizen Alarm',
+        paragraphs: [
+          'The Citizen Alarm line did not end with Four Hands. Transitional Cal. 981 examples exist with “Alarm Date” printed on the dial despite having no date window; the later Cal. 3100 added a date display at 3 o’clock.',
+          'The family expanded further into Parawater and other water-resistant versions, sports models, diver-style watches and women’s Alarm / Lady Alarm models.',
+          'Citizen’s official history traces the line into the early 1970s. The last model in that lineage was not a wristwatch but an alarm pocket watch.',
+          'The family that began in 1958 as Japan’s first domestically produced alarm wristwatch ultimately ended away from the wrist, as a pocket watch.'
+        ],
+        citationRefs: ['4', '2,4', '2', '2']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'primary' },
+      { id: '2', type: 'primary' },
+      { id: '3', type: 'primary' },
+      { id: '4', type: 'reference' },
+      { id: '5', type: 'reference' }
+    ],
+    sources: [
+      'Citizen Watch, historical model “Alarm” (1958) — launch timing, Cal. A → 980, two barrels and approximately ten seconds of alarm operation.',
+      'CITIZEN DESIGN, “The Beauty of Utility / CITIZEN ALARM” (2024) — rotating centre disc, twin crowns, double caseback and later model development.',
+      'Citizen Watch, product and technology history — product releases in the 1950s and Citizen’s development of automatic lathes and measuring technology.',
+      'Leonhard Beitl, Alarm am Arm (2009), pp. 122–125 and movement table — Cal. 980, Four Hands, Alarm Date and subsequent models.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), pp. 26, 80–83, 95–96 — AS 1475 relationship and Citizen alarm calibres.'
+    ],
+    related: {
+      href: '/en/cyma-time-o-vox/',
+      name: 'CYMA TIME-O-VOX',
+      reason: 'Another 1950s solution with a very different architecture: one barrel, two pushers and a gong around the movement.'
+    }
+  },
   'wittnauer-10wa': {
     title: 'Wittnauer Cal. 10WA — Bezel-Wound Mechanical Alarm | VINTAGE ALARM',
     description: 'Wittnauer Cal. 10WA from the early 1950s: two barrels, a dial-side alarm module, a rotating bezel that both winds the alarm and sets its time, surviving variants, a 1952 patent comparison, specimen photographs, original alarm sound and cited sources.',
