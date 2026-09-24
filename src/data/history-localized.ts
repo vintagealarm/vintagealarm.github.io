@@ -195,7 +195,8 @@ export const englishHistoryContent = {
   },
   current: {
     ...historyContent.current,
-    title: 'Where things stand today.'
+    title: 'Where things stand today.',
+    href: 'en/history/smartwatch/'
   },
   sources: {
     summary: 'References & Sources',
@@ -270,7 +271,8 @@ export const germanHistoryContent = {
   },
   current: {
     ...historyContent.current,
-    title: 'Der heutige Stand.'
+    title: 'Der heutige Stand.',
+    href: 'de/history/smartwatch/'
   },
   sources: {
     summary: 'Literatur & Quellen',
