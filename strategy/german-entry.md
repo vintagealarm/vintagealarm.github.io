@@ -1,7 +1,7 @@
 # VINTAGE ALARM — German translation preparation
 
 更新日: 2026-09-14
-状態: ドイツ語入口を拡張済み。TOP `/de/` と HOW THEY RING `/de/how-they-ring/` を日本語正本に沿ってローカライズし、既存のHISTORY・WATCH・SOURCESと接続する。Duofonドイツ語パイロット公開済み。`/de/`・`/de/pierce-duofon/`・日本語/英語/ドイツ語の言語切替・hreflang・sitemap・llms.txt・Analyticsパスマッピングまで実装済み。ユーザー本人による逐語逆翻訳監査を実施し、事実・構造・確度・資料差は高い忠実性を確認。OWNER'S NOTE周辺の4点（「祖先」の比喩、SIGNAL「静音」、WECKER「ベル音」、締めの「未来の空気」）を日本語正本へ寄せて修正した。OWNER'S NOTE画像も日本語版と同じ `/images/pierce-duofon/owners-note.jpg` を使うよう修正済み。逆翻訳の合格基準は日本語正本との一字一句一致ではなく、ドイツ語だけから意味・構造・温度感を十分に再構成できることとする。
+状態: ドイツ語入口を拡張済み。TOP `/de/` は日本語TOPと同じ入口構造だけを持ち、画像付きOWNER'S NOTES一覧は `/de/owners-notes/` に分離する。HOW THEY RING `/de/how-they-ring/` も日本語正本に沿ってローカライズし、既存のHISTORY・WATCH・SOURCESと接続する。Duofonドイツ語パイロット公開済み。`/de/`・`/de/pierce-duofon/`・日本語/英語/ドイツ語の言語切替・hreflang・sitemap・llms.txt・Analyticsパスマッピングまで実装済み。ユーザー本人による逐語逆翻訳監査を実施し、事実・構造・確度・資料差は高い忠実性を確認。OWNER'S NOTE周辺の4点（「祖先」の比喩、SIGNAL「静音」、WECKER「ベル音」、締めの「未来の空気」）を日本語正本へ寄せて修正した。OWNER'S NOTE画像も日本語版と同じ `/images/pierce-duofon/owners-note.jpg` を使うよう修正済み。逆翻訳の合格基準は日本語正本との一字一句一致ではなく、ドイツ語だけから意味・構造・温度感を十分に再構成できることとする。
 
 ## 目的
 
