@@ -1,6 +1,6 @@
 # VINTAGE ALARM — 計測定義
 
-更新日: 2026-09-13
+更新日: 2026-09-24
 
 ## 公開URL移行
 
@@ -90,6 +90,10 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 - flowは `externalEntryFlows` / `internalFlows` / `migrationFlows` に分離する。旧ホスト↔新ホストの遷移を内部回遊へ混ぜない。
 - SNS着地先の再配分はfull dashboardの `flows`、AI exportの `externalEntryFlows` のどちらでも同じ結果になるようにする。
 - VA2 fallbackでは内部回遊を `internalVisits` と `internalPV` に分ける。`internalVisits` はInternal Navigation channelのVisits、`internalPV` は `internalFlows` のPage views合計。Visitsが0でも内部遷移PVは存在し得るため、単一の `internal` 値は使わない。
+- VA2 fallbackの `pages` は全ページの `Page views/Visits`、`entries` は入口ページの `Visits/Page views` とする。内部遷移だけで増えたPage viewを入口数へ混ぜない。
+- compact `external` / `flow` / `handoff` はcountry/deviceなど表示しない次元を先に集約してから上位20件へ切る。`externalCoverage` で表示group数・全group数・表示Visits・全Visits・flow行の完全性を明示し、省略を完全データのように見せない。
+- `sampleParts` は total / pages / referrers / flows / entries / countries / devices の順で各query groupの `sampleInterval` を保持し、periodの `quality` はその最大値で判定する。`coverage` は pages / referrers / flows / entries / countries / devices の固定limit到達有無を明示する。
+- freshnessの `latestBucket` は最終イベント時刻ではなく最新の非ゼロ集計bucket。`gapLower` はそのbucket終了からの経過下限で、現在進行中bucketでは0でも「計測遅延0」を意味しない。
 - Cloudflare API token / Dashboard password / IP / Cookie / raw User-Agentは返さない。
 - Search Console / Google生成AIのCSV ImportはブラウザlocalStorageのためexport対象外。
 
