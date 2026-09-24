@@ -31,6 +31,101 @@ export type EnglishFullResearch = {
 };
 
 export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
+  'basis-alarm': {
+    title: 'Basis Alarm BFG 90 — Twin-Barrel Mechanical Alarm | VINTAGE ALARM',
+    description: 'Basis Alarm with Baumgartner BFG 90: two barrels wound in the same direction from one crown, slipping clutches, twin winding indicators, rotating-bezel alarm setting, specimen photographs, original alarm sound and cited sources.',
+    specimenGallery: [
+      { image: '/images/IMG_8890-1.jpeg', label: 'Front — wrist shot', alt: 'Basis Alarm BFG 90 specimen, front wrist shot' },
+      { image: '/images/IMG_9196.jpeg', label: 'Alarm hand — directly linked to the bezel', alt: 'Basis Alarm BFG 90 alarm hand linked directly to the rotating bezel' },
+      { image: '/images/IMG_1969.jpeg', label: '9 o’clock alarm ON/OFF slider', alt: 'Basis Alarm BFG 90 alarm ON/OFF slider at 9 o’clock' },
+      { image: '/images/IMG_1968.jpeg', label: 'Caseback', alt: 'Basis Alarm BFG 90 specimen caseback' },
+      { image: '/images/70957643-C7C5-4A86-B1BF-11AB18A28299-2.jpeg', label: 'Movement', alt: 'Baumgartner BFG 90 movement' }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: 'Baumgartner Frères — building movements for the mass market',
+        paragraphs: [
+          'Baumgartner Frères was an ébauche maker that supplied movements to other companies. Many BFG movements were designed for relatively affordable watches. The pin-lever escapement was one part of that approach.',
+          'The BFG 90 uses a pillar construction. Building the movement around flat plates joined by pillars reduced the need for more elaborate machining. The hand-setting mechanism was also placed on the movement side rather than hidden beneath the dial. The coupling lever dispenses with a separate spring and is shaped so that the lever itself provides the spring action.',
+          'The balance appears at first glance to carry timing screws. In fact, the projections are not screws at all, but integral half-round decorative forms.',
+          'Machining that could be avoided was avoided; parts that could be reduced were reduced. The ingenuity of the BFG 90 lies somewhere very different from the finishing priorities of a luxury movement.'
+        ],
+        citationRefs: ['2','2','2','2']
+      },
+      {
+        number: '02',
+        title: 'One crown, one direction, two barrels',
+        paragraphs: [
+          'The BFG 90 has two barrels, one for timekeeping and one for the alarm. Two barrels are not unusual by themselves. What is unusual is how they are wound: both are wound by turning a single crown in the same direction.',
+          'There is no need to reverse the crown to choose between the timekeeping and alarm barrels. Continuing to wind in the same direction supplies power to both. The two springs will not necessarily reach full wind at exactly the same moment, so once one barrel is full, the other may still need winding. The already-full side cannot simply be forced further.',
+          'The BFG 90 solves this by allowing the fully wound side to slip at its winding mechanism. Each barrel therefore has its own slipping clutch.',
+          'The ratchet is divided into two parts, held together by a cross-shaped spring. Under normal load they turn together; once the mainspring reaches full wind, that side can slip.',
+          'One barrel can therefore reach full wind while winding continues for the other. The clutch on the full side slips while the remaining barrel is brought up to full wind.'
+        ],
+        citationRefs: ['1,2','2','2','2','2'],
+        images: [
+          {
+            src: '/images/70957643-C7C5-4A86-B1BF-11AB18A28299.jpeg',
+            caption: 'Baumgartner BFG 90 movement',
+            alt: 'Baumgartner BFG 90 movement showing the winding mechanism',
+            afterParagraph: 4
+          }
+        ]
+      },
+      {
+        number: '03',
+        title: 'Why there are two small windows',
+        paragraphs: [
+          'A slipping clutch does not mean that the crown loses all sense of resistance at full wind. On the specimen shown here, resistance increases as a barrel approaches full wind and can feel almost like a hard winding stop.',
+          'Without knowing the mechanism, that is where a wearer would naturally want to stop. But on the BFG 90, the other barrel may still have winding capacity left. In that situation the crown must continue turning while the clutch on the already-full side slips.',
+          'That can feel uncomfortable if the mechanism is unfamiliar: the user is being asked to keep turning after the crown already feels as though it should stop.',
+          'The two small windows on the dial help solve that problem. On this Basis, the window near 1 o’clock corresponds to the timekeeping barrel and the window near 5 o’clock to the alarm barrel. Each barrel drives a coloured disc that rotates while that barrel is being wound. When a spring is fully wound, the corresponding disc stops.',
+          'These are not conventional power-reserve displays that show remaining running time. They are winding-state indicators: they show which barrel is still being wound and which has already reached full wind.',
+          'The two barrels, the slipping clutches and the two winding windows therefore form one system. One crown winds both barrels in the same direction; if one reaches full wind first, its clutch slips; the crown may already feel resistant, but the second barrel can still be wound; the two windows tell the user which side is still moving.'
+        ],
+        citationRefs: ['3','2,3','3','1,2,3','1,2','2,3']
+      },
+      {
+        number: '04',
+        title: 'One BFG 90, many different watches',
+        paragraphs: [
+          'The BFG 90 was not exclusive to Basis. It appeared under several brands, including Lantex, Sheffield, Simplon and Tior.',
+          'The same underlying movement could look very different once cased. Sheffield and Lantex examples include relatively slim and decorative cases, while Simplon and Tior examples can be larger and heavier. Lugs, bezels and dial finishing also differ from brand to brand.',
+          'Even so, BFG 90 watches often reveal the same mechanical vocabulary from the outside: a rotating bezel, the alarm ON/OFF slider at 9 o’clock and two winding-state windows. The construction of the movement remains visible in the design of the dial and case.',
+          'The same BFG 90 became many different watches by changing the brand and exterior. That is also one of the clearest reminders that Baumgartner Frères was an ébauche supplier.'
+        ],
+        citationRefs: ['1,2','2','1,2','1,2']
+      },
+      {
+        number: '05',
+        title: 'BFG 90 to BFG 902 — bringing the controls back inside',
+        paragraphs: [
+          'The later BFG 902 simplified the external controls found on the BFG 90. On the BFG 90, the rotating bezel sets the alarm time and a slider at 9 o’clock switches the alarm ON and OFF. On the BFG 902, alarm-time setting moved to the crown.',
+          'Turning the crown one way winds both barrels; turning it the other way moves the alarm-time indication. The rotating bezel was no longer required, and the 9 o’clock slider disappeared as well.',
+          'With the separate slider gone, the method of stopping the alarm also changed. The alarm is cancelled by moving the set alarm time. Later versions also appeared with shock protection.',
+          'The change from BFG 90 to BFG 902 is better understood as simplification and rationalisation than as a move upmarket. The basic idea of managing two barrels from one crown remained, while the bezel and slider that had been exposed on the outside were removed.',
+          'The controls that had been spread visibly around the BFG 90 gradually moved back into the watch.'
+        ],
+        citationRefs: ['1','1','1','1','1']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'reference' },
+      { id: '2', type: 'reference' },
+      { id: '3', type: 'owner' }
+    ],
+    sources: [
+      'Leonhard Beitl, Alarm am Arm (2009), p. 20, p. 87, p. 109, pp. 172, 308, 398, 419, 622 — BFG 90 / BFG 902, Basis / Fabry / Maxor / Triwera, operation and specifications.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), pp. 88–91, 168–170 — BFG 90 pillar construction, slipping clutches, winding indicators, cases and brand use.',
+      'OWNER OBSERVATION — resistance felt while winding the shown specimen and the behaviour of the winding-state discs at 1 and 5 o’clock.'
+    ],
+    related: {
+      href: '/en/westclox-watchlarm/',
+      name: 'WESTCLOX WATCHLARM',
+      reason: 'Another mass-market answer to the alarm wristwatch problem, but pushed even harder toward low-cost construction.'
+    }
+  },
   'wittnauer-10wa': {
     title: 'Wittnauer Cal. 10WA — Bezel-Wound Mechanical Alarm | VINTAGE ALARM',
     description: 'Wittnauer Cal. 10WA from the early 1950s: two barrels, a dial-side alarm module, a rotating bezel that both winds the alarm and sets its time, surviving variants, a 1952 patent comparison, specimen photographs, original alarm sound and cited sources.',
