@@ -66,7 +66,9 @@ export const englishCymaFullResearch: LinkedEnglishFullResearch = {
         'The “contradiction” here does not mean that the watch was tested as a chronometer while its alarm was sounding. It refers to placing an alarm mechanism inside a watch that also pursued precision.',
         'Alarm am Arm records only a very small number of alarm wristwatches known as chronometers in the period: Cyma, the Fortis Manager and one Vulcain model.'
       ],
-      citationRefs: ['', '2']
+      citationRefs: ['', '2'],
+      linkLabel: 'View the Chronomètre specimen research',
+      linkUrl: '/en/cyma-time-o-vox/chronometre/'
     },
     {
       number: '03',
@@ -247,7 +249,9 @@ export const germanCymaEntry: LinkedGermanWatchEntry = {
         'Mit „Widerspruch“ ist hier nicht gemeint, dass die Uhr während eines laufenden Alarms als Chronometer geprüft wurde. Gemeint ist die Verbindung eines Präzisionsanspruchs mit einem eingebauten Weckermechanismus.',
         'Alarm am Arm nennt für diese Zeit nur sehr wenige als Chronometer bekannte Wecker-Armbanduhren: Cyma, die Fortis Manager und ein Modell von Vulcain.'
       ],
-      citationRefs: ['', '2']
+      citationRefs: ['', '2'],
+      linkLabel: 'Chronomètre-Beobachtungen ansehen',
+      linkUrl: '/de/cyma-time-o-vox/chronometre/'
     },
     {
       number: '03',
