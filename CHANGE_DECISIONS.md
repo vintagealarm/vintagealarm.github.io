@@ -23,7 +23,7 @@
 - **旧状態・棄却**：EN / DEのlive検査をTOP / HISTORY / OWNER'S NOTES / HOW THEY RING中心に行い、ドイツ語WATCHのlayout対象を3本へ固定し、翻訳PRのGitHub上の存在を本番反映と混同し得る状態。個別ページごとに後追いでmarkerを足すだけの方式も、対象漏れを繰り返すため棄却する。
 - **影響範囲**：多言語の検証・deploy gate、全公開EN / DE route、CYMA Chronomètre独語コピー。日本語正本の本文・レイアウト、SMARTWATCHの言語展開は変更しない。
 - **検証状態**：branchへ実装済み。PR CIでbuild / quality / regression / build-output / 全route layoutを確認し、main merge後にPages deploy・全生成artifact parity・全公開多言語routeのsemantic live checkまで通った時点でDEPLOYEDとする。
-- **関連**：commit `efc3e20c` / branch `fix/full-localization-publication-parity` / open PR #114の独語Chronomètre校正を統合。
+- **関連**：commits `efc3e20c`, `036c6ca2` / branch `fix/full-localization-publication-parity` / open PR #114の独語Chronomètre校正を統合。後者はFULL RESEARCH判定がCSS内の未使用クラス名を誤検出したため、実際に描画される旧簡易版本文だけを検知するようgateを修正。
 - **日時根拠**：GitHub implementation commit `2026-09-24T06:03:18Z → 2026-09-24 15:03 JST`。実装commit時刻を見出し時刻に採用。
 
 ### 2026-09-24 14:06 JST — 日時付き判断履歴を必須CI gate化
