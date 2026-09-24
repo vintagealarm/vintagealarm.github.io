@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import SeoHead from '../../../components/SeoHead.astro';
+import SectionMast from '../../../components/SectionMast.astro';
+import OwnerThumbnailFrame from '../../../components/OwnerThumbnailFrame.astro';
+import OwnerFonts from '../../../components/OwnerFonts.astro';
+import ownersDirectory from '../../../data/owners-directory.json';
+import { germanWatchEntriesWithCyma } from '../../../data/cyma-localizations';
+import '../../../styles/site.css';
+import '../../../styles/owners-v15.css';
+
+const base = import.meta.env.BASE_URL;
+const watches = await getCollection('watches');
+const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
+const entries = ownersDirectory.entries
+  .flatMap((meta) => {
+    const watch = watchBySlug.get(meta.historyId);
+    const localized = germanWatchEntriesWithCyma[meta.historyId];
+    if (!watch?.data.published || !localized) return [];
+    return [{
+      ...meta,
+      ownerNumber: watch.data.ownerNumber,
+      brand: watch.data.brand,
+      name: watch.data.model,
+      href: `/de/${watch.data.slug}/#owners-note`,
+      directoryCatch: localized.indexBlurb
+    }];
+  })
+  .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
+const eras = [...new Set(entries.map((entry) => entry.ownedGroup))];
+
+const title = "OWNER'S NOTES | Eigene mechanische Wecker-Armbanduhren | VINTAGE ALARM";
+const description = "Deutscher Index der OWNER'S NOTES zu eigenen mechanischen Wecker-Armbanduhren bei VINTAGE ALARM.";
+const socialImage = '/images/owners-thumbnails/cyma-time-o-vox-full.png';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: "OWNER'S NOTES",
+  description,
+  inLanguage: 'de',
+  url: 'https://vintagealarm.github.io/de/owners-notes/'
+};
+const alternates = [
+  { hreflang: 'ja', href: '/owners-notes/' },
+  { hreflang: 'en', href: '/en/owners-notes/' },
+  { hreflang: 'de', href: '/de/owners-notes/' },
+  { hreflang: 'x-default', href: '/owners-notes/' }
+];
+const languageLinks = [
+  { href: `${base}owners-notes/`, label: '日本語', hreflang: 'ja' },
+  { href: `${base}en/owners-notes/`, label: 'EN', hreflang: 'en' }
+];
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <OwnerFonts />
+    <SeoHead title={title} description={description} path="de/owners-notes/" image={socialImage} locale="de_DE" schema={schema} alternates={alternates} />
+  </head>
+  <body class="owners-v15">
+    <SectionMast rightLabel="OWNER'S NOTES" lang="de" languageLinks={languageLinks} />
+    <main>
+      <header class="shell directory-intro">
+        <div><div class="eyebrow">OWNER'S NOTES</div><h1>Am eigenen Exemplar betrachtet.</h1></div>
+        <p class="directory-meta">EIGENE EXEMPLARE<br/>SAMMLUNG</p>
+      </header>
+      <section class="shell directory-eras" aria-label="OWNER'S NOTES nach Epoche">
+        {eras.map((era) => (
+          <section class="directory-era" aria-labelledby={`owners-${era}`}>
+            <h2 id={`owners-${era}`}>{era}</h2>
+            <div class="directory-tiles">
+              {entries.filter((entry) => entry.ownedGroup === era).map((entry) => (
+                <OwnerThumbnailFrame
+                  brand={entry.brand}
+                  name={entry.name}
+                  directoryCatch={entry.directoryCatch}
+                  directoryEraLabel={entry.ownedEra !== entry.ownedGroup ? entry.ownedEra : undefined}
+                  href={`${base}${entry.href.replace(/^\//, '')}`}
+                  image={`${base}${(entry.ownersThumbnail ?? entry.image).replace(/^\//, '')}`}
+                  fallbackImage={entry.fallbackThumbnail ? `${base}${entry.fallbackThumbnail.replace(/^\//, '')}` : undefined}
+                  smartFit={false}
+                />
+              ))}
+            </div>
+          </section>
+        ))}
+      </section>
+    </main>
+  </body>
+</html>
