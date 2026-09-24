@@ -325,4 +325,4 @@ assert(!(await failed.json()).url, 'failed preflight must not return a URL');
 const unauthenticated = await profileWorker.fetch(new Request('https://dashboard.example/api/ai-readable-link'), env, {});
 assert(unauthenticated.status === 401, 'issuance still needs authentication');
 globalThis.fetch = originalFetch;
-console.log('Five-WATCH analytics + English/German gateways + localized HISTORY + SNS reallocation + X profile attribution + AI readable URL wrapper: OK');
+console.log('Analytics route mapping + localized gateways/research + SNS reallocation + X profile attribution + AI readable URL wrapper: OK');
