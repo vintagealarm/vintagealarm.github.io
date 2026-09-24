@@ -180,6 +180,10 @@ function renderPeriod(title, period) {
     `- Sample interval (max across exported query groups): ${number(period.sampleInterval || 1)}`,
     ...(period.sampling ? [`- Sampling by section: total=${number(period.sampling.total || 1)}, pages=${number(period.sampling.pages || 1)}, referrers=${number(period.sampling.referrers || 1)}, flows=${number(period.sampling.flows || 1)}, entries=${number(period.sampling.entries || 1)}, countries=${number(period.sampling.countries || 1)}, devices=${number(period.sampling.devices || 1)}`] : []),
     ...(period.completeness ? [`- Row coverage: pages=${period.completeness.pages !== false ? "complete" : "truncated"}, referrers=${period.completeness.referrers !== false ? "complete" : "truncated"}, flows=${period.completeness.flows !== false ? "complete" : "truncated"}, entries=${period.completeness.entries !== false ? "complete" : "truncated"}, countries=${period.completeness.countries !== false ? "complete" : "truncated"}, devices=${period.completeness.devices !== false ? "complete" : "truncated"}`] : []),
+    ...(period.integrity ? [`- Integrity: ${text(period.integrity.status || "UNKNOWN")}`] : []),
+    ...((period.integrity?.failures || []).length || (period.integrity?.estimateDrift || []).length
+      ? [`- Integrity issues: ${[...(period.integrity?.failures || []), ...(period.integrity?.estimateDrift || [])].map((item) => text(item.name) + "=" + (number(item.delta) >= 0 ? "+" : "") + number(item.delta) + "/" + text(item.status)).join(", ")}`]
+      : []),
     `- X profile entries (/x/): ${number(period.xProfileEntries)}`,
     "",
     "### Channels",
