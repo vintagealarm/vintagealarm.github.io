@@ -1,20 +1,21 @@
 # VINTAGE ALARM — English entry strategy
 
-更新日: 2026-09-15
+更新日: 2026-09-24
 
 ## 目的
 
-英語版を「日本語サイトの完全複製」として一括生成するのではなく、海外からの発見と初回理解を補う入口として実装する。
+英語版は海外からの発見と初回理解だけでなく、日本語正本と同じ研究層まで読める公開版として実装する。
 
-英語WATCHページを公開しているのは現在5本:
+公開WATCH 6本はすべて英語でも `FULL RESEARCH` を持つ。
 
 - Basis Alarm
 - Pierce Duofon
 - Cyma Time-O-Vox
 - Citizen Alarm
 - Westclox Watchlarm
+- Wittnauer Cal.10WA
 
-Wittnauer Cal.10WAの日本語WATCHは公開済みだが、英語WATCHページはまだ作っていない。英語HOW THEY RINGからは日本語WATCHへフォールバックする。
+また、独立RESEARCHとして公開している `/cyma-time-o-vox/chronometre/` も `/en/cyma-time-o-vox/chronometre/` へ同じ研究深度で展開する。
 
 英語入口は `/en/`、`/en/history/`、`/en/owners-notes/`、`/en/how-they-ring/`、`/en/<watch>/` に置く。
 
@@ -22,22 +23,24 @@ Wittnauer Cal.10WAの日本語WATCHは公開済みだが、英語WATCHページ�
 
 ## 現在の公開深度
 
-### FULL RESEARCH
-
-- Pierce Duofon
-- Cyma Time-O-Vox
-- Westclox Watchlarm
-
-これらはOWNER'S NOTE / SPEC / 実機鳴動に加えて、掲載個体ギャラリー、DEEP DIVE、段落単位の出典、参考資料・出典、関連WATCHまで英語で提供する。
-
-### CONCISE ENTRY
+### FULL RESEARCH — WATCH 6本
 
 - Basis Alarm
+- Pierce Duofon
+- Cyma Time-O-Vox
 - Citizen Alarm
+- Westclox Watchlarm
+- Wittnauer Cal.10WA
 
-これらはOWNER'S NOTE、簡易操作ガイド、SPEC、実機鳴動を英語で提供し、完全な研究本文は日本語版を正本として残す。
+各WATCHはOWNER'S NOTE / SPEC / 実機鳴動に加えて、掲載個体ギャラリー、DEEP DIVE、段落単位の出典、参考資料・出典、関連WATCHまで英語で提供する。
 
-英語版は全WATCHを同じ深度へ揃えること自体を目的にしない。`FULL RESEARCH` と `CONCISE ENTRY` の併存は意図的な公開戦略であり、短縮版であることと、事実が古いことを混同しない。
+### FULL RESEARCH — 独立RESEARCH
+
+- Cyma Time-O-Vox Chronomètre
+
+17件の観測個体、文字盤表記・調整刻印・Movement No.帯・ケースコード、MIH / Neuchâtelへの照会、UNADJUSTEDの制度背景、掲載個体の実機観察まで日本語正本と同じ研究層を英語化する。
+
+`CONCISE ENTRY` は旧運用とし、新規公開・既存WATCHとも詳細版を標準とする。
 
 ## なぜブラウザ翻訳だけにしないか
 
@@ -45,11 +48,11 @@ Chrome等のブラウザ翻訳は、ユーザーが日本語ページへ到達�
 
 Google Search Centralは、多言語版を提供する場合は言語ごとに別URLを使い、明示的なリンクや `hreflang` を使うことを推奨している。またGoogleはページ言語を可視本文から判断し、`lang`属性だけでは判定しない。
 
-そのため、英語利用者向けの可視本文を持つ別URLを用意する。一方、5 WATCHすべての完全なDEEP DIVEを一括複製せず、完全版へ昇格するWATCHは資料価値・実機価値・海外での不足情報を見て個別に選ぶ。
+そのため、英語利用者向けの可視本文を持つ別URLを用意する。現在は公開WATCH 6本と、独立RESEARCHのCyma Time-O-Vox Chronomètreを詳細版まで英語化する。
 
 ## 基本実装方針
 
-英語入口ページに含める:
+英語WATCHページに含める:
 
 - 英語title / description / OGP
 - `<html lang="en">`
@@ -58,16 +61,21 @@ Google Search Centralは、多言語版を提供する場合は言語ごとに�
 - 簡易操作ガイド
 - SPEC
 - 実機アラーム動画
-- 日本語の完全研究ページへのリンク
-
-FULL RESEARCHへ昇格するWATCHではさらに含める:
-
+- 日本語正本への言語リンク
 - 掲載個体ギャラリー
 - DEEP DIVE全文
 - DEEP DIVE内の機構画像・キャプション
 - 段落ごとの出典番号
 - 参考資料・出典
 - 関連性で選ぶ次のWATCH
+
+独立RESEARCHも同様に、本文・観測表・資料差・未解決事項・出典まで省略しない。
+
+旧 `CONCISE ENTRY` から詳細版へ昇格するときに含めるもの:
+
+- 日本語正本に存在する研究本文
+- 資料差・留保・OWNER OBSERVATION
+- そのページ固有の画像・出典対応
 
 基本では行わない:
 
@@ -80,7 +88,7 @@ FULL RESEARCHへ昇格するWATCHではさらに含める:
 
 英語版の絶対正本は日本語版とする。
 
-日本語正本で、英語版にも存在する事実を修正した場合は、英語版も同じ変更単位で同期する。ページがCONCISE ENTRYであっても、その事実を掲載しているなら同期対象になる。
+日本語正本で、英語版にも存在する事実を修正した場合は、英語版も同じ変更単位で同期する。ページ深度にかかわらず、その事実を掲載している言語版は同期対象になる。
 
 Pierce創業年の1888→1883修正で起きたようなrevision driftを再発させないため、共有事実は `src/data/localization-fact-sync.json` に登録し、`npm run check:localization-sync` でCI検証する。
 
@@ -104,7 +112,7 @@ Pierce創業年の1888→1883修正で起きたようなrevision driftを再発�
 - 英語TOP: `/en/`
 - 英語OWNER'S NOTES一覧: `/en/owners-notes/`
 
-5 WATCHの日本語ページと英語URLは相互リンクし、`hreflang="ja" / "en" / "x-default"` を設定する。
+6 WATCHの日本語ページと英語URLは相互リンクし、`hreflang="ja" / "en" / "x-default"` を設定する。
 
 英語URLはsitemapへ追加する。`public/llms.txt` には実際に公開されている英語URLだけを列挙する。
 
@@ -112,11 +120,10 @@ Pierce創業年の1888→1883修正で起きたようなrevision driftを再発�
 
 ブラウザ翻訳を否定しない。役割を分ける。
 
-- CONCISE ENTRY: 発見、クリック、最初の理解、共有
 - FULL RESEARCH: VINTAGE ALARMが英語で直接提供する研究本文
-- 日本語完全版 + ブラウザ翻訳: 日本語原文を読みたい場合、またはCONCISE ENTRYしかないWATCHのDEEP DIVE・資料差・長文研究を読む場合
+- 日本語正本 + ブラウザ翻訳: 日本語原文そのものを読みたい場合の補助
 
-これにより、5 WATCHの全文を二重管理せず、必要なWATCHだけ段階的にFULL RESEARCHへ昇格できる。
+WATCHの短縮版は残さず、公開済み研究は英語でも研究層まで追える状態を維持する。
 
 ## 計測
 
@@ -132,3 +139,52 @@ Pierce創業年の1888→1883修正で起きたようなrevision driftを再発�
 6. 事実修正後にENだけ旧値が残っていないか
 
 公開しただけで海外流入成功とは扱わない。
+
+
+## 2026-09-24｜Basis / Citizen / Chronomètre 用語準備
+
+詳細版実装前に、日本語正本と専門資料を突き合わせ、英語本文で使う語を先に固定した。
+
+### Basis Alarm / BFG 90
+
+| 日本語の概念 | 英語運用 |
+| --- | --- |
+| 柱式構造 | `pillar construction` |
+| ピンレバー脱進機 | `pin-lever escapement` |
+| 2香箱 | `two barrels` / `separate barrels for timekeeping and the alarm` |
+| 滑りクラッチ | `sliding clutch` |
+| 巻上げ表示窓 | `winding-indicator windows` |
+| 巻上げ表示 | `winding indicator`。残量を示す `power-reserve indicator` とは区別する。 |
+| 回転ベゼル | `rotating bezel` |
+| ON/OFFスライダー | `ON/OFF slider` |
+| 底部ベル | `bottom bell`。HOW THEY RINGの大分類とは別にSPEC上の機構記述として使う。 |
+
+Horlbeck英語版の `hook anchor` は資料表現として保持できるが、現代の時計英語本文では日本語正本の「ピンレバー」に対応する `pin-lever escapement` を優先する。
+
+### Citizen Alarm / Cal.980
+
+| 日本語の概念 | 英語運用 |
+| --- | --- |
+| 国産初 | `Japan's first domestically produced ...` とし、世界初へ拡張しない。 |
+| 中央回転ディスク | `rotating centre alarm disc` |
+| 2リューズ | `twin crowns` / `two crowns` |
+| 二重裏蓋 | `double-caseback construction` |
+| 4針式 | `Four Hands`（モデル表現） / `four-hand version`（一般説明） |
+| AS 1475との関係 | `Beitl raises the possibility ...` とし、licensed copyを確定事実にしない。 |
+| ルクルトからのクレーム説 | `story / legend` とし、未確認のまま保持する。 |
+
+### Cyma Time-O-Vox Chronomètre
+
+| 日本語の概念 | 英語運用 |
+| --- | --- |
+| クロノメーター試験 | `chronometer testing` / `tested as a chronometer` |
+| クロノメーター証明 | `chronometer certification` / `chronometer certificate` |
+| 5姿勢・温度 | `five positions and temperature`。刻印そのものは原文表記を保持する。 |
+| 調整刻印 | `adjustment marking / engraving` |
+| 観測個体 | `observed specimen / observed watch` |
+| Movement No.帯 | `movement-number range` |
+| 外部照会 | `archive inquiry` / `institutional inquiry` |
+| 認定記録 | 文脈に応じ `certification record` / `test record` |
+| UNADJUSTED | 刻印なので大文字のまま保持する。 |
+
+翻訳では `CHRONOMÈTRE`、`ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE`、`UNADJUSTED` など個体上の表記を正規化しない。
