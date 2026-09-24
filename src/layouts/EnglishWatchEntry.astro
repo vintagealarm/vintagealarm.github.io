@@ -136,6 +136,13 @@ const schema = {
           <SpecimenGallery items={fullResearch.specimenGallery} title={`${watch.brand} ${watch.model}`} lang="en" />
           <DeepDive items={fullResearch.deepDive} lang="en" />
           <Sources sources={fullResearch.sources} meta={fullResearch.sourceMeta} lang="en" />
+          {watch.slug === 'cyma-time-o-vox' && (
+            <aside class="localized-research-link shell" aria-label="Related CYMA research">
+              <small>RESEARCH</small>
+              <a href="/en/cyma-time-o-vox/chronometre/">TIME-O-VOX CHRONOMÈTRE →</a>
+              <p>Seventeen observed watches, chronometer records, adjustment markings and archive inquiries.</p>
+            </aside>
+          )}
           <nav class="english-related-nav shell" aria-label="Related watch navigation">
             <a class="english-related-next" href={fullResearch.related.href}>
               <small>NEXT WATCH</small>
@@ -153,6 +160,10 @@ const schema = {
 <style>
   .english-gateway-note{max-width:980px;padding-top:18px;padding-bottom:12px}
   .english-gateway-note p{max-width:760px;line-height:1.8;color:var(--soft)}
+  .localized-research-link{display:grid;gap:7px;padding-block:28px;border-top:1px solid var(--ink)}
+  .localized-research-link small{color:var(--soft);font-size:10px;letter-spacing:.12em}
+  .localized-research-link a{justify-self:start;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+  .localized-research-link p{margin:0;color:var(--soft);font-size:13px;line-height:1.7}
   .english-related-nav{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding-block:52px 82px;border-top:1px solid var(--ink)}
   .english-related-nav a{text-decoration:none}
   .english-related-next{display:grid;gap:8px;min-width:0}
