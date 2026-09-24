@@ -4,6 +4,12 @@ const base = import.meta.env.BASE_URL;
 const parts = [1, 2, 3, 4].map((n) => `${base}images/history/smartwatch-part-${n}.webp`);
 const artworkUrl = 'https://vintagealarm.github.io/images/history/smartwatch-part-1.webp';
 const title = '現状の到達点：SMARTWATCH｜アラーム腕時計の歴史｜VINTAGE ALARM';
+const alternates = [
+  { hreflang: 'ja', href: '/history/smartwatch/' },
+  { hreflang: 'en', href: '/en/history/smartwatch/' },
+  { hreflang: 'de', href: '/de/history/smartwatch/' },
+  { hreflang: 'x-default', href: '/history/smartwatch/' }
+];
 const description = 'アラーム腕時計の歴史の現在地。機械式アラームから電子化を経て、腕時計が通知・健康・通信まで扱うSMARTWATCHへ到達した先を見る。';
 const schema = {
   '@context': 'https://schema.org',
@@ -53,7 +59,7 @@ const schema = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <SeoHead title={title} description={description} path="history/smartwatch/" image={artworkUrl} type="article" schema={schema} robots="noindex,follow" />
+    <SeoHead title={title} description={description} path="history/smartwatch/" image={artworkUrl} type="article" schema={schema} alternates={alternates} robots="noindex,follow" />
     <style is:inline>
       html,body{margin:0;background:#000}
       body{min-height:100vh}
