@@ -83,9 +83,10 @@ const ui = {
 const goldSpecimens = data.observed.specimens.filter((item: any) => /YG|GOLD|14K|18K/i.test(item.case));
 const steelSpecimens = data.observed.specimens.filter((item: any) => /SS|STEEL|EDELSTAHL/i.test(item.case));
 const total = goldSpecimens.length + steelSpecimens.length;
+const formatCount = (value: number) => locale === 'ja' ? `${value}件` : `${value} ${ui.count}`;
 ---
 <details class="proto-specimens" open={open}>
-  <summary><span>{ui.summary}</span><small>{total} {ui.count}</small></summary>
+  <summary><span>{ui.summary}</span><small>{formatCount(total)}</small></summary>
   <div class="proto-table-region proto-table-region--desktop" tabindex="0" role="region" aria-label={ui.goldAria}>
     <section class="proto-table-group">
       <h3>18K / YG<small>{goldSpecimens.length} {ui.objectLabel}</small></h3>
@@ -96,7 +97,7 @@ const total = goldSpecimens.length + steelSpecimens.length;
     </section>
   </div>
   <div class="proto-specimen-cards" aria-label={ui.goldAria}>
-    <h3>18K / YG <small>{goldSpecimens.length} {ui.count}</small></h3>
+    <h3>18K / YG <small>{formatCount(goldSpecimens.length)}</small></h3>
     {goldSpecimens.map((row: any) => (
       <details class="proto-specimen-card">
         <summary>
@@ -117,7 +118,7 @@ const total = goldSpecimens.length + steelSpecimens.length;
     ))}
   </div>
   <details class="proto-specimen-subgroup">
-    <summary><span>{ui.steelHeading}</span><small>{steelSpecimens.length} {ui.count}</small></summary>
+    <summary><span>{ui.steelHeading}</span><small>{formatCount(steelSpecimens.length)}</small></summary>
     <div class="proto-table-region proto-table-region--desktop" tabindex="0" role="region" aria-label={ui.steelAria}>
       <section class="proto-table-group proto-table-group--nested">
         <table>
