@@ -53,6 +53,190 @@ export type GermanWatchEntry = {
 };
 
 export const germanWatchEntries: Record<string, GermanWatchEntry> = {
+  'wittnauer-10wa': {
+    slug: 'wittnauer-10wa',
+    title: 'Wittnauer Cal. 10WA — Mechanischer Alarm mit Lünettenaufzug | VINTAGE ALARM',
+    description: 'Wittnauer Cal. 10WA aus den frühen 1950er-Jahren: zwei Federhäuser, ein Alarmmodul auf der Zifferblattseite und eine drehbare Lünette, die sowohl den Wecker aufzieht als auch die Alarmzeit einstellt — mit Exemplar-Fotos, Original-Alarmton und Quellen.',
+    indexBlurb: 'Aufziehen und einstellen mit derselben Lünette: zwei Federhäuser und ein Alarmmodul auf der Zifferblattseite.',
+    catch: [
+      'Harte Schicht, Abteilung Wecker.',
+      'Auch heute erledigt die Lünette beide Jobs. 🔔'
+    ],
+    ownersNote: {
+      lead: [
+        'Aufziehen mit der Lünette. Einstellen mit der Lünette.',
+        'Auf der Zifferblattseite des Gehwerks sitzt ein eigenes Alarmmodul.',
+        'Der Wecker besitzt ein separates Federhaus.',
+        'Trotzdem wird die Alarmseite nur über eine einzige Lünette bedient.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        '① Aufziehen — Gehwerk: über die Krone / Alarm: Lünette gegen den Uhrzeigersinn drehen',
+        'Beim Alarm aus Vorsicht nach etwa einer Umdrehung stoppen, um Schäden zu vermeiden.',
+        '② Uhrzeit einstellen — Krone ziehen und im Uhrzeigersinn drehen',
+        '③ Alarmzeit einstellen — Lünette gegen den Uhrzeigersinn drehen',
+        'Es gibt keinen separaten EIN/AUS-Schalter für den Alarm.'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Eigenwillige Ziffernindizes.',
+        'Ein wellenförmig gebogener Alarmzeiger.',
+        'Eine weit vorstehende Drehlünette und eine kleine Krone, die halb im Gehäuse verschwindet.',
+        'Durch den Sichtboden ist nur die Gehwerkseite zu sehen.',
+        'Der Alarmmechanismus liegt verborgen auf der Zifferblattseite.'
+      ]
+    },
+    spec: {
+      era: 'Frühe 1950er-Jahre',
+      caseSize: 'ca. 36 mm (gezeigtes Exemplar)',
+      caliber: 'Wittnauer Cal. 10WA',
+      jewels: '17 Steine',
+      frequency: '18.000 A/h',
+      barrels: '2 Federhäuser',
+      winding: 'Handaufzug',
+      acoustic: 'Gong',
+      notes: 'Alarmzeit-Einstellung und Alarmaufzug über die Drehlünette, separates Alarmfederhaus'
+    },
+    specimenGallery: [
+      {
+        image: '/images/IMG_5792.jpeg',
+        label: 'Vorderseite — am Handgelenk',
+        alt: 'Wittnauer Cal. 10WA, gezeigtes Exemplar, Vorderseite am Handgelenk'
+      },
+      {
+        image: '/images/IMG_7643.jpeg',
+        label: 'Originale pyramidenförmige Krone',
+        alt: 'Originale pyramidenförmige Krone der Wittnauer Cal. 10WA'
+      },
+      {
+        image: '/images/IMG_6609.jpeg',
+        label: 'Werk',
+        alt: 'Von hinten sichtbare Gehwerkseite der Wittnauer Cal. 10WA'
+      },
+      {
+        image: '/images/IMG_5752.jpeg',
+        label: 'Gehäuseboden',
+        alt: 'Gehäuseboden des gezeigten Wittnauer-Cal.-10WA-Exemplars'
+      },
+      {
+        image: '/images/IMG_5755.jpeg',
+        label: 'Innenseite des Gehäusebodens',
+        alt: 'Innenseite des Gehäusebodens der Wittnauer Cal. 10WA'
+      }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: 'Über Wittnauer',
+        paragraphs: [
+          'Die Geschichte von Wittnauer lässt sich auf den Schweizer Uhrenimport von J. Eugene Robert in New York zurückführen. Nach Hans Weil wurde Albert Wittnauer 1856 geboren, kam 1872 im Alter von sechzehn Jahren nach New York und trat in Roberts Geschäft ein. André Francillons Longines-Geschichte hält fest, dass Robert und Albert 1885 Partner wurden und das Geschäft 1890 an Albert überging.',
+          'Wittnauer fertigte nicht jede Uhr vollständig aus eigener Produktion. Horlbeck dokumentiert Uhren mit Werken von Longines und Girard-Perregaux sowie Beispiele, bei denen Schweizer Komponenten in den USA montiert und reguliert und anschließend in amerikanische Gehäuse eingeschalt wurden.',
+          'Beim Cal. 10WA ist jedoch gerade die Herkunft des darunterliegenden Gehwerks zwischen den Quellen umstritten.'
+        ],
+        citationRefs: ['11,12', '1', '1,2,4,5']
+      },
+      {
+        number: '02',
+        title: 'Wittnauers erster Alarm: das 10WA',
+        paragraphs: [
+          'Leonhard Beitl stellt Cal. 10WA als Wittnauers erste Wecker-Armbanduhr vor. Er ordnet sie den frühen 1950er-Jahren zu und beschreibt ein handaufgezogenes Alarmwerk mit 17 Steinen, 18.000 A/h und zwei Federhäusern.',
+          'Auffällig ist vor allem die Bedienung der Alarmseite. Die normale Zeiteinstellung und der Aufzug des Gehwerks erfolgen über die Krone. Die Alarmzeit dagegen wird mit der Drehlünette eingestellt: Beim Drehen gegen den Uhrzeigersinn bewegt sich der Alarmzeiger auf dem Zifferblatt.',
+          'Die Lünette stellt nicht nur die Alarmzeit ein. Mit derselben Drehbewegung wird zugleich die Alarmzugfeder aufgezogen. Beim 10WA sind damit die Entscheidung, wann der Alarm auslösen soll, und das Speichern der dafür nötigen Energie in einem einzigen Bedienvorgang verbunden.',
+          'Nach Horlbeck ist die Alarmseite nach ungefähr eineinhalb Lünettenumdrehungen voll aufgezogen; dann stoppt die Bewegung. Wird bei Vollaufzug weiter Kraft auf die Lünette gegeben, können die Zähne des Übertragungsrades beschädigt werden. Beim gezeigten Exemplar ist in diesem Bedienungsstrang bereits einmal eine Störung aufgetreten; deshalb wird diese Uhr vorsichtshalber nur ungefähr eine Umdrehung weit aufgezogen.',
+          'Dass eine einzige Lünette zwei Aufgaben übernimmt, ist einer der besonderen Reize des 10WA — und zugleich ein Grund dafür, dass die Bedienung etwas mehr Vorsicht verlangt.'
+        ],
+        citationRefs: ['1,2', '1,2', '1,2', '1,13', '1,2']
+      },
+      {
+        number: '03',
+        title: 'Im Inneren des Cal. 10WA',
+        paragraphs: [
+          'Beim 10WA besitzen Gehwerk und Alarmmechanismus jeweils ein eigenes Federhaus. Die Alarmseite ist als Modul auf der Zifferblattseite eines normalen Gehwerks aufgebaut und verfügt über eigenes Federhaus, Einstellräderwerk und Hammer.',
+          'Offen bleibt die Frage, welches Gehwerk darunter sitzt. Horlbeck beschreibt eine Basis aus einem handaufgezogenen Longines-Kaliber; Beitl spricht ebenfalls von einem „Longines-Basiskaliber“. 2025 bezeichnete auch HODINKEE das 10WA als modulares Alarmwerk auf Basis des Longines Cal. 10. Die Longines-Zuschreibung findet sich damit sowohl in Fachbüchern als auch in späteren Medienberichten.',
+          'Ersatzteilunterlagen liefern jedoch einen anderen Hinweis. Im C. & E. Marshall Handy Manual von 1966 teilen Wittnauer 10WA und Wittnauer 10S wichtige Teile der Gehwerkseite, darunter Zugfeder, Unruhwelle, Aufzugswelle, Hebelscheibe und Ankerwelle. Für das 10WA wird zusätzlich eine eigene Alarmzugfeder geführt.',
+          'Eine Unterlage des American Watchmakers Institute von 1969 ordnet Wittnauer 10S dem AS 1200 zu. Die Marshall-Austauschlisten zeigen damit eine enge Verwandtschaft zwischen 10WA und 10S, während AWI das 10S mit AS 1200 verbindet.',
+          'Damit zeigt die Gehwerkseite des 10WA deutliche Teileübereinstimmungen mit der 10S-/AS-1200-Familie, während die Fachliteratur weiterhin eine Longines-Basis nennt.',
+          'Mit den derzeit vorliegenden Quellen lässt sich der Widerspruch nicht auflösen. Ob die Gehwerkbasis des 10WA Longines oder der 10S-/AS-1200-Familie zuzuordnen ist, kann derzeit nicht sicher entschieden werden.'
+        ],
+        citationRefs: ['1,2', '1,2,14', '4', '4,5', '1,2,4,5,14', '1,2,4,5,14']
+      },
+      {
+        number: '04',
+        title: 'Das Patent von 1952 und das Serien-10WA',
+        paragraphs: [
+          'Ein wichtiges Dokument für die Untersuchung des 10WA ist das Schweizer Patent CH304088A. Es wurde am 4. Dezember 1952 auf den Namen Marcel Bliss angemeldet und am 31. Dezember 1954 veröffentlicht.',
+          'Das Patent zeigt einen Alarmmechanismus, der unabhängig vom normalen Gehwerk auf der Zifferblattseite sitzt. Über eine Drehlünette wird das interne Räderwerk bewegt, um das Alarmfederhaus aufzuziehen; dieselbe Lünettendrehung stellt auch die Alarmzeit ein.',
+          'Ein eigenständiger Alarmmechanismus auf der Zifferblattseite, Aufzug über die Lünette und Zeiteinstellung mit derselben Lünette stimmen in mehreren Punkten mit dem Serien-10WA überein. Das Patent läuft jedoch auf Marcel Bliss; in den bibliografischen Angaben erscheint Wittnauer nicht. Eine Abtretung, Lizenz oder ein anderes Dokument, das Patent und Wittnauer direkt verbindet, wurde bisher nicht gefunden.',
+          'Der deutlichste Unterschied zeigt sich nach Vollaufzug. CH304088A beschreibt am äußeren Ende der Alarmzugfeder einen slipping bridle, der nach Vollaufzug weitergleiten kann. Dadurch lässt sich die Lünette weiterdrehen und die Alarmzeit auch nach Erreichen des Vollaufzugs noch verändern.',
+          'Bei dem von Horlbeck dokumentierten Serien-10WA stoppt die Lünette dagegen, sobald die Alarmzugfeder voll aufgezogen ist. Wird sie gewaltsam weitergedreht, können die Zähne des Übertragungsrades beschädigt werden.',
+          'Das Patent enthält damit eine Lösung für die weitere Bedienung nach Vollaufzug; das Serien-10WA stoppt nach Horlbecks Beschreibung bei Vollaufzug.',
+          'Das Innere des Alarmfederhauses eines Serien-10WA wurde in den für diese Seite verwendeten Quellen noch nicht direkt bestätigt. Deshalb lässt sich nicht behaupten, dass das Serienwerk definitiv keinen slipping bridle besitzt. Das dokumentierte Verhalten der Serienuhr unterscheidet sich dennoch vom im Patent beschriebenen Verhalten.',
+          'Sehr ähnlich — aber nicht identisch.'
+        ],
+        citationRefs: ['3', '3', '1,2,3', '3', '1', '1,3', '1,3', '1,3']
+      },
+      {
+        number: '05',
+        title: '1955 erscheint bei Wittnauer auch ein AS-Alarmwerk',
+        paragraphs: [
+          'Beitl stellt das 10WA als Modell der frühen 1950er-Jahre vor. Zugleich dokumentiert er für 1955 eine Wittnauer-Wecker-Armbanduhr mit AS 1475 und nennt sie als eines der frühen Beispiele für die Verwendung eines AS-Alarmkalibers bei Wittnauer.',
+          'Die genauen Anfangs- und Enddaten der 10WA-Produktion sind nicht bekannt. Deshalb lässt sich die Uhr mit AS 1475 nicht einfach als direkter Nachfolger bezeichnen; auch die Umstände eines möglichen Übergangs zwischen beiden Systemen bleiben unklar.',
+          'Festhalten lässt sich nur: Das 10WA existierte in den frühen 1950er-Jahren, und spätestens 1955 gab es bei Wittnauer auch eine Wecker-Armbanduhr mit AS 1475. Damit sind für einen eng überlappenden Zeitraum zwei unterschiedliche Alarmkonzepte dokumentiert.'
+        ],
+        citationRefs: ['2', '2', '2']
+      },
+      {
+        number: '06',
+        title: 'Varianten des 10WA',
+        paragraphs: [
+          'Vom 10WA sind neben der ungewöhnlichen Mechanik mehrere äußere Ausführungen dokumentiert. Beitl zeigt eine Edelstahlausführung mit hellem Zifferblatt sowie Varianten mit schwarzem Zifferblatt und goldfarbenem Gehäuse; das schwarze Zifferblatt wird als besonders seltene Ausführung beschrieben.',
+          'Unter erhaltenen Ref.-1216-Uhren finden sich mehrere Exemplare mit der eindeutigen Kennzeichnung „10K GOLD FILLED“ in Kombination mit Edelstahlboden. Auch 10WA-Uhren mit Edelstahlgehäuse sind erhalten.',
+          'Bei den Referenznummern lassen sich Ref. 1215 und Ref. 1216 durch erhaltene Verkaufsunterlagen bestätigen. In einer weiteren Beobachtungsaufzeichnung erscheint die Bezeichnung Ref. 1216A; ein unabhängig bestätigtes erhaltenes Exemplar mit genau dieser Referenz wurde bisher jedoch nicht gefunden.',
+          'Beitl zeigt außerdem ein Longines-signiertes Cal. 10WA und datiert es auf 1956. Wie Longines zu diesem Modell kam und es vertrieb, bleibt auch in seiner Darstellung teilweise spekulativ.',
+          'Dasselbe Cal. 10WA ist damit in mehreren deutlich unterschiedlichen äußeren Formen überliefert.'
+        ],
+        citationRefs: ['2', '6,7,8', '6,7,9,10', '2', '2,6,7,8,9,10']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'reference' },
+      { id: '2', type: 'reference' },
+      { id: '3', type: 'primary' },
+      { id: '4', type: 'reference' },
+      { id: '5', type: 'reference' },
+      { id: '6', type: 'provenance' },
+      { id: '7', type: 'provenance' },
+      { id: '8', type: 'provenance' },
+      { id: '9', type: 'provenance' },
+      { id: '10', type: 'provenance' },
+      { id: '11', type: 'reference' },
+      { id: '12', type: 'reference' },
+      { id: '13', type: 'owner' },
+      { id: '14', type: 'reference' }
+    ],
+    sources: [
+      'Michael Philip Horlbeck, The Alarm Wrist Watch (Schiffer Publishing, 2007), S. 152–153, Abschnitte Wittnauer / Cal. 10WA — zwei Federhäuser, Bedienung über die Lünette, Longines-Basis, Warnung bei Vollaufzug sowie Hintergrund zu Wittnauers Fertigung und Beschaffung.',
+      'Leonhard Beitl, Alarm am Arm (2009), S. 295, 499–500, 629, Abschnitte Wittnauer / Longines — 10WA, Angabe „Longines-Basiskaliber“, frühe 1950er-Jahre, Wittnauer mit AS 1475, Gehäuse-/Zifferblattvarianten und Longines-signiertes 10WA.',
+      'Schweizer Patent CH304088A, Marcel Bliss, angemeldet 04.12.1952, veröffentlicht 31.12.1954 — Alarmmechanismus auf der Zifferblattseite, Lünettenaufzug + Einstellung, slipping bridle. https://patents.google.com/patent/CH304088A/en',
+      'C. & E. Marshall, Handy Manual (1966), Wittnauer-Austauschlisten — gemeinsame Gehwerksteile von 10S / 10WA und separate Alarmzugfeder des 10WA. https://www.phfactor.net/wtf/Marshall%20Handy%20Manual/Marshall%202.pdf',
+      'American Watchmakers Institute, Technical Bulletin / AWI News (1969), Wittnauer 10S = AS 1200. https://www.awci.com/wp-content/uploads/2018/01/10-1969-AWI-News.pdf',
+      'Anti-Watchman, Wittnauer Alarm Watch Ref. 1216, 10K GOLD FILLED / SS. https://antiwatchman.com/products/detail.php?product_id=10821',
+      'Meticulous Watches, Wittnauer Alarm Watch Ref. 1216, 10k gold filled / stainless steel back. https://meticulouswatches.com/products/wittnauer-alarm-watch-bezel-set-cal-10wa-sold-265',
+      'Sweetroad, erhaltenes Wittnauer-10WA-Exemplar mit Edelstahlgehäuse. https://www.sweetroad.com/view/item/000000009921',
+      'Private Eyes / Antiquorum, erhaltene Ref.-1215-Beispiele — Bestätigung der Referenzbezeichnung Ref. 1215.',
+      'EveryWatch / Mister Wolf, Beobachtungsdaten zu erhaltenen Ref. 1216A / Ref. 1216 — die unabhängige erneute Bestätigung von Ref. 1216A steht noch aus.',
+      'André Francillon, History of Longines — dokumentiert die Partnerschaft von J. Eugene Robert und Albert Wittnauer ab 1885 sowie die Übernahme des Geschäfts durch Albert im Jahr 1890. https://theindex.nawcc.org/Articles/Francillon.pdf',
+      'Hans Weil, Wittnauer-Geschichte — Albert Wittnauer 1856 geboren, 1872 im Alter von sechzehn Jahren nach New York; Partnerschaft mit Robert ab 1885; A. Wittnauer ab 1890. https://hans-weil.faszination-uhrwerk.de/wittnauer.pdf',
+      'OWNER OBSERVATION / Reparaturaufzeichnung des gezeigten Exemplars — im Bedienungsstrang der Alarm-Lünette ist bereits einmal eine Störung aufgetreten.',
+      'Rich Fordon, HODINKEE, “Bring a Loupe: A Parmigiani Fleurier Toric Memory Time, A Cartier Trianon, And Two Picks From Goodwill” (2025-08-15), Abschnitt “1950s Wittnauer Alarm Watch With Caliber 10WA” — beschreibt Cal. 10WA als modulares Alarmwerk auf Basis des Longines Cal. 10. https://www.hodinkee.com/articles/bring-a-loupe-august-15-2025'
+    ],
+    related: {
+      href: '/en/cyma-time-o-vox/',
+      hreflang: 'en',
+      name: 'CYMA TIME-O-VOX',
+      reason: 'Eine andere Antwort aus derselben Epoche: ein Federhaus, zwei Drücker und ein völlig anders integrierter Alarm.'
+    }
+  },
   'pierce-duofon': {
     slug: 'pierce-duofon',
     title: 'Pierce Duofon Cal. 135 — Zweistufiger mechanischer Alarm | VINTAGE ALARM',
