@@ -1,46 +1,23 @@
 ---
-import { getCollection } from 'astro:content';
 import SeoHead from '../../components/SeoHead.astro';
 import HomeLanding from '../../components/HomeLanding.astro';
-import OwnerThumbnailFrame from '../../components/OwnerThumbnailFrame.astro';
 import OwnerFonts from '../../components/OwnerFonts.astro';
-import ownersDirectory from '../../data/owners-directory.json';
-import { englishWatchEntries } from '../../data/en-watch-entry';
 import '../../styles/site.css';
 import '../../styles/home-v2.css';
-import '../../styles/owners-v15.css';
 
-const base = import.meta.env.BASE_URL;
-const watches = await getCollection('watches');
-const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
-const entries = ownersDirectory.entries
-  .flatMap((meta) => {
-    const watch = watchBySlug.get(meta.historyId);
-    const localized = englishWatchEntries[meta.historyId];
-    if (!watch?.data.published || !localized) return [];
-    return [{
-      ...meta,
-      ownerNumber: watch.data.ownerNumber,
-      brand: watch.data.brand,
-      name: watch.data.model,
-      href: `/en/${watch.data.slug}/`,
-      directoryCatch: localized.indexBlurb
-    }];
-  })
-  .sort((a, b) => a.ownedSortKey - b.ownedSortKey || Number(a.ownerNumber) - Number(b.ownerNumber));
-
-const title = "VINTAGE ALARM — Mechanical Alarm Wristwatches | English";
-const description = "English VINTAGE ALARM: history, owned specimens, real alarm sounds, ringing mechanisms and source-backed research on mechanical alarm wristwatches.";
+const title = 'VINTAGE ALARM — Mechanical Alarm Wristwatches | English';
+const description = 'English VINTAGE ALARM: history, owned specimens, real alarm sounds, ringing mechanisms and source-backed research on mechanical alarm wristwatches.';
 const socialImage = '/images/history-motifs/before-watercolor.png';
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: "VINTAGE ALARM — English",
+  name: 'VINTAGE ALARM — English',
   description,
   inLanguage: 'en',
   url: 'https://vintagealarm.github.io/en/',
   hasPart: [
     { '@type': 'Article', name: 'History of the Alarm Wristwatch', url: 'https://vintagealarm.github.io/en/history/' },
+    { '@type': 'CollectionPage', name: "OWNER'S NOTES", url: 'https://vintagealarm.github.io/en/owners-notes/' },
     { '@type': 'CollectionPage', name: 'HOW THEY RING', url: 'https://vintagealarm.github.io/en/how-they-ring/' }
   ]
 };
@@ -60,40 +37,7 @@ const alternates = [
     <OwnerFonts />
     <SeoHead title={title} description={description} path="en/" image={socialImage} locale="en_US" schema={schema} alternates={alternates} />
   </head>
-  <body class="home-v2 owners-v15">
+  <body class="home-v2">
     <HomeLanding locale="en" />
-
-    <section class="shell localized-directory" id="owners-notes" aria-label="Localized watch pages">
-      <header class="directory-intro localized-directory-intro">
-        <div>
-          <div class="eyebrow">VINTAGE ALARM</div>
-          <h2>OWNER'S NOTES</h2>
-        </div>
-        <p class="directory-meta" set:html="OWNED WATCHES<br/>ENGLISH"></p>
-      </header>
-      <div class="directory-eras">
-        <section class="directory-era">
-          <h2>WATCHES</h2>
-          <div class="directory-tiles">
-            {entries.map((entry) => (
-              <OwnerThumbnailFrame
-                brand={entry.brand}
-                name={entry.name}
-                directoryCatch={entry.directoryCatch}
-                href={`${base}${entry.href.replace(/^\//, '')}`}
-                image={`${base}${(entry.ownersThumbnail ?? entry.image).replace(/^\//, '')}`}
-                smartFit={false}
-              />
-            ))}
-          </div>
-        </section>
-      </div>
-    </section>
   </body>
 </html>
-
-<style>
-  .localized-directory{padding-top:18px;padding-bottom:80px}
-  .localized-directory-intro{margin-top:0}
-  .localized-directory-intro h2{margin:0;font:400 clamp(38px,5vw,62px)/1 Georgia,"Times New Roman",serif;letter-spacing:-.03em}
-</style>
