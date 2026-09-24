@@ -54,7 +54,7 @@ const specimenMaps: Record<Locale, {
       '4桁・不明瞭': '4-stellig / undeutlich'
     },
     source: {
-      '削除済み記録': 'gelöschter Datensatz',
+      '削除済み記録': 'nicht mehr abrufbarer Eintrag',
       'シェルマン銀座': 'Shellman Ginza'
     }
   }
