@@ -17,6 +17,15 @@
 
 ## 2026-09-24
 
+### 2026-09-24 21:32 JST — localized routeの可視日本語漏れを生成HTMLで禁止
+- **変更**：EN / DE OWNER'S NOTESの年代ラベルをlocalized WATCH specから取得し、HOW THEY RINGのキャリバー表示・録音ラベル・区切り記号もlocale別表示へ切替。さらに全EN / DE生成HTMLの可視テキストとuser-facing属性を走査し、言語切替「日本語」と明示許可した固有名を除く日本語文字・日本語式全角記号が残ればCIを失敗させる `check:localization-purity` を追加した。
+- **理由**：翻訳本文自体が正しくても、`owners-directory.json` の `ownedEra`、日本語WATCH正本の `spec.caliber`、HOW THEY RING録音CMSの生ラベル、共通テンプレートの全角区切り記号が別経路でlocalized routeへ流入していた。具体的にWittnauerの「1950年代前半」、Citizenの「同型資料」「シチズンアラーム」、Basisの全角括弧が本番で確認された。
+- **旧状態・棄却**：翻訳source内の日本語文字検索と、route存在・artifact parityだけで合格判定する方式。これは「正しいbuildが本番へ出た」ことは保証できても、そのbuild自体に言語混入がないことは保証しないため不十分として棄却。
+- **影響範囲**：EN / DE OWNER'S NOTES、EN / DE HOW THEY RING、OwnerThumbnailFrameのaria-label、localized quality gate、翻訳運用ルール。日本語正本の本文・事実内容・レイアウトは変更しない。
+- **検証状態**：branch実装済み。PR CIでbuild後の全EN / DE HTML purity、既存quality、回帰テスト、layoutを実行し、main merge後は既存の全artifact live parityで本番一致まで確認する。
+- **関連**：implementation commits `e0857166`, `35d6c79c` / branch `fix/localized-visible-text-purity`。初回CIで独語OWNER'S NOTESのfull spec年代がnowrap表示を横溢れさせたため、一覧専用の短いlocalized年代ラベルを分離して修正。
+- **日時根拠**：GitHub implementation commit `2026-09-24T12:32:33Z → 2026-09-24 21:32 JST`。実装commit時刻を見出し時刻に採用。
+
 ### 2026-09-24 15:03 JST — 多言語公開を全routeのbuild/live一致で保証
 - **変更**：EN / DEの公開確認を代表ページ・一部WATCH・個別文字列だけに限定する方式を廃止。TOP / HISTORY / OWNER'S NOTES / HOW THEY RING / SOURCES / 公開中の全WATCH / CYMA Chronomètreをbuild・layout・semantic live検査の対象にし、さらにdeploy後はdist内の全生成HTMLとsitemap.xml / llms.txt / robots.txtをlive取得して完全一致を必須化した。未mergeだったCYMA Chronomètre独語校正も同じ変更セットへ取り込んだ。
 - **理由**：GitHub上に修正文が存在していても、本番routeがその修正を読んでいるか、またはそのPRがmainへ入っているかを既存gateが全ページでは検証しておらず、旧翻訳が本番に残ったままdeploy成功扱いできたため。

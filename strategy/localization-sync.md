@@ -87,6 +87,25 @@
 
 翻訳修正PRが未mergeのまま残っている状態は `IMPLEMENTED` 以下であり、「GitHubに記載済み」を本番反映の代わりにしない。個別の修正文言だけをlive gateへ足して終わらせず、全公開routeのartifact parityを共通の最終gateとする。
 
+## 共有データの表示境界 — 日本語正本をそのまま描画しない
+
+今回のOWNER'S NOTES / HOW THEY RINGで確認したように、翻訳データそのものが正しくても、共通の日本語データを表示用フィールドとして再利用すると局所的な日本語漏れが発生する。
+
+具体例:
+
+- `owners-directory.json` の `ownedEra` をEN / DE一覧へそのまま流し込み、Wittnauerだけ「1950年代前半」が残った。
+- HOW THEY RINGが日本語WATCH正本の `spec.caliber` を直接使い、Citizenの「同型資料」がEN / DEへ漏れた。
+- 録音CMSの生ラベルをそのまま表示し、Citizenの「シチズンアラーム」やBasisの全角括弧が残った。
+- 共通テンプレートの `／` や `：` も、本文翻訳とは別経路でlocalized routeへ入り得る。
+
+以後は、共通データを **構造データ** と **表示データ** に分ける。
+
+- slug / sort key / image path / publication flag など言語非依存の値は共有してよい。
+- 年代ラベル / SPEC表示 / 録音ラベル / UI区切り記号 / aria-label など画面へ出る値は、localized routeではlocalized sourceから取得する。
+- localized sourceが存在するのに日本語正本の表示値へfallbackしない。fallbackが必要なら、言語非依存値に限定する。
+- `npm run check:localization-purity` でbuild後の全EN / DE HTMLを走査し、言語切替の「日本語」と明示的に許可した固有名以外の日本語文字・日本語式全角記号が可視テキスト / user-facing属性へ残ったらFAILにする。
+- sourceコード上に日本語があるかではなく、**最終生成HTMLに何が見えるか**を合格条件にする。
+
 ## 最初の登録事例 — Pierce創業年
 
 2026-09-15、Pierce創業年について日本語本文を1888年から1883年へ修正した。

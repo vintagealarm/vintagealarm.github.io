@@ -92,6 +92,12 @@ const categories = [
   { id: 'caseback', en: 'CASEBACK', sub: copy.categorySub.caseback, action: copy.action.caseback, figures: [makeFigure('02'), makeFigure('03'), makeFigure('04')] }
 ];
 
+const localizedWatchEntry = (slug: string) => {
+  if (locale === 'en') return englishWatchEntries[slug];
+  if (locale === 'de') return germanWatchEntriesWithCyma[slug];
+  return null;
+};
+
 const localizedWatchPath = (slug: string) => {
   if (locale === 'en' && englishWatchEntries[slug]) return `en/${slug}/`;
   if (locale === 'de' && germanWatchEntriesWithCyma[slug]) return `de/${slug}/`;
@@ -108,7 +114,7 @@ const specimens = orderedSlugs
       category: gallery.category,
       brand: watch.brand,
       model: watch.model,
-      caliber: watch.spec.caliber,
+      caliber: localizedWatchEntry(slug)?.spec.caliber ?? watch.spec.caliber,
       image: `${base}${(gallery.thumbnail?.trim() || ownerThumbnailBySlug.get(slug) || '').replace(/^\//, '')}`,
       recordings: gallery.audio.recordings
     };
@@ -950,7 +956,7 @@ const specimens = orderedSlugs
                 <div class="specimen-meta">
                   <p class="specimen-type">
                     {categories.find((item) => item.id === watch.category)?.en}
-                    ／{categories.find((item) => item.id === watch.category)?.sub}
+                    {copy.typeSeparator}{categories.find((item) => item.id === watch.category)?.sub}
                   </p>
                   <h3>{watch.brand}</h3>
                   <p class="specimen-model">{watch.model}</p>
