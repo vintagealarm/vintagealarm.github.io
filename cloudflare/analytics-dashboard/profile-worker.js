@@ -202,30 +202,43 @@ export function buildFreshness(payload) {
       queryAt,
       bucketKind,
       latestEventBucket: null,
+      latestNonZeroBucket: null,
       bucketStart: null,
       bucketEnd: null,
+      naturalBucketEnd: null,
+      bucketOpen: false,
       eventGapSeconds: null,
-      note: "No non-zero event bucket exists in the selected window. This can mean no traffic or delayed ingestion; the dashboard query itself succeeded.",
+      eventGapLowerBoundSeconds: null,
+      note: "No non-zero aggregate bucket exists in the selected window. This does not distinguish no traffic from delayed ingestion.",
     };
   }
 
   const explicitEndMs = bucketStartMs(latest?.bucketEnd);
-  const bucketEndMs = Number.isFinite(explicitEndMs)
+  const naturalEndMs = Number.isFinite(explicitEndMs)
     ? explicitEndMs
     : (bucketWidthMs ? latestMs + bucketWidthMs : latestMs);
-  const gapMs = Number.isFinite(queryAtMs)
-    ? Math.max(0, queryAtMs - bucketEndMs)
+  const bucketOpen = Number.isFinite(queryAtMs) && naturalEndMs > queryAtMs;
+  const observedEndMs = Number.isFinite(queryAtMs)
+    ? Math.min(naturalEndMs, queryAtMs)
+    : naturalEndMs;
+  const gapLowerBoundMs = Number.isFinite(queryAtMs)
+    ? Math.max(0, queryAtMs - naturalEndMs)
     : null;
+  const latestBucket = String(latest.bucket || latest.bucketStart || "");
 
   return {
     queryOk: true,
     queryAt,
     bucketKind,
-    latestEventBucket: String(latest.bucket || ""),
+    latestEventBucket: latestBucket,
+    latestNonZeroBucket: latestBucket,
     bucketStart: new Date(latestMs).toISOString(),
-    bucketEnd: bucketEndMs > latestMs ? new Date(bucketEndMs).toISOString() : null,
-    eventGapSeconds: gapMs == null ? null : Math.floor(gapMs / 1000),
-    note: "EVENT GAP is time since the latest non-zero Cloudflare trend bucket, not a guaranteed ingestion-lag measurement. It also includes periods with no visitors.",
+    bucketEnd: observedEndMs > latestMs ? new Date(observedEndMs).toISOString() : null,
+    naturalBucketEnd: naturalEndMs > latestMs ? new Date(naturalEndMs).toISOString() : null,
+    bucketOpen,
+    eventGapSeconds: gapLowerBoundMs == null ? null : Math.floor(gapLowerBoundMs / 1000),
+    eventGapLowerBoundSeconds: gapLowerBoundMs == null ? null : Math.floor(gapLowerBoundMs / 1000),
+    note: "This is the latest non-zero aggregate bucket, not the timestamp of the last page view. GAP LOWER BOUND is zero while that bucket is still open and must not be read as zero ingestion lag.",
   };
 }
 
@@ -310,17 +323,20 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
 
   const freshnessRenderer = `const statusEl=document.getElementById("updated");
   const freshness=data.freshness||{};
-  const fmtFreshTime=(value)=>value?new Intl.DateTimeFormat("ja-JP",{hour:"2-digit",minute:"2-digit"}).format(new Date(value)):"—";
+  const fmtFreshTime=(value)=>value?new Intl.DateTimeFormat("ja-JP",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"}).format(new Date(value)):"—";
   const fmtFreshGap=(seconds)=>{if(seconds==null)return "—";const mins=Math.floor(Number(seconds)/60);if(mins<1)return "<1m";if(mins<60)return mins+"m";const hours=Math.floor(mins/60);const rest=mins%60;return hours+"h"+(rest?rest+"m":"");};
   if(statusEl){
     const queryTime=fmtFreshTime(freshness.queryAt||data.generatedAt);
-    if(freshness.latestEventBucket){
+    const latestBucket=freshness.latestNonZeroBucket||freshness.latestEventBucket;
+    if(latestBucket){
       const range=freshness.bucketEnd?fmtFreshTime(freshness.bucketStart)+"–"+fmtFreshTime(freshness.bucketEnd):fmtFreshTime(freshness.bucketStart);
-      statusEl.textContent="QUERY OK "+queryTime+" · LAST EVENT "+range+" · EVENT GAP ≥"+fmtFreshGap(freshness.eventGapSeconds);
+      const open=freshness.bucketOpen?" · 集計中bucket":"";
+      const gap=freshness.eventGapLowerBoundSeconds??freshness.eventGapSeconds;
+      statusEl.textContent="QUERY OK "+queryTime+" · LATEST NONZERO BUCKET "+range+open+" · GAP LOWER BOUND ≥"+fmtFreshGap(gap);
     }else{
-      statusEl.textContent="QUERY OK "+queryTime+" · LAST EVENT なし（選択期間）";
+      statusEl.textContent="QUERY OK "+queryTime+" · 非ゼロbucketなし（選択期間）";
     }
-    statusEl.title="QUERY OK = Cloudflare API応答成功。EVENT GAPは最新の非ゼロ集計bucketからの経過で、計測遅延だけでなく無流入時間も含みます。";
+    statusEl.title="LATEST NONZERO BUCKETは最後のイベント時刻ではなくCloudflareの集計bucketです。GAP LOWER BOUNDはそのbucket終了からの下限値で、集計中bucketでは0でも計測遅延0を意味しません。";
   }`;
 
   return String(html)
