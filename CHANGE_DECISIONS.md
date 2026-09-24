@@ -194,3 +194,12 @@
 - **影響範囲**：SMARTWATCH 3言語、LocalizedHistoryPage、build / layout / localized-history / live gate、翻訳戦略。
 - **検証状態**：branch実装済み。PR CIと本番live確認は未実施。
 
+## 2026-09-24｜DE FULL RESEARCH 6本にSEO / layout gateを同期
+
+- **確認した問題**：所有6 WATCHのDE FULL RESEARCH化後も、`check-seo.mjs` と `check-layout.mjs` のドイツ語WATCH対象が Pierce / Westclox / Cyma の旧3本のままだった。
+- **修正**：Basis Alarm / Citizen Alarm / Wittnauer Cal.10WAを加え、DE所有6本すべてをSEO構造化データ監査と320 / 390 / 768pxレイアウト監査の対象にした。
+- **理由**：ページ本体の翻訳完了と検証対象を一致させ、後からBasis / Citizen / Wittnauerだけドイツ語側の退行を見逃す状態を残さないため。
+- **旧状態・失効**：DEレイアウト・SEO gateが3本だけを監査する状態。
+- **影響範囲**：`scripts/check-seo.mjs`、`scripts/check-layout.mjs`。
+- **検証状態**：PR #111でCI再実行。本番live確認はmain merge後。
+
