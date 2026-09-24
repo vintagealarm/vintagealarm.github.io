@@ -97,7 +97,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
     },
     spec: {
       era: 'c. 1948 (same-type documentation)',
-      caseSize: '37 mm (same-type documentation)',
+      caseSize: '34 mm (shown specimen)',
       caliber: 'Baumgartner BFG 90',
       jewels: '17 jewels',
       frequency: '18,000 vph',
