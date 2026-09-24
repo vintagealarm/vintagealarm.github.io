@@ -38,8 +38,8 @@ let lastFailures = [];
 
 for (let attempt = 1; attempt <= 12; attempt += 1) {
   const failures = [];
-  const [home, englishHome, germanHome, englishOwners, germanOwners, history, englishHistory, germanHistory, owners, sitemap] = await Promise.all([
-    get(''), get('en/'), get('de/'), get('en/owners-notes/'), get('de/owners-notes/'), get('history/'), get('en/history/'), get('de/history/'), get('owners-notes/'), get('sitemap.xml')
+  const [home, englishHome, germanHome, englishOwners, germanOwners, history, englishHistory, germanHistory, japaneseSmartwatch, englishSmartwatch, germanSmartwatch, owners, sitemap] = await Promise.all([
+    get(''), get('en/'), get('de/'), get('en/owners-notes/'), get('de/owners-notes/'), get('history/'), get('en/history/'), get('de/history/'), get('history/smartwatch/'), get('en/history/smartwatch/'), get('de/history/smartwatch/'), get('owners-notes/'), get('sitemap.xml')
   ]);
   for (const [name, result] of [
     ['home', home],
@@ -50,6 +50,9 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     ['history', history],
     ['en/history', englishHistory],
     ['de/history', germanHistory],
+    ['history/smartwatch', japaneseSmartwatch],
+    ['en/history/smartwatch', englishSmartwatch],
+    ['de/history/smartwatch', germanSmartwatch],
     ['owners-notes', owners],
     ['sitemap', sitemap]
   ]) {
@@ -104,11 +107,27 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   if (germanHistory.ok && !germanHistory.text.includes('lang="de"')) failures.push('de/history: html lang missing');
   if (englishHistory.ok && !englishHistory.text.includes('References &amp; Sources') && !englishHistory.text.includes('References & Sources')) failures.push('en/history: localized sources label missing');
   if (germanHistory.ok && !germanHistory.text.includes('Literatur &amp; Quellen') && !germanHistory.text.includes('Literatur & Quellen')) failures.push('de/history: localized sources label missing');
+  if (englishHistory.ok && !englishHistory.text.includes('/en/history/smartwatch/')) failures.push('en/history: localized SMARTWATCH link missing');
+  if (germanHistory.ok && !germanHistory.text.includes('/de/history/smartwatch/')) failures.push('de/history: localized SMARTWATCH link missing');
+
+  for (const [name, page, lang, marker] of [
+    ['history/smartwatch', japaneseSmartwatch, 'ja', 'まだ、足りませんか。'],
+    ['en/history/smartwatch', englishSmartwatch, 'en', 'Still not enough?'],
+    ['de/history/smartwatch', germanSmartwatch, 'de', 'Reicht es immer noch nicht?']
+  ]) {
+    if (page.ok && !page.text.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
+    if (page.ok && !page.text.includes('noindex,follow')) failures.push(`${name}: noindex,follow missing`);
+    if (page.ok && !page.text.includes(marker)) failures.push(`${name}: localized marker missing: ${marker}`);
+  }
 
   if (sitemap.ok) {
     for (const path of ['history/', 'en/history/', 'de/history/', 'en/owners-notes/', 'de/owners-notes/', ...(howTheyRingSettings.productionPublished ? ['how-they-ring/', 'en/how-they-ring/', 'de/how-they-ring/'] : [])]) {
       const expected = `https://vintagealarm.github.io/${path}`;
       if (!sitemap.text.includes(expected)) failures.push(`${path}: missing from sitemap`);
+    }
+    for (const path of ['history/smartwatch/', 'en/history/smartwatch/', 'de/history/smartwatch/']) {
+      const excluded = `https://vintagealarm.github.io/${path}`;
+      if (sitemap.text.includes(excluded)) failures.push(`${path}: noindex SMARTWATCH route leaked into sitemap`);
     }
   }
 
