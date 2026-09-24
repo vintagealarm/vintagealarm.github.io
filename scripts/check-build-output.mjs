@@ -45,6 +45,12 @@ const englishHomeHtml = fs.existsSync(path.join(dist, 'en/index.html'))
 const germanHomeHtml = fs.existsSync(path.join(dist, 'de/index.html'))
   ? fs.readFileSync(path.join(dist, 'de/index.html'), 'utf8')
   : '';
+const englishOwnersHtml = fs.existsSync(path.join(dist, 'en/owners-notes/index.html'))
+  ? fs.readFileSync(path.join(dist, 'en/owners-notes/index.html'), 'utf8')
+  : '';
+const germanOwnersHtml = fs.existsSync(path.join(dist, 'de/owners-notes/index.html'))
+  ? fs.readFileSync(path.join(dist, 'de/owners-notes/index.html'), 'utf8')
+  : '';
 const englishHowTheyRingHtml = fs.existsSync(path.join(dist, 'en/how-they-ring/index.html'))
   ? fs.readFileSync(path.join(dist, 'en/how-they-ring/index.html'), 'utf8')
   : '';
@@ -121,7 +127,19 @@ for (const [name, html, lang, lead, howPath] of [
   if (!html.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
   if (!html.includes(lead)) failures.push(`${name}: localized TOP lead missing`);
   if (howTheyRingRelease.productionPublished && !html.includes(howPath)) failures.push(`${name}: localized HOW THEY RING link missing`);
-  if (!html.includes('id="owners-notes"')) failures.push(`${name}: localized OWNER'S NOTES anchor missing`);
+  const ownersPath = lang === 'en' ? 'en/owners-notes/' : 'de/owners-notes/';
+  if (!html.includes(ownersPath)) failures.push(`${name}: localized OWNER'S NOTES link missing`);
+  if (html.includes('owner-frame') || html.includes('localized-directory')) failures.push(`${name}: embedded OWNER'S NOTES image directory leaked onto TOP`);
+}
+
+for (const [name, html, lang, pathName] of [
+  ["EN OWNER'S NOTES", englishOwnersHtml, 'en', 'en/owners-notes/'],
+  ["DE OWNER'S NOTES", germanOwnersHtml, 'de', 'de/owners-notes/']
+]) {
+  if (!html.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
+  if (!html.includes("OWNER'S NOTES")) failures.push(`${name}: heading missing`);
+  if (!html.includes('owner-frame')) failures.push(`${name}: owner image cards missing`);
+  if (!sitemap.includes(`https://vintagealarm.github.io/${pathName}`)) failures.push(`${pathName}: missing from sitemap`);
 }
 
 for (const stale of ['鐘から現在まで。アラーム腕時計の歴史を読む', '所有個体を、実機・操作・音から読む']) {
