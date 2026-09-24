@@ -1,5 +1,5 @@
 import vm from "node:vm";
-import worker, { aggregateSnsEntries, aggregateTrendBuckets, buildPeriodIntegrity, campaignWindow, campaignSummary, mapWithConcurrency, mergePeriodData, mergeTrendPoints, normalizeTrendBucket, parseYouTubeVideoUrl, resolveAnalyticsRange, splitPeriod } from "./worker.js";
+import worker, { aggregateSnsEntries, aggregateTrendBuckets, buildPeriodIntegrity, campaignWindow, campaignSummary, classifyReferrer, mapWithConcurrency, mergePeriodData, mergeTrendPoints, normalizeTrendBucket, parseYouTubeVideoUrl, resolveAnalyticsRange, splitPeriod } from "./worker.js";
 import assert from "node:assert/strict";
 
 const integrityBase = {
@@ -97,6 +97,10 @@ assert.equal(aggregateSnsEntries([]).total, 0);
 assert.equal(aggregateSnsEntries([]).complete, true);
 assert.equal(aggregateSnsEntries(undefined).complete, false);
 assert.equal(aggregateSnsEntries(Array.from({ length: 1000 }, () => entry("/", "t.co", 1))).complete, false);
+
+assert.equal(classifyReferrer("gemini.google.com"), "AI Assistant", "Gemini must not be swallowed by google.* Organic Search");
+assert.equal(classifyReferrer("www.google.com"), "Organic Search", "normal Google search must remain Organic Search");
+assert.equal(classifyReferrer("google.co.jp"), "Organic Search");
 
 const thirtyDayRanges = splitPeriod("2026-08-11T12:00:00Z", "2026-09-10T12:00:00Z");
 assert.equal(thirtyDayRanges.length, 5);
