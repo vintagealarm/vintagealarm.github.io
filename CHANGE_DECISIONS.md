@@ -195,3 +195,13 @@
 - **修正**：EN/DE TOPから画像付き一覧を撤去し、日本語TOPと同じ入口構造だけに統一。画像付き一覧は `/en/owners-notes/` と `/de/owners-notes/` へ分離した。
 - **維持**：言語別WATCHへの導線は失わず、TOPのOWNER'S NOTESから各言語の専用一覧へ進む。HOW THEY RING、WATCH本文、日本語TOPは変更しない。
 - **再発防止**：build / live / mobile gateでEN/DE TOPに `owner-frame` / `localized-directory` が混入していないことと、専用OWNER'S NOTESページに画像カードが存在することを別々に検査する。
+
+
+## 2026-09-24 — Analytics「期間比較」の表示を日本語化
+
+### 2026-09-24 14:50 JST — BUCKET COMPARISONの英語表示を日本語へ統一
+- **変更**：Analytics dashboard の期間比較テーブルで、見出し・状態表示・サンプル間隔表示を日本語化。PARTIAL / SHORT / MIGRATION / SAMPLED / ESTIMATE / UNSAMPLED の内部値は維持し、画面上だけ「集計途中 / 短期間 / 移行期間 / サンプル集計 / 推定値 / サンプリングなし」と表示する。
+- **変更**：列名を「期間 / データ状態 / PV / 訪問数 / X / 検索 / 直接・参照元不明 / 内部PV / 訪問数差」に統一し、sample ×N は サンプル間隔 ×N と表示する。
+- **理由**：管理画面の期間比較だけ英語表記が残り、他の日本語UIと読解負荷が揃っていなかったため。
+- **維持**：集計ロジック、comparable判定、status内部コード、AI export / VA2、生データは変更しない。
+- **検証**：生成HTML検査で日本語表示と旧 BUCKET COMPARISON 見出しの不在を確認する。
