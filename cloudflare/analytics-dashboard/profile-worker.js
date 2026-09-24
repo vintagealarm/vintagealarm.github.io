@@ -133,11 +133,13 @@ function patchSnsEntries(period) {
   const newlyMappedPaths = new Set(
     Object.keys(SNS_PAGE_NAMES).filter((path) => !sourceByPath.has(path)),
   );
-  const flowRows = Array.isArray(period?.flows)
-    ? period.flows
-    : Array.isArray(period?.externalEntryFlows)
-      ? period.externalEntryFlows
-      : [];
+  const flowRows = Array.isArray(period?.flowSummary)
+    ? period.flowSummary
+    : Array.isArray(period?.flows)
+      ? period.flows
+      : Array.isArray(period?.externalEntryFlows)
+        ? period.externalEntryFlows
+        : [];
   for (const flow of flowRows) {
     if (!newlyMappedPaths.has(flow?.destinationPath) || !channels.includes(flow?.channel)) continue;
     const visits = Number(flow?.visits || 0);
@@ -151,9 +153,11 @@ function patchSnsEntries(period) {
   }
 
   const rows = [...pages, other];
-  const flowRowsComplete = Array.isArray(period?.flows)
-    ? period?.completeness?.flows !== false && period.flows.length < 200
-    : period?.flowRowsComplete !== false;
+  const flowRowsComplete = Array.isArray(period?.flowSummary)
+    ? period?.completeness?.flowSummary !== false && period.flowSummary.length < 1000
+    : Array.isArray(period?.flows)
+      ? period?.completeness?.flows !== false && period.flows.length < 200
+      : period?.flowRowsComplete !== false;
   return {
     pages: rows,
     total: Number(source.total || rows.reduce((sum, row) => sum + row.total, 0)),
@@ -247,6 +251,7 @@ export function patchPeriod(period) {
   const patched = { ...period };
   if (Array.isArray(patched.pages)) patched.pages = patched.pages.map(patchPage);
   if (Array.isArray(patched.entryPages)) patched.entryPages = patched.entryPages.map(patchPage);
+  if (Array.isArray(patched.flowSummary)) patched.flowSummary = patched.flowSummary.map(patchFlow);
   if (Array.isArray(patched.flows)) patched.flows = patched.flows.map(patchFlow);
   if (Array.isArray(patched.externalEntryFlows)) patched.externalEntryFlows = patched.externalEntryFlows.map(patchFlow);
   if (Array.isArray(patched.internalFlows)) patched.internalFlows = patched.internalFlows.map(patchFlow);
