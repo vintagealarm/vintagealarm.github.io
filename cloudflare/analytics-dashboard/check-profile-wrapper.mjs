@@ -1,4 +1,4 @@
-import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, RESEARCH_PAGE_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
+import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, MEASUREMENT_TARGET_PAGE_NAMES, RESEARCH_PAGE_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -67,6 +67,8 @@ const payload = patchAnalyticsPayload({
 });
 
 assert(Object.keys(WATCH_PAGE_NAMES).length === 6, 'analytics must keep all six published Japanese WATCH pages');
+assert(Object.keys(MEASUREMENT_TARGET_PAGE_NAMES).length === 5, 'measurement target must remain the five baseline WATCH pages');
+assert(!MEASUREMENT_TARGET_PAGE_NAMES['/wittnauer-10wa/'], 'Wittnauer is published but must not be folded into the five-watch measurement target');
 assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 7, 'analytics must track English index, OWNER\'S NOTES and five WATCH gateways');
 assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 5, 'analytics must track German index, OWNER\'S NOTES plus Duofon, Cyma and Westclox gateways');
 assert(Object.keys(HISTORY_GATEWAY_NAMES).length === 3, 'analytics must track Japanese, English and German HISTORY pages');
@@ -165,7 +167,8 @@ assert(patchedHtml.includes('X Profile'), 'profile event platform was not inject
 assert(patchedHtml.includes('id="aiReadable">AI URL</button>'), 'AI URL button was not injected');
 assert(patchedHtml.includes('/api/ai-readable-link?'), 'AI URL handler was not injected');
 assert(patchedHtml.includes('analyticsQuery'), 'AI URL handler must preserve current range/bucket query');
-assert(patchedHtml.includes('["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]'), 'WATCH share list changed unexpectedly');
+assert(patchedHtml.includes('["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm"]'), 'five-watch measurement target list changed unexpectedly');
+assert(!patchedHtml.includes('["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon"'), 'published Wittnauer must not be folded into the five-watch measurement target KPI');
 assert(patchedHtml.includes('{name:"OWNER\'S NOTES (EN)",path:"/en/owners-notes/"}'), 'English OWNER\'S NOTES key page was not injected');
 assert(patchedHtml.includes('{name:"OWNER\'S NOTES (DE)",path:"/de/owners-notes/"}'), 'German OWNER\'S NOTES key page was not injected');
 assert(patchedHtml.includes('{name:"HISTORY",path:"/history/"}'), 'Japanese HISTORY key page was not injected');
@@ -249,4 +252,4 @@ assert(!(await failed.json()).url, 'failed preflight must not return a URL');
 const unauthenticated = await profileWorker.fetch(new Request('https://dashboard.example/api/ai-readable-link'), env, {});
 assert(unauthenticated.status === 401, 'issuance still needs authentication');
 globalThis.fetch = originalFetch;
-console.log('Five-WATCH analytics + English/German gateways + localized HISTORY + SNS reallocation + X profile attribution + AI readable URL wrapper: OK');
+console.log('Five-WATCH measurement target + six published JP WATCH mappings + English/German gateways + localized HISTORY + SNS reallocation + X profile attribution + AI readable URL wrapper: OK');
