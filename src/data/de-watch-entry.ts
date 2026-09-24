@@ -53,6 +53,115 @@ export type GermanWatchEntry = {
 };
 
 export const germanWatchEntries: Record<string, GermanWatchEntry> = {
+  'citizen-alarm': {
+    slug: 'citizen-alarm',
+    title: 'Citizen Alarm Cal. 980 — Japans erste Wecker-Armbanduhr mit Glockenschlag | VINTAGE ALARM',
+    description: 'Citizen Alarm Cal. 980 von 1958: zwei Federhäuser, zwei Kronen, drehbare zentrale Alarmscheibe, Doppelboden-Klangkonstruktion, spätere Four-Hands-Varianten, Exemplar-Fotos und Quellen.',
+    indexBlurb: '1958: Japans erste Wecker-Armbanduhr mit hörbarem Glockenschlag — zwei Federhäuser, zwei Kronen und eine drehbare Alarmscheibe im Zifferblattzentrum.',
+    catch: ['Japans erste Wecker-Armbanduhr mit Glockenschlag — und der Beginn einer ganzen Linie.'],
+    ownersNote: {
+      lead: [
+        '1958: Japans erste Wecker-Armbanduhr mit Glockenschlag.',
+        'Eine drehbare Scheibe im Zentrum und zwei Kronen prägen die erste Ausführung.',
+        'Ihr Gesicht erinnert an die frühere Memovox.',
+        'Später entstand sogar die Legende, Jaeger-LeCoultre habe sich über die Ähnlichkeit beschwert.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        '① Krone bei 4 Uhr — Gehwerk aufziehen; herausziehen zum Einstellen der Uhrzeit',
+        '② Krone bei 2 Uhr — Alarm aufziehen; herausziehen zum Einstellen der Alarmzeit'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Auf die erste Ausführung mit zentraler Scheibe folgte später die Four-Hands-Version mit vier Zeigern.',
+        'Danach kamen Alarm Date, College Alarm, sportliche Modelle und Ausführungen im Taucherstil hinzu; auch Damenmodelle erschienen.',
+        'Aus Japans erster Uhr dieser Art wurde eine ganze Citizen-Alarmfamilie.'
+      ]
+    },
+    spec: {
+      era: 'um 1958 (frühe Ausführung)',
+      caseSize: '37 mm (Dokumentation eines gleichen Typs)',
+      caliber: 'Citizen 980 (Dokumentation eines gleichen Typs)',
+      jewels: '17 Steine (Dokumentation eines gleichen Typs)',
+      frequency: '18.000 A/h (Dokumentation eines gleichen Typs)',
+      barrels: '2 Federhäuser',
+      winding: 'Handaufzug',
+      acoustic: 'Doppelboden-Klangsystem',
+      notes: 'Drehbare zentrale Alarmscheibe, zwei Kronen, Parashock'
+    },
+    specimenGallery: [
+      { image: '/images/IMG_1695.jpeg', label: 'Vorderseite — am Handgelenk', alt: 'Citizen Alarm Cal. 980, gezeigtes Exemplar, Vorderseite am Handgelenk' },
+      { image: '/images/IMG_2088.jpeg', label: 'Kronenseite', alt: 'Citizen Alarm Cal. 980 mit den beiden Kronen' },
+      { image: '/images/IMG_2089.jpeg', label: 'Gehäuseboden', alt: 'Gehäuseboden des gezeigten Citizen-Alarm-Exemplars' }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: '1958 — Japans erste Wecker-Armbanduhr',
+        paragraphs: [
+          'In den Nachkriegsjahren erweiterte Citizen seine Technik um neue Funktionen wie Kalender und Stoßsicherung. 1957 entwickelte das Unternehmen zudem eigene Drehautomaten und Messgeräte für die Fertigung von Uhrenteilen.',
+          'Das folgende Jahr brachte mehrere wichtige Neuheiten: Im Mai 1958 erschien die automatische Herrenuhr „Auto“, im Juni die „Alarm“ und im August die flache Spitzenlinie „Super Deluxe“.',
+          'Die Citizen Alarm war Japans erste Armbanduhr mit hörbarem Glockenalarm. Sie besaß getrennte Federhäuser für Gehwerk und Alarm; zur eingestellten Zeit schlug ein Hammer gegen den Gehäuseboden. Die Alarmdauer betrug ungefähr zehn Sekunden. Auf das frühe Cal. A folgte Cal. 980.',
+          'In der Schweiz wurden damals Zusatzfunktionen wie Wasserdichtheit, Kalender, Chronograph und Alarm zunehmend zu Verkaufsargumenten. Auch Citizen brachte den Alarm im Rahmen dieser Entwicklung als Modell mit besonderer Zusatzfunktion auf den Markt.',
+          '1958 war damit eine Phase, in der japanische Armbanduhren nicht mehr nur über die Zeitanzeige, sondern zunehmend auch über zusätzliche Funktionen konkurrierten.'
+        ],
+        citationRefs: ['3','3','1','2','2,3']
+      },
+      {
+        number: '02',
+        title: 'Citizen Cal. 980',
+        paragraphs: [
+          'Das in frühen Citizen-Alarm-Uhren verwendete Cal. 980 besitzt zwei Federhäuser, eines für das Gehwerk und eines für den Alarm. Die Kronen bei 2 und 4 Uhr bedienen die beiden Bereiche getrennt.',
+          'Die Grundanordnung ähnelt stark dem Schweizer A. Schild AS 1475. Beitl nennt die Möglichkeit einer Lizenzfertigung auf Basis des AS 1475 und geht davon aus, dass Citizen das Konzept später änderte und weiterentwickelte. Frühe 980-Ausführungen sind mit 17 Steinen und Parashock dokumentiert.',
+          'Die Alarmkonstruktion prägt auch das äußere Erscheinungsbild. Frühe Exemplare besitzen eine drehbare Scheibe in der Zifferblattmitte zur Anzeige der Alarmzeit, zwei große Kronen auf der rechten Gehäuseseite und einen Doppelboden. Der innere Boden wird angeregt; der Schall kann durch Öffnungen des äußeren Bodens austreten.',
+          'Die zentrale Scheibe war jedoch keine zwingende Voraussetzung des Cal. 980. Später erschienen mit demselben Kaliber auch Ausführungen, bei denen ein vierter Zeiger die Alarmzeit anzeigt.'
+        ],
+        citationRefs: ['1,4','4,5','2','4']
+      },
+      {
+        number: '03',
+        title: 'Von der zentralen Scheibe zu Four Hands',
+        paragraphs: [
+          'Die drehbare Alarmscheibe im Zentrum des Zifferblatts wurde zu einem Kennzeichen der ersten Citizen Alarm. Citizen selbst beschreibt die Gestaltung als Lösung, die Anzeige und Bedienung der Alarmzeit besonders gut ablesbar machen sollte.',
+          'Um 1960 erschien die „Four Hands“-Ausführung, bei der ein vierter Zeiger die Alarmzeit anzeigt. Auch sie verwendet Cal. 980. Gleichzeitig blieben Scheibenmodelle mit 980 erhalten, sodass die zentrale Scheibe nicht unmittelbar mit dem Erscheinen von Four Hands verschwand.',
+          'In Japan wird häufig erzählt, die erste Gestaltung habe der Jaeger-LeCoultre Memovox so stark geähnelt, dass Jaeger-LeCoultre sich beschwert habe und Citizen deshalb auf Four Hands umgestellt habe. In den für diese Seite verwendeten Citizen-Unterlagen sowie bei Beitl und Horlbeck findet sich dafür kein Beleg.',
+          'Was zwischen der ersten Ausführung und Four Hands tatsächlich geschah, bleibt in den geprüften Quellen offen. Die Geschichte von der Beschwerde lebt daher als Legende weiter, nicht als bestätigte Erklärung.'
+        ],
+        citationRefs: ['2','4','1,2,4,5','1,2,4,5']
+      },
+      {
+        number: '04',
+        title: 'Die weitere Entwicklung der Citizen Alarm',
+        paragraphs: [
+          'Die Citizen-Alarm-Linie endete nicht mit Four Hands. Vom Cal. 981 sind Übergangsmodelle bekannt, die bereits „Alarm Date“ auf dem Zifferblatt tragen, obwohl noch kein Datumsfenster vorhanden ist. Beim späteren Cal. 3100 kam eine Datumsanzeige bei 3 Uhr hinzu.',
+          'Danach wurde die Familie um Parawater- und wasserdichte Ausführungen, Sportmodelle, Varianten im Taucherstil sowie Damenmodelle wie Alarm und Lady Alarm erweitert.',
+          'Citizens eigene historische Darstellung führt diese Linie bis in die frühen 1970er-Jahre. Am Ende stand keine weitere Armbanduhr, sondern eine Taschenuhr mit Alarmfunktion.',
+          'Was 1958 als Japans erste Wecker-Armbanduhr mit hörbarem Glockenschlag begann, endete damit schließlich nicht mehr am Handgelenk, sondern in der Tasche.'
+        ],
+        citationRefs: ['4','2,4','2','2']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'primary' },
+      { id: '2', type: 'primary' },
+      { id: '3', type: 'primary' },
+      { id: '4', type: 'reference' },
+      { id: '5', type: 'reference' }
+    ],
+    sources: [
+      'Citizen Watch, historische Modellseite „Alarm“ (1958) — Einführung, Übergang von Cal. A zu Cal. 980, zwei Federhäuser und etwa zehn Sekunden Alarmdauer.',
+      'CITIZEN DESIGN, „The Beauty of Utility / CITIZEN ALARM“ (2024) — zentrale Drehscheibe, zwei Kronen, Doppelboden und spätere Modellentwicklung.',
+      'Citizen Watch, Produkt- und Technikgeschichte — Modellneuheiten der 1950er-Jahre sowie eigene Drehautomaten und Messtechnik.',
+      'Leonhard Beitl, Alarm am Arm (2009), S. 122–125 und Werktabelle — Cal. 980, Four Hands, Alarm Date und spätere Citizen-Alarmmodelle.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 26, 80–83, 95–96 — Beziehung zum AS 1475 und Citizen-Alarmkaliber.'
+    ],
+    related: {
+      href: '/de/basis-alarm/',
+      hreflang: 'de',
+      name: 'BASIS ALARM',
+      reason: 'Eine andere frühe Lösung mit zwei Federhäusern — aber mit völlig anderem Aufzugssystem und sichtbaren Aufzugsanzeigen.'
+    }
+  },
   'basis-alarm': {
     slug: 'basis-alarm',
     title: 'Basis Alarm BFG 90 — Mechanischer Wecker mit zwei Federhäusern | VINTAGE ALARM',
