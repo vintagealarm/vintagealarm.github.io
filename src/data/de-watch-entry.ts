@@ -77,7 +77,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       noteTitle: 'NOTE',
       note: [
         'Die Basis Alarm verwendet das Baumgartner BFG 90, ein frühes Werk für Wecker-Armbanduhren.',
-        'Abseits von hochpreisigen Modellen wie Memovox und Cricket verbreitete sich das BFG 90 in Gebrauchsuhrmodellen unter Namen wie Basis, Lantex, Sheffield, Simplon und Tior.',
+        'Abseits von hochwertigen Modellen wie Memovox und Cricket verbreitete sich das BFG 90 in Gebrauchsuhrmodellen unter Namen wie Basis, Lantex, Sheffield, Simplon und Tior.',
         'Nicht die feine Zurückhaltung einer Luxusuhr, sondern ein Gebrauchsgegenstand, der seine Funktionen offen nach außen trägt.',
         'Gerade deshalb bleibt so viel Freude am Anschauen, Anfassen und Klingelnlassen.'
       ]
@@ -180,13 +180,13 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
   },
   'citizen-alarm': {
     slug: 'citizen-alarm',
-    title: 'Citizen Alarm Cal. 980 — Japans erster heimischer Armbandwecker | VINTAGE ALARM',
-    description: 'Citizen Alarm von 1958: Japans erster im Inland produzierter Armbandwecker, Cal. 980, zwei Federhäuser, zwei Kronen, drehbare zentrale Weckscheibe, Doppelboden, spätere Four-Hands-Ausführungen, Exemplar-Fotos und Quellen.',
-    indexBlurb: 'Japans erster heimischer Armbandwecker: zwei Federhäuser, zwei Kronen und eine drehbare Weckscheibe in der Zifferblattmitte.',
-    catch: ['Japans erster heimischer Armbandwecker — und der Anfang einer ganzen Modellfamilie.'],
+    title: 'Citizen Alarm Cal. 980 — Japans erster Armbandwecker aus heimischer Fertigung | VINTAGE ALARM',
+    description: 'Citizen Alarm von 1958: der erste in Japan gefertigte Armbandwecker, Cal. 980, zwei Federhäuser, zwei Kronen, drehbare zentrale Weckscheibe, Doppelboden, spätere Four-Hands-Ausführungen, Exemplar-Fotos und Quellen.',
+    indexBlurb: 'Japans erster Armbandwecker aus heimischer Fertigung: zwei Federhäuser, zwei Kronen und eine drehbare Weckscheibe in der Zifferblattmitte.',
+    catch: ['Japans erster Armbandwecker aus heimischer Fertigung — und der Anfang einer ganzen Modellfamilie.'],
     ownersNote: {
       lead: [
-        '1958: Japans erster heimischer Armbandwecker.',
+        '1958: Japans erster Armbandwecker aus heimischer Fertigung.',
         'Eine drehbare Weckscheibe in der Mitte und zwei Kronen prägen die erste Ausführung.',
         'Das Gesicht erinnert an die frühere Memovox.',
         'Später entstand sogar die Legende, Jaeger-LeCoultre habe sich über die große Ähnlichkeit beschwert.'
@@ -225,7 +225,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         title: '1958 — Japans erster Armbandwecker',
         paragraphs: [
           'In den Nachkriegsjahren erweiterte Citizen seine technischen Möglichkeiten und brachte zusätzliche Funktionen wie Kalender und Stoßsicherung in seine Uhren. 1957 entwickelte das Unternehmen außerdem eigene Drehautomaten und Messgeräte für die Fertigung von Uhrenteilen.',
-          'Im folgenden Jahr erschienen mehrere neue Modelle kurz hintereinander: im Mai 1958 die automatische Herrenuhr „Auto“, im Juni die „Alarm“ und im August die flache, höher positionierte „Super Deluxe“.',
+          'Im folgenden Jahr erschienen mehrere neue Modelle kurz hintereinander: im Mai 1958 die automatische Herrenuhr „Auto“, im Juni die „Alarm“ und im August die flache „Super Deluxe“ aus der Oberklasse.',
           'Die Citizen Alarm war der erste in Japan produzierte Armbandwecker mit hörbarem Alarm. Gehwerk und Alarm besitzen jeweils ein eigenes Federhaus; zur eingestellten Zeit schlägt ein Hammer auf den Gehäuseboden. Citizen nennt eine Alarmdauer von ungefähr zehn Sekunden. Auf das frühe Cal. A folgte Cal. 980.',
           'In der Schweiz waren Funktionen wie Wasserschutz, Kalender, Chronograph und Alarm damals wichtige Produktmerkmale geworden. Auch Citizen führte die Alarm als Uhr mit einer besonderen Zusatzfunktion ein.',
           '1958 war damit eine Phase erreicht, in der japanische Armbanduhren nicht mehr nur über die reine Zeitanzeige konkurrierten, sondern zunehmend auch über mechanische Zusatzfunktionen.'
