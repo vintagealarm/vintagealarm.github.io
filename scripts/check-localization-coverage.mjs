@@ -67,8 +67,12 @@ const fullResearchSlugs = [
   'wittnauer-10wa'
 ];
 const englishFullResearchSource = await fs.readFile('src/data/en-watch-full-research.ts', 'utf8');
+const cymaLocalizationSource = await fs.readFile('src/data/cyma-localizations.ts', 'utf8');
 for (const slug of fullResearchSlugs) {
-  if (!englishFullResearchSource.includes(`'${slug}': {`)) {
+  const registered = slug === 'cyma-time-o-vox'
+    ? cymaLocalizationSource.includes('englishCymaFullResearch')
+    : englishFullResearchSource.includes(`'${slug}': {`);
+  if (!registered) {
     failures.push(`en: ${slug} is published but is not registered as FULL RESEARCH`);
   }
 }
