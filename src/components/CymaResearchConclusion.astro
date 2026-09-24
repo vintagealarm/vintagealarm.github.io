@@ -1,14 +1,26 @@
 ---
-import data from '../data/cyma-chronometre-research.json';
-const { label = '結び' } = Astro.props as { label?: string };
+import defaultData from '../data/cyma-chronometre-research.json';
+
+type Locale = 'ja' | 'en' | 'de';
+const {
+  label,
+  data = defaultData,
+  locale = 'ja'
+} = Astro.props as { label?: string; data?: any; locale?: Locale };
+
+const ui = {
+  ja: { label: '結び', toggle: 'ここまでで言えることを開閉' },
+  en: { label: 'Conclusion', toggle: 'Toggle current conclusions' },
+  de: { label: 'Fazit', toggle: 'Aktuellen Forschungsstand ein- oder ausblenden' }
+}[locale];
 ---
 <section class="proto-conclusion shell">
   <header>
-    <span>{label}</span>
+    <span>{label ?? ui.label}</span>
     <h2>{data.conclusion.title}</h2>
-    <button class="proto-conclusion-toggle" type="button" aria-label="ここまでで言えることを開閉" aria-controls="proto-conclusion-content" aria-expanded="true"></button>
+    <button class="proto-conclusion-toggle" type="button" aria-label={ui.toggle} aria-controls="proto-conclusion-content" aria-expanded="true"></button>
   </header>
   <div id="proto-conclusion-content" class="proto-conclusion-body">
-    {data.conclusion.items.map((item) => <article><small>{item.label}</small><p>{item.text}</p></article>)}
+    {data.conclusion.items.map((item: any) => <article><small>{item.label}</small><p>{item.text}</p></article>)}
   </div>
 </section>
