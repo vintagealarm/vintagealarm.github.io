@@ -17,6 +17,17 @@
 
 ## 2026-09-24
 
+### 2026-09-24 22:47 JST — AnalyticsのVisits / Direct誤読防止と公開WATCH状態を分離
+- **変更**：Cloudflare Web AnalyticsのVisitsをユニーク人数として扱わないこと、`Direct / Unknown` を直打ち・ブックマーク確定として扱わないことを計測仕様とAI exportへ明記。flowのno-referrer表示も `Direct` へ縮めず `Direct / Unknown` を維持する。同時にGitHub実体を再監査し、公開WATCHはWittnauer 10WAを含む6本、Analytics運用上の `measurement target` は別括りの5本として `PROJECT_STATE.md` を修正した。
+- **理由**：Cloudflare公式仕様ではVisitsは外部referrerまたはDirectから始まるPage viewを基準とする指標で、ユニークユーザー数ではない。またreferrerが利用できない入口はDirect系へ入り得るため、82 Direct等を「直打ち82人」のように読む根拠はない。さらに現行の6 WATCH sourceを再取得すると6本すべて `published: true` で、07:54の「公開済みWATCH 5ページ」という状態記述が実体と衝突していた。
+- **旧状態・棄却**：Visitsを人数の代理として読む、`Direct / Unknown` のsource表示だけを `Direct` に短縮する、公開状態とmeasurement target 5本を同一概念として扱う状態を棄却。07:54のWittnauer非公開扱いは現行仕様として失効させる。
+- **影響範囲**：Analytics Workerの表示名 / AI export limitations / regression test / `measurement/metrics.md` / `PROJECT_STATE.md`。集計値・channel分類ロジック・WATCH本文・公開route・HOW THEY RINGは変更しない。
+- **検証状態**：branch実装済み。生成HTML / AI export regressionとPR CIを再実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
+- **再検討条件**：Cloudflareのlive `rumPageloadEventsAdaptiveGroups` schema/settingsでconfidence fieldとdataset limitsを確認できた場合に、95% confidence intervalの追加を別変更として検討する。
+- **関連**：Draft PR #118 / commits `a224c90a`, `df47342b`, `1491240e`, `ab4a607d`。
+- **日時根拠**：implementation commits `2026-09-24T13:46:53Z → 2026-09-24 22:46 JST` ～ `2026-09-24T13:47:13Z → 2026-09-24 22:47 JST`。最終実装commit時刻を見出し時刻に採用。
+
+
 ### 2026-09-24 21:32 JST — localized routeの可視日本語漏れを生成HTMLで禁止
 - **変更**：EN / DE OWNER'S NOTESの年代ラベルをlocalized WATCH specから取得し、HOW THEY RINGのキャリバー表示・録音ラベル・区切り記号もlocale別表示へ切替。さらに全EN / DE生成HTMLの可視テキストとuser-facing属性を走査し、言語切替「日本語」と明示許可した固有名を除く日本語文字・日本語式全角記号が残ればCIを失敗させる `check:localization-purity` を追加した。
 - **理由**：翻訳本文自体が正しくても、`owners-directory.json` の `ownedEra`、日本語WATCH正本の `spec.caliber`、HOW THEY RING録音CMSの生ラベル、共通テンプレートの全角区切り記号が別経路でlocalized routeへ流入していた。具体的にWittnauerの「1950年代前半」、Citizenの「同型資料」「シチズンアラーム」、Basisの全角括弧が本番で確認された。
@@ -72,6 +83,7 @@
 - **影響範囲**：状態文書のみ。既存の `measurement/metrics.md` はすでに公開済みWATCH 5ページを同じ5本として定義しており、計測実装の変更は不要。
 - **検証状態**：`PROJECT_STATE.md` と `measurement/metrics.md` を突合して整合確認済み。
 - **再検討条件**：Wittnauer 10WAのWATCHページが正式公開され、計測対象へ追加する明示変更が行われた場合。
+- **後続状態・失効**：2026-09-24 22:47 JSTの再監査で、Wittnauer 10WAを含む6本すべてが `published: true` の公開WATCHであることをGitHub実体から再確認した。以後は「公開WATCH 6本」と「measurement target 5本」を分離し、この07:54項目のWittnauer非公開扱いは現行仕様として使用しない。
 - **関連**：このPR
 ## 2026-09-23 — 復元履歴
 
