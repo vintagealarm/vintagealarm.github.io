@@ -360,7 +360,7 @@ async function aiExportResponse(request, url, env) {
 }
 
 function aiExportPeriod(period) {
-  const flows = Array.isArray(period?.flows) ? period.flows : [];
+  const flows = Array.isArray(period?.flowSummary) ? period.flowSummary : (Array.isArray(period?.flows) ? period.flows : []);
   return {
     pageviews: period?.pageviews || 0,
     visits: period?.visits || 0,
@@ -384,7 +384,7 @@ function aiExportPeriod(period) {
     migrationFlows: flows.filter(
       (flow) => flow.channel === "Host Migration" && (flow.pageviews || 0) > 0,
     ),
-    flowRowsComplete: period?.completeness?.flows !== false && flows.length < 200,
+    flowRowsComplete: period?.completeness?.flowSummary !== false && flows.length < 1000,
     snsEntries: period?.snsEntries || { pages: [], total: 0, complete: false },
     countries: period?.countries || [],
     devices: period?.devices || [],
@@ -452,7 +452,7 @@ async function analyticsResponse(url, env) {
     const previousEnd = rangeSpec.previousEnd;
     const host = env.REQUEST_HOST || DEFAULT_HOST;
     const legacyHost = env.LEGACY_REQUEST_HOST || HOST_MIGRATION.oldHost;
-    const emptyData = { viewer: { accounts: [{ total: [{ count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } }], pages: [], referers: [], flows: [], entries: [], countries: [], devices: [] }] } };
+    const emptyData = { viewer: { accounts: [{ total: [{ count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } }], pages: [], channels: [], referers: [], flowSummary: [], flows: [], entries: [], countries: [], devices: [] }] } };
 
     const [current, previous, trendResult, legacyCurrent, legacyPrevious, legacyTrendResult] = await mapWithConcurrency([
       () => fetchPeriod(env, host, currentStart, currentEnd),
@@ -891,7 +891,9 @@ export function mergePeriodData(parts) {
   const totals = accounts.map((account) => account.total?.[0]).filter(Boolean);
   const groupSpecs = {
     pages: { dimensions: ["requestPath"], limit: 100 },
+    channels: { dimensions: ["refererHost"], limit: 100 },
     referers: { dimensions: ["refererHost", "refererPath"], limit: 100 },
+    flowSummary: { dimensions: ["requestPath", "refererHost", "refererPath"], limit: 1000 },
     flows: { dimensions: ["requestPath", "refererHost", "refererPath", "countryName", "deviceType"], limit: 200 },
     entries: { dimensions: ["requestPath", "refererHost"], limit: 1000 },
     countries: { dimensions: ["countryName"], limit: 100 },
@@ -913,7 +915,9 @@ export function mergePeriodData(parts) {
           avg: { sampleInterval: Math.max(1, ...totals.map((row) => Number(row?.avg?.sampleInterval || 1))) },
         }],
         pages: mergeGroupedRows(accounts, "pages", groupSpecs.pages.dimensions, groupSpecs.pages.limit),
+        channels: mergeGroupedRows(accounts, "channels", groupSpecs.channels.dimensions, groupSpecs.channels.limit),
         referers: mergeGroupedRows(accounts, "referers", groupSpecs.referers.dimensions, groupSpecs.referers.limit),
+        flowSummary: mergeGroupedRows(accounts, "flowSummary", groupSpecs.flowSummary.dimensions, groupSpecs.flowSummary.limit),
         flows: mergeGroupedRows(accounts, "flows", groupSpecs.flows.dimensions, groupSpecs.flows.limit),
         entries: mergeGroupedRows(accounts, "entries", groupSpecs.entries.dimensions, groupSpecs.entries.limit),
         countries: mergeGroupedRows(accounts, "countries", groupSpecs.countries.dimensions, groupSpecs.countries.limit),
@@ -956,6 +960,16 @@ query VintageAlarmAnalytics(
         sum { visits }
         dimensions { requestPath }
       }
+      channels: rumPageloadEventsAdaptiveGroups(
+        filter: $filter
+        limit: 100
+        orderBy: [count_DESC]
+      ) {
+        count
+        avg { sampleInterval }
+        sum { visits }
+        dimensions { refererHost }
+      }
       referers: rumPageloadEventsAdaptiveGroups(
         filter: $filter
         limit: 100
@@ -965,6 +979,16 @@ query VintageAlarmAnalytics(
         avg { sampleInterval }
         sum { visits }
         dimensions { refererHost refererPath }
+      }
+      flowSummary: rumPageloadEventsAdaptiveGroups(
+        filter: $filter
+        limit: 1000
+        orderBy: [count_DESC]
+      ) {
+        count
+        avg { sampleInterval }
+        sum { visits }
+        dimensions { requestPath refererHost refererPath }
       }
       flows: rumPageloadEventsAdaptiveGroups(
         filter: $filter
@@ -1213,9 +1237,9 @@ export function buildPeriodIntegrity(period) {
   const definitions = [
     ["pages.pageviews", expectedPageviews, sum(period?.pages, "pageviews"), completeness.pages !== false, Number(sampling.pages || period?.sampleInterval || 1)],
     ["pages.visits", expectedVisits, sum(period?.pages, "visits"), completeness.pages !== false, Number(sampling.pages || period?.sampleInterval || 1)],
-    ["channels.visits", expectedVisits, sum(period?.channels, "visits"), completeness.referrers !== false, Number(sampling.referrers || period?.sampleInterval || 1)],
-    ["flows.pageviews", expectedPageviews, sum(period?.flows, "pageviews"), completeness.flows !== false, Number(sampling.flows || period?.sampleInterval || 1)],
-    ["flows.visits", expectedVisits, sum(period?.flows, "visits"), completeness.flows !== false, Number(sampling.flows || period?.sampleInterval || 1)],
+    ["channels.visits", expectedVisits, sum(period?.channels, "visits"), completeness.channels !== false, Number(sampling.channels || period?.sampleInterval || 1)],
+    ["flowSummary.pageviews", expectedPageviews, sum(period?.flowSummary || period?.flows, "pageviews"), completeness.flowSummary !== false, Number(sampling.flowSummary || period?.sampleInterval || 1)],
+    ["flowSummary.visits", expectedVisits, sum(period?.flowSummary || period?.flows, "visits"), completeness.flowSummary !== false, Number(sampling.flowSummary || period?.sampleInterval || 1)],
     ["countries.pageviews", expectedPageviews, sum(period?.countries, "pageviews"), completeness.countries !== false, Number(sampling.countries || period?.sampleInterval || 1)],
     ["devices.pageviews", expectedPageviews, sum(period?.devices, "pageviews"), completeness.devices !== false, Number(sampling.devices || period?.sampleInterval || 1)],
   ];
@@ -1246,10 +1270,14 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
     1,
     ...(rows || []).map((row) => Number(row?.avg?.sampleInterval || 1)).filter(Number.isFinite),
   );
+  const channelRows = (account.channels || []).length ? account.channels : (account.referers || []);
+  const structuralFlowRows = (account.flowSummary || []).length ? account.flowSummary : (account.flows || []);
   const sampling = {
     total: Number(total.avg?.sampleInterval || 1),
     pages: sectionSample(account.pages),
+    channels: sectionSample(channelRows),
     referrers: sectionSample(account.referers),
+    flowSummary: sectionSample(structuralFlowRows),
     flows: sectionSample(account.flows),
     entries: sectionSample(account.entries),
     countries: sectionSample(account.countries),
@@ -1258,13 +1286,17 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
   const sampleInterval = Math.max(1, ...Object.values(sampling).map(Number).filter(Number.isFinite));
   const inferredCompleteness = {
     pages: (account.pages || []).length < 100,
+    channels: (account.channels || []).length ? (account.channels || []).length < 100 : (account.referers || []).length < 100,
     referrers: (account.referers || []).length < 100,
+    flowSummary: (account.flowSummary || []).length ? (account.flowSummary || []).length < 1000 : (account.flows || []).length < 200,
     flows: (account.flows || []).length < 200,
     entries: (account.entries || []).length < 1000,
     countries: (account.countries || []).length < 100,
     devices: (account.devices || []).length < 30,
   };
   const completeness = { ...inferredCompleteness, ...(account.completeness || {}) };
+  if (!(account.channels || []).length) completeness.channels = completeness.referrers;
+  if (!(account.flowSummary || []).length) completeness.flowSummary = completeness.flows;
 
   const pages = (account.pages || []).map((row) => {
     const meta = pageMeta(row?.dimensions?.requestPath || "/");
@@ -1280,6 +1312,23 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
   const rawReferers = (account.referers || []).map((row) => ({
     host: row?.dimensions?.refererHost || "",
     path: row?.dimensions?.refererPath || "",
+    pageviews: row?.count || 0,
+    visits: row?.sum?.visits || 0,
+  }));
+
+  const rawChannels = channelRows.map((row) => ({
+    host: row?.dimensions?.refererHost || "",
+    path: "",
+    pageviews: row?.count || 0,
+    visits: row?.sum?.visits || 0,
+  }));
+
+  const rawFlowSummary = structuralFlowRows.map((row) => ({
+    requestPath: row?.dimensions?.requestPath || "/",
+    refererHost: row?.dimensions?.refererHost || "",
+    refererPath: row?.dimensions?.refererPath || "",
+    country: "Unknown",
+    device: "Unknown",
     pageviews: row?.count || 0,
     visits: row?.sum?.visits || 0,
   }));
@@ -1303,8 +1352,9 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
     completeness,
     pages,
     referrers: rawReferers,
+    flowSummary: buildFlows(rawFlowSummary, targetHost),
     flows: buildFlows(rawFlows, targetHost),
-    channels: buildChannels(rawReferers, targetHost),
+    channels: buildChannels(rawChannels, targetHost),
     snsEntries: aggregateSnsEntries(account.entries, targetHost),
     countries: (account.countries || []).map((row) => ({
       name: friendlyCountry(row?.dimensions?.countryName || "Unknown"),
@@ -1344,8 +1394,8 @@ function combineSnsEntries(periods) {
 }
 
 function combinePeriods(periods) {
-  const samplingKeys = ["total", "pages", "referrers", "flows", "entries", "countries", "devices"];
-  const completenessKeys = ["pages", "referrers", "flows", "entries", "countries", "devices"];
+  const samplingKeys = ["total", "pages", "channels", "referrers", "flowSummary", "flows", "entries", "countries", "devices"];
+  const completenessKeys = ["pages", "channels", "referrers", "flowSummary", "flows", "entries", "countries", "devices"];
   const sampling = Object.fromEntries(
     samplingKeys.map((key) => [
       key,
@@ -1366,6 +1416,7 @@ function combinePeriods(periods) {
     completeness,
     pages: mergeRowsBy(periods.flatMap((period) => period?.pages || []), ["path"], ["pageviews", "visits"]),
     referrers: mergeRowsBy(periods.flatMap((period) => period?.referrers || []), ["host", "path"], ["pageviews", "visits"]),
+    flowSummary: mergeRowsBy(periods.flatMap((period) => period?.flowSummary || period?.flows || []), ["sourceHost", "sourcePath", "destinationHost", "destinationPath", "channel"], ["pageviews", "visits"]),
     flows: mergeRowsBy(periods.flatMap((period) => period?.flows || []), ["sourceHost", "sourcePath", "destinationHost", "destinationPath", "channel", "country", "device"], ["pageviews", "visits"]),
     channels: mergeRowsBy(periods.flatMap((period) => period?.channels || []), ["name"], ["pageviews", "visits"]),
     snsEntries: combineSnsEntries(periods),
@@ -2048,9 +2099,14 @@ function render(data){
   const youtubeNow=c.channels.find(x=>x.name==="YouTube")?.visits||0;
   const searchNow=c.channels.find(x=>x.name==="Organic Search")?.visits||0;
   const searchPrev=p.channels.find(x=>x.name==="Organic Search")?.visits||0;
-  const entryFlows=c.flows.filter(x=>x.visits>0 && x.channel!=="Internal Navigation" && x.channel!=="Host Migration");
-  const internalFlows=c.flows.filter(x=>x.channel==="Internal Navigation"&&x.sourceCleanPath!==x.destinationPath);
-  const migrationFlows=c.flows.filter(x=>x.channel==="Host Migration");
+  const structuralFlows=c.flowSummary||c.flows||[];
+  const detailFlows=c.flows||structuralFlows;
+  const entryFlows=structuralFlows.filter(x=>x.visits>0 && x.channel!=="Internal Navigation" && x.channel!=="Host Migration");
+  const internalFlows=structuralFlows.filter(x=>x.channel==="Internal Navigation"&&x.sourceCleanPath!==x.destinationPath);
+  const migrationFlows=structuralFlows.filter(x=>x.channel==="Host Migration");
+  const entryFlowDetails=detailFlows.filter(x=>x.visits>0 && x.channel!=="Internal Navigation" && x.channel!=="Host Migration");
+  const internalFlowDetails=detailFlows.filter(x=>x.channel==="Internal Navigation"&&x.sourceCleanPath!==x.destinationPath);
+  const migrationFlowDetails=detailFlows.filter(x=>x.channel==="Host Migration");
   const campaigns=getCampaigns();
   const newTrend=data.trend||[];
   const trend=data.combined?.trend||newTrend;
@@ -2126,9 +2182,9 @@ function render(data){
       '<section class="card channels"><div class="section-head"><div class="section-title">OLD HOST CHANNELS / PV</div></div>'+rows(lc.channels,10)+'</section>'+
     '</div></details>'+
     '<details class="card drawer raw"><summary><span>RAW / AUDIT TABLES</span><span class="drawer-meta">流入元・内部遷移・国・端末の詳細</span></summary><div class="drawer-content detail-grid">'+
-    '<section class="card flow"><div class="section-head"><div class="section-title">ENTRY SOURCE → PAGE</div><span>同一行で取得</span></div><table><thead><tr><th>SOURCE</th><th></th><th>DESTINATION</th><th class="num">PV</th><th class="num">ENTRY VISITS</th></tr></thead><tbody>'+flowRows(entryFlows)+'</tbody></table></section>'+
-    (migrationFlows.length?'<section class="card flow"><div class="section-head"><div class="section-title">HOST MIGRATION</div><span>旧・新ホスト間の遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(migrationFlows,true)+'</tbody></table></section>':'')+
-    '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>同一ホスト内の内部遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(internalFlows,true)+'</tbody></table></section>'+
+    '<section class="card flow"><div class="section-head"><div class="section-title">ENTRY SOURCE → PAGE</div><span>同一行で取得</span></div><table><thead><tr><th>SOURCE</th><th></th><th>DESTINATION</th><th class="num">PV</th><th class="num">ENTRY VISITS</th></tr></thead><tbody>'+flowRows(entryFlowDetails)+'</tbody></table></section>'+
+    (migrationFlows.length?'<section class="card flow"><div class="section-head"><div class="section-title">HOST MIGRATION</div><span>旧・新ホスト間の遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(migrationFlowDetails,true)+'</tbody></table></section>':'')+
+    '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>同一ホスト内の内部遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(internalFlowDetails,true)+'</tbody></table></section>'+
     '<section class="card referrers"><div class="section-head"><div class="section-title">REFERRERS</div><span>raw host</span></div><table><thead><tr><th>HOST</th><th class="num">PV</th><th class="num">ENTRY VISITS</th></tr></thead><tbody>'+
       c.referrers.slice(0,20).map(x=>'<tr><td><strong>'+esc(x.host||"(Direct)")+'</strong>'+(x.path?'<span class="path">'+esc(x.path)+'</span>':'')+'</td><td class="num">'+n(x.pageviews)+'</td><td class="num">'+n(x.visits)+'</td></tr>').join("")+
     '</tbody></table></section>'+
