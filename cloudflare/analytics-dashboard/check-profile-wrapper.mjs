@@ -67,9 +67,11 @@ const payload = patchAnalyticsPayload({
 });
 
 assert(Object.keys(WATCH_PAGE_NAMES).length === 6, 'analytics must keep all six published Japanese WATCH pages');
-assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 6, 'analytics must track English index plus five WATCH gateways');
-assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 4, 'analytics must track German index plus Duofon, Cyma and Westclox gateways');
+assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 7, 'analytics must track English index, OWNER\'S NOTES and five WATCH gateways');
+assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 5, 'analytics must track German index, OWNER\'S NOTES plus Duofon, Cyma and Westclox gateways');
 assert(Object.keys(HISTORY_GATEWAY_NAMES).length === 3, 'analytics must track Japanese, English and German HISTORY pages');
+assert(ENGLISH_GATEWAY_NAMES['/en/owners-notes/'] === "OWNER'S NOTES (EN)", 'English OWNER\'S NOTES mapping missing');
+assert(GERMAN_GATEWAY_NAMES['/de/owners-notes/'] === "OWNER'S NOTES (DE)", 'German OWNER\'S NOTES mapping missing');
 assert(RESEARCH_PAGE_NAMES['/how-they-ring/'] === 'How They Ring', 'How They Ring research mapping missing');
 assert(RESEARCH_PAGE_NAMES['/en/how-they-ring/'] === 'How They Ring (EN)', 'English How They Ring mapping missing');
 assert(RESEARCH_PAGE_NAMES['/de/how-they-ring/'] === 'How They Ring (DE)', 'German How They Ring mapping missing');
@@ -96,13 +98,15 @@ assert(payload.current.flows[3].destinationName === 'Basis Alarm (EN)', 'Basis E
 assert(payload.current.flows[4].destinationName === 'HISTORY (EN)', 'English HISTORY flow destination was not mapped');
 
 const snsTotals = Object.fromEntries(payload.current.snsEntries.pages.map((row) => [row.name, row.total]));
-assert(payload.current.snsEntries.pages.length === 25, 'SNS chart must contain tracked WATCH/gateway/HISTORY/research rows, X Profile, plus Other pages');
+assert(payload.current.snsEntries.pages.length === 27, 'SNS chart must contain tracked WATCH/gateway/HISTORY/research rows, X Profile, plus Other pages');
 assert(snsTotals['Citizen Alarm'] === 2, 'Citizen SNS visits mismatch');
 assert(snsTotals['Westclox Watchlarm'] === 3, 'Westclox SNS visits mismatch');
 assert(snsTotals['Basis Alarm (EN)'] === 1, 'Basis English SNS visits mismatch');
 assert(snsTotals['HISTORY'] === 0, 'Japanese HISTORY SNS row missing');
 assert(snsTotals['HISTORY (EN)'] === 1, 'English HISTORY SNS visits mismatch');
 assert(snsTotals['HISTORY (DE)'] === 0, 'German HISTORY SNS row missing');
+assert(snsTotals["OWNER'S NOTES (EN)"] === 0, 'English OWNER\'S NOTES SNS row missing');
+assert(snsTotals["OWNER'S NOTES (DE)"] === 0, 'German OWNER\'S NOTES SNS row missing');
 assert(snsTotals['How They Ring'] === 0, 'How They Ring SNS row missing');
 assert(snsTotals['How They Ring (EN)'] === 0, 'English How They Ring SNS row missing');
 assert(snsTotals['How They Ring (DE)'] === 0, 'German How They Ring SNS row missing');
@@ -162,6 +166,8 @@ assert(patchedHtml.includes('id="aiReadable">AI URL</button>'), 'AI URL button w
 assert(patchedHtml.includes('/api/ai-readable-link?'), 'AI URL handler was not injected');
 assert(patchedHtml.includes('analyticsQuery'), 'AI URL handler must preserve current range/bucket query');
 assert(patchedHtml.includes('["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]'), 'WATCH share list changed unexpectedly');
+assert(patchedHtml.includes('{name:"OWNER\'S NOTES (EN)",path:"/en/owners-notes/"}'), 'English OWNER\'S NOTES key page was not injected');
+assert(patchedHtml.includes('{name:"OWNER\'S NOTES (DE)",path:"/de/owners-notes/"}'), 'German OWNER\'S NOTES key page was not injected');
 assert(patchedHtml.includes('{name:"HISTORY",path:"/history/"}'), 'Japanese HISTORY key page was not injected');
 assert(patchedHtml.includes('{name:"HISTORY (EN)",path:"/en/history/"}'), 'English HISTORY key page was not injected');
 assert(patchedHtml.includes('{name:"HISTORY (DE)",path:"/de/history/"}'), 'German HISTORY key page was not injected');
@@ -202,6 +208,8 @@ assert(dashboardHtml.includes('X PROFILE ENTRY'), 'real dashboard HTML is missin
 assert(dashboardHtml.includes('Xプロフィール専用URL発行'), 'real dashboard HTML is missing profile system event');
 assert(dashboardHtml.includes('item.platform==="X Profile"'), 'real dashboard HTML is missing X Profile marker handling');
 assert(dashboardHtml.includes('id="aiReadable">AI URL</button>'), 'real dashboard HTML is missing AI URL button');
+assert(dashboardHtml.includes('{name:"OWNER\'S NOTES (EN)",path:"/en/owners-notes/"}'), 'real dashboard is missing English OWNER\'S NOTES key page');
+assert(dashboardHtml.includes('{name:"OWNER\'S NOTES (DE)",path:"/de/owners-notes/"}'), 'real dashboard is missing German OWNER\'S NOTES key page');
 assert(dashboardHtml.includes('{name:"HISTORY",path:"/history/"}'), 'real dashboard is missing Japanese HISTORY key page');
 assert(dashboardHtml.includes('{name:"HISTORY (EN)",path:"/en/history/"}'), 'real dashboard is missing English HISTORY key page');
 assert(dashboardHtml.includes('{name:"HISTORY (DE)",path:"/de/history/"}'), 'real dashboard is missing German HISTORY key page');
