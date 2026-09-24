@@ -53,6 +53,139 @@ export type GermanWatchEntry = {
 };
 
 export const germanWatchEntries: Record<string, GermanWatchEntry> = {
+  'basis-alarm': {
+    slug: 'basis-alarm',
+    title: 'Basis Alarm BFG 90 — Mechanischer Wecker mit zwei Federhäusern | VINTAGE ALARM',
+    description: 'Basis Alarm mit Baumgartner BFG 90: zwei Federhäuser, Aufzug beider Seiten in derselben Drehrichtung, Rutschkupplungen, zwei Aufzugsanzeigen, Alarmzeiteinstellung über die Drehlünette, Exemplar-Fotos, Original-Alarmton und Quellen.',
+    indexBlurb: 'Zwei Federhäuser, eine Drehrichtung und zwei rotierende Aufzugsanzeigen — ein Weckerwerk, dessen Bedienung offen auf dem Zifferblatt liegt.',
+    catch: ['Ein kleiner mechanischer Spielkasten zum Anfassen, Anschauen und Anhören.'],
+    ownersNote: {
+      lead: [
+        'Ein kleiner mechanischer Spielkasten zum Anfassen, Anschauen und Anhören.',
+        'Die Alarmzeit wird über die Lünette eingestellt.',
+        'Beim Aufziehen drehen sich die Scheiben in den beiden kleinen Fenstern.',
+        'Den Schieber auf EIN — dann klingt es fast wie eine Zikade.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        '① Aufziehen — Krone in Normalstellung: Gehwerk und Alarm; beide Zugfedern werden in derselben Drehrichtung aufgezogen',
+        '② Uhrzeit einstellen — Krone ziehen und die Zeiger stellen',
+        '③ Alarmzeit einstellen — Lünette gegen den Uhrzeigersinn drehen',
+        '④ Alarm EIN/AUS — Schieber bei 9 Uhr: oben = AUS / unten = EIN',
+        '⑤ Aufzugsanzeigen — Fenster bei 1 Uhr für das Gehwerk, bei 5 Uhr für den Alarm; rot-weiß-blaue Scheiben drehen sich beim Aufziehen'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Die Basis Alarm verwendet das Baumgartner BFG 90, ein frühes Werk für Wecker-Armbanduhren.',
+        'Neben höher positionierten Modellen wie Memovox oder Cricket verbreitete sich das BFG 90 als praktische Lösung unter verschiedenen Namen, darunter Basis, Lantex, Sheffield, Simplon und Tior.',
+        'Die Funktionen werden nicht versteckt, sondern über Lünette, Schieber und Aufzugsfenster direkt nach außen geführt.',
+        'Gerade deshalb macht die Uhr heute beim Anschauen, Bedienen und Hören so viel Spaß.'
+      ]
+    },
+    spec: {
+      era: 'um 1948 (Dokumentation eines gleichen Typs)',
+      caseSize: '34 mm',
+      caliber: 'Baumgartner BFG 90',
+      jewels: '17 Steine',
+      frequency: '18.000 A/h',
+      barrels: '2 Federhäuser',
+      winding: 'Handaufzug',
+      acoustic: 'Bodenglocke',
+      notes: 'Alarm ca. 10 Sekunden (Horlbeck / gezeigtes Exemplar), Alarmzeiteinstellung über Drehlünette, EIN/AUS-Schieber bei 9 Uhr, Aufzugsanzeigen bei 1 und 5 Uhr'
+    },
+    specimenGallery: [
+      { image: '/images/IMG_8890-1.jpeg', label: 'Vorderseite — am Handgelenk', alt: 'Basis Alarm BFG 90, gezeigtes Exemplar, Vorderseite am Handgelenk' },
+      { image: '/images/IMG_9196.jpeg', label: 'Alarmzeiger — direkt mit der Lünette verbunden', alt: 'Alarmzeiger der Basis Alarm BFG 90, direkt mit der Drehlünette verbunden' },
+      { image: '/images/IMG_1969.jpeg', label: 'EIN/AUS-Schieber bei 9 Uhr', alt: 'Alarm-EIN/AUS-Schieber der Basis Alarm BFG 90 bei 9 Uhr' },
+      { image: '/images/IMG_1968.jpeg', label: 'Gehäuseboden', alt: 'Gehäuseboden des gezeigten Basis-Alarm-Exemplars' },
+      { image: '/images/70957643-C7C5-4A86-B1BF-11AB18A28299-2.jpeg', label: 'Werk', alt: 'Baumgartner BFG 90 Werk' }
+    ],
+    deepDive: [
+      {
+        number: '01',
+        title: 'Baumgartner Frères — Werke für den Massenmarkt',
+        paragraphs: [
+          'Baumgartner Frères war ein Ébauche-Hersteller, der Werke an andere Firmen lieferte. Viele BFG-Werke waren für vergleichsweise preisgünstige Uhren konstruiert. Die Stiftankerhemmung war ein Teil dieses Ansatzes.',
+          'Das BFG 90 verwendet eine Pfeilerbauweise. Flache Platinen werden über Pfeiler miteinander verbunden; dadurch lässt sich auf aufwendigere Bearbeitung verzichten. Auch die Zeigerstellung liegt nicht unter dem Zifferblatt, sondern auf der Werkseite. Beim Kupplungshebel entfällt eine separate Feder: Der Hebel selbst übernimmt die Federwirkung.',
+          'Am Unruhreif stehen Vorsprünge, die auf den ersten Blick wie Regulierschrauben wirken. Tatsächlich sind es keine Schrauben, sondern halbrunde, fest mit dem Reif ausgeführte Formen.',
+          'Bearbeitung wird dort eingespart, wo sie entbehrlich ist, und Bauteile werden reduziert, wo es möglich ist. Die konstruktive Raffinesse des BFG 90 liegt damit an einer ganz anderen Stelle als bei aufwendig finissierten Werken.'
+        ],
+        citationRefs: ['2','2','2','2']
+      },
+      {
+        number: '02',
+        title: 'Eine Krone, eine Drehrichtung, zwei Federhäuser',
+        paragraphs: [
+          'Das BFG 90 besitzt zwei Federhäuser, eines für das Gehwerk und eines für den Alarm. Zwei Federhäuser sind für sich genommen nichts Besonderes. Ungewöhnlich ist der Aufzug: Beide werden über dieselbe Krone in derselben Drehrichtung aufgezogen.',
+          'Man wählt Gehwerk und Alarm also nicht durch einen Wechsel der Drehrichtung. Dreht man die Krone weiter in dieselbe Richtung, werden beide Zugfedern mit Energie versorgt. Da beide nicht zwangsläufig gleichzeitig voll aufgezogen sind, kann ein Federhaus bereits voll sein, während das andere noch weiter aufgezogen werden muss.',
+          'Damit auf der bereits voll aufgezogenen Seite keine zusätzliche Kraft aufgebaut wird, sitzt an jedem Federhaus eine Rutschkupplung.',
+          'Das Sperrrad ist zweiteilig ausgeführt; zwischen den beiden Teilen drückt eine kreuzförmige Feder. Im normalen Zustand drehen sie gemeinsam. Sobald die Zugfeder voll aufgezogen ist, kann die betreffende Seite durchrutschen.',
+          'Ist ein Federhaus bereits voll, kann der Aufzug für das andere also fortgesetzt werden. Die volle Seite rutscht, während die zweite bis zum Ende aufgezogen wird.'
+        ],
+        citationRefs: ['1,2','2','2','2','2'],
+        images: [
+          {
+            src: '/images/70957643-C7C5-4A86-B1BF-11AB18A28299.jpeg',
+            caption: 'Baumgartner BFG 90',
+            alt: 'Baumgartner BFG 90 mit Aufzugsmechanismus',
+            afterParagraph: 4
+          }
+        ]
+      },
+      {
+        number: '03',
+        title: 'Warum es zwei kleine Fenster gibt',
+        paragraphs: [
+          'Eine Rutschkupplung bedeutet nicht, dass sich der Vollaufzug an der Krone überhaupt nicht mehr bemerkbar macht. Beim gezeigten Exemplar steigt der Widerstand deutlich an und fühlt sich beinahe wie ein Aufzugsanschlag an.',
+          'Wer den Aufbau nicht kennt, möchte an diesem Punkt instinktiv aufhören. Beim BFG 90 kann das zweite Federhaus aber noch Aufzugsweg übrig haben. Dann muss weitergedreht werden, während die Kupplung der bereits vollen Seite rutscht.',
+          'Ohne Kenntnis der Konstruktion fühlt sich das zunächst etwas riskant an: Man dreht weiter, obwohl die Krone bereits signalisiert, dass eigentlich Schluss sein müsste.',
+          'Genau hier helfen die beiden kleinen Fenster im Zifferblatt. Bei dieser Basis gehört das Fenster bei 1 Uhr zum Gehwerk und das Fenster bei 5 Uhr zum Alarm. Jedes Federhaus treibt eine farbige Scheibe an, die sich während des Aufziehens bewegt. Ist die jeweilige Zugfeder voll, bleibt die Scheibe stehen.',
+          'Es handelt sich nicht um klassische Gangreserveanzeigen, die eine verbleibende Laufzeit anzeigen. Die Fenster zeigen den Aufzugszustand: welche Seite noch aufgezogen wird und welche bereits voll ist.',
+          'Die beiden Federhäuser, ihre Rutschkupplungen und die beiden Anzeigen gehören somit zu einem gemeinsamen Bedienkonzept. Eine Krone zieht beide Seiten gleichsinnig auf; erreicht eine Seite zuerst den Vollaufzug, rutscht ihre Kupplung; trotz des steigenden Widerstands kann die zweite Seite weiter aufgezogen werden; die beiden Fenster zeigen, welche Seite noch in Bewegung ist.'
+        ],
+        citationRefs: ['3','2,3','3','1,2,3','1,2','2,3']
+      },
+      {
+        number: '04',
+        title: 'Ein BFG 90, viele Gesichter',
+        paragraphs: [
+          'Das BFG 90 war nicht exklusiv für Basis bestimmt. Es wurde unter mehreren Markennamen verwendet, darunter Lantex, Sheffield, Simplon und Tior.',
+          'Trotz identischem Grundwerk unterscheiden sich die Uhren äußerlich deutlich. Sheffield und Lantex zeigen vergleichsweise schlanke, dekorative Gehäuse; bei Simplon und Tior finden sich auch größere und massiver wirkende Ausführungen. Auch Bandanstöße, Lünetten und Zifferblattgestaltung variieren.',
+          'Viele BFG-90-Uhren tragen dennoch dieselben sichtbaren Merkmale: Drehlünette, EIN/AUS-Schieber bei 9 Uhr und zwei Aufzugsfenster. Die Konstruktion des Werks prägt damit unmittelbar Zifferblatt und Gehäuse.',
+          'Dasselbe BFG 90 wurde mit verschiedenen Namen und Gehäusen zu vielen unterschiedlichen Uhren. Gerade darin wird die Rolle von Baumgartner Frères als Ébauche-Lieferant besonders anschaulich.'
+        ],
+        citationRefs: ['1,2','2','1,2','1,2']
+      },
+      {
+        number: '05',
+        title: 'BFG 90 → BFG 902 — die Bedienung wandert wieder nach innen',
+        paragraphs: [
+          'Beim späteren BFG 902 wurden die außenliegenden Bedienelemente des BFG 90 vereinfacht. Beim BFG 90 wird die Alarmzeit über die Drehlünette eingestellt und mit dem Schieber bei 9 Uhr ein- oder ausgeschaltet. Beim BFG 902 wanderte die Einstellung der Alarmzeit auf die Krone.',
+          'In einer Drehrichtung werden beide Federhäuser aufgezogen, in der anderen wird die Alarmzeit verstellt. Damit entfällt die Drehlünette; auch der Schieber bei 9 Uhr verschwindet.',
+          'Ohne separaten Schieber ändert sich auch das Abschalten des Alarms. Der Alarm wird beendet, indem die eingestellte Alarmzeit verstellt wird. Spätere Ausführungen erschienen zusätzlich mit Stoßsicherung.',
+          'Der Schritt vom BFG 90 zum BFG 902 ist eher Vereinfachung und Rationalisierung als eine Aufwertung. Die Grundidee, zwei Federhäuser über eine Krone zu bedienen, bleibt erhalten, während Lünette und Schieber von der Außenseite verschwinden.',
+          'Was beim BFG 90 sichtbar um das Gehäuse verteilt war, rückte beim Nachfolger schrittweise wieder ins Innere der Uhr.'
+        ],
+        citationRefs: ['1','1','1','1','1']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'reference' },
+      { id: '2', type: 'reference' },
+      { id: '3', type: 'owner' }
+    ],
+    sources: [
+      'Leonhard Beitl, Alarm am Arm (2009), S. 20, 87, 109, 172, 308, 398, 419, 622 — BFG 90 / BFG 902, Basis / Fabry / Maxor / Triwera, Bedienung und Spezifikationen.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 88–91, 168–170 — Pfeilerbauweise des BFG 90, Rutschkupplungen, Aufzugsanzeigen sowie Gehäuse- und Markenvarianten.',
+      'OWNER OBSERVATION — Beobachtung am gezeigten Exemplar: Widerstand beim Aufziehen sowie Verhalten der Aufzugsanzeigen bei 1 und 5 Uhr.'
+    ],
+    related: {
+      href: '/de/westclox-watchlarm/',
+      hreflang: 'de',
+      name: 'WESTCLOX WATCHLARM',
+      reason: 'Eine weitere Antwort für den Massenmarkt — diesmal noch radikaler auf günstige Fertigung ausgelegt.'
+    }
+  },
   'wittnauer-10wa': {
     slug: 'wittnauer-10wa',
     title: 'Wittnauer Cal. 10WA — Mechanischer Alarm mit Lünettenaufzug | VINTAGE ALARM',
