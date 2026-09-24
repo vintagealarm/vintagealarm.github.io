@@ -25,6 +25,48 @@ export type EnglishWatchEntry = {
 };
 
 export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
+  'wittnauer-10wa': {
+    slug: 'wittnauer-10wa',
+    title: 'Wittnauer Cal. 10WA — Bezel-Wound Mechanical Alarm | VINTAGE ALARM',
+    description: 'Wittnauer Cal. 10WA from the early 1950s: a two-barrel modular alarm wristwatch whose rotating bezel both winds the alarm spring and sets the alarm time, with specimen photographs, original alarm video and source-backed research.',
+    indexBlurb: 'Wind it and set it with the same bezel: a two-barrel alarm watch with the alarm module stacked on the dial side.',
+    catch: ['Tough shift, alarm department.', 'Today, too, the bezel is doing both jobs. 🔔'],
+    ownersNote: {
+      lead: [
+        'Wind it with the bezel. Set it with the bezel.',
+        'A dedicated alarm module is stacked on the dial side of the timekeeping movement.',
+        'The alarm has its own barrel.',
+        'Yet the alarm side is operated with one bezel.'
+      ],
+      guideTitle: 'Quick operating guide',
+      guide: [
+        '① Winding — timekeeping: wind with the crown / alarm: rotate the bezel counter-clockwise',
+        'For the alarm, stop at about one full turn as a precaution against damage.',
+        '② Time setting — pull the crown and turn clockwise',
+        '③ Alarm setting — rotate the bezel counter-clockwise',
+        'There is no alarm ON/OFF control.'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Distinctive numeral indices.',
+        'A wavering alarm hand.',
+        'A projecting rotating bezel and a small crown half-hidden by the case.',
+        'Through the display back, only the timekeeping side is visible.',
+        'The alarm mechanism is hidden on the dial side.'
+      ]
+    },
+    spec: {
+      era: 'Early 1950s',
+      caseSize: 'Approx. 36 mm (shown specimen)',
+      caliber: 'Wittnauer Cal. 10WA',
+      jewels: '17 jewels',
+      frequency: '18,000 vph',
+      barrels: '2 barrels',
+      winding: 'Manual winding',
+      acoustic: 'Gong system',
+      notes: 'Rotating-bezel alarm setting + alarm winding, separate alarm barrel'
+    }
+  },
   'basis-alarm': {
     slug: 'basis-alarm',
     title: 'Basis Alarm (BFG 90) — English entry | VINTAGE ALARM',
