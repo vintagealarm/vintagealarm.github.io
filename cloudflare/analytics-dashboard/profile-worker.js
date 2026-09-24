@@ -67,7 +67,7 @@ export const RESEARCH_PAGE_NAMES = Object.freeze({
   "/de/cyma-time-o-vox/chronometre/": "Cyma Time-O-Vox Chronomètre (DE)",
 });
 
-const TRACKED_PAGE_NAMES = Object.freeze({
+export const TRACKED_PAGE_NAMES = Object.freeze({
   ...STATIC_PAGE_NAMES,
   ...WATCH_PAGE_NAMES,
   ...ENGLISH_GATEWAY_NAMES,
