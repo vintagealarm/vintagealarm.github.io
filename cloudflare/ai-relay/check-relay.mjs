@@ -33,6 +33,20 @@ const sample = {
     trend: [{ bucket: '2026-09-08T00:00:00.000Z', label: '9/8', status: 'SAMPLED / ESTIMATE', sampleInterval: 10, pageviews: 13, visits: 10, x: 1, youtube: 0, instagram: 0, facebook: 0, search: 0, direct: 9, internalPV: 3, ai: 0, other: 0 }], note: 'host-scoped sum',
   },
   profileTracking: { path: '/x/' },
+  arrivalProbe: {
+    available: true,
+    diagnosticOnly: true,
+    total: 4,
+    x: 3,
+    sampleInterval: 1,
+    complete: true,
+    firstAt: '2026-09-11 10:00:00',
+    lastAt: '2026-09-11 10:05:00',
+    rows: [
+      { path: '/wittnauer-10wa/', source: 'x', arrivals: 3, sampleInterval: 1 },
+      { path: '/wittnauer-10wa/', source: 'direct', arrivals: 1, sampleInterval: 1 },
+    ],
+  },
   limitations: { attribution: 'not post-level attribution' },
 };
 
@@ -49,6 +63,9 @@ assert(markdown.includes('Integrity: PASS'), 'period integrity status missing');
 assert(markdown.includes('channels=1') && markdown.includes('flowSummary=1') && markdown.includes('flowDetails=10'), 'structural and diagnostic sampling must be rendered separately');
 assert(markdown.includes('Row-limit coverage:') && markdown.includes('flowSummary=below-cap'), 'row-cap metadata must avoid claiming unsampled completeness');
 assert(markdown.includes('Internal PV'), 'internal PV trend column missing');
+assert(markdown.includes('Early arrival probe (diagnostic)'), 'arrival probe diagnostic section missing');
+assert(markdown.includes('Total early arrivals: 4'), 'arrival probe total missing');
+assert(markdown.includes('/wittnauer-10wa/ | x | 3'), 'arrival probe path/source row missing');
 
 const noSource = await onRequestGet({ request: new Request('https://relay.example/') });
 assert(noSource.status === 200, 'landing page should be readable without exporting data');

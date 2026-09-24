@@ -104,6 +104,37 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 
 このexportを使ったChatGPT分析でも、`実装済み / 公開済み / 成果観測済み`を分け、X流入・検索流入・AI Assistant Referrerを混同しない。
 
+## Arrival Probe（診断用・RUM前段）
+
+X等のLink ClickとCloudflare Web Analytics Entryの差を切り分けるため、canonical siteではCloudflare RUM beaconより前に**診断専用のearly arrival probe**を送る。
+
+目的は新しい成果KPIを増やすことではなく、次の2区間を分離すること。
+
+- 外部click → HTML/inline script実行地点
+- HTML/inline script実行地点 → Cloudflare RUM ingestion
+
+実装条件:
+
+- endpoint: `https://vintage-alarm-analytics.orima1995.workers.dev/api/arrival-probe`
+- storage: Workers Analytics Engine dataset `va_arrival_probe_v1`
+- 保存する次元: `requestPath` と粗いreferrer classのみ
+- referrer class: X / Facebook / Instagram / YouTube / Search / Watchuseek / Internal / Direct / Other
+- Cookie、localStorage ID、IP、raw User-Agent、raw referrer URLは保存しない
+- 管理者opt-outがONのブラウザではprobeも送らない
+- canonical origin以外からのbrowser POSTは受け付けない
+- probe値はCloudflare Web Analytics Visitsへ混ぜない
+- AI export/VA2では `probe` / `probeRows` として診断値を別レイヤーで返す
+- `probe` は `available/total/x/sampleInterval/complete` の順
+- dataset作成前またはquery不能時は0件扱いにせず `available=0` とする
+
+判定例:
+
+- X Link Click 3 / early probe 3 / RUM Entry 1 → HTML到達後〜RUMで欠落
+- X Link Click 3 / early probe 1 / RUM Entry 1 → 2 clickはHTML実行地点まで未到達
+- X Link Click 3 / early probe 2 / RUM Entry 1 → click→HTMLとHTML→RUMの両方で欠落
+
+このprobeは**診断装置**であり、恒久的な訪問指標・ユニークユーザー指標ではない。原因特定後に維持・撤去・別方式への置換を判断する。
+
 ## Visits / Page views / Entryの扱い
 
 Page viewsとVisitsを同一視しない。

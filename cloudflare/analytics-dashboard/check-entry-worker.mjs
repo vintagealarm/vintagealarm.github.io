@@ -1,4 +1,4 @@
-import { buildAiFallbackFragment, buildShortRelayUrl } from './entry-worker.js';
+import { arrivalProbeResponse, buildAiFallbackFragment, buildShortRelayUrl, queryArrivalProbe } from './entry-worker.js';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -12,6 +12,20 @@ const sample = {
   compareMode: 'previous-period',
   hostMigration: { date: '2026-09-10' },
   freshness: { latestEventBucket: '2026-09-17', latestNonZeroBucket: '2026-09-17', eventGapLowerBoundSeconds: 0 },
+  arrivalProbe: {
+    available: true,
+    diagnosticOnly: true,
+    dataset: 'va_arrival_probe_v1',
+    version: 'v1',
+    total: 4,
+    x: 3,
+    sampleInterval: 1,
+    complete: true,
+    rows: [
+      { path: '/wittnauer-10wa/', source: 'x', arrivals: 3, sampleInterval: 1 },
+      { path: '/wittnauer-10wa/', source: 'direct', arrivals: 1, sampleInterval: 1 },
+    ],
+  },
   current: { visits: 63, pageviews: 75 },
   previous: { visits: 0, pageviews: 0 },
   legacy: { current: { visits: 5, pageviews: 5 } },
@@ -91,6 +105,14 @@ assert(fallback.includes('latestBucket=2026-09-17;gapLower=0'), 'freshness marke
 assert(fallback.includes('pages=/:26/26,/cyma-time-o-vox/:13/10,/pierce-duofon/:12/10,/history/:2/0'), 'portable snapshot pages must expose pageviews/visits including internal-only pages');
 assert(fallback.includes('entries=/:26/26,/cyma-time-o-vox/:10/13,/pierce-duofon/:10/12'), 'portable snapshot entries must remain separate from all-page totals');
 assert(fallback.includes('externalCoverage=2/2/12/12/1'), 'external flow coverage metadata missing');
+assert(fallback.includes('probe=1/4/3/1/1'), 'arrival probe summary missing');
+assert(fallback.includes('probeRows=/wittnauer-10wa/@x:3,/wittnauer-10wa/@direct:1'), 'arrival probe path/source rows missing');
+
+const unavailableProbeFallback = buildAiFallbackFragment({
+  ...sample,
+  arrivalProbe: { available: false, reason: 'dataset-not-ready', total: 0, x: 0, rows: [] },
+});
+assert(unavailableProbeFallback.includes('probe=0/0/0/0/0'), 'unavailable probe must not look complete or sampled');
 assert(fallback.includes('external=X@t.co~/pierce-duofon/:10,OTHER@www.watchuseek.com~/cyma-time-o-vox/:2'), 'portable snapshot must aggregate country/device variants before compacting');
 assert(fallback.includes('flow=vintagealarm.github.io@/cyma-time-o-vox/~/pierce-duofon/:1/0'), 'portable snapshot internal flow missing host context');
 assert(fallback.includes('handoff=orima1995-create.github.io@/>vintagealarm.github.io@/cyma-time-o-vox/:2/2'), 'portable snapshot host migration flow missing');
@@ -118,6 +140,70 @@ const longStatusFallback = buildAiFallbackFragment({
   },
 });
 assert(longStatusFallback.includes('/PARTIAL-MIGRATION-SAMPLED-ESTIMATE/10'), 'trend status must not be silently truncated');
+
+const probeWrites = [];
+const probeEnv = {
+  ARRIVAL_PROBE: {
+    writeDataPoint(point) {
+      probeWrites.push(point);
+    },
+  },
+};
+const probeResponse = await arrivalProbeResponse(
+  new Request('https://dashboard.test/api/arrival-probe', {
+    method: 'POST',
+    headers: {
+      Origin: 'https://vintagealarm.github.io',
+      'Content-Type': 'text/plain;charset=UTF-8',
+    },
+    body: JSON.stringify({ path: '/wittnauer-10wa/?x=1', source: 'x' }),
+  }),
+  probeEnv,
+);
+assert(probeResponse.status === 204, 'arrival probe must accept canonical-site POSTs');
+assert(probeWrites.length === 1, 'arrival probe must write exactly one datapoint');
+assert(probeWrites[0].indexes[0] === '/wittnauer-10wa/', 'arrival probe must normalize path');
+assert(probeWrites[0].blobs[0] === 'x' && probeWrites[0].blobs[1] === 'v1', 'arrival probe source/version mismatch');
+
+const probeHead = await arrivalProbeResponse(
+  new Request('https://dashboard.test/api/arrival-probe', {
+    method: 'HEAD',
+    headers: { Origin: 'https://vintagealarm.github.io' },
+  }),
+  probeEnv,
+);
+assert(probeHead.status === 204 && probeWrites.length === 1, 'arrival probe HEAD health check must not write');
+
+const probeForbidden = await arrivalProbeResponse(
+  new Request('https://dashboard.test/api/arrival-probe', {
+    method: 'POST',
+    headers: { Origin: 'https://example.com' },
+    body: '{}',
+  }),
+  probeEnv,
+);
+assert(probeForbidden.status === 403, 'arrival probe must reject foreign origins');
+
+let probeSql = '';
+const probeSummary = await queryArrivalProbe({
+  CF_ACCOUNT_ID: 'test-account',
+  CF_API_TOKEN: 'test-token',
+  PROBE_SQL_FETCH: async (_url, options) => {
+    probeSql = options.body;
+    return new Response(JSON.stringify({
+      data: [
+        { path: '/wittnauer-10wa/', source: 'x', arrivals: 3, sampleInterval: 1, firstAt: '2026-09-17 10:01:00', lastAt: '2026-09-17 10:03:00' },
+        { path: '/wittnauer-10wa/', source: 'direct', arrivals: 1, sampleInterval: 1, firstAt: '2026-09-17 10:04:00', lastAt: '2026-09-17 10:04:00' },
+      ],
+      rows: 2,
+    }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+  },
+}, '2026-09-17T10:00:00.000Z', '2026-09-17T11:00:00.000Z');
+assert(probeSummary.available === true, 'arrival probe query must be available with a successful SQL response');
+assert(probeSummary.total === 4 && probeSummary.x === 3, 'arrival probe query totals mismatch');
+assert(probeSummary.sampleInterval === 1 && probeSummary.complete === true, 'arrival probe query quality metadata mismatch');
+assert(probeSql.includes('FROM va_arrival_probe_v1'), 'arrival probe SQL dataset missing');
+assert(probeSql.includes("blob2 = 'v1'"), 'arrival probe SQL version filter missing');
 
 const signed = 'https://vintage-alarm-analytics.orima1995.workers.dev/api/ai-export?window=custom&range=custom&bucket=7d&start=2026-09-08&end=2026-09-21&expires=1999999999&sig=' + 'a'.repeat(64);
 const shortRelay = buildShortRelayUrl(signed);

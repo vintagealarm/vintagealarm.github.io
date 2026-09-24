@@ -313,3 +313,12 @@ CYMA判定は、
 - 新しい公開PathがAnalyticsで初観測され、MAPPING AUDITに出た場合は、ページ実体を確認してAnalytics mappingと `measurement/metrics.md` を同期する。
 - 観測値・施策結果はこの `experiment-log.md` に追記する。
 - 数時間〜数日で変動する集計値を `PROJECT_STATE.md` に重複保存しない。
+
+
+## 2026-09-25｜Wittnauer X Link Click → RUM capture gap
+
+ユーザー提供のX Post AnalyticsではWittnauer Cal.10WA実装報告投稿のLink clicksは3。2026-09-25 06:17 JST時点のVA2では `/wittnauer-10wa/` が1 Visit / 1 PV、X entryも1で、Direct / Unknown entryは0だった。
+
+同snapshotのcurrent bucket 9/22–9/28は `PARTIAL / UNSAMPLED` / sampleInterval=1。さらに `integrity=PASS`、coverage complete、`externalCoverage=18/18/143/143/1` のため、少なくともVA2 compact truncation、current bucket sampling、Wittnauerの単純Direct誤分類では3→1を説明できない。
+
+詳細監査・公式仕様突合・残る仮説・次の診断SPIKEは `measurement/audits/2026-09-25-x-rum-capture-gap.md` を正本とする。

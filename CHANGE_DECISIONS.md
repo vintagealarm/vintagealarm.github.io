@@ -285,3 +285,15 @@
 - **検証状態**：生成HTML検査で日本語表示、状態ラベル、サンプル間隔、旧 BUCKET COMPARISON 見出しの不在を検査する。PR CIで最終確認する。
 - **関連**：commits `7f096bb0c4352e7098c8d4e031411d7f0aff3973`, `efb8016fdb9b83bd2e2227475aaff421d2e2c185`
 - **日時根拠**：GitHub commit 2026-09-24T05:51:10Z → 2026-09-24 14:51 JST、2026-09-24T05:51:13Z → 2026-09-24 14:51 JST。
+
+
+## 2026-09-25 — X Link ClickとRUM Entryの欠落層を診断する
+
+### 2026-09-25 08:07 JST — Early Arrival ProbeでX click→RUM欠落層を分離
+- **変更**：canonical siteの`SeoHead.astro`で、Cloudflare Web Analytics RUM scriptを読み込む前に診断専用early arrival probeを送る。受信はAnalytics Workerの`/api/arrival-probe`、保存はWorkers Analytics Engine dataset `va_arrival_probe_v1`。Analytics API / signed AI exportには`arrivalProbe`を別レイヤーで付加し、VA2には`probe` / `probeRows`として出す。
+- **理由**：Wittnauer Cal.10WA投稿でX Post AnalyticsのLink Click 3に対し、current unsampled期間のCloudflare RUMではX→Wittnauer Entry 1しか観測されず、VA2内部のsampling・truncation・Direct誤分類・算術不整合では説明できなかったため。click→HTMLとHTML→RUMを分離して原因層を特定する必要がある。
+- **旧状態・棄却**：Cloudflare RUM Entryだけで「Xからサイトへ到達した件数」を診断する状態を棄却。ただし既存Visits定義や成果KPIは変更せず、probeをVisitsへ混ぜない。X Link ClickとRUM Entryを1対1同義とも扱わない。
+- **影響範囲**：`src/components/SeoHead.astro`、Analytics Worker entry、Wrangler Analytics Engine binding、AI export/VA2診断フィールド、build/live/deploy gate、`measurement/metrics.md`、監査ログ。WATCH本文、公開文言、既存Cloudflare Visits、Direct / Unknown分類、rabbit-hole戦略は変更しない。
+- **検証状態**：Analytics Worker CIでprobe POST/HEAD/origin拒否、SQL集計、VA2出力を検査。Astro buildで公開HTMLへのprobe埋込を検査し、main反映後はWorker binding HEAD health checkとlive HTML gateで別途DEPLOYEDを確認する。新しい外部流入が発生するまでcapture-gapの原因判定はOBSERVEDにしない。
+- **関連**：PR #121、commits `2dc33b0dfbfa8f3bf62096e7bbf9f2554e562460`, `f2cd519fec3cecb4523b33c56f2998236e2a47fd`, `84823475047555f00b73181b3ba5da885db2a986`, `262c1ec25a95e2ed602e0868361772c3365eee5e`, `061f5a27dc6d428b6c7e7d561247fb7b286b62ec`, `27c0ccab191bfeaccc9e4bc35544695276bf9104`, `1fc8bd2c41cab9ba2e637e4b39f7cd25f50d4812`, `80007956227a707d56d7883030be7f9135848ebf`, `6772427a0654c5afb2f27fc0229c067ebbb31f96`, `601d8db5bead5377763c711d9036c7ca72ae349b`, `2bc3e9b40fd315ba5cc87da6b01eb09b26a530a2`, `cfed508ec5699640f5c3feeebd41208aafd2c671`, `e82404eb16a521180686f41d21fc3413623563fb`, `5bfdea5119932b077dd0403d955d54f1b659a178`
+- **日時根拠**：GitHub commit `2dc33b0dfbfa8f3bf62096e7bbf9f2554e562460` の 2026-09-24T23:07:14Z → 2026-09-25 08:07 JST。後続実装commitは同日 2026-09-24T23:15:55Z → 2026-09-25 08:15 JST まで。
