@@ -150,7 +150,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
   },
   'citizen-alarm': {
     slug: 'citizen-alarm',
-    title: 'Citizen Alarm Cal. 980 — Japan’s First Domestic Alarm Wristwatch | VINTAGE ALARM',
+    title: 'Citizen Alarm Cal. 980 — Japan’s First Domestically Produced Alarm Wristwatch | VINTAGE ALARM',
     description: 'Citizen Alarm from 1958: Japan’s first domestically produced alarm wristwatch, Cal. 980, two barrels, twin crowns, a rotating centre alarm disc, double-caseback sound construction, later Four Hands variants and cited sources.',
     indexBlurb: 'Japan’s first bell-ringing wristwatch: two barrels, two crowns and a rotating alarm disc at the center of the dial.',
     catch: ['Japan’s first bell-ringing wristwatch — and the start of a lineage.'],
