@@ -12,7 +12,7 @@ const publishedWatchRoutes = watchStates
 const englishWatchRoutes = watchStates
   .filter((watch) => watch.published && englishWatchSlugs.has(watch.slug))
   .map((watch) => `en/${watch.slug}/`);
-const germanWatchRoutes = ['de/pierce-duofon/', 'de/westclox-watchlarm/', 'de/cyma-time-o-vox/'];
+const germanWatchRoutes = ['basis-alarm', 'pierce-duofon', 'cyma-time-o-vox', 'citizen-alarm', 'westclox-watchlarm', 'wittnauer-10wa'].map((slug) => `de/${slug}/`);
 const routes = [
   '',
   'history/',
