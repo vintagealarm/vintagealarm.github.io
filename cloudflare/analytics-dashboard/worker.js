@@ -368,6 +368,7 @@ function aiExportPeriod(period) {
     sampling: period?.sampling || null,
     quality: period?.quality || "UNSAMPLED",
     completeness: period?.completeness || null,
+    integrity: period?.integrity || buildPeriodIntegrity(period || {}),
     pages: period?.pages || [],
     entryPages: [...(period?.pages || [])]
       .filter((page) => (page?.visits || 0) > 0)
@@ -1203,6 +1204,41 @@ async function cloudflareGraphQL(env, query, variables) {
   return payload.data;
 }
 
+export function buildPeriodIntegrity(period) {
+  const expectedPageviews = Number(period?.pageviews || 0);
+  const expectedVisits = Number(period?.visits || 0);
+  const completeness = period?.completeness || {};
+  const sampling = period?.sampling || {};
+  const sum = (rows, field) => (rows || []).reduce((total, row) => total + Number(row?.[field] || 0), 0);
+  const definitions = [
+    ["pages.pageviews", expectedPageviews, sum(period?.pages, "pageviews"), completeness.pages !== false, Number(sampling.pages || period?.sampleInterval || 1)],
+    ["pages.visits", expectedVisits, sum(period?.pages, "visits"), completeness.pages !== false, Number(sampling.pages || period?.sampleInterval || 1)],
+    ["channels.visits", expectedVisits, sum(period?.channels, "visits"), completeness.referrers !== false, Number(sampling.referrers || period?.sampleInterval || 1)],
+    ["flows.pageviews", expectedPageviews, sum(period?.flows, "pageviews"), completeness.flows !== false, Number(sampling.flows || period?.sampleInterval || 1)],
+    ["flows.visits", expectedVisits, sum(period?.flows, "visits"), completeness.flows !== false, Number(sampling.flows || period?.sampleInterval || 1)],
+    ["countries.pageviews", expectedPageviews, sum(period?.countries, "pageviews"), completeness.countries !== false, Number(sampling.countries || period?.sampleInterval || 1)],
+    ["devices.pageviews", expectedPageviews, sum(period?.devices, "pageviews"), completeness.devices !== false, Number(sampling.devices || period?.sampleInterval || 1)],
+  ];
+
+  const checks = definitions.map(([name, expected, actual, complete, sampleInterval]) => {
+    const delta = Number(actual) - Number(expected);
+    const status = !complete ? "SKIP" : delta === 0 ? "PASS" : sampleInterval > 1 ? "DRIFT" : "FAIL";
+    return { name, expected: Number(expected), actual: Number(actual), delta, complete: Boolean(complete), sampleInterval, status };
+  });
+  const failures = checks.filter((check) => check.status === "FAIL");
+  const estimateDrift = checks.filter((check) => check.status === "DRIFT");
+  const skipped = checks.filter((check) => check.status === "SKIP");
+  const status = failures.length ? "FAIL" : estimateDrift.length ? "ESTIMATE_DRIFT" : skipped.length ? "PARTIAL" : "PASS";
+  return {
+    status,
+    ok: failures.length === 0,
+    failures,
+    estimateDrift,
+    skipped,
+    checks,
+  };
+}
+
 function normalizePeriod(data, targetHost = DEFAULT_HOST) {
   const account = data?.viewer?.accounts?.[0] || {};
   const total = account.total?.[0] || { count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } };
@@ -1258,7 +1294,7 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
     visits: row?.sum?.visits || 0,
   }));
 
-  return {
+  const normalized = {
     pageviews: total.count || 0,
     visits: total.sum?.visits || 0,
     sampleInterval,
@@ -1279,6 +1315,8 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
       pageviews: row?.count || 0,
     })),
   };
+  normalized.integrity = buildPeriodIntegrity(normalized);
+  return normalized;
 }
 
 function mergeRowsBy(items, keys, numericFields) {
@@ -1319,7 +1357,7 @@ function combinePeriods(periods) {
   );
   const sampleInterval = Math.max(1, ...Object.values(sampling));
 
-  return {
+  const combined = {
     pageviews: periods.reduce((sum, period) => sum + Number(period?.pageviews || 0), 0),
     visits: periods.reduce((sum, period) => sum + Number(period?.visits || 0), 0),
     sampleInterval,
@@ -1334,6 +1372,8 @@ function combinePeriods(periods) {
     countries: mergeRowsBy(periods.flatMap((period) => period?.countries || []), ["name"], ["pageviews"]),
     devices: mergeRowsBy(periods.flatMap((period) => period?.devices || []), ["name"], ["pageviews"]),
   };
+  combined.integrity = buildPeriodIntegrity(combined);
+  return combined;
 }
 
 const PAGE_NAMES = Object.freeze({
@@ -2034,10 +2074,15 @@ function render(data){
   const lowSample=c.visits<30?'<section class="card low-sample"><strong>LOW SAMPLE</strong><span>'+n(c.visits)+' visits · まだ傾向断定は保留</span></section>':'';
   const sampledSections=Object.entries(c.sampling||{}).filter(([,value])=>Number(value||1)>1).map(([key,value])=>key+' ×'+n(value));
   const incompleteSections=Object.entries(c.completeness||{}).filter(([,complete])=>complete===false).map(([key])=>key);
-  const dataQualityNote=(sampledSections.length||incompleteSections.length)
-    ? '<section class="card low-sample"><strong>DATA QUALITY</strong><span>'+
+  const integrity=c.integrity||{};
+  const integrityFailures=integrity.failures||[];
+  const integrityDrift=integrity.estimateDrift||[];
+  const dataQualityNote=(sampledSections.length||incompleteSections.length||integrityFailures.length||integrityDrift.length)
+    ? '<section class="card low-sample"><strong>DATA QUALITY · '+esc(integrity.status||"UNKNOWN")+'</strong><span>'+
       (sampledSections.length?'Sampling: '+esc(sampledSections.join(", ")):'Sampling: none')+
       (incompleteSections.length?' · Row limit reached / completeness not guaranteed: '+esc(incompleteSections.join(", ")):'')+
+      (integrityFailures.length?' · Arithmetic mismatch: '+esc(integrityFailures.map(item=>item.name+" "+(item.delta>0?"+":"")+item.delta).join(", ")):'')+
+      (integrityDrift.length?' · Sample estimate drift: '+esc(integrityDrift.map(item=>item.name+" "+(item.delta>0?"+":"")+item.delta).join(", ")):'')+
       '</span></section>'
     : '';
   const trafficSeries=[{key:"pageviews",label:"Page views",color:COLORS.pageviews},{key:"visits",label:"Visits",color:COLORS.visits}];
