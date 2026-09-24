@@ -36,6 +36,7 @@ English entry:
 - https://vintagealarm.github.io/en/basis-alarm/
 - https://vintagealarm.github.io/en/citizen-alarm/
 - https://vintagealarm.github.io/en/westclox-watchlarm/
+- https://vintagealarm.github.io/en/wittnauer-10wa/
 
 German entry:
 - https://vintagealarm.github.io/de/
@@ -46,6 +47,7 @@ German entry:
 - https://vintagealarm.github.io/de/cyma-time-o-vox/
 - https://vintagealarm.github.io/de/pierce-duofon/
 - https://vintagealarm.github.io/de/westclox-watchlarm/
+- https://vintagealarm.github.io/de/wittnauer-10wa/
 
 Machine-readable index:
 - https://vintagealarm.github.io/sitemap.xml

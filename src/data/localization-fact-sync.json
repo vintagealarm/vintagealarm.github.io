@@ -46,15 +46,76 @@
       "renderedChecks": [
         {
           "path": "dist/pierce-duofon/index.html",
-          "mustContain": ["1883", "1888"]
+          "mustContain": [
+            "1883",
+            "1888"
+          ]
         },
         {
           "path": "dist/en/pierce-duofon/index.html",
-          "mustContain": ["1883", "1888"]
+          "mustContain": [
+            "1883",
+            "1888"
+          ]
         },
         {
           "path": "dist/de/pierce-duofon/index.html",
-          "mustContain": ["1883", "1888"]
+          "mustContain": [
+            "1883",
+            "1888"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wittnauer-10wa-base-movement",
+      "slug": "wittnauer-10wa",
+      "canonicalValue": "Longines attribution unresolved against 10S / AS 1200 interchange evidence",
+      "note": "Preserve the source conflict. Do not collapse the 10WA timekeeping base to either Longines or AS 1200 without new evidence.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/wittnauer-10wa.md",
+          "mustContain": [
+            "10WAの時刻側には10S／AS1200系との強い共通性が見える一方で、専門書にはLonginesベースという記録が残る。",
+            "今ある資料だけでは答えが出ない。"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "the 10WA’s timekeeping side shows strong interchange evidence pointing toward the 10S / AS 1200 family, while specialist books retain the Longines-base attribution.",
+            "the conflict cannot be resolved"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "die Gehwerkseite des 10WA deutliche Teileübereinstimmungen mit der 10S-/AS-1200-Familie, während die Fachliteratur weiterhin eine Longines-Basis nennt.",
+            "lässt sich der Widerspruch nicht auflösen"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/wittnauer-10wa/index.html",
+          "mustContain": [
+            "Longines",
+            "AS1200"
+          ]
+        },
+        {
+          "path": "dist/en/wittnauer-10wa/index.html",
+          "mustContain": [
+            "Longines",
+            "AS 1200"
+          ]
+        },
+        {
+          "path": "dist/de/wittnauer-10wa/index.html",
+          "mustContain": [
+            "Longines",
+            "AS 1200"
+          ]
         }
       ]
     }
