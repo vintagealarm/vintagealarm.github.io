@@ -212,6 +212,8 @@ Dashboard range and grouping are independent.
 - The bucket containing the 2026-09-10 host migration is marked MIGRATION because OLD and NEW host conditions are mixed.
 - The bucket comparison table shows PV / Visits / X / Search / Direct / Internal PV and the Visits delta only when both adjacent buckets are comparable.
 - Cloudflare `sampleInterval` is surfaced as UNSAMPLED / SAMPLED / ESTIMATE. `sampleInterval=1` means the returned query group was not sampled; it does not mean the historical value can never be revised. A bucket cut by the selected range or current time is PARTIAL.
+- Period-level quality uses the maximum `sampleInterval` across total / pages / referrers / flows / entries / countries / devices. Fixed GraphQL row limits are tracked separately as row coverage instead of silently assuming completeness.
+- The dashboard/export also runs an arithmetic integrity cross-check. Complete unsampled mismatches are `FAIL`; sampled mismatches are `ESTIMATE_DRIFT`; sections that hit a row limit are `PARTIAL`.
 - Analytics availability is conservatively bounded from the first repository evidence of the Web Analytics beacon on 2026-09-08 06:41:34 JST. Requests beginning earlier are clipped; periods entirely before the baseline return an error. The first measured day remains partial because activation time is not independently verified.
 - ALL begins at the analytics availability baseline and has no previous-period comparison. Previous-period comparison is omitted whenever the preceding equal-length period would begin before the baseline.
 - Long ALL / CUSTOM requests still use <=7-day Cloudflare slices, but slice fetching and top-level analytics tasks are concurrency-limited to avoid an unbounded GraphQL burst.

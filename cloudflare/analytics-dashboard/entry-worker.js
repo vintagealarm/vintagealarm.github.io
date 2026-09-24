@@ -63,16 +63,63 @@ function channelCode(name) {
 }
 
 function pageRows(period) {
+  return (period?.pages || [])
+    .filter((row) => finiteNumber(row?.pageviews) > 0 || finiteNumber(row?.visits) > 0)
+    .slice(0, 20)
+    .map((row) => `${token(row?.path || row?.name, 70)}:${finiteNumber(row?.pageviews)}/${finiteNumber(row?.visits)}`)
+    .join(",");
+}
+
+function entryRows(period) {
   return (period?.entryPages || period?.pages || [])
-    .filter((row) => finiteNumber(row?.visits) > 0 || finiteNumber(row?.pageviews) > 0)
+    .filter((row) => finiteNumber(row?.visits) > 0)
     .slice(0, 20)
     .map((row) => `${token(row?.path || row?.name, 70)}:${finiteNumber(row?.visits)}/${finiteNumber(row?.pageviews)}`)
     .join(",");
 }
 
+function groupedCompactFlows(rows, keyBuilder, metric) {
+  const groups = new Map();
+  for (const row of rows || []) {
+    const key = keyBuilder(row);
+    const current = groups.get(key) || { ...row, visits: 0, pageviews: 0 };
+    current.visits += finiteNumber(row?.visits);
+    current.pageviews += finiteNumber(row?.pageviews);
+    groups.set(key, current);
+  }
+  return [...groups.values()].sort((a, b) =>
+    finiteNumber(b?.[metric]) - finiteNumber(a?.[metric]) ||
+    String(keyBuilder(a)).localeCompare(String(keyBuilder(b)))
+  );
+}
+
+function externalGroups(period) {
+  return groupedCompactFlows(
+    period?.externalEntryFlows || [],
+    (row) => [row?.channel || "", row?.sourceHost || "", row?.destinationPath || row?.destinationName || ""].join("\u0001"),
+    "visits",
+  );
+}
+
+function internalGroups(period) {
+  return groupedCompactFlows(
+    period?.internalFlows || [],
+    (row) => [row?.sourceHost || "", row?.sourceCleanPath || row?.sourcePath || row?.sourceName || "", row?.destinationHost || "", row?.destinationPath || row?.destinationName || ""].join("\u0001"),
+    "pageviews",
+  );
+}
+
+function migrationGroups(period) {
+  return groupedCompactFlows(
+    period?.migrationFlows || [],
+    (row) => [row?.sourceHost || "", row?.sourceCleanPath || row?.sourcePath || row?.sourceName || "", row?.destinationHost || "", row?.destinationPath || row?.destinationName || ""].join("\u0001"),
+    "pageviews",
+  );
+}
+
+
 function externalRows(period) {
-  return (period?.externalEntryFlows || [])
-    .filter((row) => finiteNumber(row?.visits) > 0)
+  return externalGroups(period)
     .slice(0, 20)
     .map((row) => {
       const host = token(row?.sourceHost || "-", 55) || "-";
@@ -83,8 +130,7 @@ function externalRows(period) {
 }
 
 function internalRows(period) {
-  return (period?.internalFlows || [])
-    .filter((row) => finiteNumber(row?.pageviews) > 0)
+  return internalGroups(period)
     .slice(0, 20)
     .map((row) => {
       const host = token(row?.sourceHost || "-", 55) || "-";
@@ -96,8 +142,7 @@ function internalRows(period) {
 }
 
 function migrationRows(period) {
-  return (period?.migrationFlows || [])
-    .filter((row) => finiteNumber(row?.pageviews) > 0 || finiteNumber(row?.visits) > 0)
+  return migrationGroups(period)
     .slice(0, 20)
     .map((row) => {
       const sourceHost = token(row?.sourceHost || "-", 55) || "-";
@@ -116,6 +161,17 @@ function snsRows(period) {
     .map((row) => {
       const values = row?.values || {};
       return `${token(row?.path || row?.name, 60)}:${finiteNumber(values.X)}/${finiteNumber(values.Instagram)}/${finiteNumber(values.Facebook)}/${finiteNumber(values["Other SNS"])}/${finiteNumber(row?.total)}`;
+    })
+    .join(",");
+}
+
+function integrityRows(period) {
+  const integrity = period?.integrity || {};
+  return [...(integrity.failures || []), ...(integrity.estimateDrift || [])]
+    .slice(0, 12)
+    .map((row) => {
+      const delta = finiteNumber(row?.delta);
+      return `${token(row?.name, 40)}:${delta >= 0 ? "+" : ""}${delta}/${token(row?.status, 12)}`;
     })
     .join(",");
 }
@@ -152,7 +208,7 @@ function trendRows(payload) {
       finiteNumber(row?.ai),
       finiteNumber(row?.other),
       finiteNumber(row?.internalPV),
-      trendFieldToken(row?.status || "UNSAMPLED", 24),
+      trendFieldToken(row?.status || "UNSAMPLED", 48),
       finiteNumber(row?.sampleInterval || 1),
     ].join("/"))
     .join(",");
@@ -167,7 +223,19 @@ export function buildAiFallbackFragment(payload) {
   const legacy = payload?.legacy?.current || {};
   const generated = token(String(payload?.generatedAt || "").replace(/[-:.]/g, ""), 32);
   const migration = token(payload?.hostMigration?.date || "", 16);
-  const latestEvent = token(payload?.freshness?.latestEventBucket || "", 40);
+  const latestBucket = token(payload?.freshness?.latestNonZeroBucket || payload?.freshness?.latestEventBucket || "", 40);
+  const sampling = combined?.sampling || {};
+  const completeness = combined?.completeness || {};
+  const samplingOrder = ["total", "pages", "referrers", "flows", "entries", "countries", "devices"];
+  const completenessOrder = ["pages", "referrers", "flows", "entries", "countries", "devices"];
+  const extGroups = externalGroups(combined);
+  const extShown = extGroups.slice(0, 20);
+  const extTotalVisits = extGroups.reduce((sum, row) => sum + finiteNumber(row?.visits), 0);
+  const extShownVisits = extShown.reduce((sum, row) => sum + finiteNumber(row?.visits), 0);
+  const compareMode = payload?.compareMode === "previous-period" ? "previous-period" : "none";
+  const previousValue = compareMode === "previous-period"
+    ? `${finiteNumber(previous?.visits)}/${finiteNumber(previous?.pageviews)}`
+    : "NA";
 
   const fields = [
     "VA2",
@@ -176,12 +244,18 @@ export function buildAiFallbackFragment(payload) {
     `bucket=${token(payload?.bucketKey || payload?.trendBucket || "auto", 10)}`,
     `quality=${token(combined?.quality || "UNSAMPLED", 24)}`,
     `sample=${finiteNumber(combined?.sampleInterval || 1)}`,
+    `sampleParts=${samplingOrder.map((key) => finiteNumber(sampling?.[key] || combined?.sampleInterval || 1)).join("/")}`,
+    `coverage=${completenessOrder.map((key) => completeness?.[key] === false ? 0 : 1).join("/")}`,
+    `structSample=${finiteNumber(sampling?.channels || sampling?.referrers || combined?.sampleInterval || 1)}/${finiteNumber(sampling?.flowSummary || sampling?.flows || combined?.sampleInterval || 1)}`,
+    `structCoverage=${(completeness?.channels ?? completeness?.referrers) === false ? 0 : 1}/${(completeness?.flowSummary ?? completeness?.flows) === false ? 0 : 1}`,
+    `integrity=${token(combined?.integrity?.status || "UNKNOWN", 24)}`,
     `generated=${generated}`,
     `visits=${finiteNumber(combined?.visits)}`,
     `pageviews=${finiteNumber(combined?.pageviews)}`,
     `new=${finiteNumber(current?.visits)}/${finiteNumber(current?.pageviews)}`,
     `old=${finiteNumber(legacy?.visits)}/${finiteNumber(legacy?.pageviews)}`,
-    `previous=${finiteNumber(previous?.visits)}/${finiteNumber(previous?.pageviews)}`,
+    `compare=${compareMode}`,
+    `previous=${previousValue}`,
     `x=${channelVisits(combined, "X")}`,
     `youtube=${channelVisits(combined, "YouTube")}`,
     `instagram=${channelVisits(combined, "Instagram")}`,
@@ -194,28 +268,34 @@ export function buildAiFallbackFragment(payload) {
     `internalVisits=${channelVisits(combined, "Internal Navigation")}`,
     `internalPV=${internalPageviews(combined)}`,
     `xprofile=${finiteNumber(combined?.xProfileEntries)}`,
+    `externalCoverage=${extShown.length}/${extGroups.length}/${extShownVisits}/${extTotalVisits}/${combined?.flowRowsComplete === false ? 0 : 1}`,
   ];
 
   if (migration) fields.push(`migration=${migration}`);
-  if (latestEvent) fields.push(`latest=${latestEvent}`);
-  if (payload?.freshness?.eventGapSeconds !== undefined) fields.push(`gap=${finiteNumber(payload.freshness.eventGapSeconds)}`);
+  if (latestBucket) fields.push(`latestBucket=${latestBucket}`);
+  const gapLowerBound = payload?.freshness?.eventGapLowerBoundSeconds ?? payload?.freshness?.eventGapSeconds;
+  if (gapLowerBound !== undefined && gapLowerBound !== null) fields.push(`gapLower=${finiteNumber(gapLowerBound)}`);
 
   const pages = pageRows(combined);
+  const entries = entryRows(combined);
   const external = externalRows(combined);
   const internal = internalRows(combined);
   const migrationFlow = migrationRows(combined);
   const sns = snsRows(combined);
   const countries = countryRows(combined);
   const devices = deviceRows(combined);
+  const integrityIssues = integrityRows(combined);
   const trend = trendRows(payload);
 
   if (pages) fields.push(`pages=${pages}`);
+  if (entries) fields.push(`entries=${entries}`);
   if (external) fields.push(`external=${external}`);
   if (internal) fields.push(`flow=${internal}`);
   if (migrationFlow) fields.push(`handoff=${migrationFlow}`);
   if (sns) fields.push(`sns=${sns}`);
   if (countries) fields.push(`countries=${countries}`);
   if (devices) fields.push(`devices=${devices}`);
+  if (integrityIssues) fields.push(`integrityIssues=${integrityIssues}`);
   if (trend) fields.push(`trend=${trend}`);
 
   return fields.join(";");

@@ -345,6 +345,10 @@ async function aiExportResponse(request, url, env) {
           "Aggregate Cloudflare Web Analytics only; no IP addresses, cookies, or raw user-agent strings are exported.",
         attribution:
           "X/YouTube/SNS referrer paths can help diagnosis but do not guarantee post-level attribution.",
+        visits:
+          "Cloudflare Web Analytics Visits count entry page views that start from an external referrer or direct/no-referrer traffic. They are not unique people or users.",
+        direct:
+          "Direct / Unknown means no usable referrer host was recorded for that entry. It must not be read as confirmed typed/bookmarked traffic.",
         hostSeparation:
           "NEW and OLD are queried separately. A host-scoped sum is also provided with its breakdown; it is not a cross-host unique-person count.",
         availability:
@@ -360,12 +364,15 @@ async function aiExportResponse(request, url, env) {
 }
 
 function aiExportPeriod(period) {
-  const flows = Array.isArray(period?.flows) ? period.flows : [];
+  const flows = Array.isArray(period?.flowSummary) ? period.flowSummary : (Array.isArray(period?.flows) ? period.flows : []);
   return {
     pageviews: period?.pageviews || 0,
     visits: period?.visits || 0,
     sampleInterval: period?.sampleInterval || 1,
+    sampling: period?.sampling || null,
     quality: period?.quality || "UNSAMPLED",
+    completeness: period?.completeness || null,
+    integrity: period?.integrity || buildPeriodIntegrity(period || {}),
     pages: period?.pages || [],
     entryPages: [...(period?.pages || [])]
       .filter((page) => (page?.visits || 0) > 0)
@@ -381,7 +388,7 @@ function aiExportPeriod(period) {
     migrationFlows: flows.filter(
       (flow) => flow.channel === "Host Migration" && (flow.pageviews || 0) > 0,
     ),
-    flowRowsComplete: flows.length < 200,
+    flowRowsComplete: period?.completeness?.flowSummary !== false && flows.length < 1000,
     snsEntries: period?.snsEntries || { pages: [], total: 0, complete: false },
     countries: period?.countries || [],
     devices: period?.devices || [],
@@ -449,7 +456,7 @@ async function analyticsResponse(url, env) {
     const previousEnd = rangeSpec.previousEnd;
     const host = env.REQUEST_HOST || DEFAULT_HOST;
     const legacyHost = env.LEGACY_REQUEST_HOST || HOST_MIGRATION.oldHost;
-    const emptyData = { viewer: { accounts: [{ total: [{ count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } }], pages: [], referers: [], flows: [], entries: [], countries: [], devices: [] }] } };
+    const emptyData = { viewer: { accounts: [{ total: [{ count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } }], pages: [], channels: [], referers: [], flowSummary: [], flows: [], entries: [], countries: [], devices: [] }] } };
 
     const [current, previous, trendResult, legacyCurrent, legacyPrevious, legacyTrendResult] = await mapWithConcurrency([
       () => fetchPeriod(env, host, currentStart, currentEnd),
@@ -868,9 +875,13 @@ function mergeGroupedRows(accounts, field, dimensionKeys, limit) {
     for (const row of account?.[field] || []) {
       const dimensions = Object.fromEntries(dimensionKeys.map((key) => [key, row?.dimensions?.[key] || ""]));
       const key = JSON.stringify(dimensions);
-      const current = rows.get(key) || { count: 0, sum: { visits: 0 }, dimensions };
+      const current = rows.get(key) || { count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions };
       current.count += Number(row?.count || 0);
       current.sum.visits += Number(row?.sum?.visits || 0);
+      current.avg.sampleInterval = Math.max(
+        Number(current.avg?.sampleInterval || 1),
+        Number(row?.avg?.sampleInterval || 1),
+      );
       rows.set(key, current);
     }
   }
@@ -881,23 +892,44 @@ function mergeGroupedRows(accounts, field, dimensionKeys, limit) {
 
 export function mergePeriodData(parts) {
   const accounts = parts.map((part) => part?.viewer?.accounts?.[0] || {});
-  const total = accounts.reduce((result, account) => {
-    const row = account.total?.[0];
-    result.count += Number(row?.count || 0);
-    result.sum.visits += Number(row?.sum?.visits || 0);
-    result.avg.sampleInterval = Math.max(result.avg.sampleInterval, Number(row?.avg?.sampleInterval || 1));
-    return result;
-  }, { count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } });
+  const totals = accounts.map((account) => account.total?.[0]).filter(Boolean);
+  const groupSpecs = {
+    pages: { dimensions: ["requestPath"], limit: 100 },
+    channels: { dimensions: ["refererHost"], limit: 100 },
+    referers: { dimensions: ["refererHost", "refererPath"], limit: 100 },
+    flowSummary: { dimensions: ["requestPath", "refererHost", "refererPath"], limit: 1000 },
+    flows: { dimensions: ["requestPath", "refererHost", "refererPath", "countryName", "deviceType"], limit: 200 },
+    entries: { dimensions: ["requestPath", "refererHost"], limit: 1000 },
+    countries: { dimensions: ["countryName"], limit: 100 },
+    devices: { dimensions: ["deviceType"], limit: 30 },
+  };
+  const completeness = Object.fromEntries(
+    Object.entries(groupSpecs).map(([field, spec]) => [
+      field,
+      accounts.every((account) => (account?.[field] || []).length < spec.limit),
+    ]),
+  );
 
-  return { viewer: { accounts: [{
-    total: [total],
-    pages: mergeGroupedRows(accounts, "pages", ["requestPath"], 100),
-    referers: mergeGroupedRows(accounts, "referers", ["refererHost", "refererPath"], 100),
-    flows: mergeGroupedRows(accounts, "flows", ["requestPath", "refererHost", "refererPath", "countryName", "deviceType"], 200),
-    entries: mergeGroupedRows(accounts, "entries", ["requestPath", "refererHost"], 1000),
-    countries: mergeGroupedRows(accounts, "countries", ["countryName"], 100),
-    devices: mergeGroupedRows(accounts, "devices", ["deviceType"], 30),
-  }] } };
+  return {
+    viewer: {
+      accounts: [{
+        total: [{
+          count: totals.reduce((sum, row) => sum + Number(row?.count || 0), 0),
+          sum: { visits: totals.reduce((sum, row) => sum + Number(row?.sum?.visits || 0), 0) },
+          avg: { sampleInterval: Math.max(1, ...totals.map((row) => Number(row?.avg?.sampleInterval || 1))) },
+        }],
+        pages: mergeGroupedRows(accounts, "pages", groupSpecs.pages.dimensions, groupSpecs.pages.limit),
+        channels: mergeGroupedRows(accounts, "channels", groupSpecs.channels.dimensions, groupSpecs.channels.limit),
+        referers: mergeGroupedRows(accounts, "referers", groupSpecs.referers.dimensions, groupSpecs.referers.limit),
+        flowSummary: mergeGroupedRows(accounts, "flowSummary", groupSpecs.flowSummary.dimensions, groupSpecs.flowSummary.limit),
+        flows: mergeGroupedRows(accounts, "flows", groupSpecs.flows.dimensions, groupSpecs.flows.limit),
+        entries: mergeGroupedRows(accounts, "entries", groupSpecs.entries.dimensions, groupSpecs.entries.limit),
+        countries: mergeGroupedRows(accounts, "countries", groupSpecs.countries.dimensions, groupSpecs.countries.limit),
+        devices: mergeGroupedRows(accounts, "devices", groupSpecs.devices.dimensions, groupSpecs.devices.limit),
+        completeness,
+      }],
+    },
+  };
 }
 
 async function fetchPeriod(env, host, start, end) {
@@ -906,7 +938,7 @@ async function fetchPeriod(env, host, start, end) {
     2,
     (range) => fetchPeriodSlice(env, host, range.start, range.end),
   );
-  return parts.length === 1 ? parts[0] : mergePeriodData(parts);
+  return mergePeriodData(parts);
 }
 
 async function fetchPeriodSlice(env, host, start, end) {
@@ -928,8 +960,19 @@ query VintageAlarmAnalytics(
         orderBy: [count_DESC]
       ) {
         count
+        avg { sampleInterval }
         sum { visits }
         dimensions { requestPath }
+      }
+      channels: rumPageloadEventsAdaptiveGroups(
+        filter: $filter
+        limit: 100
+        orderBy: [count_DESC]
+      ) {
+        count
+        avg { sampleInterval }
+        sum { visits }
+        dimensions { refererHost }
       }
       referers: rumPageloadEventsAdaptiveGroups(
         filter: $filter
@@ -937,8 +980,19 @@ query VintageAlarmAnalytics(
         orderBy: [count_DESC]
       ) {
         count
+        avg { sampleInterval }
         sum { visits }
         dimensions { refererHost refererPath }
+      }
+      flowSummary: rumPageloadEventsAdaptiveGroups(
+        filter: $filter
+        limit: 1000
+        orderBy: [count_DESC]
+      ) {
+        count
+        avg { sampleInterval }
+        sum { visits }
+        dimensions { requestPath refererHost refererPath }
       }
       flows: rumPageloadEventsAdaptiveGroups(
         filter: $filter
@@ -946,6 +1000,7 @@ query VintageAlarmAnalytics(
         orderBy: [count_DESC]
       ) {
         count
+        avg { sampleInterval }
         sum { visits }
         dimensions { requestPath refererHost refererPath countryName deviceType }
       }
@@ -954,6 +1009,7 @@ query VintageAlarmAnalytics(
         limit: 1000
         orderBy: [count_DESC]
       ) {
+        avg { sampleInterval }
         sum { visits }
         dimensions { requestPath refererHost }
       }
@@ -963,6 +1019,7 @@ query VintageAlarmAnalytics(
         orderBy: [count_DESC]
       ) {
         count
+        avg { sampleInterval }
         dimensions { countryName }
       }
       devices: rumPageloadEventsAdaptiveGroups(
@@ -971,6 +1028,7 @@ query VintageAlarmAnalytics(
         orderBy: [count_DESC]
       ) {
         count
+        avg { sampleInterval }
         dimensions { deviceType }
       }
     }
@@ -1174,9 +1232,75 @@ async function cloudflareGraphQL(env, query, variables) {
   return payload.data;
 }
 
+export function buildPeriodIntegrity(period) {
+  const expectedPageviews = Number(period?.pageviews || 0);
+  const expectedVisits = Number(period?.visits || 0);
+  const completeness = period?.completeness || {};
+  const sampling = period?.sampling || {};
+  const sum = (rows, field) => (rows || []).reduce((total, row) => total + Number(row?.[field] || 0), 0);
+  const definitions = [
+    ["pages.pageviews", expectedPageviews, sum(period?.pages, "pageviews"), completeness.pages !== false, Number(sampling.pages || period?.sampleInterval || 1)],
+    ["pages.visits", expectedVisits, sum(period?.pages, "visits"), completeness.pages !== false, Number(sampling.pages || period?.sampleInterval || 1)],
+    ["channels.visits", expectedVisits, sum(period?.channels, "visits"), (completeness.channels ?? completeness.referrers) !== false, Number(sampling.channels || sampling.referrers || period?.sampleInterval || 1)],
+    ["flowSummary.pageviews", expectedPageviews, sum(period?.flowSummary || period?.flows, "pageviews"), (completeness.flowSummary ?? completeness.flows) !== false, Number(sampling.flowSummary || sampling.flows || period?.sampleInterval || 1)],
+    ["flowSummary.visits", expectedVisits, sum(period?.flowSummary || period?.flows, "visits"), (completeness.flowSummary ?? completeness.flows) !== false, Number(sampling.flowSummary || sampling.flows || period?.sampleInterval || 1)],
+    ["countries.pageviews", expectedPageviews, sum(period?.countries, "pageviews"), completeness.countries !== false, Number(sampling.countries || period?.sampleInterval || 1)],
+    ["devices.pageviews", expectedPageviews, sum(period?.devices, "pageviews"), completeness.devices !== false, Number(sampling.devices || period?.sampleInterval || 1)],
+  ];
+
+  const checks = definitions.map(([name, expected, actual, complete, sampleInterval]) => {
+    const delta = Number(actual) - Number(expected);
+    const status = !complete ? "SKIP" : delta === 0 ? "PASS" : sampleInterval > 1 ? "DRIFT" : "FAIL";
+    return { name, expected: Number(expected), actual: Number(actual), delta, complete: Boolean(complete), sampleInterval, status };
+  });
+  const failures = checks.filter((check) => check.status === "FAIL");
+  const estimateDrift = checks.filter((check) => check.status === "DRIFT");
+  const skipped = checks.filter((check) => check.status === "SKIP");
+  const status = failures.length ? "FAIL" : estimateDrift.length ? "ESTIMATE_DRIFT" : skipped.length ? "PARTIAL" : "PASS";
+  return {
+    status,
+    ok: failures.length === 0,
+    failures,
+    estimateDrift,
+    skipped,
+    checks,
+  };
+}
+
 function normalizePeriod(data, targetHost = DEFAULT_HOST) {
   const account = data?.viewer?.accounts?.[0] || {};
-  const total = account.total?.[0] || { count: 0, sum: { visits: 0 } };
+  const total = account.total?.[0] || { count: 0, sum: { visits: 0 }, avg: { sampleInterval: 1 } };
+  const sectionSample = (rows) => Math.max(
+    1,
+    ...(rows || []).map((row) => Number(row?.avg?.sampleInterval || 1)).filter(Number.isFinite),
+  );
+  const channelRows = (account.channels || []).length ? account.channels : (account.referers || []);
+  const structuralFlowRows = (account.flowSummary || []).length ? account.flowSummary : (account.flows || []);
+  const sampling = {
+    total: Number(total.avg?.sampleInterval || 1),
+    pages: sectionSample(account.pages),
+    channels: sectionSample(channelRows),
+    referrers: sectionSample(account.referers),
+    flowSummary: sectionSample(structuralFlowRows),
+    flows: sectionSample(account.flows),
+    entries: sectionSample(account.entries),
+    countries: sectionSample(account.countries),
+    devices: sectionSample(account.devices),
+  };
+  const sampleInterval = Math.max(1, ...Object.values(sampling).map(Number).filter(Number.isFinite));
+  const inferredCompleteness = {
+    pages: (account.pages || []).length < 100,
+    channels: (account.channels || []).length ? (account.channels || []).length < 100 : (account.referers || []).length < 100,
+    referrers: (account.referers || []).length < 100,
+    flowSummary: (account.flowSummary || []).length ? (account.flowSummary || []).length < 1000 : (account.flows || []).length < 200,
+    flows: (account.flows || []).length < 200,
+    entries: (account.entries || []).length < 1000,
+    countries: (account.countries || []).length < 100,
+    devices: (account.devices || []).length < 30,
+  };
+  const completeness = { ...inferredCompleteness, ...(account.completeness || {}) };
+  if (!(account.channels || []).length) completeness.channels = completeness.referrers;
+  if (!(account.flowSummary || []).length) completeness.flowSummary = completeness.flows;
 
   const pages = (account.pages || []).map((row) => {
     const meta = pageMeta(row?.dimensions?.requestPath || "/");
@@ -1196,6 +1320,23 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
     visits: row?.sum?.visits || 0,
   }));
 
+  const rawChannels = channelRows.map((row) => ({
+    host: row?.dimensions?.refererHost || "",
+    path: "",
+    pageviews: row?.count || 0,
+    visits: row?.sum?.visits || 0,
+  }));
+
+  const rawFlowSummary = structuralFlowRows.map((row) => ({
+    requestPath: row?.dimensions?.requestPath || "/",
+    refererHost: row?.dimensions?.refererHost || "",
+    refererPath: row?.dimensions?.refererPath || "",
+    country: "Unknown",
+    device: "Unknown",
+    pageviews: row?.count || 0,
+    visits: row?.sum?.visits || 0,
+  }));
+
   const rawFlows = (account.flows || []).map((row) => ({
     requestPath: row?.dimensions?.requestPath || "/",
     refererHost: row?.dimensions?.refererHost || "",
@@ -1206,16 +1347,18 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
     visits: row?.sum?.visits || 0,
   }));
 
-  const sampleInterval = Number(total.avg?.sampleInterval || 1);
-  return {
+  const normalized = {
     pageviews: total.count || 0,
     visits: total.sum?.visits || 0,
     sampleInterval,
+    sampling,
     quality: sampleInterval > 1 ? "SAMPLED / ESTIMATE" : "UNSAMPLED",
+    completeness,
     pages,
     referrers: rawReferers,
+    flowSummary: buildFlows(rawFlowSummary, targetHost),
     flows: buildFlows(rawFlows, targetHost),
-    channels: buildChannels(rawReferers, targetHost),
+    channels: buildChannels(rawChannels, targetHost),
     snsEntries: aggregateSnsEntries(account.entries, targetHost),
     countries: (account.countries || []).map((row) => ({
       name: friendlyCountry(row?.dimensions?.countryName || "Unknown"),
@@ -1226,6 +1369,8 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
       pageviews: row?.count || 0,
     })),
   };
+  normalized.integrity = buildPeriodIntegrity(normalized);
+  return normalized;
 }
 
 function mergeRowsBy(items, keys, numericFields) {
@@ -1252,20 +1397,38 @@ function combineSnsEntries(periods) {
   return { pages: result, total: result.reduce((sum, row) => sum + row.total, 0), complete: periods.every((period) => period?.snsEntries?.complete) };
 }
 
-export function combinePeriods(periods) {
-  return {
+function combinePeriods(periods) {
+  const samplingKeys = ["total", "pages", "channels", "referrers", "flowSummary", "flows", "entries", "countries", "devices"];
+  const completenessKeys = ["pages", "channels", "referrers", "flowSummary", "flows", "entries", "countries", "devices"];
+  const sampling = Object.fromEntries(
+    samplingKeys.map((key) => [
+      key,
+      Math.max(1, ...periods.map((period) => Number(period?.sampling?.[key] || period?.sampleInterval || 1))),
+    ]),
+  );
+  const completeness = Object.fromEntries(
+    completenessKeys.map((key) => [key, periods.every((period) => period?.completeness?.[key] !== false)]),
+  );
+  const sampleInterval = Math.max(1, ...Object.values(sampling));
+
+  const combined = {
     pageviews: periods.reduce((sum, period) => sum + Number(period?.pageviews || 0), 0),
     visits: periods.reduce((sum, period) => sum + Number(period?.visits || 0), 0),
-    sampleInterval: Math.max(1, ...periods.map((period) => Number(period?.sampleInterval || 1))),
-    quality: periods.some((period) => Number(period?.sampleInterval || 1) > 1) ? "SAMPLED / ESTIMATE" : "UNSAMPLED",
+    sampleInterval,
+    sampling,
+    quality: sampleInterval > 1 ? "SAMPLED / ESTIMATE" : "UNSAMPLED",
+    completeness,
     pages: mergeRowsBy(periods.flatMap((period) => period?.pages || []), ["path"], ["pageviews", "visits"]),
     referrers: mergeRowsBy(periods.flatMap((period) => period?.referrers || []), ["host", "path"], ["pageviews", "visits"]),
+    flowSummary: mergeRowsBy(periods.flatMap((period) => period?.flowSummary || period?.flows || []), ["sourceHost", "sourcePath", "destinationHost", "destinationPath", "channel"], ["pageviews", "visits"]),
     flows: mergeRowsBy(periods.flatMap((period) => period?.flows || []), ["sourceHost", "sourcePath", "destinationHost", "destinationPath", "channel", "country", "device"], ["pageviews", "visits"]),
     channels: mergeRowsBy(periods.flatMap((period) => period?.channels || []), ["name"], ["pageviews", "visits"]),
     snsEntries: combineSnsEntries(periods),
     countries: mergeRowsBy(periods.flatMap((period) => period?.countries || []), ["name"], ["pageviews"]),
     devices: mergeRowsBy(periods.flatMap((period) => period?.devices || []), ["name"], ["pageviews"]),
   };
+  combined.integrity = buildPeriodIntegrity(combined);
+  return combined;
 }
 
 const PAGE_NAMES = Object.freeze({
@@ -1335,7 +1498,7 @@ function buildFlows(rows, targetHost = DEFAULT_HOST) {
     } else if (channel === "Host Migration") {
       sourceName = "Host Migration";
     } else if (channel === "Direct / Unknown") {
-      sourceName = "Direct";
+      sourceName = "Direct / Unknown";
     } else if (row.refererPath) {
       sourceName = channel + " · " + row.refererPath;
     }
@@ -1383,74 +1546,62 @@ function buildChannels(rows, targetHost = DEFAULT_HOST) {
     .map(([name, values]) => ({ name, ...values }));
 }
 
-function classifyReferrer(host, targetHost = DEFAULT_HOST) {
-  const value = String(host || "").toLowerCase();
-  const target = String(targetHost || DEFAULT_HOST).toLowerCase();
+export function classifyReferrer(host, targetHost = DEFAULT_HOST) {
+  const value = String(host || "").toLowerCase().replace(/\.$/, "");
+  const target = String(targetHost || DEFAULT_HOST).toLowerCase().replace(/\.$/, "");
+  const isDomain = (domain) => value === domain || value.endsWith("." + domain);
+  const isSearchFamily = (brand) => new RegExp("(^|\\.)" + brand + "\\.(?:[a-z]{2,3}|com\\.[a-z]{2}|co\\.[a-z]{2}|[a-z]{2}\\.[a-z]{2})$").test(value);
+
   if (!value) return "Direct / Unknown";
-  if (value === target || value.endsWith("." + target)) return "Internal Navigation";
-  if (
-    value === DEFAULT_HOST ||
-    value.endsWith("." + DEFAULT_HOST) ||
-    value === LEGACY_HOST ||
-    value.endsWith("." + LEGACY_HOST)
-  ) return "Host Migration";
+  if (isDomain(target)) return "Internal Navigation";
+  if (isDomain(DEFAULT_HOST) || isDomain(LEGACY_HOST)) return "Host Migration";
 
-  if (
-    value === "x.com" ||
-    value.endsWith(".x.com") ||
-    value === "twitter.com" ||
-    value.endsWith(".twitter.com") ||
-    value === "t.co"
-  ) return "X";
+  if (isDomain("x.com") || isDomain("twitter.com") || isDomain("t.co")) return "X";
+  if (isDomain("youtu.be") || isDomain("youtube.com") || isDomain("youtube-nocookie.com")) return "YouTube";
+  if (isDomain("instagram.com")) return "Instagram";
+  if (isDomain("facebook.com")) return "Facebook";
 
-  if (
-    value === "youtu.be" ||
-    value.endsWith(".youtu.be") ||
-    value === "youtube.com" ||
-    value.endsWith(".youtube.com") ||
-    value.includes("youtube-nocookie.com")
-  ) return "YouTube";
+  if (isDomain("threads.net") || isDomain("whatsapp.com") || isDomain("line.me") || isDomain("linkedin.com")) {
+    return "Other SNS";
+  }
 
-  if (value.includes("instagram.com")) return "Instagram";
-  if (value.includes("facebook.com")) return "Facebook";
-
+  // Known AI assistant hosts must be classified before broad search
+  // families. Otherwise gemini.google.com is swallowed by google.* search.
   if (
-    value.includes("threads.net") ||
-    value.includes("whatsapp.com") ||
-    value.includes("line.me") ||
-    value.includes("linkedin.com")
-  ) return "Other SNS";
-
-  if (
-    value.includes("google.") ||
-    value.includes("bing.com") ||
-    value.includes("yahoo.") ||
-    value.includes("duckduckgo.com") ||
-    value.includes("yandex.")
-  ) return "Organic Search";
-
-  if (
-    value.includes("chatgpt.com") ||
-    value.includes("perplexity.ai") ||
-    value.includes("claude.ai") ||
-    value.includes("gemini.google.com") ||
-    value.includes("copilot.microsoft.com")
+    isDomain("chatgpt.com") ||
+    isDomain("chat.openai.com") ||
+    isDomain("perplexity.ai") ||
+    isDomain("claude.ai") ||
+    isDomain("gemini.google.com") ||
+    isDomain("copilot.microsoft.com")
   ) return "AI Assistant";
+
+  if (
+    isSearchFamily("google") ||
+    isDomain("bing.com") ||
+    isDomain("yahoo.com") ||
+    isDomain("yahoo.co.jp") ||
+    isDomain("duckduckgo.com") ||
+    isSearchFamily("yandex")
+  ) return "Organic Search";
 
   return "Other Referral";
 }
 
 function friendlyCountry(value) {
-  const map = {
-    JP: "Japan",
-    IE: "Ireland",
-    US: "United States",
-    DE: "Germany",
-    GB: "United Kingdom",
-    FR: "France",
-    CH: "Switzerland",
-  };
-  return map[value] || value;
+  const code = String(value || "").trim().toUpperCase();
+  if (!/^[A-Z]{2}$/.test(code)) return value;
+  try {
+    const label = new Intl.DisplayNames(["en"], { type: "region" }).of(code);
+    return label && label !== code ? label : value;
+  } catch {
+    const fallback = {
+      JP: "Japan", IE: "Ireland", US: "United States", DE: "Germany", GB: "United Kingdom",
+      FR: "France", CH: "Switzerland", CA: "Canada", BR: "Brazil", ZA: "South Africa",
+      RU: "Russia", MX: "Mexico", NL: "Netherlands", PL: "Poland",
+    };
+    return fallback[code] || value;
+  }
 }
 
 function friendlyDevice(value) {
@@ -1954,9 +2105,14 @@ function render(data){
   const youtubeNow=c.channels.find(x=>x.name==="YouTube")?.visits||0;
   const searchNow=c.channels.find(x=>x.name==="Organic Search")?.visits||0;
   const searchPrev=p.channels.find(x=>x.name==="Organic Search")?.visits||0;
-  const entryFlows=c.flows.filter(x=>x.visits>0 && x.channel!=="Internal Navigation");
-  const internalFlows=c.flows.filter(x=>x.channel==="Internal Navigation"&&x.sourceCleanPath!==x.destinationPath);
-  const migrationFlows=c.flows.filter(x=>x.channel==="Host Migration");
+  const structuralFlows=c.flowSummary||c.flows||[];
+  const detailFlows=c.flows||structuralFlows;
+  const entryFlows=structuralFlows.filter(x=>x.visits>0 && x.channel!=="Internal Navigation" && x.channel!=="Host Migration");
+  const internalFlows=structuralFlows.filter(x=>x.channel==="Internal Navigation"&&x.sourceCleanPath!==x.destinationPath);
+  const migrationFlows=structuralFlows.filter(x=>x.channel==="Host Migration");
+  const entryFlowDetails=detailFlows.filter(x=>x.visits>0 && x.channel!=="Internal Navigation" && x.channel!=="Host Migration");
+  const internalFlowDetails=detailFlows.filter(x=>x.channel==="Internal Navigation"&&x.sourceCleanPath!==x.destinationPath);
+  const migrationFlowDetails=detailFlows.filter(x=>x.channel==="Host Migration");
   const campaigns=getCampaigns();
   const newTrend=data.trend||[];
   const trend=data.combined?.trend||newTrend;
@@ -1978,6 +2134,19 @@ function render(data){
     '<td class="num">'+n(x.pageviews)+'</td><td class="num">'+n(x.visits)+'</td></tr>'
   ).join("");
   const lowSample=c.visits<30?'<section class="card low-sample"><strong>LOW SAMPLE</strong><span>'+n(c.visits)+' visits · まだ傾向断定は保留</span></section>':'';
+  const sampledSections=Object.entries(c.sampling||{}).filter(([,value])=>Number(value||1)>1).map(([key,value])=>key+' ×'+n(value));
+  const incompleteSections=Object.entries(c.completeness||{}).filter(([,complete])=>complete===false).map(([key])=>key);
+  const integrity=c.integrity||{};
+  const integrityFailures=integrity.failures||[];
+  const integrityDrift=integrity.estimateDrift||[];
+  const dataQualityNote=(sampledSections.length||incompleteSections.length||integrityFailures.length||integrityDrift.length)
+    ? '<section class="card low-sample"><strong>DATA QUALITY · '+esc(integrity.status||"UNKNOWN")+'</strong><span>'+
+      (sampledSections.length?'Sampling: '+esc(sampledSections.join(", ")):'Sampling: none')+
+      (incompleteSections.length?' · Row limit reached / completeness not guaranteed: '+esc(incompleteSections.join(", ")):'')+
+      (integrityFailures.length?' · Arithmetic mismatch: '+esc(integrityFailures.map(item=>item.name+" "+(item.delta>0?"+":"")+item.delta).join(", ")):'')+
+      (integrityDrift.length?' · Sample estimate drift: '+esc(integrityDrift.map(item=>item.name+" "+(item.delta>0?"+":"")+item.delta).join(", ")):'')+
+      '</span></section>'
+    : '';
   const trafficSeries=[{key:"pageviews",label:"Page views",color:COLORS.pageviews},{key:"visits",label:"Visits",color:COLORS.visits}];
   const hostSeries=[{key:"newVisits",label:"NEW · "+data.host,color:COLORS.newHost},{key:"legacyVisits",label:"OLD · "+(legacy.host||HOST_MIGRATION.oldHost),color:COLORS.legacyHost}];
   const acquisitionSeries=[{key:"x",label:"X",color:COLORS.X},{key:"youtube",label:"YouTube",color:COLORS.YouTube},{key:"search",label:"Search",color:COLORS.Search},{key:"direct",label:"Direct",color:COLORS.Direct},{key:"instagram",label:"Instagram",color:channelColor("Instagram")},{key:"facebook",label:"Facebook",color:channelColor("Facebook")},{key:"otherSns",label:"Other SNS",color:channelColor("Other SNS")}];
@@ -1987,7 +2156,7 @@ function render(data){
     : '';
   document.getElementById("content").innerHTML=
   '<div class="path">'+esc(HOST_MIGRATION.note)+'</div>'+
-  '<div class="grid analytics-grid">'+audit+availabilityNote+lowSample+
+  '<div class="grid analytics-grid">'+audit+availabilityNote+dataQualityNote+lowSample+
     '<section class="card host-scope"><div class="section-head"><div class="section-title">TOTAL + HOST BREAKDOWN</div><span>合計はhost別Visitsの足し算。ユニーク人数ではありません</span></div><div class="host-grid">'+
       '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · '+esc(c.quality||"UNSAMPLED")+(Number(c.sampleInterval||1)>1?' · sample ×'+n(c.sampleInterval):'')+'</div></div>'+
       '<div class="host-block"><span class="path">NEW · '+esc(data.host)+'</span><strong>'+n(nc.visits)+' visits</strong><div class="delta">'+n(nc.pageviews)+' page views · '+(c.visits?((nc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
@@ -2019,9 +2188,9 @@ function render(data){
       '<section class="card channels"><div class="section-head"><div class="section-title">OLD HOST CHANNELS / PV</div></div>'+rows(lc.channels,10)+'</section>'+
     '</div></details>'+
     '<details class="card drawer raw"><summary><span>RAW / AUDIT TABLES</span><span class="drawer-meta">流入元・内部遷移・国・端末の詳細</span></summary><div class="drawer-content detail-grid">'+
-    '<section class="card flow"><div class="section-head"><div class="section-title">ENTRY SOURCE → PAGE</div><span>同一行で取得</span></div><table><thead><tr><th>SOURCE</th><th></th><th>DESTINATION</th><th class="num">PV</th><th class="num">ENTRY VISITS</th></tr></thead><tbody>'+flowRows(entryFlows)+'</tbody></table></section>'+
-    (migrationFlows.length?'<section class="card flow"><div class="section-head"><div class="section-title">HOST MIGRATION</div><span>旧・新ホスト間の遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(migrationFlows,true)+'</tbody></table></section>':'')+
-    '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>同一ホスト内の内部遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(internalFlows,true)+'</tbody></table></section>'+
+    '<section class="card flow"><div class="section-head"><div class="section-title">ENTRY SOURCE → PAGE</div><span>同一行で取得</span></div><table><thead><tr><th>SOURCE</th><th></th><th>DESTINATION</th><th class="num">PV</th><th class="num">ENTRY VISITS</th></tr></thead><tbody>'+flowRows(entryFlowDetails)+'</tbody></table></section>'+
+    (migrationFlows.length?'<section class="card flow"><div class="section-head"><div class="section-title">HOST MIGRATION</div><span>旧・新ホスト間の遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(migrationFlowDetails,true)+'</tbody></table></section>':'')+
+    '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>同一ホスト内の内部遷移</span></div><table><thead><tr><th>FROM</th><th></th><th>TO</th><th class="num">PV</th><th class="num">VISITS</th></tr></thead><tbody>'+flowRows(internalFlowDetails,true)+'</tbody></table></section>'+
     '<section class="card referrers"><div class="section-head"><div class="section-title">REFERRERS</div><span>raw host</span></div><table><thead><tr><th>HOST</th><th class="num">PV</th><th class="num">ENTRY VISITS</th></tr></thead><tbody>'+
       c.referrers.slice(0,20).map(x=>'<tr><td><strong>'+esc(x.host||"(Direct)")+'</strong>'+(x.path?'<span class="path">'+esc(x.path)+'</span>':'')+'</td><td class="num">'+n(x.pageviews)+'</td><td class="num">'+n(x.visits)+'</td></tr>').join("")+
     '</tbody></table></section>'+

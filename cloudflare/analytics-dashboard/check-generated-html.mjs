@@ -1,6 +1,43 @@
 import vm from "node:vm";
-import worker, { aggregateSnsEntries, aggregateTrendBuckets, campaignWindow, campaignSummary, mapWithConcurrency, mergePeriodData, mergeTrendPoints, normalizeTrendBucket, parseYouTubeVideoUrl, resolveAnalyticsRange, splitPeriod } from "./worker.js";
+import worker, { aggregateSnsEntries, aggregateTrendBuckets, buildPeriodIntegrity, campaignWindow, campaignSummary, classifyReferrer, mapWithConcurrency, mergePeriodData, mergeTrendPoints, normalizeTrendBucket, parseYouTubeVideoUrl, resolveAnalyticsRange, splitPeriod } from "./worker.js";
 import assert from "node:assert/strict";
+
+const integrityBase = {
+  pageviews: 10,
+  visits: 8,
+  completeness: { pages: true, channels: true, referrers: true, flowSummary: true, flows: true, entries: true, countries: true, devices: true },
+  sampling: { total: 1, pages: 1, channels: 1, referrers: 1, flowSummary: 1, flows: 1, entries: 1, countries: 1, devices: 1 },
+  pages: [{ pageviews: 10, visits: 8 }],
+  channels: [{ name: "Direct / Unknown", visits: 8 }],
+  flowSummary: [{ pageviews: 10, visits: 8 }],
+  flows: [{ pageviews: 7, visits: 5 }],
+  countries: [{ name: "Japan", pageviews: 10 }],
+  devices: [{ name: "Desktop", pageviews: 10 }],
+};
+const integrityPass = buildPeriodIntegrity(integrityBase);
+assert.equal(integrityPass.status, "PASS");
+assert.equal(integrityPass.failures.length, 0);
+const integrityDrift = buildPeriodIntegrity({
+  ...integrityBase,
+  sampling: { ...integrityBase.sampling, flowSummary: 10 },
+  flowSummary: [{ pageviews: 9, visits: 8 }],
+});
+assert.equal(integrityDrift.status, "ESTIMATE_DRIFT");
+assert.equal(integrityDrift.failures.length, 0, "sampled estimate drift must not be promoted to hard failure");
+assert.equal(integrityDrift.estimateDrift[0]?.name, "flowSummary.pageviews");
+const integrityFail = buildPeriodIntegrity({
+  ...integrityBase,
+  countries: [{ name: "Japan", pageviews: 9 }],
+});
+assert.equal(integrityFail.status, "FAIL");
+assert.equal(integrityFail.failures[0]?.name, "countries.pageviews");
+const integrityPartial = buildPeriodIntegrity({
+  ...integrityBase,
+  completeness: { ...integrityBase.completeness, countries: false },
+  countries: [{ name: "Japan", pageviews: 9 }],
+});
+assert.equal(integrityPartial.status, "PARTIAL");
+assert.equal(integrityPartial.skipped[0]?.name, "countries.pageviews");
 
 const start = '2026-09-08T00:00:00Z';
 const partial = campaignWindow(start, 24, Date.parse(start) + 3600000);
@@ -61,6 +98,10 @@ assert.equal(aggregateSnsEntries([]).complete, true);
 assert.equal(aggregateSnsEntries(undefined).complete, false);
 assert.equal(aggregateSnsEntries(Array.from({ length: 1000 }, () => entry("/", "t.co", 1))).complete, false);
 
+assert.equal(classifyReferrer("gemini.google.com"), "AI Assistant", "Gemini must not be swallowed by google.* Organic Search");
+assert.equal(classifyReferrer("www.google.com"), "Organic Search", "normal Google search must remain Organic Search");
+assert.equal(classifyReferrer("google.co.jp"), "Organic Search");
+
 const thirtyDayRanges = splitPeriod("2026-08-11T12:00:00Z", "2026-09-10T12:00:00Z");
 assert.equal(thirtyDayRanges.length, 5);
 assert.equal(thirtyDayRanges[0].start.toISOString(), "2026-08-11T12:00:00.000Z");
@@ -118,7 +159,7 @@ assert.equal(maxActiveMaps, 2);
 
 const periodPart = (count, visits, path, sampleInterval = 1) => ({ viewer: { accounts: [{
   total: [{ count, sum: { visits }, avg: { sampleInterval } }],
-  pages: [{ count, sum: { visits }, dimensions: { requestPath: path } }],
+  pages: [{ count, sum: { visits }, avg: { sampleInterval }, dimensions: { requestPath: path } }],
   referers: [], flows: [], entries: [], countries: [], devices: [],
 }] } });
 const mergedPeriod = mergePeriodData([periodPart(20, 20, "/", 1), periodPart(6, 6, "/", 10)]);
@@ -126,6 +167,8 @@ assert.equal(mergedPeriod.viewer.accounts[0].total[0].count, 26);
 assert.equal(mergedPeriod.viewer.accounts[0].total[0].sum.visits, 26);
 assert.equal(mergedPeriod.viewer.accounts[0].pages[0].count, 26);
 assert.equal(mergedPeriod.viewer.accounts[0].total[0].avg.sampleInterval, 10);
+assert.equal(mergedPeriod.viewer.accounts[0].pages[0].avg.sampleInterval, 10, 'merged grouped rows must retain the worst sample interval');
+assert.equal(mergedPeriod.viewer.accounts[0].completeness.pages, true, 'merged grouped-row coverage must be explicit');
 const mergedTrend = mergeTrendPoints([
   [{ bucket: "2026-09-09", pageviews: 20, visits: 20, x: 0, sampleInterval: 1 }],
   [{ bucket: "2026-09-09", pageviews: 2, visits: 2, x: 1, sampleInterval: 10 }, { bucket: "2026-09-10", pageviews: 4, visits: 4, x: 1, sampleInterval: 1 }],
@@ -143,22 +186,41 @@ const fakeAnalyticsFetch = async (_url, options) => {
   const host = request.variables.filter.AND.find(part => part.requestHost)?.requestHost;
   queriedHosts.push(host);
   const value = host === "vintagealarm.github.io" ? 5 : 9;
+  const visitValue = host === "vintagealarm.github.io" ? 4 : 9;
   const isNewHost = host === "vintagealarm.github.io";
   const referers = isNewHost
     ? [
-        { count: 2, sum: { visits: 2 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
-        { count: 1, sum: { visits: 0 }, dimensions: { refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/" } },
+        { count: 2, sum: { visits: 2 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/" } },
       ]
     : [
-        { count: 1, sum: { visits: 0 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
       ];
   const flows = isNewHost
     ? [
-        { count: 2, sum: { visits: 2 }, dimensions: { requestPath: "/cyma-time-o-vox/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
-        { count: 1, sum: { visits: 0 }, dimensions: { requestPath: "/pierce-duofon/", refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/", countryName: "JP", deviceType: "desktop" } },
+        { count: 2, sum: { visits: 2 }, avg: { sampleInterval: 10 }, dimensions: { requestPath: "/cyma-time-o-vox/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/pierce-duofon/", refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/", countryName: "JP", deviceType: "desktop" } },
       ]
     : [
-        { count: 1, sum: { visits: 0 }, dimensions: { requestPath: "/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
+      ];
+  const channels = isNewHost
+    ? [
+        { count: 2, sum: { visits: 2 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "orima1995-create.github.io" } },
+        { count: 2, sum: { visits: 2 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "vintagealarm.github.io" } },
+      ]
+    : [
+        { count: 9, sum: { visits: 9 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "" } },
+      ];
+  const flowSummary = isNewHost
+    ? [
+        { count: 2, sum: { visits: 2 }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/cyma-time-o-vox/", refererHost: "orima1995-create.github.io", refererPath: "/" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/pierce-duofon/", refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/" } },
+        { count: 2, sum: { visits: 2 }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/", refererHost: "", refererPath: "" } },
+      ]
+    : [
+        { count: 9, sum: { visits: 9 }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/", refererHost: "", refererPath: "" } },
       ];
   const queryStart = request.variables.filter.AND.find(part => part.datetime_geq)?.datetime_geq || "2026-09-10T00:00:00Z";
   const trendBucket = new Intl.DateTimeFormat("en-CA", {
@@ -168,11 +230,13 @@ const fakeAnalyticsFetch = async (_url, options) => {
     day: "2-digit",
   }).format(new Date(queryStart));
   const account = request.query.includes("VintageAlarmTrend")
-    ? { totals: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 }, dimensions: { bucket: trendBucket } }], acquisition: [], navigation: [] }
+    ? { totals: [{ count: value, sum: { visits: visitValue }, avg: { sampleInterval: 1 }, dimensions: { bucket: trendBucket } }], acquisition: [], navigation: [] }
     : {
-        total: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 } }],
-        pages: [{ count: value, sum: { visits: value }, dimensions: { requestPath: "/" } }],
-        referers, flows, entries: [], countries: [], devices: [],
+        total: [{ count: value, sum: { visits: visitValue }, avg: { sampleInterval: 1 } }],
+        pages: [{ count: value, sum: { visits: visitValue }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/" } }],
+        channels, referers, flowSummary, flows, entries: [],
+        countries: [{ count: value, avg: { sampleInterval: 1 }, dimensions: { countryName: isNewHost ? "CA" : "JP" } }],
+        devices: [{ count: value, avg: { sampleInterval: 1 }, dimensions: { deviceType: "desktop" } }],
       };
   return new Response(JSON.stringify({ data: { viewer: { accounts: [account] } } }), {
     headers: { "Content-Type": "application/json" },
@@ -193,19 +257,30 @@ const analyticsApiResponse = await worker.fetch(
 assert.equal(analyticsApiResponse.status, 200);
 const analyticsPayload = await analyticsApiResponse.json();
 assert.equal(analyticsPayload.host, "vintagealarm.github.io");
-assert.equal(analyticsPayload.current.visits, 5);
+assert.equal(analyticsPayload.current.visits, 4);
 assert.equal(analyticsPayload.legacy.host, "orima1995-create.github.io");
 assert.equal(analyticsPayload.legacy.current.visits, 9);
-assert.equal(analyticsPayload.combined.current.visits, 14);
+assert.equal(analyticsPayload.combined.current.visits, 13);
 assert.equal(analyticsPayload.combined.current.pageviews, 14);
-assert.equal(analyticsPayload.combined.trend[0].visits, 14);
+assert.equal(analyticsPayload.combined.trend[0].visits, 13);
+assert.equal(analyticsPayload.current.sampleInterval, 10, 'period quality must use the worst grouped-query sample interval');
+assert.equal(analyticsPayload.current.sampling.flows, 10, 'flow sampling metadata must be exposed separately');
+assert.equal(analyticsPayload.current.sampling.flowSummary, 1, 'structural flow totals must have independent sampling metadata');
+assert.equal(analyticsPayload.current.sampling.channels, 1, 'low-cardinality channel totals must have independent sampling metadata');
+assert.equal(analyticsPayload.current.integrity.status, "PASS", 'sampled diagnostic flow rows must not invalidate exact structural totals');
+assert.equal(analyticsPayload.current.quality, "SAMPLED / ESTIMATE", 'group sampling must prevent false UNSAMPLED labeling');
+assert.equal(analyticsPayload.current.completeness.flows, true, 'flow row coverage must be explicit');
+assert.equal(analyticsPayload.current.countries[0].name, "Canada", 'country codes must be normalized consistently');
 assert.equal(analyticsPayload.current.channels.find(row => row.name === "Host Migration")?.visits, 2);
+assert.equal(analyticsPayload.current.channels.find(row => row.name === "Direct / Unknown")?.visits, 2);
+const directFlow = analyticsPayload.current.flowSummary.find(row => row.channel === "Direct / Unknown");
+assert.equal(directFlow?.sourceName, "Direct / Unknown", "no-referrer entries must not be displayed as confirmed Direct traffic");
 assert.equal(analyticsPayload.current.channels.find(row => row.name === "Internal Navigation")?.visits, 0);
-const migrationFlow = analyticsPayload.current.flows.find(row => row.channel === "Host Migration");
+const migrationFlow = analyticsPayload.current.flowSummary.find(row => row.channel === "Host Migration");
 assert.equal(migrationFlow?.sourceHost, "orima1995-create.github.io");
 assert.equal(migrationFlow?.destinationHost, "vintagealarm.github.io");
 assert.equal(migrationFlow?.destinationPath, "/cyma-time-o-vox/");
-const sameHostFlow = analyticsPayload.current.flows.find(row => row.channel === "Internal Navigation");
+const sameHostFlow = analyticsPayload.current.flowSummary.find(row => row.channel === "Internal Navigation");
 assert.equal(sameHostFlow?.sourceCleanPath, "/cyma-time-o-vox/");
 assert.equal(sameHostFlow?.destinationPath, "/pierce-duofon/");
 assert.equal(queriedHosts.filter(host => host === "vintagealarm.github.io").length, 3);
@@ -226,6 +301,12 @@ assert.equal(exportPayload.current.internalFlows.length, 1);
 assert.equal(exportPayload.current.internalFlows[0].channel, "Internal Navigation");
 assert.equal(exportPayload.current.externalEntryFlows.some(row => row.channel === "Host Migration"), false);
 assert.equal(exportPayload.current.flowRowsComplete, true);
+assert.equal(exportPayload.current.sampling.flows, 10, 'AI export must retain per-section sampling metadata');
+assert.equal(exportPayload.current.sampling.flowSummary, 1, 'AI export must retain structural-flow sampling metadata');
+assert.equal(exportPayload.current.integrity.status, "PASS", 'AI export must retain structural integrity result');
+assert.equal(exportPayload.current.completeness.flows, true, 'AI export must retain row coverage metadata');
+assert.match(exportPayload.limitations.visits, /not unique people or users/i, 'AI export must state that Visits are not people');
+assert.match(exportPayload.limitations.direct, /must not be read as confirmed typed\/bookmarked traffic/i, 'AI export must preserve Direct / Unknown uncertainty');
 
 const password = "ci-test-password";
 const auth = Buffer.from(`admin:${password}`).toString("base64");
@@ -263,6 +344,8 @@ assert.ok(html.includes("SNS → SITE ENTRY"));
 assert.ok(html.includes("HOST MIGRATION FLOW"));
 assert.ok(html.includes("SITE FLOWから分離"));
 assert.ok(html.includes("同一ホスト内の内部遷移"));
+assert.ok(html.includes("DATA QUALITY"), "dashboard must expose sampling/row-limit quality warnings");
+assert.ok(dashboardScript.includes('x.channel!=="Internal Navigation" && x.channel!=="Host Migration"'), "external acquisition flow must exclude host migration");
 assert.ok(html.includes('data-window="all"'));
 assert.ok(html.includes('id="customApply"'));
 assert.ok(html.includes('id="bucketSelect"'));

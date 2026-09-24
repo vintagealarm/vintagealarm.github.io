@@ -20,10 +20,20 @@ export const WATCH_PAGE_NAMES = Object.freeze({
   "/westclox-watchlarm/": "Westclox Watchlarm",
 });
 
+export const STATIC_PAGE_NAMES = Object.freeze({
+  "/": "TOP",
+  "/owners-notes/": "OWNER\'S NOTES",
+  "/sources/": "SOURCES",
+  "/cyma-time-o-vox/owners-note/": "Cyma OWNER\'S NOTE",
+  "/history/smartwatch/": "Smartwatch / HISTORY",
+});
+
 export const ENGLISH_GATEWAY_NAMES = Object.freeze({
   "/en/": "English Entry",
   "/en/owners-notes/": "OWNER\'S NOTES (EN)",
+  "/en/sources/": "SOURCES (EN)",
   "/en/basis-alarm/": "Basis Alarm (EN)",
+  "/en/wittnauer-10wa/": "Wittnauer Cal.10WA (EN)",
   "/en/pierce-duofon/": "Pierce Duofon (EN)",
   "/en/cyma-time-o-vox/": "Cyma Time-O-Vox (EN)",
   "/en/citizen-alarm/": "Citizen Alarm (EN)",
@@ -33,10 +43,33 @@ export const ENGLISH_GATEWAY_NAMES = Object.freeze({
 export const GERMAN_GATEWAY_NAMES = Object.freeze({
   "/de/": "German Entry",
   "/de/owners-notes/": "OWNER\'S NOTES (DE)",
+  "/de/sources/": "SOURCES (DE)",
+  "/de/basis-alarm/": "Basis Alarm (DE)",
+  "/de/wittnauer-10wa/": "Wittnauer Cal.10WA (DE)",
   "/de/pierce-duofon/": "Pierce Duofon (DE)",
   "/de/cyma-time-o-vox/": "Cyma Time-O-Vox (DE)",
+  "/de/citizen-alarm/": "Citizen Alarm (DE)",
   "/de/westclox-watchlarm/": "Westclox Watchlarm (DE)",
 });
+
+const WATCH_SLUGS = new Set(
+  Object.keys(WATCH_PAGE_NAMES).map((path) => path.replace(/^\//, "").replace(/\/$/, "")),
+);
+
+function localizedWatchNames(map, locale) {
+  return Object.entries(map)
+    .filter(([path]) => {
+      const match = path.match(new RegExp("^/" + locale + "/([^/]+)/$"));
+      return Boolean(match && WATCH_SLUGS.has(match[1]));
+    })
+    .map(([, name]) => name);
+}
+
+export const WATCH_ENTRY_PAGE_NAMES = Object.freeze([
+  ...Object.values(WATCH_PAGE_NAMES),
+  ...localizedWatchNames(ENGLISH_GATEWAY_NAMES, "en"),
+  ...localizedWatchNames(GERMAN_GATEWAY_NAMES, "de"),
+]);
 
 export const HISTORY_GATEWAY_NAMES = Object.freeze({
   "/history/": "HISTORY",
@@ -49,9 +82,12 @@ export const RESEARCH_PAGE_NAMES = Object.freeze({
   "/en/how-they-ring/": "How They Ring (EN)",
   "/de/how-they-ring/": "How They Ring (DE)",
   "/cyma-time-o-vox/chronometre/": "Cyma Time-O-Vox Chronomètre",
+  "/en/cyma-time-o-vox/chronometre/": "Cyma Time-O-Vox Chronomètre (EN)",
+  "/de/cyma-time-o-vox/chronometre/": "Cyma Time-O-Vox Chronomètre (DE)",
 });
 
-const TRACKED_PAGE_NAMES = Object.freeze({
+export const TRACKED_PAGE_NAMES = Object.freeze({
+  ...STATIC_PAGE_NAMES,
   ...WATCH_PAGE_NAMES,
   ...ENGLISH_GATEWAY_NAMES,
   ...GERMAN_GATEWAY_NAMES,
@@ -133,11 +169,13 @@ function patchSnsEntries(period) {
   const newlyMappedPaths = new Set(
     Object.keys(SNS_PAGE_NAMES).filter((path) => !sourceByPath.has(path)),
   );
-  const flowRows = Array.isArray(period?.flows)
-    ? period.flows
-    : Array.isArray(period?.externalEntryFlows)
-      ? period.externalEntryFlows
-      : [];
+  const flowRows = Array.isArray(period?.flowSummary)
+    ? period.flowSummary
+    : Array.isArray(period?.flows)
+      ? period.flows
+      : Array.isArray(period?.externalEntryFlows)
+        ? period.externalEntryFlows
+        : [];
   for (const flow of flowRows) {
     if (!newlyMappedPaths.has(flow?.destinationPath) || !channels.includes(flow?.channel)) continue;
     const visits = Number(flow?.visits || 0);
@@ -151,9 +189,11 @@ function patchSnsEntries(period) {
   }
 
   const rows = [...pages, other];
-  const flowRowsComplete = Array.isArray(period?.flows)
-    ? period.flows.length < 200
-    : period?.flowRowsComplete !== false;
+  const flowRowsComplete = Array.isArray(period?.flowSummary)
+    ? period?.completeness?.flowSummary !== false && period.flowSummary.length < 1000
+    : Array.isArray(period?.flows)
+      ? period?.completeness?.flows !== false && period.flows.length < 200
+      : period?.flowRowsComplete !== false;
   return {
     pages: rows,
     total: Number(source.total || rows.reduce((sum, row) => sum + row.total, 0)),
@@ -202,30 +242,43 @@ export function buildFreshness(payload) {
       queryAt,
       bucketKind,
       latestEventBucket: null,
+      latestNonZeroBucket: null,
       bucketStart: null,
       bucketEnd: null,
+      naturalBucketEnd: null,
+      bucketOpen: false,
       eventGapSeconds: null,
-      note: "No non-zero event bucket exists in the selected window. This can mean no traffic or delayed ingestion; the dashboard query itself succeeded.",
+      eventGapLowerBoundSeconds: null,
+      note: "No non-zero aggregate bucket exists in the selected window. This does not distinguish no traffic from delayed ingestion.",
     };
   }
 
   const explicitEndMs = bucketStartMs(latest?.bucketEnd);
-  const bucketEndMs = Number.isFinite(explicitEndMs)
+  const naturalEndMs = Number.isFinite(explicitEndMs)
     ? explicitEndMs
     : (bucketWidthMs ? latestMs + bucketWidthMs : latestMs);
-  const gapMs = Number.isFinite(queryAtMs)
-    ? Math.max(0, queryAtMs - bucketEndMs)
+  const bucketOpen = Number.isFinite(queryAtMs) && naturalEndMs > queryAtMs;
+  const observedEndMs = Number.isFinite(queryAtMs)
+    ? Math.min(naturalEndMs, queryAtMs)
+    : naturalEndMs;
+  const gapLowerBoundMs = Number.isFinite(queryAtMs)
+    ? Math.max(0, queryAtMs - naturalEndMs)
     : null;
+  const latestBucket = String(latest.bucket || latest.bucketStart || "");
 
   return {
     queryOk: true,
     queryAt,
     bucketKind,
-    latestEventBucket: String(latest.bucket || ""),
+    latestEventBucket: latestBucket,
+    latestNonZeroBucket: latestBucket,
     bucketStart: new Date(latestMs).toISOString(),
-    bucketEnd: bucketEndMs > latestMs ? new Date(bucketEndMs).toISOString() : null,
-    eventGapSeconds: gapMs == null ? null : Math.floor(gapMs / 1000),
-    note: "EVENT GAP is time since the latest non-zero Cloudflare trend bucket, not a guaranteed ingestion-lag measurement. It also includes periods with no visitors.",
+    bucketEnd: observedEndMs > latestMs ? new Date(observedEndMs).toISOString() : null,
+    naturalBucketEnd: naturalEndMs > latestMs ? new Date(naturalEndMs).toISOString() : null,
+    bucketOpen,
+    eventGapSeconds: gapLowerBoundMs == null ? null : Math.floor(gapLowerBoundMs / 1000),
+    eventGapLowerBoundSeconds: gapLowerBoundMs == null ? null : Math.floor(gapLowerBoundMs / 1000),
+    note: "This is the latest non-zero aggregate bucket, not the timestamp of the last page view. GAP LOWER BOUND is zero while that bucket is still open and must not be read as zero ingestion lag.",
   };
 }
 
@@ -234,6 +287,7 @@ export function patchPeriod(period) {
   const patched = { ...period };
   if (Array.isArray(patched.pages)) patched.pages = patched.pages.map(patchPage);
   if (Array.isArray(patched.entryPages)) patched.entryPages = patched.entryPages.map(patchPage);
+  if (Array.isArray(patched.flowSummary)) patched.flowSummary = patched.flowSummary.map(patchFlow);
   if (Array.isArray(patched.flows)) patched.flows = patched.flows.map(patchFlow);
   if (Array.isArray(patched.externalEntryFlows)) patched.externalEntryFlows = patched.externalEntryFlows.map(patchFlow);
   if (Array.isArray(patched.internalFlows)) patched.internalFlows = patched.internalFlows.map(patchFlow);
@@ -310,23 +364,26 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
 
   const freshnessRenderer = `const statusEl=document.getElementById("updated");
   const freshness=data.freshness||{};
-  const fmtFreshTime=(value)=>value?new Intl.DateTimeFormat("ja-JP",{hour:"2-digit",minute:"2-digit"}).format(new Date(value)):"—";
+  const fmtFreshTime=(value)=>value?new Intl.DateTimeFormat("ja-JP",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"}).format(new Date(value)):"—";
   const fmtFreshGap=(seconds)=>{if(seconds==null)return "—";const mins=Math.floor(Number(seconds)/60);if(mins<1)return "<1m";if(mins<60)return mins+"m";const hours=Math.floor(mins/60);const rest=mins%60;return hours+"h"+(rest?rest+"m":"");};
   if(statusEl){
     const queryTime=fmtFreshTime(freshness.queryAt||data.generatedAt);
-    if(freshness.latestEventBucket){
+    const latestBucket=freshness.latestNonZeroBucket||freshness.latestEventBucket;
+    if(latestBucket){
       const range=freshness.bucketEnd?fmtFreshTime(freshness.bucketStart)+"–"+fmtFreshTime(freshness.bucketEnd):fmtFreshTime(freshness.bucketStart);
-      statusEl.textContent="QUERY OK "+queryTime+" · LAST EVENT "+range+" · EVENT GAP ≥"+fmtFreshGap(freshness.eventGapSeconds);
+      const open=freshness.bucketOpen?" · 集計中bucket":"";
+      const gap=freshness.eventGapLowerBoundSeconds??freshness.eventGapSeconds;
+      statusEl.textContent="QUERY OK "+queryTime+" · LATEST NONZERO BUCKET "+range+open+" · GAP LOWER BOUND ≥"+fmtFreshGap(gap);
     }else{
-      statusEl.textContent="QUERY OK "+queryTime+" · LAST EVENT なし（選択期間）";
+      statusEl.textContent="QUERY OK "+queryTime+" · 非ゼロbucketなし（選択期間）";
     }
-    statusEl.title="QUERY OK = Cloudflare API応答成功。EVENT GAPは最新の非ゼロ集計bucketからの経過で、計測遅延だけでなく無流入時間も含みます。";
+    statusEl.title="LATEST NONZERO BUCKETは最後のイベント時刻ではなくCloudflareの集計bucketです。GAP LOWER BOUNDはそのbucket終了からの下限値で、集計中bucketでは0でも計測遅延0を意味しません。";
   }`;
 
   return String(html)
     .replace(
       '["Basis Alarm","Pierce Duofon","Cyma Time-O-Vox"]',
-      '["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]',
+      JSON.stringify(WATCH_ENTRY_PAGE_NAMES),
     )
     .replace(
       '{name:"Cyma Time-O-Vox",path:"/cyma-time-o-vox/"}\n];',

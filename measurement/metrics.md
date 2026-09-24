@@ -1,6 +1,6 @@
 # VINTAGE ALARM — 計測定義
 
-更新日: 2026-09-13
+更新日: 2026-09-24
 
 ## 公開URL移行
 
@@ -50,7 +50,9 @@ Cloudflare Web Analytics / RUMをGraphQL APIから読み、VINTAGE ALARM用の�
 - Worker: `vintage-alarm-analytics.orima1995.workers.dev`
 - Basic Authで管理者だけが閲覧する
 
-`profile-worker.js` は基礎集計を壊さず、公開済みWATCH 5ページの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。本番のWATCH範囲はBasis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarmの5ページとする。
+`profile-worker.js` は基礎集計を壊さず、公開URLの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。公開状態と、別運用上の measurement target の括りは混同しない。
+
+GraphQLのsite scopeは原則 `requestHost` で切る。Cloudflare Web AnalyticsのsiteTagは、導入時の `3f7f9454e132415ebf8ffa04122e16e3` からcanonical host移行commit `0790f1f9` で `862adb1fcab1439f899cccf093361ee9` へ変更されている。全期間を現在のsiteTag 1個でfilterするとlegacy host期間を欠落させ得るため、単一siteTag固定filterは使わない。将来siteTagをqueryへ追加する場合は、先にlive GraphQLでhost × siteTag × 期間の分布を確認し、必要ならhost / 期間別に適用する。
 
 表示:
 - RANGE: 1時間 / 3時間 / 24時間 / 7日 / 30日 / ALL / CUSTOM
@@ -90,6 +92,13 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 - flowは `externalEntryFlows` / `internalFlows` / `migrationFlows` に分離する。旧ホスト↔新ホストの遷移を内部回遊へ混ぜない。
 - SNS着地先の再配分はfull dashboardの `flows`、AI exportの `externalEntryFlows` のどちらでも同じ結果になるようにする。
 - VA2 fallbackでは内部回遊を `internalVisits` と `internalPV` に分ける。`internalVisits` はInternal Navigation channelのVisits、`internalPV` は `internalFlows` のPage views合計。Visitsが0でも内部遷移PVは存在し得るため、単一の `internal` 値は使わない。
+- VA2 fallbackの `pages` は全ページの `Page views/Visits`、`entries` は入口ページの `Visits/Page views` とする。内部遷移だけで増えたPage viewを入口数へ混ぜない。
+- compact `external` / `flow` / `handoff` はcountry/deviceなど表示しない次元を先に集約してから上位20件へ切る。`externalCoverage` で表示group数・全group数・表示Visits・全Visits・flow行の完全性を明示し、省略を完全データのように見せない。
+- `sampleParts` は total / pages / referrers / flows / entries / countries / devices の順で各query groupの `sampleInterval` を保持し、periodの `quality` はその最大値で判定する。`coverage` は pages / referrers / flows / entries / countries / devices の固定limit到達有無を明示する。
+- freshnessの `latestBucket` は最終イベント時刻ではなく最新の非ゼロ集計bucket。`gapLower` はそのbucket終了からの経過下限で、現在進行中bucketでは0でも「計測遅延0」を意味しない。
+- `integrity` は同じperiod内で total と pages / channels / flows / countries / devices の再集計値を突合する内部整合チェックとする。row coverageが完全かつ該当queryがunsampledなのに差が出た場合だけ `FAIL`、sampling中の差は `ESTIMATE_DRIFT`、row limit到達で完全性を保証できない項目は `PARTIAL` とする。これはCloudflareのconfidence intervalの代用ではなく、export内部の算術矛盾を検出する別レイヤー。
+- VA2の `compare` は `previous-period` / `none` を明示し、比較対象期間が存在しないALL等では `previous=NA` とする。取得不能を `0/0` として表示しない。
+- VA2のtrend statusは `PARTIAL / MIGRATION / SAMPLED / ESTIMATE` 等の複合状態を省略せず保持する。
 - Cloudflare API token / Dashboard password / IP / Cookie / raw User-Agentは返さない。
 - Search Console / Google生成AIのCSV ImportはブラウザlocalStorageのためexport対象外。
 
@@ -100,7 +109,10 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 Page viewsとVisitsを同一視しない。
 
 Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始まったページビューを基準にする。
+**Visitsはユニークユーザー数・実人数ではない。** 同じ人物による別の入口発生を人物単位でdedupeした値として扱わない。
 内部遷移ではPage viewが増えてもVisitsが0になり得る。
+
+`Direct / Unknown` は、入口行で利用可能なreferrer hostが記録されていない分類とする。直打ち・ブックマークだけを意味せず、参照元を取得できなかった流入を含み得るため、`Direct` 単独へ縮めて確定表示しない。
 
 `Internal Navigation` は **request hostとreferrer hostが同じ場合だけ** とする。正規ホスト `vintagealarm.github.io` と旧ホスト `orima1995-create.github.io` の間をまたぐreferrerは `Host Migration` として分離し、SITE FLOWや内部回遊数へ加えない。host移行導線は別表・`migrationFlows`で観測する。
 
@@ -118,26 +130,36 @@ Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始�
 現在の主要マッピング:
 - `/` → TOP
 - `/history/` → HISTORY
+- `/en/history/` → HISTORY (EN)
+- `/de/history/` → HISTORY (DE)
 - `/owners-notes/` → OWNER'S NOTES
 - `/en/owners-notes/` → OWNER'S NOTES (EN)
 - `/de/owners-notes/` → OWNER'S NOTES (DE)
+- `/sources/` → SOURCES
+- `/en/sources/` → SOURCES (EN)
+- `/de/sources/` → SOURCES (DE)
 - `/basis-alarm/` → Basis Alarm
 - `/wittnauer-10wa/` → Wittnauer Cal.10WA
 - `/pierce-duofon/` → Pierce Duofon
 - `/cyma-time-o-vox/` → Cyma Time-O-Vox
 - `/citizen-alarm/` → Citizen Alarm
 - `/westclox-watchlarm/` → Westclox Watchlarm
+- `/en/{watch}/` / `/de/{watch}/` → 各言語版WATCH名（公開route実体があるものを個別マッピング）
 - `/how-they-ring/` → How They Ring
 - `/en/how-they-ring/` → How They Ring (EN)
 - `/de/how-they-ring/` → How They Ring (DE)
 - `/cyma-time-o-vox/chronometre/` → Cyma Time-O-Vox Chronomètre
+- `/en/cyma-time-o-vox/chronometre/` → Cyma Time-O-Vox Chronomètre (EN)
+- `/de/cyma-time-o-vox/chronometre/` → Cyma Time-O-Vox Chronomètre (DE)
 - `/cyma-time-o-vox/owners-note/` → Cyma OWNER'S NOTE
 - `/history/smartwatch/` → Smartwatch / HISTORY
+
+SNS着地先の再配分でもTOPを既知ページとして扱う。X等から `/` へ入ったVisitsを `other` に残さない。
 
 base path、末尾スラッシュ、URLエンコード差を正規化する。
 既知マッピングに一致しないPathは`UNMAPPED`として表示し、勝手に既存ページ名へ丸めない。
 
-新規ページ公開時は表示名マッピング、WATCH share、SNS → WATCH ENTRY、主要ページリストを同時に更新する。
+新規ページ公開時は表示名マッピング、SNS → WATCH ENTRY、主要ページリストを同時に確認する。`WATCH ENTRY SHARE` は公開WATCH route mapから自動導出し、公開状態とは別の `measurement target` groupingで絞り込まない。言語gateway（`/en/` / `/de/`）自体もWATCH entryへ数えない。
 Analyticsの実測で新しい公開Pathが `MAPPING AUDIT` に出た場合は、その場で対象ページの実体を確認し、正規表示名・分類・主要ページリストを `measurement/metrics.md` と実装へ同期する。観測値そのものは `measurement/experiment-log.md` に残し、トップレベル状態ファイルへ重複保存しない。
 
 ## 管理者アクセス除外
@@ -166,6 +188,8 @@ PC / スマホなどブラウザごとに設定する。
 - Other Referral
 - AI Assistant系リファラー（取得できる場合）
 - Internal Navigation
+
+既知のAI Assistant hostは汎用検索ドメイン判定より先に分類する。特に `gemini.google.com` を `google.*` のOrganic Searchへ吸収しない。通常の `google.com` / `google.co.jp` 等はOrganic Searchのまま扱う。Google検索面に統合されたAI機能など、referrer hostだけで分離できないものはAI流入へ推測分類しない。
 
 同じ流入を複数カテゴリへ二重計上しない。
 

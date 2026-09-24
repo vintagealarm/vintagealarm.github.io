@@ -17,6 +17,24 @@
 
 ## 2026-09-24
 
+### 2026-09-24 23:01 JST — host移行を跨ぐAnalyticsへ単一siteTag filterを入れない
+- **変更**：GraphQLのsite scopeは現行どおり `requestHost` を基準とし、現在のCloudflare Web Analytics siteTag 1個で全期間をfilterする案を採用しないことを計測仕様へ明記した。siteTagを将来利用する場合は、先にlive GraphQLでhost × siteTag × 期間の実分布を確認し、必要ならhost / 期間別に適用する。
+- **理由**：Git履歴を実体確認すると、Cloudflare Web Analytics導入commit `c490f3f9` と管理者opt-out時点 `f397d398` はsiteTag `3f7f9454e132415ebf8ffa04122e16e3`、canonical host移行commit `0790f1f9` 以降は `862adb1fcab1439f899cccf093361ee9` を使用している。現在tagだけを全期間へ固定するとlegacy host側の過去データを欠落させ得る。
+- **旧状態・棄却**：hostとbotだけの現行filterを「siteTag不足で精度が低い」とみなし、現在tagを全期間へ一律追加する案を棄却する。siteTagの実分布を確認せず旧・新tagを推測で期間分割することもしない。
+- **影響範囲**：`measurement/metrics.md` のAnalytics query運用仕様のみ。Worker query、集計値、公開サイトのbeacon、旧・新hostのデータは変更しない。
+- **検証状態**：Git履歴上の旧・新beacon tokenを実ファイルから確認済み。runtime変更はなし。PR CIで文書変更を含む既存quality gateを再確認し、main merge・本番deployは行わない。
+- **関連**：Draft PR #118 / documentation commit `d1139df1` / historical commits `c490f3f9`, `f397d398`, `0790f1f9`。
+- **日時根拠**：documentation commit `2026-09-24T14:01:23Z → 2026-09-24 23:01 JST`。実装commit時刻を見出し時刻に採用。
+
+### 2026-09-24 22:57 JST — WATCH ENTRY SHAREを公開18routeへ同期
+- **変更**：`WATCH ENTRY SHARE` の対象名を手書き固定配列から公開WATCH route map由来へ変更し、JP / EN / DE 各6本＝18routeを自動集計対象とする。言語gateway `/de/` 自体はWATCH entryから除外する。
+- **理由**：既存配列はJP6・EN5・DE3に `German Entry` が混在する途中状態で、EN WittnauerとDE Basis / Citizen / Wittnauerが漏れていた。計測仕様では新規公開WATCHをshareへ反映する前提であり、公開状態と別運用のmeasurement target 5本を混同しない必要がある。
+- **旧状態・棄却**：公開WATCH名をprofile wrapper内で都度手書き追加する方式、およびlanguage gatewayをWATCHとして数える状態を棄却する。measurement target 5本だけへWATCH ENTRY SHAREを絞る解釈も採用しない。
+- **影響範囲**：管理Analytics Dashboardの `WATCH ENTRY SHARE` / profile wrapper / regression test / `measurement/metrics.md`。Cloudflare raw値、各WATCH公開状態、measurement target 5本の運用上の括りは変更しない。
+- **検証状態**：branch実装済み。profile wrapper regressionとPR CIを再実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
+- **関連**：Draft PR #118 / commits `f2d7258b`, `86cb10ea`, `f441289e`。
+- **日時根拠**：implementation commits `2026-09-24T13:56:31Z → 2026-09-24 22:56 JST` ～ `2026-09-24T13:57:21Z → 2026-09-24 22:57 JST`。最終実装commit時刻を見出し時刻に採用。
+
 ### 2026-09-24 22:54 JST — llms.txtへAI向けのサイト性格・証拠取扱いを明示
 - **変更**：人向けABOUTページやメインナビを追加せず、`public/llms.txt` に独立運営であること、非販売・非鑑定・非メーカー公式アーカイブであること、OWNER'S NOTESが主に所有・観察個体を扱うこと、選択バイアス、証拠種別の分離、資料差の保持、n=1観察・測定・音源の一般化禁止、訂正の証拠レビュー方針を追記した。
 - **理由**：サイト内部では研究ルール・多言語・音源・計測・CI・訂正受付が定義済みだが、AI / crawlerがサイト全体を解釈するときに「誰が・何の目的で・何をどこまで保証するか」を機械可読な入口で一括取得できなかったため。一般読者向けに運営者説明を前面化する必要はないと判断した。
@@ -26,6 +44,26 @@
 - **関連**：implementation commit `1bf1697d` / branch `feat/llms-site-identity` / PR #120。
 - **日時根拠**：GitHub implementation commit `2026-09-24T13:54:56Z → 2026-09-24 22:54 JST`。実装commit時刻を見出し時刻に採用。
 
+### 2026-09-24 22:53 JST — Gemini referrerをOrganic Searchへ誤分類しない
+- **変更**：referrer host分類で既知のAI Assistant host判定を汎用Search family判定より先に実行する。これにより `gemini.google.com` は `AI Assistant`、通常の `google.com` / `google.co.jp` 等は従来どおり `Organic Search` とする。分類関数をregression testから直接検証できるようexportし、計測仕様にも優先順位を明記した。
+- **理由**：従来は `google.*` のOrganic Search判定がAI判定より先だったため、AI Assistant一覧へ `gemini.google.com` を登録していても到達不能で、Gemini流入がSearchへ吸収される実装順序バグになっていた。したがって旧classifierで得た `AI=0` はGemini流入の不存在まで証明しない。
+- **旧状態・棄却**：Organic Searchを先に判定してからAI Assistantを判定する順序、および `gemini.google.com` をAI一覧へ追加しただけで分類済みとみなす状態を棄却する。referrer hostだけで分離できないGoogle検索面内のAI機能を推測でAIへ振り替えることもしない。
+- **影響範囲**：Analytics Workerのreferrer channel分類 / regression test / `measurement/metrics.md`。Cloudflare raw計測値は変更しないが、deploy後に取得する期間集計ではGemini referrerが存在した場合にSearchからAIへ正しく再分類される。
+- **検証状態**：branch実装済み。Analytics worker CIとAstro foundation CIを再実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
+- **関連**：Draft PR #118 / commits `1e958da2`, `86767209`, `0ba92698`。
+- **日時根拠**：implementation commits `2026-09-24T13:53:05Z → 2026-09-24 22:53 JST` ～ `2026-09-24T13:53:11Z → 2026-09-24 22:53 JST`。最終実装commit時刻を見出し時刻に採用。
+
+### 2026-09-24 22:47 JST — AnalyticsのVisits / Direct誤読防止と公開WATCH状態を分離
+- **変更**：Cloudflare Web AnalyticsのVisitsをユニーク人数として扱わないこと、`Direct / Unknown` を直打ち・ブックマーク確定として扱わないことを計測仕様とAI exportへ明記。flowのno-referrer表示も `Direct` へ縮めず `Direct / Unknown` を維持する。同時にGitHub実体を再監査し、公開WATCHはWittnauer 10WAを含む6本、Analytics運用上の `measurement target` は別括りの5本として `PROJECT_STATE.md` を修正した。さらに、今後の公開route追加時にAnalytics表示名だけが追従漏れしないよう、Astro build後の `dist/sitemap.xml` 全公開URLをAnalyticsの統合route mapと突合し、未登録routeが1件でもあれば `check:quality` を失敗させるCI gateを追加した。
+- **理由**：Cloudflare公式仕様ではVisitsは外部referrerまたはDirectから始まるPage viewを基準とする指標で、ユニークユーザー数ではない。またreferrerが利用できない入口はDirect系へ入り得るため、82 Direct等を「直打ち82人」のように読む根拠はない。さらに現行の6 WATCH sourceを再取得すると6本すべて `published: true` で、07:54の「公開済みWATCH 5ページ」という状態記述が実体と衝突していた。今回すでにTOP / SOURCES / 多言語routeで手動mappingの追従漏れが発生していたため、個別assertの追加だけではなく公開sitemapを正本にした自動検査が必要と判断した。
+- **旧状態・棄却**：Visitsを人数の代理として読む、`Direct / Unknown` のsource表示だけを `Direct` に短縮する、公開状態とmeasurement target 5本を同一概念として扱う状態を棄却。07:54のWittnauer非公開扱いは現行仕様として失効させる。
+- **影響範囲**：Analytics Workerの表示名 / AI export limitations / regression test / `measurement/metrics.md` / `PROJECT_STATE.md` / Analytics route map export / post-build quality gate。集計値・channel分類ロジック・WATCH本文・公開route・HOW THEY RINGは変更しない。
+- **検証状態**：branch実装済み。生成HTML / AI export regressionとPR CIを再実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
+- **再検討条件**：Cloudflareのlive `rumPageloadEventsAdaptiveGroups` schema/settingsでconfidence fieldとdataset limitsを確認できた場合に、95% confidence intervalの追加を別変更として検討する。
+- **関連**：Draft PR #118 / stale five-WATCH wording correction `321c36c1` / commits `a224c90a`, `df47342b`, `1491240e`, `ab4a607d`, `fe1902df`, `5569fd37`, `86d89a33`。
+- **日時根拠**：semantic correction commits `2026-09-24T13:46:53Z → 2026-09-24 22:46 JST` ～ `2026-09-24T13:47:13Z → 2026-09-24 22:47 JST`、route mapping gate commits `2026-09-24T13:49:33Z → 2026-09-24 22:49 JST` ～ `2026-09-24T13:49:38Z → 2026-09-24 22:49 JST`。見出し時刻は計測意味の修正が確定した22:47 JSTを維持する。
+
+
 ### 2026-09-24 21:32 JST — localized routeの可視日本語漏れを生成HTMLで禁止
 - **変更**：EN / DE OWNER'S NOTESの年代ラベルをlocalized WATCH specから取得し、HOW THEY RINGのキャリバー表示・録音ラベル・区切り記号もlocale別表示へ切替。さらに全EN / DE生成HTMLの可視テキストとuser-facing属性を走査し、言語切替「日本語」と明示許可した固有名を除く日本語文字・日本語式全角記号が残ればCIを失敗させる `check:localization-purity` を追加した。
 - **理由**：翻訳本文自体が正しくても、`owners-directory.json` の `ownedEra`、日本語WATCH正本の `spec.caliber`、HOW THEY RING録音CMSの生ラベル、共通テンプレートの全角区切り記号が別経路でlocalized routeへ流入していた。具体的にWittnauerの「1950年代前半」、Citizenの「同型資料」「シチズンアラーム」、Basisの全角括弧が本番で確認された。
@@ -34,6 +72,18 @@
 - **検証状態**：branch実装済み。PR CIでbuild後の全EN / DE HTML purity、既存quality、回帰テスト、layoutを実行し、main merge後は既存の全artifact live parityで本番一致まで確認する。
 - **関連**：implementation commits `e0857166`, `35d6c79c` / branch `fix/localized-visible-text-purity`。初回CIで独語OWNER'S NOTESのfull spec年代がnowrap表示を横溢れさせたため、一覧専用の短いlocalized年代ラベルを分離して修正。
 - **日時根拠**：GitHub implementation commit `2026-09-24T12:32:33Z → 2026-09-24 21:32 JST`。実装commit時刻を見出し時刻に採用。
+
+
+### 2026-09-24 20:16 JST — Analyticsのsampling・VA2・freshnessを監査可能な構造へ変更
+- **変更**：期間全体のデータ品質をtotal queryの `sampleInterval` だけで判定する方式をやめ、pages / referrers / flows / entries / countries / devicesを含む各GraphQL groupのsampling状態を保持して最大値をqualityへ反映する。固定limitに達したgroupはcoverage不完全としてexportへ明示する。VA2は `pages` を全Page views/Visits、`entries` を入口Visits/Page viewsへ分離し、compact flowはcountry/device差を畳み込んでから上位20件へ切る。freshnessは「LAST EVENT」ではなく「LATEST NONZERO BUCKET」とし、gapは下限値として扱う。現行 `/s/v2/` relayもMarkdown/署名期限cacheのshort-linkとして扱う。追加監査で、比較不能なALL等は `compare=none;previous=NA` とし、trendの複合statusを途中切断しないよう修正。さらに公開route実体とAnalytics表示名を再突合し、TOP / SOURCES / 全公開EN・DE WATCH / EN・DE CYMA Chronomètre等の欠落マッピングを補完し、X→TOP着地がSNS集計の `other` に落ちないようにした。
+- **理由**：2026-09-24の実測VA2（138 Visits / 148 Page views）を総数・channel・country・device・trend・page/flowまで相互突合した結果、主要総数は整合していた一方、(1) totalがunsampledでも別groupがsamplingされる可能性、(2) `pages` が実際はentryPagesで内部PVを表せない、(3) country/device次元を落としたcompact flowに同一source→pageが重複表示される、(4) current 7d bucketの開始/終了境界を最終イベント時刻のように読める、(5) v2 relayがv1と同じshort-link分岐へ入っていない、(6) ALLの `previous=0/0` が「比較対象なし」を0アクセスに見せる、(7) `PARTIAL / MIGRATION / SAMPLED / ESTIMATE` がVA2で途中切断される、(8) 実際にはX→TOPが10 VisitsあるのにTOPがSNS既知着地先に含まれず `other:10` へ落ちる、(9) 直近の多言語公開route追加にAnalytics表示名が追随していない、という誤読・分類漏れを確認したため。
+- **旧状態・棄却**：period qualityをtotal queryだけで代表させる、VA2 `pages` を入口ページ表として兼用する、raw flow上位20行を次元省略のまま直列化する、aggregate bucket境界を「LAST EVENT / EVENT GAP」と表示する、`/s/v1/` だけをshort-link扱いする方式。比較不能期間を `0/0` で代用する方式、固定長tokenでtrend statusを切断する方式、公開route追加後も手動マッピングの欠落を放置して `UNMAPPED` / SNS `other` に流す状態も棄却する。
+- **影響範囲**：管理Analytics Worker / AI export / VA2 fallback / AI relay / regression testsのみ。WATCH本文、公開route、measurement target 5本と公開WATCH 6本の区別、HOW THEY RING、Search Console importは変更しない。
+- **検証状態**：branchへ実装済み。Draft PR #118でAnalytics worker / relay / Astro foundation CIを実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
+- **再検討条件**：Cloudflare Web Analyticsのlive GraphQL schema/settingsで `confidence` とdataset固有のmaxPageSize/maxDurationを安全に確認できた場合は、confidence intervalと動的limitを次段階として追加検討する。
+- **関連**：branch `fix/analytics-audit-20260924` / Draft PR #118 / commits `f196f3db`, `d6c32cbf`, `d21a1a0d`, `fa88321b`, `209a22a7`, `dec77b23`, `27a52a9c`, `b9c5bf87`, `303f51c2`, `a215596d`, `424686fe`, `0e4c941a`, `9041c4f1`, `d8cd9bc6`, `23cd0aeb`, `1af7a6e7`, `22abc7b9`, `6c3598e6`, `7f3f91a1`, `348c9957`, `b669fa59`, `9101f7d4`, `0060db24`, `24e02fb7`, `c486d0c0`, `1c5a99b7`, `c2de33d7`, `8d14f3d3`, `307da36b`, `fc1d5209`, `ecafe6e0`, `e9adb17d`, `d7be6652`, `e0d20b6a`, `111df003`, `4c98d88e`, `15180f5a`, `56a25541`。
+- **日時根拠**：最初の実装commit `f196f3db` のGitHub時刻 `2026-09-24T11:16:13Z → 2026-09-24 20:16 JST` を採用。
+
 
 ### 2026-09-24 15:03 JST — 多言語公開を全routeのbuild/live一致で保証
 - **変更**：EN / DEの公開確認を代表ページ・一部WATCH・個別文字列だけに限定する方式を廃止。TOP / HISTORY / OWNER'S NOTES / HOW THEY RING / SOURCES / 公開中の全WATCH / CYMA Chronomètreをbuild・layout・semantic live検査の対象にし、さらにdeploy後はdist内の全生成HTMLとsitemap.xml / llms.txt / robots.txtをlive取得して完全一致を必須化した。未mergeだったCYMA Chronomètre独語校正も同じ変更セットへ取り込んだ。
@@ -69,6 +119,7 @@
 - **影響範囲**：状態文書のみ。既存の `measurement/metrics.md` はすでに公開済みWATCH 5ページを同じ5本として定義しており、計測実装の変更は不要。
 - **検証状態**：`PROJECT_STATE.md` と `measurement/metrics.md` を突合して整合確認済み。
 - **再検討条件**：Wittnauer 10WAのWATCHページが正式公開され、計測対象へ追加する明示変更が行われた場合。
+- **後続状態・失効**：2026-09-24 22:47 JSTの再監査で、Wittnauer 10WAを含む6本すべてが `published: true` の公開WATCHであることをGitHub実体から再確認した。以後は「公開WATCH 6本」と「measurement target 5本」を分離し、この07:54項目のWittnauer非公開扱いは現行仕様として使用しない。
 - **関連**：このPR
 ## 2026-09-23 — 復元履歴
 

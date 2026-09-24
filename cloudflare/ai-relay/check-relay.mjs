@@ -23,7 +23,10 @@ const sample = {
   legacy: { host: 'orima1995-create.github.io', current: { pageviews: 3, visits: 2, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [], migrationFlows: [], countries: [], devices: [], xProfileEntries: 0 } },
   combined: {
     current: {
-      pageviews: 13, visits: 10, sampleInterval: 1, quality: 'UNSAMPLED', channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [],
+      pageviews: 13, visits: 10, sampleInterval: 10, quality: 'SAMPLED / ESTIMATE',
+      sampling: { total: 1, pages: 1, channels: 1, referrers: 1, flowSummary: 1, flows: 10, entries: 1, countries: 1, devices: 1 },
+      completeness: { pages: true, channels: true, referrers: true, flowSummary: true, flows: true, entries: true, countries: true, devices: true },
+      integrity: { status: 'PASS', failures: [], estimateDrift: [] }, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [],
       migrationFlows: [{ sourceHost: 'orima1995-create.github.io', sourceCleanPath: '/', destinationHost: 'vintagealarm.github.io', destinationPath: '/cyma-time-o-vox/', destinationName: 'Cyma Time-O-Vox', visits: 2, pageviews: 2 }],
       countries: [], devices: [], xProfileEntries: 2,
     },
@@ -42,6 +45,9 @@ assert(markdown.includes('vintagealarm.github.io'), 'migration destination host 
 assert(markdown.includes('not post-level attribution'), 'limitations missing');
 assert(markdown.includes('Group by: 1日'), 'group-by metadata missing');
 assert(markdown.includes('SAMPLED / ESTIMATE'), 'sampling quality missing');
+assert(markdown.includes('Integrity: PASS'), 'period integrity status missing');
+assert(markdown.includes('channels=1') && markdown.includes('flowSummary=1') && markdown.includes('flowDetails=10'), 'structural and diagnostic sampling must be rendered separately');
+assert(markdown.includes('Row-limit coverage:') && markdown.includes('flowSummary=below-cap'), 'row-cap metadata must avoid claiming unsampled completeness');
 assert(markdown.includes('Internal PV'), 'internal PV trend column missing');
 
 const noSource = await onRequestGet({ request: new Request('https://relay.example/') });
@@ -102,6 +108,15 @@ try {
   assert((await shortResponse.text()).includes('VINTAGE ALARM ANALYTICS'), 'short relay rendered markdown missing title');
   assert(fetchedUrl.includes('window=7d'), 'short path did not reconstruct signed source query');
 
+  fetchedUrl = '';
+  const shortV2Response = await onRequestGet({ request: new Request(shortV2.toString()) });
+  assert(shortV2Response.status === 200, 'v2 signed relay path should render');
+  assert(shortV2Response.headers.get('content-type').includes('text/markdown'), 'v2 short relay path must default to AI-friendly markdown');
+  assert(shortV2Response.headers.get('cache-control')?.startsWith('public, max-age='), 'v2 short relay path must use signed-expiry cache TTL');
+  assert(shortV2Response.headers.get('CDN-Cache-Control')?.startsWith('public, max-age='), 'v2 short relay path must advertise CDN cache TTL');
+  assert((await shortV2Response.text()).includes('VINTAGE ALARM ANALYTICS'), 'v2 short relay rendered markdown missing title');
+  assert(fetchedUrl.includes('range=custom') && fetchedUrl.includes('bucket=7d'), 'v2 short path did not preserve range and bucket');
+
   const malformedShort = await onRequestGet({ request: new Request(`https://relay.example/s/v1/7d/${expires}/bad`) });
   assert(malformedShort.status === 400, 'malformed short relay token must fail closed');
 
@@ -122,4 +137,4 @@ try {
   globalThis.fetch = originalFetch;
 }
 
-console.log('AI relay: legacy no-store query + short cacheable signed path: OK');
+console.log('AI relay: legacy no-store query + v1/v2 cacheable signed paths: OK');
