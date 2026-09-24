@@ -174,6 +174,7 @@
 - **影響範囲**：GitHub作業運用・PROJECT_STATE・AGENTS。サイト表示変更なし。
 - **検証状態**：PR #91をmainへmerge後、`CHANGE_DECISIONS.md` / `PROJECT_STATE.md` / `AGENTS.md` をmainから再取得し、相互参照を確認済み。
 - **関連**：PR #91 / commit `51b60433dc6b40fdded3d9d9aec770b373f67107`
+- **日時根拠**：PR #91 merge / GitHub commit 2026-09-23 18:58:07 JST。旧19:01表記はcommit/PR時刻と不一致だったため訂正。
 
 ### 2026-09-23 18:55 JST — HOW THEY RING：2分類の判断理由を履歴化
 - **変更**：GONG / CASEBACK の2分類を採用した理由、FIG.02–04をCASEBACK内部の代表例とする設計、個体カードへ詳細分類を持ち込まない方針を `PROJECT_STATE.md` に明文化。
