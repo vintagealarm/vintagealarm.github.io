@@ -7,7 +7,7 @@ const howTheyRingRelease = JSON.parse(readFileSync(new URL('../src/data/how-they
 const watchStates = readWatchPublicationState();
 const englishEntrySource = readFileSync(new URL('../src/data/en-watch-entry.ts', import.meta.url), 'utf8');
 const englishWatchSlugs = new Set([...englishEntrySource.matchAll(/^  '([^']+)': \\{/gm)].map((match) => match[1]));
-const germanWatchSlugs = new Set(['pierce-duofon', 'westclox-watchlarm', 'cyma-time-o-vox']);
+const germanWatchSlugs = new Set(['basis-alarm', 'pierce-duofon', 'cyma-time-o-vox', 'citizen-alarm', 'westclox-watchlarm', 'wittnauer-10wa']);
 const required = {
   '/': ['WebSite'],
   '/history/': ['Article', 'BreadcrumbList'],
