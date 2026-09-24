@@ -20,9 +20,11 @@ const routes = [
   'how-they-ring/',
   ...publishedWatchRoutes,
   'en/',
+  'en/owners-notes/',
   'en/how-they-ring/',
   ...englishWatchRoutes,
   'de/',
+  'de/owners-notes/',
   'de/how-they-ring/',
   ...germanWatchRoutes,
   'history/smartwatch/'
@@ -88,6 +90,17 @@ try {
         if (englishWatchSlugs.has(watchSlug) && !japaneseState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
         if (['pierce-duofon/', 'westclox-watchlarm/', 'cyma-time-o-vox/'].includes(route) && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (japaneseState.oversizedEnglishCta) failures.push(`${width}px ${route}: legacy ENGLISH ENTRY CTA remains`);
+      }
+
+      if (['en/', 'de/'].includes(route) && width <= 390) {
+        const topState = await page.evaluate(() => ({
+          ownerCards: document.querySelectorAll('.owner-frame').length,
+          embeddedDirectory: document.querySelectorAll('.localized-directory').length,
+          localizedOwnerLink: [...document.links].some((link) => /\/(?:en|de)\/owners-notes\/$/.test(new URL(link.href).pathname))
+        }));
+        if (topState.ownerCards) failures.push(`${width}px ${route}: owner cards leaked onto TOP`);
+        if (topState.embeddedDirectory) failures.push(`${width}px ${route}: embedded localized directory leaked onto TOP`);
+        if (!topState.localizedOwnerLink) failures.push(`${width}px ${route}: localized OWNER'S NOTES link missing`);
       }
 
       if (englishWatchRoutes.includes(route) && width <= 390) {
