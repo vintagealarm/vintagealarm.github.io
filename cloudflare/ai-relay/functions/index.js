@@ -150,6 +150,28 @@ function renderDevices(period) {
   return table(["Device", "PV"], rows);
 }
 
+function renderArrivalProbe(probe) {
+  if (!probe) return "_Probe data not attached._";
+  if (!probe.available) return `_Probe unavailable: ${text(probe.reason || "unknown")}._`;
+  const rows = (probe.rows || []).slice(0, 40).map((row) => [
+    row.path,
+    row.source,
+    number(row.arrivals),
+    number(row.sampleInterval || 1),
+  ]);
+  return [
+    `- Diagnostic only: ${probe.diagnosticOnly ? "yes" : "no"}`,
+    `- Total early arrivals: ${number(probe.total)}`,
+    `- X-classified early arrivals: ${number(probe.x)}`,
+    `- Sample interval (max): ${number(probe.sampleInterval || 1)}`,
+    `- Row coverage: ${probe.complete === false ? "partial" : "complete"}`,
+    `- First probe in selected window: ${text(probe.firstAt || "—")}`,
+    `- Last probe in selected window: ${text(probe.lastAt || "—")}`,
+    "",
+    table(["Path", "Source class", "Early arrivals", "Sample"], rows),
+  ].join("\n");
+}
+
 function renderTrend(payload) {
   const rows = (payload?.trend || []).slice(0, 60).map((row) => [
     row.label || row.bucket,
@@ -242,6 +264,9 @@ export function renderAnalyticsMarkdown(payload) {
     "",
     "## Trend",
     renderTrend(payload?.combined || payload),
+    "",
+    "## Early arrival probe (diagnostic)",
+    renderArrivalProbe(payload?.arrivalProbe),
   );
 
   const limitations = payload?.limitations || {};
