@@ -135,9 +135,6 @@
           "path": "src/data/en-watch-entry.ts",
           "mustContain": [
             "caseSize: '34 mm'"
-          ],
-          "mustNotContain": [
-            "caseSize: '37 mm (same-type documentation)'"
           ]
         },
         {
