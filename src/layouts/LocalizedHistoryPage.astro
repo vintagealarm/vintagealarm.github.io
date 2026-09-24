@@ -195,7 +195,7 @@ const schema = {
       })}
       <section class="history-current-v13 shell" id="current" aria-labelledby="current-title">
         <div class="chapter-date"><strong>CURRENT</strong><span>{ui.currentChapter}</span></div>
-        <div><h2 id="current-title">{current.title}</h2><a class="current-link" href={`${base}${current.href}`} hreflang="ja"><span>{current.name}</span><span aria-hidden="true">↗</span></a></div>
+        <div><h2 id="current-title">{current.title}</h2><a class="current-link" href={`${base}${current.href}`} hreflang={lang}><span>{current.name}</span><span aria-hidden="true">↗</span></a></div>
       </section>
       {researchPublished && <aside class="history-research-v13 shell" id="research" aria-label={ui.researchAria}><h2>{researchSettings.title}</h2><p>{ui.researchLead}</p></aside>}
       <section class="history-sources-v13 shell">
