@@ -24,6 +24,7 @@ const sample = {
       sampling: { total: 1, pages: 1, referrers: 1, flows: 10, entries: 1, countries: 1, devices: 1 },
       completeness: { pages: true, referrers: true, flows: true, entries: true, countries: true, devices: true },
       flowRowsComplete: true,
+      integrity: { status: 'PASS', failures: [], estimateDrift: [], skipped: [] },
       channels: [
         { name: 'X', visits: 19 },
         { name: 'YouTube', visits: 0 },
@@ -77,6 +78,7 @@ const sample = {
 const fallback = buildAiFallbackFragment(sample);
 assert(fallback.startsWith('VA2;window=7d;range=7d;bucket=1d;'), 'portable snapshot range/bucket prefix missing');
 assert(fallback.includes('quality=SAMPLED_/_ESTIMATE;sample=10;sampleParts=1/1/1/10/1/1/1;coverage=1/1/1/1/1/1'), 'portable snapshot sampling/coverage metadata missing');
+assert(fallback.includes(';integrity=PASS;'), 'portable snapshot integrity status missing');
 assert(fallback.includes('visits=68;pageviews=80'), 'portable snapshot totals missing');
 assert(fallback.includes('new=63/75;old=5/5;previous=10/10'), 'host or previous totals missing');
 assert(fallback.includes('x=19'), 'portable snapshot channel totals missing');
