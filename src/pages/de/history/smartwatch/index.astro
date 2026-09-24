@@ -1,0 +1,38 @@
+---
+import SeoHead from '../../../../components/SeoHead.astro';
+import SmartwatchFinaleLocalized from '../../../../components/SmartwatchFinaleLocalized.astro';
+
+const title = 'Der heutige Stand: SMARTWATCH | Geschichte des Armbandweckers | VINTAGE ALARM';
+const description = 'Der heutige Stand der Geschichte des Armbandweckers: vom mechanischen Alarm über die Elektronik bis zur Smartwatch für Benachrichtigungen, Gesundheit und Vernetzung.';
+const alternates = [
+  { hreflang: 'ja', href: '/history/smartwatch/' },
+  { hreflang: 'en', href: '/en/history/smartwatch/' },
+  { hreflang: 'de', href: '/de/history/smartwatch/' },
+  { hreflang: 'x-default', href: '/history/smartwatch/' }
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: 'Der heutige Stand: SMARTWATCH',
+  description,
+  inLanguage: 'de',
+  url: 'https://vintagealarm.github.io/de/history/smartwatch/',
+  isPartOf: {
+    '@type': 'WebPage',
+    name: 'Geschichte des Armbandweckers',
+    url: 'https://vintagealarm.github.io/de/history/'
+  }
+};
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#030303" />
+    <SeoHead title={title} description={description} path="de/history/smartwatch/" type="article" locale="de_DE" schema={schema} alternates={alternates} robots="noindex,follow" />
+  </head>
+  <body>
+    <SmartwatchFinaleLocalized lang="de" />
+  </body>
+</html>
