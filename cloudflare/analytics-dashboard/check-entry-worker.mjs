@@ -9,6 +9,7 @@ const sample = {
   windowKey: '7d',
   rangeKey: '7d',
   bucketKey: '1d',
+  compareMode: 'previous-period',
   hostMigration: { date: '2026-09-10' },
   freshness: { latestEventBucket: '2026-09-17', latestNonZeroBucket: '2026-09-17', eventGapLowerBoundSeconds: 0 },
   current: { visits: 63, pageviews: 75 },
@@ -80,7 +81,7 @@ assert(fallback.startsWith('VA2;window=7d;range=7d;bucket=1d;'), 'portable snaps
 assert(fallback.includes('quality=SAMPLED_/_ESTIMATE;sample=10;sampleParts=1/1/1/10/1/1/1;coverage=1/1/1/1/1/1'), 'portable snapshot sampling/coverage metadata missing');
 assert(fallback.includes(';structSample=1/10;structCoverage=1/1;integrity=PASS;'), 'portable snapshot structural sampling/coverage/integrity metadata missing');
 assert(fallback.includes('visits=68;pageviews=80'), 'portable snapshot totals missing');
-assert(fallback.includes('new=63/75;old=5/5;previous=10/10'), 'host or previous totals missing');
+assert(fallback.includes('new=63/75;old=5/5;compare=previous-period;previous=10/10'), 'host or previous totals missing');
 assert(fallback.includes('x=19'), 'portable snapshot channel totals missing');
 assert(fallback.includes('internalVisits=8;internalPV=1'), 'internal visits/PV must be explicit and separate');
 assert(!fallback.includes(';internal=8;'), 'ambiguous legacy internal field must not be emitted');
@@ -95,6 +96,28 @@ assert(fallback.includes('flow=vintagealarm.github.io@/cyma-time-o-vox/~/pierce-
 assert(fallback.includes('handoff=orima1995-create.github.io@/>vintagealarm.github.io@/cyma-time-o-vox/:2/2'), 'portable snapshot host migration flow missing');
 assert(fallback.includes('sns=/pierce-duofon/:7/0/0/0/7'), 'SNS landing summary missing');
 assert(fallback.includes('trend=9-16/7/3/2/0/0/0/0/0/1/0/0/1/UNSAMPLED/1,9-17/9/6/4/0/0/0/0/0/2/0/0/2/SAMPLED-ESTIMATE/10'), 'trend summary with delimiter-safe quality metadata missing');
+
+const allRangeFallback = buildAiFallbackFragment({
+  ...sample,
+  windowKey: 'all',
+  rangeKey: 'all',
+  compareMode: 'none',
+  combined: { ...sample.combined, previous: { visits: 0, pageviews: 0 } },
+});
+assert(allRangeFallback.includes(';compare=none;previous=NA;'), 'ALL range must not serialize unavailable previous-period data as zero traffic');
+
+const longStatusFallback = buildAiFallbackFragment({
+  ...sample,
+  combined: {
+    ...sample.combined,
+    trend: [{
+      ...sample.combined.trend[0],
+      status: 'PARTIAL / MIGRATION / SAMPLED / ESTIMATE',
+      sampleInterval: 10,
+    }],
+  },
+});
+assert(longStatusFallback.includes('/PARTIAL-MIGRATION-SAMPLED-ESTIMATE/10'), 'trend status must not be silently truncated');
 
 const signed = 'https://vintage-alarm-analytics.orima1995.workers.dev/api/ai-export?window=custom&range=custom&bucket=7d&start=2026-09-08&end=2026-09-21&expires=1999999999&sig=' + 'a'.repeat(64);
 const shortRelay = buildShortRelayUrl(signed);
