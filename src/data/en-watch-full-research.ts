@@ -119,7 +119,7 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
     }
   },
   'citizen-alarm': {
-    title: 'Citizen Alarm Cal. 980 — Japan’s First Domestic Alarm Wristwatch | VINTAGE ALARM',
+    title: 'Citizen Alarm Cal. 980 — Japan’s First Domestically Produced Alarm Wristwatch | VINTAGE ALARM',
     description: 'Citizen Alarm from 1958: Japan’s first domestically produced alarm wristwatch, Cal. 980, two barrels, twin crowns, a rotating centre alarm disc, double-caseback sound construction, later Four Hands variants and cited sources.',
     specimenGallery: [
       { image: '/images/IMG_1695.jpeg', label: 'Front — wrist shot', alt: 'Early Citizen Alarm specimen, front wrist shot' },
