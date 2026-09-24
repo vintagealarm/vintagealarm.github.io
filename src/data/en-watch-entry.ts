@@ -90,14 +90,15 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'The Basis Alarm uses the Baumgartner BFG 90, an early alarm-wristwatch movement also found under names such as Lantex, Sheffield, Simplon and Tior.',
-        'Rather than hiding its functions, the BFG 90 lets its mechanism show through the rotating bezel, slider and two winding-indicator windows.',
-        'That directness is what makes the watch unusually tactile and visual today.'
+        'The Basis Alarm uses the Baumgartner BFG 90, an early alarm-wristwatch movement.',
+        'Alongside more upmarket alarm watches such as the Memovox and Cricket, the BFG 90 spread as a practical movement under names including Basis, Lantex, Sheffield, Simplon and Tior.',
+        'Its functions are exposed rather than refined away: bezel, slider and winding indicators all remain visible in use.',
+        'That is exactly why the watch is still so enjoyable to look at, handle and hear.'
       ]
     },
     spec: {
       era: 'c. 1948 (same-type documentation)',
-      caseSize: '37 mm (same-type documentation)',
+      caseSize: '34 mm',
       caliber: 'Baumgartner BFG 90',
       jewels: '17 jewels',
       frequency: '18,000 vph',
