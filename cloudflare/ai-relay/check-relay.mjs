@@ -23,7 +23,7 @@ const sample = {
   legacy: { host: 'orima1995-create.github.io', current: { pageviews: 3, visits: 2, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [], migrationFlows: [], countries: [], devices: [], xProfileEntries: 0 } },
   combined: {
     current: {
-      pageviews: 13, visits: 10, sampleInterval: 1, quality: 'UNSAMPLED', channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [],
+      pageviews: 13, visits: 10, sampleInterval: 1, quality: 'UNSAMPLED', integrity: { status: 'PASS', failures: [], estimateDrift: [] }, channels: [], pages: [], entryPages: [], externalEntryFlows: [], internalFlows: [],
       migrationFlows: [{ sourceHost: 'orima1995-create.github.io', sourceCleanPath: '/', destinationHost: 'vintagealarm.github.io', destinationPath: '/cyma-time-o-vox/', destinationName: 'Cyma Time-O-Vox', visits: 2, pageviews: 2 }],
       countries: [], devices: [], xProfileEntries: 2,
     },
@@ -42,6 +42,7 @@ assert(markdown.includes('vintagealarm.github.io'), 'migration destination host 
 assert(markdown.includes('not post-level attribution'), 'limitations missing');
 assert(markdown.includes('Group by: 1日'), 'group-by metadata missing');
 assert(markdown.includes('SAMPLED / ESTIMATE'), 'sampling quality missing');
+assert(markdown.includes('Integrity: PASS'), 'period integrity status missing');
 assert(markdown.includes('Internal PV'), 'internal PV trend column missing');
 
 const noSource = await onRequestGet({ request: new Request('https://relay.example/') });
