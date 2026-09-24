@@ -3,6 +3,8 @@
 更新日: 2026-09-24
 状態: 所有6 WATCHをすべてFULL RESEARCHでドイツ語公開する。Cyma Time-O-Vox Chronomètreの独立研究も `/de/cyma-time-o-vox/chronometre/` へ全文展開する。日本語正本→ドイツ語を主ルートとし、既存の逆翻訳監査・用語準備・revision drift防止を継続する。
 
+HISTORYのエピローグ `SMARTWATCH` も `/de/history/smartwatch/` へローカライズする。検索流入用ページにはせず `noindex,follow`、sitemap / llms.txt 対象外を維持する。日本語版の画像に焼き込まれた文字は流用せず、日本語正本の意味・順序・温度を保ったドイツ語表示に置き換える。
+
 ## 目的
 
 ドイツ語版は、日本語サイトの意味・比喩・構成・温度・事実の確度を保ったまま、ドイツ語として自然に読める翻訳を作る。
