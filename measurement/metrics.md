@@ -1,6 +1,6 @@
 # VINTAGE ALARM — 計測定義
 
-更新日: 2026-09-13
+更新日: 2026-09-24
 
 ## 公開URL移行
 
@@ -50,7 +50,7 @@ Cloudflare Web Analytics / RUMをGraphQL APIから読み、VINTAGE ALARM用の�
 - Worker: `vintage-alarm-analytics.orima1995.workers.dev`
 - Basic Authで管理者だけが閲覧する
 
-`profile-worker.js` は基礎集計を壊さず、公開済みWATCH 5ページの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。本番のWATCH範囲はBasis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarmの5ページとする。
+`profile-worker.js` は基礎集計を壊さず、公開済みWATCH・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。公開済み日本語WATCHはBasis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm / Wittnauer 10WAの6ページ。基準計測対象（measurement target）はBasis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarmの5ページとし、Wittnauer 10WAは公開済みWATCHとしてmapping / flow監査には含めるが、measurement target KPIには含めない。
 
 表示:
 - RANGE: 1時間 / 3時間 / 24時間 / 7日 / 30日 / ALL / CUSTOM
@@ -193,7 +193,7 @@ Cloudflare:
 
 ## ページ単位
 
-優先して見るページ:
+基準計測対象として優先して見るページ:
 
 - TOP
 - HISTORY
@@ -203,6 +203,8 @@ Cloudflare:
 - Cyma Time-O-Vox
 - Citizen Alarm
 - Westclox Watchlarm
+
+Wittnauer 10WAは一般公開済みWATCHとしてmapping / entry / flowでは追跡するが、上記5本のmeasurement targetには含めない。
 
 WATCHページでは、
 1. 入口になったか
