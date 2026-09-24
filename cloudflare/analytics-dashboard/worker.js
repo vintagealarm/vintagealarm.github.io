@@ -1908,6 +1908,16 @@ function bindCampaignUi(){
     render(window.__vaLastData);
   }));
 }
+function bucketStatusLabel(status){
+  return String(status||"UNSAMPLED").split("/").map(part=>part.trim()).filter(Boolean).map(part=>({
+    PARTIAL:"集計途中",
+    SHORT:"短期間",
+    MIGRATION:"移行期間",
+    SAMPLED:"サンプル集計",
+    ESTIMATE:"推定値",
+    UNSAMPLED:"サンプリングなし"
+  }[part]||part)).join(" / ");
+}
 function bucketComparison(points){
   if(!points?.length)return "";
   let previous=null;
@@ -1920,12 +1930,12 @@ function bucketComparison(points){
     const status=String(point.status||"UNSAMPLED");
     const cls=status.includes("PARTIAL")||status.includes("SHORT")||status.includes("MIGRATION")?"partial":status.includes("ESTIMATE")?"estimate":"";
     return '<tr><td class="period-cell"><strong>'+esc(point.label||bucketLabel(point.bucket))+'</strong></td>'+
-      '<td><span class="bucket-status '+cls+'">'+esc(status)+'</span>'+(Number(point.sampleInterval||1)>1?'<span class="path">sample ×'+n(point.sampleInterval)+'</span>':'')+'</td>'+
+      '<td><span class="bucket-status '+cls+'">'+esc(bucketStatusLabel(status))+'</span>'+(Number(point.sampleInterval||1)>1?'<span class="path">サンプル間隔 ×'+n(point.sampleInterval)+'</span>':'')+'</td>'+
       '<td class="num">'+n(point.pageviews)+'</td><td class="num">'+n(visits)+'</td><td class="num">'+n(point.x)+'</td>'+
       '<td class="num">'+n(point.search)+'</td><td class="num">'+n(point.direct)+'</td><td class="num">'+n(point.internalPV)+'</td><td class="num">'+deltaText+'</td></tr>';
   }).join("");
-  return '<section class="card bucket-compare"><div class="section-head"><div class="section-title">BUCKET COMPARISON</div><span>同じ長さ・同条件の区間だけΔ比較 · PARTIAL/SHORT/MIGRATIONは比較対象外</span></div>'+
-    '<table><thead><tr><th>PERIOD</th><th>QUALITY</th><th class="num">PV</th><th class="num">VISITS</th><th class="num">X</th><th class="num">SEARCH</th><th class="num">DIRECT</th><th class="num">INTERNAL PV</th><th class="num">Δ VISITS</th></tr></thead><tbody>'+body+'</tbody></table></section>';
+  return '<section class="card bucket-compare"><div class="section-head"><div class="section-title">期間比較</div><span>同じ長さ・同条件の期間だけ前期間と比較 · 集計途中/短期間/移行期間は比較対象外</span></div>'+
+    '<table><thead><tr><th>期間</th><th>データ状態</th><th class="num">PV</th><th class="num">訪問数</th><th class="num">X</th><th class="num">検索</th><th class="num">直接・参照元不明</th><th class="num">内部PV</th><th class="num">訪問数差</th></tr></thead><tbody>'+body+'</tbody></table></section>';
 }
 
 function render(data){

@@ -204,3 +204,15 @@
 - **修正**：EN/DE TOPから画像付き一覧を撤去し、日本語TOPと同じ入口構造だけに統一。画像付き一覧は `/en/owners-notes/` と `/de/owners-notes/` へ分離した。
 - **維持**：言語別WATCHへの導線は失わず、TOPのOWNER'S NOTESから各言語の専用一覧へ進む。HOW THEY RING、WATCH本文、日本語TOPは変更しない。
 - **再発防止**：build / live / mobile gateでEN/DE TOPに `owner-frame` / `localized-directory` が混入していないことと、専用OWNER'S NOTESページに画像カードが存在することを別々に検査する。
+
+
+## 2026-09-24 — Analytics「期間比較」の表示を日本語化
+
+### 2026-09-24 14:51 JST — BUCKET COMPARISONの英語表示を日本語へ統一
+- **変更**：Analytics dashboard の期間比較テーブルで、見出し・状態表示・サンプル間隔表示を日本語化。PARTIAL / SHORT / MIGRATION / SAMPLED / ESTIMATE / UNSAMPLED の内部値は維持し、画面上だけ「集計途中 / 短期間 / 移行期間 / サンプル集計 / 推定値 / サンプリングなし」と表示する。列名は「期間 / データ状態 / PV / 訪問数 / X / 検索 / 直接・参照元不明 / 内部PV / 訪問数差」とする。
+- **理由**：管理画面の期間比較だけ英語表記が残り、他の日本語UIと読解負荷が揃っていなかったため。
+- **旧状態・棄却**：BUCKET COMPARISON / PERIOD / QUALITY / VISITS / SEARCH / DIRECT / INTERNAL PV / Δ VISITS と、生の PARTIAL / UNSAMPLED 等を画面へそのまま表示する状態を廃止。内部statusコード自体は互換性維持のため変更しない。
+- **影響範囲**：Cloudflare Analytics dashboard の期間比較表示と、その生成HTML検査のみ。集計ロジック、comparable判定、AI export / VA2、生データ、レイアウトは変更しない。
+- **検証状態**：生成HTML検査で日本語表示、状態ラベル、サンプル間隔、旧 BUCKET COMPARISON 見出しの不在を検査する。PR CIで最終確認する。
+- **関連**：commits `7f096bb0c4352e7098c8d4e031411d7f0aff3973`, `efb8016fdb9b83bd2e2227475aaff421d2e2c185`
+- **日時根拠**：GitHub commit 2026-09-24T05:51:10Z → 2026-09-24 14:51 JST、2026-09-24T05:51:13Z → 2026-09-24 14:51 JST。
