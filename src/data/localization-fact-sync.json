@@ -118,6 +118,107 @@
           ]
         }
       ]
+    },
+    {
+      "id": "basis-case-size",
+      "slug": "basis-alarm",
+      "canonicalValue": "34 mm",
+      "note": "The shown Basis specimen is 34 mm. Do not revive the older 37 mm same-type value in localized SPEC.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/basis-alarm.md",
+          "mustContain": [
+            "caseSize: 34mm"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-entry.ts",
+          "mustContain": [
+            "caseSize: '34 mm'"
+          ],
+          "mustNotContain": [
+            "caseSize: '37 mm (same-type documentation)'"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "caseSize: '34 mm'"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/basis-alarm/index.html",
+          "mustContain": [
+            "34mm"
+          ]
+        },
+        {
+          "path": "dist/en/basis-alarm/index.html",
+          "mustContain": [
+            "34 mm"
+          ]
+        },
+        {
+          "path": "dist/de/basis-alarm/index.html",
+          "mustContain": [
+            "34 mm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "citizen-1958-japan-first",
+      "slug": "citizen-alarm",
+      "canonicalValue": "1958 / Japan's first bell-ringing alarm wristwatch",
+      "note": "Keep the strong historical claim tied to the Citizen primary source and preserve the distinction from the unconfirmed Jaeger-LeCoultre complaint story.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/citizen-alarm.md",
+          "mustContain": [
+            "1958年、国産初のアラーム腕時計",
+            "国産初のベルが鳴るアラーム腕時計だった"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "1958 — Japan’s first alarm wristwatch",
+            "Japan’s first wristwatch with an audible bell alarm"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "1958 — Japans erste Wecker-Armbanduhr",
+            "Japans erste Armbanduhr mit hörbarem Glockenalarm"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/citizen-alarm/index.html",
+          "mustContain": [
+            "1958年",
+            "国産初"
+          ]
+        },
+        {
+          "path": "dist/en/citizen-alarm/index.html",
+          "mustContain": [
+            "1958",
+            "Japan’s first"
+          ]
+        },
+        {
+          "path": "dist/de/citizen-alarm/index.html",
+          "mustContain": [
+            "1958",
+            "Japans erste"
+          ]
+        }
+      ]
     }
   ]
 }
