@@ -33,6 +33,8 @@ export async function GET() {
     { loc: `${root}en/sources/` },
     { loc: `${root}de/sources/` },
     { loc: `${root}owners-notes/` },
+    { loc: `${root}en/owners-notes/` },
+    { loc: `${root}de/owners-notes/` },
     { loc: `${root}en/` },
     { loc: `${root}de/` },
     ...(howTheyRingRelease.productionPublished ? [
