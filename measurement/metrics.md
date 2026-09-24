@@ -116,7 +116,7 @@ X等のLink ClickとCloudflare Web Analytics Entryの差を切り分けるため
 実装条件:
 
 - endpoint: `https://vintage-alarm-analytics.orima1995.workers.dev/api/arrival-probe`
-- storage: Workers Analytics Engine dataset `va_arrival_probe_v1`
+- storage: SQLite-backed Durable Object `ArrivalProbeStore`（single named store `global`）
 - 保存する次元: `requestPath` と粗いreferrer classのみ
 - referrer class: X / Facebook / Instagram / YouTube / Search / Watchuseek / Internal / Direct / Other
 - Cookie、localStorage ID、IP、raw User-Agent、raw referrer URLは保存しない
@@ -124,8 +124,8 @@ X等のLink ClickとCloudflare Web Analytics Entryの差を切り分けるため
 - canonical origin以外からのbrowser POSTは受け付けない
 - probe値はCloudflare Web Analytics Visitsへ混ぜない
 - AI export/VA2では `probe` / `probeRows` として診断値を別レイヤーで返す
-- `probe` は `available/total/x/sampleInterval/complete` の順
-- dataset作成前またはquery不能時は0件扱いにせず `available=0` とする
+- `probe` は `available/total/x/sampleInterval/complete` の順。Durable Object側はsamplingしないため、available時の`sampleInterval`は1
+- Durable Object binding / queryが利用不能な場合は0件扱いにせず `available=0` とする
 
 判定例:
 

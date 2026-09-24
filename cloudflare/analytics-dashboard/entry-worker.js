@@ -5,7 +5,7 @@ const AI_READABLE_RELAY = "https://vintage-alarm-ai-relay.pages.dev/";
 const AI_READABLE_TTL_SECONDS = 15 * 60;
 const ARRIVAL_PROBE_PATH = "/api/arrival-probe";
 const ARRIVAL_PROBE_ORIGIN = "https://vintagealarm.github.io";
-const ARRIVAL_PROBE_DATASET = "va_arrival_probe_v1";
+const ARRIVAL_PROBE_STORE_LABEL = "durable-object-sqlite:v1";
 const ARRIVAL_PROBE_VERSION = "v1";
 const ARRIVAL_PROBE_SOURCES = new Set([
   "x",
@@ -49,6 +49,119 @@ function normalizeArrivalProbeSource(value) {
   return ARRIVAL_PROBE_SOURCES.has(source) ? source : "other";
 }
 
+export class ArrivalProbeStore {
+  constructor(ctx, env) {
+    this.ctx = ctx;
+    this.env = env;
+    this.sql = ctx.storage.sql;
+    this.sql.exec(`
+      CREATE TABLE IF NOT EXISTS arrivals (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts INTEGER NOT NULL,
+        path TEXT NOT NULL,
+        source TEXT NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS arrivals_ts_idx ON arrivals(ts);
+    `);
+  }
+
+  async fetch(request) {
+    const url = new URL(request.url);
+
+    if (url.pathname === "/health" && request.method === "HEAD") {
+      return new Response(null, { status: 204 });
+    }
+
+    if (url.pathname === "/write" && request.method === "POST") {
+      let payload;
+      try {
+        payload = await request.json();
+      } catch {
+        return new Response("Invalid JSON", { status: 400 });
+      }
+
+      const ts = Number(payload?.ts);
+      const path = normalizeArrivalProbePath(payload?.path);
+      const source = normalizeArrivalProbeSource(payload?.source);
+      if (!Number.isFinite(ts) || ts <= 0) {
+        return new Response("Invalid timestamp", { status: 400 });
+      }
+
+      this.sql.exec(
+        "INSERT INTO arrivals (ts, path, source) VALUES (?, ?, ?)",
+        Math.floor(ts),
+        path,
+        source,
+      );
+      return new Response(null, { status: 204 });
+    }
+
+    if (url.pathname === "/query" && request.method === "POST") {
+      let payload;
+      try {
+        payload = await request.json();
+      } catch {
+        return Response.json({ error: "Invalid JSON" }, { status: 400 });
+      }
+
+      const startMs = Date.parse(String(payload?.start || ""));
+      const endMs = Date.parse(String(payload?.end || ""));
+      if (!Number.isFinite(startMs) || !Number.isFinite(endMs) || endMs <= startMs) {
+        return Response.json({ error: "Invalid range" }, { status: 400 });
+      }
+
+      const rows = this.sql.exec(
+        `SELECT
+           path,
+           source,
+           COUNT(*) AS arrivals,
+           MIN(ts) AS firstAtMs,
+           MAX(ts) AS lastAtMs
+         FROM arrivals
+         WHERE ts >= ? AND ts < ?
+         GROUP BY path, source
+         ORDER BY arrivals DESC, path ASC, source ASC
+         LIMIT 200`,
+        startMs,
+        endMs,
+      ).toArray().map((row) => ({
+        path: normalizeArrivalProbePath(row?.path),
+        source: normalizeArrivalProbeSource(row?.source),
+        arrivals: Number(row?.arrivals || 0),
+        sampleInterval: 1,
+        firstAt: Number.isFinite(Number(row?.firstAtMs)) ? new Date(Number(row.firstAtMs)).toISOString() : null,
+        lastAt: Number.isFinite(Number(row?.lastAtMs)) ? new Date(Number(row.lastAtMs)).toISOString() : null,
+      }));
+
+      const total = rows.reduce((sum, row) => sum + row.arrivals, 0);
+      const x = rows.filter((row) => row.source === "x").reduce((sum, row) => sum + row.arrivals, 0);
+      const firstAt = rows.map((row) => row.firstAt).filter(Boolean).sort()[0] || null;
+      const lastAt = rows.map((row) => row.lastAt).filter(Boolean).sort().at(-1) || null;
+
+      return Response.json({
+        available: true,
+        diagnosticOnly: true,
+        storage: ARRIVAL_PROBE_STORE_LABEL,
+        version: ARRIVAL_PROBE_VERSION,
+        total,
+        x,
+        sampleInterval: 1,
+        complete: rows.length < 200,
+        firstAt,
+        lastAt,
+        rows,
+      });
+    }
+
+    return new Response("Not found", { status: 404 });
+  }
+}
+
+function arrivalProbeStore(env) {
+  if (!env?.ARRIVAL_PROBE_STORE || typeof env.ARRIVAL_PROBE_STORE.getByName !== "function") return null;
+  return env.ARRIVAL_PROBE_STORE.getByName("global");
+}
+
 export async function arrivalProbeResponse(request, env) {
   const headers = arrivalProbeHeaders();
   if (!trustedArrivalProbeRequest(request)) {
@@ -59,12 +172,18 @@ export async function arrivalProbeResponse(request, env) {
     return new Response(null, { status: 204, headers });
   }
 
-  if (!env?.ARRIVAL_PROBE || typeof env.ARRIVAL_PROBE.writeDataPoint !== "function") {
+  const store = arrivalProbeStore(env);
+  if (!store) {
     return new Response("Arrival probe binding unavailable", { status: 503, headers });
   }
 
   if (request.method === "HEAD") {
-    return new Response(null, { status: 204, headers });
+    try {
+      const health = await store.fetch("https://arrival-probe.internal/health", { method: "HEAD" });
+      return new Response(null, { status: health.ok ? 204 : 503, headers });
+    } catch {
+      return new Response("Arrival probe store unavailable", { status: 503, headers });
+    }
   }
 
   if (request.method !== "POST") {
@@ -86,104 +205,45 @@ export async function arrivalProbeResponse(request, env) {
   const path = normalizeArrivalProbePath(payload?.path);
   const source = normalizeArrivalProbeSource(payload?.source);
 
-  env.ARRIVAL_PROBE.writeDataPoint({
-    indexes: [path],
-    blobs: [source, ARRIVAL_PROBE_VERSION],
-    doubles: [1],
-  });
+  try {
+    const stored = await store.fetch("https://arrival-probe.internal/write", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ts: Date.now(), path, source }),
+    });
+    if (!stored.ok) {
+      return new Response("Arrival probe store rejected write", { status: 503, headers });
+    }
+  } catch {
+    return new Response("Arrival probe store unavailable", { status: 503, headers });
+  }
 
   return new Response(null, { status: 204, headers });
 }
 
-function sqlDateTime(value) {
-  const date = new Date(value);
-  if (!Number.isFinite(date.getTime())) throw new Error("Invalid arrival-probe query time.");
-  return date.toISOString().slice(0, 19).replace("T", " ");
-}
-
 export async function queryArrivalProbe(env, start, end) {
-  if (!start || !end || !env?.CF_ACCOUNT_ID || !env?.CF_API_TOKEN) {
-    return { available: false, reason: "configuration-unavailable", dataset: ARRIVAL_PROBE_DATASET, total: 0, x: 0, rows: [] };
+  if (!start || !end) {
+    return { available: false, reason: "range-unavailable", storage: ARRIVAL_PROBE_STORE_LABEL, total: 0, x: 0, rows: [] };
   }
 
-  const query = `
-SELECT
-  index1 AS path,
-  blob1 AS source,
-  SUM(_sample_interval) AS arrivals,
-  max(_sample_interval) AS sampleInterval,
-  min(timestamp) AS firstAt,
-  max(timestamp) AS lastAt
-FROM ${ARRIVAL_PROBE_DATASET}
-WHERE
-  timestamp >= toDateTime('${sqlDateTime(start)}')
-  AND timestamp < toDateTime('${sqlDateTime(end)}')
-  AND blob2 = '${ARRIVAL_PROBE_VERSION}'
-GROUP BY path, source
-ORDER BY arrivals DESC, path ASC, source ASC
-LIMIT 200
-FORMAT JSON`.trim();
+  const store = arrivalProbeStore(env);
+  if (!store) {
+    return { available: false, reason: "configuration-unavailable", storage: ARRIVAL_PROBE_STORE_LABEL, total: 0, x: 0, rows: [] };
+  }
 
-  const request = typeof env.PROBE_SQL_FETCH === "function" ? env.PROBE_SQL_FETCH : fetch;
-  let response;
   try {
-    response = await request(
-      `https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/analytics_engine/sql`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${env.CF_API_TOKEN}`,
-          Accept: "application/json",
-        },
-        body: query,
-      },
-    );
+    const response = await store.fetch("https://arrival-probe.internal/query", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ start, end }),
+    });
+    if (!response.ok) {
+      return { available: false, reason: "query-failed", storage: ARRIVAL_PROBE_STORE_LABEL, total: 0, x: 0, rows: [] };
+    }
+    return await response.json();
   } catch {
-    return { available: false, reason: "query-failed", dataset: ARRIVAL_PROBE_DATASET, total: 0, x: 0, rows: [] };
+    return { available: false, reason: "query-failed", storage: ARRIVAL_PROBE_STORE_LABEL, total: 0, x: 0, rows: [] };
   }
-
-  if (!response.ok) {
-    const detail = await response.text();
-    const datasetMissing = /unknown table|does not exist|not found/i.test(detail);
-    return {
-      available: false,
-      reason: datasetMissing ? "dataset-not-ready" : "query-failed",
-      dataset: ARRIVAL_PROBE_DATASET,
-      total: 0,
-      x: 0,
-      rows: [],
-    };
-  }
-
-  const result = await response.json();
-  const rows = (Array.isArray(result?.data) ? result.data : []).map((row) => ({
-    path: normalizeArrivalProbePath(row?.path),
-    source: normalizeArrivalProbeSource(row?.source),
-    arrivals: finiteNumber(row?.arrivals),
-    sampleInterval: Math.max(1, finiteNumber(row?.sampleInterval) || 1),
-    firstAt: row?.firstAt || null,
-    lastAt: row?.lastAt || null,
-  }));
-
-  const total = rows.reduce((sum, row) => sum + row.arrivals, 0);
-  const x = rows.filter((row) => row.source === "x").reduce((sum, row) => sum + row.arrivals, 0);
-  const sampleInterval = rows.reduce((max, row) => Math.max(max, row.sampleInterval), 1);
-  const firstAt = rows.map((row) => row.firstAt).filter(Boolean).sort()[0] || null;
-  const lastAt = rows.map((row) => row.lastAt).filter(Boolean).sort().at(-1) || null;
-
-  return {
-    available: true,
-    diagnosticOnly: true,
-    dataset: ARRIVAL_PROBE_DATASET,
-    version: ARRIVAL_PROBE_VERSION,
-    total,
-    x,
-    sampleInterval,
-    complete: rows.length < 200,
-    firstAt,
-    lastAt,
-    rows,
-  };
 }
 
 async function attachArrivalProbe(payload, env) {
