@@ -37,7 +37,7 @@
 - HISTORY内のOWNER'S NOTESレールは、`owners-directory.json`に存在し、かつWATCHが公開済みの所有個体だけを表示する。未公開の予告カードをOWNER'S NOTESとして混在させない。
 - `history-content.json`にはOWNERカードを重複保持しない。HISTORY内の所有個体表示も`owners-directory.json`を単一ソースとする。
 - 最終章の見出しは「現状の到達点」。入口では皮肉やオチを説明しない。
-- SMARTWATCHページはHISTORYから辿るエピローグとして扱い、検索流入を目的としない。`noindex,follow`とし、`sitemap.xml`から外す。
+- SMARTWATCHページはHISTORYから辿るエピローグとして扱い、検索流入を目的としない。JA / EN / DEの各言語版を `noindex,follow` とし、すべて `sitemap.xml` から外す。各言語HISTORYのCURRENT導線は同じ言語のSMARTWATCHへ接続する。
 - SMARTWATCHページ内部でのみ通知過多のビジュアルを見せる。
 - SMARTWATCHを機械式アラーム腕時計の直接的な系譜として断定しない。
 - SMARTWATCH画像の前に「通知地獄」「皮肉」などのネタバレ見出しを追加しない。
