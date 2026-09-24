@@ -183,3 +183,14 @@
 - **修正**：EN/DE TOPから画像付き一覧を撤去し、日本語TOPと同じ入口構造だけに統一。画像付き一覧は `/en/owners-notes/` と `/de/owners-notes/` へ分離した。
 - **維持**：言語別WATCHへの導線は失わず、TOPのOWNER'S NOTESから各言語の専用一覧へ進む。HOW THEY RING、WATCH本文、日本語TOPは変更しない。
 - **再発防止**：build / live / mobile gateでEN/DE TOPに `owner-frame` / `localized-directory` が混入していないことと、専用OWNER'S NOTESページに画像カードが存在することを別々に検査する。
+
+## 2026-09-24｜SMARTWATCHエピローグをEN / DEへローカライズ
+
+- **変更**：HISTORY末尾のSMARTWATCHエピローグに `/en/history/smartwatch/` と `/de/history/smartwatch/` を追加し、EN / DE HISTORYのCURRENT導線を同言語版へ変更。
+- **変更**：日本語版は既存4分割画像を維持。EN / DEは画像内に焼き込まれた日本語を再利用せず、通知カードとスマートウォッチの画面構成をHTML / CSSで再構成し、本文コピーを各言語へ翻訳。
+- **維持**：SMARTWATCHは検索流入用コンテンツではなくHISTORYのエピローグ。JA / EN / DEすべて `noindex,follow`、sitemap / llms.txt対象外。機械式アラーム腕時計からSMARTWATCHへの直接的な系譜とは断定しない。
+- **理由**：HISTORY本編をEN / DE化した後も結びだけ日本語画像へ遷移しており、言語導線が最後の1ページで途切れていたため。
+- **旧状態・失効**：EN / DE HISTORYのSMARTWATCHリンクが日本語 `/history/smartwatch/` を `hreflang=ja` で開く状態。
+- **影響範囲**：SMARTWATCH 3言語、LocalizedHistoryPage、build / layout / localized-history / live gate、翻訳戦略。
+- **検証状態**：branch実装済み。PR CIと本番live確認は未実施。
+
