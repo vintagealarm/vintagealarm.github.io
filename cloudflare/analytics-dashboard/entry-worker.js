@@ -3,6 +3,215 @@ import baseWorker from "./worker.js";
 
 const AI_READABLE_RELAY = "https://vintage-alarm-ai-relay.pages.dev/";
 const AI_READABLE_TTL_SECONDS = 15 * 60;
+const ARRIVAL_PROBE_PATH = "/api/arrival-probe";
+const ARRIVAL_PROBE_ORIGIN = "https://vintagealarm.github.io";
+const ARRIVAL_PROBE_DATASET = "va_arrival_probe_v1";
+const ARRIVAL_PROBE_VERSION = "v1";
+const ARRIVAL_PROBE_SOURCES = new Set([
+  "x",
+  "facebook",
+  "instagram",
+  "youtube",
+  "search",
+  "watchuseek",
+  "internal",
+  "direct",
+  "other",
+]);
+
+function arrivalProbeHeaders() {
+  return {
+    "Access-Control-Allow-Origin": ARRIVAL_PROBE_ORIGIN,
+    "Access-Control-Allow-Methods": "POST, HEAD, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Cache-Control": "no-store",
+    "X-Robots-Tag": "noindex, nofollow, noarchive",
+  };
+}
+
+function trustedArrivalProbeRequest(request) {
+  const origin = request.headers.get("Origin") || "";
+  if (origin) return origin === ARRIVAL_PROBE_ORIGIN;
+  const referer = request.headers.get("Referer") || "";
+  return referer === ARRIVAL_PROBE_ORIGIN || referer.startsWith(ARRIVAL_PROBE_ORIGIN + "/");
+}
+
+function normalizeArrivalProbePath(value) {
+  let path = String(value || "/").trim().split(/[?#]/, 1)[0] || "/";
+  if (!path.startsWith("/")) path = "/" + path;
+  path = path.replace(/\/{2,}/g, "/");
+  if (path.length > 180) path = path.slice(0, 180);
+  return path;
+}
+
+function normalizeArrivalProbeSource(value) {
+  const source = String(value || "other").trim().toLowerCase();
+  return ARRIVAL_PROBE_SOURCES.has(source) ? source : "other";
+}
+
+export async function arrivalProbeResponse(request, env) {
+  const headers = arrivalProbeHeaders();
+  if (!trustedArrivalProbeRequest(request)) {
+    return new Response("Forbidden", { status: 403, headers });
+  }
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers });
+  }
+
+  if (!env?.ARRIVAL_PROBE || typeof env.ARRIVAL_PROBE.writeDataPoint !== "function") {
+    return new Response("Arrival probe binding unavailable", { status: 503, headers });
+  }
+
+  if (request.method === "HEAD") {
+    return new Response(null, { status: 204, headers });
+  }
+
+  if (request.method !== "POST") {
+    return new Response("POST only", { status: 405, headers });
+  }
+
+  const raw = await request.text();
+  if (raw.length > 1024) {
+    return new Response("Payload too large", { status: 413, headers });
+  }
+
+  let payload;
+  try {
+    payload = JSON.parse(raw || "{}");
+  } catch {
+    return new Response("Invalid JSON", { status: 400, headers });
+  }
+
+  const path = normalizeArrivalProbePath(payload?.path);
+  const source = normalizeArrivalProbeSource(payload?.source);
+
+  env.ARRIVAL_PROBE.writeDataPoint({
+    indexes: [path],
+    blobs: [source, ARRIVAL_PROBE_VERSION],
+    doubles: [1],
+  });
+
+  return new Response(null, { status: 204, headers });
+}
+
+function sqlDateTime(value) {
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) throw new Error("Invalid arrival-probe query time.");
+  return date.toISOString().slice(0, 19).replace("T", " ");
+}
+
+export async function queryArrivalProbe(env, start, end) {
+  if (!start || !end || !env?.CF_ACCOUNT_ID || !env?.CF_API_TOKEN) {
+    return { available: false, reason: "configuration-unavailable", dataset: ARRIVAL_PROBE_DATASET, total: 0, x: 0, rows: [] };
+  }
+
+  const query = `
+SELECT
+  index1 AS path,
+  blob1 AS source,
+  SUM(_sample_interval) AS arrivals,
+  max(_sample_interval) AS sampleInterval,
+  min(timestamp) AS firstAt,
+  max(timestamp) AS lastAt
+FROM ${ARRIVAL_PROBE_DATASET}
+WHERE
+  timestamp >= toDateTime('${sqlDateTime(start)}')
+  AND timestamp < toDateTime('${sqlDateTime(end)}')
+  AND blob2 = '${ARRIVAL_PROBE_VERSION}'
+GROUP BY path, source
+ORDER BY arrivals DESC, path ASC, source ASC
+LIMIT 200
+FORMAT JSON`.trim();
+
+  const request = typeof env.PROBE_SQL_FETCH === "function" ? env.PROBE_SQL_FETCH : fetch;
+  let response;
+  try {
+    response = await request(
+      `https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/analytics_engine/sql`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${env.CF_API_TOKEN}`,
+          Accept: "application/json",
+        },
+        body: query,
+      },
+    );
+  } catch {
+    return { available: false, reason: "query-failed", dataset: ARRIVAL_PROBE_DATASET, total: 0, x: 0, rows: [] };
+  }
+
+  if (!response.ok) {
+    const detail = await response.text();
+    const datasetMissing = /unknown table|does not exist|not found/i.test(detail);
+    return {
+      available: false,
+      reason: datasetMissing ? "dataset-not-ready" : "query-failed",
+      dataset: ARRIVAL_PROBE_DATASET,
+      total: 0,
+      x: 0,
+      rows: [],
+    };
+  }
+
+  const result = await response.json();
+  const rows = (Array.isArray(result?.data) ? result.data : []).map((row) => ({
+    path: normalizeArrivalProbePath(row?.path),
+    source: normalizeArrivalProbeSource(row?.source),
+    arrivals: finiteNumber(row?.arrivals),
+    sampleInterval: Math.max(1, finiteNumber(row?.sampleInterval) || 1),
+    firstAt: row?.firstAt || null,
+    lastAt: row?.lastAt || null,
+  }));
+
+  const total = rows.reduce((sum, row) => sum + row.arrivals, 0);
+  const x = rows.filter((row) => row.source === "x").reduce((sum, row) => sum + row.arrivals, 0);
+  const sampleInterval = rows.reduce((max, row) => Math.max(max, row.sampleInterval), 1);
+  const firstAt = rows.map((row) => row.firstAt).filter(Boolean).sort()[0] || null;
+  const lastAt = rows.map((row) => row.lastAt).filter(Boolean).sort().at(-1) || null;
+
+  return {
+    available: true,
+    diagnosticOnly: true,
+    dataset: ARRIVAL_PROBE_DATASET,
+    version: ARRIVAL_PROBE_VERSION,
+    total,
+    x,
+    sampleInterval,
+    complete: rows.length < 200,
+    firstAt,
+    lastAt,
+    rows,
+  };
+}
+
+async function attachArrivalProbe(payload, env) {
+  if (!payload || typeof payload !== "object" || payload.error) return payload;
+  return {
+    ...payload,
+    arrivalProbe: await queryArrivalProbe(env, payload.windowStart, payload.windowEnd),
+  };
+}
+
+function cloneJsonResponse(response, payload) {
+  const headers = new Headers(response.headers);
+  headers.delete("content-length");
+  return new Response(JSON.stringify(payload), {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
+async function profileResponseWithProbe(request, env, ctx) {
+  const response = await profileWorker.fetch(request, env, ctx);
+  if (!response.ok) return response;
+  const path = new URL(request.url).pathname;
+  if (path !== "/api/analytics" && path !== "/api/ai-export") return response;
+  const payload = await attachArrivalProbe(await response.json(), env);
+  return cloneJsonResponse(response, payload);
+}
 
 function jsonResponse(payload, status = 200) {
   return new Response(JSON.stringify(payload), {
@@ -165,6 +374,14 @@ function snsRows(period) {
     .join(",");
 }
 
+function arrivalProbeRows(probe) {
+  return (probe?.rows || [])
+    .filter((row) => finiteNumber(row?.arrivals) > 0)
+    .slice(0, 20)
+    .map((row) => `${token(row?.path, 70)}@${token(row?.source, 20)}:${finiteNumber(row?.arrivals)}`)
+    .join(",");
+}
+
 function integrityRows(period) {
   const integrity = period?.integrity || {};
   return [...(integrity.failures || []), ...(integrity.estimateDrift || [])]
@@ -269,6 +486,7 @@ export function buildAiFallbackFragment(payload) {
     `internalPV=${internalPageviews(combined)}`,
     `xprofile=${finiteNumber(combined?.xProfileEntries)}`,
     `externalCoverage=${extShown.length}/${extGroups.length}/${extShownVisits}/${extTotalVisits}/${combined?.flowRowsComplete === false ? 0 : 1}`,
+    `probe=${payload?.arrivalProbe?.available ? 1 : 0}/${finiteNumber(payload?.arrivalProbe?.total)}/${finiteNumber(payload?.arrivalProbe?.x)}/${finiteNumber(payload?.arrivalProbe?.sampleInterval || 1)}/${payload?.arrivalProbe?.complete === false ? 0 : 1}`,
   ];
 
   if (migration) fields.push(`migration=${migration}`);
@@ -284,6 +502,7 @@ export function buildAiFallbackFragment(payload) {
   const sns = snsRows(combined);
   const countries = countryRows(combined);
   const devices = deviceRows(combined);
+  const probeRows = arrivalProbeRows(payload?.arrivalProbe);
   const integrityIssues = integrityRows(combined);
   const trend = trendRows(payload);
 
@@ -295,6 +514,7 @@ export function buildAiFallbackFragment(payload) {
   if (sns) fields.push(`sns=${sns}`);
   if (countries) fields.push(`countries=${countries}`);
   if (devices) fields.push(`devices=${devices}`);
+  if (probeRows) fields.push(`probeRows=${probeRows}`);
   if (integrityIssues) fields.push(`integrityIssues=${integrityIssues}`);
   if (trend) fields.push(`trend=${trend}`);
 
@@ -326,7 +546,7 @@ export function buildShortRelayUrl(signedUrl) {
 
 async function fallbackFragmentFromSignedExport(signedUrl, env, ctx) {
   try {
-    const response = await profileWorker.fetch(
+    const response = await profileResponseWithProbe(
       new Request(signedUrl, { method: "GET", headers: { Accept: "application/json" } }),
       env,
       ctx,
@@ -391,9 +611,12 @@ async function issueAiReadableLink(request, url, env, ctx) {
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    if (url.pathname === ARRIVAL_PROBE_PATH) {
+      return arrivalProbeResponse(request, env);
+    }
     if (url.pathname === "/api/ai-readable-link") {
       return issueAiReadableLink(request, url, env, ctx);
     }
-    return profileWorker.fetch(request, env, ctx);
+    return profileResponseWithProbe(request, env, ctx);
   },
 };
