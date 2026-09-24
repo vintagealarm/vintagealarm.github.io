@@ -118,7 +118,7 @@ assert.equal(maxActiveMaps, 2);
 
 const periodPart = (count, visits, path, sampleInterval = 1) => ({ viewer: { accounts: [{
   total: [{ count, sum: { visits }, avg: { sampleInterval } }],
-  pages: [{ count, sum: { visits }, dimensions: { requestPath: path } }],
+  pages: [{ count, sum: { visits }, avg: { sampleInterval }, dimensions: { requestPath: path } }],
   referers: [], flows: [], entries: [], countries: [], devices: [],
 }] } });
 const mergedPeriod = mergePeriodData([periodPart(20, 20, "/", 1), periodPart(6, 6, "/", 10)]);
@@ -126,6 +126,8 @@ assert.equal(mergedPeriod.viewer.accounts[0].total[0].count, 26);
 assert.equal(mergedPeriod.viewer.accounts[0].total[0].sum.visits, 26);
 assert.equal(mergedPeriod.viewer.accounts[0].pages[0].count, 26);
 assert.equal(mergedPeriod.viewer.accounts[0].total[0].avg.sampleInterval, 10);
+assert.equal(mergedPeriod.viewer.accounts[0].pages[0].avg.sampleInterval, 10, 'merged grouped rows must retain the worst sample interval');
+assert.equal(mergedPeriod.viewer.accounts[0].completeness.pages, true, 'merged grouped-row coverage must be explicit');
 const mergedTrend = mergeTrendPoints([
   [{ bucket: "2026-09-09", pageviews: 20, visits: 20, x: 0, sampleInterval: 1 }],
   [{ bucket: "2026-09-09", pageviews: 2, visits: 2, x: 1, sampleInterval: 10 }, { bucket: "2026-09-10", pageviews: 4, visits: 4, x: 1, sampleInterval: 1 }],
@@ -146,19 +148,19 @@ const fakeAnalyticsFetch = async (_url, options) => {
   const isNewHost = host === "vintagealarm.github.io";
   const referers = isNewHost
     ? [
-        { count: 2, sum: { visits: 2 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
-        { count: 1, sum: { visits: 0 }, dimensions: { refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/" } },
+        { count: 2, sum: { visits: 2 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/" } },
       ]
     : [
-        { count: 1, sum: { visits: 0 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { refererHost: "orima1995-create.github.io", refererPath: "/" } },
       ];
   const flows = isNewHost
     ? [
-        { count: 2, sum: { visits: 2 }, dimensions: { requestPath: "/cyma-time-o-vox/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
-        { count: 1, sum: { visits: 0 }, dimensions: { requestPath: "/pierce-duofon/", refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/", countryName: "JP", deviceType: "desktop" } },
+        { count: 2, sum: { visits: 2 }, avg: { sampleInterval: 10 }, dimensions: { requestPath: "/cyma-time-o-vox/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/pierce-duofon/", refererHost: "vintagealarm.github.io", refererPath: "/cyma-time-o-vox/", countryName: "JP", deviceType: "desktop" } },
       ]
     : [
-        { count: 1, sum: { visits: 0 }, dimensions: { requestPath: "/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
+        { count: 1, sum: { visits: 0 }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/", refererHost: "orima1995-create.github.io", refererPath: "/", countryName: "JP", deviceType: "desktop" } },
       ];
   const queryStart = request.variables.filter.AND.find(part => part.datetime_geq)?.datetime_geq || "2026-09-10T00:00:00Z";
   const trendBucket = new Intl.DateTimeFormat("en-CA", {
@@ -171,8 +173,10 @@ const fakeAnalyticsFetch = async (_url, options) => {
     ? { totals: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 }, dimensions: { bucket: trendBucket } }], acquisition: [], navigation: [] }
     : {
         total: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 } }],
-        pages: [{ count: value, sum: { visits: value }, dimensions: { requestPath: "/" } }],
-        referers, flows, entries: [], countries: [], devices: [],
+        pages: [{ count: value, sum: { visits: value }, avg: { sampleInterval: 1 }, dimensions: { requestPath: "/" } }],
+        referers, flows, entries: [],
+        countries: [{ count: value, avg: { sampleInterval: 1 }, dimensions: { countryName: isNewHost ? "CA" : "JP" } }],
+        devices: [{ count: value, avg: { sampleInterval: 1 }, dimensions: { deviceType: "desktop" } }],
       };
   return new Response(JSON.stringify({ data: { viewer: { accounts: [account] } } }), {
     headers: { "Content-Type": "application/json" },
@@ -199,6 +203,11 @@ assert.equal(analyticsPayload.legacy.current.visits, 9);
 assert.equal(analyticsPayload.combined.current.visits, 14);
 assert.equal(analyticsPayload.combined.current.pageviews, 14);
 assert.equal(analyticsPayload.combined.trend[0].visits, 14);
+assert.equal(analyticsPayload.current.sampleInterval, 10, 'period quality must use the worst grouped-query sample interval');
+assert.equal(analyticsPayload.current.sampling.flows, 10, 'flow sampling metadata must be exposed separately');
+assert.equal(analyticsPayload.current.quality, "SAMPLED / ESTIMATE", 'group sampling must prevent false UNSAMPLED labeling');
+assert.equal(analyticsPayload.current.completeness.flows, true, 'flow row coverage must be explicit');
+assert.equal(analyticsPayload.current.countries[0].name, "Canada", 'country codes must be normalized consistently');
 assert.equal(analyticsPayload.current.channels.find(row => row.name === "Host Migration")?.visits, 2);
 assert.equal(analyticsPayload.current.channels.find(row => row.name === "Internal Navigation")?.visits, 0);
 const migrationFlow = analyticsPayload.current.flows.find(row => row.channel === "Host Migration");
@@ -226,6 +235,8 @@ assert.equal(exportPayload.current.internalFlows.length, 1);
 assert.equal(exportPayload.current.internalFlows[0].channel, "Internal Navigation");
 assert.equal(exportPayload.current.externalEntryFlows.some(row => row.channel === "Host Migration"), false);
 assert.equal(exportPayload.current.flowRowsComplete, true);
+assert.equal(exportPayload.current.sampling.flows, 10, 'AI export must retain per-section sampling metadata');
+assert.equal(exportPayload.current.completeness.flows, true, 'AI export must retain row coverage metadata');
 
 const password = "ci-test-password";
 const auth = Buffer.from(`admin:${password}`).toString("base64");
