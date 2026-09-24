@@ -126,11 +126,11 @@ HOW THEY RINGは、サイト上の大分類を GONG / CASEBACK の2つだけに�
 
 - GONG：専用の発音体を鳴らす。
 - CASEBACK：ケースバック構造を共鳴させて鳴らす。
-- FIG.01：GONGの参考図。OMEGA MEMOMATIC。
-- FIG.02：CASEBACKの構造例「膜状バック型 — VULCAIN CRICKET」。
-- FIG.03：CASEBACKの構造例「ピン／レバー伝達型 — JUNGHANS MINIVOX」。
-- FIG.04：CASEBACKの構造例「BELL-BASE型 — LANCO-FON」。
-- FIG.02〜04はCASEBACK内部の下位分類ではない。掲載個体へ図番号や「膜状」「PIN」「BELL」等の詳細タグを付けず、個体カードはGONGまたはCASEBACKだけを表示する。
+- FIG.01：GONGの参考図「輪状の音ばねを叩く — OMEGA MEMOMATIC」。
+- FIG.02：CASEBACKの構造例「振動板型 — VULCAIN CRICKET」。
+- FIG.03：CASEBACKの構造例「ピン伝達型 — JUNGHANS MINIVOX」。量産型J89はハンマーがピンを打撃し、その振動を底部のベルへ伝える。
+- FIG.04：CASEBACKの構造例「BELL-BASE型 — LANCO-FON · CAL.1241」。Cal.1241はハンマーがベル自体を直接打撃する。
+- FIG.02〜04はCASEBACK内部の下位分類ではない。掲載個体へ図番号や「振動板」「PIN」「BELL」等の詳細タグを付けず、個体カードはGONGまたはCASEBACKだけを表示する。
 - 掲載個体は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK。
 
 ## 実寸監査
