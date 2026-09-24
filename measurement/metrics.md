@@ -94,6 +94,7 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 - compact `external` / `flow` / `handoff` はcountry/deviceなど表示しない次元を先に集約してから上位20件へ切る。`externalCoverage` で表示group数・全group数・表示Visits・全Visits・flow行の完全性を明示し、省略を完全データのように見せない。
 - `sampleParts` は total / pages / referrers / flows / entries / countries / devices の順で各query groupの `sampleInterval` を保持し、periodの `quality` はその最大値で判定する。`coverage` は pages / referrers / flows / entries / countries / devices の固定limit到達有無を明示する。
 - freshnessの `latestBucket` は最終イベント時刻ではなく最新の非ゼロ集計bucket。`gapLower` はそのbucket終了からの経過下限で、現在進行中bucketでは0でも「計測遅延0」を意味しない。
+- `integrity` は同じperiod内で total と pages / channels / flows / countries / devices の再集計値を突合する内部整合チェックとする。row coverageが完全かつ該当queryがunsampledなのに差が出た場合だけ `FAIL`、sampling中の差は `ESTIMATE_DRIFT`、row limit到達で完全性を保証できない項目は `PARTIAL` とする。これはCloudflareのconfidence intervalの代用ではなく、export内部の算術矛盾を検出する別レイヤー。
 - Cloudflare API token / Dashboard password / IP / Cookie / raw User-Agentは返さない。
 - Search Console / Google生成AIのCSV ImportはブラウザlocalStorageのためexport対象外。
 
