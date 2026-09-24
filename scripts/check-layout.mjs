@@ -27,7 +27,9 @@ const routes = [
   'de/owners-notes/',
   'de/how-they-ring/',
   ...germanWatchRoutes,
-  'history/smartwatch/'
+  'history/smartwatch/',
+  'en/history/smartwatch/',
+  'de/history/smartwatch/'
 ];
 const widths = [320, 390, 768];
 
@@ -122,6 +124,18 @@ try {
         if (!englishState.ownerTextOpen) failures.push(`${width}px ${route}: English OWNER'S NOTE text is not open by default`);
         if (englishState.alarmHeading && englishState.alarmHeading !== 'ORIGINAL ALARM VIDEO') failures.push(`${width}px ${route}: alarm video heading is not localized`);
         if (/OWNER OBSERVATION\s+OWNER OBSERVATION/i.test(englishState.sourcesText)) failures.push(`${width}px ${route}: duplicate owner-observation source label`);
+      }
+
+      if (['history/smartwatch/', 'en/history/smartwatch/', 'de/history/smartwatch/'].includes(route) && width <= 390) {
+        const smartwatchState = await page.evaluate(() => ({
+          lang: document.documentElement.lang,
+          noindex: document.querySelector('meta[name="robots"]')?.getAttribute('content') || '',
+          closing: document.querySelector('.smartwatch-closing h2')?.textContent?.trim() || ''
+        }));
+        const expectedLang = route.startsWith('en/') ? 'en' : route.startsWith('de/') ? 'de' : 'ja';
+        if (smartwatchState.lang !== expectedLang) failures.push(`${width}px ${route}: html lang is not ${expectedLang}`);
+        if (!smartwatchState.noindex.includes('noindex')) failures.push(`${width}px ${route}: noindex meta missing`);
+        if (expectedLang !== 'ja' && !smartwatchState.closing) failures.push(`${width}px ${route}: localized closing copy missing`);
       }
 
       if (['en/how-they-ring/', 'de/how-they-ring/'].includes(route) && width <= 390) {
