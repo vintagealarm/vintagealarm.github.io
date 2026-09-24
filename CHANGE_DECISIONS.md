@@ -17,6 +17,17 @@
 
 ## 2026-09-24
 
+### 2026-09-24 20:16 JST — Analyticsのsampling・VA2・freshnessを監査可能な構造へ変更
+- **変更**：期間全体のデータ品質をtotal queryの `sampleInterval` だけで判定する方式をやめ、pages / referrers / flows / entries / countries / devicesを含む各GraphQL groupのsampling状態を保持して最大値をqualityへ反映する。固定limitに達したgroupはcoverage不完全としてexportへ明示する。VA2は `pages` を全Page views/Visits、`entries` を入口Visits/Page viewsへ分離し、compact flowはcountry/device差を畳み込んでから上位20件へ切る。freshnessは「LAST EVENT」ではなく「LATEST NONZERO BUCKET」とし、gapは下限値として扱う。現行 `/s/v2/` relayもMarkdown/署名期限cacheのshort-linkとして扱う。
+- **理由**：2026-09-24の実測VA2（138 Visits / 148 Page views）を総数・channel・country・device・trend・page/flowまで相互突合した結果、主要総数は整合していた一方、(1) totalがunsampledでも別groupがsamplingされる可能性、(2) `pages` が実際はentryPagesで内部PVを表せない、(3) country/device次元を落としたcompact flowに同一source→pageが重複表示される、(4) current 7d bucketの開始/終了境界を最終イベント時刻のように読める、(5) v2 relayがv1と同じshort-link分岐へ入っていない、という構造上の誤読要因を確認したため。
+- **旧状態・棄却**：period qualityをtotal queryだけで代表させる、VA2 `pages` を入口ページ表として兼用する、raw flow上位20行を次元省略のまま直列化する、aggregate bucket境界を「LAST EVENT / EVENT GAP」と表示する、`/s/v1/` だけをshort-link扱いする方式。
+- **影響範囲**：管理Analytics Worker / AI export / VA2 fallback / AI relay / regression testsのみ。WATCH本文、公開route、measurement target 5本と公開WATCH 6本の区別、HOW THEY RING、Search Console importは変更しない。
+- **検証状態**：branchへ実装済み。Draft PR #118でAnalytics worker / relay / Astro foundation CIを実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
+- **再検討条件**：Cloudflare Web Analyticsのlive GraphQL schema/settingsで `confidence` とdataset固有のmaxPageSize/maxDurationを安全に確認できた場合は、confidence intervalと動的limitを次段階として追加検討する。
+- **関連**：branch `fix/analytics-audit-20260924` / Draft PR #118 / commits `f196f3db`, `d6c32cbf`, `d21a1a0d`, `fa88321b`。
+- **日時根拠**：最初の実装commit `f196f3db` のGitHub時刻 `2026-09-24T11:16:13Z → 2026-09-24 20:16 JST` を採用。
+
+
 ### 2026-09-24 15:03 JST — 多言語公開を全routeのbuild/live一致で保証
 - **変更**：EN / DEの公開確認を代表ページ・一部WATCH・個別文字列だけに限定する方式を廃止。TOP / HISTORY / OWNER'S NOTES / HOW THEY RING / SOURCES / 公開中の全WATCH / CYMA Chronomètreをbuild・layout・semantic live検査の対象にし、さらにdeploy後はdist内の全生成HTMLとsitemap.xml / llms.txt / robots.txtをlive取得して完全一致を必須化した。未mergeだったCYMA Chronomètre独語校正も同じ変更セットへ取り込んだ。
 - **理由**：GitHub上に修正文が存在していても、本番routeがその修正を読んでいるか、またはそのPRがmainへ入っているかを既存gateが全ページでは検証しておらず、旧翻訳が本番に残ったままdeploy成功扱いできたため。
