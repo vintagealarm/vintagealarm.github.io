@@ -7,21 +7,27 @@ const cases = [
     lang: 'ja',
     sourceSummary: '参考資料・出典',
     languageLinks: [['en', 'EN'], ['de', 'DE']],
-    menuHref: '/history/'
+    menuHref: '/history/',
+    currentHref: '/history/smartwatch/',
+    currentHreflang: 'ja'
   },
   {
     route: 'en/history/',
     lang: 'en',
     sourceSummary: 'References & Sources',
     languageLinks: [['ja', '日本語'], ['de', 'DE']],
-    menuHref: '/en/history/'
+    menuHref: '/en/history/',
+    currentHref: '/en/history/smartwatch/',
+    currentHreflang: 'en'
   },
   {
     route: 'de/history/',
     lang: 'de',
     sourceSummary: 'Literatur & Quellen',
     languageLinks: [['ja', '日本語'], ['en', 'EN']],
-    menuHref: '/de/history/'
+    menuHref: '/de/history/',
+    currentHref: '/de/history/smartwatch/',
+    currentHreflang: 'de'
   }
 ];
 const widths = [320, 390, 768];
@@ -94,10 +100,14 @@ try {
       if (state.sourceSummaryText !== testCase.sourceSummary) failures.push(`${width}px ${testCase.route}: source summary drifted to ${JSON.stringify(state.sourceSummaryText)}`);
       if (!state.menuHistoryLink) failures.push(`${width}px ${testCase.route}: localized HISTORY menu link missing`);
       if (width <= 390 && !state.eraNavScrollable) failures.push(`${width}px ${testCase.route}: era navigation is not swipeable`);
-      if (testCase.lang !== 'ja') {
-        if (!state.localizedNoteSpacingOk) failures.push(`${width}px ${testCase.route}: milestone summary and note are concatenated without whitespace`);
-        if (!state.currentHref.endsWith('/history/smartwatch/')) failures.push(`${width}px ${testCase.route}: SMARTWATCH epilogue link changed`);
-        if (state.currentHreflang !== 'ja') failures.push(`${width}px ${testCase.route}: Japanese SMARTWATCH epilogue must declare hreflang=ja`);
+      if (testCase.lang !== 'ja' && !state.localizedNoteSpacingOk) {
+        failures.push(`${width}px ${testCase.route}: milestone summary and note are concatenated without whitespace`);
+      }
+      if (state.currentHref !== testCase.currentHref) {
+        failures.push(`${width}px ${testCase.route}: SMARTWATCH epilogue link is ${JSON.stringify(state.currentHref)}, expected ${JSON.stringify(testCase.currentHref)}`);
+      }
+      if (state.currentHreflang !== testCase.currentHreflang) {
+        failures.push(`${width}px ${testCase.route}: SMARTWATCH hreflang is ${JSON.stringify(state.currentHreflang)}, expected ${JSON.stringify(testCase.currentHreflang)}`);
       }
 
       for (const [hreflang, label] of testCase.languageLinks) {
