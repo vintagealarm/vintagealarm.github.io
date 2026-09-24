@@ -1,13 +1,30 @@
 # VINTAGE ALARM — German translation preparation
 
-更新日: 2026-09-14
-状態: ドイツ語入口を拡張済み。TOP `/de/` は日本語TOPと同じ入口構造だけを持ち、画像付きOWNER'S NOTES一覧は `/de/owners-notes/` に分離する。HOW THEY RING `/de/how-they-ring/` も日本語正本に沿ってローカライズし、既存のHISTORY・WATCH・SOURCESと接続する。Duofonドイツ語パイロット公開済み。`/de/`・`/de/pierce-duofon/`・日本語/英語/ドイツ語の言語切替・hreflang・sitemap・llms.txt・Analyticsパスマッピングまで実装済み。ユーザー本人による逐語逆翻訳監査を実施し、事実・構造・確度・資料差は高い忠実性を確認。OWNER'S NOTE周辺の4点（「祖先」の比喩、SIGNAL「静音」、WECKER「ベル音」、締めの「未来の空気」）を日本語正本へ寄せて修正した。OWNER'S NOTE画像も日本語版と同じ `/images/pierce-duofon/owners-note.jpg` を使うよう修正済み。逆翻訳の合格基準は日本語正本との一字一句一致ではなく、ドイツ語だけから意味・構造・温度感を十分に再構成できることとする。
+更新日: 2026-09-24
+状態: ドイツ語公開版はWATCH 6本すべてをFULL RESEARCHで展開する。Cyma Time-O-Vox Chronomètreの独立RESEARCHもドイツ語化し、日本語正本と同じ資料差・観測・外部照会・未解決事項まで保持する。翻訳ルートは日本語正本→ドイツ語を維持し、専門資料は用語確認に使う。
 
 ## 目的
 
 ドイツ語版は、日本語サイトの意味・比喩・構成・温度・事実の確度を保ったまま、ドイツ語として自然に読める翻訳を作る。
 
 翻訳の主ルートは必ず `日本語正本 → ドイツ語` とする。英語版は意味確認の補助にしか使わない。
+
+## 現行の公開深度
+
+ドイツ語版は部分展開ではなく、公開WATCH 6本をすべて `FULL RESEARCH` とする。
+
+- Basis Alarm
+- Pierce Duofon
+- Cyma Time-O-Vox
+- Citizen Alarm
+- Westclox Watchlarm
+- Wittnauer Cal.10WA
+
+さらに独立RESEARCHとして次を公開する。
+
+- Cyma Time-O-Vox Chronomètre
+
+各WATCHでOWNER'S NOTE / 操作 / SPEC / 実機鳴動 / 掲載個体 / DEEP DIVE / 出典を揃え、Chronomètreでは17件の観測表・外部照会・UNADJUSTEDの資料背景・実機観察まで省略しない。
 
 ## 正本と資料の優先順位
 
@@ -48,6 +65,66 @@
 例: `Selbst die Rücksicht beim Erinnern war komplett mechanisch.` を「リマインドするときの気遣いさえ、完全に機械仕掛けだった。」と戻すのは、正本「リマインドの気遣いまで、ぜんぶ機械仕掛け。」と一字一句同じではないが、意味と温度を十分に保持しているため合格扱いとする。
 
 英語版Duofonで起きた「別セクションの表現をOWNER'S NOTEへ移す」「原文の締めを案内文へ置換する」タイプの変更は禁止する。
+
+## 2026-09-24｜Basis / Citizen / Chronomètre 用語準備
+
+Duofonで行った「日本語正本→ドイツ語案→専門資料で用語確認→逆翻訳監査」の順を、Basis / Citizen / Chronomètreにも適用する。用語は主に `Alarm am Arm` と日本語正本を照合して準備し、資料側の説明を理由に本文の意味を追加しない。
+
+### Basis Alarm / Baumgartner BFG 90
+
+| 日本語の概念 | ドイツ語候補 | 運用メモ |
+| --- | --- | --- |
+| 柱式構造 | `Säulenbauweise` | Werk構造の一般的な説明。 |
+| ピンレバー脱進機 | `Stiftankerhemmung` | Beitlの語彙に合わせる。 |
+| 香箱 | `Federhaus` | Gehwerk / Alarmの別を必要に応じて補う。 |
+| 2香箱 | `zwei Federhäuser` | BFG 90の基本構成。 |
+| 滑りクラッチ | `Rutschkupplung` | BFG系資料の `Rutschkupplungsicherung` と対応。 |
+| ラチェット車 | `Sperrrad` | ドイツ時計技術語を優先。 |
+| 巻上げ表示窓 | `Aufzugskontrollfenster` / `Fenster für die Aufzugskontrolle` | Beitlで確認できる表現。 |
+| 巻上げ表示 | `Aufzugskontrolle` | `Gangreserveanzeige` と混同しない。 |
+| 回転ベゼル | `Drehlünette` | Beitlの通常語。 |
+| アラームON/OFFスライダー | `EIN/AUS-Schieber` | 9時位置の外部操作。 |
+| アラーム機構 | `Läutwerk` | 文脈が音響・作動系を指す場合。 |
+| 底部ベル | `Bodenglocke` | BeitlでBFG 90搭載例に使用。 |
+
+### Citizen Alarm / Cal.980
+
+| 日本語の概念 | ドイツ語候補 | 運用メモ |
+| --- | --- | --- |
+| アラーム腕時計 | `Armbandwecker` / `Wecker-Armbanduhr` | 一般本文では自然な `Armbandwecker` を優先。 |
+| 国産初 | `erster in Japan produzierter Armbandwecker` | 世界初へ拡張しない。 |
+| 中央回転ディスク | `drehbare Weckscheibe` | Zifferblatt中央のAlarmzeit表示。 |
+| 二重裏蓋 | `Doppelboden` / `doppelter Gehäuseboden` | 音響構造の説明。 |
+| 2リューズ | `zwei Kronen` | 2時 / 4時操作。 |
+| 4針式 | `Vierzeiger-Ausführung` | 固有表示 `Four Hands` は原表記を併記。 |
+| AS 1475類似 | `große Ähnlichkeit mit dem AS 1475` | Beitlの資料表現。 |
+| ライセンスコピー説 | `möglicherweise ein Lizenznachbau` | `wahrscheinlich`を資料引用として扱う場合でも、日本語正本以上に断定しない。 |
+| Parashock | `Parashock` | 固有名称のまま。 |
+| ルクルトからのクレーム説 | `Erzählung / Legende` | 確認済み史実にしない。 |
+
+### Cyma Time-O-Vox Chronomètre
+
+| 日本語の概念 | ドイツ語候補 | 運用メモ |
+| --- | --- | --- |
+| クロノメーター試験 | `Chronometerprüfung` | Beitlで確認。 |
+| クロノメーター証明 | `Chronometerzertifikat` / `Chronometerzertifizierung` | 証明書実体と制度一般を区別。 |
+| 5姿勢 | `fünf Lagen` | 時計精度試験の自然な技術語。 |
+| 温度 | `Temperatur` / `bei unterschiedlichen Temperaturen` | 文脈に応じる。 |
+| 調整刻印 | `Regulierungsangabe` / `Regulierungsgravur` | 刻印文字列そのものは翻訳しない。 |
+| 観測個体 | `beobachtetes Exemplar` | Sammlung / Beobachtungの語感を維持。 |
+| Movement No.帯 | `Werknummernbereich` | 公開版の番号マスキング。 |
+| ケースコード | `Gehäusecode` | 表形式の短いラベル。 |
+| 外部照会 | `Archivanfrage` | MIH / Staatsarchivへの照会。 |
+| 認定・試験記録 | `Zertifizierungsunterlagen` / `Prüfaufzeichnung` | 何の記録かに応じる。 |
+| UNADJUSTED | `UNADJUSTED` | 実物刻印として原表記を維持。 |
+
+### ネイティブ監査
+
+- `CHRONOMÈTRE`、`ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE`、`UNADJUSTED` は実物上の表記なので独訳しない。
+- 引用以外の本文で古いスイス式・資料独特の綴りを模倣しない。
+- `regliert` のような資料上の歴史的表現は現代本文では原則 `reguliert` にする。
+- 日本語の「可能性」「未確認」「特定できない」を `ist` / `war` の確定表現へ変えない。
+- German→Japaneseの逆翻訳で、意味・構造・温度・確度が日本語正本へ戻ることを確認する。
 
 ## Duofon — 参照するドイツ語資料
 
