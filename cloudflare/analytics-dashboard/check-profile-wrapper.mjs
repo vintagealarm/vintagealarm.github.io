@@ -1,4 +1,4 @@
-import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, RESEARCH_PAGE_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
+import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, RESEARCH_PAGE_NAMES, STATIC_PAGE_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -67,8 +67,9 @@ const payload = patchAnalyticsPayload({
 });
 
 assert(Object.keys(WATCH_PAGE_NAMES).length === 6, 'analytics must keep all six published Japanese WATCH pages');
-assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 7, 'analytics must track English index, OWNER\'S NOTES and five WATCH gateways');
-assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 5, 'analytics must track German index, OWNER\'S NOTES plus Duofon, Cyma and Westclox gateways');
+assert(Object.keys(STATIC_PAGE_NAMES).length === 5, 'analytics must track TOP and Japanese static/research gateway pages');
+assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 9, 'analytics must track English index, OWNER\'S NOTES, SOURCES and all six WATCH gateways');
+assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 9, 'analytics must track German index, OWNER\'S NOTES, SOURCES and all six WATCH gateways');
 assert(Object.keys(HISTORY_GATEWAY_NAMES).length === 3, 'analytics must track Japanese, English and German HISTORY pages');
 assert(ENGLISH_GATEWAY_NAMES['/en/owners-notes/'] === "OWNER'S NOTES (EN)", 'English OWNER\'S NOTES mapping missing');
 assert(GERMAN_GATEWAY_NAMES['/de/owners-notes/'] === "OWNER'S NOTES (DE)", 'German OWNER\'S NOTES mapping missing');
@@ -76,6 +77,16 @@ assert(RESEARCH_PAGE_NAMES['/how-they-ring/'] === 'How They Ring', 'How They Rin
 assert(RESEARCH_PAGE_NAMES['/en/how-they-ring/'] === 'How They Ring (EN)', 'English How They Ring mapping missing');
 assert(RESEARCH_PAGE_NAMES['/de/how-they-ring/'] === 'How They Ring (DE)', 'German How They Ring mapping missing');
 assert(RESEARCH_PAGE_NAMES['/cyma-time-o-vox/chronometre/'] === 'Cyma Time-O-Vox Chronomètre', 'Cyma Chronometre research mapping missing');
+assert(RESEARCH_PAGE_NAMES['/en/cyma-time-o-vox/chronometre/'] === 'Cyma Time-O-Vox Chronomètre (EN)', 'English Cyma Chronometre research mapping missing');
+assert(RESEARCH_PAGE_NAMES['/de/cyma-time-o-vox/chronometre/'] === 'Cyma Time-O-Vox Chronomètre (DE)', 'German Cyma Chronometre research mapping missing');
+assert(STATIC_PAGE_NAMES['/'] === 'TOP', 'TOP mapping missing from tracked analytics pages');
+assert(STATIC_PAGE_NAMES['/sources/'] === 'SOURCES', 'Japanese SOURCES mapping missing');
+assert(ENGLISH_GATEWAY_NAMES['/en/sources/'] === 'SOURCES (EN)', 'English SOURCES mapping missing');
+assert(GERMAN_GATEWAY_NAMES['/de/sources/'] === 'SOURCES (DE)', 'German SOURCES mapping missing');
+assert(ENGLISH_GATEWAY_NAMES['/en/wittnauer-10wa/'] === 'Wittnauer Cal.10WA (EN)', 'English Wittnauer mapping missing');
+assert(GERMAN_GATEWAY_NAMES['/de/basis-alarm/'] === 'Basis Alarm (DE)', 'German Basis mapping missing');
+assert(GERMAN_GATEWAY_NAMES['/de/citizen-alarm/'] === 'Citizen Alarm (DE)', 'German Citizen mapping missing');
+assert(GERMAN_GATEWAY_NAMES['/de/wittnauer-10wa/'] === 'Wittnauer Cal.10WA (DE)', 'German Wittnauer mapping missing');
 assert(WATCH_PAGE_NAMES['/wittnauer-10wa/'] === 'Wittnauer Cal.10WA', 'Wittnauer WATCH mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/history/'] === 'HISTORY', 'Japanese HISTORY mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/en/history/'] === 'HISTORY (EN)', 'English HISTORY mapping missing');
@@ -98,7 +109,7 @@ assert(payload.current.flows[3].destinationName === 'Basis Alarm (EN)', 'Basis E
 assert(payload.current.flows[4].destinationName === 'HISTORY (EN)', 'English HISTORY flow destination was not mapped');
 
 const snsTotals = Object.fromEntries(payload.current.snsEntries.pages.map((row) => [row.name, row.total]));
-assert(payload.current.snsEntries.pages.length === 27, 'SNS chart must contain tracked WATCH/gateway/HISTORY/research rows, X Profile, plus Other pages');
+assert(payload.current.snsEntries.pages.length === 40, 'SNS chart must contain all tracked published/static/localized rows, X Profile, plus Other pages');
 assert(snsTotals['Citizen Alarm'] === 2, 'Citizen SNS visits mismatch');
 assert(snsTotals['Westclox Watchlarm'] === 3, 'Westclox SNS visits mismatch');
 assert(snsTotals['Basis Alarm (EN)'] === 1, 'Basis English SNS visits mismatch');
@@ -131,6 +142,48 @@ assert(exportedSns['HISTORY (EN)'] === 1, 'AI export HISTORY SNS reallocation fa
 assert(exportedSns['X Profile'] === 2, 'AI export X Profile SNS reallocation failed');
 assert(exportedSns['Other pages'] === 1, 'AI export Other pages must retain only untracked destinations');
 assert(exportedPayload.current.snsEntries.complete === true, 'AI export flow completeness marker must be respected');
+
+const topEntryPayload = patchAnalyticsPayload({
+  current: {
+    pages: [{ path: '/', name: 'TOP', mapped: true, pageviews: 10, visits: 10 }],
+    externalEntryFlows: [
+      { sourcePath: '', sourceCleanPath: '', destinationPath: '/', destinationName: 'TOP', destinationMapped: true, channel: 'X', visits: 10, pageviews: 10 },
+    ],
+    flowRowsComplete: true,
+    snsEntries: baseSnsEntries({ X: 10, Instagram: 0, Facebook: 0, 'Other SNS': 0 }, 10),
+  },
+});
+const topEntrySns = Object.fromEntries(topEntryPayload.current.snsEntries.pages.map((row) => [row.name, row.total]));
+assert(topEntrySns.TOP === 10, 'X entry to TOP must not remain hidden in Other pages');
+assert(topEntrySns['Other pages'] === 0, 'tracked TOP entry must be removed from Other pages');
+
+const routeCoveragePayload = patchAnalyticsPayload({
+  current: {
+    pages: [
+      { path: '/sources/', name: '/sources/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/en/sources/', name: '/en/sources/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/de/sources/', name: '/de/sources/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/en/wittnauer-10wa/', name: '/en/wittnauer-10wa/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/de/basis-alarm/', name: '/de/basis-alarm/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/de/citizen-alarm/', name: '/de/citizen-alarm/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/de/wittnauer-10wa/', name: '/de/wittnauer-10wa/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/en/cyma-time-o-vox/chronometre/', name: '/en/cyma-time-o-vox/chronometre/', mapped: false, pageviews: 1, visits: 1 },
+      { path: '/de/cyma-time-o-vox/chronometre/', name: '/de/cyma-time-o-vox/chronometre/', mapped: false, pageviews: 1, visits: 1 },
+    ],
+    flows: [],
+    snsEntries: baseSnsEntries(),
+  },
+});
+const routeCoverageNames = Object.fromEntries(routeCoveragePayload.current.pages.map((row) => [row.path, row.name]));
+assert(routeCoverageNames['/sources/'] === 'SOURCES', 'Japanese SOURCES route was not mapped');
+assert(routeCoverageNames['/en/sources/'] === 'SOURCES (EN)', 'English SOURCES route was not mapped');
+assert(routeCoverageNames['/de/sources/'] === 'SOURCES (DE)', 'German SOURCES route was not mapped');
+assert(routeCoverageNames['/en/wittnauer-10wa/'] === 'Wittnauer Cal.10WA (EN)', 'English Wittnauer route was not mapped');
+assert(routeCoverageNames['/de/basis-alarm/'] === 'Basis Alarm (DE)', 'German Basis route was not mapped');
+assert(routeCoverageNames['/de/citizen-alarm/'] === 'Citizen Alarm (DE)', 'German Citizen route was not mapped');
+assert(routeCoverageNames['/de/wittnauer-10wa/'] === 'Wittnauer Cal.10WA (DE)', 'German Wittnauer route was not mapped');
+assert(routeCoverageNames['/en/cyma-time-o-vox/chronometre/'] === 'Cyma Time-O-Vox Chronomètre (EN)', 'English Chronometre route was not mapped');
+assert(routeCoverageNames['/de/cyma-time-o-vox/chronometre/'] === 'Cyma Time-O-Vox Chronomètre (DE)', 'German Chronometre route was not mapped');
 
 const cappedFlows = Array.from({ length: 200 }, (_, index) => ({
   destinationPath: index % 2 ? '/citizen-alarm/' : '/unknown/',
