@@ -187,6 +187,8 @@ PC / スマホなどブラウザごとに設定する。
 - AI Assistant系リファラー（取得できる場合）
 - Internal Navigation
 
+既知のAI Assistant hostは汎用検索ドメイン判定より先に分類する。特に `gemini.google.com` を `google.*` のOrganic Searchへ吸収しない。通常の `google.com` / `google.co.jp` 等はOrganic Searchのまま扱う。Google検索面に統合されたAI機能など、referrer hostだけで分離できないものはAI流入へ推測分類しない。
+
 同じ流入を複数カテゴリへ二重計上しない。
 
 ## X / YouTube導線の検証
