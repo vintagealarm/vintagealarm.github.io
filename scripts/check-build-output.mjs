@@ -148,6 +148,14 @@ for (const [name, html, lang, pathName] of [
   if (!sitemap.includes(`https://vintagealarm.github.io/${pathName}`)) failures.push(`${pathName}: missing from sitemap`);
 }
 
+const japaneseChronometrePath = path.join(dist, 'cyma-time-o-vox/chronometre/index.html');
+const japaneseChronometreHtml = fs.existsSync(japaneseChronometrePath)
+  ? fs.readFileSync(japaneseChronometrePath, 'utf8')
+  : '';
+for (const marker of ['観測個体一覧を見る', '17件', 'ここまでで言えること']) {
+  if (!japaneseChronometreHtml.includes(marker)) failures.push(`JA CYMA Chronomètre: existing marker changed or missing: ${marker}`);
+}
+
 const fullLocalizedResearchChecks = [
   ['EN Basis', 'en/basis-alarm/index.html', ['One crown, one direction, two barrels', 'Why there are two winding windows', 'BFG 90 → BFG 902']],
   ['EN Citizen', 'en/citizen-alarm/index.html', ['1958 — Japan’s first alarm wristwatch', 'From the centre disc to Four Hands', 'What came after the first Citizen Alarm']],
