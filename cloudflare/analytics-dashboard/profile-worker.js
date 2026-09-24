@@ -20,10 +20,20 @@ export const WATCH_PAGE_NAMES = Object.freeze({
   "/westclox-watchlarm/": "Westclox Watchlarm",
 });
 
+export const STATIC_PAGE_NAMES = Object.freeze({
+  "/": "TOP",
+  "/owners-notes/": "OWNER\'S NOTES",
+  "/sources/": "SOURCES",
+  "/cyma-time-o-vox/owners-note/": "Cyma OWNER\'S NOTE",
+  "/history/smartwatch/": "Smartwatch / HISTORY",
+});
+
 export const ENGLISH_GATEWAY_NAMES = Object.freeze({
   "/en/": "English Entry",
   "/en/owners-notes/": "OWNER\'S NOTES (EN)",
+  "/en/sources/": "SOURCES (EN)",
   "/en/basis-alarm/": "Basis Alarm (EN)",
+  "/en/wittnauer-10wa/": "Wittnauer Cal.10WA (EN)",
   "/en/pierce-duofon/": "Pierce Duofon (EN)",
   "/en/cyma-time-o-vox/": "Cyma Time-O-Vox (EN)",
   "/en/citizen-alarm/": "Citizen Alarm (EN)",
@@ -33,8 +43,12 @@ export const ENGLISH_GATEWAY_NAMES = Object.freeze({
 export const GERMAN_GATEWAY_NAMES = Object.freeze({
   "/de/": "German Entry",
   "/de/owners-notes/": "OWNER\'S NOTES (DE)",
+  "/de/sources/": "SOURCES (DE)",
+  "/de/basis-alarm/": "Basis Alarm (DE)",
+  "/de/wittnauer-10wa/": "Wittnauer Cal.10WA (DE)",
   "/de/pierce-duofon/": "Pierce Duofon (DE)",
   "/de/cyma-time-o-vox/": "Cyma Time-O-Vox (DE)",
+  "/de/citizen-alarm/": "Citizen Alarm (DE)",
   "/de/westclox-watchlarm/": "Westclox Watchlarm (DE)",
 });
 
@@ -49,9 +63,12 @@ export const RESEARCH_PAGE_NAMES = Object.freeze({
   "/en/how-they-ring/": "How They Ring (EN)",
   "/de/how-they-ring/": "How They Ring (DE)",
   "/cyma-time-o-vox/chronometre/": "Cyma Time-O-Vox Chronomètre",
+  "/en/cyma-time-o-vox/chronometre/": "Cyma Time-O-Vox Chronomètre (EN)",
+  "/de/cyma-time-o-vox/chronometre/": "Cyma Time-O-Vox Chronomètre (DE)",
 });
 
 const TRACKED_PAGE_NAMES = Object.freeze({
+  ...STATIC_PAGE_NAMES,
   ...WATCH_PAGE_NAMES,
   ...ENGLISH_GATEWAY_NAMES,
   ...GERMAN_GATEWAY_NAMES,
