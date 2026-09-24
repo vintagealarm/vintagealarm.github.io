@@ -118,6 +118,187 @@
           ]
         }
       ]
+    },
+    {
+      "id": "basis-bfg90-winding-system",
+      "slug": "basis-alarm",
+      "canonicalValue": "34mm; two barrels wound in one direction; sliding clutches; winding indicators",
+      "note": "Keep the BFG 90 winding architecture synchronized. The dial windows are winding indicators, not conventional power-reserve displays.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/basis-alarm.md",
+          "mustContain": [
+            "caseSize: 34mm",
+            "一本のリューズを、同じ方向へ回して2つとも巻く。",
+            "それが滑りクラッチだ。",
+            "BFG 90の双香箱、滑りクラッチ、巻上げ表示窓は、別々に付けられた仕掛けではない。"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "one crown winds both in the same direction.",
+            "sliding clutch",
+            "They are winding indicators",
+            "caseSize"
+          ],
+          "mustNotContain": [
+            "37 mm (same-type documentation)"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "Beide werden mit derselben Krone in derselben Drehrichtung aufgezogen.",
+            "Rutschkupplung",
+            "Es sind Aufzugskontrollen",
+            "caseSize: '34 mm'"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/basis-alarm/index.html",
+          "mustContain": [
+            "34mm",
+            "滑りクラッチ",
+            "巻上げ表示窓"
+          ]
+        },
+        {
+          "path": "dist/en/basis-alarm/index.html",
+          "mustContain": [
+            "34 mm",
+            "sliding clutch",
+            "winding indicators"
+          ]
+        },
+        {
+          "path": "dist/de/basis-alarm/index.html",
+          "mustContain": [
+            "34 mm",
+            "Rutschkupplung",
+            "Aufzugskontrollen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "citizen-980-history-certainty",
+      "slug": "citizen-alarm",
+      "canonicalValue": "1958 Japan-first domestic alarm; AS1475 licensed-copy relationship remains a possibility; JLC complaint remains unconfirmed",
+      "note": "Protect the difference between documented launch/mechanism facts and later attribution stories.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/citizen-alarm.md",
+          "mustContain": [
+            "1958年、国産初のアラーム腕時計",
+            "ライセンス生産だった可能性",
+            "その経緯を裏付ける記述は確認できない。"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "Japan’s first domestically produced wristwatch with an audible alarm.",
+            "Beitl raises the possibility that it began as a licensed copy",
+            "No supporting account for that sequence has been confirmed"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "der erste in Japan produzierte Armbandwecker",
+            "Beitl hält es für möglich, dass das Werk ursprünglich als Lizenznachbau",
+            "ließ sich diese Abfolge bestätigen"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/citizen-alarm/index.html",
+          "mustContain": [
+            "国産初",
+            "可能性",
+            "確認できない"
+          ]
+        },
+        {
+          "path": "dist/en/citizen-alarm/index.html",
+          "mustContain": [
+            "first domestically produced",
+            "possibility",
+            "not as a confirmed explanation"
+          ]
+        },
+        {
+          "path": "dist/de/citizen-alarm/index.html",
+          "mustContain": [
+            "erste in Japan produzierte",
+            "für möglich",
+            "Legende"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cyma-chronometre-observation-status",
+      "slug": "cyma-time-o-vox/chronometre",
+      "canonicalValue": "17 observed specimens; Chronometre version documented; one-to-one certification mapping unresolved; UNADJUSTED alone is not dispositive",
+      "note": "The localized research pages must preserve observed/documented/unresolved layers and the movement-number masking policy.",
+      "sourceChecks": [
+        {
+          "path": "src/data/cyma-chronometre-research.json",
+          "mustContain": [
+            "販売ページ、文献、整備記事、動画、SNSから確認できた17件を並べた。",
+            "公開版ではMovement No.を番号帯へマスキングしている。",
+            "Time-O-Vox Chronomètre仕様の存在は確認できる。",
+            "どの現存個体が当時のどの認定記録に対応するかは、現在も特定できていない。",
+            "Time-O-VoxのUNADJUSTED刻印も、刻印だけで未調整とは決められない。"
+          ]
+        },
+        {
+          "path": "src/data/cyma-chronometre-localizations.ts",
+          "mustContain": [
+            "Seventeen watches located through sales listings, books, service articles, video and social media",
+            "movement numbers are masked into number ranges",
+            "the existence of a Time-O-Vox Chronomètre specification is confirmed",
+            "still not possible to connect any given surviving watch with a specific period certification or test record",
+            "UNADJUSTED engraving on a Time-O-Vox therefore cannot, by itself",
+            "siebzehn Exemplare",
+            "Werknummern nur als Nummernbereiche",
+            "Existenz einer Time-O-Vox-Chronomètre-Ausführung ist damit belegt",
+            "kein bestimmtes erhaltenes Exemplar sicher einer konkreten damaligen Zertifizierungs- oder Prüfaufzeichnung",
+            "Aus der Gravur UNADJUSTED einer Time-O-Vox allein"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/cyma-time-o-vox/chronometre/index.html",
+          "mustContain": [
+            "17件",
+            "Movement No.",
+            "未解決"
+          ]
+        },
+        {
+          "path": "dist/en/cyma-time-o-vox/chronometre/index.html",
+          "mustContain": [
+            "Seventeen",
+            "number ranges",
+            "UNRESOLVED"
+          ]
+        },
+        {
+          "path": "dist/de/cyma-time-o-vox/chronometre/index.html",
+          "mustContain": [
+            "siebzehn",
+            "Nummernbereiche",
+            "OFFEN"
+          ]
+        }
+      ]
     }
   ]
 }
