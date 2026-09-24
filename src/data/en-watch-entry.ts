@@ -69,8 +69,8 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
   },
   'basis-alarm': {
     slug: 'basis-alarm',
-    title: 'Basis Alarm (BFG 90) — English entry | VINTAGE ALARM',
-    description: 'English entry to the Basis Alarm with Baumgartner BFG 90: two barrels wound in one direction, two winding-indicator windows, rotating alarm bezel, slider and original alarm video.',
+    title: 'Basis Alarm BFG 90 — Two-Barrel Bezel-Set Alarm | VINTAGE ALARM',
+    description: 'Basis Alarm with Baumgartner BFG 90: two barrels wound from one crown in the same direction, sliding clutches, two winding indicators, rotating-bezel alarm setting, specimen photographs, original alarm sound and cited sources.',
     indexBlurb: 'Two barrels, one winding direction, two spinning indicator windows — and an alarm that sounds like a cicada.',
     catch: ['A little mechanical toy box to touch, watch, and hear.'],
     ownersNote: {
@@ -90,14 +90,15 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'The Basis Alarm uses the Baumgartner BFG 90, an early alarm-wristwatch movement also found under names such as Lantex, Sheffield, Simplon and Tior.',
-        'Rather than hiding its functions, the BFG 90 lets its mechanism show through the rotating bezel, slider and two winding-indicator windows.',
-        'That directness is what makes the watch unusually tactile and visual today.'
+        'The Basis Alarm uses the Baumgartner BFG 90, an early alarm-wristwatch movement.',
+        'Away from high-end watches such as the Memovox and Cricket, the BFG 90 spread through practical watches sold under names including Basis, Lantex, Sheffield, Simplon and Tior.',
+        'Rather than the refinement associated with a luxury watch, it presents its functions openly as a practical object.',
+        'That is exactly why so much of the pleasure survives in watching it, handling it and making it ring.'
       ]
     },
     spec: {
       era: 'c. 1948 (same-type documentation)',
-      caseSize: '37 mm (same-type documentation)',
+      caseSize: '34 mm',
       caliber: 'Baumgartner BFG 90',
       jewels: '17 jewels',
       frequency: '18,000 vph',
@@ -149,8 +150,8 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
   },
   'citizen-alarm': {
     slug: 'citizen-alarm',
-    title: 'Citizen Alarm Cal. 980 — English entry | VINTAGE ALARM',
-    description: 'English entry to the 1958 Citizen Alarm, Japan’s first bell-ringing alarm wristwatch: Cal. 980, two barrels, rotating center alarm disc, twin crowns and original alarm video.',
+    title: 'Citizen Alarm Cal. 980 — Japan’s First Domestic Alarm Wristwatch | VINTAGE ALARM',
+    description: 'Citizen Alarm from 1958: Japan’s first domestically produced alarm wristwatch, Cal. 980, two barrels, twin crowns, a rotating centre alarm disc, double-caseback sound construction, later Four Hands variants and cited sources.',
     indexBlurb: 'Japan’s first bell-ringing wristwatch: two barrels, two crowns and a rotating alarm disc at the center of the dial.',
     catch: ['Japan’s first bell-ringing wristwatch — and the start of a lineage.'],
     ownersNote: {
