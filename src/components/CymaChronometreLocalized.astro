@@ -39,7 +39,6 @@ const ui = {
     toggle: ['Toggle documentary evidence', 'Toggle observed watches', 'Toggle UNADJUSTED evidence', 'Toggle archive inquiries', 'Toggle owner observation'],
     sharedMaterial: 'SHARED ARCHIVE MATERIAL',
     specialistBook: 'SPECIALIST REFERENCE',
-    proofTranslation: null,
     fieldMediaAria: 'Alarm-release mechanism observations on the shown CYMA Time-O-Vox',
     swipe: 'Swipe horizontally to view the images',
     videoTitle: 'CYMA Time-O-Vox alarm-release behaviour',
@@ -59,7 +58,6 @@ const ui = {
     toggle: ['Dokumentation ein- oder ausblenden', 'Beobachtete Exemplare ein- oder ausblenden', 'UNADJUSTED-Belege ein- oder ausblenden', 'Archivanfragen ein- oder ausblenden', 'Beobachtung am Exemplar ein- oder ausblenden'],
     sharedMaterial: 'GETEILTES ARCHIVMATERIAL',
     specialistBook: 'FACHLITERATUR',
-    proofTranslation: '„Vor Verlassen des Werks wird jedes Tavannes-Werk in Lagen und Temperatur reguliert.“',
     fieldMediaAria: 'Beobachtungen zur Alarmauslösung der gezeigten CYMA Time-O-Vox',
     swipe: 'Bilder horizontal wischen',
     videoTitle: 'CYMA Time-O-Vox — Verhalten der Alarmauslösung',
@@ -71,7 +69,6 @@ const ui = {
   }
 }[locale];
 
-const proofQuote = '“Before leaving the factory, every Tavannes movement is adjusted for position and temperature.”';
 const resolveMedia = (value: string) => /^https?:\/\//.test(value) ? value : `${base}${value.replace(/^\//, '')}`;
 const getYouTubeId = (value: string) => {
   const input = value?.trim();
@@ -239,10 +236,6 @@ const schema = {
           </header>
           <div class="proto-owner-copy" id="owners-unadjusted-content">
             <p>{data.tariff.intro} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></p>
-            <blockquote>
-              <p lang="en">{proofQuote}</p>
-              {ui.proofTranslation && <footer>{ui.proofTranslation} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></footer>}
-            </blockquote>
             {data.tariff.body.map((paragraph: string, index: number) => (
               <p>
                 {paragraph}
