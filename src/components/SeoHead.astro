@@ -93,6 +93,60 @@ const normalizedAlternates = alternates.map((item) => ({
       }
     } catch {}
 
+    // Diagnostic-only early arrival probe. It runs before the Cloudflare RUM
+    // script so we can distinguish click→HTML arrival from HTML→RUM loss.
+    try {
+      const referrerSource = (() => {
+        if (!document.referrer) return 'direct';
+        try {
+          const host = new URL(document.referrer).hostname.toLowerCase().replace(/^www\./, '');
+          const currentHost = window.location.hostname.toLowerCase().replace(/^www\./, '');
+          if (!host) return 'direct';
+          if (host === currentHost) return 'internal';
+          if (host === 't.co' || host === 'x.com' || host === 'twitter.com' || host === 'mobile.twitter.com') return 'x';
+          if (host === 'facebook.com' || host === 'm.facebook.com' || host.endsWith('.facebook.com')) return 'facebook';
+          if (host === 'instagram.com' || host.endsWith('.instagram.com')) return 'instagram';
+          if (host === 'youtube.com' || host === 'm.youtube.com' || host === 'youtu.be') return 'youtube';
+          if (host === 'watchuseek.com' || host.endsWith('.watchuseek.com')) return 'watchuseek';
+          if (
+            host === 'google.com' || host.startsWith('google.') || host.endsWith('.google.com') ||
+            host === 'bing.com' || host.endsWith('.bing.com') ||
+            host === 'duckduckgo.com' || host.endsWith('.duckduckgo.com') ||
+            host === 'search.yahoo.com' || host.endsWith('.search.yahoo.com') ||
+            host === 'yandex.com' || host.endsWith('.yandex.com') ||
+            host === 'ecosia.org' || host.endsWith('.ecosia.org')
+          ) return 'search';
+          return 'other';
+        } catch {
+          return 'other';
+        }
+      })();
+
+      const probeUrl = 'https://vintage-alarm-analytics.orima1995.workers.dev/api/arrival-probe';
+      const probeBody = JSON.stringify({
+        path: window.location.pathname,
+        source: referrerSource
+      });
+      let queued = false;
+
+      if (navigator.sendBeacon) {
+        queued = navigator.sendBeacon(
+          probeUrl,
+          new Blob([probeBody], { type: 'text/plain;charset=UTF-8' })
+        );
+      }
+
+      if (!queued) {
+        fetch(probeUrl, {
+          method: 'POST',
+          mode: 'cors',
+          keepalive: true,
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+          body: probeBody
+        }).catch(() => {});
+      }
+    } catch {}
+
     const beacon = document.createElement('script');
     beacon.defer = true;
     beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
