@@ -38,13 +38,15 @@ let lastFailures = [];
 
 for (let attempt = 1; attempt <= 12; attempt += 1) {
   const failures = [];
-  const [home, englishHome, germanHome, history, englishHistory, germanHistory, owners, sitemap] = await Promise.all([
-    get(''), get('en/'), get('de/'), get('history/'), get('en/history/'), get('de/history/'), get('owners-notes/'), get('sitemap.xml')
+  const [home, englishHome, germanHome, englishOwners, germanOwners, history, englishHistory, germanHistory, owners, sitemap] = await Promise.all([
+    get(''), get('en/'), get('de/'), get('en/owners-notes/'), get('de/owners-notes/'), get('history/'), get('en/history/'), get('de/history/'), get('owners-notes/'), get('sitemap.xml')
   ]);
   for (const [name, result] of [
     ['home', home],
     ['en', englishHome],
     ['de', germanHome],
+    ['en/owners-notes', englishOwners],
+    ['de/owners-notes', germanOwners],
     ['history', history],
     ['en/history', englishHistory],
     ['de/history', germanHistory],
@@ -88,6 +90,12 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     if (germanHome.ok && !germanHome.text.includes('Als Benachrichtigungen noch mit Zahnrädern liefen.')) failures.push('de: localized TOP lead missing');
     if (englishHome.ok && !englishHome.text.includes('en/how-they-ring/')) failures.push('en: HOW THEY RING link missing');
     if (germanHome.ok && !germanHome.text.includes('de/how-they-ring/')) failures.push('de: HOW THEY RING link missing');
+    if (englishHome.ok && !englishHome.text.includes('en/owners-notes/')) failures.push("en: OWNER'S NOTES link missing");
+    if (germanHome.ok && !germanHome.text.includes('de/owners-notes/')) failures.push("de: OWNER'S NOTES link missing");
+    if (englishHome.ok && (englishHome.text.includes('owner-frame') || englishHome.text.includes('localized-directory'))) failures.push("en: embedded OWNER'S NOTES image directory leaked onto TOP");
+    if (germanHome.ok && (germanHome.text.includes('owner-frame') || germanHome.text.includes('localized-directory'))) failures.push("de: embedded OWNER'S NOTES image directory leaked onto TOP");
+    if (englishOwners.ok && !englishOwners.text.includes('owner-frame')) failures.push('en/owners-notes: owner image cards missing');
+    if (germanOwners.ok && !germanOwners.text.includes('owner-frame')) failures.push('de/owners-notes: owner image cards missing');
   } else if (home.ok && home.text.includes('how-they-ring/')) {
     failures.push('home: unpublished HOW THEY RING link leaked');
   }
@@ -98,7 +106,7 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   if (germanHistory.ok && !germanHistory.text.includes('Literatur &amp; Quellen') && !germanHistory.text.includes('Literatur & Quellen')) failures.push('de/history: localized sources label missing');
 
   if (sitemap.ok) {
-    for (const path of ['history/', 'en/history/', 'de/history/', ...(howTheyRingSettings.productionPublished ? ['how-they-ring/', 'en/how-they-ring/', 'de/how-they-ring/'] : [])]) {
+    for (const path of ['history/', 'en/history/', 'de/history/', 'en/owners-notes/', 'de/owners-notes/', ...(howTheyRingSettings.productionPublished ? ['how-they-ring/', 'en/how-they-ring/', 'de/how-they-ring/'] : [])]) {
       const expected = `https://vintagealarm.github.io/${path}`;
       if (!sitemap.text.includes(expected)) failures.push(`${path}: missing from sitemap`);
     }
