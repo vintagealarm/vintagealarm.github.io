@@ -5,33 +5,33 @@ export const cymaChronometreLocalized = {
     lang: 'en',
     locale: 'en_US',
     path: 'en/cyma-time-o-vox/chronometre/',
-    title: 'Cyma Time-O-Vox Chronomètre — Observed Specimens and Certification Records | VINTAGE ALARM',
-    description: 'Cyma Time-O-Vox Chronomètre research combining specialist literature, 17 observed specimens, external archive inquiries, UNADJUSTED markings and observations from the shown watch.',
+    title: 'Cyma Time-O-Vox Chronomètre — Observed Examples and Certification Records | VINTAGE ALARM',
+    description: 'Cyma Time-O-Vox Chronomètre research combining specialist literature, 17 observed examples, external archive inquiries, UNADJUSTED markings and observations from the watch shown here.',
     heading: 'Time-O-Vox Chronomètre',
     lead: [
       'An 18K Time-O-Vox with “CHRONOMÈTRE” on the dial.',
-      'This page follows the differences between that dial marking and the markings preserved on surviving examples.'
+      'This page examines how that dial marking relates to the markings found on surviving examples.'
     ],
     nav: ['Literature', '17 observed', 'UNADJUSTED', 'Archive inquiries', 'Field note'],
-    sectionLabels: ['DOCUMENTATION', 'OBSERVED SPECIMENS', 'UNADJUSTED MARKING', 'EXTERNAL INQUIRIES', 'OWNER OBSERVATION'],
+    sectionLabels: ['DOCUMENTATION', 'OBSERVED EXAMPLES', 'UNADJUSTED MARKING', 'EXTERNAL INQUIRIES', 'OWNER OBSERVATION'],
     documented: {
-      title: 'There was a Chronomètre Time-O-Vox',
+      title: 'A Chronomètre version is documented',
       intro: 'The Chronomètre specification existed. The surviving examples do not carry one uniform set of markings.',
       cards: [
         { label: 'MIH', title: 'Chronometer certification for a gold Time-O-Vox', body: 'Cyma material shared by the MIH records a gold Time-O-Vox receiving chronometer certification.' },
-        { label: 'HORLBECK', title: 'Testing in five positions and temperature', body: 'The Alarm Wristwatch describes a Chronomètre version of Cal. R.464 and testing in five positions and temperature.' },
+        { label: 'HORLBECK', title: 'Testing in five positions and at different temperatures', body: 'The Alarm Wristwatch describes a Chronomètre version of Cal. R.464 and states that qualifying movements were tested in five positions and at different temperatures.' },
         { label: 'BEITL', title: 'Gold models recorded as Chronometer versions', body: 'Alarm am Arm states that the illustrated 14K gold Time-O-Vox with open-worked lugs was always supplied as a Chronometer version. The examples shown include one with Chronometer markings on both dial and movement, and another with no such dial marking but a Chronometer marking on the movement.' }
       ]
     },
     observed: {
       title: 'The markings do not line up',
-      intro: 'Seventeen examples could be checked across sale pages, literature, service articles, video and social media.',
-      note: 'To avoid counting reposted or relisted watches twice, the underlying research identifies specimens primarily by movement number. In the public table, movement numbers are masked into number bands.'
+      intro: 'Seventeen examples were documented across sale pages, literature, service articles, video and social media.',
+      note: 'To avoid counting reposted or relisted watches twice, the underlying research identifies examples primarily by movement number. In the public table, movement numbers are partially masked (e.g. 10xx).'
     },
     mismatch: {
       cards: [
-        { label: 'SHOWN WATCH', title: 'Chronomètre on the dial', body: 'The shown watch has an 18K case and CHRONOMÈTRE on the dial. No five-position-and-temperature adjustment marking is visible on its movement.' },
-        { label: 'FIVE POSITIONS', title: 'No dial marking, but adjusted in five positions and temperature', body: 'A gold-coloured example without Chronomètre on the dial has “ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE” engraved on the movement.' },
+        { label: 'WATCH SHOWN HERE', title: 'Chronomètre on the dial', body: 'The watch shown here has an 18K case and CHRONOMÈTRE on the dial. No marking indicating adjustment to five positions and temperature is visible on its movement.' },
+        { label: 'FIVE POSITIONS', title: 'No dial marking, but adjusted to five positions and temperature', body: 'A gold-coloured example without Chronomètre on the dial has “ADJUSTED TO FIVE POSITION(S) AND TEMPERATURE” engraved on the movement.' },
         { label: 'UNADJUSTED', title: 'Gold-coloured case, UNADJUSTED', body: 'Conversely, a gold-coloured example also survives with UNADJUSTED engraved on the movement.' }
       ]
     },
@@ -40,7 +40,7 @@ export const cymaChronometreLocalized = {
       intro: 'A 1956 U.S. Senate hearing examined Swiss watches that were actually adjusted but imported with “unadjusted” markings in order to avoid additional duties.',
       body: [
         'One example cited by Pritchard concerns Tavannes. Factory advertising said every movement was adjusted for position and temperature, while a watch bought in Washington, D.C. was marked “unadjusted”.',
-        'CYMA WATCH CO. SA is listed as a group company in Pritchard’s Tavannes entry.',
+        'CYMA WATCH CO. SA is listed as a company within the Tavannes group in Pritchard’s Tavannes entry.',
         'The UNADJUSTED marking on a Time-O-Vox therefore cannot, by itself, establish that the movement was not adjusted.'
       ],
       quoteTranslation: '“Before leaving the factory, every Tavannes movement is adjusted for position and temperature.”',
@@ -48,10 +48,10 @@ export const cymaChronometreLocalized = {
     },
     archive: {
       title: 'What the archive inquiries established',
-      intro: 'In 2025, inquiries were sent to the MIH and the Neuchâtel State Archives. The MIH answered at model-document level; Neuchâtel checked the specific Movement No.4xx watch.',
+      intro: 'In 2025, inquiries were sent to the MIH and the Neuchâtel State Archives. The MIH response was limited to model-level documentation; Neuchâtel checked the specific Movement No.4xx watch.',
       cards: [
         { label: 'MIH / 18 SEP. 2025', title: 'Model documentation', body: 'No document directly tied to a Time-O-Vox Chronomètre was identified. The Cyma file did, however, contain a statement recording certification for a gold alarm watch, and that material was shared.' },
-        { label: 'NEUCHÂTEL / 14 NOV. 2025', title: 'Movement No.4xx', body: 'A follow-up inquiry specified Movement No.4xx, inside-case number 8 6525, BT and the years 1954–1958. Eight BT registers of roughly 100 pages each were checked, but no test corresponding to the shown specimen could be identified.' }
+        { label: 'NEUCHÂTEL / 14 NOV. 2025', title: 'Movement No.4xx', body: 'A follow-up inquiry specified Movement No.4xx, inside-case number 8 6525, BT and the years 1954–1958. Eight BT registers of roughly 100 pages each were checked, but no test corresponding to the watch shown here could be identified.' }
       ]
     },
     failure: {
@@ -62,11 +62,11 @@ export const cymaChronometreLocalized = {
       observedTitle: 'Still rings with one pusher depressed',
       observedBody: 'Three examples have nevertheless been observed ringing while one pusher remained depressed.',
       hypothesisTitle: 'Pivot area of the switching lever',
-      hypothesisBody: 'On the shown specimen, wear or play around the switching-lever pivot may be shifting the lever position and leaving too little travel toward the locking side. The internals of the other two examples have not been checked.',
-      examples: ['Shown specimen', 'Another specimen seen in a public video', 'A specimen offered for sale in Japan'],
+      hypothesisBody: 'On the watch shown here, wear or play around the switching-lever pivot may be shifting the lever position and leaving too little travel toward the locking side. The internals of the other two examples have not been checked.',
+      examples: ['Watch shown here', 'Another example seen in a public video', 'An example offered for sale in Japan'],
       swipe: 'Swipe horizontally to view the images',
       seen: 'ringing visually confirmed',
-      youtubeCaption: 'Shown specimen. The alarm can be heard even though the 4 o’clock pusher remains depressed, as it was when the watch was purchased.'
+      youtubeCaption: 'Watch shown here. The alarm can be heard even though the 4 o’clock pusher remains depressed, as it was when the watch was purchased.'
     },
     conclusion: {
       label: 'CURRENT CONCLUSION',
@@ -78,8 +78,8 @@ export const cymaChronometreLocalized = {
       ]
     },
     table: {
-      open: 'View observed specimens',
-      count: 'objects',
+      open: 'View observed examples',
+      count: 'examples',
       movementBand: 'MOV. No. BAND',
       sellerRef: 'LISTED REF.',
       era: 'ERA',
@@ -90,8 +90,8 @@ export const cymaChronometreLocalized = {
       markingNotVisible: 'marking not visible',
       unknown: 'unknown',
       deletedRecord: 'deleted record',
-      sixIndex: '6 index present',
-      noSixIndex: 'no 6 index'
+      sixIndex: '6 o’clock marker present',
+      noSixIndex: '6 o’clock marker absent'
     },
     sourceHeading: 'Sources used',
     backLabel: 'BACK TO CYMA TIME-O-VOX',
@@ -104,8 +104,8 @@ export const cymaChronometreLocalized = {
       'U.S. Senate Committee on Government Operations, Swiss Watches—Adjustments, hearings, 1956',
       'Musée international d’horlogerie (MIH), reply dated 18 Sep. 2025',
       'Office des archives de l’Etat, Neuchâtel, reply dated 14 Nov. 2025',
-      'VINTAGE ALARM / TypeC observed-specimen table and owner-observation record',
-      'Chrono24 / Plus Ultra AG purchase certificate and listing for the shown specimen, Ref. 1283',
+      'VINTAGE ALARM / TypeC observed-example table and owner-observation record',
+      'Chrono24 / Plus Ultra AG purchase certificate and listing for the watch shown here, Ref. 1283',
       'HODINKEE Shop, 1950s Cyma Time-O-Vox, Reference 1283',
       'Pamono, Cyma Time-O-Vox Watch from Cymaflex, Ref. 1283'
     ]
