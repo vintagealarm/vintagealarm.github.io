@@ -99,10 +99,10 @@ try {
       }))
     );
     const expectedFigureCaptions = [
-      { no: '01', label: '専用発音体', example: 'OMEGA MEMOMATIC' },
-      { no: '02', label: '膜状バック型', example: 'VULCAIN CRICKET' },
-      { no: '03', label: 'ピン／レバー伝達型', example: 'JUNGHANS MINIVOX' },
-      { no: '04', label: 'BELL-BASE型', example: 'LANCO-FON' }
+      { no: '01', label: '輪状の音バネを叩く', example: 'OMEGA MEMOMATIC' },
+      { no: '02', label: '振動板型', example: 'VULCAIN CRICKET' },
+      { no: '03', label: 'ピン伝達型', example: 'JUNGHANS MINIVOX' },
+      { no: '04', label: 'BELL-BASE型', example: 'LANCO-FON · CAL.1241' }
     ];
     if (JSON.stringify(figureCaptions) !== JSON.stringify(expectedFigureCaptions)) {
       failures.push(`${width}px: figure captions wrong: ${JSON.stringify(figureCaptions)}`);
