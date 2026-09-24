@@ -1915,7 +1915,7 @@ function bucketStatusLabel(status){
     MIGRATION:"移行期間",
     SAMPLED:"サンプル集計",
     ESTIMATE:"推定値",
-    UNSAMPLED:"全件集計"
+    UNSAMPLED:"サンプリングなし"
   }[part]||part)).join(" / ");
 }
 function bucketComparison(points){
@@ -1935,7 +1935,7 @@ function bucketComparison(points){
       '<td class="num">'+n(point.search)+'</td><td class="num">'+n(point.direct)+'</td><td class="num">'+n(point.internalPV)+'</td><td class="num">'+deltaText+'</td></tr>';
   }).join("");
   return '<section class="card bucket-compare"><div class="section-head"><div class="section-title">期間比較</div><span>同じ長さ・同条件の期間だけ前期間と比較 · 集計途中/短期間/移行期間は比較対象外</span></div>'+
-    '<table><thead><tr><th>期間</th><th>データ状態</th><th class="num">PV</th><th class="num">訪問数</th><th class="num">X</th><th class="num">検索</th><th class="num">直接流入</th><th class="num">内部PV</th><th class="num">訪問数差</th></tr></thead><tbody>'+body+'</tbody></table></section>';
+    '<table><thead><tr><th>期間</th><th>データ状態</th><th class="num">PV</th><th class="num">訪問数</th><th class="num">X</th><th class="num">検索</th><th class="num">直接・参照元不明</th><th class="num">内部PV</th><th class="num">訪問数差</th></tr></thead><tbody>'+body+'</tbody></table></section>';
 }
 
 function render(data){
