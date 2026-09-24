@@ -30,6 +30,7 @@ for (const watch of watches) {
 const homeHtml = fs.existsSync(path.join(dist, 'index.html'))
   ? fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
   : '';
+const arrivalProbeUrl = 'https://vintage-alarm-analytics.orima1995.workers.dev/api/arrival-probe';
 const xHtml = fs.existsSync(path.join(dist, 'x/index.html'))
   ? fs.readFileSync(path.join(dist, 'x/index.html'), 'utf8')
   : '';
@@ -92,6 +93,7 @@ for (const watch of watches) {
       if (!watchHtml.includes('"headline":')) failures.push(`${watch.slug}: Article headline missing`);
       if (!/"dateModified":"\d{4}-\d{2}-\d{2}"/.test(watchHtml)) failures.push(`${watch.slug}: Article dateModified missing or invalid`);
       if (!watchHtml.includes('"author":{"@type":"Organization","name":"VINTAGE ALARM"')) failures.push(`${watch.slug}: Article author missing or invalid`);
+      if (!watchHtml.includes(arrivalProbeUrl)) failures.push(`${watch.slug}: early arrival probe marker missing`);
 
       const hasResearchRecord = watchHtml.includes('data-research-record');
       if (researchSlugs.has(watch.slug) && !hasResearchRecord) {
@@ -118,6 +120,10 @@ for (const [name, html] of [['TOP', homeHtml], ['X', xHtml]]) {
   for (const marker of sharedLandingMarkers) {
     if (!html.includes(marker)) failures.push(`${name}: shared landing marker missing: ${marker}`);
   }
+}
+
+if (!homeHtml.includes(arrivalProbeUrl)) {
+  failures.push('TOP: early arrival probe marker missing');
 }
 
 for (const [name, html, lang, lead, howPath] of [
