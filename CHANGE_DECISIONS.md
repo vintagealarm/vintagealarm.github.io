@@ -24,7 +24,7 @@
 - **影響範囲**：Analytics Workerの表示名 / AI export limitations / regression test / `measurement/metrics.md` / `PROJECT_STATE.md` / Analytics route map export / post-build quality gate。集計値・channel分類ロジック・WATCH本文・公開route・HOW THEY RINGは変更しない。
 - **検証状態**：branch実装済み。生成HTML / AI export regressionとPR CIを再実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
 - **再検討条件**：Cloudflareのlive `rumPageloadEventsAdaptiveGroups` schema/settingsでconfidence fieldとdataset limitsを確認できた場合に、95% confidence intervalの追加を別変更として検討する。
-- **関連**：Draft PR #118 / commits `a224c90a`, `df47342b`, `1491240e`, `ab4a607d`, `fe1902df`, `5569fd37`, `86d89a33`。
+- **関連**：Draft PR #118 / stale five-WATCH wording correction `321c36c1` / commits `a224c90a`, `df47342b`, `1491240e`, `ab4a607d`, `fe1902df`, `5569fd37`, `86d89a33`。
 - **日時根拠**：semantic correction commits `2026-09-24T13:46:53Z → 2026-09-24 22:46 JST` ～ `2026-09-24T13:47:13Z → 2026-09-24 22:47 JST`、route mapping gate commits `2026-09-24T13:49:33Z → 2026-09-24 22:49 JST` ～ `2026-09-24T13:49:38Z → 2026-09-24 22:49 JST`。見出し時刻は計測意味の修正が確定した22:47 JSTを維持する。
 
 
