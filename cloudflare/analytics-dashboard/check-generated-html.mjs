@@ -1,6 +1,42 @@
 import vm from "node:vm";
-import worker, { aggregateSnsEntries, aggregateTrendBuckets, campaignWindow, campaignSummary, mapWithConcurrency, mergePeriodData, mergeTrendPoints, normalizeTrendBucket, parseYouTubeVideoUrl, resolveAnalyticsRange, splitPeriod } from "./worker.js";
+import worker, { aggregateSnsEntries, aggregateTrendBuckets, buildPeriodIntegrity, campaignWindow, campaignSummary, mapWithConcurrency, mergePeriodData, mergeTrendPoints, normalizeTrendBucket, parseYouTubeVideoUrl, resolveAnalyticsRange, splitPeriod } from "./worker.js";
 import assert from "node:assert/strict";
+
+const integrityBase = {
+  pageviews: 10,
+  visits: 8,
+  completeness: { pages: true, referrers: true, flows: true, entries: true, countries: true, devices: true },
+  sampling: { total: 1, pages: 1, referrers: 1, flows: 1, entries: 1, countries: 1, devices: 1 },
+  pages: [{ pageviews: 10, visits: 8 }],
+  channels: [{ name: "Direct / Unknown", visits: 8 }],
+  flows: [{ pageviews: 10, visits: 8 }],
+  countries: [{ name: "Japan", pageviews: 10 }],
+  devices: [{ name: "Desktop", pageviews: 10 }],
+};
+const integrityPass = buildPeriodIntegrity(integrityBase);
+assert.equal(integrityPass.status, "PASS");
+assert.equal(integrityPass.failures.length, 0);
+const integrityDrift = buildPeriodIntegrity({
+  ...integrityBase,
+  sampling: { ...integrityBase.sampling, flows: 10 },
+  flows: [{ pageviews: 9, visits: 8 }],
+});
+assert.equal(integrityDrift.status, "ESTIMATE_DRIFT");
+assert.equal(integrityDrift.failures.length, 0, "sampled estimate drift must not be promoted to hard failure");
+assert.equal(integrityDrift.estimateDrift[0]?.name, "flows.pageviews");
+const integrityFail = buildPeriodIntegrity({
+  ...integrityBase,
+  countries: [{ name: "Japan", pageviews: 9 }],
+});
+assert.equal(integrityFail.status, "FAIL");
+assert.equal(integrityFail.failures[0]?.name, "countries.pageviews");
+const integrityPartial = buildPeriodIntegrity({
+  ...integrityBase,
+  completeness: { ...integrityBase.completeness, countries: false },
+  countries: [{ name: "Japan", pageviews: 9 }],
+});
+assert.equal(integrityPartial.status, "PARTIAL");
+assert.equal(integrityPartial.skipped[0]?.name, "countries.pageviews");
 
 const start = '2026-09-08T00:00:00Z';
 const partial = campaignWindow(start, 24, Date.parse(start) + 3600000);
