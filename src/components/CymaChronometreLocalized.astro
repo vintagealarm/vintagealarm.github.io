@@ -81,7 +81,7 @@ const backHref = '/' + locale + '/cyma-time-o-vox/';
 const fieldImageCopy = locale === 'en'
   ? [
       'Alarm spring on the movement, extending roughly from 5 to 11 o’clock.',
-      'On the shown specimen, contact marks are visible away from the intended operating hole. The repairer’s explanation was that excessive spring tension can reproduce the same condition and trigger the alarm there as well. Whether the two other R.464 examples with the same symptom share this cause is unknown.'
+      'On the watch shown here, contact marks are visible away from the intended operating hole. The repairer’s explanation was that excessive spring tension can reproduce the same condition and trigger the alarm there as well. Whether the two other R.464 examples with the same symptom share this cause is unknown.'
     ]
   : [
       'Alarmfeder auf dem Werk, ungefähr von 5 bis 11 Uhr verlaufend.',
@@ -120,7 +120,7 @@ const fieldImageCopy = locale === 'en'
         <div class="proto-owner-title">
           <p class="proto-kicker">CYMA / CAL. R.464</p>
           <h1>{copy.heading}</h1>
-          <p class="proto-owner-deck">{copy.lead.map((line) => <span>{line}</span>)}</p>
+          <p class="proto-owner-deck">{copy.lead.map((line) => <span>{line}{' '}</span>)}</p>
         </div>
         <figure class="proto-owner-watch">
           <img src={base + image.replace(/^\//, '')} alt="CYMA Time-O-Vox 18K Chronomètre" />
@@ -173,7 +173,7 @@ const fieldImageCopy = locale === 'en'
           <header><span>03</span><div><small>{copy.sectionLabels[2]}</small><h2>{copy.tariff.title}</h2></div><button class="proto-owner-section-toggle" type="button" aria-label={copy.nav[2]} aria-controls="owners-unadjusted-content" aria-expanded="true"></button></header>
           <div class="proto-owner-copy" id="owners-unadjusted-content">
             <p>{copy.tariff.intro} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></p>
-            <blockquote><p lang="en">{proofQuote}</p><footer>{copy.tariff.quoteTranslation} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></footer></blockquote>
+            <blockquote><p lang="en">{proofQuote}</p>{locale !== 'en' && <footer>{copy.tariff.quoteTranslation} <sup class="proto-cite"><a href="#source-6">[6]</a></sup></footer>}</blockquote>
             {copy.tariff.body.map((paragraph, index) => <p>{paragraph}
               {index === 0 && <sup class="proto-cite"><a href="#source-5">[5]</a><a href="#source-6">[6]</a></sup>}
               {index === 1 && <sup class="proto-cite"><a href="#source-5">[5]</a></sup>}
