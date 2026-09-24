@@ -297,3 +297,15 @@
 - **検証状態**：Analytics Worker CIでprobe POST/HEAD/origin拒否、SQL集計、VA2出力を検査。Astro buildで公開HTMLへのprobe埋込を検査し、main反映後はWorker binding HEAD health checkとlive HTML gateで別途DEPLOYEDを確認する。新しい外部流入が発生するまでcapture-gapの原因判定はOBSERVEDにしない。
 - **関連**：PR #121、commits `2dc33b0dfbfa8f3bf62096e7bbf9f2554e562460`, `f2cd519fec3cecb4523b33c56f2998236e2a47fd`, `84823475047555f00b73181b3ba5da885db2a986`, `262c1ec25a95e2ed602e0868361772c3365eee5e`, `061f5a27dc6d428b6c7e7d561247fb7b286b62ec`, `27c0ccab191bfeaccc9e4bc35544695276bf9104`, `1fc8bd2c41cab9ba2e637e4b39f7cd25f50d4812`, `80007956227a707d56d7883030be7f9135848ebf`, `6772427a0654c5afb2f27fc0229c067ebbb31f96`, `601d8db5bead5377763c711d9036c7ca72ae349b`, `2bc3e9b40fd315ba5cc87da6b01eb09b26a530a2`, `cfed508ec5699640f5c3feeebd41208aafd2c671`, `e82404eb16a521180686f41d21fc3413623563fb`, `5bfdea5119932b077dd0403d955d54f1b659a178`
 - **日時根拠**：GitHub commit `2dc33b0dfbfa8f3bf62096e7bbf9f2554e562460` の 2026-09-24T23:07:14Z → 2026-09-25 08:07 JST。後続実装commitは同日 2026-09-24T23:15:55Z → 2026-09-25 08:15 JST まで。
+
+
+## 2026-09-25 — Arrival Probe保存先をDurable Objectへ変更
+
+### 2026-09-25 08:22 JST — Analytics Engine未有効によるdeploy失敗を受けてSQLite-backed Durable Objectへ切替
+- **変更**：early arrival probeの保存先をWorkers Analytics Engine datasetから、同一Analytics Worker内のSQLite-backed Durable Object `ArrivalProbeStore`へ変更する。browser側probe payload、`/api/arrival-probe`、通常Visitsとの分離、AI export / VA2の`probe` / `probeRows`、判定方法は維持する。
+- **理由**：PR #121 merge後のDeploy Analytics Worker run `36072117353` で、Wrangler upload時にCloudflare APIが `code: 10089`（Analytics Engineを有効化する必要がある）を返し、本番Worker更新が失敗した。診断SPIKEのためだけにユーザーへCloudflare Dashboardでの機能有効化を要求せず、Cloudflare公式でFree / Paid双方に提供され新規SQLite backendが推奨されるDurable Objectsへ保存層だけ差し替える。
+- **旧状態・棄却**：`[[analytics_engine_datasets]] ARRIVAL_PROBE = va_arrival_probe_v1` とAnalytics Engine SQL APIによるqueryを棄却。X Link Click→HTML→RUMを分離する診断目的自体は維持する。
+- **影響範囲**：`cloudflare/analytics-dashboard/entry-worker.js`、`wrangler.toml`、entry-worker tests、`measurement/metrics.md`、capture-gap監査記録。公開WATCH本文、probe送信JS、通常Cloudflare Web Analytics、AI relay表示形式、既存KPIは変更しない。
+- **検証状態**：branch CIでentry-worker / build / decision-logを再検証後、main mergeでAnalytics Workerを再deployする。deploy workflowの`HEAD /api/arrival-probe`が204になることをbinding/storageのlive gateとし、GitHub Pages上のprobe scriptと合わせてDEPLOYED判定する。新しい外部流入が発生するまで原因判定はOBSERVEDとしない。
+- **関連**：PR #121（初回SPIKE）、Deploy Analytics Worker run `36072117353`、commits `73450fbea8a1c9f6a1ffe3bac03c7c6a359e2407`, `1c6ae3f8014f32b3fbf418109be8c3425fed6dd2`, `a2170a873d32ff3ad2266940cb30e571440ab9a6`, `25be4b4dd32f1f6a7af17d574b3d9b138f5eb8b6`, `95cc44d7fd7e00af1246b62b7cfb7e8928a1579a`
+- **日時根拠**：GitHub commit `73450fbea8a1c9f6a1ffe3bac03c7c6a359e2407` の 2026-09-24T23:22:33Z → 2026-09-25 08:22 JST。後続commitは 2026-09-24T23:24:00Z → 2026-09-25 08:24 JST まで。
