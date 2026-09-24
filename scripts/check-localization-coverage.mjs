@@ -57,10 +57,27 @@ for (const lang of ['en', 'de']) {
   }
 }
 
+
+for (const lang of ['en', 'de']) {
+  const rel = `${lang}/cyma-time-o-vox/chronometre/`;
+  const builtPath = path.join('dist', lang, 'cyma-time-o-vox', 'chronometre', 'index.html');
+  const declaredUrl = `${siteRoot}${rel}`;
+  try {
+    await fs.access(builtPath);
+    if (!llms.includes(`- ${declaredUrl}`)) {
+      failures.push(`${lang}: published /${rel} exists but is missing from public/llms.txt`);
+    }
+  } catch {
+    if (llms.includes(`- ${declaredUrl}`)) {
+      failures.push(`${lang}: public/llms.txt declares /${rel} but the built page does not exist`);
+    }
+  }
+}
+
 if (failures.length) {
   console.error('Localized publication coverage check failed:');
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log('Localized publication coverage check passed for EN / DE watch routes and public/llms.txt.');
+console.log('Localized publication coverage check passed for EN / DE watch routes, CYMA Chronomètre research and public/llms.txt.');
