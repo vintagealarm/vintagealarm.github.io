@@ -486,7 +486,7 @@ export function buildAiFallbackFragment(payload) {
     `internalPV=${internalPageviews(combined)}`,
     `xprofile=${finiteNumber(combined?.xProfileEntries)}`,
     `externalCoverage=${extShown.length}/${extGroups.length}/${extShownVisits}/${extTotalVisits}/${combined?.flowRowsComplete === false ? 0 : 1}`,
-    `probe=${payload?.arrivalProbe?.available ? 1 : 0}/${finiteNumber(payload?.arrivalProbe?.total)}/${finiteNumber(payload?.arrivalProbe?.x)}/${finiteNumber(payload?.arrivalProbe?.sampleInterval || 1)}/${payload?.arrivalProbe?.complete === false ? 0 : 1}`,
+    `probe=${payload?.arrivalProbe?.available ? 1 : 0}/${finiteNumber(payload?.arrivalProbe?.total)}/${finiteNumber(payload?.arrivalProbe?.x)}/${payload?.arrivalProbe?.available ? finiteNumber(payload?.arrivalProbe?.sampleInterval || 1) : 0}/${payload?.arrivalProbe?.available && payload?.arrivalProbe?.complete !== false ? 1 : 0}`,
   ];
 
   if (migration) fields.push(`migration=${migration}`);
