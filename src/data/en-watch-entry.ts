@@ -72,13 +72,14 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
     title: 'Basis Alarm BFG 90 — Two-Barrel Bezel-Set Alarm | VINTAGE ALARM',
     description: 'Basis Alarm with Baumgartner BFG 90: two barrels wound from one crown in the same direction, sliding clutches, two winding indicators, rotating-bezel alarm setting, specimen photographs, original alarm sound and cited sources.',
     indexBlurb: 'Two barrels, one winding direction, two spinning indicator windows — and an alarm that sounds like a cicada.',
-    catch: ['A little mechanical toy box to touch, watch, and hear.'],
+    catch: ['A toy box to touch, look at, and listen to.'],
     ownersNote: {
       lead: [
-        'A little mechanical toy box to touch, watch, and hear.',
+        'A toy box to touch, look at, and listen to.',
         'Set the alarm with the bezel.',
-        'Wind the crown and the discs in the two windows spin.',
-        'Move the slider to ON — then comes the cicada-like alarm.'
+        'Wind it, and the discs in the little windows start spinning.',
+        'Move the slider to ON.',
+        'Then: a cicada.'
       ],
       guideTitle: 'Quick operating guide',
       guide: [
@@ -153,13 +154,13 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
     title: 'Citizen Alarm Cal. 980 — Japan’s First Domestically Produced Alarm Wristwatch | VINTAGE ALARM',
     description: 'Citizen Alarm from 1958: Japan’s first domestically produced alarm wristwatch, Cal. 980, two barrels, twin crowns, a rotating centre alarm disc, double-caseback sound construction, later Four Hands variants and cited sources.',
     indexBlurb: 'Japan’s first bell-ringing wristwatch: two barrels, two crowns and a rotating alarm disc at the center of the dial.',
-    catch: ['Japan’s first bell-ringing wristwatch — and the start of a lineage.'],
+    catch: ['Japan’s first domestically produced alarm wristwatch — and then came the legend.'],
     ownersNote: {
       lead: [
-        '1958: Japan’s first bell-ringing wristwatch.',
+        '1958: Japan’s first domestically produced alarm wristwatch.',
         'A rotating center alarm disc and two crowns define the earliest form.',
         'Its face recalls the earlier Memovox layout.',
-        'A later story says Jaeger-LeCoultre complained that it looked too similar; the cited research sources do not confirm that story.'
+        'And later came the legend: “Jaeger-LeCoultre complained because it looked too similar.”'
       ],
       guideTitle: 'Quick operating guide',
       guide: [
@@ -169,7 +170,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       noteTitle: 'NOTE',
       note: [
         'The first center-disc design was followed by four-hand alarm models.',
-        'The line later expanded into Alarm Date, College Alarm, sports and diver-style versions, and women’s alarm watches.',
+        'The line later expanded into Alarm Date, College Alarm, diver-style models with rotating bezels, and women’s alarm watches.',
         'What began as Japan’s first bell-ringing wristwatch became a broader Citizen alarm-watch family.'
       ]
     },
