@@ -161,3 +161,22 @@ Cloudflare公式FAQ / data collectionでは次を明記している。
 - 本番tracking architecture
 
 まず欠落層を特定する。
+
+
+## 実装状態
+
+2026-09-25、上記SPIKEを診断専用として実装した。
+
+- `SeoHead.astro` からCloudflare RUM script読込前にearly arrival probeを送る
+- `navigator.sendBeacon()` を優先し、queue失敗時のみ `fetch(..., keepalive:true)` へfallback
+- 保存先はWorkers Analytics Engine `va_arrival_probe_v1`
+- 保存次元はpath +粗いsource classのみ
+- canonical origin以外は拒否
+- admin analytics opt-out時はprobeも送らない
+- Dashboardの通常KPIには混ぜない
+- Analytics API / signed AI exportへ `arrivalProbe` を別オブジェクトで追加
+- VA2へ `probe` / `probeRows` を追加
+- deploy後のWorker bindingはHEAD health checkで確認
+- GitHub Pages live gateでprobe scriptの公開HTML混入を確認
+
+この時点では、probeを恒久計測へ昇格させない。新規外部流入で `Link Click / early probe / RUM Entry` の三点が揃った後に次の判断をする。
