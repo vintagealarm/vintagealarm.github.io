@@ -5,14 +5,21 @@ import { readWatchPublicationState } from './watch-publication.mjs';
 const root = process.env.LAYOUT_BASE_URL || 'http://127.0.0.1:4321/';
 const watchStates = readWatchPublicationState();
 const englishEntrySource = readFileSync(new URL('../src/data/en-watch-entry.ts', import.meta.url), 'utf8');
+const germanEntrySource = readFileSync(new URL('../src/data/de-watch-entry.ts', import.meta.url), 'utf8');
 const englishWatchSlugs = new Set([...englishEntrySource.matchAll(/^  '([^']+)': \\{/gm)].map((match) => match[1]));
+const germanWatchSlugs = new Set([
+  ...[...germanEntrySource.matchAll(/^  '([^']+)': \\{/gm)].map((match) => match[1]),
+  'cyma-time-o-vox'
+]);
 const publishedWatchRoutes = watchStates
   .filter((watch) => watch.published)
   .map((watch) => `${watch.slug}/`);
 const englishWatchRoutes = watchStates
   .filter((watch) => watch.published && englishWatchSlugs.has(watch.slug))
   .map((watch) => `en/${watch.slug}/`);
-const germanWatchRoutes = ['de/pierce-duofon/', 'de/westclox-watchlarm/', 'de/cyma-time-o-vox/'];
+const germanWatchRoutes = watchStates
+  .filter((watch) => watch.published && germanWatchSlugs.has(watch.slug))
+  .map((watch) => `de/${watch.slug}/`);
 const routes = [
   '',
   'history/',
@@ -88,7 +95,7 @@ try {
         if (japaneseState.lang !== 'ja') failures.push(`${width}px ${route}: html lang is not ja`);
         const watchSlug = route.replace(/\/$/, '');
         if (englishWatchSlugs.has(watchSlug) && !japaneseState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
-        if (['pierce-duofon/', 'westclox-watchlarm/', 'cyma-time-o-vox/'].includes(route) && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
+        if (germanWatchSlugs.has(watchSlug) && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (japaneseState.oversizedEnglishCta) failures.push(`${width}px ${route}: legacy ENGLISH ENTRY CTA remains`);
       }
 
@@ -118,7 +125,8 @@ try {
         }));
         if (englishState.lang !== 'en') failures.push(`${width}px ${route}: html lang is not en`);
         if (!englishState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
-        if (['en/pierce-duofon/', 'en/westclox-watchlarm/', 'en/cyma-time-o-vox/'].includes(route) && !englishState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
+        const watchSlug = route.replace(/^en\//, '').replace(/\/$/, '');
+        if (germanWatchSlugs.has(watchSlug) && !englishState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (!englishState.ownerTextOpen) failures.push(`${width}px ${route}: English OWNER'S NOTE text is not open by default`);
         if (englishState.alarmHeading && englishState.alarmHeading !== 'ORIGINAL ALARM VIDEO') failures.push(`${width}px ${route}: alarm video heading is not localized`);
         if (/OWNER OBSERVATION\s+OWNER OBSERVATION/i.test(englishState.sourcesText)) failures.push(`${width}px ${route}: duplicate owner-observation source label`);
