@@ -1,6 +1,6 @@
 # VINTAGE ALARM — Multilingual revision sync
 
-更新日: 2026-09-15
+更新日: 2026-09-24
 
 ## 結論
 
@@ -14,19 +14,17 @@
 
 ### English
 
-- FULL RESEARCH: Cyma Time-O-Vox / Pierce Duofon / Westclox Watchlarm
-- CONCISE ENTRY: Basis Alarm / Citizen Alarm
-
-英語版は全WATCHを同じ深度で複製する方針ではない。`CONCISE ENTRY` と `FULL RESEARCH` は意図的に併存する。
+- FULL RESEARCH: Basis Alarm / Cyma Time-O-Vox / Citizen Alarm / Pierce Duofon / Westclox Watchlarm / Wittnauer Cal.10WA
+- FULL RESEARCH: Cyma Time-O-Vox Chronomètre（独立RESEARCH）
 
 ### Deutsch
 
-- FULL RESEARCH: Cyma Time-O-Vox / Pierce Duofon / Westclox Watchlarm
-- 未展開: Basis Alarm / Citizen Alarm
+- FULL RESEARCH: Basis Alarm / Cyma Time-O-Vox / Citizen Alarm / Pierce Duofon / Westclox Watchlarm / Wittnauer Cal.10WA
+- FULL RESEARCH: Cyma Time-O-Vox Chronomètre（独立RESEARCH）
 
-ドイツ語版は部分展開中とする。`/de/` でもこの公開範囲を明示し、「ドイツ語版が全WATCH揃っている」と誤解させない。
+`CONCISE ENTRY` と「ドイツ語未展開WATCH」は旧運用とする。公開WATCH 6本はEN / DEとも研究本文・資料差・実機観察・出典まで持つ。
 
-`public/llms.txt` は「実際に公開されているURL」の一覧として扱い、完全版・短縮版を同一品質であるかのように解釈しない。
+`public/llms.txt` は「実際に公開されているURL」の一覧として扱い、WATCHだけでなく公開済みの独立RESEARCH言語版も実体と一致させる。
 
 ## 事実修正の同期ルール
 
@@ -105,13 +103,13 @@
 - RESEARCH NOTE
 - REVISION
 
-## 翻訳深度と同期は別問題
+## 翻訳深度と同期
 
-ページが `CONCISE ENTRY` か `FULL RESEARCH` かは編集・公開戦略の問題。
+公開WATCHはEN / DEとも `FULL RESEARCH` を標準とする。独立RESEARCHを多言語公開する場合も、日本語正本が持つ観測・資料差・未解決事項を省略して別の結論へ変えない。
 
-一方、**その言語版に既に存在する事実が古いまま残ることは許容しない。**
+**その言語版に既に存在する事実が古いまま残ることは許容しない。**
 
-したがって短縮英語版であっても、日本語正本の修正対象と同じ事実を掲載しているなら同期対象になる。
+全文深度を揃えてもrevision driftは自動では防げないため、共有事実の同期契約は継続する。
 
 ## 言語品質は「日本語語彙の移植」ではなく意味の保持で見る
 
@@ -146,3 +144,22 @@ Wittnauer 10WAなど今後の多言語展開では、翻訳公開前に「どの
 - `world first` 等の強い歴史主張
 
 多言語化を理由に日本語正本の確度を上げたり、海外資料側へ本文を寄せたりしない。
+
+
+## 2026-09-24｜全WATCH詳細版化とChronomètre
+
+旧 `CONCISE ENTRY` のBasis Alarm / Citizen AlarmをFULL RESEARCHへ昇格し、ドイツ語にも同じ詳細版を追加する。
+
+同時に、日本語のみだったCyma Time-O-Vox Chronomètre RESEARCHをEN / DEへ展開する。
+
+Chronomètreで同期対象として特に保護する論点:
+
+- 観測個体数は17件
+- 公開版Movement No.は番号帯へマスキング
+- Chronomètre文字盤表記・調整刻印・ケース素材は単純対応しない
+- `UNADJUSTED` 刻印だけで実際の未調整を断定しない
+- MIH資料は金製アラームウォッチへの証明書発行を示すが、掲載個体との一対一対応は未確定
+- Neuchâtel照会では掲載個体に対応する試験記録を特定できていない
+- 片側プッシャー押し込み状態でも鳴る3個体は観測事実、掲載個体の切替レバー支点部は仮説、他2個体内部は未確認
+
+翻訳でこれらの確度を上げない。
