@@ -50,6 +50,8 @@ German entry:
 - https://vintagealarm.github.io/de/cyma-time-o-vox/
 - https://vintagealarm.github.io/de/cyma-time-o-vox/chronometre/
 - https://vintagealarm.github.io/de/pierce-duofon/
+- https://vintagealarm.github.io/de/basis-alarm/
+- https://vintagealarm.github.io/de/citizen-alarm/
 - https://vintagealarm.github.io/de/westclox-watchlarm/
 - https://vintagealarm.github.io/de/wittnauer-10wa/
 
