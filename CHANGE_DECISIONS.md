@@ -24,7 +24,7 @@
 - **影響範囲**：管理Analytics Worker / AI export / VA2 fallback / AI relay / regression testsのみ。WATCH本文、公開route、measurement target 5本と公開WATCH 6本の区別、HOW THEY RING、Search Console importは変更しない。
 - **検証状態**：branchへ実装済み。Draft PR #118でAnalytics worker / relay / Astro foundation CIを実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
 - **再検討条件**：Cloudflare Web Analyticsのlive GraphQL schema/settingsで `confidence` とdataset固有のmaxPageSize/maxDurationを安全に確認できた場合は、confidence intervalと動的limitを次段階として追加検討する。
-- **関連**：branch `fix/analytics-audit-20260924` / Draft PR #118 / commits `f196f3db`, `d6c32cbf`, `d21a1a0d`, `fa88321b`, `209a22a7`, `dec77b23`, `27a52a9c`, `b9c5bf87`, `303f51c2`, `a215596d`, `424686fe`, `0e4c941a`, `9041c4f1`。
+- **関連**：branch `fix/analytics-audit-20260924` / Draft PR #118 / commits `f196f3db`, `d6c32cbf`, `d21a1a0d`, `fa88321b`, `209a22a7`, `dec77b23`, `27a52a9c`, `b9c5bf87`, `303f51c2`, `a215596d`, `424686fe`, `0e4c941a`, `9041c4f1`, `d8cd9bc6`, `23cd0aeb`。
 - **日時根拠**：最初の実装commit `f196f3db` のGitHub時刻 `2026-09-24T11:16:13Z → 2026-09-24 20:16 JST` を採用。
 
 
