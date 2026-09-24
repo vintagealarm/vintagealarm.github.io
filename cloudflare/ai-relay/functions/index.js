@@ -177,7 +177,9 @@ function renderPeriod(title, period) {
     `- Visits: ${number(period.visits)}`,
     `- Page views: ${number(period.pageviews)}`,
     `- Quality: ${text(period.quality || (number(period.sampleInterval) > 1 ? "SAMPLED / ESTIMATE" : "UNSAMPLED"))}`,
-    `- Sample interval: ${number(period.sampleInterval || 1)}`,
+    `- Sample interval (max across exported query groups): ${number(period.sampleInterval || 1)}`,
+    ...(period.sampling ? [`- Sampling by section: total=${number(period.sampling.total || 1)}, pages=${number(period.sampling.pages || 1)}, referrers=${number(period.sampling.referrers || 1)}, flows=${number(period.sampling.flows || 1)}, entries=${number(period.sampling.entries || 1)}, countries=${number(period.sampling.countries || 1)}, devices=${number(period.sampling.devices || 1)}`] : []),
+    ...(period.completeness ? [`- Row coverage: pages=${period.completeness.pages !== false ? "complete" : "truncated"}, referrers=${period.completeness.referrers !== false ? "complete" : "truncated"}, flows=${period.completeness.flows !== false ? "complete" : "truncated"}, entries=${period.completeness.entries !== false ? "complete" : "truncated"}, countries=${period.completeness.countries !== false ? "complete" : "truncated"}, devices=${period.completeness.devices !== false ? "complete" : "truncated"}`] : []),
     `- X profile entries (/x/): ${number(period.xProfileEntries)}`,
     "",
     "### Channels",
@@ -288,7 +290,7 @@ export async function onRequestGet(context) {
     }
 
     const source = sourceFromRelayUrl(requestUrl);
-    const isShortLink = requestUrl.pathname.startsWith("/s/v1/");
+    const isShortLink = /^\/s\/v(?:1|2)\//.test(requestUrl.pathname);
     const upstream = await fetch(source.toString(), {
       headers: { Accept: "application/json" },
       redirect: "error",
