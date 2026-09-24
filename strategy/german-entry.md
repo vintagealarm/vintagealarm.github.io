@@ -1,7 +1,7 @@
 # VINTAGE ALARM — German translation preparation
 
-更新日: 2026-09-14
-状態: ドイツ語入口を拡張済み。TOP `/de/` は日本語TOPと同じ入口構造だけを持ち、画像付きOWNER'S NOTES一覧は `/de/owners-notes/` に分離する。HOW THEY RING `/de/how-they-ring/` も日本語正本に沿ってローカライズし、既存のHISTORY・WATCH・SOURCESと接続する。Duofonドイツ語パイロット公開済み。`/de/`・`/de/pierce-duofon/`・日本語/英語/ドイツ語の言語切替・hreflang・sitemap・llms.txt・Analyticsパスマッピングまで実装済み。ユーザー本人による逐語逆翻訳監査を実施し、事実・構造・確度・資料差は高い忠実性を確認。OWNER'S NOTE周辺の4点（「祖先」の比喩、SIGNAL「静音」、WECKER「ベル音」、締めの「未来の空気」）を日本語正本へ寄せて修正した。OWNER'S NOTE画像も日本語版と同じ `/images/pierce-duofon/owners-note.jpg` を使うよう修正済み。逆翻訳の合格基準は日本語正本との一字一句一致ではなく、ドイツ語だけから意味・構造・温度感を十分に再構成できることとする。
+更新日: 2026-09-24
+状態: 所有6 WATCHのドイツ語FULL RESEARCHを実装。Cyma Time-O-Vox / Pierce Duofon / Westclox Watchlarm / Wittnauer Cal.10WAに加え、Basis Alarm / Citizen AlarmもOWNER'S NOTE・SPEC・掲載個体・DEEP DIVE・出典まで日本語正本から直接ドイツ語化する。TOP、OWNER'S NOTES、HISTORY、HOW THEY RING、SOURCESは既存の言語別URLを維持する。
 
 ## 目的
 
@@ -189,3 +189,11 @@ Duofon資料には、少なくとも次の差がある。
 - URLだけから全文逐語訳を拒否したことが、著者性・所有者性の否定を意味すること。
 
 公開Webページの全文翻訳要求は著作権処理で止まる場合があるため、今後の監査は `URLだけで発見・言語版対応を見るテスト` と `貼付した本文で逐語逆翻訳を見るテスト` を分離する。URL全文翻訳の拒否は翻訳品質の失敗として数えない。
+
+## 2026-09-24｜全WATCH詳細版へ
+
+- Basis Alarm / Citizen Alarmを追加し、所有6 WATCHすべてをドイツ語FULL RESEARCHへ揃える。
+- 日本語正本 → ドイツ語の直訳ルートを維持し、英語版を中継翻訳には使わない。
+- BFG 90では `Federhaus`、`Zugfeder`、`Rutschkupplung`、`Aufzugsanzeige`、`Stiftankerhemmung` 等、ドイツ語時計技術文として自然な語を使う。
+- Citizenでは `Gehwerk`、`Gehäuseboden`、`Doppelboden`、`Stoßsicherung` 等を使い、「Jaeger-LeCoultreからのクレーム」は未確認の伝説として日本語正本と同じ確度を保つ。
+- FULL RESEARCH化は翻訳者による再編集ではない。章立て、主張、資料差、確度、OWNER OBSERVATIONを日本語正本から増減させない。
