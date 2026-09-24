@@ -28,6 +28,7 @@ Published watch pages:
 English entry:
 - https://vintagealarm.github.io/en/
 - https://vintagealarm.github.io/en/history/
+- https://vintagealarm.github.io/en/owners-notes/
 - https://vintagealarm.github.io/en/how-they-ring/
 - https://vintagealarm.github.io/en/sources/
 - https://vintagealarm.github.io/en/cyma-time-o-vox/
@@ -39,6 +40,7 @@ English entry:
 German entry:
 - https://vintagealarm.github.io/de/
 - https://vintagealarm.github.io/de/history/
+- https://vintagealarm.github.io/de/owners-notes/
 - https://vintagealarm.github.io/de/how-they-ring/
 - https://vintagealarm.github.io/de/sources/
 - https://vintagealarm.github.io/de/cyma-time-o-vox/
