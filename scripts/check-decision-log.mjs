@@ -51,6 +51,21 @@ function exemptionReason() {
 }
 
 const hasLogChange = changedSet.has(decisionLogPath);
+
+const commits = runGit('rev-list', '--reverse', `${mergeBase}..HEAD`)
+  .split('\n')
+  .map((value) => value.trim())
+  .filter(Boolean);
+
+const decisionBearingCommits = commits.filter((sha) => {
+  const files = runGit('diff-tree', '--no-commit-id', '--name-only', '-r', sha)
+    .split('\n')
+    .map((value) => value.trim())
+    .filter(Boolean);
+  if (files.includes(decisionLogPath)) return false;
+  return files.some(decisionBearing);
+});
+
 if (relevant.length && !hasLogChange) {
   const reason = exemptionReason();
   if (reason.length >= 8) {
@@ -84,6 +99,16 @@ if (relevant.length && newHeadings.length === 0) {
 }
 
 const full = readFileSync(decisionLogPath, 'utf8');
+const addedText = added.join('\n');
+for (const sha of decisionBearingCommits) {
+  const short = sha.slice(0, 8);
+  if (!addedText.includes(short) && !addedText.includes(sha)) {
+    console.error(`Decision log check failed: decision-bearing commit ${short} is not referenced by a newly added decision entry.`);
+    console.error('Every decision-bearing commit must either update CHANGE_DECISIONS.md itself or be listed in the new **関連** entry.');
+    process.exit(1);
+  }
+}
+
 const requiredLabels = ['変更', '理由', '旧状態・棄却', '影響範囲', '検証状態', '関連', '日時根拠'];
 
 for (const heading of newHeadings) {
