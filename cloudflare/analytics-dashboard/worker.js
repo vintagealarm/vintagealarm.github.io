@@ -345,6 +345,10 @@ async function aiExportResponse(request, url, env) {
           "Aggregate Cloudflare Web Analytics only; no IP addresses, cookies, or raw user-agent strings are exported.",
         attribution:
           "X/YouTube/SNS referrer paths can help diagnosis but do not guarantee post-level attribution.",
+        visits:
+          "Cloudflare Web Analytics Visits count entry page views that start from an external referrer or direct/no-referrer traffic. They are not unique people or users.",
+        direct:
+          "Direct / Unknown means no usable referrer host was recorded for that entry. It must not be read as confirmed typed/bookmarked traffic.",
         hostSeparation:
           "NEW and OLD are queried separately. A host-scoped sum is also provided with its breakdown; it is not a cross-host unique-person count.",
         availability:
@@ -1494,7 +1498,7 @@ function buildFlows(rows, targetHost = DEFAULT_HOST) {
     } else if (channel === "Host Migration") {
       sourceName = "Host Migration";
     } else if (channel === "Direct / Unknown") {
-      sourceName = "Direct";
+      sourceName = "Direct / Unknown";
     } else if (row.refererPath) {
       sourceName = channel + " · " + row.refererPath;
     }
