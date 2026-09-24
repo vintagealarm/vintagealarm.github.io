@@ -17,6 +17,15 @@
 
 ## 2026-09-24
 
+### 2026-09-24 22:53 JST — Gemini referrerをOrganic Searchへ誤分類しない
+- **変更**：referrer host分類で既知のAI Assistant host判定を汎用Search family判定より先に実行する。これにより `gemini.google.com` は `AI Assistant`、通常の `google.com` / `google.co.jp` 等は従来どおり `Organic Search` とする。分類関数をregression testから直接検証できるようexportし、計測仕様にも優先順位を明記した。
+- **理由**：従来は `google.*` のOrganic Search判定がAI判定より先だったため、AI Assistant一覧へ `gemini.google.com` を登録していても到達不能で、Gemini流入がSearchへ吸収される実装順序バグになっていた。したがって旧classifierで得た `AI=0` はGemini流入の不存在まで証明しない。
+- **旧状態・棄却**：Organic Searchを先に判定してからAI Assistantを判定する順序、および `gemini.google.com` をAI一覧へ追加しただけで分類済みとみなす状態を棄却する。referrer hostだけで分離できないGoogle検索面内のAI機能を推測でAIへ振り替えることもしない。
+- **影響範囲**：Analytics Workerのreferrer channel分類 / regression test / `measurement/metrics.md`。Cloudflare raw計測値は変更しないが、deploy後に取得する期間集計ではGemini referrerが存在した場合にSearchからAIへ正しく再分類される。
+- **検証状態**：branch実装済み。Analytics worker CIとAstro foundation CIを再実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
+- **関連**：Draft PR #118 / commits `1e958da2`, `86767209`, `0ba92698`。
+- **日時根拠**：implementation commits `2026-09-24T13:53:05Z → 2026-09-24 22:53 JST` ～ `2026-09-24T13:53:11Z → 2026-09-24 22:53 JST`。最終実装commit時刻を見出し時刻に採用。
+
 ### 2026-09-24 22:47 JST — AnalyticsのVisits / Direct誤読防止と公開WATCH状態を分離
 - **変更**：Cloudflare Web AnalyticsのVisitsをユニーク人数として扱わないこと、`Direct / Unknown` を直打ち・ブックマーク確定として扱わないことを計測仕様とAI exportへ明記。flowのno-referrer表示も `Direct` へ縮めず `Direct / Unknown` を維持する。同時にGitHub実体を再監査し、公開WATCHはWittnauer 10WAを含む6本、Analytics運用上の `measurement target` は別括りの5本として `PROJECT_STATE.md` を修正した。さらに、今後の公開route追加時にAnalytics表示名だけが追従漏れしないよう、Astro build後の `dist/sitemap.xml` 全公開URLをAnalyticsの統合route mapと突合し、未登録routeが1件でもあれば `check:quality` を失敗させるCI gateを追加した。
 - **理由**：Cloudflare公式仕様ではVisitsは外部referrerまたはDirectから始まるPage viewを基準とする指標で、ユニークユーザー数ではない。またreferrerが利用できない入口はDirect系へ入り得るため、82 Direct等を「直打ち82人」のように読む根拠はない。さらに現行の6 WATCH sourceを再取得すると6本すべて `published: true` で、07:54の「公開済みWATCH 5ページ」という状態記述が実体と衝突していた。今回すでにTOP / SOURCES / 多言語routeで手動mappingの追従漏れが発生していたため、個別assertの追加だけではなく公開sitemapを正本にした自動検査が必要と判断した。
