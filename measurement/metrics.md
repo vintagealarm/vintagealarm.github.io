@@ -107,7 +107,10 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 Page viewsとVisitsを同一視しない。
 
 Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始まったページビューを基準にする。
+**Visitsはユニークユーザー数・実人数ではない。** 同じ人物による別の入口発生を人物単位でdedupeした値として扱わない。
 内部遷移ではPage viewが増えてもVisitsが0になり得る。
+
+`Direct / Unknown` は、入口行で利用可能なreferrer hostが記録されていない分類とする。直打ち・ブックマークだけを意味せず、参照元を取得できなかった流入を含み得るため、`Direct` 単独へ縮めて確定表示しない。
 
 `Internal Navigation` は **request hostとreferrer hostが同じ場合だけ** とする。正規ホスト `vintagealarm.github.io` と旧ホスト `orima1995-create.github.io` の間をまたぐreferrerは `Host Migration` として分離し、SITE FLOWや内部回遊数へ加えない。host移行導線は別表・`migrationFlows`で観測する。
 
