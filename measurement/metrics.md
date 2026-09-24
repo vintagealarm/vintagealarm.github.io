@@ -50,7 +50,7 @@ Cloudflare Web Analytics / RUMをGraphQL APIから読み、VINTAGE ALARM用の�
 - Worker: `vintage-alarm-analytics.orima1995.workers.dev`
 - Basic Authで管理者だけが閲覧する
 
-`profile-worker.js` は基礎集計を壊さず、公開済みWATCH 5ページの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。本番のWATCH範囲はBasis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarmの5ページとする。
+`profile-worker.js` は基礎集計を壊さず、公開URLの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。公開状態と、別運用上の measurement target の括りは混同しない。
 
 表示:
 - RANGE: 1時間 / 3時間 / 24時間 / 7日 / 30日 / ALL / CUSTOM
@@ -95,6 +95,8 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 - `sampleParts` は total / pages / referrers / flows / entries / countries / devices の順で各query groupの `sampleInterval` を保持し、periodの `quality` はその最大値で判定する。`coverage` は pages / referrers / flows / entries / countries / devices の固定limit到達有無を明示する。
 - freshnessの `latestBucket` は最終イベント時刻ではなく最新の非ゼロ集計bucket。`gapLower` はそのbucket終了からの経過下限で、現在進行中bucketでは0でも「計測遅延0」を意味しない。
 - `integrity` は同じperiod内で total と pages / channels / flows / countries / devices の再集計値を突合する内部整合チェックとする。row coverageが完全かつ該当queryがunsampledなのに差が出た場合だけ `FAIL`、sampling中の差は `ESTIMATE_DRIFT`、row limit到達で完全性を保証できない項目は `PARTIAL` とする。これはCloudflareのconfidence intervalの代用ではなく、export内部の算術矛盾を検出する別レイヤー。
+- VA2の `compare` は `previous-period` / `none` を明示し、比較対象期間が存在しないALL等では `previous=NA` とする。取得不能を `0/0` として表示しない。
+- VA2のtrend statusは `PARTIAL / MIGRATION / SAMPLED / ESTIMATE` 等の複合状態を省略せず保持する。
 - Cloudflare API token / Dashboard password / IP / Cookie / raw User-Agentは返さない。
 - Search Console / Google生成AIのCSV ImportはブラウザlocalStorageのためexport対象外。
 
@@ -123,21 +125,31 @@ Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始�
 現在の主要マッピング:
 - `/` → TOP
 - `/history/` → HISTORY
+- `/en/history/` → HISTORY (EN)
+- `/de/history/` → HISTORY (DE)
 - `/owners-notes/` → OWNER'S NOTES
 - `/en/owners-notes/` → OWNER'S NOTES (EN)
 - `/de/owners-notes/` → OWNER'S NOTES (DE)
+- `/sources/` → SOURCES
+- `/en/sources/` → SOURCES (EN)
+- `/de/sources/` → SOURCES (DE)
 - `/basis-alarm/` → Basis Alarm
 - `/wittnauer-10wa/` → Wittnauer Cal.10WA
 - `/pierce-duofon/` → Pierce Duofon
 - `/cyma-time-o-vox/` → Cyma Time-O-Vox
 - `/citizen-alarm/` → Citizen Alarm
 - `/westclox-watchlarm/` → Westclox Watchlarm
+- `/en/{watch}/` / `/de/{watch}/` → 各言語版WATCH名（公開route実体があるものを個別マッピング）
 - `/how-they-ring/` → How They Ring
 - `/en/how-they-ring/` → How They Ring (EN)
 - `/de/how-they-ring/` → How They Ring (DE)
 - `/cyma-time-o-vox/chronometre/` → Cyma Time-O-Vox Chronomètre
+- `/en/cyma-time-o-vox/chronometre/` → Cyma Time-O-Vox Chronomètre (EN)
+- `/de/cyma-time-o-vox/chronometre/` → Cyma Time-O-Vox Chronomètre (DE)
 - `/cyma-time-o-vox/owners-note/` → Cyma OWNER'S NOTE
 - `/history/smartwatch/` → Smartwatch / HISTORY
+
+SNS着地先の再配分でもTOPを既知ページとして扱う。X等から `/` へ入ったVisitsを `other` に残さない。
 
 base path、末尾スラッシュ、URLエンコード差を正規化する。
 既知マッピングに一致しないPathは`UNMAPPED`として表示し、勝手に既存ページ名へ丸めない。
