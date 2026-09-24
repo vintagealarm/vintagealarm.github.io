@@ -165,6 +165,17 @@ function snsRows(period) {
     .join(",");
 }
 
+function integrityRows(period) {
+  const integrity = period?.integrity || {};
+  return [...(integrity.failures || []), ...(integrity.estimateDrift || [])]
+    .slice(0, 12)
+    .map((row) => {
+      const delta = finiteNumber(row?.delta);
+      return `${token(row?.name, 40)}:${delta >= 0 ? "+" : ""}${delta}/${token(row?.status, 12)}`;
+    })
+    .join(",");
+}
+
 function countryRows(period) {
   return (period?.countries || [])
     .slice(0, 12)
@@ -212,7 +223,7 @@ export function buildAiFallbackFragment(payload) {
   const legacy = payload?.legacy?.current || {};
   const generated = token(String(payload?.generatedAt || "").replace(/[-:.]/g, ""), 32);
   const migration = token(payload?.hostMigration?.date || "", 16);
-  const latestBucket = token(payload?.freshness?.latestEventBucket || "", 40);
+  const latestBucket = token(payload?.freshness?.latestNonZeroBucket || payload?.freshness?.latestEventBucket || "", 40);
   const sampling = combined?.sampling || {};
   const completeness = combined?.completeness || {};
   const samplingOrder = ["total", "pages", "referrers", "flows", "entries", "countries", "devices"];
@@ -231,6 +242,7 @@ export function buildAiFallbackFragment(payload) {
     `sample=${finiteNumber(combined?.sampleInterval || 1)}`,
     `sampleParts=${samplingOrder.map((key) => finiteNumber(sampling?.[key] || combined?.sampleInterval || 1)).join("/")}`,
     `coverage=${completenessOrder.map((key) => completeness?.[key] === false ? 0 : 1).join("/")}`,
+    `integrity=${token(combined?.integrity?.status || "UNKNOWN", 24)}`,
     `generated=${generated}`,
     `visits=${finiteNumber(combined?.visits)}`,
     `pageviews=${finiteNumber(combined?.pageviews)}`,
@@ -265,6 +277,7 @@ export function buildAiFallbackFragment(payload) {
   const sns = snsRows(combined);
   const countries = countryRows(combined);
   const devices = deviceRows(combined);
+  const integrityIssues = integrityRows(combined);
   const trend = trendRows(payload);
 
   if (pages) fields.push(`pages=${pages}`);
@@ -275,6 +288,7 @@ export function buildAiFallbackFragment(payload) {
   if (sns) fields.push(`sns=${sns}`);
   if (countries) fields.push(`countries=${countries}`);
   if (devices) fields.push(`devices=${devices}`);
+  if (integrityIssues) fields.push(`integrityIssues=${integrityIssues}`);
   if (trend) fields.push(`trend=${trend}`);
 
   return fields.join(";");
