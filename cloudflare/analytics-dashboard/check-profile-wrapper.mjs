@@ -156,6 +156,7 @@ const fixture = [
   'const platform=item.platform==="YouTube"?"YouTube":"X";',
   'const color=item.migration?"#706d67":platform==="YouTube"?COLORS.YouTube:COLORS.X;',
   'eventIndex(campaigns)+',
+  'document.getElementById("updated").textContent=\'更新 \'+new Date(data.generatedAt).toLocaleString("ja-JP");',
   'document.getElementById("refresh").addEventListener("click",()=>{window.location.reload();});'
 ].join('\n');
 const patchedHtml = patchDashboardHtml(fixture);
