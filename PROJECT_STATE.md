@@ -61,7 +61,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 主セクション: HISTORY / OWNER'S NOTES / WATCH / RESEARCH
 - SMARTWATCHはHISTORYのエピローグ。検索流入目的ではなく `noindex,follow`、sitemap対象外
 - 日本語WATCH本文が多言語版の意味上の正本
-- 公開済みWATCHの計測対象は **Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm の5本だけ**。**Wittnauer 10WAは所有個体／HOW THEY RING側のデータには含まれるが、公開済みWATCH 5ページの計測対象には含めない**
+- 公開済み日本語WATCHは **Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm / Wittnauer 10WA の6本**。このうち基準計測対象（measurement target）は **Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm の5本**。**Wittnauer 10WAは一般公開済みWATCHだが、5本のmeasurement targetには含めない**。公開状態と計測対象を混同しない
 - OWNER'S NOTES一覧の正本は `src/data/owners-directory.json`
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
