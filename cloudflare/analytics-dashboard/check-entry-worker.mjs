@@ -15,7 +15,7 @@ const sample = {
   arrivalProbe: {
     available: true,
     diagnosticOnly: true,
-    dataset: 'va_arrival_probe_v1',
+    storage: 'durable-object-sqlite:v1',
     version: 'v1',
     total: 4,
     x: 3,
@@ -142,13 +142,46 @@ const longStatusFallback = buildAiFallbackFragment({
 assert(longStatusFallback.includes('/PARTIAL-MIGRATION-SAMPLED-ESTIMATE/10'), 'trend status must not be silently truncated');
 
 const probeWrites = [];
+const mockProbeStore = {
+  async fetch(input, init = {}) {
+    const url = new URL(String(input));
+    if (url.pathname === '/health' && init.method === 'HEAD') {
+      return new Response(null, { status: 204 });
+    }
+    if (url.pathname === '/write' && init.method === 'POST') {
+      probeWrites.push(JSON.parse(init.body));
+      return new Response(null, { status: 204 });
+    }
+    if (url.pathname === '/query' && init.method === 'POST') {
+      return Response.json({
+        available: true,
+        diagnosticOnly: true,
+        storage: 'durable-object-sqlite:v1',
+        version: 'v1',
+        total: 4,
+        x: 3,
+        sampleInterval: 1,
+        complete: true,
+        firstAt: '2026-09-17T10:01:00.000Z',
+        lastAt: '2026-09-17T10:04:00.000Z',
+        rows: [
+          { path: '/wittnauer-10wa/', source: 'x', arrivals: 3, sampleInterval: 1, firstAt: '2026-09-17T10:01:00.000Z', lastAt: '2026-09-17T10:03:00.000Z' },
+          { path: '/wittnauer-10wa/', source: 'direct', arrivals: 1, sampleInterval: 1, firstAt: '2026-09-17T10:04:00.000Z', lastAt: '2026-09-17T10:04:00.000Z' },
+        ],
+      });
+    }
+    return new Response('Not found', { status: 404 });
+  },
+};
 const probeEnv = {
-  ARRIVAL_PROBE: {
-    writeDataPoint(point) {
-      probeWrites.push(point);
+  ARRIVAL_PROBE_STORE: {
+    getByName(name) {
+      assert(name === 'global', 'arrival probe must use the single diagnostic store');
+      return mockProbeStore;
     },
   },
 };
+
 const probeResponse = await arrivalProbeResponse(
   new Request('https://dashboard.test/api/arrival-probe', {
     method: 'POST',
@@ -161,9 +194,10 @@ const probeResponse = await arrivalProbeResponse(
   probeEnv,
 );
 assert(probeResponse.status === 204, 'arrival probe must accept canonical-site POSTs');
-assert(probeWrites.length === 1, 'arrival probe must write exactly one datapoint');
-assert(probeWrites[0].indexes[0] === '/wittnauer-10wa/', 'arrival probe must normalize path');
-assert(probeWrites[0].blobs[0] === 'x' && probeWrites[0].blobs[1] === 'v1', 'arrival probe source/version mismatch');
+assert(probeWrites.length === 1, 'arrival probe must write exactly one record');
+assert(probeWrites[0].path === '/wittnauer-10wa/', 'arrival probe must normalize path');
+assert(probeWrites[0].source === 'x', 'arrival probe source mismatch');
+assert(Number.isFinite(probeWrites[0].ts), 'arrival probe timestamp missing');
 
 const probeHead = await arrivalProbeResponse(
   new Request('https://dashboard.test/api/arrival-probe', {
@@ -184,26 +218,18 @@ const probeForbidden = await arrivalProbeResponse(
 );
 assert(probeForbidden.status === 403, 'arrival probe must reject foreign origins');
 
-let probeSql = '';
-const probeSummary = await queryArrivalProbe({
-  CF_ACCOUNT_ID: 'test-account',
-  CF_API_TOKEN: 'test-token',
-  PROBE_SQL_FETCH: async (_url, options) => {
-    probeSql = options.body;
-    return new Response(JSON.stringify({
-      data: [
-        { path: '/wittnauer-10wa/', source: 'x', arrivals: 3, sampleInterval: 1, firstAt: '2026-09-17 10:01:00', lastAt: '2026-09-17 10:03:00' },
-        { path: '/wittnauer-10wa/', source: 'direct', arrivals: 1, sampleInterval: 1, firstAt: '2026-09-17 10:04:00', lastAt: '2026-09-17 10:04:00' },
-      ],
-      rows: 2,
-    }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-  },
-}, '2026-09-17T10:00:00.000Z', '2026-09-17T11:00:00.000Z');
-assert(probeSummary.available === true, 'arrival probe query must be available with a successful SQL response');
+const probeSummary = await queryArrivalProbe(
+  probeEnv,
+  '2026-09-17T10:00:00.000Z',
+  '2026-09-17T11:00:00.000Z',
+);
+assert(probeSummary.available === true, 'arrival probe query must be available with a healthy store');
 assert(probeSummary.total === 4 && probeSummary.x === 3, 'arrival probe query totals mismatch');
 assert(probeSummary.sampleInterval === 1 && probeSummary.complete === true, 'arrival probe query quality metadata mismatch');
-assert(probeSql.includes('FROM va_arrival_probe_v1'), 'arrival probe SQL dataset missing');
-assert(probeSql.includes("blob2 = 'v1'"), 'arrival probe SQL version filter missing');
+assert(probeSummary.storage === 'durable-object-sqlite:v1', 'arrival probe storage label mismatch');
+
+const unavailableProbe = await queryArrivalProbe({}, '2026-09-17T10:00:00.000Z', '2026-09-17T11:00:00.000Z');
+assert(unavailableProbe.available === false && unavailableProbe.reason === 'configuration-unavailable', 'missing probe binding must remain explicitly unavailable');
 
 const signed = 'https://vintage-alarm-analytics.orima1995.workers.dev/api/ai-export?window=custom&range=custom&bucket=7d&start=2026-09-08&end=2026-09-21&expires=1999999999&sig=' + 'a'.repeat(64);
 const shortRelay = buildShortRelayUrl(signed);
