@@ -119,6 +119,8 @@ Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始�
 - `/` → TOP
 - `/history/` → HISTORY
 - `/owners-notes/` → OWNER'S NOTES
+- `/en/owners-notes/` → OWNER'S NOTES (EN)
+- `/de/owners-notes/` → OWNER'S NOTES (DE)
 - `/basis-alarm/` → Basis Alarm
 - `/wittnauer-10wa/` → Wittnauer Cal.10WA
 - `/pierce-duofon/` → Pierce Duofon
