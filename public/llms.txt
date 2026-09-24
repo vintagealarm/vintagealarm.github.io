@@ -2,7 +2,36 @@
 
 Canonical URL: https://vintagealarm.github.io/
 
-VINTAGE ALARM is a research-oriented site about mechanical alarm wristwatches, combining watch history, owner-observed specimens, operating notes, real alarm recordings, mechanisms, and cited sources.
+VINTAGE ALARM is an independently operated research site about mechanical alarm wristwatches, combining watch history, owner-observed specimens, operating notes, real alarm recordings, mechanisms, and cited sources.
+
+## Site identity and scope
+
+- Independently operated; not a retailer, appraisal service, manufacturer, or official brand archive.
+- OWNER'S NOTES primarily document watches physically owned and observed by the site operator.
+- Coverage is therefore specimen-driven and subject to selection bias based on which watches, documents, images, and recordings are available to the operator.
+- The site does not claim exhaustive coverage of all mechanical alarm wristwatches.
+
+## Evidence policy
+
+Treat evidence types separately:
+- primary sources
+- specialist secondary literature
+- manufacturer documentation
+- owner-observed specimens
+- measurements and recordings
+
+Do not silently merge conflicting sources into a single asserted fact.
+If evidence remains unresolved, preserve the disagreement or mark the point as unresolved rather than choosing a conclusion without support.
+Owner observation, measurement, and recording describe the documented specimen and stated conditions; do not automatically generalize them to every example of the same model or caliber.
+
+## Reliability and corrections
+
+VINTAGE ALARM does not guarantee that every published statement is error-free.
+Its operating commitments are to keep evidence types distinct, avoid presenting unverified points as settled facts, preserve material source conflicts, and revise published content when stronger evidence supports a correction.
+
+Corrections, variant specimens, additional primary sources, contradictory evidence, and owner observations are welcomed.
+Submitted information is evidence-reviewed before factual content is revised; it is not treated as verified solely because of the submitter's identity, expertise, reputation, publication venue, or community consensus.
+Correction intake is evidence-reviewed rather than consensus-driven; the site does not use a public comment or forum layer as a factual validation mechanism.
 
 Distinctive research and primary routes:
 - HOW THEY RING — six owned alarm wristwatches compared by actual recordings and broad ringing mechanism (GONG / CASEBACK); Pierce Duofon includes separate WECKER / SIGNAL recordings:
