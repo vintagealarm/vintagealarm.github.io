@@ -135,24 +135,29 @@
           ]
         },
         {
-          "path": "src/data/en-watch-full-research.ts",
-          "mustContain": [
-            "one crown winds both in the same direction.",
-            "sliding clutch",
-            "They are winding indicators",
-            "caseSize"
-          ],
-          "mustNotContain": [
-            "37 mm (same-type documentation)"
-          ]
-        },
-        {
           "path": "src/data/de-watch-entry.ts",
           "mustContain": [
             "Beide werden mit derselben Krone in derselben Drehrichtung aufgezogen.",
             "Rutschkupplung",
             "Es sind Aufzugskontrollen",
             "caseSize: '34 mm'"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "one crown winds both in the same direction.",
+            "sliding clutch",
+            "They are winding indicators"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-entry.ts",
+          "mustContain": [
+            "caseSize: '34 mm'"
+          ],
+          "mustNotContain": [
+            "caseSize: '37 mm (same-type documentation)'"
           ]
         }
       ],
@@ -210,7 +215,7 @@
           "mustContain": [
             "der erste in Japan produzierte Armbandwecker",
             "Beitl hält es für möglich, dass das Werk ursprünglich als Lizenznachbau",
-            "ließ sich diese Abfolge bestätigen"
+            "Weder in den hier verwendeten offiziellen Citizen-Unterlagen noch bei Beitl oder Horlbeck ließ sich diese Abfolge bestätigen."
           ]
         }
       ],
