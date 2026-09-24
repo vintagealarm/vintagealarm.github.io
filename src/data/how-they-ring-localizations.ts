@@ -11,6 +11,7 @@ export const howTheyRingLocalizations = {
     hero: ['音で見る、', 'アラーム腕時計。'],
     selectAria: '鳴動方式を選ぶ',
     categorySub: { gong: 'ゴング', caseback: 'ケースバック' },
+    typeSeparator: '／',
     action: { gong: '棒状の音バネを叩く', caseback: 'ケースバックを共鳴させて鳴らす' },
     figureLabel: { '01': '棒状の音バネを叩く', '02': '振動板型', '03': 'ピン／レバー伝達型', '04': 'BELL-BASE型' },
     evidence: {
@@ -41,6 +42,7 @@ export const howTheyRingLocalizations = {
     hero: ['Alarm wristwatches,', 'seen through sound.'],
     selectAria: 'Choose a ringing system',
     categorySub: { gong: 'Gong', caseback: 'Caseback' },
+    typeSeparator: ' / ',
     action: { gong: 'Strikes a rod-shaped sound spring', caseback: 'Makes the caseback resonate to produce sound' },
     figureLabel: { '01': 'Strikes a rod-shaped sound spring', '02': 'Vibrating-membrane type', '03': 'Pin / lever transmission type', '04': 'BELL-BASE type' },
     evidence: {
@@ -59,7 +61,12 @@ export const howTheyRingLocalizations = {
     audioPending: 'AUDIO / pending',
     recordingLine: 'iPhone 16 / approx. 20 cm / audio file unprocessed',
     recordingNote: 'Recorded volume does not represent absolute loudness in a real environment.',
-    recordingLabel: (label: string) => label === 'WECKER / 音あり' ? 'WECKER / SOUND' : label === 'SIGNAL / 音無し' ? 'SIGNAL / NO SOUND' : label
+    recordingLabel: (label: string) =>
+      label === 'WECKER / 音あり' ? 'WECKER / SOUND'
+      : label === 'SIGNAL / 音無し' ? 'SIGNAL / NO SOUND'
+      : label === 'シチズンアラーム' ? 'Citizen Alarm'
+      : label === 'Basis alarm（BFG90)' ? 'Basis Alarm (BFG 90)'
+      : label
   },
   de: {
     htmlLang: 'de',
@@ -71,6 +78,7 @@ export const howTheyRingLocalizations = {
     hero: ['Wecker-Armbanduhren,', 'durch ihren Klang betrachtet.'],
     selectAria: 'Klangsystem auswählen',
     categorySub: { gong: 'Gong', caseback: 'Gehäuseboden' },
+    typeSeparator: ' / ',
     action: { gong: 'Schlägt eine stabförmige Tonfeder an', caseback: 'Bringt den Gehäuseboden zum Mitschwingen' },
     figureLabel: { '01': 'Schlägt eine stabförmige Tonfeder an', '02': 'Membran-Typ', '03': 'Stift-/Hebelübertragung', '04': 'BELL-BASE-Typ' },
     evidence: {
@@ -89,6 +97,11 @@ export const howTheyRingLocalizations = {
     audioPending: 'AUDIO / ausstehend',
     recordingLine: 'iPhone 16 / ca. 20 cm / Audiodatei unbearbeitet',
     recordingNote: 'Die Aufnahme-Lautstärke zeigt nicht die absolute Lautstärke in einer realen Umgebung.',
-    recordingLabel: (label: string) => label === 'WECKER / 音あり' ? 'WECKER / TON' : label === 'SIGNAL / 音無し' ? 'SIGNAL / OHNE TON' : label
+    recordingLabel: (label: string) =>
+      label === 'WECKER / 音あり' ? 'WECKER / TON'
+      : label === 'SIGNAL / 音無し' ? 'SIGNAL / OHNE TON'
+      : label === 'シチズンアラーム' ? 'Citizen Alarm'
+      : label === 'Basis alarm（BFG90)' ? 'Basis Alarm (BFG 90)'
+      : label
   }
 } as const;

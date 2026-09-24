@@ -15,7 +15,7 @@ const Tag = href ? 'a' : 'div';
 const useSmartFit = smartFit && !(brand === 'CITIZEN' && name === 'ALARM');
 const liftWristShot = (brand === 'CITIZEN' && name === 'ALARM') || (brand === 'WESTCLOX' && name === 'WATCHLARM');
 ---
-<Tag class:list={['owner-frame', {'owner-tile': !!href}]} href={href} aria-label={`${published ? "OWNER'S NOTE" : 'COLLECTION INDEX'}：${brand} ${name}`}>
+<Tag class:list={['owner-frame', {'owner-tile': !!href}]} href={href} aria-label={`${published ? "OWNER'S NOTE" : 'COLLECTION INDEX'}: ${brand} ${name}`}>
   <span class="frame-kind">{published ? "OWNER'S NOTE" : 'COLLECTION'}</span>
   {image
     ? <span class="frame-media" data-owner-media>
