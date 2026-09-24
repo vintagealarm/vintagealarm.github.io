@@ -72,3 +72,8 @@ jobs:
           grep -Eiq '^www-authenticate: Basic ' "$headers"
           grep -Eiq '^cache-control: no-store' "$headers"
           grep -Eiq '^x-robots-tag: noindex, nofollow, noarchive' "$headers"
+
+          probe_headers="$(mktemp)"
+          probe_status="$(curl --silent --show-error --retry 3 --max-time 30             -X HEAD             -H 'Origin: https://vintagealarm.github.io'             -D "$probe_headers"             -o /dev/null             -w '%{http_code}'             'https://vintage-alarm-analytics.orima1995.workers.dev/api/arrival-probe')"
+          test "$probe_status" = "204" || { echo "Expected arrival probe health check to return 204, got $probe_status"; exit 1; }
+          grep -Eiq '^access-control-allow-origin: https://vintagealarm.github.io' "$probe_headers"
