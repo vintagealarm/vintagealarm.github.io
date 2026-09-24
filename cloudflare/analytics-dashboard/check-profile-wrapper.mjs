@@ -1,4 +1,4 @@
-import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, RESEARCH_PAGE_NAMES, STATIC_PAGE_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
+import profileWorker, { buildFreshness, ENGLISH_GATEWAY_NAMES, GERMAN_GATEWAY_NAMES, HISTORY_GATEWAY_NAMES, RESEARCH_PAGE_NAMES, STATIC_PAGE_NAMES, patchAnalyticsPayload, patchDashboardHtml, WATCH_ENTRY_PAGE_NAMES, WATCH_PAGE_NAMES, X_PROFILE_TRACKING } from './profile-worker.js';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -222,7 +222,13 @@ assert(patchedHtml.includes('analyticsQuery'), 'AI URL handler must preserve cur
 assert(patchedHtml.includes('LATEST NONZERO BUCKET'), 'dashboard must label freshness as aggregate bucket, not last event');
 assert(patchedHtml.includes('GAP LOWER BOUND'), 'dashboard must label freshness gap as a lower bound');
 assert(!patchedHtml.includes(' · LAST EVENT '), 'dashboard must not claim bucket boundary is the last event timestamp');
-assert(patchedHtml.includes('["Basis Alarm","Wittnauer Cal.10WA","Pierce Duofon","Cyma Time-O-Vox","Citizen Alarm","Westclox Watchlarm","Basis Alarm (EN)","Pierce Duofon (EN)","Cyma Time-O-Vox (EN)","Citizen Alarm (EN)","Westclox Watchlarm (EN)","German Entry","Pierce Duofon (DE)","Cyma Time-O-Vox (DE)","Westclox Watchlarm (DE)"]'), 'WATCH share list changed unexpectedly');
+assert(WATCH_ENTRY_PAGE_NAMES.length === 18, 'WATCH entry share must include all six public WATCH routes in JP / EN / DE');
+assert(!WATCH_ENTRY_PAGE_NAMES.includes('German Entry'), 'language gateway must not count as a WATCH entry');
+assert(WATCH_ENTRY_PAGE_NAMES.includes('Wittnauer Cal.10WA (EN)'), 'English Wittnauer must count as a WATCH entry');
+assert(WATCH_ENTRY_PAGE_NAMES.includes('Basis Alarm (DE)'), 'German Basis must count as a WATCH entry');
+assert(WATCH_ENTRY_PAGE_NAMES.includes('Citizen Alarm (DE)'), 'German Citizen must count as a WATCH entry');
+assert(WATCH_ENTRY_PAGE_NAMES.includes('Wittnauer Cal.10WA (DE)'), 'German Wittnauer must count as a WATCH entry');
+assert(patchedHtml.includes(JSON.stringify(WATCH_ENTRY_PAGE_NAMES)), 'dashboard WATCH entry share must use the derived public WATCH list');
 assert(patchedHtml.includes('{name:"OWNER\'S NOTES (EN)",path:"/en/owners-notes/"}'), 'English OWNER\'S NOTES key page was not injected');
 assert(patchedHtml.includes('{name:"OWNER\'S NOTES (DE)",path:"/de/owners-notes/"}'), 'German OWNER\'S NOTES key page was not injected');
 assert(patchedHtml.includes('{name:"HISTORY",path:"/history/"}'), 'Japanese HISTORY key page was not injected');
