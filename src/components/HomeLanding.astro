@@ -47,7 +47,7 @@ const localized = {
 const copy = localized[locale];
 const prefix = locale === 'ja' ? '' : `${locale}/`;
 const historyHref = `${base}${prefix}history/`;
-const ownersHref = locale === 'ja' ? `${base}owners-notes/` : '#owners-notes';
+const ownersHref = locale === 'ja' ? `${base}owners-notes/` : `${base}${prefix}owners-notes/`;
 const soundHref = `${base}${prefix}how-they-ring/`;
 const researchHref = `${base}${prefix}history/#research`;
 const languageLinks = locale === 'ja'
