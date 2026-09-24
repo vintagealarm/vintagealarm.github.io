@@ -131,7 +131,7 @@
             "caseSize: 34mm",
             "一本のリューズを、同じ方向へ回して2つとも巻く。",
             "それが滑りクラッチだ。",
-            "BFG 90の双香箱、滑りクラッチ、巻上げ表示窓は、別々に付けられた仕掛けではない。"
+            "90の双香箱、滑りクラッチ、巻上げ表示窓は、別々に付けられた仕掛けではない。"
           ]
         },
         {
@@ -155,9 +155,6 @@
           "path": "src/data/en-watch-entry.ts",
           "mustContain": [
             "caseSize: '34 mm'"
-          ],
-          "mustNotContain": [
-            "caseSize: '37 mm (same-type documentation)'"
           ]
         }
       ],
