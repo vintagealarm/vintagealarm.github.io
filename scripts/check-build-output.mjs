@@ -12,6 +12,12 @@ const mustExist = [
   'history/index.html',
   'history/smartwatch/index.html',
   'owners-notes/index.html',
+  'en/basis-alarm/index.html',
+  'en/citizen-alarm/index.html',
+  'de/basis-alarm/index.html',
+  'de/citizen-alarm/index.html',
+  'en/cyma-time-o-vox/chronometre/index.html',
+  'de/cyma-time-o-vox/chronometre/index.html',
   'robots.txt',
   'sitemap.xml',
   'googled3a96ed4c5eb9287.html'
@@ -140,6 +146,34 @@ for (const [name, html, lang, pathName] of [
   if (!html.includes("OWNER'S NOTES")) failures.push(`${name}: heading missing`);
   if (!html.includes('owner-frame')) failures.push(`${name}: owner image cards missing`);
   if (!sitemap.includes(`https://vintagealarm.github.io/${pathName}`)) failures.push(`${pathName}: missing from sitemap`);
+}
+
+const fullLocalizedResearchChecks = [
+  ['EN Basis', 'en/basis-alarm/index.html', ['One crown, one direction, two barrels', 'Why there are two winding windows', 'BFG 90 → BFG 902']],
+  ['EN Citizen', 'en/citizen-alarm/index.html', ['1958 — Japan’s first alarm wristwatch', 'From the centre disc to Four Hands', 'What came after the first Citizen Alarm']],
+  ['DE Basis', 'de/basis-alarm/index.html', ['Eine Krone, eine Drehrichtung, zwei Federhäuser', 'Warum zwei Aufzugskontrollfenster?', 'BFG 90 → BFG 902']],
+  ['DE Citizen', 'de/citizen-alarm/index.html', ['1958 — Japans erster Armbandwecker', 'Von der zentralen Scheibe zu Four Hands', 'Die weitere Citizen-Alarm-Familie']]
+];
+for (const [name, rel, markers] of fullLocalizedResearchChecks) {
+  const filePath = path.join(dist, rel);
+  const html = fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '';
+  for (const marker of markers) {
+    if (!html.includes(marker)) failures.push(`${name}: FULL RESEARCH marker missing: ${marker}`);
+  }
+}
+
+for (const [name, rel, lang, markers] of [
+  ['EN CYMA Chronomètre', 'en/cyma-time-o-vox/chronometre/index.html', 'en', ['Seventeen watches', 'UNADJUSTED', 'What can be said at this point']],
+  ['DE CYMA Chronomètre', 'de/cyma-time-o-vox/chronometre/index.html', 'de', ['siebzehn Exemplare', 'UNADJUSTED', 'Was sich derzeit sagen lässt']]
+]) {
+  const filePath = path.join(dist, rel);
+  const html = fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '';
+  if (!html.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
+  for (const marker of markers) {
+    if (!html.includes(marker)) failures.push(`${name}: research marker missing: ${marker}`);
+  }
+  const absolute = `https://vintagealarm.github.io/${rel.replace(/index\.html$/, '')}`;
+  if (!sitemap.includes(absolute)) failures.push(`${name}: missing from sitemap`);
 }
 
 for (const stale of ['鐘から現在まで。アラーム腕時計の歴史を読む', '所有個体を、実機・操作・音から読む']) {
