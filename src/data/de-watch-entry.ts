@@ -58,13 +58,14 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
     title: 'Basis Alarm BFG 90 — Zwei Federhäuser, ein Aufzug | VINTAGE ALARM',
     description: 'Basis Alarm mit Baumgartner BFG 90: zwei Federhäuser, Aufzug beider Federn in derselben Drehrichtung, Rutschkupplungen, zwei Aufzugskontrollfenster, Alarmzeiteinstellung über die Drehlünette, Exemplar-Fotos, Original-Alarmton und Quellen.',
     indexBlurb: 'Zwei Federhäuser, eine Aufzugsrichtung, zwei drehende Kontrollscheiben — und ein Alarm, der an eine Zikade erinnert.',
-    catch: ['Ein mechanischer Spielzeugkasten zum Anfassen, Anschauen und Anhören.'],
+    catch: ['Ein Spielzeugkasten zum Anfassen, Anschauen und Anhören.'],
     ownersNote: {
       lead: [
-        'Ein mechanischer Spielzeugkasten zum Anfassen, Anschauen und Anhören.',
-        'Die Alarmzeit wird über die Lünette eingestellt.',
-        'Beim Aufziehen drehen sich die Scheiben in den beiden kleinen Fenstern.',
-        'Schieber auf EIN — dann kommt der Zikadenklang.'
+        'Ein Spielzeugkasten zum Anfassen, Anschauen und Anhören.',
+        'Die Alarmzeit über die Lünette einstellen.',
+        'Beim Aufziehen drehen sich die Scheiben in den kleinen Fenstern.',
+        'Schieber auf EIN.',
+        'Dann: eine Zikade.'
       ],
       guideTitle: 'Kurzanleitung',
       guide: [
@@ -183,7 +184,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
     title: 'Citizen Alarm Cal. 980 — Japans erster Armbandwecker aus heimischer Fertigung | VINTAGE ALARM',
     description: 'Citizen Alarm von 1958: der erste in Japan gefertigte Armbandwecker, Cal. 980, zwei Federhäuser, zwei Kronen, drehbare zentrale Weckscheibe, Doppelboden, spätere Four-Hands-Ausführungen, Exemplar-Fotos und Quellen.',
     indexBlurb: 'Japans erster Armbandwecker aus heimischer Fertigung: zwei Federhäuser, zwei Kronen und eine drehbare Weckscheibe in der Zifferblattmitte.',
-    catch: ['Japans erster Armbandwecker aus heimischer Fertigung — und der Anfang einer ganzen Modellfamilie.'],
+    catch: ['Japans erster Armbandwecker aus heimischer Fertigung — und dann kam die Legende.'],
     ownersNote: {
       lead: [
         '1958: Japans erster Armbandwecker aus heimischer Fertigung.',
@@ -199,7 +200,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       noteTitle: 'NOTE',
       note: [
         'Auf die erste Ausführung mit zentraler Scheibe folgten Modelle mit vier Zeigern.',
-        'Später kamen Alarm Date, College Alarm, Sport- und Taucherformen sowie Damenmodelle hinzu.',
+        'Später kamen Alarm Date, College Alarm, Taucherformen mit Drehlünette sowie Damenmodelle hinzu.',
         'Aus Japans erster Uhr dieser Art wurde nach und nach eine ganze Citizen-Alarmfamilie.'
       ]
     },
