@@ -14,6 +14,8 @@ const ui = {
     count: '件',
     goldAria: 'CYMA Time-O-Vox 18K・金色ケース観測個体一覧',
     steelAria: 'CYMA Time-O-Vox ステンレスケース観測個体一覧',
+    steelHeading: 'STAINLESS STEEL',
+    objectLabel: 'OBJECTS',
     case: 'CASE',
     chrono: 'CHRONOMÈTRE',
     adjustment: 'ADJUSTMENT',
@@ -35,6 +37,8 @@ const ui = {
     count: 'objects',
     goldAria: 'Observed CYMA Time-O-Vox specimens with 18K or yellow-gold cases',
     steelAria: 'Observed CYMA Time-O-Vox specimens with stainless-steel cases',
+    steelHeading: 'STAINLESS STEEL',
+    objectLabel: 'OBJECTS',
     case: 'CASE',
     chrono: 'CHRONOMÈTRE',
     adjustment: 'ADJUSTMENT',
@@ -56,6 +60,8 @@ const ui = {
     count: 'Exemplare',
     goldAria: 'Beobachtete CYMA-Time-O-Vox-Exemplare mit 18K- oder Gelbgoldgehäuse',
     steelAria: 'Beobachtete CYMA-Time-O-Vox-Exemplare mit Edelstahlgehäuse',
+    steelHeading: 'EDELSTAHL',
+    objectLabel: 'EXEMPLARE',
     case: 'GEHÄUSE',
     chrono: 'CHRONOMÈTRE',
     adjustment: 'REGULIERUNG',
@@ -82,7 +88,7 @@ const total = goldSpecimens.length + steelSpecimens.length;
   <summary><span>{ui.summary}</span><small>{total} {ui.count}</small></summary>
   <div class="proto-table-region proto-table-region--desktop" tabindex="0" role="region" aria-label={ui.goldAria}>
     <section class="proto-table-group">
-      <h3>18K / YG<small>{goldSpecimens.length} OBJECTS</small></h3>
+      <h3>18K / YG<small>{goldSpecimens.length} {ui.objectLabel}</small></h3>
       <table>
         <thead><tr><th>{ui.case}</th><th>{ui.chrono}</th><th>{ui.adjustment}</th><th>{ui.movementBand}</th><th>{ui.sellerRef}</th><th>{ui.era}</th><th>{ui.dial}</th><th>{ui.caseCode}</th><th>{ui.source}</th><th>{ui.id}</th></tr></thead>
         <tbody>{goldSpecimens.map((row: any) => <tr><td>{row.case}</td><td>{row.chronometre}</td><td>{row.adjustment}</td><td>{row.movementBand}</td><td>{row.sellerRef}</td><td>{row.era}</td><td>{row.dial}</td><td>{row.caseCode}</td><td>{row.source}</td><td>{row.id}</td></tr>)}</tbody>
@@ -111,7 +117,7 @@ const total = goldSpecimens.length + steelSpecimens.length;
     ))}
   </div>
   <details class="proto-specimen-subgroup">
-    <summary><span>STAINLESS STEEL</span><small>{steelSpecimens.length} {ui.count}</small></summary>
+    <summary><span>{ui.steelHeading}</span><small>{steelSpecimens.length} {ui.count}</small></summary>
     <div class="proto-table-region proto-table-region--desktop" tabindex="0" role="region" aria-label={ui.steelAria}>
       <section class="proto-table-group proto-table-group--nested">
         <table>
