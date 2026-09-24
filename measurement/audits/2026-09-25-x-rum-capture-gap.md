@@ -169,14 +169,33 @@ Cloudflare公式FAQ / data collectionでは次を明記している。
 
 - `SeoHead.astro` からCloudflare RUM script読込前にearly arrival probeを送る
 - `navigator.sendBeacon()` を優先し、queue失敗時のみ `fetch(..., keepalive:true)` へfallback
-- 保存先はWorkers Analytics Engine `va_arrival_probe_v1`
-- 保存次元はpath +粗いsource classのみ
+- 初回案のWorkers Analytics EngineはCloudflare account側で未有効のためdeploy時にcode 10089で拒否された。診断のためだけにユーザーへ機能有効化を要求せず、保存先をSQLite-backed Durable Object `ArrivalProbeStore`へ変更
+- Durable Objectにはtimestamp / path / 粗いsource classだけを保存
 - canonical origin以外は拒否
 - admin analytics opt-out時はprobeも送らない
 - Dashboardの通常KPIには混ぜない
 - Analytics API / signed AI exportへ `arrivalProbe` を別オブジェクトで追加
 - VA2へ `probe` / `probeRows` を追加
-- deploy後のWorker bindingはHEAD health checkで確認
+- deploy後のDurable Object binding / storageはHEAD health checkで確認
 - GitHub Pages live gateでprobe scriptの公開HTML混入を確認
 
 この時点では、probeを恒久計測へ昇格させない。新規外部流入で `Link Click / early probe / RUM Entry` の三点が揃った後に次の判断をする。
+
+
+## Deploy監査
+
+PR #121 merge後のAnalytics Worker deployで、WranglerがWorkers Analytics Engine bindingを認識した後、Cloudflare APIから `code: 10089` 「Analytics Engineを有効化する必要がある」と拒否された。
+
+確認したこと:
+
+- JavaScript / generated dashboard / profile wrapper / entry-worker unit checksはすべて成功
+- 失敗地点はWrangler upload後のCloudflare API version作成
+- 既存本番Analytics Workerは置換されていない
+- Cloudflare公式ではAnalytics Engineはaccount側でenableが必要な場合がある
+- Durable ObjectsはFree / Paid双方で利用可能で、新規namespaceはSQLite backendが現行推奨
+
+判断:
+
+- 診断SPIKEのためだけにユーザーへCloudflare Dashboard操作を返さない
+- Analytics Engine案を棄却し、同一Worker内のSQLite-backed Durable Objectへ保存先だけ差し替える
+- browser probe payload、通常Visitsとの分離、VA2/relay診断表示、判定方法は維持する
