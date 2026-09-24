@@ -17,14 +17,14 @@
 
 ## 2026-09-24
 
-### 2026-09-24 14:05 JST — 日時付き判断履歴を必須CI gate化
+### 2026-09-24 14:06 JST — 日時付き判断履歴を必須CI gate化
 - **変更**：仕様・運用・公開・計測・UI・分類・文言の意味・公開状態・検証方針・棄却判断・再発防止策が変わるすべての判断について、同一branch / PR内で `CHANGE_DECISIONS.md` へのJST日時付き記録を必須化。AGENTS / PROJECT_STATEの完了条件へ組み込み、`scripts/check-decision-log.mjs` と `npm run check:decision-log` を追加し、`check:quality` の先頭で実行する。
 - **理由**：2026-09-23の判断履歴監査で、判断自体はcommitされているのに日時台帳へ未記録の変更とUTC→JST換算ミスが複数見つかったため。「覚えて徹底」ではなく、記録漏れをCIで失敗させる必要がある。
 - **旧状態・棄却**：エージェント規約に「日時付きで記録」と書くだけで、漏れを自動検出しない運用。人間／AIの注意力だけに依存する方式は棄却。typo・依存更新・意味を変えない整形だけは、理由をPR本文へ明示した場合に限り例外とする。
 - **影響範囲**：`AGENTS.md`、`PROJECT_STATE.md`、`CHANGE_DECISIONS.md`、`package.json`、新規 `scripts/check-decision-log.mjs`。サイト本文・公開表示・既存WATCH / HOW THEY RING仕様は変更しない。
 - **検証状態**：branch実装後、decision-log gate単体とAstro foundation checkで検証する。merge前にmerge-base以降のcommitと本entryの対応も再監査する。
-- **関連**：branch `chore/enforce-decision-log` / commits `eb6f9bb6`, `e8500552`, `cbd800f6`, `5f44c420` / 本PR。
-- **日時根拠**：GitHub implementation commits `2026-09-24T05:04:57Z → 2026-09-24 14:04 JST`、`2026-09-24T05:05:06Z → 2026-09-24 14:05 JST`。最終実装commit時刻を見出し時刻に採用。
+- **関連**：branch `chore/enforce-decision-log` / commits `eb6f9bb6`, `e8500552`, `cbd800f6`, `5f44c420`, `63f79579` / 本PR。
+- **日時根拠**：GitHub implementation commits `2026-09-24T05:04:57Z → 2026-09-24 14:04 JST`、`2026-09-24T05:05:06Z → 2026-09-24 14:05 JST`、`2026-09-24T05:06:08Z → 2026-09-24 14:06 JST`。最終実装commit時刻を見出し時刻に採用。
 
 
 ### 2026-09-24 07:54 JST — 共通メニューだけ「音で見る」へ変更
