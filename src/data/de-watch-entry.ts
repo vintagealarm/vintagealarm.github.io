@@ -78,7 +78,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       noteTitle: 'NOTE',
       note: [
         'Die Basis Alarm verwendet das Baumgartner BFG 90, ein frühes Werk für Wecker-Armbanduhren.',
-        'Abseits von hochwertigen Modellen wie Memovox und Cricket verbreitete sich das BFG 90 in Gebrauchsuhrmodellen unter Namen wie Basis, Lantex, Sheffield, Simplon und Tior.',
+        'Abseits von hochwertigen Modellen wie Memovox und Cricket verbreitete sich das BFG 90 in Gebrauchsuhren unter Namen wie Basis, Lantex, Sheffield, Simplon und Tior.',
         'Nicht die feine Zurückhaltung einer Luxusuhr, sondern ein Gebrauchsgegenstand, der seine Funktionen offen nach außen trägt.',
         'Gerade deshalb bleibt so viel Freude am Anschauen, Anfassen und Klingelnlassen.'
       ]
@@ -173,8 +173,8 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       'OWNER OBSERVATION — Widerstandsgefühl beim Aufziehen sowie Verhalten der Aufzugskontrollscheiben bei 1 und 5 Uhr am gezeigten Exemplar.'
     ],
     related: {
-      href: '/en/westclox-watchlarm/',
-      hreflang: 'en',
+      href: '/de/westclox-watchlarm/',
+      hreflang: 'de',
       name: 'WESTCLOX WATCHLARM',
       reason: 'Eine andere Lösung für den Massenmarkt: 0 Steine, ein Federhaus und Alarmzeiteinstellung per Drücker.'
     }
@@ -282,8 +282,8 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 26, 80–83, 95–96 — Beziehung zum AS 1475 und Citizen-Weckerkaliber.'
     ],
     related: {
-      href: '/en/cyma-time-o-vox/',
-      hreflang: 'en',
+      href: '/de/cyma-time-o-vox/',
+      hreflang: 'de',
       name: 'CYMA TIME-O-VOX',
       reason: 'Eine andere Lösung der 1950er-Jahre: ein Federhaus, zwei Drücker und eine Tonfeder rund um das Werk.'
     }
@@ -466,8 +466,8 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       'Rich Fordon, HODINKEE, “Bring a Loupe: A Parmigiani Fleurier Toric Memory Time, A Cartier Trianon, And Two Picks From Goodwill” (2025-08-15), Abschnitt “1950s Wittnauer Alarm Watch With Caliber 10WA” — beschreibt Cal. 10WA als modulares Alarmwerk auf Basis des Longines Cal. 10. https://www.hodinkee.com/articles/bring-a-loupe-august-15-2025'
     ],
     related: {
-      href: '/en/cyma-time-o-vox/',
-      hreflang: 'en',
+      href: '/de/cyma-time-o-vox/',
+      hreflang: 'de',
       name: 'CYMA TIME-O-VOX',
       reason: 'Eine andere Antwort aus derselben Epoche: ein Federhaus, zwei Drücker und ein völlig anders integrierter Alarm.'
     }
@@ -656,8 +656,8 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       'Hinweis zum Gründungsjahr: Im Fließtext wird 1883 verwendet. Horlbeck S. 131 nennt 1888, während Beitl S. 670, Grail Watch Wiki, Ranfft DB und Watch-Wiki 1883 nennen. VINTAGE ALARM verwendet daher derzeit 1883 als Textwert; die abschließende Bestätigung durch ein Handelsregister oder eine vergleichbare Primärquelle bleibt offen.'
     ],
     related: {
-      href: '/en/cyma-time-o-vox/',
-      hreflang: 'en',
+      href: '/de/cyma-time-o-vox/',
+      hreflang: 'de',
       name: 'CYMA TIME-O-VOX',
       reason: 'Dieselben 1950er. Das andere Extrem: ein Federhaus und der Anspruch auf Chronomètre.'
     }
@@ -800,8 +800,8 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       'OWNER OBSERVATION — Dokumentation des gezeigten Exemplars: 34 mm Gehäusedurchmesser; 60 Betätigungen des Drückers bei 2 Uhr bewegen den Alarmzeiger einmal vollständig über 12 Stunden.'
     ],
     related: {
-      href: '/en/basis-alarm/',
-      hreflang: 'en',
+      href: '/de/basis-alarm/',
+      hreflang: 'de',
       name: 'BASIS ALARM',
       reason: 'Eine andere Richtung als die Luxusmodelle: eine weitere Antwort für den Massenmarkt.'
     }
