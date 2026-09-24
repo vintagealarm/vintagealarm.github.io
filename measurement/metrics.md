@@ -52,6 +52,8 @@ Cloudflare Web Analytics / RUMをGraphQL APIから読み、VINTAGE ALARM用の�
 
 `profile-worker.js` は基礎集計を壊さず、公開URLの名称・SNS着地先・主要ページ集計とXプロフィール専用URLを本番表示へ正規化する。公開状態と、別運用上の measurement target の括りは混同しない。
 
+GraphQLのsite scopeは原則 `requestHost` で切る。Cloudflare Web AnalyticsのsiteTagは、導入時の `3f7f9454e132415ebf8ffa04122e16e3` からcanonical host移行commit `0790f1f9` で `862adb1fcab1439f899cccf093361ee9` へ変更されている。全期間を現在のsiteTag 1個でfilterするとlegacy host期間を欠落させ得るため、単一siteTag固定filterは使わない。将来siteTagをqueryへ追加する場合は、先にlive GraphQLでhost × siteTag × 期間の分布を確認し、必要ならhost / 期間別に適用する。
+
 表示:
 - RANGE: 1時間 / 3時間 / 24時間 / 7日 / 30日 / ALL / CUSTOM
 - GROUP BY: AUTO / 30分 / 1時間 / 1日 / 7日 / 月
