@@ -152,7 +152,7 @@ function patchSnsEntries(period) {
 
   const rows = [...pages, other];
   const flowRowsComplete = Array.isArray(period?.flows)
-    ? period.flows.length < 200
+    ? period?.completeness?.flows !== false && period.flows.length < 200
     : period?.flowRowsComplete !== false;
   return {
     pages: rows,
