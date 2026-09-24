@@ -42,10 +42,20 @@ export async function GET() {
       { loc: `${root}en/how-they-ring/` },
       { loc: `${root}de/how-they-ring/` }
     ] : []),
-    ...(cymaChronometreResearch.published ? [{
-      loc: `${root}cyma-time-o-vox/chronometre/`,
-      lastmod: getGitLastmod('src/data/cyma-chronometre-research.json')
-    }] : []),
+    ...(cymaChronometreResearch.published ? [
+      {
+        loc: `${root}cyma-time-o-vox/chronometre/`,
+        lastmod: getGitLastmod('src/data/cyma-chronometre-research.json')
+      },
+      {
+        loc: `${root}en/cyma-time-o-vox/chronometre/`,
+        lastmod: getGitLastmod('src/data/cyma-chronometre-localizations.ts')
+      },
+      {
+        loc: `${root}de/cyma-time-o-vox/chronometre/`,
+        lastmod: getGitLastmod('src/data/cyma-chronometre-localizations.ts')
+      }
+    ] : []),
     ...published.map((item) => ({
       loc: `${root}${item.data.slug}/`,
       lastmod: getGitLastmod(`src/content/watches/${item.data.slug}.md`)
