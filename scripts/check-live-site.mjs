@@ -68,22 +68,28 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     if (howTheyRing.ok && !howTheyRing.text.includes('HOW THEY RING')) failures.push('how-they-ring: expected heading missing');
     if (howTheyRing.ok) {
       if (!/<a[^>]+href=\"\/how-they-ring\/?\"[^>]*>\s*音で見る\s*<\/a>/.test(howTheyRing.text)) failures.push('how-they-ring: shared Japanese menu label must be 音で見る');
-      for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu']) {
+      for (const marker of ['音で見る、', 'アラーム腕時計。', '輪状の音バネを叩く', 'ピン伝達型', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', '量産型J89は、ハンマーがピンを打撃し、その振動を底部のベルへ伝えて鳴らす。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu']) {
         if (!howTheyRing.text.includes(marker)) failures.push(`how-they-ring: current live marker missing: ${marker}`);
       }
-      for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る']) {
+      for (const stale of ['鳴らし方で見る、', '音と鳴らし方で時計を見る', '棒状の音バネを叩く', 'ピン／レバー伝達型']) {
         if (howTheyRing.text.includes(stale)) failures.push(`how-they-ring: stale live copy remains: ${stale}`);
       }
     }
 
     if (englishHowTheyRing.ok) {
-      for (const marker of ['lang="en"', 'Alarm wristwatches,', 'Strikes a rod-shaped sound spring', 'Multiple recordings can be played at the same time']) {
+      for (const marker of ['lang="en"', 'Alarm wristwatches,', 'Strikes a ring-shaped sound spring', 'Pin-transmission type', 'In the production J89, the hammer strikes a pin, transmitting the impact to the bell built into the bottom.', 'Multiple recordings can be played at the same time']) {
         if (!englishHowTheyRing.text.includes(marker)) failures.push(`en/how-they-ring: localized marker missing: ${marker}`);
+      }
+      for (const stale of ['Strikes a rod-shaped sound spring', 'Pin / lever transmission type']) {
+        if (englishHowTheyRing.text.includes(stale)) failures.push(`en/how-they-ring: stale localized copy remains: ${stale}`);
       }
     }
     if (germanHowTheyRing.ok) {
-      for (const marker of ['lang="de"', 'Wecker-Armbanduhren,', 'Schlägt eine stabförmige Tonfeder an', 'Mehrere Aufnahmen können gleichzeitig abgespielt werden']) {
+      for (const marker of ['lang="de"', 'Wecker-Armbanduhren,', 'Schlägt eine ringförmige Tonfeder an', 'Stiftübertragung', 'Beim Serien-J89 schlägt der Hammer auf einen Stift; der Stoß wird auf die im Boden eingebaute Glocke übertragen.', 'Mehrere Aufnahmen können gleichzeitig abgespielt werden']) {
         if (!germanHowTheyRing.text.includes(marker)) failures.push(`de/how-they-ring: localized marker missing: ${marker}`);
+      }
+      for (const stale of ['Schlägt eine stabförmige Tonfeder an', 'Stift-/Hebelübertragung']) {
+        if (germanHowTheyRing.text.includes(stale)) failures.push(`de/how-they-ring: stale localized copy remains: ${stale}`);
       }
     }
     if (englishHome.ok && !englishHome.text.includes('When notifications still ran on gears.')) failures.push('en: localized TOP lead missing');
