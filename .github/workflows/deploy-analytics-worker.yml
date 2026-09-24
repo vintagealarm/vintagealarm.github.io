@@ -41,6 +41,9 @@ jobs:
       - name: Check X profile attribution wrapper
         run: node check-profile-wrapper.mjs
 
+      - name: Check production AI URL entry path
+        run: node check-entry-worker.mjs
+
       - name: Check deployment credentials
         shell: bash
         env:
