@@ -157,7 +157,7 @@ SNS着地先の再配分でもTOPを既知ページとして扱う。X等から 
 base path、末尾スラッシュ、URLエンコード差を正規化する。
 既知マッピングに一致しないPathは`UNMAPPED`として表示し、勝手に既存ページ名へ丸めない。
 
-新規ページ公開時は表示名マッピング、WATCH share、SNS → WATCH ENTRY、主要ページリストを同時に更新する。
+新規ページ公開時は表示名マッピング、SNS → WATCH ENTRY、主要ページリストを同時に確認する。`WATCH ENTRY SHARE` は公開WATCH route mapから自動導出し、公開状態とは別の `measurement target` groupingで絞り込まない。言語gateway（`/en/` / `/de/`）自体もWATCH entryへ数えない。
 Analyticsの実測で新しい公開Pathが `MAPPING AUDIT` に出た場合は、その場で対象ページの実体を確認し、正規表示名・分類・主要ページリストを `measurement/metrics.md` と実装へ同期する。観測値そのものは `measurement/experiment-log.md` に残し、トップレベル状態ファイルへ重複保存しない。
 
 ## 管理者アクセス除外
