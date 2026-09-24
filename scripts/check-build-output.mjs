@@ -189,6 +189,40 @@ if (fs.existsSync(cymaHtmlPath)) {
   }
 }
 
+const chronometreJaPath = path.join(dist, 'cyma-time-o-vox', 'chronometre', 'index.html');
+const chronometreEnPath = path.join(dist, 'en', 'cyma-time-o-vox', 'chronometre', 'index.html');
+const chronometreDePath = path.join(dist, 'de', 'cyma-time-o-vox', 'chronometre', 'index.html');
+for (const [name, filePath, lang, markerText] of [
+  ['JA CHRONOMETRE', chronometreJaPath, 'ja', 'Time-O-Vox Chronomètre'],
+  ['EN CHRONOMETRE', chronometreEnPath, 'en', 'The markings do not line up'],
+  ['DE CHRONOMETRE', chronometreDePath, 'de', 'Die Kennzeichnungen passen nicht in ein einziges Schema']
+]) {
+  if (!fs.existsSync(filePath)) {
+    failures.push(`${name}: route missing`);
+    continue;
+  }
+  const html = fs.readFileSync(filePath, 'utf8');
+  if (!html.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
+  if (!html.includes(markerText)) failures.push(`${name}: localized research marker missing`);
+}
+for (const url of [
+  'https://vintagealarm.github.io/cyma-time-o-vox/chronometre/',
+  'https://vintagealarm.github.io/en/cyma-time-o-vox/chronometre/',
+  'https://vintagealarm.github.io/de/cyma-time-o-vox/chronometre/'
+]) {
+  if (!sitemap.includes(url)) failures.push(`Chronometre sitemap entry missing: ${url}`);
+}
+if (fs.existsSync(chronometreJaPath)) {
+  const html = fs.readFileSync(chronometreJaPath, 'utf8');
+  for (const href of [
+    'https://vintagealarm.github.io/en/cyma-time-o-vox/chronometre/',
+    'https://vintagealarm.github.io/de/cyma-time-o-vox/chronometre/'
+  ]) {
+    if (!html.includes(href)) failures.push(`JA CHRONOMETRE: hreflang link missing: ${href}`);
+  }
+}
+
+
 const cyma = watches.find((watch) => watch.slug === 'cyma-time-o-vox');
 const cymaZoom = path.join(dist, 'cyma-time-o-vox', 'owners-note', 'index.html');
 if (cyma?.published) {
