@@ -269,6 +269,8 @@ assert.equal(analyticsPayload.current.completeness.flows, true, 'flow row covera
 assert.equal(analyticsPayload.current.countries[0].name, "Canada", 'country codes must be normalized consistently');
 assert.equal(analyticsPayload.current.channels.find(row => row.name === "Host Migration")?.visits, 2);
 assert.equal(analyticsPayload.current.channels.find(row => row.name === "Direct / Unknown")?.visits, 2);
+const directFlow = analyticsPayload.current.flowSummary.find(row => row.channel === "Direct / Unknown");
+assert.equal(directFlow?.sourceName, "Direct / Unknown", "no-referrer entries must not be displayed as confirmed Direct traffic");
 assert.equal(analyticsPayload.current.channels.find(row => row.name === "Internal Navigation")?.visits, 0);
 const migrationFlow = analyticsPayload.current.flowSummary.find(row => row.channel === "Host Migration");
 assert.equal(migrationFlow?.sourceHost, "orima1995-create.github.io");
@@ -299,6 +301,8 @@ assert.equal(exportPayload.current.sampling.flows, 10, 'AI export must retain pe
 assert.equal(exportPayload.current.sampling.flowSummary, 1, 'AI export must retain structural-flow sampling metadata');
 assert.equal(exportPayload.current.integrity.status, "PASS", 'AI export must retain structural integrity result');
 assert.equal(exportPayload.current.completeness.flows, true, 'AI export must retain row coverage metadata');
+assert.match(exportPayload.limitations.visits, /not unique people or users/i, 'AI export must state that Visits are not people');
+assert.match(exportPayload.limitations.direct, /must not be read as confirmed typed\/bookmarked traffic/i, 'AI export must preserve Direct / Unknown uncertainty');
 
 const password = "ci-test-password";
 const auth = Buffer.from(`admin:${password}`).toString("base64");
