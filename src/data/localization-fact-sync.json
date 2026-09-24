@@ -118,6 +118,163 @@
           ]
         }
       ]
+    },
+    {
+      "id": "basis-bfg90-winding-system",
+      "slug": "basis-alarm",
+      "canonicalValue": "two barrels wound in one direction with a slipping clutch on the fully wound side",
+      "note": "Preserve the relationship between the two barrels, same-direction winding, slipping clutch and winding-state windows.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/basis-alarm.md",
+          "mustContain": [
+            "BFG 90では、満巻きになった側だけ力を逃がす仕組みを、各香箱の巻上げ部分に入れている。それが滑りクラッチだ。",
+            "残量を読み取るためのパワーリザーブ表示ではない。"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "The BFG 90 solves that problem by allowing the fully wound side to slip in its own winding train. This is the slipping clutch.",
+            "They are not power-reserve displays showing how much energy remains."
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "Dafür besitzt das BFG 90 an jeder Aufzugsseite eine Rutschkupplung.",
+            "Es sind keine Gangreserveanzeigen für die verbleibende Laufzeit."
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/basis-alarm/index.html",
+          "mustContain": [
+            "滑りクラッチ",
+            "パワーリザーブ表示ではない"
+          ]
+        },
+        {
+          "path": "dist/en/basis-alarm/index.html",
+          "mustContain": [
+            "slipping clutch",
+            "not power-reserve displays"
+          ]
+        },
+        {
+          "path": "dist/de/basis-alarm/index.html",
+          "mustContain": [
+            "Rutschkupplung",
+            "keine Gangreserveanzeigen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "citizen-1958-first-alarm",
+      "slug": "citizen-alarm",
+      "canonicalValue": "1958 / Japan's first bell-ringing alarm wristwatch / Cal.A to 980 / two barrels",
+      "note": "Keep the strong historical first claim tied to Citizen's own documentation and preserve the unconfirmed JLC-complaint story as legend, not fact.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/citizen-alarm.md",
+          "mustContain": [
+            "国産初のベルが鳴るアラーム腕時計だった。",
+            "初期のCal.Aを経て、Cal.980へ移行した。",
+            "その経緯を裏付ける記述は確認できない。"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "The Citizen Alarm was Japan’s first wristwatch with a bell-ringing alarm.",
+            "The line began with the early Cal. A and then moved to Cal. 980.",
+            "No supporting account for that sequence has been found"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "Die Citizen Alarm war Japans erste Armbanduhr mit hörbarem Weckalarm.",
+            "Auf das frühe Cal. A folgte Cal. 980.",
+            "findet sich dafür jedoch kein Beleg."
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/citizen-alarm/index.html",
+          "mustContain": [
+            "国産初",
+            "Cal.A",
+            "Cal.980"
+          ]
+        },
+        {
+          "path": "dist/en/citizen-alarm/index.html",
+          "mustContain": [
+            "Japan’s first",
+            "Cal. A",
+            "Cal. 980"
+          ]
+        },
+        {
+          "path": "dist/de/citizen-alarm/index.html",
+          "mustContain": [
+            "Japans erste",
+            "Cal. A",
+            "Cal. 980"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cyma-chronometre-evidence-state",
+      "slug": "cyma-time-o-vox/chronometre",
+      "canonicalValue": "Chronometre specification documented; 17 observed specimens; surviving specimens not yet connected to specific period certification records",
+      "note": "Preserve the distinction between documented existence, observed specimen variation and the unresolved link to period certification records.",
+      "sourceChecks": [
+        {
+          "path": "src/data/cyma-chronometre-research.json",
+          "mustContain": [
+            "金製Time-O-Voxにクロノメーター証明が与えられた記録があり、Time-O-Vox Chronomètre仕様の存在は確認できる。",
+            "どの現存個体が当時のどの認定記録に対応するかは、現在も特定できていない。"
+          ]
+        },
+        {
+          "path": "src/data/cyma-chronometre-localized.ts",
+          "mustContain": [
+            "A record exists of chronometer certification being issued for a gold Time-O-Vox, confirming that a Time-O-Vox Chronomètre specification existed.",
+            "It is still not possible to identify which surviving watch corresponds to which period certification record.",
+            "Es existiert ein Eintrag über eine Chronometerzertifizierung für eine goldene Time-O-Vox",
+            "Welches erhaltene Exemplar zu welchem damaligen Zertifizierungsdatensatz gehört"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/cyma-time-o-vox/chronometre/index.html",
+          "mustContain": [
+            "17件",
+            "未解決"
+          ]
+        },
+        {
+          "path": "dist/en/cyma-time-o-vox/chronometre/index.html",
+          "mustContain": [
+            "Seventeen examples",
+            "UNRESOLVED"
+          ]
+        },
+        {
+          "path": "dist/de/cyma-time-o-vox/chronometre/index.html",
+          "mustContain": [
+            "17 Exemplare",
+            "OFFEN"
+          ]
+        }
+      ]
     }
   ]
 }
