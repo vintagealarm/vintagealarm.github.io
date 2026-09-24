@@ -107,6 +107,12 @@ assert(fallback.includes('entries=/:26/26,/cyma-time-o-vox/:10/13,/pierce-duofon
 assert(fallback.includes('externalCoverage=2/2/12/12/1'), 'external flow coverage metadata missing');
 assert(fallback.includes('probe=1/4/3/1/1'), 'arrival probe summary missing');
 assert(fallback.includes('probeRows=/wittnauer-10wa/@x:3,/wittnauer-10wa/@direct:1'), 'arrival probe path/source rows missing');
+
+const unavailableProbeFallback = buildAiFallbackFragment({
+  ...sample,
+  arrivalProbe: { available: false, reason: 'dataset-not-ready', total: 0, x: 0, rows: [] },
+});
+assert(unavailableProbeFallback.includes('probe=0/0/0/0/0'), 'unavailable probe must not look complete or sampled');
 assert(fallback.includes('external=X@t.co~/pierce-duofon/:10,OTHER@www.watchuseek.com~/cyma-time-o-vox/:2'), 'portable snapshot must aggregate country/device variants before compacting');
 assert(fallback.includes('flow=vintagealarm.github.io@/cyma-time-o-vox/~/pierce-duofon/:1/0'), 'portable snapshot internal flow missing host context');
 assert(fallback.includes('handoff=orima1995-create.github.io@/>vintagealarm.github.io@/cyma-time-o-vox/:2/2'), 'portable snapshot host migration flow missing');
