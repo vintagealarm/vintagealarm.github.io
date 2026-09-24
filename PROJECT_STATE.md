@@ -70,14 +70,15 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
 - HOW THEY RINGの現行分類は **GONG / CASEBACK の2種類だけ**。詳細機構を第三・第四カテゴリへ増やさない。
   - **2分類にした理由**：このページの主目的は機構分類表を作ることではなく、実機の音を入口に「どう鳴っているか」を見て・聴いてもらうこと。入口でGONG / CASEBACK / BELL / PINの4分類を並べると、CASEBACK側に含まれる構造差を同列の大分類として扱うことになり、閲覧者にも個体カードにも細分類を要求する設計になる。
-  - **採用した整理**：入口は「独立した発音体を叩くGONG」と「ケースバック側の構造を使って鳴らすCASEBACK」の2つに留める。CASEBACK内部の振動板・ピン／レバー伝達・ベル状発音体などの差はFIG.02–04で見せる。つまり「大枠2分類＋内部構造の代表例」であり、FIG.02–04は第三・第四カテゴリではない。
+  - **採用した整理**：入口は「独立した発音体を叩くGONG」と「ケースバック側の構造を使って鳴らすCASEBACK」の2つに留める。CASEBACK内部の振動板・ピン伝達・ベル状発音体などの差はFIG.02–04で見せる。つまり「大枠2分類＋内部構造の代表例」であり、FIG.02–04は第三・第四カテゴリではない。
   - **この判断で守るもの**：掲載個体はGONG / CASEBACKだけで切り替え、各カードにFIG番号・詳細型名を付けない。音を聴く導線を分類学より前に置き、同じCASEBACKでも構造が大きく違うこと自体を発見要素にする。
   - **旧4分類を棄却した理由**：GONG / CASEBACK / BELL / PINを同階層に置くと、大枠とCASEBACK内部の機構差が混在する。分類粒度が揃わず、個体ごとの細分類まで波及するため不採用。新しい一次資料で大枠そのものを変更すべき根拠が出ない限り復活させない。
 - 上段の図は分類体系ではなく「同じ大分類でも鳴らし方の構造差がある」ことを見せる代表例。個体カードへFIG番号や詳細機構分類を持ち込まない。
-- FIG.01 GONG: OMEGA MEMOMATIC。現行表示は「棒状の音ばねを叩く」。この機構文言はMemomatic固有資料との再照合を未完了事項として扱い、一般的なTonfeder資料だけで確定扱いしない。
+- FIG.01 GONG: OMEGA MEMOMATIC。現行表示は「輪状の音ばねを叩く」。Cal.980はムーブメントに固定された音ばねをハンマーが打撃し、その音ばねは輪状。旧「棒状」は失効し、この機構文言は解決済みとして扱う。
 - FIG.02 CASEBACK: 「振動板型 — VULCAIN CRICKET」。旧「膜状バック型」は失効。
-- FIG.03 CASEBACK: 「ピン／レバー伝達型 — JUNGHANS MINIVOX」。
-- FIG.04 CASEBACK: 「BELL-BASE型 — LANCO-FON · CAL.1241」。Lanco-Fon全体へ一般化しない。Cal.1241は資料上hammerがGlockeを打つことを確認したため、このcaliberに限定する。
+- FIG.03 CASEBACK: 「ピン伝達型 — JUNGHANS MINIVOX」。量産型J89はハンマーがピンを打撃し、その振動を底部のベルへ伝えて鳴らす。旧「ピン／レバー伝達型」は失効。
+- FIG.04 CASEBACK: 「BELL-BASE型 — LANCO-FON · CAL.1241」。Lanco-Fon全体へ一般化しない。Cal.1241は資料上hammerがGlockeを直接打つことを確認したため、このcaliberに限定する。
+- CASEBACK側の発音経路は混同しない。Basis Alarm / LANCO-FON Cal.1241はハンマーがベル自体を直接打撃するのに対し、Junghans J89はハンマーがピンを打撃し、その振動でベルを鳴らす。この差はFIG説明用であり、掲載個体カードの大分類はCASEBACKのまま。
 - HOW THEY RINGの機構図根拠は、各FIGにつき確定的な1出典だけを折りたたみ表示する。原則『The Alarm Wristwatch』『ALARM AM ARM』を優先し、2冊で直接支えられない場合のみ外部資料1件を採用する。補助資料は内部検証用で、閲覧者へ列挙しない。GONG / CASEBACKと各型名はVINTAGE ALARMでの整理として明示する。
 - 掲載個体の大分類は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK。
 - Pierce Duofonの二音源表示は **WECKER / 音あり** と **SIGNAL / 音無し**。ファイル名由来の WAKER / SILENT を表示ラベルへ戻さない。
@@ -150,7 +151,9 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 
 - HOW THEY RINGを GONG / CASEBACK / BELL / PIN 等の4分類へ戻す
 - CASEBACK個体をFIG.02/03/04の詳細分類でカード分類する
+- FIG.01の「棒状の音ばねを叩く」表記を復活させる
 - FIG.02の「膜状バック型」表記を復活させる
+- FIG.03の「ピン／レバー伝達型」表記を復活させる
 - FIG.04をcaliber指定なしの「LANCO-FON」全体へ一般化する
 - HOW THEY RING入口名を「音で選ぶ」へ戻す
 - Pierce Duofonの表示ラベルへ WAKER / SILENT を使う
