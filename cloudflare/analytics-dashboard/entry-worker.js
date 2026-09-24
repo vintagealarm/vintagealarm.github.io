@@ -242,6 +242,8 @@ export function buildAiFallbackFragment(payload) {
     `sample=${finiteNumber(combined?.sampleInterval || 1)}`,
     `sampleParts=${samplingOrder.map((key) => finiteNumber(sampling?.[key] || combined?.sampleInterval || 1)).join("/")}`,
     `coverage=${completenessOrder.map((key) => completeness?.[key] === false ? 0 : 1).join("/")}`,
+    `structSample=${finiteNumber(sampling?.channels || sampling?.referrers || combined?.sampleInterval || 1)}/${finiteNumber(sampling?.flowSummary || sampling?.flows || combined?.sampleInterval || 1)}`,
+    `structCoverage=${(completeness?.channels ?? completeness?.referrers) === false ? 0 : 1}/${(completeness?.flowSummary ?? completeness?.flows) === false ? 0 : 1}`,
     `integrity=${token(combined?.integrity?.status || "UNKNOWN", 24)}`,
     `generated=${generated}`,
     `visits=${finiteNumber(combined?.visits)}`,
