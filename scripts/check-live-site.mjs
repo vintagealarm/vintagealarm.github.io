@@ -11,6 +11,7 @@ const researchSettings = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'sr
 const howTheyRingSettings = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/how-they-ring-settings.json'), 'utf8'));
 const chronometreResearch = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/cyma-chronometre-research.json'), 'utf8'));
 const historyOwnerSlugs = new Set(ownersDirectory.entries.map((entry) => entry.historyId));
+const arrivalProbeUrl = 'https://vintage-alarm-analytics.orima1995.workers.dev/api/arrival-probe';
 
 const get = async (path) => {
   try {
@@ -58,6 +59,7 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   }
 
   if (home.ok && !home.text.includes('owners-notes/')) failures.push('home: OWNER\'S NOTES link missing');
+  if (home.ok && !home.text.includes(arrivalProbeUrl)) failures.push('home: early arrival probe marker missing');
   if (howTheyRingSettings.productionPublished) {
     const [howTheyRing, englishHowTheyRing, germanHowTheyRing] = await Promise.all([
       get('how-they-ring/'), get('en/how-they-ring/'), get('de/how-they-ring/')
@@ -144,6 +146,7 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     const ownerHref = `${watch.slug}/#owners-note`;
     if (watch.published) {
       if (!page.ok) failures.push(`${watch.slug}: published page HTTP ${page.status}`);
+      if (page.ok && !page.text.includes(arrivalProbeUrl)) failures.push(`${watch.slug}: early arrival probe marker missing`);
       if (owners.ok && !owners.text.includes(ownerHref)) failures.push(`${watch.slug}: missing from OWNER'S NOTES`);
       if (history.ok && historyOwnerSlugs.has(watch.slug) && !history.text.includes(ownerHref)) failures.push(`${watch.slug}: missing from HISTORY owner rail`);
       if (sitemap.ok && !sitemap.text.includes(sitemapUrl)) failures.push(`${watch.slug}: missing from sitemap`);
