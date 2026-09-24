@@ -17,6 +17,15 @@
 
 ## 2026-09-24
 
+### 2026-09-24 23:01 JST — host移行を跨ぐAnalyticsへ単一siteTag filterを入れない
+- **変更**：GraphQLのsite scopeは現行どおり `requestHost` を基準とし、現在のCloudflare Web Analytics siteTag 1個で全期間をfilterする案を採用しないことを計測仕様へ明記した。siteTagを将来利用する場合は、先にlive GraphQLでhost × siteTag × 期間の実分布を確認し、必要ならhost / 期間別に適用する。
+- **理由**：Git履歴を実体確認すると、Cloudflare Web Analytics導入commit `c490f3f9` と管理者opt-out時点 `f397d398` はsiteTag `3f7f9454e132415ebf8ffa04122e16e3`、canonical host移行commit `0790f1f9` 以降は `862adb1fcab1439f899cccf093361ee9` を使用している。現在tagだけを全期間へ固定するとlegacy host側の過去データを欠落させ得る。
+- **旧状態・棄却**：hostとbotだけの現行filterを「siteTag不足で精度が低い」とみなし、現在tagを全期間へ一律追加する案を棄却する。siteTagの実分布を確認せず旧・新tagを推測で期間分割することもしない。
+- **影響範囲**：`measurement/metrics.md` のAnalytics query運用仕様のみ。Worker query、集計値、公開サイトのbeacon、旧・新hostのデータは変更しない。
+- **検証状態**：Git履歴上の旧・新beacon tokenを実ファイルから確認済み。runtime変更はなし。PR CIで文書変更を含む既存quality gateを再確認し、main merge・本番deployは行わない。
+- **関連**：Draft PR #118 / documentation commit `d1139df1` / historical commits `c490f3f9`, `f397d398`, `0790f1f9`。
+- **日時根拠**：documentation commit `2026-09-24T14:01:23Z → 2026-09-24 23:01 JST`。実装commit時刻を見出し時刻に採用。
+
 ### 2026-09-24 22:57 JST — WATCH ENTRY SHAREを公開18routeへ同期
 - **変更**：`WATCH ENTRY SHARE` の対象名を手書き固定配列から公開WATCH route map由来へ変更し、JP / EN / DE 各6本＝18routeを自動集計対象とする。言語gateway `/de/` 自体はWATCH entryから除外する。
 - **理由**：既存配列はJP6・EN5・DE3に `German Entry` が混在する途中状態で、EN WittnauerとDE Basis / Citizen / Wittnauerが漏れていた。計測仕様では新規公開WATCHをshareへ反映する前提であり、公開状態と別運用のmeasurement target 5本を混同しない必要がある。
