@@ -12,20 +12,30 @@ const publishedWatchRoutes = watchStates
 const englishWatchRoutes = watchStates
   .filter((watch) => watch.published && englishWatchSlugs.has(watch.slug))
   .map((watch) => `en/${watch.slug}/`);
-const germanWatchRoutes = ['de/pierce-duofon/', 'de/westclox-watchlarm/', 'de/cyma-time-o-vox/'];
+const germanWatchRoutes = watchStates
+  .filter((watch) => watch.published)
+  .map((watch) => `de/${watch.slug}/`);
 const routes = [
   '',
   'history/',
   'owners-notes/',
   'how-they-ring/',
+  'sources/',
+  'cyma-time-o-vox/chronometre/',
   ...publishedWatchRoutes,
   'en/',
+  'en/history/',
   'en/owners-notes/',
   'en/how-they-ring/',
+  'en/sources/',
+  'en/cyma-time-o-vox/chronometre/',
   ...englishWatchRoutes,
   'de/',
+  'de/history/',
   'de/owners-notes/',
   'de/how-they-ring/',
+  'de/sources/',
+  'de/cyma-time-o-vox/chronometre/',
   ...germanWatchRoutes,
   'history/smartwatch/'
 ];
@@ -88,7 +98,7 @@ try {
         if (japaneseState.lang !== 'ja') failures.push(`${width}px ${route}: html lang is not ja`);
         const watchSlug = route.replace(/\/$/, '');
         if (englishWatchSlugs.has(watchSlug) && !japaneseState.englishLanguageLink) failures.push(`${width}px ${route}: compact EN language switch missing`);
-        if (['pierce-duofon/', 'westclox-watchlarm/', 'cyma-time-o-vox/'].includes(route) && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
+        if (germanWatchRoutes.includes(`de/${watchSlug}/`) && !japaneseState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (japaneseState.oversizedEnglishCta) failures.push(`${width}px ${route}: legacy ENGLISH ENTRY CTA remains`);
       }
 
@@ -118,7 +128,7 @@ try {
         }));
         if (englishState.lang !== 'en') failures.push(`${width}px ${route}: html lang is not en`);
         if (!englishState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
-        if (['en/pierce-duofon/', 'en/westclox-watchlarm/', 'en/cyma-time-o-vox/'].includes(route) && !englishState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
+        if (germanWatchRoutes.includes(route.replace(/^en\//, 'de/')) && !englishState.germanLanguageLink) failures.push(`${width}px ${route}: compact DE language switch missing`);
         if (!englishState.ownerTextOpen) failures.push(`${width}px ${route}: English OWNER'S NOTE text is not open by default`);
         if (englishState.alarmHeading && englishState.alarmHeading !== 'ORIGINAL ALARM VIDEO') failures.push(`${width}px ${route}: alarm video heading is not localized`);
         if (/OWNER OBSERVATION\s+OWNER OBSERVATION/i.test(englishState.sourcesText)) failures.push(`${width}px ${route}: duplicate owner-observation source label`);

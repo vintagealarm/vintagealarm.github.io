@@ -1,92 +1,90 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { readWatchPublicationState } from './watch-publication.mjs';
 
 const siteRoot = 'https://vintagealarm.github.io/';
 const llms = await fs.readFile('public/llms.txt', 'utf8');
+const howTheyRingSettings = JSON.parse(await fs.readFile('src/data/how-they-ring-settings.json', 'utf8'));
+const watches = readWatchPublicationState().filter((watch) => watch.published);
 const failures = [];
-const ignored = new Set(['history', 'sources']);
 
-const builtWatchSlugs = async (lang) => {
-  const root = path.join('dist', lang);
-  let entries;
+const readBuilt = async (route) => {
+  const target = route ? path.join('dist', route, 'index.html') : path.join('dist', 'index.html');
   try {
-    entries = await fs.readdir(root, { withFileTypes: true });
+    return await fs.readFile(target, 'utf8');
   } catch (error) {
-    failures.push(`${lang}: cannot read ${root}: ${error.message}`);
-    return [];
+    failures.push(`${route || '/'}: built page missing: ${error.message}`);
+    return '';
   }
-
-  const slugs = [];
-  for (const entry of entries) {
-    if (!entry.isDirectory() || ignored.has(entry.name)) continue;
-    const indexPath = path.join(root, entry.name, 'index.html');
-    try {
-      await fs.access(indexPath);
-      slugs.push(entry.name);
-    } catch {
-      // Non-page directory; ignore it.
-    }
-  }
-  return slugs.sort();
 };
 
-const declaredWatchSlugs = (lang) => {
-  const pattern = new RegExp(`^- ${siteRoot.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}${lang}/([^/]+)/$`, 'gm');
-  return [...llms.matchAll(pattern)]
-    .map((match) => match[1])
-    .filter((slug) => !ignored.has(slug))
-    .sort();
-};
+const staticCases = (lang) => [
+  { route: `${lang}/`, markers: lang === 'en' ? ['When notifications still ran on gears.'] : ['Als Benachrichtigungen noch mit Zahnrädern liefen.'] },
+  { route: `${lang}/history/`, markers: lang === 'en' ? ['References &amp; Sources', 'References & Sources'] : ['Literatur &amp; Quellen', 'Literatur & Quellen'] },
+  { route: `${lang}/owners-notes/`, markers: ["OWNER'S NOTES", 'owner-frame'] },
+  ...(howTheyRingSettings.productionPublished
+    ? [{ route: `${lang}/how-they-ring/`, markers: lang === 'en' ? ['Alarm wristwatches,', 'GONG', 'CASEBACK'] : ['Wecker-Armbanduhren,', 'GONG', 'CASEBACK'] }]
+    : []),
+  { route: `${lang}/sources/`, markers: lang === 'en' ? ['Sources &amp; References', 'Sources & References'] : ['Quellen &amp; Literatur', 'Quellen & Literatur'] }
+];
 
 for (const lang of ['en', 'de']) {
-  const built = await builtWatchSlugs(lang);
-  const declared = declaredWatchSlugs(lang);
-  const builtSet = new Set(built);
-  const declaredSet = new Set(declared);
+  const other = lang === 'en' ? 'de' : 'en';
 
-  for (const slug of built) {
-    if (!declaredSet.has(slug)) {
-      failures.push(`${lang}: published /${lang}/${slug}/ exists but is missing from public/llms.txt`);
-    }
+  for (const testCase of staticCases(lang)) {
+    const html = await readBuilt(testCase.route);
+    if (!html) continue;
+    if (!html.includes(`lang="${lang}"`)) failures.push(`${testCase.route}: html lang missing`);
+    if (!testCase.markers.some((marker) => html.includes(marker))) failures.push(`${testCase.route}: expected localized content marker missing`);
+    if (!html.includes('hreflang="ja"')) failures.push(`${testCase.route}: Japanese hreflang missing`);
+    if (!html.includes(`hreflang="${other}"`)) failures.push(`${testCase.route}: ${other.toUpperCase()} hreflang missing`);
+    const url = `${siteRoot}${testCase.route}`;
+    if (!llms.includes(url)) failures.push(`${testCase.route}: missing from public/llms.txt`);
   }
 
-  for (const slug of declared) {
-    if (!builtSet.has(slug)) {
-      failures.push(`${lang}: public/llms.txt declares /${lang}/${slug}/ but the built page does not exist`);
+  for (const watch of watches) {
+    const route = `${lang}/${watch.slug}/`;
+    const html = await readBuilt(route);
+    if (!html) continue;
+
+    if (!html.includes(`lang="${lang}"`)) failures.push(`${route}: html lang missing`);
+    for (const marker of ["OWNER'S NOTE", 'id="spec"', 'specimen-gallery', 'id="deep"']) {
+      if (!html.includes(marker)) failures.push(`${route}: FULL RESEARCH marker missing: ${marker}`);
     }
+    const sourceMarkers = lang === 'en'
+      ? ['REFERENCES &amp; SOURCES', 'REFERENCES & SOURCES']
+      : ['LITERATUR &amp; QUELLEN', 'LITERATUR & QUELLEN'];
+    if (!sourceMarkers.some((marker) => html.includes(marker))) failures.push(`${route}: FULL RESEARCH sources section missing`);
+    if (html.includes('This page is a concise English entry to the specimen')) failures.push(`${route}: obsolete concise-entry fallback leaked`);
+    if (!html.includes('hreflang="ja"')) failures.push(`${route}: Japanese hreflang missing`);
+    if (!html.includes(`hreflang="${other}"`)) failures.push(`${route}: ${other.toUpperCase()} hreflang missing`);
+    if (!llms.includes(`${siteRoot}${route}`)) failures.push(`${route}: missing from public/llms.txt`);
   }
 }
 
-
-const fullResearchSlugs = [
-  'basis-alarm',
-  'citizen-alarm',
-  'cyma-time-o-vox',
-  'pierce-duofon',
-  'westclox-watchlarm',
-  'wittnauer-10wa'
-];
+const fullResearchSlugs = watches.map((watch) => watch.slug).sort();
 const englishFullResearchSource = await fs.readFile('src/data/en-watch-full-research.ts', 'utf8');
 const cymaLocalizationSource = await fs.readFile('src/data/cyma-localizations.ts', 'utf8');
 for (const slug of fullResearchSlugs) {
   const registered = slug === 'cyma-time-o-vox'
     ? cymaLocalizationSource.includes('englishCymaFullResearch')
     : englishFullResearchSource.includes(`'${slug}': {`);
-  if (!registered) {
-    failures.push(`en: ${slug} is published but is not registered as FULL RESEARCH`);
-  }
+  if (!registered) failures.push(`en: ${slug} is published but is not registered as FULL RESEARCH`);
 }
 
 for (const lang of ['en', 'de']) {
-  const chronometrePath = path.join('dist', lang, 'cyma-time-o-vox', 'chronometre', 'index.html');
-  const chronometreUrl = `${siteRoot}${lang}/cyma-time-o-vox/chronometre/`;
-  try {
-    const html = await fs.readFile(chronometrePath, 'utf8');
-    if (!html.includes(`lang="${lang}"`)) failures.push(`${lang}: Chronometre page html lang missing`);
-    if (!llms.includes(chronometreUrl)) failures.push(`${lang}: localized Chronometre URL missing from public/llms.txt`);
-  } catch (error) {
-    failures.push(`${lang}: localized Chronometre page missing: ${error.message}`);
+  const other = lang === 'en' ? 'de' : 'en';
+  const route = `${lang}/cyma-time-o-vox/chronometre/`;
+  const html = await readBuilt(route);
+  if (!html) continue;
+
+  if (!html.includes(`lang="${lang}"`)) failures.push(`${route}: html lang missing`);
+  for (const marker of ['owners-documented', 'owners-observed', 'owners-unadjusted', 'owners-archive', 'owners-field-note', 'proto-conclusion']) {
+    if (!html.includes(marker)) failures.push(`${route}: full Chronomètre section missing: ${marker}`);
   }
+  if (!html.includes('hreflang="ja"')) failures.push(`${route}: Japanese hreflang missing`);
+  if (!html.includes(`hreflang="${other}"`)) failures.push(`${route}: ${other.toUpperCase()} hreflang missing`);
+  if (!llms.includes(`${siteRoot}${route}`)) failures.push(`${route}: missing from public/llms.txt`);
 }
 
 if (failures.length) {
@@ -95,4 +93,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log('Localized publication coverage check passed for EN / DE full WATCH routes, Chronometre research and public/llms.txt.');
+console.log(`Localized publication coverage check passed for all EN / DE public sections, ${watches.length} FULL RESEARCH WATCH routes per language, Chronomètre research and public/llms.txt.`);

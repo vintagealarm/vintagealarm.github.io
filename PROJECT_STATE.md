@@ -197,6 +197,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 変更しない内容
 - 合格条件
 - どの状態まで行うか: IMPLEMENTED / VERIFIED / DEPLOYED / OBSERVED
+- 多言語修正は、EN / DEの全公開routeをbuildで検査し、main merge後に全生成HTMLのlive artifact parityと全公開WATCH / 独立研究のsemantic live checkが通るまでDEPLOYEDとしない。branch / PRに修正文があるだけの状態は本番反映と扱わない。
 - 現行仕様・判断・方針・棄却候補が変わる場合、`CHANGE_DECISIONS.md` へJST日時・変更・理由・旧状態/棄却・影響範囲・検証状態・関連PR/commit・日時根拠を同じ変更セットで記録する
 - PR完了前にmerge-base以降のcommit / changed filesとdecision logを突合し、判断変更の未記録が0件であることを確認する
 - GitHub時刻を根拠にする場合はUTC原文とJST換算を併記し、`npm run check:decision-log` を通す

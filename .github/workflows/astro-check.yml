@@ -48,3 +48,5 @@ jobs:
             sleep 1
           done
           node scripts/check-layout.mjs
+          node scripts/check-localized-history.mjs
+          node scripts/check-localized-sources.mjs
