@@ -16,7 +16,9 @@ const required = {
   '/owners-notes/': ['CollectionPage'],
   '/en/': ['CollectionPage'],
   '/de/': ['CollectionPage'],
-  '/history/smartwatch/': ['CreativeWork', 'BreadcrumbList']
+  '/history/smartwatch/': ['CreativeWork', 'BreadcrumbList'],
+  '/en/history/smartwatch/': ['CreativeWork', 'BreadcrumbList'],
+  '/de/history/smartwatch/': ['CreativeWork', 'BreadcrumbList']
 };
 for (const watch of watchStates.filter((item) => item.published)) {
   required[`/${watch.slug}/`] = ['Article', 'BreadcrumbList'];
@@ -65,7 +67,7 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
     if (map.has(v)) fail(`duplicate ${label} with ${map.get(v)}`); else map.set(v, page);
   }
   const robots = value('robots').toLowerCase().split(',').map(s => s.trim());
-  if (page === '/history/smartwatch/') {
+  if (['/history/smartwatch/', '/en/history/smartwatch/', '/de/history/smartwatch/'].includes(page)) {
     if (!robots.includes('noindex') || !robots.includes('follow') || robots.includes('nofollow')) fail('smartwatch finale must remain noindex,follow');
   } else if (!['index', 'follow', 'max-image-preview:large'].every(v => robots.includes(v)) || robots.includes('noindex') || robots.includes('nofollow')) {
     fail('robots policy changed');
