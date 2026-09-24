@@ -9,7 +9,7 @@ const cases = [
     languageLinks: [['en', 'EN'], ['de', 'DE']],
     menuHref: '/history/',
     currentHref: '/history/smartwatch/',
-    currentHreflang: 'ja'
+    currentHreflang: ''
   },
   {
     route: 'en/history/',
