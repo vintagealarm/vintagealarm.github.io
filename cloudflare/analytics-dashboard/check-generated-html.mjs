@@ -274,6 +274,8 @@ assert.ok(html.includes("SNS → SITE ENTRY"));
 assert.ok(html.includes("HOST MIGRATION FLOW"));
 assert.ok(html.includes("SITE FLOWから分離"));
 assert.ok(html.includes("同一ホスト内の内部遷移"));
+assert.ok(html.includes("DATA QUALITY"), "dashboard must expose sampling/row-limit quality warnings");
+assert.ok(dashboardScript.includes('x.channel!=="Internal Navigation" && x.channel!=="Host Migration"'), "external acquisition flow must exclude host migration");
 assert.ok(html.includes('data-window="all"'));
 assert.ok(html.includes('id="customApply"'));
 assert.ok(html.includes('id="bucketSelect"'));
