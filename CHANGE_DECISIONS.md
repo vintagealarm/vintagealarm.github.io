@@ -17,6 +17,15 @@
 
 ## 2026-09-24
 
+### 2026-09-24 22:57 JST — WATCH ENTRY SHAREを公開18routeへ同期
+- **変更**：`WATCH ENTRY SHARE` の対象名を手書き固定配列から公開WATCH route map由来へ変更し、JP / EN / DE 各6本＝18routeを自動集計対象とする。言語gateway `/de/` 自体はWATCH entryから除外する。
+- **理由**：既存配列はJP6・EN5・DE3に `German Entry` が混在する途中状態で、EN WittnauerとDE Basis / Citizen / Wittnauerが漏れていた。計測仕様では新規公開WATCHをshareへ反映する前提であり、公開状態と別運用のmeasurement target 5本を混同しない必要がある。
+- **旧状態・棄却**：公開WATCH名をprofile wrapper内で都度手書き追加する方式、およびlanguage gatewayをWATCHとして数える状態を棄却する。measurement target 5本だけへWATCH ENTRY SHAREを絞る解釈も採用しない。
+- **影響範囲**：管理Analytics Dashboardの `WATCH ENTRY SHARE` / profile wrapper / regression test / `measurement/metrics.md`。Cloudflare raw値、各WATCH公開状態、measurement target 5本の運用上の括りは変更しない。
+- **検証状態**：branch実装済み。profile wrapper regressionとPR CIを再実行し、全check通過後にVERIFIEDとする。main merge・本番deployは未実施。
+- **関連**：Draft PR #118 / commits `f2d7258b`, `86cb10ea`, `f441289e`。
+- **日時根拠**：implementation commits `2026-09-24T13:56:31Z → 2026-09-24 22:56 JST` ～ `2026-09-24T13:57:21Z → 2026-09-24 22:57 JST`。最終実装commit時刻を見出し時刻に採用。
+
 ### 2026-09-24 22:53 JST — Gemini referrerをOrganic Searchへ誤分類しない
 - **変更**：referrer host分類で既知のAI Assistant host判定を汎用Search family判定より先に実行する。これにより `gemini.google.com` は `AI Assistant`、通常の `google.com` / `google.co.jp` 等は従来どおり `Organic Search` とする。分類関数をregression testから直接検証できるようexportし、計測仕様にも優先順位を明記した。
 - **理由**：従来は `google.*` のOrganic Search判定がAI判定より先だったため、AI Assistant一覧へ `gemini.google.com` を登録していても到達不能で、Gemini流入がSearchへ吸収される実装順序バグになっていた。したがって旧classifierで得た `AI=0` はGemini流入の不存在まで証明しない。
