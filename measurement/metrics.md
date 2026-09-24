@@ -123,6 +123,8 @@ Cloudflare Web AnalyticsのVisitsは、外部サイトまたはDirectから始�
 - `/de/owners-notes/` → OWNER'S NOTES (DE)
 - `/basis-alarm/` → Basis Alarm
 - `/wittnauer-10wa/` → Wittnauer Cal.10WA
+- `/en/wittnauer-10wa/` → Wittnauer Cal.10WA (EN)
+- `/de/wittnauer-10wa/` → Wittnauer Cal.10WA (DE)
 - `/pierce-duofon/` → Pierce Duofon
 - `/cyma-time-o-vox/` → Cyma Time-O-Vox
 - `/citizen-alarm/` → Citizen Alarm
