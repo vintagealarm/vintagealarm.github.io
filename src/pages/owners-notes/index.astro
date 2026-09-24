@@ -28,12 +28,22 @@ const title="OWNER'S NOTES｜所有アラーム腕時計の実機記録｜VINTAG
 const description="VINTAGE ALARMのOWNER'S NOTE一覧。所有する機械式アラーム腕時計を、所有個体の年代ごとに記録する。";
 const socialImage='/images/owners-thumbnails/cyma-time-o-vox-full.png';
 const schema={'@context':'https://schema.org','@type':'CollectionPage',name:"OWNER'S NOTES",description,inLanguage:'ja',url:'https://vintagealarm.github.io/owners-notes/'};
+const alternates=[
+ {hreflang:'ja',href:'/owners-notes/'},
+ {hreflang:'en',href:'/en/owners-notes/'},
+ {hreflang:'de',href:'/de/owners-notes/'},
+ {hreflang:'x-default',href:'/owners-notes/'}
+];
+const languageLinks=[
+ {href:`${base}en/owners-notes/`,label:'EN',hreflang:'en'},
+ {href:`${base}de/owners-notes/`,label:'DE',hreflang:'de'}
+];
 ---
 <!doctype html>
 <html lang="ja">
- <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#f7f8f4"/><OwnerFonts/><SeoHead title={title} description={description} path="owners-notes/" image={socialImage} schema={schema}/></head>
+ <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#f7f8f4"/><OwnerFonts/><SeoHead title={title} description={description} path="owners-notes/" image={socialImage} schema={schema} alternates={alternates}/></head>
  <body class="owners-v15">
-  <SectionMast rightLabel="OWNER'S NOTES"/>
+  <SectionMast rightLabel="OWNER'S NOTES" languageLinks={languageLinks}/>
   <main>
    <header class="shell directory-intro"><div><div class="eyebrow">OWNER'S NOTES</div><h1>所有個体から見る。</h1></div><p class="directory-meta">OWNED SPECIMENS<br/>COLLECTION</p></header>
    <section class="shell directory-eras" aria-label="OWNER'S NOTE年代別一覧">
