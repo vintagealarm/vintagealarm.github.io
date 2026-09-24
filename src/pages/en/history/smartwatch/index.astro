@@ -12,16 +12,43 @@ const alternates = [
 ];
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'CreativeWork',
-  name: 'Where We Are Now: SMARTWATCH',
-  description,
-  inLanguage: 'en',
-  url: 'https://vintagealarm.github.io/en/history/smartwatch/',
-  isPartOf: {
-    '@type': 'WebPage',
-    name: 'History of the Alarm Wristwatch',
-    url: 'https://vintagealarm.github.io/en/history/'
-  }
+  '@graph': [
+    {
+      '@type': 'CreativeWork',
+      name: 'Where We Are Now: SMARTWATCH',
+      description,
+      inLanguage: 'en',
+      url: 'https://vintagealarm.github.io/en/history/smartwatch/',
+      isPartOf: {
+        '@type': 'WebPage',
+        name: 'History of the Alarm Wristwatch',
+        url: 'https://vintagealarm.github.io/en/history/'
+      }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'VINTAGE ALARM',
+          item: 'https://vintagealarm.github.io/en/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'History of the Alarm Wristwatch',
+          item: 'https://vintagealarm.github.io/en/history/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'SMARTWATCH',
+          item: 'https://vintagealarm.github.io/en/history/smartwatch/'
+        }
+      ]
+    }
+  ]
 };
 ---
 <!doctype html>
