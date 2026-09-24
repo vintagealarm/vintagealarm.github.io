@@ -42,11 +42,11 @@
 - **関連**：commit `33ce28c95e282e6dd8829f6f92b09ca2f6cd90fb`
 - **日時根拠**：GitHub commit 2026-09-23 11:35:14 JST。判断内容は保存済み会話と突合済み。
 
-### 2026-09-23 13:28 JST — TOPにHOW THEY RING入口を追加
+### 2026-09-23 15:28 JST — TOPにHOW THEY RING入口を追加
 - **変更**：OWNER'S NOTES直下にHOW THEY RING入口を配置し、TOP表示をCMSスイッチで管理。
 - **理由**：独立した音・鳴らし方の入口としてTOPから到達可能にするため。
 - **関連**：commits `84a478a7b7d731ffab655a41f3ec41175e7689c1`, `b6d1f80c9ea9402156cc7e529fa351f97420ad6c`
-- **日時根拠**：GitHub commit 13:28 JST、保存済み会話の指示時刻 15:28 JSTも確認。実装時刻を採用。
+- **日時根拠**：GitHub commits 2026-09-23 15:28:13–15:28:20 JST。保存済み会話の指示時刻とも一致。旧13:28表記はUTC→JST換算ミスのため訂正。
 
 ### 2026-09-23 15:31 JST — Cricketの詳細呼称を「振動板型」に変更
 - **変更**：FIG.02を「膜状バック型」から「振動板型」へ変更。
@@ -65,6 +65,36 @@
 - **変更**：productionPublishedを有効化し、本番routeを公開。
 - **関連**：commit `07ee720481e179b200115f867d4c7ce3c67899c6`
 - **日時根拠**：GitHub commit 2026-09-23 14:05:25 JST。
+
+### 2026-09-23 15:59 JST — GONGの機構ラベルを「棒状の音ばね」に変更
+- **変更**：FIG.01 / GONGの表示を「棒状の音ばねを叩く」へ変更。
+- **状態**：この表現は翌2026-09-24に実物形状の再確認を受けて「輪状の音ばねを叩く」へ変更され、失効。
+- **関連**：commit `b0a9f9358b7e52581f94d8d3d9f4a33c682c4238`
+- **日時根拠**：GitHub commit 2026-09-23 15:59:22 JST。
+
+### 2026-09-23 16:07 JST — Pages本番deployをキャンセルせずキュー待ちへ変更
+- **変更**：連続commit時に進行中の本番deployを `cancel-in-progress` で打ち切らず、後続runを待機させる運用へ変更。
+- **理由**：CMS / 編集commitが短時間に続いても、進行中の本番deployを途中取消ししないため。
+- **関連**：commit `02a98c87dca02ea60db0f0bf487d58a4bd0ada79`
+- **日時根拠**：GitHub commit 2026-09-23 16:07:43 JST。
+
+### 2026-09-23 16:21 JST — 公開変更時の回帰監査を必須化
+- **変更**：公開導線・表示ラベル・release flagを変えた場合、実装だけでなく build / live / layout / deploy workflow の旧文字列・旧仕様まで同時監査するルールをPROJECT_STATE / AGENTSへ追加。
+- **理由**：実装とgateの不整合を「反映待ち」やキャッシュ問題と誤認しないため。
+- **関連**：commits `d89d559d93f8f4fc6fe8bce21b6218647beb8e70`, `bbc731545d4505ca67e91965e24b49ca511c8235`
+- **日時根拠**：GitHub commits 2026-09-23 16:21:48–16:21:57 JST。
+
+### 2026-09-23 16:25 JST — HOW THEY RINGを共通セクションメニューへ追加
+- **変更**：HOW THEY RINGを共通のsection menuから到達できる公開導線へ追加。
+- **後続変更**：翌2026-09-24に、日本語メニュー内の表示ラベルだけ「音で見る」へ変更。ページ名 / URL / TOP入口名はHOW THEY RINGのまま。
+- **関連**：commit `8c59094e6549d1468ba5c82b81fe8cc1d83c7787`
+- **日時根拠**：GitHub commit 2026-09-23 16:25:06 JST。
+
+### 2026-09-23 16:56 JST — 公開変更を1 deploy単位で原子的に扱う運用へ変更
+- **変更**：表示実装・build gate・live gate・必要なlayout検査を同じ変更セットで揃え、実装→gate→gateの分割pushを避ける運用をAGENTSへ追加。deploy状態も triggered / queued / running / failed / deployed / live verified を分離する。
+- **理由**：高速commit時の中間状態を本番仕様と誤認せず、どの層で不整合が起きたか追跡可能にするため。
+- **関連**：commit `2ece305039e5ce2fb94963ccf46a80b65f6fc779`
+- **日時根拠**：GitHub commit 2026-09-23 16:56:36 JST。
 
 ### 2026-09-23 16:41 JST — ヒーローを「音で見る、アラーム腕時計。」へ再設計
 - **変更**：主見出しを「音で見る、アラーム腕時計。」へ変更し、分類説明より「音を聴く」目的を前面に出した。旧selector guide/arrowsを撤去。
@@ -137,7 +167,7 @@
 
 ## 2026-09-23
 
-### 2026-09-23 19:01 JST — GitHub運用：現在状態と変更履歴を分離
+### 2026-09-23 18:58 JST — GitHub運用：現在状態と変更履歴を分離
 - **変更**：`CHANGE_DECISIONS.md` を新設し、仕様・判断・方針・棄却候補の変更をJST日時付きで追跡する運用へ変更。PROJECT_STATE / AGENTSの完了条件・起動ルーティングにも組み込んだ。
 - **理由**：「今どうなっているか」だけでなく「いつ・何を・なぜ変えたか」をGitHubだけで追跡可能にし、会話履歴への依存と旧仕様復活を減らすため。
 - **旧状態・棄却**：PROJECT_STATEへ現在仕様と一部の理由を集約するだけの運用。時系列の判断履歴としては不足するため廃止。
@@ -161,6 +191,30 @@
 - **影響範囲**：HOW THEY RING、build/live gate、layout検査、PROJECT_STATE。
 - **検証状態**：PR側でbuild・quality gate通過を確認後mainへmerge。live反映はこの記録時点では未記録。
 - **関連**：PR #89 / commit `b262c3b97c4b7f95034a7d766bacb8f511d5272e`
+
+### 2026-09-23 21:22 JST — 発見性とHOW THEY RINGの操作導線を最小拡張
+- **変更**：固有研究ルートを `llms.txt` / site schemaへ明示し、HOW THEY RINGでは複数音源の同時再生可能性と写真から個体詳細へ進む導線を明確化。
+- **理由**：本文を水増しせず、既存の独自資産へ外部検索・AI・閲覧者が到達しやすくするため。
+- **関連**：PR #92 / commit `23db671fe28bbe84834587342688bec286391261`
+- **日時根拠**：PR #92 merge / GitHub commit 2026-09-23 21:22:11 JST。
+
+### 2026-09-23 22:17 JST — Analytics AI URL relay v2の互換境界と品質表示を確定
+- **変更**：AI URL v2でRANGE / GROUP BY / CUSTOM datesを短縮relayへ保持し、既存v1 preset linkは読取互換を維持。CloudflareのsampleIntervalは UNSAMPLED / SAMPLED / ESTIMATE として表示し、ALLは比較対象なしとする。
+- **理由**：DashboardとAI向けexportが同じ期間・bucketを参照し、sampled値を実測値として誤読しないため。
+- **関連**：commits `db61633d5f44f98a57e10aab95b941432d82bfaa` ～ `e62d91ca42deb25bfa39a524a517b1b5f1b06a25`
+- **日時根拠**：GitHub commits 2026-09-23 22:15:41–22:17:44 JST。最終文書化commit 22:17:44 JSTを見出し時刻に採用。
+
+### 2026-09-23 22:29 JST — HOW THEY RINGの録音条件を公開注記として固定
+- **変更**：実機音の録音条件を **iPhone 16 / 約20 cm / audio file unprocessed** と表示し、録音音量は実環境での絶対音量を示さない旨を併記。
+- **理由**：個体間の音源を比較可能にしつつ、録音レベルを実際の音圧と誤認させないため。
+- **関連**：PR #95 / commit `462feded4fbe0adb7c37dbaf4b33d7fc4f5fec55`
+- **日時根拠**：PR #95 merge / GitHub commit 2026-09-23 22:29:14 JST。
+
+### 2026-09-23 22:57 JST — TAP装飾を選択中カテゴリだけに限定
+- **変更**：GONG / CASEBACK selectorのベル＋TAP装飾は、アクティブなカテゴリ側だけ表示する。
+- **理由**：両方を常時強調せず、現在選択中のカテゴリを操作状態として読み取れるようにするため。
+- **関連**：PR #96 / commit `cfc67d3c42adacefd90c22b461a2a17b8cef7132`
+- **日時根拠**：PR #96 merge / GitHub commit 2026-09-23 22:57:22–22:57:23 JST。
 
 > 注：上記時刻はこの運用導入時点で会話・PRの時系列から確定できる範囲を記載。今後は変更時にJST時刻を同時記録する。
 
