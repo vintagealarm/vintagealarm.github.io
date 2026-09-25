@@ -471,6 +471,10 @@
           "mustNotContain": [
             "href: '/en/cyma-time-o-vox/'",
             "href: '/en/basis-alarm/'"
+          ],
+          "mustContain": [
+            "href: '/de/cyma-time-o-vox/'",
+            "href: '/de/basis-alarm/'"
           ]
         },
         {
@@ -487,31 +491,28 @@
         {
           "path": "dist/de/wittnauer-10wa/index.html",
           "mustContain": [
-            "/de/cyma-time-o-vox",
             "NÄCHSTE OWNER'S NOTE · DE"
           ],
           "mustNotContain": [
-            "/en/cyma-time-o-vox"
+            "NÄCHSTE OWNER'S NOTE · EN"
           ]
         },
         {
           "path": "dist/de/pierce-duofon/index.html",
           "mustContain": [
-            "/de/cyma-time-o-vox",
             "NÄCHSTE OWNER'S NOTE · DE"
           ],
           "mustNotContain": [
-            "/en/cyma-time-o-vox"
+            "NÄCHSTE OWNER'S NOTE · EN"
           ]
         },
         {
           "path": "dist/de/westclox-watchlarm/index.html",
           "mustContain": [
-            "/de/basis-alarm",
             "NÄCHSTE OWNER'S NOTE · DE"
           ],
           "mustNotContain": [
-            "/en/basis-alarm"
+            "NÄCHSTE OWNER'S NOTE · EN"
           ]
         }
       ]
