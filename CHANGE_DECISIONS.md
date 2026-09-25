@@ -23,7 +23,7 @@
 - **旧状態・棄却**：EN `Bottom-bell system` / DE `Bodenglocke`。これらは裏蓋側でのピン伝達という日本語正本の粒度と一致せず、Basis / Lanco系のベル直接打撃と混同し得るため棄却。
 - **影響範囲**：Westclox Watchlarm W5の英語・ドイツ語SPEC音響欄と多言語同期gateのみ。日本語正本、Deep Dive、HOW THEY RING、他WATCH、レイアウトは変更しない。
 - **検証状態**：branch実装済み。PR CIでbuild / localization sync / quality / layoutを確認し、merge後はPages deploy・全artifact parity・live publication checkまで通してDEPLOYEDとする。
-- **関連**：implementation commit `9d08a3e4` / branch `fix/westclox-acoustic-spec-sync`。
+- **関連**：implementation commits `9d08a3e4`, `349ec4ea`, `4c4156b7` / branch `fix/westclox-acoustic-spec-sync`。初回実装で同じ旧ラベルを持つBasis側を誤置換したことをlocalization sync gateが検出したため、Basisを原状復帰し、Westcloxブロックだけを対象に修正した。
 - **日時根拠**：GitHub implementation commit `2026-09-25T03:15:07Z → 2026-09-25 12:15 JST`。
 ## 2026-09-24
 
