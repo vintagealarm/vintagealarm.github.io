@@ -706,7 +706,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       frequency: '18.000 A/h',
       barrels: '1 Federhaus',
       winding: 'Handaufzug',
-      acoustic: 'Bodenglocke',
+      acoustic: 'Stiftübertragung am Gehäuseboden',
       notes: 'Alarmzeiteinstellung per Drücker bei 2 Uhr, beim gezeigten Exemplar 60 Drücke für 12 Stunden, EIN/AUS-Schieber bei 9 Uhr, Alarmdauer ca. 10 Sekunden'
     },
     specimenGallery: [
