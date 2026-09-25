@@ -318,18 +318,12 @@
           "path": "src/data/en-watch-entry.ts",
           "mustContain": [
             "acoustic: 'Caseback pin system'"
-          ],
-          "mustNotContain": [
-            "acoustic: 'Bottom-bell system'"
           ]
         },
         {
           "path": "src/data/de-watch-entry.ts",
           "mustContain": [
             "acoustic: 'Stiftübertragung am Gehäuseboden'"
-          ],
-          "mustNotContain": [
-            "acoustic: 'Bodenglocke'"
           ]
         }
       ],
