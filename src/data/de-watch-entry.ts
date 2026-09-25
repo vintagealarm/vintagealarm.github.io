@@ -89,7 +89,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       frequency: '18.000 A/h',
       barrels: '2 Federhäuser',
       winding: 'Handaufzug',
-      acoustic: 'Stiftübertragung am Gehäuseboden',
+      acoustic: 'Bodenglocke',
       notes: 'Alarmdauer ca. 10 Sekunden (Horlbeck / gezeigtes Exemplar), Alarmzeiteinstellung über Drehlünette, EIN/AUS-Schieber bei 9 Uhr, Aufzugskontrollfenster bei 1 und 5 Uhr'
     },
     specimenGallery: [
@@ -706,7 +706,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       frequency: '18.000 A/h',
       barrels: '1 Federhaus',
       winding: 'Handaufzug',
-      acoustic: 'Bodenglocke',
+      acoustic: 'Stiftübertragung am Gehäuseboden',
       notes: 'Alarmzeiteinstellung per Drücker bei 2 Uhr, beim gezeigten Exemplar 60 Drücke für 12 Stunden, EIN/AUS-Schieber bei 9 Uhr, Alarmdauer ca. 10 Sekunden'
     },
     specimenGallery: [
