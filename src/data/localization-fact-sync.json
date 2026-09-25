@@ -301,6 +301,64 @@
           ]
         }
       ]
+    },
+    {
+      "id": "westclox-acoustic-system",
+      "slug": "westclox-watchlarm",
+      "canonicalValue": "裏蓋ピン式 / Caseback pin system / Stiftübertragung am Gehäuseboden",
+      "note": "Keep the Westclox W5 SPEC aligned with the caseback pin-transmission construction described in the Japanese source and the cited Horlbeck caseback structure. Do not regress to a generic bottom-bell label.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/westclox-watchlarm.md",
+          "mustContain": [
+            "acoustic: 裏蓋ピン式"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-entry.ts",
+          "mustContain": [
+            "acoustic: 'Caseback pin system'"
+          ],
+          "mustNotContain": [
+            "acoustic: 'Bottom-bell system'"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "acoustic: 'Stiftübertragung am Gehäuseboden'"
+          ],
+          "mustNotContain": [
+            "acoustic: 'Bodenglocke'"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/westclox-watchlarm/index.html",
+          "mustContain": [
+            "裏蓋ピン式"
+          ]
+        },
+        {
+          "path": "dist/en/westclox-watchlarm/index.html",
+          "mustContain": [
+            "Caseback pin system"
+          ],
+          "mustNotContain": [
+            "Bottom-bell system"
+          ]
+        },
+        {
+          "path": "dist/de/westclox-watchlarm/index.html",
+          "mustContain": [
+            "Stiftübertragung am Gehäuseboden"
+          ],
+          "mustNotContain": [
+            "Bodenglocke"
+          ]
+        }
+      ]
     }
   ]
 }

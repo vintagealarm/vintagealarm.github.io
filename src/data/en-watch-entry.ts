@@ -103,7 +103,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       frequency: '18,000 vph',
       barrels: '2 barrels',
       winding: 'Manual winding',
-      acoustic: 'Bottom-bell system',
+      acoustic: 'Caseback pin system',
       notes: 'Approx. 10-second alarm, rotating-bezel alarm setting, 9 o’clock ON/OFF slider, winding-indicator windows at 1 and 5 o’clock'
     }
   },
