@@ -331,3 +331,13 @@
 - **検証状態**：fresh current-main branch上で実装済み。Astro foundation CIを全通過させた後にVERIFIED、main merge後にGitHub Pages deploy・live artifact parity・live semantic gateが通った時点でDEPLOYED / OBSERVEDとする。blocker deploy後はCyma R.464を起点にしたtarget-specific one-to-one outreachを開始可能とし、一斉営業は検索面・source traceability・reuse policy等を別途整えるまで保留する。
 - **関連**：commits `900e88e3ea1f9749d96954f85b6a0f85a474d3ea`, `ed32536dbb945afc0fb6892297fc2fb371b4d466`, `454936db68be6e916ad3ea819b2f44b737673c11`, `9fc5371a9713fa776dc8632ee97d7a7611e27377`, `d49dca7dcde07a803c6a80bdd63bb7b7fe4d5f4f`, `5befd04cabfd91a881a023478e905710634a9566`, `6f38d81f4c14b8231db970e502a8ae4fdf5bec28`, `dfc0eb0904a109f7a7378a1ae7b61cc45c32401c`, `43d845ca4abb74086fd531eed35f12d8ee55bd62`, `ee510e1cc558449de7a516c5387a4a7b39730176`。旧PR #110 / #125は現行mainへ直接mergeしない。
 - **日時根拠**：GitHub implementation commit `900e88e3ea1f9749d96954f85b6a0f85a474d3ea` の 2026-09-25T05:41:57Z → 2026-09-25 14:41 JST。後続audit sync commit `dfc0eb0904a109f7a7378a1ae7b61cc45c32401c` は 2026-09-25T05:43:21Z → 2026-09-25 14:43 JST。CIでrendered-text parserがhref属性を検査できないことを確認し、URL検査をsource + markup-aware build/live gateへ分離した最終修正 `ee510e1cc558449de7a516c5387a4a7b39730176` は 2026-09-25T05:46:46Z → 2026-09-25 14:46 JST。
+
+
+### 2026-09-25 20:11 JST — 公開HOW THEY RINGのlive gateを現行文言へ同期
+- **変更**：PR #126でHOW THEY RINGのFIG.01 / FIG.03現行文言を本番へ反映した後も、`scripts/check-live-site.mjs` の代表markerが旧「棒状 / rod-shaped / stabförmig」文言を期待していたため、live gateを現行「輪状 / ring-shaped / ringförmig」へ同期し、旧JA文言をstale禁止へ追加した。
+- **理由**：PR #126のDeploy GitHub Pages run `36100224068` はPages deployと49 artifact parityまで成功し、本番artifact自体は正しかった。一方、最後のsemantic live checkだけが旧markerを要求してfailureになった。公開不良ではなく検査側の旧仕様残存であり、これを放置すると正しい本番をfailure扱いし続けるため。
+- **旧状態・棄却**：本番が旧「棒状 / rod-shaped / stabförmig」を含むことを正常条件とするlive gateを棄却。deploy successだけを見てsemantic check failureを無視する運用も棄却する。
+- **影響範囲**：`scripts/check-live-site.mjs` のHOW THEY RING live marker / stale markerのみ。公開本文・HOW THEY RING分類・WATCH本文・Analyticsは変更しない。
+- **検証状態**：branchでCIを通過後、mainへmergeしてPages deployを再実行し、live artifact parityとsemantic live checkの両方がsuccessになった時点でVERIFIED / DEPLOYEDとする。
+- **関連**：PR #126 merge commit `8e460187f2fe7c959e26e03051000cbdac740cb2`、Deploy run `36100224068`、fix commit `24a219b8174989f7aa2b9b64f015263c67703063`。
+- **日時根拠**：PR #126 merge commitは 2026-09-25T05:50:01Z → 2026-09-25 14:50 JST。live gate修正commitは 2026-09-25T11:11:59Z → 2026-09-25 20:11 JST。
