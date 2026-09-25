@@ -307,6 +307,7 @@
 - **検証状態**：Analytics Worker CIでprobe POST/HEAD/origin拒否、SQL集計、VA2出力を検査。Astro buildで公開HTMLへのprobe埋込を検査し、main反映後はWorker binding HEAD health checkとlive HTML gateで別途DEPLOYEDを確認する。新しい外部流入が発生するまでcapture-gapの原因判定はOBSERVEDにしない。
 - **関連**：PR #121、commits `2dc33b0dfbfa8f3bf62096e7bbf9f2554e562460`, `f2cd519fec3cecb4523b33c56f2998236e2a47fd`, `84823475047555f00b73181b3ba5da885db2a986`, `262c1ec25a95e2ed602e0868361772c3365eee5e`, `061f5a27dc6d428b6c7e7d561247fb7b286b62ec`, `27c0ccab191bfeaccc9e4bc35544695276bf9104`, `1fc8bd2c41cab9ba2e637e4b39f7cd25f50d4812`, `80007956227a707d56d7883030be7f9135848ebf`, `6772427a0654c5afb2f27fc0229c067ebbb31f96`, `601d8db5bead5377763c711d9036c7ca72ae349b`, `2bc3e9b40fd315ba5cc87da6b01eb09b26a530a2`, `cfed508ec5699640f5c3feeebd41208aafd2c671`, `e82404eb16a521180686f41d21fc3413623563fb`, `5bfdea5119932b077dd0403d955d54f1b659a178`
 - **日時根拠**：GitHub commit `2dc33b0dfbfa8f3bf62096e7bbf9f2554e562460` の 2026-09-24T23:07:14Z → 2026-09-25 08:07 JST。後続実装commitは同日 2026-09-24T23:15:55Z → 2026-09-25 08:15 JST まで。
+- **merge / deploy記録**：PR #121 merge commit `bc85a2ea02e6a0093b576fc8365ae4a530b91190` は 2026-09-24T23:19:09Z → 2026-09-25 08:19 JST。Deploy Analytics Worker run `36072117353` は 2026-09-24T23:19:12Z → 08:19 JST開始、2026-09-24T23:19:33Z → 08:19 JST終了でfailure。AI Readable Relay run `36072117307` は 2026-09-24T23:20:02Z → 08:20 JSTでsuccess、GitHub Pages run `36072117348` は 2026-09-24T23:22:37Z → 08:22 JSTでsuccess。
 
 
 ## 2026-09-25 — Arrival Probe保存先をDurable Objectへ変更
@@ -319,6 +320,7 @@
 - **検証状態**：branch CIでentry-worker / build / decision-logを再検証後、main mergeでAnalytics Workerを再deployする。deploy workflowの`HEAD /api/arrival-probe`が204になることをbinding/storageのlive gateとし、GitHub Pages上のprobe scriptと合わせてDEPLOYED判定する。新しい外部流入が発生するまで原因判定はOBSERVEDとしない。
 - **関連**：PR #121（初回SPIKE）、Deploy Analytics Worker run `36072117353`、commits `73450fbea8a1c9f6a1ffe3bac03c7c6a359e2407`, `1c6ae3f8014f32b3fbf418109be8c3425fed6dd2`, `a2170a873d32ff3ad2266940cb30e571440ab9a6`, `25be4b4dd32f1f6a7af17d574b3d9b138f5eb8b6`, `95cc44d7fd7e00af1246b62b7cfb7e8928a1579a`
 - **日時根拠**：GitHub commit `73450fbea8a1c9f6a1ffe3bac03c7c6a359e2407` の 2026-09-24T23:22:33Z → 2026-09-25 08:22 JST。後続commitは 2026-09-24T23:24:00Z → 2026-09-25 08:24 JST まで。
+- **merge / deploy記録**：PR #122 merge commit `d246659137ff0868dcef2af4494c2fb7717dcf17` は 2026-09-24T23:27:35Z → 2026-09-25 08:27 JST。Deploy Analytics Worker run `36072829559` は 2026-09-24T23:27:38Z → 08:27 JST開始、2026-09-24T23:27:57Z → 08:27 JST終了でsuccess。GitHub Pages run `36072829766` は 2026-09-24T23:27:39Z → 08:27 JST開始、2026-09-24T23:30:32Z → 08:30 JST終了でsuccess。
 
 
 ## 2026-09-25 — 外部営業可能性監査
@@ -341,3 +343,4 @@
 - **検証状態**：branchでCIを通過後、mainへmergeしてPages deployを再実行し、live artifact parityとsemantic live checkの両方がsuccessになった時点でVERIFIED / DEPLOYEDとする。
 - **関連**：PR #126 merge commit `8e460187f2fe7c959e26e03051000cbdac740cb2`、Deploy run `36100224068`、fix commit `24a219b8174989f7aa2b9b64f015263c67703063`。
 - **日時根拠**：PR #126 merge commitは 2026-09-25T05:50:01Z → 2026-09-25 14:50 JST。live gate修正commitは 2026-09-25T11:11:59Z → 2026-09-25 20:11 JST。
+- **merge / deploy記録**：PR #128 merge commit `c7b447e80155605bf862ab0a8142dd34ba8cf217` は 2026-09-25T11:15:40Z → 2026-09-25 20:15 JST。Deploy GitHub Pages run `36128422567` は 2026-09-25T11:15:43Z → 20:15 JST開始、2026-09-25T11:18:34Z → 20:18 JST終了でsuccess。build / quality / mobile layout / Pages deploy / 49-file live artifact parity / live publication stateの全stepがsuccess。
