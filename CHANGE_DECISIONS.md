@@ -309,3 +309,15 @@
 - **検証状態**：branch CIでentry-worker / build / decision-logを再検証後、main mergeでAnalytics Workerを再deployする。deploy workflowの`HEAD /api/arrival-probe`が204になることをbinding/storageのlive gateとし、GitHub Pages上のprobe scriptと合わせてDEPLOYED判定する。新しい外部流入が発生するまで原因判定はOBSERVEDとしない。
 - **関連**：PR #121（初回SPIKE）、Deploy Analytics Worker run `36072117353`、commits `73450fbea8a1c9f6a1ffe3bac03c7c6a359e2407`, `1c6ae3f8014f32b3fbf418109be8c3425fed6dd2`, `a2170a873d32ff3ad2266940cb30e571440ab9a6`, `25be4b4dd32f1f6a7af17d574b3d9b138f5eb8b6`, `95cc44d7fd7e00af1246b62b7cfb7e8928a1579a`
 - **日時根拠**：GitHub commit `73450fbea8a1c9f6a1ffe3bac03c7c6a359e2407` の 2026-09-24T23:22:33Z → 2026-09-25 08:22 JST。後続commitは 2026-09-24T23:24:00Z → 2026-09-25 08:24 JST まで。
+
+
+## 2026-09-25 — 外部営業可能性監査
+
+### 2026-09-25 12:15 JST — 営業可能性監査で公開blockerを修正
+- **変更**：外部データベース・編集媒体へcanonical deep URLを直接渡す前提でサイト全体を監査し、公開品質を損なう2件を修正した。HOW THEY RING FIG.01は「輪状の音バネ / ring-shaped sound spring / ringförmige Tonfeder」、FIG.03はJunghans J89の「ピン伝達 / pin-transmission / Stiftübertragung」へ戻し、J89の発音経路を `hammer → pin → bottom bell` とJA / EN / DEで同期した。さらにDE WATCHの関連導線が英語routeへ脱線していた3件をDE routeへ戻し、German footerの固定 `NÄCHSTE OWNER'S NOTE · EN` を実際のrelated hreflang連動へ変更した。build / live / localization fact-syncに回帰拒否を追加し、監査結果を `strategy/discovery/external-reference/outreach-readiness-audit-2026-09-25.md` に記録した。
+- **理由**：HOW THEY RINGのFIG.01 / FIG.03は2026-09-24の旧PR #110で現行事実が確定していたが、そのPRがmainから大きくdivergeしたまま未mergeとなり、mainに旧文言が残っていた。DE側ではWittnauer / Pierce / Westcloxの関連導線がENへ飛び、全DE WATCHで次ページ言語ラベルがEN固定だった。外部営業では最初に渡す1～2ページの明白な事実・言語不整合が信頼を直接損なうため、営業開始前のhard blockerと判断した。
+- **旧状態・棄却**：FIG.01「棒状 / rod-shaped / stabförmig」、FIG.03「ピン／レバー / pin / lever / Stift-/Hebelübertragung」、量産J89を単に「底部ベルを発音体とする」とだけ書く状態、DE WATCHからEN WATCHへrelated navigationする状態、German footerで次ページを常にENと表示する状態を棄却する。旧PR #110をそのままmergeする案も、113 commits behindのため棄却し、fresh main branchへ必要差分だけ移植する。
+- **影響範囲**：HOW THEY RINGのJA / EN / DE機構文言、DE WATCH related navigation、German footer label、build / live regression gate、`src/data/localization-fact-sync.json`、外部営業readiness監査文書。GONG / CASEBACKの2分類、各WATCH本文・SOURCES、音源、Analytics、TOP構造、既存rabbit-hole戦略は変更しない。
+- **検証状態**：branch上で実装済み。build / localization fact-sync / live gateを追加済み。PR CIを全通過させた後にVERIFIEDとする。main merge・Pages deploy・live現行文言確認まではDEPLOYEDとしない。監査上、blocker deploy後はCyma R.464を起点にしたtarget-specific one-to-one outreachを開始可能とし、一斉営業は検索面・source traceability・reuse policy等を別途整えるまで保留する。
+- **関連**：commits `1810dc904bef7ede5277cf8e2a954b82b5a20762`, `a42754d5c99f14e9e1000ad81d53a3f7594830d1`, `f900d71a82cf2c32bc7197635e94b061017f90af`, `52870dba86dac08ac2306a63a54da7c4b9ffe00a`, `765706c547cbd808207dde7a767b9eab30dfe192`, `48714014946e265e02b047359c7b073425c5af1a`, `a996a86eec2252020b76fc51ad6499461ec873bb`。旧PR #110は現行mainへ直接mergeしない。
+- **日時根拠**：GitHub implementation commit `1810dc904bef7ede5277cf8e2a954b82b5a20762` の 2026-09-25T03:09:01Z → 2026-09-25 12:09 JST。後続audit commit `a996a86eec2252020b76fc51ad6499461ec873bb` は 2026-09-25T03:15:33Z → 2026-09-25 12:15 JST。
