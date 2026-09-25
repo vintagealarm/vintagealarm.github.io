@@ -15,6 +15,16 @@
 
 ---
 
+## 2026-09-25
+
+### 2026-09-25 12:15 JST — Westclox W5の音響SPECを裏蓋ピン式へ三言語同期
+- **変更**：日本語正本 `裏蓋ピン式` を維持し、英語SPECの `Bottom-bell system` を `Caseback pin system`、ドイツ語SPECの `Bodenglocke` を `Stiftübertragung am Gehäuseboden` へ修正した。あわせて `localization-fact-sync.json` にJA / EN / DEのsource / rendered同期契約を追加し、旧英独表現が復活した場合はCIを失敗させる。
+- **理由**：WestcloxのDeep DiveとHorlbeck記述は、わずかに膨らんだ裏蓋、中央リベット、内側の小ブリッジ、およびJunghans Minivox系と同様のピンから底部中央へ振動を伝える構造を示す。HOW THEY RING上もWestcloxはCASEBACK分類であり、英独SPECだけが一般的な底部ベル表現へずれていた。
+- **旧状態・棄却**：EN `Bottom-bell system` / DE `Bodenglocke`。これらは裏蓋側でのピン伝達という日本語正本の粒度と一致せず、Basis / Lanco系のベル直接打撃と混同し得るため棄却。
+- **影響範囲**：Westclox Watchlarm W5の英語・ドイツ語SPEC音響欄と多言語同期gateのみ。日本語正本、Deep Dive、HOW THEY RING、他WATCH、レイアウトは変更しない。
+- **検証状態**：branch実装済み。PR CIでbuild / localization sync / quality / layoutを確認し、merge後はPages deploy・全artifact parity・live publication checkまで通してDEPLOYEDとする。
+- **関連**：implementation commit `9d08a3e4` / branch `fix/westclox-acoustic-spec-sync`。
+- **日時根拠**：GitHub implementation commit `2026-09-25T03:15:07Z → 2026-09-25 12:15 JST`。
 ## 2026-09-24
 
 ### 2026-09-24 23:01 JST — host移行を跨ぐAnalyticsへ単一siteTag filterを入れない
