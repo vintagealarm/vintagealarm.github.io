@@ -472,8 +472,8 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       'Rich Fordon, HODINKEE, “Bring a Loupe: A Parmigiani Fleurier Toric Memory Time, A Cartier Trianon, And Two Picks From Goodwill” (2025-08-15), Abschnitt “1950s Wittnauer Alarm Watch With Caliber 10WA” — beschreibt Cal. 10WA als modulares Alarmwerk auf Basis des Longines Cal. 10. https://www.hodinkee.com/articles/bring-a-loupe-august-15-2025'
     ],
     related: {
-      href: '/en/cyma-time-o-vox/',
-      hreflang: 'en',
+      href: '/de/cyma-time-o-vox/',
+      hreflang: 'de',
       name: 'CYMA TIME-O-VOX',
       reason: 'Eine andere Antwort aus derselben Epoche: ein Federhaus, zwei Drücker und ein völlig anders integrierter Alarm.'
     }
@@ -662,8 +662,8 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       'Hinweis zum Gründungsjahr: Im Fließtext wird 1883 verwendet. Horlbeck S. 131 nennt 1888, während Beitl S. 670, Grail Watch Wiki, Ranfft DB und Watch-Wiki 1883 nennen. VINTAGE ALARM verwendet daher derzeit 1883 als Textwert; die abschließende Bestätigung durch ein Handelsregister oder eine vergleichbare Primärquelle bleibt offen.'
     ],
     related: {
-      href: '/en/cyma-time-o-vox/',
-      hreflang: 'en',
+      href: '/de/cyma-time-o-vox/',
+      hreflang: 'de',
       name: 'CYMA TIME-O-VOX',
       reason: 'Dieselben 1950er. Das andere Extrem: ein Federhaus und der Anspruch auf Chronomètre.'
     }
@@ -806,8 +806,8 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       'OWNER OBSERVATION — Dokumentation des gezeigten Exemplars: 34 mm Gehäusedurchmesser; 60 Betätigungen des Drückers bei 2 Uhr bewegen den Alarmzeiger einmal vollständig über 12 Stunden.'
     ],
     related: {
-      href: '/en/basis-alarm/',
-      hreflang: 'en',
+      href: '/de/basis-alarm/',
+      hreflang: 'de',
       name: 'BASIS ALARM',
       reason: 'Eine andere Richtung als die Luxusmodelle: eine weitere Antwort für den Massenmarkt.'
     }
