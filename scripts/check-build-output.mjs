@@ -280,12 +280,22 @@ if (howTheyRingRelease.productionPublished) {
     if (soundProdHtml.includes(stale)) failures.push(`HOW THEY RING: stale hero copy remains: ${stale}`);
   }
   if (!/<a[^>]+href=\"\/how-they-ring\/?\"[^>]*>\s*音で見る\s*<\/a>/.test(soundProdHtml)) failures.push('HOW THEY RING: shared Japanese menu label must be 音で見る');
-  for (const marker of ['音で見る、', 'アラーム腕時計。', '棒状の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
+  for (const stale of ['棒状の音バネを叩く', 'Strikes a rod-shaped sound spring', 'Schlägt eine stabförmige Tonfeder an', 'ピン／レバー伝達型', 'Pin / lever transmission type', 'Stift-/Hebelübertragung']) {
+    if (soundProdHtml.includes(stale) || englishHowTheyRingHtml.includes(stale) || germanHowTheyRingHtml.includes(stale)) failures.push(`HOW THEY RING: stale mechanism wording remains: ${stale}`);
+  }
+  for (const [name, html, marker] of [
+    ['JA HOW THEY RING', soundProdHtml, '量産型J89は、ハンマーがピンを打撃し、その振動を底部のベルへ伝えて鳴らす。'],
+    ['EN HOW THEY RING', englishHowTheyRingHtml, 'In the production J89, the hammer strikes a pin, transmitting the impact to the bell built into the bottom.'],
+    ['DE HOW THEY RING', germanHowTheyRingHtml, 'Beim Serien-J89 schlägt der Hammer auf einen Stift; der Stoß wird auf die im Boden eingebaute Glocke übertragen.']
+  ]) {
+    if (!html.includes(marker)) failures.push(`${name}: corrected J89 pin-transmission wording missing`);
+  }
+  for (const marker of ['音で見る、', 'アラーム腕時計。', '輪状の音バネを叩く', 'category-tap', 'TAP', '機構図の根拠・資料を見る', 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。', 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。', 'VINTAGE ALARMでの整理です。', 'section-menu', 'href=\"/\"']) {
     if (!soundProdHtml.includes(marker)) failures.push(`HOW THEY RING: current production marker missing: ${marker}`);
   }
   for (const [name, html, lang, marker, action] of [
-    ['EN HOW THEY RING', englishHowTheyRingHtml, 'en', 'Alarm wristwatches,', 'Strikes a rod-shaped sound spring'],
-    ['DE HOW THEY RING', germanHowTheyRingHtml, 'de', 'Wecker-Armbanduhren,', 'Schlägt eine stabförmige Tonfeder an']
+    ['EN HOW THEY RING', englishHowTheyRingHtml, 'en', 'Alarm wristwatches,', 'Strikes a ring-shaped sound spring'],
+    ['DE HOW THEY RING', germanHowTheyRingHtml, 'de', 'Wecker-Armbanduhren,', 'Schlägt eine ringförmige Tonfeder an']
   ]) {
     if (!html.includes(`lang="${lang}"`)) failures.push(`${name}: html lang missing`);
     if (!html.includes(marker)) failures.push(`${name}: localized hero missing`);
@@ -325,6 +335,15 @@ for (const slug of soundGallerySlugs) {
   if (fs.existsSync(entryPath) && !new RegExp(`^watchSlug: ${slug}\\r?$`, 'm').test(fs.readFileSync(entryPath, 'utf8'))) {
     failures.push(`Sound gallery CMS entry is linked to the wrong watch: ${slug}`);
   }
+}
+
+for (const watch of watches.filter((item) => item.published)) {
+  const deRoute = path.join(dist, 'de', watch.slug, 'index.html');
+  if (!fs.existsSync(deRoute)) continue;
+  const deHtml = fs.readFileSync(deRoute, 'utf8');
+  if (deHtml.includes("NÄCHSTE OWNER'S NOTE · EN")) failures.push(`${watch.slug}: German related nav still labels next note as EN`);
+  const relatedMatch = deHtml.match(/class="german-related-next"[^>]+href="([^"]+)"/);
+  if (relatedMatch && !relatedMatch[1].startsWith('/de/')) failures.push(`${watch.slug}: German related nav escapes to non-DE route: ${relatedMatch[1]}`);
 }
 
 for (const file of fs.readdirSync(dist, { recursive: true }).filter((file) => String(file).endsWith('.html'))) {
