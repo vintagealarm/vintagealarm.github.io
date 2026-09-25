@@ -192,6 +192,17 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     }
     if (!result.text.includes(`lang="${lang}"`)) failures.push(`${route}: html lang missing`);
     if (!markers.some((marker) => result.text.includes(marker))) failures.push(`${route}: expected localized content marker missing`);
+    if (route.endsWith('how-they-ring/')) {
+      const currentMechanism = lang === 'en'
+        ? ['Strikes a ring-shaped sound spring', 'In the production J89, the hammer strikes a pin']
+        : ['Schlägt eine ringförmige Tonfeder an', 'Beim Serien-J89 schlägt der Hammer auf einen Stift'];
+      for (const marker of currentMechanism) {
+        if (!result.text.includes(marker)) failures.push(`${route}: corrected mechanism marker missing: ${marker}`);
+      }
+      for (const stale of ['rod-shaped sound spring', 'stabförmige Tonfeder', 'Pin / lever transmission type', 'Stift-/Hebelübertragung']) {
+        if (result.text.includes(stale)) failures.push(`${route}: stale mechanism wording remains: ${stale}`);
+      }
+    }
   }
 
   for (const watch of watches.filter((item) => item.published)) {
@@ -211,6 +222,11 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
         : ['LITERATUR &amp; QUELLEN', 'LITERATUR & QUELLEN'];
       if (!sourceMarkers.some((marker) => result.text.includes(marker))) failures.push(`${route}: FULL RESEARCH sources section missing`);
       if (result.text.includes('This page is a concise English entry to the specimen')) failures.push(`${route}: obsolete concise-entry fallback leaked`);
+      if (lang === 'de') {
+        if (result.text.includes("NÄCHSTE OWNER'S NOTE · EN")) failures.push(`${route}: German related nav still labels next note as EN`);
+        const relatedMatch = result.text.match(/class="german-related-next"[^>]+href="([^"]+)"/);
+        if (relatedMatch && !relatedMatch[1].startsWith('/de/')) failures.push(`${route}: German related nav escapes to non-DE route: ${relatedMatch[1]}`);
+      }
       if (sitemap.ok && !sitemap.text.includes(`https://vintagealarm.github.io/${route}`)) failures.push(`${route}: missing from sitemap`);
     }
   }

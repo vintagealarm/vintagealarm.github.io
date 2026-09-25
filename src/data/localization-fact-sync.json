@@ -353,6 +353,169 @@
           ]
         }
       ]
+    },
+    {
+      "id": "how-they-ring-fig01-omega-tone-spring",
+      "slug": "how-they-ring",
+      "canonicalValue": "OMEGA MEMOMATIC / Cal.980 / ring-shaped sound spring struck by hammer",
+      "note": "FIG.01 is resolved. Keep the sound spring shape as ring-shaped; do not restore the obsolete rod-shaped wording or the old unresolved caveat.",
+      "sourceChecks": [
+        {
+          "path": "src/data/how-they-ring-localizations.ts",
+          "mustContain": [
+            "輪状の音バネを叩く",
+            "Strikes a ring-shaped sound spring",
+            "Schlägt eine ringförmige Tonfeder an"
+          ],
+          "mustNotContain": [
+            "棒状の音バネを叩く",
+            "Strikes a rod-shaped sound spring",
+            "Schlägt eine stabförmige Tonfeder an"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/how-they-ring/index.html",
+          "mustContain": [
+            "輪状の音バネを叩く"
+          ],
+          "mustNotContain": [
+            "棒状の音バネを叩く"
+          ]
+        },
+        {
+          "path": "dist/en/how-they-ring/index.html",
+          "mustContain": [
+            "Strikes a ring-shaped sound spring"
+          ],
+          "mustNotContain": [
+            "Strikes a rod-shaped sound spring"
+          ]
+        },
+        {
+          "path": "dist/de/how-they-ring/index.html",
+          "mustContain": [
+            "Schlägt eine ringförmige Tonfeder an"
+          ],
+          "mustNotContain": [
+            "Schlägt eine stabförmige Tonfeder an"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-they-ring-fig03-j89-pin-bell-path",
+      "slug": "how-they-ring",
+      "canonicalValue": "Junghans J89 hammer strikes pin; impact is transmitted to bottom bell",
+      "note": "FIG.03 is the pin-transmission example. The lever is not part of the sounding transmission label. Keep direct bell strike (Basis / Lanco-Fon Cal.1241) distinct from J89 pin-mediated bell sounding.",
+      "sourceChecks": [
+        {
+          "path": "src/data/how-they-ring-localizations.ts",
+          "mustContain": [
+            "ピン伝達型",
+            "量産型J89は、ハンマーがピンを打撃し、その振動を底部のベルへ伝えて鳴らす。",
+            "Pin-transmission type",
+            "In the production J89, the hammer strikes a pin, transmitting the impact to the bell built into the bottom.",
+            "Stiftübertragung",
+            "Beim Serien-J89 schlägt der Hammer auf einen Stift; der Stoß wird auf die im Boden eingebaute Glocke übertragen."
+          ],
+          "mustNotContain": [
+            "ピン／レバー伝達型",
+            "Pin / lever transmission type",
+            "Stift-/Hebelübertragung"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/how-they-ring/index.html",
+          "mustContain": [
+            "ピン伝達型",
+            "量産型J89は、ハンマーがピンを打撃し、その振動を底部のベルへ伝えて鳴らす。"
+          ],
+          "mustNotContain": [
+            "ピン／レバー伝達型"
+          ]
+        },
+        {
+          "path": "dist/en/how-they-ring/index.html",
+          "mustContain": [
+            "Pin-transmission type",
+            "In the production J89, the hammer strikes a pin, transmitting the impact to the bell built into the bottom."
+          ],
+          "mustNotContain": [
+            "Pin / lever transmission type"
+          ]
+        },
+        {
+          "path": "dist/de/how-they-ring/index.html",
+          "mustContain": [
+            "Stiftübertragung",
+            "Beim Serien-J89 schlägt der Hammer auf einen Stift; der Stoß wird auf die im Boden eingebaute Glocke übertragen."
+          ],
+          "mustNotContain": [
+            "Stift-/Hebelübertragung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "german-related-navigation-language",
+      "slug": "de",
+      "canonicalValue": "German WATCH related navigation stays on /de/ routes and labels the next OWNER'S NOTE as DE",
+      "note": "Do not send German readers into English WATCH pages from the related-watch footer when a German route exists.",
+      "sourceChecks": [
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustNotContain": [
+            "href: '/en/cyma-time-o-vox/'",
+            "href: '/en/basis-alarm/'"
+          ],
+          "mustContain": [
+            "href: '/de/cyma-time-o-vox/'",
+            "href: '/de/basis-alarm/'"
+          ]
+        },
+        {
+          "path": "src/layouts/GermanWatchEntry.astro",
+          "mustContain": [
+            "NÄCHSTE OWNER'S NOTE · {entry.related.hreflang.toUpperCase()}"
+          ],
+          "mustNotContain": [
+            "NÄCHSTE OWNER'S NOTE · EN"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/de/wittnauer-10wa/index.html",
+          "mustContain": [
+            "NÄCHSTE OWNER'S NOTE · DE"
+          ],
+          "mustNotContain": [
+            "NÄCHSTE OWNER'S NOTE · EN"
+          ]
+        },
+        {
+          "path": "dist/de/pierce-duofon/index.html",
+          "mustContain": [
+            "NÄCHSTE OWNER'S NOTE · DE"
+          ],
+          "mustNotContain": [
+            "NÄCHSTE OWNER'S NOTE · EN"
+          ]
+        },
+        {
+          "path": "dist/de/westclox-watchlarm/index.html",
+          "mustContain": [
+            "NÄCHSTE OWNER'S NOTE · DE"
+          ],
+          "mustNotContain": [
+            "NÄCHSTE OWNER'S NOTE · EN"
+          ]
+        }
+      ]
     }
   ]
 }

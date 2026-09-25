@@ -12,12 +12,12 @@ export const howTheyRingLocalizations = {
     selectAria: '鳴動方式を選ぶ',
     categorySub: { gong: 'ゴング', caseback: 'ケースバック' },
     typeSeparator: '／',
-    action: { gong: '棒状の音バネを叩く', caseback: 'ケースバックを共鳴させて鳴らす' },
-    figureLabel: { '01': '棒状の音バネを叩く', '02': '振動板型', '03': 'ピン／レバー伝達型', '04': 'BELL-BASE型' },
+    action: { gong: '輪状の音バネを叩く', caseback: 'ケースバックを共鳴させて鳴らす' },
+    figureLabel: { '01': '輪状の音バネを叩く', '02': '振動板型', '03': 'ピン伝達型', '04': 'BELL-BASE型' },
     evidence: {
       '01': 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。',
       '02': 'ハンマーが、振動板（membrane）に設けられたピンを打撃する。',
-      '03': '量産型J89は、底部に組み込まれたベルを発音体とする。',
+      '03': '量産型J89は、ハンマーがピンを打撃し、その振動を底部のベルへ伝えて鳴らす。',
       '04': 'Cal.1241は、ハンマーがベル（Glocke）を打撃する。'
     },
     evidenceSummary: '機構図の根拠・資料を見る',
@@ -43,12 +43,12 @@ export const howTheyRingLocalizations = {
     selectAria: 'Choose a ringing system',
     categorySub: { gong: 'Gong', caseback: 'Caseback' },
     typeSeparator: ' / ',
-    action: { gong: 'Strikes a rod-shaped sound spring', caseback: 'Makes the caseback resonate to produce sound' },
-    figureLabel: { '01': 'Strikes a rod-shaped sound spring', '02': 'Vibrating-membrane type', '03': 'Pin / lever transmission type', '04': 'BELL-BASE type' },
+    action: { gong: 'Strikes a ring-shaped sound spring', caseback: 'Makes the caseback resonate to produce sound' },
+    figureLabel: { '01': 'Strikes a ring-shaped sound spring', '02': 'Vibrating-membrane type', '03': 'Pin-transmission type', '04': 'BELL-BASE type' },
     evidence: {
       '01': 'On Cal. 980, the hammer strikes a sound spring fixed to the movement.',
       '02': 'The hammer strikes a pin mounted on the vibrating membrane.',
-      '03': 'The production J89 uses a bell built into the bottom as its sounding body.',
+      '03': 'In the production J89, the hammer strikes a pin, transmitting the impact to the bell built into the bottom.',
       '04': 'On Cal. 1241, the hammer strikes the bell (Glocke).'
     },
     evidenceSummary: 'View the evidence and sources for these mechanism diagrams',
@@ -79,12 +79,12 @@ export const howTheyRingLocalizations = {
     selectAria: 'Klangsystem auswählen',
     categorySub: { gong: 'Gong', caseback: 'Gehäuseboden' },
     typeSeparator: ' / ',
-    action: { gong: 'Schlägt eine stabförmige Tonfeder an', caseback: 'Bringt den Gehäuseboden zum Mitschwingen' },
-    figureLabel: { '01': 'Schlägt eine stabförmige Tonfeder an', '02': 'Membran-Typ', '03': 'Stift-/Hebelübertragung', '04': 'BELL-BASE-Typ' },
+    action: { gong: 'Schlägt eine ringförmige Tonfeder an', caseback: 'Bringt den Gehäuseboden zum Mitschwingen' },
+    figureLabel: { '01': 'Schlägt eine ringförmige Tonfeder an', '02': 'Membran-Typ', '03': 'Stiftübertragung', '04': 'BELL-BASE-Typ' },
     evidence: {
       '01': 'Beim Cal. 980 schlägt der Hammer auf eine am Werk befestigte Tonfeder.',
       '02': 'Der Hammer schlägt auf einen Stift an der schwingenden Membran.',
-      '03': 'Die Serienausführung J89 nutzt eine im Boden eingebaute Glocke als Klangkörper.',
+      '03': 'Beim Serien-J89 schlägt der Hammer auf einen Stift; der Stoß wird auf die im Boden eingebaute Glocke übertragen.',
       '04': 'Beim Cal. 1241 schlägt der Hammer auf die Glocke.'
     },
     evidenceSummary: 'Belege und Quellen zu den Mechanikabbildungen anzeigen',
