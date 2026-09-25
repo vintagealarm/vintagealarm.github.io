@@ -12,7 +12,7 @@ export const howTheyRingLocalizations = {
     selectAria: '鳴動方式を選ぶ',
     categorySub: { gong: 'ゴング', caseback: 'ケースバック' },
     typeSeparator: '／',
-    action: { gong: '棒状の音バネを叩く', caseback: 'ケースバックを共鳴させて鳴らす' },
+    action: { gong: '輪状の音バネを叩く', caseback: 'ケースバックを共鳴させて鳴らす' },
     figureLabel: { '01': '輪状の音バネを叩く', '02': '振動板型', '03': 'ピン伝達型', '04': 'BELL-BASE型' },
     evidence: {
       '01': 'Cal.980は、ムーブメントに固定された音バネをハンマーが打撃する。',
