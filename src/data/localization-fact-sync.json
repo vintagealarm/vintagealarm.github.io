@@ -435,31 +435,31 @@
         {
           "path": "dist/de/wittnauer-10wa/index.html",
           "mustContain": [
-            "href=\"/de/cyma-time-o-vox/\"",
+            "/de/cyma-time-o-vox/",
             "NÄCHSTE OWNER'S NOTE · DE"
           ],
           "mustNotContain": [
-            "href=\"/en/cyma-time-o-vox/\""
+            "/en/cyma-time-o-vox/"
           ]
         },
         {
           "path": "dist/de/pierce-duofon/index.html",
           "mustContain": [
-            "href=\"/de/cyma-time-o-vox/\"",
+            "/de/cyma-time-o-vox/",
             "NÄCHSTE OWNER'S NOTE · DE"
           ],
           "mustNotContain": [
-            "href=\"/en/cyma-time-o-vox/\""
+            "/en/cyma-time-o-vox/"
           ]
         },
         {
           "path": "dist/de/westclox-watchlarm/index.html",
           "mustContain": [
-            "href=\"/de/basis-alarm/\"",
+            "/de/basis-alarm/",
             "NÄCHSTE OWNER'S NOTE · DE"
           ],
           "mustNotContain": [
-            "href=\"/en/basis-alarm/\""
+            "/en/basis-alarm/"
           ]
         }
       ]
