@@ -1,7 +1,7 @@
 # VINTAGE ALARM — External Outreach Readiness Audit
 
 監査日: 2026-09-25  
-監査基準: canonical public host `https://vintagealarm.github.io/` / main baseline `d246659137ff0868dcef2af4494c2fb7717dcf17`
+監査基準: canonical public host `https://vintagealarm.github.io/` / main baseline `2f0e34ba276e7d050503fc6e804f0f9964af5476`
 
 ## 目的
 
@@ -246,7 +246,7 @@ main監査時の公開source:
 
 ### 修正
 
-fresh main branch `fix/outreach-readiness-blockers-2026-09-25` で差分移植した。
+fresh main branch `fix/outreach-readiness-blockers-current` で差分移植した。
 
 旧PR #110は113 commits behindのため、そのままmerge対象にしない。
 
@@ -502,7 +502,7 @@ VINTAGE ALARM独自の一次資料、修理で確認した構造、Fratello記�
 
 ## 今回のblocker修正
 
-branch: `fix/outreach-readiness-blockers-2026-09-25`
+branch: `fix/outreach-readiness-blockers-current`
 
 差分:
 
