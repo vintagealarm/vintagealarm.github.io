@@ -247,3 +247,66 @@ Devices: Desktop 6 / Mobile 4
 比較時に伸びた個体へ都合よく説明を後付けしない。個体、フック、動画尺、操作、音、投稿時刻など複数変数が同時に変わるため、少数投稿から単一原因を確定しない。
 
 将来Reel自体に外部URL導線を載せられる条件・機能が利用可能になった場合はプロフィール経由導線とは別実験とする。実装前後でInstagram側の配布・クリックとVA側landingを同じ時間窓で比較する。
+
+## 2026-09-27 18:38 JST — Reel別 profile action / bio-link click 更新
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### CYMA Time-O-Vox 18K Chronomètre
+
+Engagement / actions:
+- Likes: 20
+- Comments: 0
+- Reposts: 1
+- Shares: 1
+- Saves: 0
+- Profile accesses after display: 2
+- Follows: 1
+- Bio link clicks: 1
+
+Audience:
+- Followers: 0.6% / Non-followers: 99.4%
+- Age: 13–17 1.3% / 18–24 33.1% / 25–34 39.0% / 35–44 12.6% / 45–54 7.4% / 55–64 4.4% / 65+ 2.3%
+- 18–34 combined: 72.1%
+- Country: India 24.0% / Turkey 8.7% / Iran 6.9% / United States 6.6% / Mexico 4.4%
+
+判定:
+- Instagram Insights上、このReel表示後の「自己紹介のリンククリック」を1件確認。
+- 現行プロフィールTOP外部URLは英語版 HOW THEY RING のため、この1件はInstagram側でプロフィール外部リンクが押されたことの直接観測として扱う。
+- ただし、Instagram側のlink click 1件とVA Analytics側の `IG@l.instagram.com → /en/how-they-ring/` 1 visitを、計測定義・時間窓を無視して同一イベントと断定しない。
+- Profile access 2に対しbio link click 1だが、n=2のため50%を恒常的CVRとは扱わない。
+
+### Wittnauer 10WA
+
+Engagement / actions:
+- Likes: 36
+- Comments: 0
+- Reposts: 1
+- Shares: 10
+- Saves: 9
+- Profile accesses after display: 7
+- Follows: 1
+- Bio link clicks: 1
+
+Audience:
+- Followers: 0.2% / Non-followers: 99.8%
+- Age: 13–17 0.9% / 18–24 30.5% / 25–34 43.3% / 35–44 13.1% / 45–54 6.2% / 55–64 4.2% / 65+ 1.7%
+- 18–34 combined: 73.8%
+- Country: India 34.9% / Turkey 9.4% / Iran 4.7% / South Korea 3.3% / United States 3.1%
+
+判定:
+- Instagram Insights上、このReel表示後の「自己紹介のリンククリック」を1件確認。
+- Profile access 7 / bio link click 1。母数が小さいため14.3%を恒常的CVRとは扱わない。
+- Shares 10 / Saves 9まで増加しており、Wittnauerは単なる再生だけでなく共有・保存行動が継続して増えている。
+- Story再共有の既観測と合わせても、各共有が再生増加の直接原因とは断定しない。
+
+### 2投稿横断で新しく確認できたこと
+
+- **CYMAとWittnauerの両Reelで、Instagram Insights側からbio-link click 1件ずつを直接確認。**
+- したがって現行ファネル
+  `Reel → Instagram profile → TOP URL = /en/how-they-ring/`
+  は、少なくともInstagram側のアクションとして両投稿から実際に発生した。
+- これは従来のVA Analytics単独の `IG referrer → /en/how-they-ring/` より一段上流を直接観測できた更新。
+- 一方、両Reelのlink click合計2件とVA側visit件数をそのまま1:1対応させない。計測タイミング、attribution、ページロード成立、RUM取得条件が異なる。
+- 年齢構成は18–34がCYMA 72.1%、Wittnauer 73.8%で、16:35–16:36時点の「約7割」という観測が維持された。
+- 国別構成は変動しており、固定audience像として扱わない。
