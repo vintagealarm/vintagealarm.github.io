@@ -310,3 +310,79 @@ Audience:
 - 一方、両Reelのlink click合計2件とVA側visit件数をそのまま1:1対応させない。計測タイミング、attribution、ページロード成立、RUM取得条件が異なる。
 - 年齢構成は18–34がCYMA 72.1%、Wittnauer 73.8%で、16:35–16:36時点の「約7割」という観測が維持された。
 - 国別構成は変動しており、固定audience像として扱わない。
+
+
+## 2026-09-27 18:49 JST — VA 24h Analytics update after 18:38 Instagram Insights
+
+User-provided Relay snapshot:
+- generated: 2026-09-27 18:49:50 JST (`20260927T094950572Z`)
+- quality: UNSAMPLED
+- sample: 1
+- coverage: full
+- integrity: PASS
+
+24h totals:
+- Visits: 11
+- Pageviews: 11
+- New: 11 / 11
+- Previous period: 4 / 4
+- X: 1
+- Instagram: 2
+- Facebook: 6
+- Direct: 2
+- Search / AI / OtherSNS: 0
+
+Pages / entries:
+- `/en/how-they-ring/`: 6 / 6
+- `/`: 2 / 2
+- `/how-they-ring/`: 1 / 1
+- `/owners-notes/`: 1 / 1
+- `/basis-alarm/`: 1 / 1
+
+External:
+- `IG@l.instagram.com → /en/how-they-ring/`: 2
+- `FB@www.facebook.com → /en/how-they-ring/`: 4
+- `FB@www.facebook.com → /`: 2
+- `X@t.co → /basis-alarm/`: 1
+- Direct → `/how-they-ring/`: 1
+- Direct → `/owners-notes/`: 1
+
+Countries:
+- United States: 7
+- Japan: 2
+- India: 2
+
+Devices:
+- Desktop: 6
+- Mobile: 5
+
+### Delta from 2026-09-27 15:58 JST snapshot
+
+15:58 → 18:49:
+- Visits: 10 → 11
+- Pageviews: 10 → 11
+- Instagram: 1 → 2
+- `/en/how-they-ring/`: 5 → 6
+- `IG@l.instagram.com → /en/how-they-ring/`: 1 → 2
+- India: 1 → 2
+- Mobile: 4 → 5
+
+The increment is internally consistent: the one added visit is attributed to Instagram and lands on `/en/how-they-ring/`; mobile and India also each increase by one.
+
+### Cross-check with 18:38 Instagram Insights
+
+At 18:38, Instagram Insights directly showed:
+- CYMA Reel: bio-link click 1
+- Wittnauer Reel: bio-link click 1
+
+At 18:49, VA Analytics shows:
+- Instagram visits: 2
+- `IG@l.instagram.com → /en/how-they-ring/`: 2
+
+This is the strongest current evidence that the canonical funnel
+`Reel → Instagram profile → TOP URL = /en/how-they-ring/`
+is operating in practice.
+
+However, do not equate the two Instagram bio-link clicks and the two VA visits as guaranteed one-to-one event identity. The counts align exactly, but the systems have different attribution and collection semantics. Treat as a strongly corroborated funnel observation, not event-level identity proof.
+
+Also note: 6 / 11 visits (54.5%) land on English HOW THEY RING in this 24h window. This share is descriptive only; n=11 is still small.
