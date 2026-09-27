@@ -647,3 +647,32 @@ Delta from 2026-09-28 00:03 snapshot:
 - Bio-link clicks remain 1 on each Reel; therefore site-driving behavior has not scaled in proportion to Wittnauer's additional distribution yet.
 - Audience composition broadened with additional distribution: the 18–34 share fell from earlier ~70%+ observations to 66.8% (Wittnauer) and 62.3% (CYMA). India also declined in share on both, while France emerged among top countries. Treat this as audience broadening, not a fixed demographic pivot.
 - Causality remains unproven: current evidence identifies response differences, not the creative/mechanical reason for them.
+
+
+## 2026-09-28 08:07 JST — Pierce Duofon Reel posted
+
+ユーザー提供の投稿済み動画ファイル `IMG_1739(1).mp4` を確認。
+
+Video metadata:
+- Duration: 10.97s
+- Resolution: 512 × 710
+- Frame rate: 30fps
+- Audio track: present
+
+Visual sequence confirmed from sampled frames:
+- Pierce Duofon full-dial opening shot
+- crown operation shown close-up
+- return to full dial / crown state
+- the watch remains the sole visual focus; no added graphic layer is visible in the sampled frames
+
+Current post concept:
+- Pierce Duofon
+- primary historical/mechanical hook: the only series-produced / mass-produced alarm wristwatch described in the project sources as offering a choice of alarm volumes
+- two selectable modes: `Wecker` / `Signal`
+- 6 o'clock window indicates the selected mode
+- canonical Instagram profile destination remains English HOW THEY RING
+
+Interpretation:
+- Compared with the earlier ~31.8s source clip, the published cut is materially shorter at ~11s.
+- This gives Pierce a duration much closer to the successful short Wittnauer Reel than to the longer CYMA Reel, while preserving the core manipulation sequence.
+- Do not infer performance from duration alone; record this as the creative state before Insights arrive.
