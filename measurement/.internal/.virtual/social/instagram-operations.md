@@ -491,3 +491,21 @@ Delta from 18:38 Wittnauer snapshot:
 - Wittnauer continues to produce more outward interaction in the visible metrics (shares/reposts) and has now generated 2 follows.
 - CYMA has developed stronger-than-earlier save behavior (0 → 5) while retaining its existing profile/bio-link/follow actions.
 - Both Reels are now large enough relative to the account's current size that the initial "almost no one sees the new account" phase is no longer an accurate description.
+
+
+## 2026-09-27 23:51 JST — Instagram broadcast-channel invitation observed
+
+ユーザー提供Instagramスクリーンショットで確認。
+
+Observed channel:
+- Channel name: `The luckytimers`
+- Creator/account shown: `luckytimelondon` (verified badge visible)
+- Members shown: 3.5K
+- UI states that anyone can join the channel created by `luckytimelondon`
+- User is shown `参加` / `承認しない` controls
+- Channel content visible in screenshot includes vintage-watch shop / Amsterdam-related posts and a message: `If your ever in Amsterdam check these places out`
+
+Interpretation:
+- This is an Instagram broadcast-channel invitation / join prompt, not evidence of a private one-to-one DM invitation.
+- Because the creator/account is watch-related and the channel content is directly relevant to vintage-watch retail/discovery, this is a potentially useful passive networking / market-observation surface for the VINTAGE ALARM account.
+- Do not record it as a confirmed personal outreach from the creator unless the UI later shows a direct message or explicit individualized invitation.
