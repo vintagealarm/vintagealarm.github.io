@@ -509,3 +509,45 @@ Interpretation:
 - This is an Instagram broadcast-channel invitation / join prompt, not evidence of a private one-to-one DM invitation.
 - Because the creator/account is watch-related and the channel content is directly relevant to vintage-watch retail/discovery, this is a potentially useful passive networking / market-observation surface for the VINTAGE ALARM account.
 - Do not record it as a confirmed personal outreach from the creator unless the UI later shows a direct message or explicit individualized invitation.
+
+
+## 2026-09-28 00:03 JST — late-night Reel snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Wittnauer 10WA
+- Views: 2,080
+- Viewers: 1,661
+- Average watch time: 6s
+- Follows: 3
+- Likes: 74
+- Comments: 1
+- Reposts: 3
+- Saves: 17
+- Skip rate: 40.9%
+- Share rate: 1.1%
+- Like rate: 4.4%
+- Save rate: 1.0%
+- Repost rate: 0.2%
+- Comment rate: 0.1%
+
+### CYMA Time-O-Vox 18K Chronomètre
+- Views: 1,394
+- Viewers: 1,205
+- Average watch time: 7s
+- Follows: 2
+- Likes: 42
+- Comments: 0
+- Reposts: 1
+- Saves: 6
+- Skip rate: 52.6%
+- Share rate: 0.2%
+- Like rate: 3.4%
+- Save rate: 0.5%
+- Repost rate: 0.1%
+- Comment rate: 0.0%
+
+### Descriptive comparison only
+- Wittnauer leads on absolute reach and visible interaction rates, especially skip/save/share/like metrics.
+- CYMA has longer average watch time in seconds, but its Reel is also longer; do not compare seconds alone without normalizing by duration.
+- These metrics support a difference in observed audience response, but do not by themselves identify the causal creative element or Instagram's internal distribution logic.
