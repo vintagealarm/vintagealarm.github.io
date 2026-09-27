@@ -28,17 +28,29 @@
 
 投稿案を作る場合は、対象時計について過去X / YouTube / Instagramで既に使った訴求がないかを3・4で先に確認する。既存コンセプトを新案として再発明しない。
 
-## 3. ACTIVE — 今回の分析・Councilで前面に出す論点
+## 3. CANONICAL FUNNEL — 現行Instagram→VA導線（変更禁止）
+
+現行のInstagram布教導線は次で固定する。
+
+**Instagram Reel → Instagramプロフィール → TOP外部URL = 英語版 HOW THEY RING (`/en/how-they-ring/`) → 各WATCH / OWNER'S NOTE → VA内の研究資産**
+
+- HOW THEY RINGは「VAへ入った後に選ぶページ」ではない。**InstagramプロフィールTOPに置いたVA側のランディングページそのもの**。
+- Instagram投稿本文には現在VAリンクを置いていない。
+- `IG@l.instagram.com → /en/how-they-ring/` は、この意図的に設計したプロフィールTOP導線の成果を観測する主要指標として扱う。ただしAnalytics単独ではプロフィール画面上のクリック操作そのものまでは証明しない。
+- Council / 焼き / 通常回答で、`Reel → profile → VA → HOW THEY RING`、`Reel → VA → HOW THEY RING`、`SNS → VA → WATCH / OWNER'S NOTE / HOW THEY RING` のようにHOW THEY RINGをVA到達後の横並び選択肢へ並べ替えてはならない。
+- TOP外部URLがユーザー指示または実画面確認で変更された場合のみ、この節を更新する。
+
+## 4. ACTIVE — 今回の分析・Councilで前面に出す論点
 
 - X / YouTube / Instagramそれぞれの布教実績が、現在のVA流入へどう接続しているか
 - Instagram新設後の非フォロワー配布、保存、共有、Story再共有、フォロー、年齢、国などの変化
 - 公開6個体を一巡させたときの個体別・訴求別の反応差
-- HOW THEY RINGがSNS流入の受け皿として再現性を持つか
-- SNS → VA → WATCH / OWNER'S NOTE / HOW THEY RING の遷移が成立しているか
+- **InstagramプロフィールTOPのHOW THEY RINGがランディングページとして再現性を持つか**
+- **HOW THEY RING → 各WATCH / OWNER'S NOTE → VA内研究資産**の内部遷移が成立しているか
 - YouTube Shortsで実行済みのBasis `mechanical wristwatch × fidget toy` 訴求がInstagramでも再現するか
-- 将来Reel直URLが利用可能になった場合、現在のプロフィール経由baselineとの差
+- 将来Reel直URLが利用可能になった場合、現在の `Reel → profile → HOW THEY RING` baselineとの差
 
-## 4. RESOLVED / INTERNAL — 原則として再説明・再審議しない
+## 5. RESOLVED / INTERNAL — 原則として再説明・再審議しない
 
 以下は内部処理ルール。新しい矛盾・仕様変更・ユーザーからの明示的な再検討指示がない限り、Councilや通常回答の主要論点へ戻さない。
 
@@ -52,7 +64,7 @@
 
 **重要:** RESOLVED項目は「忘れる」のではなく、判断の前提として内部適用する。毎回説明文・スレのレス・注意書きとして復活させない。
 
-## 5. CURRENT VERIFIED SOCIAL PRECEDENT
+## 6. CURRENT VERIFIED SOCIAL PRECEDENT
 
 ### Basis Alarm (BFG90) — YouTube Shorts
 
@@ -68,7 +80,7 @@
 
 この実績をInstagramの若年層観測より前の先行実験として扱う。
 
-## 6. CURRENT INSTAGRAM PHASE
+## 7. CURRENT INSTAGRAM PHASE
 
 - まずVA掲載6個体を一巡させる。
 - 一巡中は大きな施策変更を避け、標本を増やす。
@@ -76,22 +88,24 @@
 - Pierce以降も同じ時間窓・同じ指標を可能な範囲で採る。
 - 一巡後に、個体 / 操作 / fidget / 音 / 歴史 / 比較 / URL導線等を次の検証軸として組み直す。
 
-## 7. Council / 焼きでの出力ルール
+## 8. Council / 焼きでの出力ルール
 
 Council自体の形式は `council-worker/README.md` と `council-worker/src/index.ts` が正本。
 
 SNS + Analytics + VAを焼く場合:
 
-1. ACTIVE論点を主題にする。
-2. RESOLVED項目は内部前提として使い、説明のためだけにレスを消費しない。
-3. 過去SNS実績を確認せず、現在の数字だけから新企画を発明しない。
-4. VAは単なるリンク先ではなく、HOW THEY RING / WATCH / OWNER'S NOTE等の受け皿として実際の遷移を評価する。
-5. 数字の絶対値、率、流入、内部遷移を混同しない。
-6. 未確認の因果は未確認のまま残す。
-7. ユーザーが既に訂正・確定した論点を、新証拠なしに再びレスバの議題へ戻さない。
+1. **最初にCANONICAL FUNNELを内部で固定し、出力中に並べ替えない。**
+2. ACTIVE論点を主題にする。
+3. RESOLVED項目は内部前提として使い、説明のためだけにレスを消費しない。
+4. 過去SNS実績を確認せず、現在の数字だけから新企画を発明しない。
+5. VAは単なるリンク先ではなく、**HOW THEY RINGをInstagram側の入口として、そこからWATCH / OWNER'S NOTE / 研究資産への内部遷移を評価する。**
+6. 数字の絶対値、率、流入、内部遷移を混同しない。
+7. 未確認の因果は未確認のまま残す。
+8. ユーザーが既に訂正・確定した論点を、新証拠なしに再びレスバの議題へ戻さない。
+9. 出力前に `Instagram Reel → profile → HOW THEY RING → WATCH / OWNER'S NOTE → research` と矛盾していないか監査する。
 
-## 8. 更新ルール
+## 9. 更新ルール
 
 新しいInsights / SNS実績 / Relay観測が来たら、詳細値は `instagram-operations.md` または適切な実験ログへ記録する。
 
-このROUTERは、**現在のACTIVE論点、RESOLVED項目、参照順そのものが変わった場合だけ更新する。**
+このROUTERは、**現在のACTIVE論点、RESOLVED項目、参照順、CANONICAL FUNNELそのものが変わった場合だけ更新する。**
