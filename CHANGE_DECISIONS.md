@@ -15,6 +15,18 @@
 
 ---
 
+## 2026-09-27
+
+### 2026-09-27 23:25 JST — Cyma / R.464 LedgerへE-Periodica一次資料を追補
+
+- **変更**：`research/CYMA_TIME_O_VOX_R464_LEDGER.md` に、1950年 `TIME-O-VOX` 商標No.134604、1971年の非更新抹消、1945年Cyma卓上アラーム広告、1948年Georges BridevauxへのTavannes Watch C° S.A.の共同署名による代理権付与、1959年の別系統Bridevaux追加特許337149 / 337150、US2789410Aと同じSwiss priority日・機構を持つGB782720Aを追記した。
+- **理由**：E-Periodica全文探索と特許横断確認で、既存Ledgerにない一次資料が見つかったため。商標史・在籍史・製品史として採用できる事実と、R.464への接続が未確定な特許候補を分離して固定する。
+- **旧状態・棄却**：`TIME-O-VOX` の一次資料上の出願日・登録番号、BridevauxのTavannes在籍時期、GB公開が未記録だった状態を更新する。検索単位内で別広告が共起しただけの `chronomètre` / `observatoire` ヒットをCymaの直接証拠にする解釈、商標出願日を発売日と同一視する解釈、Swiss priority参照文字列をCH公開番号とみなす解釈は棄却する。
+- **影響範囲**：研究Ledgerと判断履歴のみ。サイト表示・公開画像・個体データ・音源・金銭情報・修理情報・私信・個人情報への変更なし。
+- **検証状態**：各E-Periodica PIDのOCR本文と高解像度IIIF画像を照合済み。US2789410A / GB782720Aの書誌・優先日・機構要約を照合済み。Markdown差分とdecision-log検査も実施済み。
+- **関連**：US2789410A / GB782720AとCal. R.464の同一性は `HOLD` を維持。No.489の観測所記録、Chronomètre個体群、既存の公開WATCH本文と完成済みChronomètreページは変更しない。
+- **日時根拠**：作業ホストのJST時刻 `2026-09-27 23:25 JST`。
+
 ## 2026-09-25
 
 ### 2026-09-25 12:15 JST — Westclox W5の音響SPECを裏蓋ピン式へ三言語同期
