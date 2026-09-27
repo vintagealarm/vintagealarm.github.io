@@ -53,30 +53,38 @@
 - 日本語本文の新規執筆 / 大幅改稿 → `SITE_RULES.md` + `strategy/japanese-writing.md`
 - デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md`
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
-- Analytics / 計測 → `measurement/metrics.md` + 対象実装
-- Instagram運用 / Instagram実測 → `measurement/social/instagram-operations.md` + 関係するAnalytics資料
+- Analytics / 計測単体 → `measurement/metrics.md` + 対象実装
+- **SNS / 布教 / Instagram / X / YouTube / SNSとVA Analyticsの突合 → `measurement/.internal/.virtual/social/ROUTER.md` を最初に読む**
+- SNS詳細実測 → `measurement/.internal/.virtual/social/instagram-operations.md`
+- 過去SNS / Analytics実験 → `measurement/experiment-log.md`
 - 英語入口 → `strategy/english-entry.md`
 - ドイツ語入口 → `strategy/german-entry.md`
 - Council / 焼いて → `council-worker/README.md` + `council-worker/src/index.ts`
 
 時計の事実認定では、Project資料『Alarm am Arm』『The Alarm Wrist Watch』等を確認できる場合は一般論より先に使う。
 
-## 3. Instagram / SNS運用
+## 3. SNS / Analytics / VA運用
 
-Instagram投稿案・評価では、Instagram単体の数字だけで成功判定しない。
+SNS投稿案・評価・Councilでは、**必ず `measurement/.internal/.virtual/social/ROUTER.md` の ACTIVE / RESOLVED を先に分離する。**
 
-確認順:
-1. 対象時計のVA現行ページ
-2. Project資料・一次資料
-3. 必要なら現在のWeb / 市場 / SNS
-4. Instagram Insights
-5. VA Analytics / Relay
+- ACTIVE = 現在検討・比較・焼くべき論点。
+- RESOLVED / INTERNAL = 判断の前提として内部適用するが、新証拠や明示的な再検討指示がない限り回答・Councilの主要論点へ戻さない。
+
+これにより、既に確定した計測上の注意事項や過去の訂正を毎回答で再説明しない。
+
+SNS案件の基本確認順:
+1. 現在の会話にある最新スクショ / Insights / Relay / ユーザー訂正
+2. `measurement/.internal/.virtual/social/ROUTER.md`
+3. `measurement/.internal/.virtual/social/instagram-operations.md`
+4. `measurement/experiment-log.md`
+5. `measurement/metrics.md`
+6. `PROJECT_STATE.md` と対象VAページ
+7. Project資料・一次資料
+8. 必要ならWeb / 市場 / SNS
+
+過去X / YouTube / Instagramで既に使った訴求を確認せず、新しい企画として再発明しない。
 
 英語投稿を作る場合は、**ネイティブとして自然な英語 + 英語構文を引きずらない自然な日本語訳**をセットで提示する。
-
-現在の詳細運用・実測ログは `measurement/social/instagram-operations.md` を正本とする。
-
-Analyticsでは `facebook` / `instagram` の生データを保持する。Meta系として同判定で観測する場合も、FB値をInstagram実ユーザー流入へ勝手に加算しない。未確認のfetch / preview / bot等を人間の流入として断定しない。
 
 ## 4. 変更履歴と日時
 
@@ -105,8 +113,11 @@ GitHub UTC時刻を根拠にする場合、UTC原文とJST換算を併記する�
 回答・実行前に最低限これを確認する。
 
 - 今回、正本ファイルがあるか。あるなら読んだか。
+- SNS案件ならSocial Routerを通したか。
+- ACTIVEとRESOLVEDを分け、RESOLVEDを不要に再説明していないか。
 - 目の前の画像 / 資料 / Analytics / GitHubを一般論より先に確認したか。
 - 「焼いて」や番号の意味を勝手に作っていないか。
+- 過去SNS実績を確認せず既存案を再発明していないか。
 - ユーザーの訂正を最新仕様へ反映したか。
 - 未確認を確認済みのように書いていないか。
 - 旧仕様・棄却済み候補を復活させていないか。
