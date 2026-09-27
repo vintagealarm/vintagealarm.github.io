@@ -408,3 +408,86 @@ Interpretation:
 - The profile is no longer an empty/new-shell state: two Reels are visible, follower count has reached 10, and the canonical TOP URL to English HOW THEY RING is visibly installed.
 - The 1,002 figure is recorded exactly as displayed by Instagram Professional Dashboard. Do not assume it equals the sum of Reel views; dashboard metric definition/update timing was not inspected in this screenshot.
 - This snapshot should be used as an account-level baseline before Pierce Duofon is added.
+
+
+## 2026-09-27 21:24–21:25 JST — Instagram Reels growth snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Content list
+
+CYMA Time-O-Vox 18K Chronomètre — `A holy grail among alar...`:
+- Age of post: 10h
+- Views: 1,175（詳細画面では直後に1,177）
+- Likes: 35
+- Comments: 0
+- Reposts: 1
+- Shares: 3
+
+Wittnauer 10WA — `This watch rings. And...`:
+- Age of post: 22h
+- Views: 1,786（詳細画面では直後に1,787）
+- Likes: 55
+- Comments: 0
+- Reposts: 3
+- Shares: 14
+
+### CYMA detail at 21:25
+
+Overview:
+- Views: 1,177
+- Viewers: 987
+- Average watch time: 7s
+- Follows: 1
+
+Actions / engagement:
+- Profile accesses after display: 3
+- Follows: 1
+- Bio-link taps: 1
+- Likes: 35
+- Comments: 0
+- Reposts: 1
+- Saves: 5
+- Share count in this detailed panel is shown as `--`; content-list summary above shows 3 shares. Preserve both UI observations rather than forcing them into one field.
+
+Delta from 18:38 CYMA snapshot:
+- Likes: 20 → 35
+- Profile accesses: 2 → 3
+- Follows: 1 → 1
+- Bio-link taps: 1 → 1
+- Saves: 0 → 5
+- Reposts: 1 → 1
+- Content-list shares: 1 at earlier 18:38 snapshot → 3 at 21:24 list
+- Views had previously been 232 at 15:45 and are now 1,177.
+
+### Wittnauer detail at 21:25
+
+Overview:
+- Views: 1,787
+- Viewers: 1,468
+- Average watch time: 6s
+- Follows: 2
+- Skip rate: 42.4%
+
+Content-list engagement:
+- Likes: 55
+- Comments: 0
+- Reposts: 3
+- Shares: 14
+
+Delta from 18:38 Wittnauer snapshot:
+- Likes: 36 → 55
+- Reposts: 1 → 3
+- Shares: 10 → 14
+- Follows: 1 → 2
+- Views: 1,787 at 21:25
+- Saves were 9 at 18:38; no new Wittnauer save value is visible in the supplied 21:24–21:25 screenshots, so do not assume it changed.
+
+### Current descriptive comparison
+
+- Wittnauer still leads absolute distribution: 1,787 views vs CYMA 1,177.
+- CYMA has also crossed 1,000 views and accelerated materially after its earlier low hundreds.
+- CYMA average watch time is 7s on the 23s Reel (~30% of runtime); Wittnauer is 6s on the 12s Reel (~50% of runtime). This is a descriptive ratio only, not a causal explanation for distribution.
+- Wittnauer continues to produce more outward interaction in the visible metrics (shares/reposts) and has now generated 2 follows.
+- CYMA has developed stronger-than-earlier save behavior (0 → 5) while retaining its existing profile/bio-link/follow actions.
+- Both Reels are now large enough relative to the account's current size that the initial "almost no one sees the new account" phase is no longer an accurate description.
