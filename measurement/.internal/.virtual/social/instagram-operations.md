@@ -386,3 +386,25 @@ is operating in practice.
 However, do not equate the two Instagram bio-link clicks and the two VA visits as guaranteed one-to-one event identity. The counts align exactly, but the systems have different attribution and collection semantics. Treat as a strongly corroborated funnel observation, not event-level identity proof.
 
 Also note: 6 / 11 visits (54.5%) land on English HOW THEY RING in this 24h window. This share is descriptive only; n=11 is still small.
+
+
+## 2026-09-27 21:21 JST — Instagram profile snapshot
+
+ユーザー提供Instagramプロフィール画面で確認。
+
+Profile state:
+- Account: `vintagealarm`
+- Posts: 2
+- Followers: 10
+- Following: 38
+- Bio:
+  - `I have a thing for mechanical alarm watches. 🔔`
+  - `Vintage watches that buzz, ring & rattle.`
+  - `Photos, sounds and way too much digging.`
+- Profile TOP external URL: `vintagealarm.github.io/en/how-they-ring/...`
+- Professional dashboard card: `過去30日間に1,002回閲覧されました。`
+
+Interpretation:
+- The profile is no longer an empty/new-shell state: two Reels are visible, follower count has reached 10, and the canonical TOP URL to English HOW THEY RING is visibly installed.
+- The 1,002 figure is recorded exactly as displayed by Instagram Professional Dashboard. Do not assume it equals the sum of Reel views; dashboard metric definition/update timing was not inspected in this screenshot.
+- This snapshot should be used as an account-level baseline before Pierce Duofon is added.
