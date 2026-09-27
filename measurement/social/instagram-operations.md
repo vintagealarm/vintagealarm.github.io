@@ -126,8 +126,56 @@ Devices:
 - `/en/how-they-ring/` は24h全10 visits中5 visitsで、現時点では海外SNS流入の受け皿として注視する価値がある。ただしn=5のため再現性は未確認。
 - 前期間5→10 visitsという増加とInstagram開始の因果は未確認。
 
+## 2026-09-27 16:35–16:39 JST — オーディエンス / 1,000再生 / Story再共有
+
+ユーザー提供Instagram画面で追加確認。
+
+### Wittnauer 10WA
+
+16:35頃のInsights:
+- Likes: 25
+- Comments: 0
+- Reposts: 1
+- Shares: 3
+- Saves: 5
+- Followers: 0.3%
+- Non-followers: 99.7%
+- Age: 13–17 0.4% / 18–24 29.5% / 25–34 44.8% / 35–44 12.0% / 45–54 7.1% / 55–64 4.8% / 65+ 1.4%
+- Country: India 36.5% / Turkey 8.5% / United States 4.8% / Mexico 4.5% / Iran 4.2%
+- Gender: male 99.5% / female 0.5%
+
+16:39頃のNotifications:
+- Reelが500 views超、750 views超、1,000 views超の通知を順に受けていることを確認。
+- 別ユーザーがWittnauer ReelをInstagram Storyへ再共有し、`vintagealarm` をメンションしている画面を確認。
+- Story上から `リール動画の全編を再生` へ遷移できる表示を確認。
+- これはSharesという集計値だけでなく、実際のStory再共有が少なくとも1件発生した直接観測として扱う。
+- Story再共有が1,000 views到達の原因であるとは断定しない。
+
+### CYMA Time-O-Vox 18K Chronomètre
+
+16:36頃のInsights:
+- Likes: 13
+- Comments: 0
+- Reposts: 1
+- Shares: 1
+- Saves: 0
+- Followers: 1.0%
+- Non-followers: 99.0%
+- Age: 13–17 2.2% / 18–24 32.9% / 25–34 37.2% / 35–44 10.8% / 45–54 9.4% / 55–64 6.1% / 65+ 1.4%
+- Country: India 17.0% / United States 12.3% / Iran 7.6% / Mexico 7.2% / Brazil 4.7%
+- Gender: male 98.6% / female 1.4%
+
+### 現時点の扱い
+
+- 2投稿とも非フォロワー比率99%以上で、新規層への配布が主体であることを確認。
+- 2投稿とも18–34歳が多数を占めるが、まだ2投稿なのでアカウント全体の恒常的オーディエンス像とは断定しない。
+- 国別分布は投稿間で差が大きい。地域別の勝ち筋として固定せず、今後の個体でも同じ指標を記録する。
+- Wittnauerでは保存・共有・Story再共有が実測された。単なるviews増加とは分けて追跡する。
+
 ## 次の固定観測
 
 次回Pierce Duofon投稿でも、投稿前にVA現行Pierceページを確認したうえで、Instagram InsightsとVA Analyticsを同じ時間窓で突合する。
 
 比較時に「伸びた個体へ都合よく説明を後付け」しない。個体、フック、動画尺、操作、音、投稿時刻など複数変数が同時に変わるため、少数投稿から単一原因を確定しない。
+
+将来Reel自体に外部URL導線を載せられる条件・機能が利用可能になった場合は、プロフィール経由導線とは別実験として扱う。実装前後でInstagram側の配布・クリックとVA側landingを同じ時間窓で比較し、URL搭載そのものの効果を無対照で断定しない。
