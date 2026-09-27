@@ -551,3 +551,99 @@ Interpretation:
 - Wittnauer leads on absolute reach and visible interaction rates, especially skip/save/share/like metrics.
 - CYMA has longer average watch time in seconds, but its Reel is also longer; do not compare seconds alone without normalizing by duration.
 - These metrics support a difference in observed audience response, but do not by themselves identify the causal creative element or Instagram's internal distribution logic.
+
+
+## 2026-09-28 06:59–07:00 JST — morning Reel comparison snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Wittnauer 10WA
+
+Overview:
+- Views: 2,563
+- Viewers: 2,094
+- Average watch time: 6s
+- Follows: 6
+- Likes: 101
+- Comments: 1
+- Reposts: 3
+- Shares: 25
+- Saves: 20
+
+Rates:
+- Skip rate: 41.0%
+- Share rate: 1.2%
+- Like rate: 4.9%
+- Save rate: 1.0%
+- Repost rate: 0.1%
+- Comment rate: 0.0%
+
+Post-view actions:
+- Profile accesses: 29
+- Follows: 6
+- Bio-link clicks: 1
+
+Audience:
+- Followers: 0.7% / Non-followers: 99.3%
+- Age: 13–17 0.7% / 18–24 24.5% / 25–34 42.3% / 35–44 16.1% / 45–54 8.1% / 55–64 5.3% / 65+ 3.0%
+- 18–34 combined: 66.8%
+- Country: India 27.1% / Turkey 8.3% / France 5.8% / Iran 4.6% / United States 3.8%
+
+Delta from 2026-09-28 00:03 snapshot:
+- Views: 2,080 → 2,563 (+483)
+- Viewers: 1,661 → 2,094 (+433)
+- Likes: 74 → 101 (+27)
+- Follows: 3 → 6 (+3)
+- Saves: 17 → 20 (+3)
+- Shares: 25 remained 25
+- Skip rate: 40.9% → 41.0% (essentially stable)
+
+### CYMA Time-O-Vox 18K Chronomètre
+
+Overview:
+- Views: 1,553
+- Viewers: 1,357
+- Average watch time: 7s
+- Follows: 2
+- Likes: 53
+- Comments: 1
+- Reposts: 1
+- Shares: 3
+- Saves: 6
+
+Rates:
+- Skip rate: 53.7%
+- Share rate: 0.2%
+- Like rate: 3.9%
+- Save rate: 0.4%
+- Repost rate: 0.1%
+- Comment rate: 0.1%
+
+Post-view actions:
+- Profile accesses: 8
+- Follows: 2
+- Bio-link clicks: 1
+
+Audience:
+- Followers: 1.0% / Non-followers: 99.0%
+- Age: 13–17 0.7% / 18–24 27.3% / 25–34 35.0% / 35–44 14.6% / 45–54 10.1% / 55–64 6.8% / 65+ 5.5%
+- 18–34 combined: 62.3%
+- Country: India 18.7% / France 8.5% / Turkey 8.0% / Iran 5.7% / Italy 5.3%
+
+Delta from 2026-09-28 00:03 snapshot:
+- Views: 1,394 → 1,553 (+159)
+- Viewers: 1,205 → 1,357 (+152)
+- Likes: 42 → 53 (+11)
+- Follows: 2 → 2
+- Saves: 6 → 6
+- Shares: 3 → 3
+- Skip rate: 52.6% → 53.7% (+1.1pt)
+
+### Cross-Reel descriptive comparison
+
+- Wittnauer continues to outperform CYMA not only in absolute views but in visible engagement rates: lower skip, higher share, higher like, higher save, more profile accesses, and more follows.
+- Approximate post-view profile-access rate by views: Wittnauer 29/2,563 ≈ 1.13%; CYMA 8/1,553 ≈ 0.52%.
+- Approximate follow rate by views: Wittnauer 6/2,563 ≈ 0.23%; CYMA 2/1,553 ≈ 0.13%.
+- Bio-link clicks remain 1 on each Reel; therefore site-driving behavior has not scaled in proportion to Wittnauer's additional distribution yet.
+- Audience composition broadened with additional distribution: the 18–34 share fell from earlier ~70%+ observations to 66.8% (Wittnauer) and 62.3% (CYMA). India also declined in share on both, while France emerged among top countries. Treat this as audience broadening, not a fixed demographic pivot.
+- Causality remains unproven: current evidence identifies response differences, not the creative/mechanical reason for them.
