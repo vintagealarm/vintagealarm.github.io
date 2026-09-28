@@ -956,3 +956,56 @@ Delta from 13:58:
 - Skip worsened from 40.7% to 43.5% while remaining labeled `低` by Instagram; average watch time remains 7s.
 - Interaction conversion remains weak relative to views: saves and follows did not increase, profile accesses only rose by one.
 - India remains the largest country segment near 28%, but its share is no longer rising.
+
+
+## 2026-09-28 17:35–17:37 JST — Wittnauer 10WA still-active snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Wittnauer 10WA
+- Views: 2,744
+- Viewers: 2,225
+- Average watch time: 6s
+- Follows: 12
+- Likes: 112
+- Comments: 1
+- Reposts: 3
+- Saves: 23
+- Share count: summary UI shows `--`; rate panel shows share rate 1.1%
+- Skip rate: 41.2%
+- Share rate: 1.1%
+- Like rate: 5.0%
+- Save rate: 1.0%
+- Repost rate: 0.1%
+- Comment rate: 0.0%
+- Profile accesses: 31
+- Bio-link clicks: 2
+- Followers / non-followers: 0.7% / 99.3%
+
+Audience:
+- Age: 13–17 0.7% / 18–24 24.2% / 25–34 41.7% / 35–44 16.3% / 45–54 8.6% / 55–64 5.4% / 65+ 3.2%
+- 18–34 combined: 65.9%
+- Country: India 26.2% / Turkey 8.2% / France 5.6% / Iran 4.5% / United States 4.4%
+
+Delta from 2026-09-28 07:00:
+- Views: 2,563 → 2,744 (+181)
+- Viewers: 2,094 → 2,225 (+131)
+- Likes: 101 → 112 (+11)
+- Saves: 20 → 23 (+3)
+- Follows: 6 → 12 (+6)
+- Profile accesses: 29 → 31 (+2)
+- Bio-link clicks: 1 → 2 (+1)
+- Comments: 1 → 1
+- Reposts: 3 → 3
+- Skip rate: 41.0% → 41.2% (essentially stable)
+- Like rate: 4.9% → 5.0%
+- Save rate: 1.0% → 1.0%
+- India: 27.1% → 26.2%
+- 18–34: 66.8% → 65.9%
+
+### Interpretation
+- Wittnauer remains active well after its initial release window: views and viewers continue increasing while skip rate remains essentially unchanged around 41%.
+- The most notable late change is attributed follows: 6 → 12 despite only +181 additional views in this interval. Profile accesses rose only 29 → 31, so do not assume all follows occurred through a profile visit; preserve Instagram's own attribution fields separately.
+- Bio-link clicks increased from 1 → 2, giving the Reel a second directly observed link-click attribution.
+- Saves also increased 20 → 23. This supports continued downstream action beyond passive viewing, unlike the contemporaneous Pierce snapshot where saves/follows were flat.
+- Country and age composition remain broadly stable; India remains the largest country segment.
