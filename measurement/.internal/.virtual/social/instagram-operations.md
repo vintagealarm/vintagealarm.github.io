@@ -718,3 +718,59 @@ Audience:
 - Audience is especially young at this snapshot: 18–34 = 77.9%.
 - Country mix differs from the earlier Wittnauer/CYMA snapshots: United States leads at 15.3%, while India is 7.2%. Do not treat this as a stable audience shift yet.
 - No bio-link click or profile-access figure is visible in the supplied screenshots; do not record zero unless Instagram explicitly displays zero.
+
+
+## 2026-09-28 11:15 JST — VA 24h Analytics snapshot after Pierce first report
+
+User-provided Relay snapshot:
+- generated: 2026-09-28 11:15:03 JST (`20260928T021503813Z`)
+- quality: UNSAMPLED
+- sample: 1
+- integrity: PASS
+
+24h totals:
+- Visits: 10
+- Pageviews: 11
+- Previous period: 6 / 6
+- Instagram: 4
+- Facebook: 2
+- Search: 3
+- Direct: 1
+- X / YouTube / AI / OtherSNS: 0
+- internalVisits: 0
+- internalPV: 1
+
+Pages / entries:
+- `/en/how-they-ring/`: 4 / 4
+- `/en/pierce-duofon/`: 3 / 3
+- `/`: 2 / 2
+- `/how-they-ring/`: 1 / 1
+- `/en/wittnauer-10wa/`: 1 pageview / 0 entries
+
+External:
+- `IG@l.instagram.com → /en/how-they-ring/`: 4
+- `SEARCH@www.bing.com → /en/pierce-duofon/`: 3
+- `FB@www.facebook.com → /`: 2
+- Direct → `/how-they-ring/`: 1
+
+Observed internal flow:
+- `/en/how-they-ring/ → /en/wittnauer-10wa/`: 1 internal pageview
+
+Countries:
+- India: 4
+- France: 3
+- United States: 2
+- Japan: 1
+- Hong Kong: 1
+
+Devices:
+- Desktop: 6
+- Mobile: 5
+
+### Interpretation
+
+- Instagram-to-site funnel remains active: 4 Instagram-attributed visits land on the canonical English HOW THEY RING profile destination.
+- A concrete downstream internal navigation is now observed: one pageview from `/en/how-they-ring/` to `/en/wittnauer-10wa/`. This is the first explicit flow row in the current social-funnel tracking that directly matches the intended `HOW THEY RING → WATCH` next step.
+- Search is simultaneously contributing a separate acquisition path: Bing delivered 3 entries directly to `/en/pierce-duofon/`.
+- Do not compare raw total visits directly with the prior 18:49 snapshot as a simple delta because both are rolling 24h windows and the window contents changed.
+- Do not attribute the three Pierce search entries to the newly posted Instagram Reel; Relay explicitly classifies them as Bing search.
