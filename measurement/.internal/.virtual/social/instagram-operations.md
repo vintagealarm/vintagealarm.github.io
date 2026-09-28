@@ -1037,3 +1037,74 @@ GitHub main / social log historyを監査。
 Current same-time comparable pair at ~17:35:
 - Pierce: 1,897 views / 1,378 viewers / avg 7s / 39 likes / 5 saves / 0 follows / 5 profile accesses / skip 43.5%
 - Wittnauer: 2,744 views / 2,225 viewers / avg 6s / 112 likes / 23 saves / 12 follows / 31 profile accesses / 2 bio-link clicks / skip 41.2%
+
+
+## 2026-09-28 17:49–17:50 JST — CYMA Time-O-Vox 18K Chronomètre same-window snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。先ほどGitHub上で欠けていた17:35台比較用のCYMA最新値を、17:49撮影として補完。
+
+### CYMA Time-O-Vox 18K Chronomètre
+- Views: 1,609
+- Viewers: 1,408
+- Average watch time: 7s
+- Follows: 2
+- Likes: 57
+- Comments: 1
+- Reposts: 1
+- Saves: 6
+- Share count: summary UI shows `--`; rate panel shows share rate 0.2%
+- Skip rate: 53.8%（高）
+- Share rate: 0.2%（低）
+- Like rate: 4.0%（低）
+- Save rate: 0.4%（低）
+- Repost rate: 0.1%（低）
+- Comment rate: 0.1%（高）
+- Profile accesses: 10
+- Bio-link clicks: 1
+- Followers / non-followers: 1.1% / 98.9%
+
+Audience:
+- Age: 13–17 0.7% / 18–24 26.8% / 25–34 34.8% / 35–44 15.0% / 45–54 10.2% / 55–64 7.0% / 65+ 5.5%
+- 18–34 combined: 61.6%
+- Country: India 18.1% / France 8.4% / Turkey 7.9% / Iran 5.8% / Italy 5.3%
+
+Delta from 07:00:
+- Views: 1,553 → 1,609 (+56)
+- Viewers: 1,357 → 1,408 (+51)
+- Likes: 53 → 57 (+4)
+- Profile accesses: 8 → 10 (+2)
+- Follows: 2 → 2
+- Bio-link clicks: 1 → 1
+- Saves: 6 → 6
+- Reposts: 1 → 1
+- Comments: 1 → 1
+- Skip rate: 53.7% → 53.8% (+0.1pt; essentially flat)
+- 18–34: 62.3% → 61.6%
+- India: 18.7% → 18.1%
+
+### Same-window three-Reel comparison (~17:35–17:49)
+
+Wittnauer 10WA:
+- 2,744 views / 2,225 viewers / avg 6s
+- 112 likes / 23 saves / 12 follows
+- 31 profile accesses / 2 bio-link clicks
+- skip 41.2%
+
+Pierce Duofon:
+- 1,897 views / 1,378 viewers / avg 7s
+- 39 likes / 5 saves / 0 follows
+- 5 profile accesses
+- skip 43.5%
+
+CYMA Time-O-Vox 18K Chronomètre:
+- 1,609 views / 1,408 viewers / avg 7s
+- 57 likes / 6 saves / 2 follows
+- 10 profile accesses / 1 bio-link click
+- skip 53.8%
+
+### Interpretation
+- Wittnauer remains strongest across both viewing and downstream action.
+- Pierce has more total views than CYMA, but CYMA has slightly more unique viewers (1,408 vs 1,378). This means Pierce's lead in total views is not explained by reaching more unique people in this snapshot; repeat/looped viewing is a plausible contributor, but Instagram does not expose causal playback-level detail here.
+- CYMA continues to have the weakest skip performance of the three (53.8%), yet its downstream conversion is clearly stronger than Pierce: 2 follows vs 0, 10 profile accesses vs 5, and 1 bio-link click vs no visible Pierce bio-link figure.
+- CYMA is therefore not simply "weak": it is weaker at keeping viewers from skipping, but stronger than Pierce at turning a smaller view pool into profile/follow/site actions.
+- This completes the missing same-window three-way comparison noted in the 17:47 reconciliation.
