@@ -1009,3 +1009,53 @@ Delta from 2026-09-28 07:00:
 - Bio-link clicks increased from 1 → 2, giving the Reel a second directly observed link-click attribution.
 - Saves also increased 20 → 23. This supports continued downstream action beyond passive viewing, unlike the contemporaneous Pierce snapshot where saves/follows were flat.
 - Country and age composition remain broadly stable; India remains the largest country segment.
+
+
+## 2026-09-28 17:35–17:39 JST — Wittnauer 10WA remains active
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Wittnauer 10WA
+- Views: 2,744
+- Viewers: 2,225
+- Average watch time: 6s
+- Follows: 12
+- Likes: 112
+- Comments: 1
+- Reposts: 3
+- Saves: 23
+- Share count: detailed summary shows `--`; rate panel shows share rate 1.1%
+- Skip rate: 41.2%
+- Share rate: 1.1%
+- Like rate: 5.0%
+- Save rate: 1.0%
+- Repost rate: 0.1%
+- Comment rate: 0.0%
+- Profile accesses: 31
+- Bio-link clicks: 2
+- Followers / non-followers: 0.7% / 99.3%
+
+Audience:
+- Age: 13–17 0.7% / 18–24 24.2% / 25–34 41.7% / 35–44 16.3% / 45–54 8.6% / 55–64 5.4% / 65+ 3.2%
+- 18–34 combined: 65.9%
+- Country: India 26.2% / Turkey 8.2% / France 5.6% / Iran 4.5% / United States 4.4%
+
+Delta from 07:00:
+- Views: 2,563 → 2,744 (+181)
+- Viewers: 2,094 → 2,225 (+131)
+- Likes: 101 → 112 (+11)
+- Follows: 6 → 12 (+6)
+- Saves: 20 → 23 (+3)
+- Profile accesses: 29 → 31 (+2)
+- Bio-link clicks: 1 → 2 (+1)
+- Skip rate: 41.0% → 41.2% (+0.2pt; essentially stable)
+- Share rate: 1.2% → 1.1%
+- Like rate: 4.9% → 5.0%
+- Save rate: 1.0% → 1.0%
+
+### Interpretation
+- Wittnauer remains active well after its initial distribution window.
+- Absolute view growth from the morning snapshot is modest (+181), but the attributed follow count doubled from 6 to 12 and bio-link clicks increased from 1 to 2.
+- Do not assume all six newly attributed follows came from the 181 newly observed views; Instagram attribution counters can update asynchronously and users can follow from multiple surfaces.
+- The key observed difference versus Pierce remains conversion: Wittnauer continues to generate profile/follow/save/link actions while maintaining skip around 41%.
+- Audience mix remains internationally broad. India is still the largest country segment at 26.2%, but its share has eased from 27.1% in the morning.
