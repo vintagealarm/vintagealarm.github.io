@@ -367,3 +367,15 @@
 - **関連**：PR #126 merge commit `8e460187f2fe7c959e26e03051000cbdac740cb2`、Deploy run `36100224068`、fix commit `24a219b8174989f7aa2b9b64f015263c67703063`。
 - **日時根拠**：PR #126 merge commitは 2026-09-25T05:50:01Z → 2026-09-25 14:50 JST。live gate修正commitは 2026-09-25T11:11:59Z → 2026-09-25 20:11 JST。
 - **merge / deploy記録**：PR #128 merge commit `c7b447e80155605bf862ab0a8142dd34ba8cf217` は 2026-09-25T11:15:40Z → 2026-09-25 20:15 JST。Deploy GitHub Pages run `36128422567` は 2026-09-25T11:15:43Z → 20:15 JST開始、2026-09-25T11:18:34Z → 20:18 JST終了でsuccess。build / quality / mobile layout / Pages deploy / 49-file live artifact parity / live publication stateの全stepがsuccess。
+
+
+## 2026-09-28 — Wittnauer 10WA ギャラリー多言語同期
+
+### 2026-09-28 14:32 JST — Wittnauer掲載個体ギャラリーをEN / DEへ同期
+- **変更**：日本語正本のWittnauer 10WA掲載個体ギャラリー更新に合わせ、英語・ドイツ語版のギャラリー画像・順序・ラベル・altを差分同期した。更新された画像は `IMG_2292.jpeg`（純正リューズ）、`IMG_2295.jpeg`（裏蓋内側）で、新たに `IMG_2293.jpeg`（9時側側面、2階建構造が見える）を6枚目として追加した。英語は `9 o’clock side view — the two-tier construction is clearly visible`、ドイツ語は `Seitenansicht bei 9 Uhr — der zweistöckige Aufbau ist deutlich zu erkennen` とし、日本語正本の意味を保ちながら各言語として自然な表現にした。
+- **理由**：2026-09-28のPages CMS更新で日本語WATCHだけギャラリーが先行更新され、EN / DEには旧画像 `IMG_7643.jpeg` / `IMG_5755.jpeg` と5枚構成が残っていたため。多言語版は日本語WATCHを意味上の正本とする現行方針に従い、ギャラリーも同期する。
+- **旧状態・棄却**：EN / DEが旧5枚構成のまま、日本語だけ6枚構成・新画像になる状態を棄却。翻訳時に別セクションの説明を足したり、2階建という観察を機構解説へ膨らませたりはしない。
+- **影響範囲**：`src/data/en-watch-full-research.ts`、`src/data/de-watch-entry.ts` のWittnauer `specimenGallery`、および `src/data/localization-fact-sync.json` の回帰検査のみ。日本語正本、OWNER'S NOTE、SPEC、DEEP DIVE、SOURCES、レイアウトは変更しない。
+- **検証状態**：branch上で実装済み。localization fact-syncへJA / EN / DEの画像・ラベル一致と旧画像残存禁止を追加。PR CIでbuild / localization sync / purity / publication output / mobile layoutを通過後にVERIFIEDとする。main merge・live反映は未実施。
+- **関連**：日本語正本更新 commit `0d54ece601bfa77ecaa792664fdfd16c4fb102f2`、英語同期 `47c697500d63c4e31acd09a1e84b53c423314abe`、ドイツ語同期 `9f68d26fc88f6a1b6fecd962f78f71577b6d3394`、回帰gate `840eab1219d93fbbb3947f02ed6151be46a69b9b`、生成HTML検査修正 `9af346974d77c3a1c6972f51b1959044603599b8`。
+- **日時根拠**：日本語Pages CMS commit `0d54ece601bfa77ecaa792664fdfd16c4fb102f2` は 2026-09-28T05:27:07Z → 2026-09-28 14:27 JST。EN / DE同期commitは 2026-09-28T05:32:13Z → 14:32 JST、2026-09-28T05:32:16Z → 14:32 JST。回帰gate commitは 2026-09-28T05:32:54Z → 14:32 JST。初回CIでAstro生成HTMLでは画像URLが処理され元ファイル名を保持しないため、rendered checkでファイル名を要求する設計が誤りと確認。source側でファイル名、rendered側で可視ラベルを検査する形へ修正したcommit `9af346974d77c3a1c6972f51b1959044603599b8` は 2026-09-28T05:34:25Z → 14:34 JST。
