@@ -183,6 +183,10 @@ ADOPTEDへ昇格する条件：
 - U.S. Senate Committee on Government Operations, *Swiss Watches—Adjustments* hearings excerpt.
 - No.489 movement / caseback / dial photographs.
 
+### Public comparison media retained for research
+
+- YouTube: https://www.youtube.com/watch?v=rp2PI5jy36k&t=425s — Cal. R.464の操作位置を後から再確認するための比較映像として保持する。販売店・出品個体への不具合認定、販売元との故障紐付け、公開WATCH本文・公開SOURCESへの転載には使用しない。原因推定にも使わず、必要時に映像上の操作位置だけを再確認する参照先とする。
+
 ### Primary / archive / patent
 
 - `US2789410A`, Georges Bridevaux, Tavannes Watch Co. S.A., *Alarm time-piece*. HOLD as R.464 correspondence pending mechanical cross-check.
@@ -218,6 +222,14 @@ Do not state yet:
 - 「GB782720A / US2789410AのSwiss priority参照文字列がスイス公開特許番号である」
 
 ## Research log
+
+### 2026-09-28 — R.464比較動画URLを研究参照として保持
+
+- ユーザー提供のYouTube動画 `https://www.youtube.com/watch?v=rp2PI5jy36k&t=425s` を、R.464の操作位置を後から再確認する比較映像としてLedgerへ追加した。
+- この記録は既存の外部個体観察を再確認するための索引であり、販売店・販売個体を「故障個体」として公開特定する目的には使わない。
+- 公開WATCH本文、Chronomètre公開ページ、公開SOURCES、観測個体表の表示内容は変更しない。
+- 映像だけから他個体の内部原因を推定しない。掲載個体で確認した内部原因仮説と、外部個体の外観上の挙動は引き続き分離する。
+
 
 ### 2026-09-27 — E-Periodica全文探索 / 商標・Bridevaux・特許追跡
 
