@@ -360,6 +360,30 @@ assert.ok(!html.includes(">BUCKET COMPARISON<"));
 assert.ok(html.includes(".bucket-compare{grid-column:1/-1}"), "bucket comparison must span the analytics grid");
 assert.ok(html.includes("GROUP BY"));
 assert.ok(html.includes("比較対象なし"));
+// SNS entry rows must render highest-count first without mutating the source payload.
+const snsSource = dashboardScript.slice(dashboardScript.indexOf('function channelColor('), dashboardScript.indexOf('const CAMPAIGN_KEY='));
+const snsContext = vm.createContext({
+  n: value => String(Number(value || 0)),
+  esc: value => String(value),
+  COLORS: { X: '#111', YouTube: '#f00', Search: '#080', Direct: '#888', AI: '#609', legacyHost: '#555', Other: '#999' }
+});
+vm.runInContext(snsSource, snsContext);
+const snsEntry = vm.runInContext('snsEntryChart', snsContext);
+const snsFixture = {
+  total: 7,
+  complete: true,
+  pages: [
+    { name: 'Zero', total: 0, values: { X: 0, Instagram: 0, Facebook: 0, 'Other SNS': 0 } },
+    { name: 'Top A', total: 3, values: { X: 3, Instagram: 0, Facebook: 0, 'Other SNS': 0 } },
+    { name: 'Middle', total: 1, values: { X: 1, Instagram: 0, Facebook: 0, 'Other SNS': 0 } },
+    { name: 'Top B', total: 3, values: { X: 0, Instagram: 0, Facebook: 3, 'Other SNS': 0 } }
+  ]
+};
+const snsRendered = snsEntry(snsFixture);
+assert.ok(snsRendered.indexOf('Top A') < snsRendered.indexOf('Top B'));
+assert.ok(snsRendered.indexOf('Top B') < snsRendered.indexOf('Middle'));
+assert.ok(snsRendered.indexOf('Middle') < snsRendered.indexOf('Zero'));
+assert.deepEqual(snsFixture.pages.map(row => row.name), ['Zero', 'Top A', 'Middle', 'Top B']);
 // Exercise the actual generated chart function without the dashboard's DOM boot.
 const chartSource = dashboardScript.slice(dashboardScript.indexOf('const HOST_MIGRATION ='), dashboardScript.indexOf('function entryBars('));
 assert.ok(chartSource.includes('function lineChart('));

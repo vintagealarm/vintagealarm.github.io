@@ -15,6 +15,17 @@
 
 ---
 
+## 2026-09-28
+
+### 2026-09-28 11:17 JST — SNS着地先を入口件数の降順で表示
+- **変更**：Analytics Dashboardの「SNS → SITE ENTRY」で、全tracked pageを固定route順のまま並べる表示をやめ、選択期間のSNS入口件数 `total` が多い順に表示する。件数同率時は元のroute順を維持し、0件行も削除せず下側へ残す。
+- **理由**：公開route / 多言語routeの増加により0件項目が上位を占め、実際にSNS流入がある着地先を探すための縦スクロールが増えていたため。利用目的は「どの着地先にSNS流入が出ているか」を即座に把握することなので、件数順が表示優先度と一致する。
+- **旧状態・棄却**：TOP / OWNER'S NOTES / SOURCES / WATCH…の固定route順を維持する表示。0件行そのものを非表示にする案は、tracked route全体を確認できなくなるため採用しない。
+- **影響範囲**：管理Analytics DashboardのSNS着地先表示順とregression testのみ。raw集計、`snsEntries.pages` のpayload順、件数、channel分類、VA2 / AI export、公開サイト本文には変更なし。
+- **検証状態**：branch実装済み。生成Dashboard関数を直接実行するregressionで、3件→3件→1件→0件の降順と、source payload非破壊を確認する。PR CI通過後にVERIFIEDとする。main merge・本番deployは未実施。
+- **関連**：implementation commit `40b11dcb` / regression commit `528312b2` / branch `fix/sns-entry-sort`。
+- **日時根拠**：GitHub implementation commits `2026-09-28T02:17:28Z → 2026-09-28 11:17 JST` ～ `2026-09-28T02:17:32Z → 2026-09-28 11:17 JST`。
+
 ## 2026-09-27
 
 ### 2026-09-27 23:25 JST — Cyma / R.464 LedgerへE-Periodica一次資料を追補

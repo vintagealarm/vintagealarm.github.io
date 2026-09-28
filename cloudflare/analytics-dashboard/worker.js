@@ -1865,10 +1865,11 @@ function flowVisual(items){
 function snsEntryChart(data){
   if(!data)return '<div class="muted">SNS入口データを取得できませんでした。</div>';
   const channels=["X","Instagram","Facebook","Other SNS"];
-  const max=Math.max(1,...data.pages.map(p=>p.total));
+  const pages=[...data.pages].sort((a,b)=>Number(b.total||0)-Number(a.total||0));
+  const max=Math.max(1,...pages.map(p=>p.total));
   const note=data.complete?'判別できたSNS入口 '+n(data.total)+'件':'取得上限に到達：表示分 '+n(data.total)+'件（全体比は算出保留）';
   return '<div class="sns-note">'+note+(data.total<30?' · 少数データ：傾向判断は保留':'')+'<br>棒の共通目盛り：0〜'+n(max)+'件</div>'+
-    data.pages.map(p=>'<div class="sns-row"><div class="sns-heading"><strong>'+esc(p.name)+'</strong><span>'+n(p.total)+'件'+(data.complete&&data.total?' · SNS全体の'+(p.total/data.total*100).toFixed(0)+'%':'')+'</span></div><div class="sns-track" role="img" aria-label="'+esc(p.name+' '+channels.map(c=>c+' '+p.values[c]+'件').join('、'))+'">'+channels.map(c=>'<span style="width:'+(p.values[c]/max*100)+'%;background:'+channelColor(c)+'"></span>').join('')+'</div><div class="sns-breakdown">'+channels.map(c=>'<span><i class="legend-dot" style="background:'+channelColor(c)+'"></i>'+esc(c)+' '+n(p.values[c])+'</span>').join('')+'</div></div>').join('')+
+    pages.map(p=>'<div class="sns-row"><div class="sns-heading"><strong>'+esc(p.name)+'</strong><span>'+n(p.total)+'件'+(data.complete&&data.total?' · SNS全体の'+(p.total/data.total*100).toFixed(0)+'%':'')+'</span></div><div class="sns-track" role="img" aria-label="'+esc(p.name+' '+channels.map(c=>c+' '+p.values[c]+'件').join('、'))+'">'+channels.map(c=>'<span style="width:'+(p.values[c]/max*100)+'%;background:'+channelColor(c)+'"></span>').join('')+'</div><div class="sns-breakdown">'+channels.map(c=>'<span><i class="legend-dot" style="background:'+channelColor(c)+'"></i>'+esc(c)+' '+n(p.values[c])+'</span>').join('')+'</div></div>').join('')+
     '<div class="sns-note">入口回数（人数・SNSクリック数ではありません）。Direct / UnknownにSNS由来が含まれる場合があります。Other pagesは個別表示対象外のページ。</div>';
 }
 const CAMPAIGN_KEY="vaCampaigns";
