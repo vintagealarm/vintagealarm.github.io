@@ -1108,3 +1108,57 @@ CYMA Time-O-Vox 18K Chronomètre:
 - CYMA continues to have the weakest skip performance of the three (53.8%), yet its downstream conversion is clearly stronger than Pierce: 2 follows vs 0, 10 profile accesses vs 5, and 1 bio-link click vs no visible Pierce bio-link figure.
 - CYMA is therefore not simply "weak": it is weaker at keeping viewers from skipping, but stronger than Pierce at turning a smaller view pool into profile/follow/site actions.
 - This completes the missing same-window three-way comparison noted in the 17:47 reconciliation.
+
+
+## 2026-09-29 06:13 JST — Wittnauer 10WA overnight long-tail snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Wittnauer 10WA
+- Views: 2,998
+- Viewers: 2,411
+- Average watch time: 6s
+- Follows: 13
+- Likes: 124
+- Comments: 1
+- Reposts: 4
+- Saves: 23
+- Share count: detailed summary shows `--`; rate panel shows share rate 1.2%
+- Skip rate: 42.1%
+- Share rate: 1.2%
+- Like rate: 5.1%
+- Save rate: 0.9%
+- Repost rate: 0.2%
+- Comment rate: 0.0%
+- Profile accesses: 37
+- Bio-link clicks: 2
+- Followers / non-followers: 0.7% / 99.3%
+
+Audience:
+- Age: 13–17 0.6% / 18–24 23.6% / 25–34 41.2% / 35–44 16.9% / 45–54 9.0% / 55–64 5.6% / 65+ 3.1%
+- 18–34 combined: 64.8%
+- Country: India 25.1% / Turkey 8.1% / France 5.7% / United States 4.5% / Iran 4.4%
+
+Delta from 2026-09-28 17:35:
+- Views: 2,744 → 2,998 (+254)
+- Viewers: 2,225 → 2,411 (+186)
+- Likes: 112 → 124 (+12)
+- Follows: 12 → 13 (+1)
+- Profile accesses: 31 → 37 (+6)
+- Bio-link clicks: 2 → 2
+- Reposts: 3 → 4 (+1)
+- Saves: 23 → 23
+- Comments: 1 → 1
+- Skip rate: 41.2% → 42.1% (+0.9pt)
+- Share rate: 1.1% → 1.2%
+- Like rate: 5.0% → 5.1%
+- Save rate: 1.0% → 0.9%
+- India: 26.2% → 25.1%
+- 18–34: 65.9% → 64.8%
+
+### Interpretation
+- Wittnauer continues receiving new viewers overnight rather than only accumulating repeat plays: +254 views accompanied by +186 unique viewers.
+- Downstream action also continues: +6 profile accesses, +1 follow, +1 repost, +12 likes. Bio-link clicks and saves did not increase in this interval.
+- Skip remains near the same band (41.2% → 42.1%) despite continued distribution, while like/share rates remain slightly stronger than the prior snapshot.
+- This strengthens the observed long-tail pattern: Wittnauer is not merely retaining views; it continues to produce profile and follow actions after the main initial growth phase.
+- India remains the largest country share but continues to ease gradually (26.2% → 25.1%), consistent with audience broadening rather than a single-country concentration.
