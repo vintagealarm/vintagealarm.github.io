@@ -774,3 +774,62 @@ Devices:
 - Search is simultaneously contributing a separate acquisition path: Bing delivered 3 entries directly to `/en/pierce-duofon/`.
 - Do not compare raw total visits directly with the prior 18:49 snapshot as a simple delta because both are rolling 24h windows and the window contents changed.
 - Do not attribute the three Pierce search entries to the newly posted Instagram Reel; Relay explicitly classifies them as Bing search.
+
+
+## 2026-09-28 13:04–13:05 JST — Pierce Duofon second Insights report
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Pierce Duofon
+
+Overview:
+- Views: 1,421
+- Viewers: 993
+- Average watch time: 6s
+- Follows: 0
+- Likes: 30
+- Comments: 0
+- Reposts: 1
+- Shares: UI summary shows `--`; Instagram rate panel shows share rate 0.6%
+- Saves: 5
+
+Rates shown by Instagram:
+- Skip rate: 42.0%（低）
+- Share rate: 0.6%（低）
+- Like rate: 2.8%（低）
+- Save rate: 0.5%（低）
+- Repost rate: 0.1%（低）
+- Comment rate: 0.0%（低）
+
+Post-view actions:
+- Profile accesses: 2
+- Follows: 0
+
+Audience:
+- Followers: 0.8% / Non-followers: 99.2%
+- Age: 13–17 2.0% / 18–24 39.2% / 25–34 43.0% / 35–44 9.4% / 45–54 3.2% / 55–64 1.6% / 65+ 1.7%
+- 18–34 combined: 82.2%
+- Country: India 28.6% / United States 15.5% / Mexico 5.1% / Brazil 4.8% / Canada 4.3%
+
+### Delta from 11:00 first report
+
+- Views: 275 → 1,421 (+1,146)
+- Viewers: 168 → 993 (+825)
+- Likes: 5 → 30 (+25)
+- Saves: 1 → 5 (+4)
+- Reposts: 0 → 1
+- Follows: 0 → 0
+- Skip rate: 41.2% → 42.0% (+0.8pt; essentially stable)
+- Non-followers: 97.3% → 99.2%
+- 18–34 audience: 77.9% → 82.2%
+- India: 7.2% → 28.6%
+- United States: 15.3% → 15.5% (essentially stable)
+
+### Interpretation
+
+- Pierce moved from 275 to 1,421 views in roughly two hours while skip rate remained nearly unchanged around 42%, indicating much broader distribution without a meaningful deterioration in the observed skip metric.
+- The early country mix changed sharply: India rose from 7.2% to 28.6%, becoming the largest country share, while the United States remained near 15%.
+- The audience became even younger by share: 18–34 increased to 82.2%.
+- Engagement remains materially weaker than Wittnauer at a similar stage, but Pierce is no longer an early low-distribution case; it has clearly entered broader non-follower distribution.
+- No follow conversion yet despite 2 profile accesses.
+- Do not infer that India caused the growth; the observed change is demographic correlation within the expanded distribution, not a causal explanation.
