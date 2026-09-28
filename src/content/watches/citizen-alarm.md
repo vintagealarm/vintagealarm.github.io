@@ -26,12 +26,12 @@ spec:
   era: 1958年頃（初期型）
   caseSize: 37mm（同型資料）
   caliber: Citizen 980（同型資料）
-  jewels: 17石（同型資料）※Cal.980には17石仕様も確認される
+  jewels: 17石（掲載個体で確認）
   frequency: 18,000振動／時（同型資料）
   barrels: 2香箱
   winding: 手巻き
   acoustic: 二重裏蓋式
-  notes: 中央回転ディスク、2リューズ、Parashock
+  notes: 中央回転ディスク、2リューズ、Parashock、掲載個体ムーブメントに「CITIZEN / 17 JEWELS / 3 ADJ」刻印
 specimenGallery:
   - image: /images/IMG_1695.jpeg
     label: 正面（リストショット）
