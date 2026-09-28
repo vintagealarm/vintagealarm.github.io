@@ -852,3 +852,52 @@ Interpretation:
 - The secondary rise is temporally consistent with the ~6.5s volume-switch moment, so it is reasonable to treat the switch as a candidate reaction trigger.
 - This is not causal proof. The graph is coarse, total likes at this snapshot are only 30, and Instagram does not expose sub-second event-level like data here.
 - Do not rewrite the creative based on this alone; continue observing whether later larger samples preserve a secondary bump around the switch.
+
+
+## 2026-09-28 13:58–14:00 JST — Pierce Duofon continued growth
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Pierce Duofon
+- Views: 1,640
+- Viewers: 1,136
+- Average watch time: 7s
+- Follows: 0
+- Likes: 34
+- Comments: 0
+- Reposts: 1
+- Saves: 5
+- Share count: summary UI shows `--`; rate panel shows share rate 0.5%
+- Skip rate: 40.7%（低）
+- Share rate: 0.5%（低）
+- Like rate: 2.8%（低）
+- Save rate: 0.4%（低）
+- Repost rate: 0.1%（低）
+- Comment rate: 0.0%（低）
+- Profile accesses: 4
+- Followers / non-followers: 0.7% / 99.3%
+
+Audience:
+- Age: 13–17 1.8% / 18–24 38.5% / 25–34 42.3% / 35–44 9.4% / 45–54 4.2% / 55–64 2.2% / 65+ 1.5%
+- 18–34 combined: 80.8%
+- Country: India 29.0% / United States 14.5% / Mexico 5.2% / Brazil 4.4% / Canada 4.0%
+
+Delta from 13:04:
+- Views: 1,421 → 1,640 (+219)
+- Viewers: 993 → 1,136 (+143)
+- Average watch time: 6s → 7s
+- Likes: 30 → 34
+- Profile accesses: 2 → 4
+- Saves: 5 → 5
+- Skip rate: 42.0% → 40.7% (improved 1.3pt)
+- India: 28.6% → 29.0% (stable)
+- 18–34: 82.2% → 80.8% (still very high)
+
+### Like-timing note
+- The updated like-timing graph still shows multiple local peaks rather than a single monotonic concentration.
+- A local rise remains visible in the mid-Reel region consistent with the previously noted volume-switch segment, but the graph is coarse and should not be interpreted as event-level causal proof.
+- The end-of-Reel point also rises, so repeat/loop/end behavior may contribute to the timing distribution.
+
+### Comparison caveat
+- Pierce at 1,640 views exceeds the latest shared CYMA snapshot of 1,553 views from 07:00 JST.
+- This is not a same-minute head-to-head comparison because no 13:58 CYMA snapshot was supplied. Record only that Pierce has surpassed the last observed CYMA count.
