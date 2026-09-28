@@ -211,7 +211,7 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
         alt: 'Wittnauer Cal. 10WA specimen, front wrist shot'
       },
       {
-        image: '/images/IMG_7643.jpeg',
+        image: '/images/IMG_2292.jpeg',
         label: 'Original pyramid-shaped crown',
         alt: 'Wittnauer Cal. 10WA original pyramid-shaped crown'
       },
@@ -226,9 +226,14 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
         alt: 'Wittnauer Cal. 10WA specimen caseback'
       },
       {
-        image: '/images/IMG_5755.jpeg',
+        image: '/images/IMG_2295.jpeg',
         label: 'Inside caseback',
         alt: 'Inside of the Wittnauer Cal. 10WA specimen caseback'
+      },
+      {
+        image: '/images/IMG_2293.jpeg',
+        label: '9 o’clock side view — the two-tier construction is clearly visible',
+        alt: 'Wittnauer Cal. 10WA specimen, 9 o’clock side view showing the two-tier construction'
       }
     ],
     deepDive: [
