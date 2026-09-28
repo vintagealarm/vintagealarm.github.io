@@ -24,7 +24,7 @@
 - **旧状態・棄却**：日本語SPECの「17石（同型資料）※Cal.980には17石仕様も確認される」、EN / DEの同型資料ベース17石表記、EN / DEの3枚ギャラリーを旧状態とする。一方、写真には `980` のキャリバー刻印が見えないため、Cal欄の `Citizen 980（同型資料）` / EN / DE相当表記を掲載個体で直接確認済みへ格上げする案は採用しない。
 - **影響範囲**：Citizen Alarm WATCHのJA SPEC、EN SPEC、DE SPEC、EN / DE掲載個体ギャラリー、localization fact-sync contract。OWNER'S NOTE原文、DEEP DIVE 01–04、HOW THEY RING、HISTORY、音源、他WATCHは変更しない。
 - **検証状態**：branch上へ差分実装。localization sync / quality / build / liveはPR CIとmerge後のlive確認で別途判定する。現時点ではIMPLEMENTEDでありDEPLOYEDではない。
-- **関連**：実装commit `c4acd35a`（JA SPEC）、`a6dab669`（EN SPEC）、`c85bb79e`（EN gallery）、`f4666e5b`（DE SPEC / gallery）、`67768fb7`（localization sync gate）。対象: `src/content/watches/citizen-alarm.md`、`src/data/en-watch-entry.ts`、`src/data/en-watch-full-research.ts`、`src/data/de-watch-entry.ts`、`src/data/localization-fact-sync.json`。
+- **関連**：実装commit `c4acd35a`（JA SPEC）、`a6dab669`（EN SPEC）、`c85bb79e`（EN gallery）、`f4666e5b`（DE SPEC / gallery）、`67768fb7`（localization sync gate）、`0bf7d6be`（SPEC evidence gate）。対象: `src/content/watches/citizen-alarm.md`、`src/data/en-watch-entry.ts`、`src/data/en-watch-full-research.ts`、`src/data/de-watch-entry.ts`、`src/data/localization-fact-sync.json`。
 - **日時根拠**：画像更新を含むmain commit `1cb4ec1b5a6f9433e6901c2bbff4a28a49499334` のGitHub時刻 `2026-09-28T12:18:04Z → 2026-09-28 21:18 JST`。
 
 
