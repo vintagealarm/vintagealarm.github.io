@@ -1203,3 +1203,54 @@ Delta from 2026-09-28 17:35:
 
 Interpretation:
 Pierce showed a clear delayed-conversion phase overnight. Unlike the late-afternoon snapshot, profile visits, follows and saves all increased while skip stayed effectively flat. The earlier shorthand "viewed but did not convert" is no longer accurate as a current-state description.
+## 2026-09-29 06:13–06:14 JST — CYMA Time-O-Vox 18K Chronomètre overnight snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### CYMA Time-O-Vox 18K Chronomètre
+- Views: 1,678
+- Viewers: 1,468
+- Average watch time: 7s
+- Follows: 2
+- Likes: 61
+- Comments: 2
+- Reposts: 1
+- Saves: 6
+- Share count: summary UI shows `--`; rate panel shows share rate 0.2%
+- Skip rate: 53.9%（高）
+- Share rate: 0.2%（低）
+- Like rate: 4.1%（低）
+- Save rate: 0.4%（低）
+- Repost rate: 0.1%（低）
+- Comment rate: 0.1%（高）
+- Profile accesses: 10
+- Bio-link clicks: 1
+- Followers / non-followers: 1.1% / 98.9%
+
+Audience:
+- Age: 13–17 0.7% / 18–24 26.7% / 25–34 34.9% / 35–44 14.9% / 45–54 10.4% / 55–64 7.1% / 65+ 5.2%
+- 18–34 combined: 61.6%
+- Country: India 18.4% / France 8.7% / Turkey 7.9% / Iran 5.7% / Italy 5.3%
+
+Delta from 2026-09-28 17:49–17:50:
+- Views: 1,609 → 1,678 (+69)
+- Viewers: 1,408 → 1,468 (+60)
+- Likes: 57 → 61 (+4)
+- Comments: 1 → 2 (+1)
+- Follows: 2 → 2
+- Profile accesses: 10 → 10
+- Bio-link clicks: 1 → 1
+- Saves: 6 → 6
+- Reposts: 1 → 1
+- Skip rate: 53.8% → 53.9% (+0.1pt; essentially flat)
+- Like rate: 4.0% → 4.1%
+- Save rate: 0.4% → 0.4%
+- 18–34: 61.6% → 61.6%
+- India: 18.1% → 18.4%
+
+### Interpretation
+- CYMA continued to gain new viewers overnight (+69 views / +60 viewers), but the distribution pace remained much slower than Wittnauer or Pierce over their comparable overnight windows.
+- Skip remained essentially unchanged and high at 53.9%, while average watch time stayed at 7s.
+- The added overnight activity produced +4 likes and +1 comment, but no additional follows, profile accesses, bio-link clicks or saves.
+- The current pattern is therefore a stable long tail with modest interaction growth, not a new downstream-conversion phase like the one observed for Pierce overnight.
+- Audience composition remained effectively stable: 18–34 stayed at 61.6%, and India moved only 18.1% → 18.4%.
