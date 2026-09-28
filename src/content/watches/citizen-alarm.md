@@ -39,13 +39,10 @@ specimenGallery:
     label: 側面（リューズ側）
   - image: /images/IMG_2089.jpeg
     label: 裏蓋
-howTheyRing:
-  published: true
-  category: caseback
-  image: "/images/citizen-alarm/owners-note.jpg"
-  audio:
-    recordings: []
-
+  - image: /images/IMG_2477.jpeg
+    label: 裏蓋（内面）
+  - image: /images/IMG_2476.jpeg
+    label: ムーブメント
 video:
   youtubeId: https://youtube.com/shorts/55cN9bsGytY?si=77KpPYDI_EloitHz
   xUrl: https://x.com/rimacroissant/status/2090774762016608486?s=46&t=3m8xXI66ZgB96VPG9PtQgw
