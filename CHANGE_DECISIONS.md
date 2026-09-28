@@ -17,6 +17,17 @@
 
 ## 2026-09-28
 
+### 2026-09-28 21:18 JST — Citizen掲載個体の内部写真をSPECとEN / DEへ同期
+
+- **変更**：Pages CMSで更新されたCitizen Alarm掲載個体ギャラリー（ムーブメント `IMG_2476.jpeg`、裏蓋内面 `IMG_2477.jpeg` を含む現行5枚）を日本語正本として、SPECの石数を「17石（掲載個体で確認）」へ更新し、掲載個体ムーブメントの `CITIZEN / 17 JEWELS / 3 ADJ` 刻印を特記事項へ追加した。EN / DEのSPECとギャラリーも同じ証拠・画像順へ同期した。
+- **理由**：従来の17石表記は同型資料に基づいていたが、今回の実機写真で掲載個体自身の `17 JEWELS` と `3 ADJ` 刻印を直接確認できるようになったため。公開多言語版を旧3枚・旧証拠レベルのまま残すとrevision driftになる。
+- **旧状態・棄却**：日本語SPECの「17石（同型資料）※Cal.980には17石仕様も確認される」、EN / DEの同型資料ベース17石表記、EN / DEの3枚ギャラリーを旧状態とする。一方、写真には `980` のキャリバー刻印が見えないため、Cal欄の `Citizen 980（同型資料）` / EN / DE相当表記を掲載個体で直接確認済みへ格上げする案は採用しない。
+- **影響範囲**：Citizen Alarm WATCHのJA SPEC、EN SPEC、DE SPEC、EN / DE掲載個体ギャラリー、localization fact-sync contract。OWNER'S NOTE原文、DEEP DIVE 01–04、HOW THEY RING、HISTORY、音源、他WATCHは変更しない。
+- **検証状態**：branch上へ差分実装。localization sync / quality / build / liveはPR CIとmerge後のlive確認で別途判定する。現時点ではIMPLEMENTEDでありDEPLOYEDではない。
+- **関連**：`src/content/watches/citizen-alarm.md`、`src/data/en-watch-entry.ts`、`src/data/en-watch-full-research.ts`、`src/data/de-watch-entry.ts`、`src/data/localization-fact-sync.json`。
+- **日時根拠**：画像更新を含むmain commit `1cb4ec1b5a6f9433e6901c2bbff4a28a49499334` のGitHub時刻 `2026-09-28T12:18:04Z → 2026-09-28 21:18 JST`。
+
+
 ### 2026-09-28 18:26 JST — CYMAVOX・1948年法人再編・1950年以前のアラーム特許を研究Ledgerへ追加
 
 - **変更**：`research/CYMA_TIME_O_VOX_R464_LEDGER.md`へ、1943年CYMAVOX商標と1963年更新・1983年抹消、1948年のCyma関連法人／商標再編、1944年`CH243633A`、1949年`CH293737A` / `CH290046A` / `CH285202A`、1954年`CH327800A`を追記した。1950年の独立した第7スイス商標として`TIM-O-VOX`を扱う解釈は棄却した。併せて、Mémoires d'Iciの16.20 / 20.5を日本から遠隔取得する依頼文・費用・手順・受領後検品を`research/CYMA_MEMOIRES_DICI_REQUEST_PACKET.md`として作成した。
