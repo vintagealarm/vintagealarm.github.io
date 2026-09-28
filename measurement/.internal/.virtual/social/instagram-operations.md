@@ -901,3 +901,58 @@ Delta from 13:04:
 ### Comparison caveat
 - Pierce at 1,640 views exceeds the latest shared CYMA snapshot of 1,553 views from 07:00 JST.
 - This is not a same-minute head-to-head comparison because no 13:58 CYMA snapshot was supplied. Record only that Pierce has surpassed the last observed CYMA count.
+
+
+## 2026-09-28 17:35–17:37 JST — Pierce Duofon late-afternoon snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Pierce Duofon
+- Views: 1,897
+- Viewers: 1,378
+- Average watch time: 7s
+- Follows: 0
+- Likes: 39
+- Comments: 0
+- Reposts: 1
+- Saves: 5
+- Share count: summary UI shows `--`; rate panel shows share rate 0.4%
+- Skip rate: 43.5%（低）
+- Share rate: 0.4%（低）
+- Like rate: 2.8%（低）
+- Save rate: 0.4%（低）
+- Repost rate: 0.1%（低）
+- Comment rate: 0.0%（低）
+- Profile accesses: 5
+- Followers / non-followers: 0.9% / 99.1%
+
+Audience:
+- Age: 13–17 1.6% / 18–24 35.8% / 25–34 41.6% / 35–44 10.1% / 45–54 5.7% / 55–64 3.0% / 65+ 2.1%
+- 18–34 combined: 77.4%
+- Country: India 28.2% / United States 12.3% / Mexico 4.6% / Iran 4.3% / Brazil 3.7%
+
+Delta from 13:58:
+- Views: 1,640 → 1,897 (+257)
+- Viewers: 1,136 → 1,378 (+242)
+- Average watch time: 7s → 7s
+- Likes: 34 → 39 (+5)
+- Profile accesses: 4 → 5
+- Saves: 5 → 5
+- Reposts: 1 → 1
+- Follows: 0 → 0
+- Skip rate: 40.7% → 43.5% (+2.8pt)
+- India: 29.0% → 28.2%
+- United States: 14.5% → 12.3%
+- 18–34: 80.8% → 77.4%
+
+### Like-timing update
+- The updated like-timing graph shows its clearest early peak near the opening seconds and another distinct mid-Reel peak earlier than the previously hypothesized ~6.5s volume-switch point.
+- Around ~6–7s there is no equally distinct new spike in this later snapshot.
+- Therefore the earlier hypothesis that the 6.5s volume switch itself is producing a secondary like peak is weaker on this larger sample. Keep it as unconfirmed rather than supported.
+- The end-of-Reel rise remains visible.
+
+### Interpretation
+- Distribution is still growing, but the curve has visibly flattened compared with the earlier 11:00→13:04 expansion.
+- Skip worsened from 40.7% to 43.5% while remaining labeled `低` by Instagram; average watch time remains 7s.
+- Interaction conversion remains weak relative to views: saves and follows did not increase, profile accesses only rose by one.
+- India remains the largest country segment near 28%, but its share is no longer rising.
