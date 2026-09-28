@@ -345,7 +345,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         alt: 'Wittnauer Cal. 10WA, gezeigtes Exemplar, Vorderseite am Handgelenk'
       },
       {
-        image: '/images/IMG_7643.jpeg',
+        image: '/images/IMG_2292.jpeg',
         label: 'Originale pyramidenförmige Krone',
         alt: 'Originale pyramidenförmige Krone der Wittnauer Cal. 10WA'
       },
@@ -360,9 +360,14 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         alt: 'Gehäuseboden des gezeigten Wittnauer-Cal.-10WA-Exemplars'
       },
       {
-        image: '/images/IMG_5755.jpeg',
+        image: '/images/IMG_2295.jpeg',
         label: 'Innenseite des Gehäusebodens',
         alt: 'Innenseite des Gehäusebodens der Wittnauer Cal. 10WA'
+      },
+      {
+        image: '/images/IMG_2293.jpeg',
+        label: 'Seitenansicht bei 9 Uhr — der zweistöckige Aufbau ist deutlich zu erkennen',
+        alt: 'Wittnauer Cal. 10WA, Seitenansicht bei 9 Uhr mit deutlich erkennbarem zweistöckigem Aufbau'
       }
     ],
     deepDive: [
