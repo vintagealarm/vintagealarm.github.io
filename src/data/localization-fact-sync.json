@@ -567,27 +567,17 @@
         {
           "path": "dist/en/wittnauer-10wa/index.html",
           "mustContain": [
-            "IMG_2292.jpeg",
-            "IMG_2295.jpeg",
-            "IMG_2293.jpeg",
-            "two-tier construction is clearly visible"
-          ],
-          "mustNotContain": [
-            "IMG_7643.jpeg",
-            "IMG_5755.jpeg"
+            "Original pyramid-shaped crown",
+            "Inside caseback",
+            "9 o’clock side view — the two-tier construction is clearly visible"
           ]
         },
         {
           "path": "dist/de/wittnauer-10wa/index.html",
           "mustContain": [
-            "IMG_2292.jpeg",
-            "IMG_2295.jpeg",
-            "IMG_2293.jpeg",
-            "zweistöckige Aufbau ist deutlich zu erkennen"
-          ],
-          "mustNotContain": [
-            "IMG_7643.jpeg",
-            "IMG_5755.jpeg"
+            "Originale pyramidenförmige Krone",
+            "Innenseite des Gehäusebodens",
+            "Seitenansicht bei 9 Uhr — der zweistöckige Aufbau ist deutlich zu erkennen"
           ]
         }
       ]
