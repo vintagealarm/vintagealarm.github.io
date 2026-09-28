@@ -833,3 +833,22 @@ Audience:
 - Engagement remains materially weaker than Wittnauer at a similar stage, but Pierce is no longer an early low-distribution case; it has clearly entered broader non-follower distribution.
 - No follow conversion yet despite 2 profile accesses.
 - Do not infer that India caused the growth; the observed change is demographic correlation within the expanded distribution, not a causal explanation.
+
+
+## 2026-09-28 13:10 JST — Pierce like-timing hypothesis
+
+ユーザー提供のPierce投稿済み動画（10.97s）と、13:04 Insightsの「リール動画が『いいね！』された時」グラフを突合。
+
+Confirmed from video/audio:
+- Alarm sound begins around 2.5–3.0s.
+- User identifies the volume-switch point at about 6.5s; audio level also changes around the 6s台.
+- The Reel is ~11s total.
+
+Confirmed from like-timing graph:
+- strongest visible like-timing peaks occur earlier in the Reel, including a prominent peak around the first alarm section.
+- a smaller secondary local rise appears around the 6s台 before dropping again.
+
+Interpretation:
+- The secondary rise is temporally consistent with the ~6.5s volume-switch moment, so it is reasonable to treat the switch as a candidate reaction trigger.
+- This is not causal proof. The graph is coarse, total likes at this snapshot are only 30, and Instagram does not expose sub-second event-level like data here.
+- Do not rewrite the creative based on this alone; continue observing whether later larger samples preserve a secondary bump around the switch.
