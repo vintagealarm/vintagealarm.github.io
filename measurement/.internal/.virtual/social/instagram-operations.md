@@ -1254,3 +1254,90 @@ Delta from 2026-09-28 17:49–17:50:
 - The added overnight activity produced +4 likes and +1 comment, but no additional follows, profile accesses, bio-link clicks or saves.
 - The current pattern is therefore a stable long tail with modest interaction growth, not a new downstream-conversion phase like the one observed for Pierce overnight.
 - Audience composition remained effectively stable: 18–34 stayed at 61.6%, and India moved only 18.1% → 18.4%.
+## 2026-09-29 07:03 JST — VA 7d Analytics snapshot after overnight Instagram updates
+
+ユーザー提供Relay VA2 snapshotで確認。
+
+Snapshot metadata:
+- generated: 2026-09-29 07:03:50.695 JST (`20260928T220350695Z`)
+- window / range: 7d / 7d
+- bucket: 1d
+- quality: UNSAMPLED
+- sample: 1
+- coverage: full
+- integrity: PASS
+- compare: previous-period
+
+7d totals:
+- Visits: 38
+- Pageviews: 41
+- Previous period: 20 visits / 30 pageviews
+- Change vs previous period: Visits +18 (+90.0%) / Pageviews +11 (+36.7%)
+- Internal Navigation: 0 visits / 3 pageviews
+
+Channels:
+- Direct / Unknown: 13
+- Facebook: 9
+- X: 5
+- Instagram: 4
+- Organic Search: 4
+- Other Referral: 2
+- YouTube: 0
+- Other SNS: 0
+- AI Assistant: 0
+
+Key landing pages / visits:
+- `/en/how-they-ring/`: 8 pageviews / 8 visits
+- `/how-they-ring/`: 6 / 6
+- `/en/pierce-duofon/`: 4 / 4
+- `/cyma-time-o-vox/`: 4 / 4
+- `/en/cyma-time-o-vox/chronometre/`: 3 / 3
+- `/`: 3 / 3
+- `/de/pierce-duofon/`: 2 / 2
+- `/pierce-duofon/`: 2 / 2
+- `/history/`: 2 pageviews / 1 visit
+
+Key external entries:
+- Instagram `l.instagram.com → /en/how-they-ring/`: 4 visits
+- Facebook `www.facebook.com → /en/how-they-ring/`: 4
+- Bing Search `www.bing.com → /en/pierce-duofon/`: 4
+- Direct / Unknown `→ /how-they-ring/`: 3
+- X `t.co → /how-they-ring/`: 3
+- Direct / Unknown `→ /de/pierce-duofon/`: 2
+- Direct / Unknown `→ /pierce-duofon/`: 2
+- Facebook mobile `m.facebook.com → /en/cyma-time-o-vox/chronometre/`: 2
+- Facebook `www.facebook.com → /`: 2
+- Watchuseek `www.watchuseek.com → /cyma-time-o-vox/`: 2
+- Facebook `www.facebook.com → /en/cyma-time-o-vox/chronometre/`: 1
+- X `t.co → /basis-alarm/`: 1
+- X `t.co → /wittnauer-10wa/`: 1
+
+Observed internal flows:
+- `/en/how-they-ring/ → /en/wittnauer-10wa/`: 1 internal pageview
+- `/how-they-ring/ → /history/`: 1
+- `/history/ → /history/smartwatch/`: 1
+
+Host migration handoff:
+- `orima1995-create.github.io/ → vintagealarm.github.io/cyma-time-o-vox/`: 1 visit / 1 pageview
+
+Pageview geography:
+- United States: 18
+- Japan: 8
+- India: 4
+- France: 4
+- Netherlands: 3
+- Brazil / Hong Kong / Mexico / United Kingdom: 1 each
+
+Devices by pageview:
+- Desktop: 25
+- Mobile: 16
+
+### Interpretation
+- The 7d period shows materially more entry activity than the immediately previous 7d period: Visits 20 → 38 (+90.0%) and Pageviews 30 → 41 (+36.7%). Visits are entry events, not unique people.
+- The Instagram profile funnel is repeatedly visible on the VA side: all 4 Instagram-attributed entries land on the canonical English `/en/how-they-ring/` destination. This supports route-level reproducibility of the current Instagram → English HOW THEY RING entry design, but does not prove four distinct people or four specific profile-link clicks.
+- HOW THEY RING is the largest combined landing family in this snapshot: English 8 visits + Japanese 6 visits = 14 of 38 visits. The source split is unusually clean: English HOW THEY RING is supplied by Instagram 4 + Facebook 4, while Japanese HOW THEY RING is supplied by X 3 + Direct / Unknown 3.
+- Bing contributes a separate acquisition path independent of Instagram: all 4 Search visits land directly on `/en/pierce-duofon/`.
+- Watchuseek contributes 2 entries to `/cyma-time-o-vox/`, providing a separate community-referral path for CYMA.
+- The intended downstream funnel is present but still sparse at the internal-navigation layer: one observed `/en/how-they-ring/ → /en/wittnauer-10wa/` pageview. Do not infer that other HOW THEY RING visits failed to engage solely from the absence of a recorded internal flow.
+- Facebook remains a separate source from Instagram; do not add its 9 visits to Instagram's 4 or reinterpret them as Instagram users.
+- `latestBucket=2026-09-27T15:00:00Z` with `gapLower=25430` is a freshness diagnostic, not proof of zero collection delay; per metrics rules, latestBucket is the latest non-zero aggregate bucket rather than the last raw event timestamp.
