@@ -676,3 +676,45 @@ Interpretation:
 - Compared with the earlier ~31.8s source clip, the published cut is materially shorter at ~11s.
 - This gives Pierce a duration much closer to the successful short Wittnauer Reel than to the longer CYMA Reel, while preserving the core manipulation sequence.
 - Do not infer performance from duration alone; record this as the creative state before Insights arrive.
+
+
+## 2026-09-28 11:00 JST — Pierce Duofon first Insights report
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Pierce Duofon
+
+Overview:
+- Views: 275
+- Viewers: 168
+- Average watch time: 6s
+- Follows: 0
+- Likes: 5
+- Comments: 0
+- Reposts: 0
+- Shares: 0
+- Saves: 1
+
+Rates shown by Instagram:
+- Skip rate: 41.2%（低）
+- Share rate: 0.0%（低）
+- Like rate: 2.3%（低）
+- Save rate: 0.5%（低）
+- Repost rate: 0.0%（低）
+- Comment rate: 0.0%（低）
+
+Audience:
+- Followers: 2.7% / Non-followers: 97.3%
+- Age: 13–17 0.0% / 18–24 32.7% / 25–34 45.2% / 35–44 13.9% / 45–54 3.4% / 55–64 2.4% / 65+ 2.4%
+- 18–34 combined: 77.9%
+- Country: United States 15.3% / India 7.2% / United Kingdom 6.2% / Turkey 5.7% / Spain 5.3%
+
+### First-report interpretation
+
+- The published Reel duration is 10.97s. Average watch time 6s corresponds to roughly 54.7% of runtime; treat this as a descriptive ratio only.
+- Skip rate 41.2% is shown by Instagram as `低` and is close to the later Wittnauer ~41% level, but Pierce is still at a much smaller sample and earlier lifecycle, so do not treat the two as equivalent performance.
+- Early engagement beyond viewing is weak so far: 5 likes, 1 save, no share/repost/comment, no follows.
+- Non-follower distribution is already dominant at 97.3%.
+- Audience is especially young at this snapshot: 18–34 = 77.9%.
+- Country mix differs from the earlier Wittnauer/CYMA snapshots: United States leads at 15.3%, while India is 7.2%. Do not treat this as a stable audience shift yet.
+- No bio-link click or profile-access figure is visible in the supplied screenshots; do not record zero unless Instagram explicitly displays zero.
