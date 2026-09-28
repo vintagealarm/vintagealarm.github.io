@@ -1162,3 +1162,44 @@ Delta from 2026-09-28 17:35:
 - Skip remains near the same band (41.2% → 42.1%) despite continued distribution, while like/share rates remain slightly stronger than the prior snapshot.
 - This strengthens the observed long-tail pattern: Wittnauer is not merely retaining views; it continues to produce profile and follow actions after the main initial growth phase.
 - India remains the largest country share but continues to ease gradually (26.2% → 25.1%), consistent with audience broadening rather than a single-country concentration.
+
+
+## 2026-09-29 06:15 JST — Pierce Duofon overnight snapshot
+
+Instagram Insights screenshots supplied by user.
+
+- Views: 2,339
+- Viewers: 1,679
+- Average watch time: 7s
+- Follows: 3
+- Likes: 61
+- Comments: 2
+- Reposts: 1
+- Saves: 8
+- Skip rate: 43.6%
+- Share rate: 0.3%
+- Like rate: 3.5%
+- Save rate: 0.5%
+- Repost rate: 0.1%
+- Comment rate: 0.1%
+- Profile accesses: 15
+- Followers / non-followers: 0.9% / 99.1%
+- Age: 13–17 1.5% / 18–24 31.7% / 25–34 38.3% / 35–44 11.8% / 45–54 8.4% / 55–64 4.7% / 65+ 3.7%
+- Country: India 26.2% / United States 10.4% / Iran 5.6% / Mexico 3.8% / Canada 3.3%
+
+Delta from 2026-09-28 17:35:
+- Views +442
+- Viewers +301
+- Likes +22
+- Comments +2
+- Saves +3
+- Profile accesses +10
+- Follows +3
+- Reposts unchanged
+- Skip 43.5% → 43.6%
+- Like rate 2.8% → 3.5%
+- Save rate 0.4% → 0.5%
+- 18–34 share 77.4% → 70.0%
+
+Interpretation:
+Pierce showed a clear delayed-conversion phase overnight. Unlike the late-afternoon snapshot, profile visits, follows and saves all increased while skip stayed effectively flat. The earlier shorthand "viewed but did not convert" is no longer accurate as a current-state description.
