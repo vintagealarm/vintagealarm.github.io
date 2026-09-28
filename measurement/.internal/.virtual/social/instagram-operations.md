@@ -1011,51 +1011,29 @@ Delta from 2026-09-28 07:00:
 - Country and age composition remain broadly stable; India remains the largest country segment.
 
 
-## 2026-09-28 17:35–17:39 JST — Wittnauer 10WA remains active
+## 2026-09-28 17:47 JST — reconciliation: same-time CYMA snapshot not persisted
 
-ユーザー提供Instagram Insightsスクリーンショットで確認。
+GitHub main / social log historyを監査。
 
-### Wittnauer 10WA
-- Views: 2,744
-- Viewers: 2,225
-- Average watch time: 6s
-- Follows: 12
-- Likes: 112
-- Comments: 1
-- Reposts: 3
-- Saves: 23
-- Share count: detailed summary shows `--`; rate panel shows share rate 1.1%
-- Skip rate: 41.2%
-- Share rate: 1.1%
-- Like rate: 5.0%
-- Save rate: 1.0%
-- Repost rate: 0.1%
-- Comment rate: 0.0%
-- Profile accesses: 31
-- Bio-link clicks: 2
-- Followers / non-followers: 0.7% / 99.3%
+- 17:35台のPierce Duofon snapshotは記録済み。
+- 17:35台のWittnauer 10WA snapshotは記録済み。
+- 同時刻に撮影されたとユーザーが説明したCYMA Time-O-Vox 18K Chronomètre snapshotは、GitHub mainのsocial logにも同時刻commitにも見つからない。
+- GitHub上で最後に永続化されているCYMA snapshotは2026-09-28 07:00 JST:
+  - Views 1,553
+  - Viewers 1,357
+  - Average watch time 7s
+  - Follows 2
+  - Likes 53
+  - Comments 1
+  - Reposts 1
+  - Shares 3
+  - Saves 6
+  - Skip 53.7%
+  - Profile accesses 8
+  - Bio-link clicks 1
+- したがって07:00 CYMA値を17:35の同時刻3-way comparisonとして扱わない。
+- 17:35 Wittnauer snapshotが同内容で二重記録されていたため、重複ブロックを1件削除して正規化した。
 
-Audience:
-- Age: 13–17 0.7% / 18–24 24.2% / 25–34 41.7% / 35–44 16.3% / 45–54 8.6% / 55–64 5.4% / 65+ 3.2%
-- 18–34 combined: 65.9%
-- Country: India 26.2% / Turkey 8.2% / France 5.6% / Iran 4.5% / United States 4.4%
-
-Delta from 07:00:
-- Views: 2,563 → 2,744 (+181)
-- Viewers: 2,094 → 2,225 (+131)
-- Likes: 101 → 112 (+11)
-- Follows: 6 → 12 (+6)
-- Saves: 20 → 23 (+3)
-- Profile accesses: 29 → 31 (+2)
-- Bio-link clicks: 1 → 2 (+1)
-- Skip rate: 41.0% → 41.2% (+0.2pt; essentially stable)
-- Share rate: 1.2% → 1.1%
-- Like rate: 4.9% → 5.0%
-- Save rate: 1.0% → 1.0%
-
-### Interpretation
-- Wittnauer remains active well after its initial distribution window.
-- Absolute view growth from the morning snapshot is modest (+181), but the attributed follow count doubled from 6 to 12 and bio-link clicks increased from 1 to 2.
-- Do not assume all six newly attributed follows came from the 181 newly observed views; Instagram attribution counters can update asynchronously and users can follow from multiple surfaces.
-- The key observed difference versus Pierce remains conversion: Wittnauer continues to generate profile/follow/save/link actions while maintaining skip around 41%.
-- Audience mix remains internationally broad. India is still the largest country segment at 26.2%, but its share has eased from 27.1% in the morning.
+Current same-time comparable pair at ~17:35:
+- Pierce: 1,897 views / 1,378 viewers / avg 7s / 39 likes / 5 saves / 0 follows / 5 profile accesses / skip 43.5%
+- Wittnauer: 2,744 views / 2,225 viewers / avg 6s / 112 likes / 23 saves / 12 follows / 31 profile accesses / 2 bio-link clicks / skip 41.2%
