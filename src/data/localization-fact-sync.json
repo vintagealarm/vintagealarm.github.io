@@ -516,6 +516,81 @@
           ]
         }
       ]
+    },
+    {
+      "id": "wittnauer-10wa-specimen-gallery-sync",
+      "slug": "wittnauer-10wa",
+      "canonicalValue": "Wittnauer specimen gallery uses the current six-image Japanese sequence, including updated crown/caseback photos and the 9 o'clock two-tier side view",
+      "note": "Keep EN/DE gallery images and captions synchronized to the Japanese WATCH canonical gallery after CMS photo updates.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/wittnauer-10wa.md",
+          "mustContain": [
+            "/images/IMG_2292.jpeg",
+            "/images/IMG_2295.jpeg",
+            "/images/IMG_2293.jpeg",
+            "9時側側面(2階建ということがよくわかる)"
+          ],
+          "mustNotContain": [
+            "/images/IMG_7643.jpeg",
+            "/images/IMG_5755.jpeg"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "/images/IMG_2292.jpeg",
+            "/images/IMG_2295.jpeg",
+            "/images/IMG_2293.jpeg",
+            "9 o’clock side view — the two-tier construction is clearly visible"
+          ],
+          "mustNotContain": [
+            "/images/IMG_7643.jpeg",
+            "/images/IMG_5755.jpeg"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "/images/IMG_2292.jpeg",
+            "/images/IMG_2295.jpeg",
+            "/images/IMG_2293.jpeg",
+            "Seitenansicht bei 9 Uhr — der zweistöckige Aufbau ist deutlich zu erkennen"
+          ],
+          "mustNotContain": [
+            "/images/IMG_7643.jpeg",
+            "/images/IMG_5755.jpeg"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/en/wittnauer-10wa/index.html",
+          "mustContain": [
+            "IMG_2292.jpeg",
+            "IMG_2295.jpeg",
+            "IMG_2293.jpeg",
+            "two-tier construction is clearly visible"
+          ],
+          "mustNotContain": [
+            "IMG_7643.jpeg",
+            "IMG_5755.jpeg"
+          ]
+        },
+        {
+          "path": "dist/de/wittnauer-10wa/index.html",
+          "mustContain": [
+            "IMG_2292.jpeg",
+            "IMG_2295.jpeg",
+            "IMG_2293.jpeg",
+            "zweistöckige Aufbau ist deutlich zu erkennen"
+          ],
+          "mustNotContain": [
+            "IMG_7643.jpeg",
+            "IMG_5755.jpeg"
+          ]
+        }
+      ]
     }
   ]
 }
