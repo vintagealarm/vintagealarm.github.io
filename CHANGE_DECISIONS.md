@@ -17,6 +17,16 @@
 
 ## 2026-09-28
 
+### 2026-09-28 18:26 JST — CYMAVOX・1948年法人再編・1950年以前のアラーム特許を研究Ledgerへ追加
+
+- **変更**：`research/CYMA_TIME_O_VOX_R464_LEDGER.md`へ、1943年CYMAVOX商標と1963年更新・1983年抹消、1948年のCyma関連法人／商標再編、1944年`CH243633A`、1949年`CH293737A` / `CH290046A` / `CH285202A`、1954年`CH327800A`を追記した。1950年の独立した第7スイス商標として`TIM-O-VOX`を扱う解釈は棄却した。併せて、Mémoires d'Iciの16.20 / 20.5を日本から遠隔取得する依頼文・費用・手順・受領後検品を`research/CYMA_MEMOIRES_DICI_REQUEST_PACKET.md`として作成した。
+- **理由**：一次公告と特許を横断すると、Tavannesのアラーム技術開発は1954年起点ではなく少なくとも1944年まで遡り、1949年には腕時計用音響構造の複数出願が存在するため。CYMAVOXと1950年VOX群の関係は強い調査仮説になった一方、法的名義と機構は同一ではなく、確定事実と仮説を分離する必要がある。
+- **旧状態・棄却**：1954年Swiss priorityの公開済みCH番号が未特定だった状態を`CH327800A`の確認で更新する。Tavannes Watch Co.が1948年にCyma Watch Co.へ単純改称したという説明、CYMAVOXを原公告だけでアラーム商品名とする説明、1944年・1949年特許群をCal. R.464そのものとする説明、Mikroliskの`TIM-O-VOX`を第7の同日スイス商標とする説明は採用しない。
+- **影響範囲**：研究Ledger、外部資料取得用の研究文書、判断履歴のみ。公開WATCH本文、Chronomètreページ、観測個体データ、画像、音源、OWNER'S NOTE、金銭・修理・私信・個人情報は変更しない。外部照会・発注・支払いは未実行。
+- **検証状態**：1943 / 1948 / 1950 / 1963 / 1971 / 1984年のSHAB原公告、Google Patentsの該当特許書誌・本文、Mémoires d'Ici公式目録・料金・連絡先を照合済み。Astro build、source traceability、Markdown差分検査は通過。decision-log scriptは対象diffをdecision-bearing変更として検出しない現行挙動だったため、必須項目を手動照合した。
+- **関連**：`research/CYMA_TIME_O_VOX_R464_LEDGER.md`、`research/CYMA_MEMOIRES_DICI_REQUEST_PACKET.md`。16.20 / 20.5の内容は未取得のため、CYMAVOXとアラーム製品の直接接続は`HOLD`を維持する。
+- **日時根拠**：作業ホストのJST時刻 `2026-09-28 18:26 JST`。
+
 ### 2026-09-28 11:17 JST — SNS着地先を入口件数の降順で表示
 - **変更**：Analytics Dashboardの「SNS → SITE ENTRY」で、全tracked pageを固定route順のまま並べる表示をやめ、選択期間のSNS入口件数 `total` が多い順に表示する。件数同率時は元のroute順を維持し、0件行も削除せず下側へ残す。
 - **理由**：公開route / 多言語routeの増加により0件項目が上位を占め、実際にSNS流入がある着地先を探すための縦スクロールが増えていたため。利用目的は「どの着地先にSNS流入が出ているか」を即座に把握することなので、件数順が表示優先度と一致する。
