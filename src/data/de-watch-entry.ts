@@ -214,17 +214,19 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       era: 'um 1958 (frühe Ausführung)',
       caseSize: '37 mm (Dokumentation eines vergleichbaren Typs)',
       caliber: 'Citizen 980 (Dokumentation eines vergleichbaren Typs)',
-      jewels: '17 Steine (Dokumentation eines vergleichbaren Typs)',
+      jewels: '17 Steine (am gezeigten Exemplar bestätigt)',
       frequency: '18.000 A/h (Dokumentation eines vergleichbaren Typs)',
       barrels: '2 Federhäuser',
       winding: 'Handaufzug',
       acoustic: 'Doppelter Gehäuseboden',
-      notes: 'Zentrale drehbare Weckscheibe, zwei Kronen, Parashock'
+      notes: 'Zentrale drehbare Weckscheibe, zwei Kronen, Parashock; Werk des gezeigten Exemplars mit „CITIZEN / 17 JEWELS / 3 ADJ“ gekennzeichnet'
     },
     specimenGallery: [
       { image: '/images/IMG_1695.jpeg', label: 'Vorderseite — am Handgelenk', alt: 'Citizen Alarm Cal. 980, gezeigtes Exemplar, Vorderseite am Handgelenk' },
       { image: '/images/IMG_2088.jpeg', label: 'Kronenseite', alt: 'Citizen Alarm Cal. 980, Seitenansicht mit zwei Kronen' },
-      { image: '/images/IMG_2089.jpeg', label: 'Gehäuseboden', alt: 'Gehäuseboden des gezeigten Citizen-Alarm-Cal.-980-Exemplars' }
+      { image: '/images/IMG_2476.jpeg', label: 'Werk', alt: 'Werk des gezeigten Citizen-Alarm-Exemplars' },
+      { image: '/images/IMG_2089.jpeg', label: 'Gehäuseboden', alt: 'Gehäuseboden des gezeigten Citizen-Alarm-Cal.-980-Exemplars' },
+      { image: '/images/IMG_2477.jpeg', label: 'Innenseite des Gehäusebodens', alt: 'Innenseite des Gehäusebodens des gezeigten Citizen-Alarm-Exemplars' }
     ],
     deepDive: [
       {

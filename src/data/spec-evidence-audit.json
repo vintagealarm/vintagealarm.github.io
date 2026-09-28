@@ -4,19 +4,21 @@
   "checks": [
     {
       "id": "citizen-alarm-same-type-spec",
-      "note": "The displayed Citizen specimen has not been independently verified for these four values. Keep the same-type-documentation qualifier, and do not reintroduce the former 19-jewel contradiction.",
+      "note": "The shown Citizen specimen now directly confirms the 17-jewel count through its visible 17 JEWELS movement marking. Keep case size, Cal.980 attribution and 18,000 vph qualified as same-type documentation; the visible movement photos do not show a 980 caliber stamp. Do not reintroduce the former 19-jewel contradiction.",
       "sourceChecks": [
         {
           "path": "src/content/watches/citizen-alarm.md",
           "mustContain": [
             "caseSize: 37mm（同型資料）",
             "caliber: Citizen 980（同型資料）",
-            "jewels: 17石（同型資料）",
+            "jewels: 17石（掲載個体で確認）",
             "frequency: 18,000振動／時（同型資料）",
+            "CITIZEN / 17 JEWELS / 3 ADJ",
             "初期の980には17石、Parashock付きの仕様が確認できる"
           ],
           "mustNotContain": [
-            "jewels: 19石"
+            "jewels: 19石",
+            "caliber: Citizen 980（掲載個体で確認）"
           ]
         },
         {
@@ -24,22 +26,32 @@
           "mustContain": [
             "caseSize: '37 mm (same-type documentation)'",
             "caliber: 'Citizen 980 (same-type documentation)'",
-            "jewels: '17 jewels (same-type documentation)'",
-            "frequency: '18,000 vph (same-type documentation)'"
+            "jewels: '17 jewels (confirmed on the shown specimen)'",
+            "frequency: '18,000 vph (same-type documentation)'",
+            "CITIZEN / 17 JEWELS / 3 ADJ"
           ],
           "mustNotContain": [
-            "jewels: '19 jewels"
+            "jewels: '19 jewels",
+            "caliber: 'Citizen 980 (confirmed on the shown specimen)'"
           ]
         }
       ],
       "renderedChecks": [
         {
           "path": "dist/citizen-alarm/index.html",
-          "mustContain": ["17石（同型資料）", "Citizen 980（同型資料）"]
+          "mustContain": [
+            "17石（掲載個体で確認）",
+            "Citizen 980（同型資料）",
+            "CITIZEN / 17 JEWELS / 3 ADJ"
+          ]
         },
         {
           "path": "dist/en/citizen-alarm/index.html",
-          "mustContain": ["17 jewels (same-type documentation)", "Citizen 980 (same-type documentation)"]
+          "mustContain": [
+            "17 jewels (confirmed on the shown specimen)",
+            "Citizen 980 (same-type documentation)",
+            "CITIZEN / 17 JEWELS / 3 ADJ"
+          ]
         }
       ]
     }

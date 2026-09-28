@@ -132,7 +132,9 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
     specimenGallery: [
       { image: '/images/IMG_1695.jpeg', label: 'Front — wrist shot', alt: 'Citizen Alarm Cal. 980 specimen, front wrist shot' },
       { image: '/images/IMG_2088.jpeg', label: 'Crown side', alt: 'Citizen Alarm Cal. 980 specimen, side view with two crowns' },
-      { image: '/images/IMG_2089.jpeg', label: 'Caseback', alt: 'Citizen Alarm Cal. 980 specimen caseback' }
+      { image: '/images/IMG_2476.jpeg', label: 'Movement', alt: 'Movement of the shown Citizen Alarm specimen' },
+      { image: '/images/IMG_2089.jpeg', label: 'Caseback', alt: 'Citizen Alarm Cal. 980 specimen caseback' },
+      { image: '/images/IMG_2477.jpeg', label: 'Inside caseback', alt: 'Inside of the caseback of the shown Citizen Alarm specimen' }
     ],
     deepDive: [
       {

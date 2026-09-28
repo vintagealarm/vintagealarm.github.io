@@ -581,6 +581,73 @@
           ]
         }
       ]
+    },
+    {
+      "id": "citizen-specimen-movement-evidence",
+      "slug": "citizen-alarm",
+      "canonicalValue": "shown specimen confirms 17 jewels and movement marking CITIZEN / 17 JEWELS / 3 ADJ; current gallery includes movement and inside caseback",
+      "note": "Keep JA / EN / DE aligned to the specimen evidence added after the 2026-09-28 CMS gallery update. Do not promote Cal.980 itself to specimen-confirmed because the visible movement photos do not show a 980 caliber stamp.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/citizen-alarm.md",
+          "mustContain": [
+            "17石（掲載個体で確認）",
+            "CITIZEN / 17 JEWELS / 3 ADJ",
+            "/images/IMG_2476.jpeg",
+            "/images/IMG_2477.jpeg"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-entry.ts",
+          "mustContain": [
+            "17 jewels (confirmed on the shown specimen)",
+            "CITIZEN / 17 JEWELS / 3 ADJ"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "/images/IMG_2476.jpeg",
+            "Movement",
+            "/images/IMG_2477.jpeg",
+            "Inside caseback"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "17 Steine (am gezeigten Exemplar bestätigt)",
+            "CITIZEN / 17 JEWELS / 3 ADJ",
+            "/images/IMG_2476.jpeg",
+            "/images/IMG_2477.jpeg"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/citizen-alarm/index.html",
+          "mustContain": [
+            "17石（掲載個体で確認）",
+            "CITIZEN / 17 JEWELS / 3 ADJ"
+          ]
+        },
+        {
+          "path": "dist/en/citizen-alarm/index.html",
+          "mustContain": [
+            "17 jewels (confirmed on the shown specimen)",
+            "CITIZEN / 17 JEWELS / 3 ADJ",
+            "Inside caseback"
+          ]
+        },
+        {
+          "path": "dist/de/citizen-alarm/index.html",
+          "mustContain": [
+            "17 Steine (am gezeigten Exemplar bestätigt)",
+            "CITIZEN / 17 JEWELS / 3 ADJ",
+            "Innenseite des Gehäusebodens"
+          ]
+        }
+      ]
     }
   ]
 }
