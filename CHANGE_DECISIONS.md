@@ -17,6 +17,16 @@
 
 ## 2026-09-29
 
+### 2026-09-29 18:17 JST — 上位文書の再肥大化を責務境界で自動防止
+
+- **変更**：`PROJECT.md` / `AGENTS.md` / `PROJECT_STATE.md` の用途と、判断履歴・時計別研究・監査詳細・分野別仕様の保存先を `DOCUMENT_OWNERSHIP.md` に固定した。未登録の第2階層見出し、日時付き履歴やLedger状態の上位文書への混入、意図的ミラーではない新規完全重複を拒否する `check-document-responsibility.mjs` をquality gateへ追加した。
+- **理由**：日時・採否の記録を強制しても保存先の境界がなければ、上位3文書へ履歴や時計固有情報が追記され続け、同じ種類の情報が再び増殖するため。今後漏れない仕組みには、記録の必須化と誤った保存先の拒否を両方含める必要がある。
+- **旧状態・棄却**：人が後から肥大化を発見して整理する運用、行数上限や文書量だけで機械的に削る案、意図的な起動ルート・Councilトリガーの多重防御まで単純重複として削る案を棄却する。
+- **影響範囲**：上位3文書の将来変更、文書責務、quality / decision-log gate。既存ガードレール、分野別正本、研究Ledgerの内容、公開サイト、UI、routeは変更しない。
+- **検証状態**：新規責務gate、構文検査、decision-log gate、diff検査を実行後にVERIFIEDとする。
+- **関連**：branch `docs/align-project-routing`、`DOCUMENT_OWNERSHIP.md`、`scripts/check-document-responsibility.mjs`、先行判断 `2026-09-29 17:56 JST` / `2026-09-29 18:11 JST`。
+- **日時根拠**：作業ホストのJST時刻 `2026-09-29 18:17:48 +09:00`。
+
 ### 2026-09-29 18:11 JST — 今後の時計別深掘り調査へ採否・日時Ledgerを強制
 
 - **変更**：過去WATCHの一括遡及作成は求めず、今後、資料衝突・採否変更・事実確度変更・継続調査へ入った時計に専用 `research/*_LEDGER.md` を作成または更新する規則、共通状態語、JST日時、証拠、理由、公開影響、再検討条件、関連情報のテンプレートを追加した。Ledger変更を検査する `check-watch-research-history.mjs` をquality gateへ追加し、`research/` 全体をdecision-log gate対象にした。Councilの単独トリガーへ `焼く`、番号指定へ `1で焼く / 焼いて / 焼こう` を追加した。

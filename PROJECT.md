@@ -1,6 +1,6 @@
 # VINTAGE ALARM — Project Instructions
 
-> ChatGPT / Codex / 作業エージェント向けの唯一の起動ルータ。詳細規約の正本は各参照先にある。`AGENTS.md` は常設の実行ガードレール、`PROJECT_STATE.md` は現在位置の索引であり、このファイルはそれらを置き換えない。
+> ChatGPT / Codex / 作業エージェント向けの唯一の起動ルータ。詳細規約の正本は各参照先にある。`AGENTS.md` は常設の実行ガードレール、`PROJECT_STATE.md` は現在位置の索引であり、このファイルはそれらを置き換えない。文書ごとの保存責務は `DOCUMENT_OWNERSHIP.md` を正本とする。
 
 ## 0. 最優先
 
