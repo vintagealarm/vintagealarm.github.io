@@ -91,6 +91,33 @@ https://www.modernroyal.com/docs/enkaku.pdf
 
 **判断:** `廣田モダントレーディング` とモダンロイヤルを、名称が似るだけの無関係企業として扱う余地はかなり狭まる。少なくとも1971〜2005年の間、広田側とモダンロイヤルには公式沿革上の合弁・株式関係がある。
 
+### 同一法人 Modern Royal 内で「ライター」から「時計」へ — 1976→1986
+
+モダンロイヤル公式沿革は、1971年にロイヤル産業（株）が（株）廣田モダントレーディングと合弁してモダンロイヤル（株）へ改称したと記す。
+
+Source:
+https://www.modernroyal.com/docs/enkaku.pdf
+
+米国意匠特許記録では、`Modern Royal Co., Ltd.` をassignee、`Kaname Ichikawa` をinventorとする lighter design が少なくとも1976年出願から確認できる。
+
+- D246996 — Lighter or the like, filed 1976-08-18, assignee Modern Royal Co., Ltd.
+- D253251 — filed 1977-08-02
+- D261062 — filed 1978-11-17
+- 以後1980〜90年代にもModern Royal名義のlighter design / utility patentsが継続
+
+Sources:
+https://patents.justia.com/inventor/kaname-ichikawa
+https://patents.justia.com/assignee/modern-royal-co-ltd
+https://patents.google.com/patent/US5445520A/en
+
+同じモダンロイヤル公式沿革は1986年に、米RJRタバコとCamel Trophyの `アパレル、時計、バッグなど` のライセンス契約を締結したと記す。
+
+**直接言えること:** 廣田モダントレーディングとの1971年合弁後の **同一法人Modern Royal** が、1970年代にはライターの意匠権者として活動し、1986年には時計カテゴリを契約商品として扱っていた。
+
+**研究上の意味:** 「広田系のライター事業」と「時計取扱い」が別会社同士の偶然の並存だった、という説明より一段強い。同一法人の事業履歴の中で両カテゴリが確認できる。
+
+**重要な留保:** 1976年のModern Royalライターと1960〜70年代Modern De Luxe時計を直接つなぐ資料ではない。Modern De Luxeブランド所有・OEM供給・ムーブメント製造を証明しない。
+
 ### 広田系販売会社が「時計」カテゴリを扱った公式記録
 
 モダンロイヤル公式沿革は1986年に `米RJRタバコとCamel Trophyのアパレル、時計、バッグなどライセンス契約を締結` と明記する。
@@ -204,6 +231,32 @@ https://app.midpage.ai/document/rosen-enterprises-inc-v-united-8120623
 **直接言えること:** `Modern De Luxe` は時計だけの名称ではなく、日本製と帰属されるライター商品にも使われている。
 
 **直接は言えないこと:** 各現存例の製造者が広田であることは、現状の公開情報だけでは確認できない。
+
+### `MODERN Derringer` → `MODERN ROYAL Derringer` 商品名の継続候補
+
+現存品の元箱で、次の2系統を確認できる。
+
+1. `Derringer Gun / TABLE LIGHTER / MODERN`
+   - 出品はHirota & Co. Ltd. Japan帰属
+   - 元箱に `Modern Table Gas Lighter Derringer Gun`
+   Source:
+   https://www.ebay.com/itm/256911927343
+
+2. `Modern Royal Derringer Table Lighter`
+   - Made in Japan
+   - product no. `647-0413`, `Short Size`
+   - 元箱にModern Royal名
+   Source:
+   https://www.ebay.com/itm/155401627733
+
+また別の現存例では元箱に `MODERN TABLE LIGHTER Derringer ... WITH STAND` が確認できる。
+
+Source:
+https://www.etsy.com/listing/4318173444/vintage-new-old-stock-nib-never-used
+
+**HOLD:** `MODERN` のDerringer商品と、後の `MODERN ROYAL` Derringer商品には名称・商品カテゴリの連続性が見える。1971年の廣田モダントレーディング×Royal Industries合弁後に商品系列が引き継がれた可能性はある。
+
+**未確認:** 同一金型・同一型番・同一製造者・販売年代の連続性は未確認。販売者が「1960s」とするModern Royal品は、社名成立が1971年である公式沿革と衝突するため、その年代帰属は採用しない。
 
 ### Modern De Luxe名の日本製アラームクロック
 
@@ -397,7 +450,7 @@ https://www.kosho.or.jp/search/%E8%A3%BD%E9%80%A0%E6%A5%AD?pageno=4
 11. 2石アラームクロックの基礎ムーブメントメーカー
 12. Modern De Luxe旅行時計と他の日本製2石アラーム（Seiko / Rhythm / Haramachi Seiki等）の背面トポロジー比較。Tokyo Clockの確認済み1個体は非一致
 13. 三菱電機以外のModern De Luxe時計ノベルティ個体
-14. 1986年以前の広田／廣田モダントレーディング／モダンロイヤル資料における「時計」取扱記録
+14. 1971〜1986年のModern Royal資料で、ライター商品群から時計取扱いへ至る商品カタログ／ライセンス資料
 15. 1939年『業界三世代史』の「広田氏」と1937年創業の廣田製作所関係者の人物同定
 16. 1966年の株式会社広田社内誌『広苑』第3号の本文確認 — **現物購入はユーザー判断でステイ。Web上の索引・引用・蔵書情報だけ継続探索**
 
@@ -439,6 +492,21 @@ https://auctions.yahoo.co.jp/search/search/%E6%9D%B1%E4%BA%AC%E6%99%82%E8%A8%88%
 
 ## Modern Lite帰属のデータ品質監査
 
+### Modern Liteの物理刻印と出品メタデータが衝突
+
+eBay item 276655281469 の現物底面写真には明確に
+
+`PAT. PEND. NOS 8560 8561 JAPAN`
+
+と刻印されている一方、同じ出品ページの構造化メタデータは `Country of Origin: China` としている。
+
+Source:
+https://www.ebay.com/itm/276655281469
+
+**判断:** 同一ページ内で物理刻印と販売者入力メタデータが衝突する場合、物理刻印 `JAPAN` を上位証拠として扱う。この事例は、Modern De Luxe時計／ライターについてもマーケットプレイスのCountry of Origin欄を実物刻印と同等に扱わないための具体的な監査例。
+
+
+
 東京 Museum Collection / 江戸東京博物館は、資料番号98004764のライターについて作者欄を `MODERN LITE/製`、昭和期・20世紀、5.0 × 4.5 × 1.5cmとして収蔵登録している。
 
 Source:
@@ -452,6 +520,25 @@ Source:
 https://www.lastdodo.fr/fr/items/3467079-modern-lite
 
 **CONFLICT / data-quality:** `Hirato` を裏付ける別資料・会社資料は現時点で見つからず、Hirotaの誤記か別メーカーか判断不能。H.M.C.実物刻印、Hirota系資料より証拠強度は低いが、都合よく削除せず反証候補として保持する。
+
+## HOLD — Modern Royalが `Watch Glasses / 钟表眼镜` 国際購入者リストに現れる
+
+中国語の国際購入者データベース／転載PDFで、`MODERN ROYAL CO., LTD.` が `钟表眼镜`（watch/clock & eyewear）カテゴリに掲載され、電話 `03-3861-5361`、FAX `03-3864-5305` が記録される。
+
+Sources:
+https://purchaser.mingluji.com/Watch_Glasses/5
+https://www.scribd.com/document/841278010/136%E5%B1%8A%E9%92%9F%E8%A1%A8%E4%BA%A7%E5%93%81
+
+この電話・FAXは、2012年のModern Royal自身のプレスリリースに記録された柳橋2-19-8の連絡先と一致する。
+
+Source:
+https://www.dreamnews.jp/press/0000053613/
+
+**直接言えること:** リスト上のMODERN ROYALは少なくとも連絡先の一致から実在する同社を指す可能性が高い。
+
+**未確認:** データベースの原典・作成時期・「钟表眼镜」分類の根拠・実際の購入品目は未確定。`136届` という転載タイトルだけから2024年の広州交易会参加記録と断定しない。
+
+**扱い:** 公式1986年沿革の「時計」取扱いを補助するHOLD資料。単独で歴史事実へ昇格させない。
 
 ## Country-attribution caution
 
@@ -489,6 +576,29 @@ https://www.ebay.com/itm/278400370251
 
 **副次的収穫:** Modern Alpha 600 / 800をHirotaへ帰属させる市場記録は複数あるため、`Modern Alpha` 系は広田ブランド群の有力補強資料。ただし販売者・コレクターデータであり、当時の広田一次資料が出るまで `Modern Alpha = Hirota` を一次確定扱いしない。
 
+## Patent identity caution — `US3165908A` は東京・浅草橋のHirota証拠に使わない
+
+複数の特許データベースの引用表に、
+
+- `US3165908A`
+- priority 1962-10-15
+- `Blow-out valve for gas of gas lighter`
+- assignee `Hirota Wood Working Mach Works`
+
+が現れる。
+
+Source:
+https://patents.google.com/patent/US20040152030A1/de
+
+一方、静岡県島田市には別系統の株式会社ヒロタが実在し、公式沿革では1920年に廣田喜三が廣田鉄工所を創業、1948年に `株式会社廣田帯鋸機械製作所`、1978年に株式会社ヒロタへ改称したと記す。製材・木工機械の会社である。
+
+Source:
+https://hirotacorp.jp/company-guide/history/
+
+**判断:** `Hirota Wood Working Mach Works` というassignee表記を、東京・浅草橋の `Hirota & Co., Ltd.` と名前だけで同一視しない。島田の木工機械系Hirotaと同一かも原特許の住所・出願人原文を確認するまで確定しない。
+
+**REJECTED shortcut:** `US3165908A` を「株式会社広田（現Lightec）の1962年ライター特許」として証拠採用すること。
+
 ## REJECTED shortcuts
 
 - 名称がModernだから広田と断定
@@ -504,12 +614,13 @@ https://www.ebay.com/itm/278400370251
 1. Modern Lite `PAT. PEND. NOS 8560 8561` の旧JPO番号体系を解読
 2. 1961年JPO資料の原文／公開番号回収（広田良夫・浅草橋3-19）
 3. H.M.C.CO.法人指紋（住所・電話・代表者・商標）
-4. 米国・欧州の輸入者／契約先側からHirota製商品名を逆引き
-5. Modern De Luxe完全一致名の商標・輸出名鑑・広告
-6. 同一ケース／同一ムーブメントの別ブランド探索
-7. 企業記念品の納入先横断
-8. ロゴ系譜の分離検索
-9. 『広苑』第3号はWebで引用・索引が見つかる場合のみ追う
+4. 1971〜1986年Modern Royalのカタログ／Derringer型番を追い、廣田モダントレーディング合弁前後の商品継承を確認
+5. 米国・欧州の輸入者／契約先側からHirota製商品名を逆引き
+6. Modern De Luxe完全一致名の商標・輸出名鑑・広告
+7. 同一ケース／同一ムーブメントの別ブランド探索
+8. 企業記念品の納入先横断
+9. ロゴ系譜の分離検索
+10. 『広苑』第3号はWebで引用・索引が見つかる場合のみ追う
 
 ## Research log — 2026-09-29
 
@@ -543,6 +654,11 @@ https://www.ebay.com/itm/278400370251
 - 台東区台帳の日本喫煙具協会ビルは寿3-19-5。1961年候補／1975年Hirota工場の浅草橋3-19とは別住所であり、数字3-19を根拠に接続しない。
 - Modern Lite現存品に `PAT. PEND. NOS 8560 8561 JAPAN` 刻印を確認。旧JPO公報への逆引きを最優先Webルートへ昇格。
 - 江戸東京博物館のModern Lite収蔵記録を確認。一方LastDodoは1954年品をメーカー `Hirato` と記すため、帰属衝突をデータ品質問題として保持。
+- Modern Royal名義の米国lighter designが1976年出願から確認でき、公式沿革の1986年「時計」契約と合わせ、1971年合弁後の**同一法人内でライター→時計**の両カテゴリを確認。
+- 元箱付き現存品で `MODERN Derringer` と `MODERN ROYAL Derringer` を確認。商品名継承候補としてHOLD。Modern Royal品を1960年代とする販売者年代は1971年社名成立と衝突するため不採用。
+- 国際購入者リストにModern Royalが `Watch Glasses / 钟表眼镜` カテゴリで掲載される例を確認。電話・FAXは同社2012年公式発表と一致するが、原典・年代・分類根拠未確認のためHOLD。
+- `US3165908A` の引用データ上assigneeが `Hirota Wood Working Mach Works` であることを再確認。東京・浅草橋のHirota & Co.と同一視せず、別の静岡・木工機械系Hirotaが実在するため誤接続防止をREJECTED shortcutへ追加。
+- Modern Lite `8560/8561` は旧JPO公報を追加検索したが未特定。出品ページ自体は物理刻印 `JAPAN` と構造化欄 `Country of Origin: China` が衝突するため、物理刻印を優先する監査例として記録。
 - Rosen判決のHD-600と現存するModern Gas / Modern Alpha 600を型番横断。HD-600は判決上disposable / invisible plastic tank、一方Modern Alpha 600はrefillable gasとして現存するため、番号600だけの同一視をREJECTEDへ固定。
 - Modern Alpha 600 / 800をHirotaへ帰属させる複数の販売者・コレクターデータを確認。広田のModern系商品群の補強候補だが、一次資料ではないためADOPTEDへは上げない。
 - 公開WATCH本文・サイト表示は変更しない。
