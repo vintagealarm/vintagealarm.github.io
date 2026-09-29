@@ -96,6 +96,31 @@ https://www.decisions.ch/smi/1969.pdf
 
 **研究上の意味:** これまでの「MODERNという一般語が偶然一致しただけかもしれない」という反証はかなり弱くなった。広田が1960年代に実際に `Modern ...` 命名の商品を製造・輸出していたことは一次法務資料で確認できる。
 
+### 国際機関報告が広田のライター製造・金属加工能力を独立確認
+
+UNDP/UNIDOの企業訪問報告（1983年3月30日）では、`Hirota & Co., Ltd.` について、シガレットライター製造を専門とする中規模企業で、成形・メッキを含む金属加工に強い知識を持つ、と記録する。また数年前にアルジェリアへ機械を販売した経験があるとも記す。
+
+Source:
+https://www.unido.org/publications/ot/9651407/pdf
+- report p.17 / entry 32 `Hirota & Co., Ltd. — March 30, '83`
+
+**直接言えること:** 広田がライターの販売ブランドだけではなく、製造主体であり、成形・メッキを含む金属加工能力を有していたことを、会社自身の沿革とは独立した国際機関資料が裏付ける。
+
+**直接は言えないこと:** 時計ケース・時計ムーブメントを広田が製造した証拠ではない。Modern De Luxe時計との直接接続にもならない。
+
+### Modern / Hirota の完成品写真記録
+
+Wikimedia Commonsには、`Vintage "Derringer Gun" Table Gas Lighter by Modern, Hirota & Co., Ltd., Made in Japan` として2枚の高解像度写真が保存されている。元データは2013年のFlickr投稿。
+
+- https://commons.wikimedia.org/wiki/File:Vintage_%22Derringer_Gun%22_Table_Gas_Lighter_by_Modern,_Hirota_%26_Co.,_Ltd.,_Made_in_Japan_(8510784205).jpg
+- https://commons.wikimedia.org/wiki/File:Vintage_%22Derringer_Gun%22_Table_Gas_Lighter_by_Modern,_Hirota_%26_Co.,_Ltd.,_Made_in_Japan_(8510797191).jpg
+
+eBayの元箱付き現存例でも箱面に `Modern Table Gas Lighter Derringer Gun` が確認できる。
+
+- https://www.ebay.com/itm/256911927343
+
+**証拠レベル:** 写真アーカイブ／現存品記録。1968年スイス判決のような一次法務資料より下だが、`Modern` とHirotaの実物商品群を視覚的に追う資料として保持する。
+
 ### Modern De Luxe名の日本製ライター現存例
 
 `Modern De Luxe` / `Modern Deluxe` 名で日本製とされるヴィンテージライターが複数現存する。
@@ -163,15 +188,43 @@ Mercari出品者は、広田が MODERN Duke / MODERN DeLuxe / MODERNLITE / MODER
 6. Modern / Modern De Luxe / Modernlite の当時商標
 7. 王冠・盾＋MODERN DE LUXEロゴの所有者
 8. 2石アラームクロックの基礎ムーブメントメーカー
-9. 東京時計2石トラベルアラームとの背面トポロジー比較
+9. Modern De Luxe旅行時計と他の日本製2石アラーム（Seiko / Rhythm / Haramachi Seiki等）の背面トポロジー比較。Tokyo Clockの確認済み1個体は非一致
 10. 三菱電機以外のModern De Luxe時計ノベルティ個体
 11. 1986年以前の広田／廣田モダントレーディング／モダンロイヤル資料における「時計」取扱記録
 
-## Tokyo Tokei comparison lead
+## Back topology comparison — Modern De Luxe travel alarm vs Tokyo Clock
 
-2026-09-29時点のYahoo!オークション検索には、東京時計の2石Traveler Alarmと、Modern De Luxe / 東京時計 2 Jewels の2点まとめ出品が見える。
+2026-09-29、eBayのModern De Luxe 2 Jewels旅行時計（item 165225041705）の背面写真を高解像度で取得して操作配置を確認した。
 
-これは両ブランドの関係を示す証拠ではない。比較対照として背面操作配置・地板形状を確認する。
+Modern De Luxe側で見える主要要素:
+- 折り畳み式の巻上げキーは1個
+- 別の丸型操作軸が1個
+- 小型スライダーが1個
+- 緩急調整弧が1か所
+- 中央付近に固定ネジ群
+
+Source:
+https://www.ebay.co.uk/itm/165225041705
+rear image:
+https://i.ebayimg.com/images/g/2AIAAOSwt-RhsijL/s-l1600.webp
+
+対照として、zakka store towi掲載の `TOKYO CLOCK Manual Winding Travel Clock` 背面写真では、
+- アラームゼンマイ用リングキー
+- 時計ゼンマイ用リングキー
+- アラーム時刻設定
+- 時刻設定
+- アラームON/OFF
+- 緩急調整
+が別々に配置されている。
+
+Source:
+https://towi.jp/en/products/tokyo-clock-travel-clock
+
+**比較結果:** 少なくともこのTokyo Clock現存例とModern De Luxe旅行時計は、背面操作トポロジーが一致しない。特にTokyo Clockは時計・アラームの巻上げが別系統なのに対し、今回確認したModern De Luxeは同じ配置ではない。
+
+**判断:** `東京時計 = Modern De Luxeの直接OEM元` を支持する材料にはならなかった。むしろこの具体例では弱める証拠。東京時計全モデルを否定するものではないため、会社単位のREJECTEDにはせず、**この比較個体は非一致**として固定する。
+
+なおYahoo!オークションにはModern De Luxeと東京時計2 Jewelsを「2点まとめ」で売る出品があるが、同一出品であること自体は製造関係の証拠にしない。
 
 https://auctions.yahoo.co.jp/search/search/%E6%9D%B1%E4%BA%AC%E6%99%82%E8%A8%88%20%E3%83%AC%E3%83%88%E3%83%AD/0/
 
@@ -210,9 +263,12 @@ Modern De Luxe名の大型腕時計型／壁掛け型には、販売市場でGer
 - スイス商標法務誌掲載のチューリヒ州商事裁判所1968年判決を発見。Hirota & Co., Ltd. Tokyo が `Feudor` / `Modern Feudor` ライターを製造していたことを一次法務資料で確認。
 - 同判決は1962年3月6日のライセンス／製造契約、1964年7月9日のHirotaによる欧州輸出権の表明、1965年4月9日書簡での契約失効認識も記録する。広田の1960年代欧州向けライター製造・輸出実態を強く裏付ける。
 - `Modern De Luxe` / `Modern Deluxe` 名でJapan attributionを持つライター現存例を複数確認。時計専用名ではないことを研究台帳へ追加。ただし各個体の広田製造は未確認。
+- UNDP/UNIDOの1983年企業訪問報告を確認。Hirota & Co., Ltd.を「シガレットライター製造を専門」「成形・メッキを含む金属加工に強い」と記録しており、広田の製造・金属加工能力を独立資料で補強。
+- Wikimedia Commons / Flickr由来の高解像度写真で `Modern, Hirota & Co., Ltd., Made in Japan` と整理されたDerringer型ライター現存記録を追加。
 - モダンロイヤル公式沿革の1986年項目に `Camel Trophyのアパレル、時計、バッグなどライセンス契約` を確認。広田系販売会社が少なくとも後年に時計カテゴリを扱った事実を追加。
 - ただし欠けている橋は変わらない: **広田／廣田モダントレーディングがModern De Luxe時計を扱った直接文書。**
-- 東京時計は比較群に追加しただけで、OEM帰属は未認定。
+- Modern De Luxe 2 Jewels旅行時計のeBay背面画像を高解像度取得し、既知Tokyo Clock旅行時計と操作配置を比較。確認済みTokyo Clock個体は2系統巻上げ・複数独立操作で、Modern De Luxe側と背面トポロジーが一致しなかった。東京時計OEM説はこの個体比較では弱化。
+- 東京時計全モデルを否定できる証拠ではないため、会社単位の棄却はしない。
 - Label Emmaüsの「取扱説明書あり」個体を再確認。現在もっとも価値の高い紙資料候補としてOPEN #4へURLを固定。
 - Germany / Japanの販売帰属が併存するため、ブランド国籍と個体製造国を分離するルールを追加。
 - 公開WATCH本文・サイト表示は変更しない。
