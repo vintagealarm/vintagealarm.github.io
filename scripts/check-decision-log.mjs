@@ -29,7 +29,7 @@ const explicitlyNonDecision = (file) =>
 
 const decisionBearing = (file) => {
   if (explicitlyNonDecision(file)) return false;
-  if (['PROJECT.md', 'AGENTS.md', 'PROJECT_STATE.md', 'SITE_RULES.md', 'DESIGN_ENGINEERING.md', 'package.json', 'astro.config.mjs', 'tsconfig.json'].includes(file)) return true;
+  if (['AGENTS.md', 'PROJECT_STATE.md', 'SITE_RULES.md', 'DESIGN_ENGINEERING.md', 'package.json', 'astro.config.mjs', 'tsconfig.json'].includes(file)) return true;
   if (file === 'measurement/metrics.md' || file === 'public/llms.txt' || file === 'public/robots.txt') return true;
   return /^(src|strategy|cloudflare|council-worker|scripts|\.github\/workflows)\//.test(file);
 };

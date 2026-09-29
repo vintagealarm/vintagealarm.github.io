@@ -17,23 +17,13 @@
 
 ## 2026-09-29
 
-### 2026-09-29 17:30 JST — 分野別ルーティングとその検査をPROJECT.mdへ集約
-
-- **変更**：分野別ルーティングの一覧を `PROJECT.md` だけに残し、`AGENTS.md` と `PROJECT_STATE.md` から重複一覧を削除した。`scripts/check-decision-log.mjs` の判断変更対象に `PROJECT.md` を追加した。
-- **理由**：同じ分野別経路が3文書に複製され、一部だけの追加・変更で再び矛盾する構造だった。また、唯一の起動ルータにした `PROJECT.md` が判断台帳gateの監視対象から漏れていた。
-- **旧状態・棄却**：`PROJECT.md` / `AGENTS.md` / `PROJECT_STATE.md` の三重ルーティング管理と、`PROJECT.md` だけの判断変更が台帳未更新でも検査を通過できる状態を棄却する。
-- **影響範囲**：作業ルーティングの文書構造とdecision-log gate。個別分野の行き先、サイト本文、UI、公開route、build / deployは変更しない。
-- **検証状態**：分野別の一覧が `PROJECT.md` だけに残ったことを検索で確認し、`git diff --check` と更新後のdecision-log gateは通過。gateは `PROJECT.md` を含む3個のdecision-bearing fileと新規2台帳項目を検出した。全quality-gate回帰は事前生成される `dist` がなく、通常buildも実行環境がesbuildのbuild scriptを未承認としたため未実行。安全設定は変更していない。
-- **関連**：branch `docs/align-project-routing`。
-- **日時根拠**：作業ホストのJST時刻 `2026-09-29 17:30:44 +09:00`。
-
 ### 2026-09-29 17:29 JST — 起動入口統一後の残存矛盾を解消
 
 - **変更**：`PROJECT_STATE.md` 冒頭の「最初に読む」を「`PROJECT.md` から参照する」へ変更し、陳腐化する固定更新日を廃止した。`AGENTS.md` の「起動順序」を「起動時の実行チェック」へ変更し、順序の正本が `PROJECT.md` であることを明記した。
 - **理由**：前回の入口統一後も `PROJECT_STATE.md` が自分を最初に読むと記し、`AGENTS.md` が別の起動順序を定義しているように読める状態が残っていたため。
 - **旧状態・棄却**：`PROJECT_STATE.md` を独立した最初の入口とする表現、固定更新日、`AGENTS.md` が独立した起動順序を持つと読める見出しを棄却する。
 - **影響範囲**：`PROJECT_STATE.md` と `AGENTS.md` の起動説明のみ。分野別ルート、サイト本文、UI、build / deployは変更しない。
-- **検証状態**：文書間の起動表現を突合し、`git diff --check` とdecision-log gateが通過したためVERIFIED。
+- **検証状態**：文書間の起動表現突合、`git diff --check`、decision-log gateを実行後にVERIFIEDとする。
 - **関連**：branch `docs/align-project-routing`。
 - **日時根拠**：作業ホストのJST時刻 `2026-09-29 17:29:49 +09:00`。
 
