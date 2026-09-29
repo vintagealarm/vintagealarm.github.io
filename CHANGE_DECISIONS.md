@@ -17,6 +17,16 @@
 
 ## 2026-09-29
 
+### 2026-09-29 09:48 JST — 1950年Chronomètre説の転載系列を分離し、MIH・COSC・IPI照会準備を追加
+
+- **変更**：`research/CYMA_TIME_O_VOX_R464_LEDGER.md`へ、Watch-Wikiの2007年版と2025年Sammler-Uhren記事を追加し、1950年Chronomètre certificate説のWeb上の反復を独立証拠として数えない判断を記録した。あわせて`research/CYMA_1950_CERTIFICATE_AND_IPI_REQUEST_PACKET.md`を新設し、MIHへの企業年表原典照会、COSCへの前身試験機関台帳の所在照会、IGE/IPIへの旧商標原簿・包袋の存在確認と見積もり依頼を送信可能なフランス語文面にした。
+- **理由**：Watch-Wikiの出来事配列は2003年までを扱う後年のCyma企業年表`D_7938.pdf`と近く、Sammler-Uhrenは出典を`Watchwiki, AI`と明記するため、複数サイトでの掲載件数を1950年説の独立した補強にはできない。証明年と商標の用途を確定するには、企業年表の原典、前身試験機関の旧台帳、商標登録の原簿・包袋へ遡る必要がある。
+- **旧状態・棄却**：`D_7938.pdf`、Watch-Wiki、Sammler-Uhrenを三つの独立資料とする扱いを棄却する。COSCが1950年証明を発行したとする表現、Swissregの0件を旧商標不存在の証明とする表現、見積もり前に有料調査・複製・認証抄本を発注する手順も採用しない。
+- **影響範囲**：研究Ledger、外部照会用の研究文書、判断履歴のみ。公開WATCH本文、Chronomètreページ、観測個体データ、画像、音源、OWNER'S NOTEは変更しない。外部への送信、発注、支払いは実行していない。
+- **検証状態**：Watch-Wikiの版履歴と2007-12-16版、Sammler-Uhren記事末尾の出典表記、COSC・MIH・IGE/IPIの公式案内と連絡先を照合済み。Markdown差分、source traceability、decision-log、Astro buildを実行する。
+- **関連**：`research/CYMA_TIME_O_VOX_R464_LEDGER.md`、`research/CYMA_1950_CERTIFICATE_AND_IPI_REQUEST_PACKET.md`。各照会は所在確認と事前見積もりだけを依頼し、外国通貨で回答された費用は承認判断前に日本円換算する。
+- **日時根拠**：作業ホストのJST時刻 `2026-09-29 09:48 JST`。
+
 ### 2026-09-29 09:08 JST — Time-O-Vox年代資料とR.464技術資料の衝突を研究Ledgerへ固定
 
 - **変更**：`research/CYMA_TIME_O_VOX_R464_LEDGER.md`へ、後年のCyma社史資料が記す「1950年の金製Time-O-Vox Chronomètre証明」を`HOLD`として登録し、1956年11月の同時代製品記事を追加した。あわせてHumbertの「8–10秒・鳴動中リューズ非駆動」とHorlbeckの「6秒・鳴動中リューズ回転」を`CONFLICT`として記録し、Time-O-Vox以外のVOX商標について実製品・広告を確認できなかった探索結果を`OPEN`として追記した。
