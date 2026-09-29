@@ -8,6 +8,7 @@ Modern De Luxe / Modern du Luxe の腕アラーム、旅行時計、企業記念
 
 - ADOPTED: 直接観察または専門資料・一次資料で支えられる
 - HOLD: 有力だが直接接続が不足
+- CONFLICT: 資料間の帰属が衝突。統一せず保持
 - REJECTED: 現状不採用。新証拠なしで復活させない
 - OPEN: 未解決
 
@@ -37,6 +38,17 @@ Source: https://jp.mercari.com/item/m87843097008
 
 ### Modern (H.M.C.) / Modernlite の日本製ライター実物
 
+追加のModern Lite現存品で、底面に `PAT. PEND. NOS 8560 8561 JAPAN` と刻印された個体を確認。
+
+Source:
+https://www.ebay.com/itm/276655281469
+
+**重要:** 8560 / 8561 が日本のどの特許・実用新案・意匠の番号体系を指すかは未同定。現時点のWeb検索では対応公報へ到達していない。番号だけから広田出願と断定しない。
+
+**研究上の意味:** もし当時のJPO公報へ対応付けできれば、Modern Liteの出願人／権利者を直接特定できる可能性があるため、H.M.C.法人指紋と並ぶ高優先度ルート。
+
+
+
 Wikimedia Commonsに `Modernlite Automatic Superlighter, Art. No.510, Modern (H.M.C.), Made In Japan` の現物写真がある。
 
 https://commons.wikimedia.org/wiki/File:Vintage_Advertising_Cigarette_Lighter_With_Finest_Tobaccos_Logo,_Modernlite_Automatic_Superlighter,_Art._No._510,_Modern_(H.M.C.),_Made_In_Japan,_Circa_1950s_(19470352601).jpg
@@ -44,6 +56,17 @@ https://commons.wikimedia.org/wiki/File:Vintage_Advertising_Cigarette_Lighter_Wi
 eBayにも `Modern H.M.C. Japan` 刻印を持つ現存例がある。
 
 https://www.ebay.com/itm/397596465867
+
+### 2007年のHirota & Co. → Lightec社名承継を第三者企業史で確認
+
+深代商事側の公式企業史は2007年について、`Fukashiro Shoji Co.,Ltd. merged with Hirota & Co.,Ltd. and changed the name into Lightec Inc.` と明記する。
+
+Source:
+https://fukashiro.com/company-profile/outline/english.html
+
+**直接言えること:** `Hirota & Co., Ltd.` は2007年の合併を経て、現在の `Lightec Inc.` 名へつながる会社系譜にある。これにより、1960〜2000年代資料中の `Hirota & Co., Ltd.` と現ライテックの関係を、単なる名称推測ではなく独立企業史で固定できる。
+
+**留保:** 1950〜60年代の `H.M.C.CO.` 略称の正式展開や、Modern De Luxe時計との関係は別問題。
 
 ### 広田の公式沿革
 
@@ -285,6 +308,39 @@ https://patents.justia.com/inventor/yoshio-hirota
 
 **扱い:** 原JPO文書を回収するまでHOLD。住所一致は採用条件を大幅に満たす補強証拠だが、人物同定を確定しない。
 
+### 日本喫煙具協会と廣田姓の継続 — 人物系譜の補強
+
+台東区の指定作業場台帳には、`社団法人日本喫煙具協会ビル駐車場`（寿3丁目19-5）の代表者名として `廣田 良夫` が記録され、設置日は昭和63年4月6日とされる。
+
+Source:
+https://www.city.taito.lg.jp/kenchiku/kankyohozen/kogaitaisaku/koujousagyousho/kojomeibo.files/siteisagyoujou.pdf
+
+**注意:** これは現行台帳上の代表者欄と施設設置日であり、「1988年当時に廣田良夫が協会会長だった」ことまでは証明しない。また住所は **寿3-19-5** であり、1961年JPO翻訳候補／1975年Hirota工場の **浅草橋3-19** とは別地点。数字の一致を住所一致と誤認しない。
+
+その後の協会資料では、
+- 2014年: 日本喫煙具協会会長 `廣田 良平`
+- 2009〜2014年度: 業界団体10周年記念誌の日本喫煙具協会欄で `廣田 良平` に○
+- 2017〜2018年度: 同欄で `廣田 茂` に○
+が確認できる。
+
+Sources:
+https://www.atpress.ne.jp/news/52071
+https://www.gmc.or.jp/nikkokyo/10kinenshi.pdf
+
+さらに企業・特許側では、
+- 2000年出願 / 2001年米国特許: inventor `Ryohei Hirota`, assignee `Hirota & Co., Ltd.`
+- 2014年日本実用新案: inventor `廣田 良平`, original assignee `株式会社ライテック`
+- JISライター原案作成委員会: `廣田 茂 / 株式会社ライテック / 専務取締役 / 生産者`
+- 2017年ライテック会社発表: 代表取締役社長 `廣田 茂`
+
+Sources:
+https://patents.justia.com/patent/6287109
+https://patents.google.com/patent/JP3196294U/en
+https://webdesk.jsa.or.jp/pdf/dev/md_960.pdf
+https://www.atpress.ne.jp/news/123277
+
+**判断:** 廣田姓の人物がHirota & Co. / Lightecと日本喫煙具協会の双方に長期に現れることは直接資料で確認できる。会社と業界団体の人的連続性を補強する。ただし、1961年資料の `広田良夫`、1980年代特許の `Yoshio Hirota`、台東区台帳の `廣田良夫` が同一人物であることは未確定。
+
 ### H.M.C. = 広田／旧廣田製作所か
 
 Mercari出品者は `広田 (H.M.C. CO.)` と説明する。また実物刻印 `H.M.C.CO., TOKYO` と、広田の旧社名 `株式会社廣田製作所` は整合する。
@@ -327,22 +383,23 @@ https://www.kosho.or.jp/search/%E8%A3%BD%E9%80%A0%E6%A5%AD?pageno=4
 
 ## OPEN — 優先順
 
-1. **Web継続:** 1961年JPOライター資料（広田良夫・浅草橋3-19）の公開番号／原画像回収
-2. **Web継続:** H.M.C.CO.の法人指紋（住所・代表者・電話・商標）を株式会社広田へ直接接続
-3. 広田／廣田モダントレーディングが Modern De Luxe 名で時計を扱った直接資料
-4. H.M.C. の正式展開と株式会社広田／廣田製作所との同一性
-5. Modern De Luxe時計の元箱、取説、保証書、値札、輸出ラベル、サービス窓口
-6. Label Emmaüsで「Présence de la notice（取扱説明書あり）」と明記されるModern De Luxe 2 Jewels旅行時計の取説本文
+1. **Web継続:** Modern Lite刻印 `PAT. PEND. NOS 8560 8561 JAPAN` の対応JPO公報／出願人特定
+2. **Web継続:** 1961年JPOライター資料（広田良夫・浅草橋3-19）の公開番号／原画像回収
+3. **Web継続:** H.M.C.CO.の法人指紋（住所・代表者・電話・商標）を株式会社広田へ直接接続
+4. 広田／廣田モダントレーディングが Modern De Luxe 名で時計を扱った直接資料
+5. H.M.C. の正式展開と株式会社広田／廣田製作所との同一性
+6. Modern De Luxe時計の元箱、取説、保証書、値札、輸出ラベル、サービス窓口
+7. Label Emmaüsで「Présence de la notice（取扱説明書あり）」と明記されるModern De Luxe 2 Jewels旅行時計の取説本文
    - https://www.label-emmaus.co/fr/pendulette-de-voyage-vintage-marque-modern-de-luxe-2-jewels-110366114/
-7. 1960–70年代の広田商品・輸出・ノベルティカタログ（`Modern Feudor` / `Modern De Luxe` / `Modernlite` の同時掲載有無を重点確認）
-8. Modern / Modern De Luxe / Modernlite の当時商標
-9. 王冠・盾＋MODERN DE LUXEロゴの所有者
-10. 2石アラームクロックの基礎ムーブメントメーカー
-11. Modern De Luxe旅行時計と他の日本製2石アラーム（Seiko / Rhythm / Haramachi Seiki等）の背面トポロジー比較。Tokyo Clockの確認済み1個体は非一致
-12. 三菱電機以外のModern De Luxe時計ノベルティ個体
-13. 1986年以前の広田／廣田モダントレーディング／モダンロイヤル資料における「時計」取扱記録
-14. 1939年『業界三世代史』の「広田氏」と1937年創業の廣田製作所関係者の人物同定
-15. 1966年の株式会社広田社内誌『広苑』第3号の本文確認 — **現物購入はユーザー判断でステイ。Web上の索引・引用・蔵書情報だけ継続探索**
+8. 1960–70年代の広田商品・輸出・ノベルティカタログ（`Modern Feudor` / `Modern De Luxe` / `Modernlite` の同時掲載有無を重点確認）
+9. Modern / Modern De Luxe / Modernlite の当時商標
+10. 王冠・盾＋MODERN DE LUXEロゴの所有者
+11. 2石アラームクロックの基礎ムーブメントメーカー
+12. Modern De Luxe旅行時計と他の日本製2石アラーム（Seiko / Rhythm / Haramachi Seiki等）の背面トポロジー比較。Tokyo Clockの確認済み1個体は非一致
+13. 三菱電機以外のModern De Luxe時計ノベルティ個体
+14. 1986年以前の広田／廣田モダントレーディング／モダンロイヤル資料における「時計」取扱記録
+15. 1939年『業界三世代史』の「広田氏」と1937年創業の廣田製作所関係者の人物同定
+16. 1966年の株式会社広田社内誌『広苑』第3号の本文確認 — **現物購入はユーザー判断でステイ。Web上の索引・引用・蔵書情報だけ継続探索**
 
 ## Back topology comparison — Modern De Luxe travel alarm vs Tokyo Clock
 
@@ -379,6 +436,22 @@ https://towi.jp/en/products/tokyo-clock-travel-clock
 なおYahoo!オークションにはModern De Luxeと東京時計2 Jewelsを「2点まとめ」で売る出品があるが、同一出品であること自体は製造関係の証拠にしない。
 
 https://auctions.yahoo.co.jp/search/search/%E6%9D%B1%E4%BA%AC%E6%99%82%E8%A8%88%20%E3%83%AC%E3%83%88%E3%83%AD/0/
+
+## Modern Lite帰属のデータ品質監査
+
+東京 Museum Collection / 江戸東京博物館は、資料番号98004764のライターについて作者欄を `MODERN LITE/製`、昭和期・20世紀、5.0 × 4.5 × 1.5cmとして収蔵登録している。
+
+Source:
+https://museumcollection.tokyo/works/7051791/
+
+これは公的収蔵機関によるModern Lite実物記録として有用だが、`MODERN LITE` を企業名ではなく製品ブランドから作者扱いしている可能性があり、Hirota同定には直接使わない。
+
+一方、コレクターDB LastDodoは1954年のModern Liteについてメーカーを `Hirato` と記録する。
+
+Source:
+https://www.lastdodo.fr/fr/items/3467079-modern-lite
+
+**CONFLICT / data-quality:** `Hirato` を裏付ける別資料・会社資料は現時点で見つからず、Hirotaの誤記か別メーカーか判断不能。H.M.C.実物刻印、Hirota系資料より証拠強度は低いが、都合よく削除せず反証候補として保持する。
 
 ## Country-attribution caution
 
@@ -428,14 +501,15 @@ https://www.ebay.com/itm/278400370251
 
 現物購入は当面ステイ。Web・公開データ・既存画像だけで進める。
 
-1. 1961年JPO資料の原文／公開番号回収（広田良夫・浅草橋3-19）
-2. H.M.C.CO.法人指紋（住所・電話・代表者・商標）
-3. 米国・欧州の輸入者／契約先側からHirota製商品名を逆引き
-4. Modern De Luxe完全一致名の商標・輸出名鑑・広告
-5. 同一ケース／同一ムーブメントの別ブランド探索
-6. 企業記念品の納入先横断
-7. ロゴ系譜の分離検索
-8. 『広苑』第3号はWebで引用・索引が見つかる場合のみ追う
+1. Modern Lite `PAT. PEND. NOS 8560 8561` の旧JPO番号体系を解読
+2. 1961年JPO資料の原文／公開番号回収（広田良夫・浅草橋3-19）
+3. H.M.C.CO.法人指紋（住所・電話・代表者・商標）
+4. 米国・欧州の輸入者／契約先側からHirota製商品名を逆引き
+5. Modern De Luxe完全一致名の商標・輸出名鑑・広告
+6. 同一ケース／同一ムーブメントの別ブランド探索
+7. 企業記念品の納入先横断
+8. ロゴ系譜の分離検索
+9. 『広苑』第3号はWebで引用・索引が見つかる場合のみ追う
 
 ## Research log — 2026-09-29
 
@@ -464,6 +538,11 @@ https://www.ebay.com/itm/278400370251
 - 2021年RedditのJPO資料翻訳にある `広田良夫 / 台東区浅草橋3-19 / 昭和36年` と、1975年Aoyagi宣誓供述のHirota工場所在地が一致することを確認。原JPO資料未回収のためHOLD。
 - 1980年代の米国意匠特許でYoshio Hirota → Kabushiki Kaisha Hirotaのlighter patentsを確認。1961年の広田良夫との人物同定は未確定。
 - Genoud側・Modern De Luxe完全一致商標・別ブランド同一ケースを追加検索したが、この時点ではHirotaへ直接つながる新規一次資料は未取得。検索不発を不存在証明にはしない。
+- 深代商事公式企業史から、2007年にFukashiro ShojiとHirota & Co., Ltd.が合併しLightec Inc.へ改称したことを確認。Hirota & Co.→現Lightecの会社系譜を独立資料でADOPTED。
+- 日本喫煙具協会・JIS委員会・特許・ライテック会社発表を横断し、廣田良平／廣田茂がHirota/Lightecと業界団体の双方に現れる人的連続性を確認。ただし廣田良夫＝Yoshio Hirotaの人物同定は未完了。
+- 台東区台帳の日本喫煙具協会ビルは寿3-19-5。1961年候補／1975年Hirota工場の浅草橋3-19とは別住所であり、数字3-19を根拠に接続しない。
+- Modern Lite現存品に `PAT. PEND. NOS 8560 8561 JAPAN` 刻印を確認。旧JPO公報への逆引きを最優先Webルートへ昇格。
+- 江戸東京博物館のModern Lite収蔵記録を確認。一方LastDodoは1954年品をメーカー `Hirato` と記すため、帰属衝突をデータ品質問題として保持。
 - Rosen判決のHD-600と現存するModern Gas / Modern Alpha 600を型番横断。HD-600は判決上disposable / invisible plastic tank、一方Modern Alpha 600はrefillable gasとして現存するため、番号600だけの同一視をREJECTEDへ固定。
 - Modern Alpha 600 / 800をHirotaへ帰属させる複数の販売者・コレクターデータを確認。広田のModern系商品群の補強候補だが、一次資料ではないためADOPTEDへは上げない。
 - 公開WATCH本文・サイト表示は変更しない。
