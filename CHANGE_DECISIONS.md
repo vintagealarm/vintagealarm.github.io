@@ -17,6 +17,16 @@
 
 ## 2026-09-29
 
+### 2026-09-29 17:29 JST — 起動入口統一後の残存矛盾を解消
+
+- **変更**：`PROJECT_STATE.md` 冒頭の「最初に読む」を「`PROJECT.md` から参照する」へ変更し、陳腐化する固定更新日を廃止した。`AGENTS.md` の「起動順序」を「起動時の実行チェック」へ変更し、順序の正本が `PROJECT.md` であることを明記した。
+- **理由**：前回の入口統一後も `PROJECT_STATE.md` が自分を最初に読むと記し、`AGENTS.md` が別の起動順序を定義しているように読める状態が残っていたため。
+- **旧状態・棄却**：`PROJECT_STATE.md` を独立した最初の入口とする表現、固定更新日、`AGENTS.md` が独立した起動順序を持つと読める見出しを棄却する。
+- **影響範囲**：`PROJECT_STATE.md` と `AGENTS.md` の起動説明のみ。分野別ルート、サイト本文、UI、build / deployは変更しない。
+- **検証状態**：文書間の起動表現突合、`git diff --check`、decision-log gateを実行後にVERIFIEDとする。
+- **関連**：branch `docs/align-project-routing`。
+- **日時根拠**：作業ホストのJST時刻 `2026-09-29 17:29:49 +09:00`。
+
 ### 2026-09-29 16:08 JST — 起動ルータをPROJECT.mdへ一本化
 
 - **変更**：VINTAGE ALARM作業の起動順を `PROJECT.md` → `PROJECT_STATE.md` の関係節 → 現在のbranch / PR → 対象ファイル / URL → 必要な分野別正本へ一本化した。`AGENTS.md` は別ルータではなく、作業中常時適用する実行ガードレールと定義した。実装・公開状態はProject資料で上書きせず、作業branch / PR、GitHub `main`、live siteの役割ごとに確認する。
