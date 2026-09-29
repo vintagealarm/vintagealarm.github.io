@@ -1341,3 +1341,58 @@ Devices by pageview:
 - The intended downstream funnel is present but still sparse at the internal-navigation layer: one observed `/en/how-they-ring/ → /en/wittnauer-10wa/` pageview. Do not infer that other HOW THEY RING visits failed to engage solely from the absence of a recorded internal flow.
 - Facebook remains a separate source from Instagram; do not add its 9 visits to Instagram's 4 or reinterpret them as Instagram users.
 - `latestBucket=2026-09-27T15:00:00Z` with `gapLower=25430` is a freshness diagnostic, not proof of zero collection delay; per metrics rules, latestBucket is the latest non-zero aggregate bucket rather than the last raw event timestamp.
+## 2026-09-29 12:51–12:52 JST — Basis Alarm second Insights snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Basis Alarm (BFG90)
+- Views: 1,741
+- Viewers: 1,152
+- Average watch time: 22s
+- Follows: 2
+- Likes: 45
+- Comments: 0
+- Reposts: 1
+- Saves: 4
+- Share count: summary UI shows `--`; rate panel shows share rate 0.1%
+- Skip rate: 26.9%（低）
+- Share rate: 0.1%（低）
+- Like rate: 3.6%（低）
+- Save rate: 0.3%（低）
+- Repost rate: 0.1%（高）
+- Comment rate: 0.0%（低）
+- Profile accesses: 2
+- Bio-link clicks: 1
+- Followers / non-followers: 1.1% / 98.9%
+
+Audience:
+- Age: 13–17 1.2% / 18–24 33.2% / 25–34 40.5% / 35–44 14.9% / 45–54 6.5% / 55–64 2.4% / 65+ 1.3%
+- 18–34 combined: 73.7%
+- Country: India 26.4% / United States 10.5% / Turkey 6.6% / Brazil 5.9% / Iran 5.1%
+
+Delta from 2026-09-29 10:21–10:22:
+- Views: 648 → 1,741 (+1,093)
+- Viewers: 425 → 1,152 (+727)
+- Average watch time: 23s → 22s
+- Likes: 25 → 45 (+20)
+- Follows: 1 → 2 (+1)
+- Saves: 1 → 4 (+3)
+- Reposts: 1 → 1
+- Comments: 0 → 0
+- Skip rate: 29.2% → 26.9% (-2.3pt; improved)
+- Share rate: 0.0% → 0.1%
+- Like rate: 5.4% → 3.6%
+- Save rate: 0.2% → 0.3%
+- Repost rate: 0.2% → 0.1%
+- 18–34: 70.5% → 73.7%
+- India: 7.1% → 26.4%
+- United States: 10.4% → 10.5% (stable)
+
+### Interpretation
+- Basis entered a much broader second distribution phase: +1,093 views and +727 viewers in roughly 2.5 hours.
+- Skip improved rather than deteriorated during that expansion (29.2% → 26.9%), while average watch time remained extremely high at 22s for the ~16s Reel. Treat this as consistent with substantial repeat/loop viewing, not as direct proof of individual replays.
+- Like rate fell as distribution widened (5.4% → 3.6%), while saves rose 1 → 4 and follows 1 → 2. This indicates broader reach diluted like conversion but did not eliminate downstream action.
+- Profile accesses 2 and bio-link click 1 are directly visible in this snapshot. The earlier 10:21 screenshot did not show these fields, so do not compute a delta from zero.
+- India rose sharply from 7.1% to 26.4% and became the largest country segment, while the United States stayed effectively flat at ~10.5%. Record this as a distribution-composition shift, not as evidence that India caused the growth.
+- 18–34 share increased from 70.5% to 73.7%.
+- Basis continues to show the strongest observed skip performance among the current Instagram set at this stage. The current evidence remains consistent with the working hypothesis that an explicit human action plus visible mechanical response is a strong Reels hook, but the specific contribution of the phrase `fidget toy` is not isolated.
