@@ -1511,3 +1511,56 @@ Delta from 2026-09-29 06:13:
 - Skip remains stable in the same low-40% band and like rate remains 5.1%, so there is no sign of a sharp quality collapse as the long tail matures.
 - The audience mix is broadly stable. India remains the largest country segment but continues to ease gradually, while the United States increased slightly.
 - Wittnauer remains the strongest current example of sustained downstream conversion over time, even as its raw distribution curve flattens.
+## 2026-09-29 17:57–17:58 JST — CYMA Time-O-Vox 18K Chronomètre snapshot
+
+Instagram Insights screenshots supplied by user.
+
+- Views: 1,712
+- Viewers: 1,503
+- Average watch time: 7s
+- Follows: 2
+- Likes: 65
+- Comments: 2
+- Reposts: 1
+- Saves: 6
+- Share count: summary UI shows `--`
+- Skip rate: 53.7%
+- Share rate: 0.2%
+- Like rate: 4.3%
+- Save rate: 0.4%
+- Repost rate: 0.1%
+- Comment rate: 0.1%
+- Profile accesses: 10
+- Bio-link clicks: 1
+- Followers / non-followers: 1.3% / 98.7%
+- Age: 13–17 0.7% / 18–24 26.2% / 25–34 35.0% / 35–44 15.2% / 45–54 10.7% / 55–64 7.1% / 65+ 5.1%
+- 18–34 combined: 61.2%
+- Country: India 18.1% / France 8.7% / Turkey 7.8% / Iran 5.7% / Italy 5.2%
+- Delta from 2026-09-29 06:13–06:14: views +34, viewers +35, likes +4; follows, saves, profile accesses and bio-link clicks unchanged; skip 53.9% → 53.7%.
+
+## 2026-09-29 18:07–18:08 JST — Pierce Duofon snapshot
+
+Instagram Insights screenshots supplied by user.
+
+- Views: 2,557
+- Viewers: 1,852
+- Average watch time: 7s
+- Follows: 5
+- Likes: 71
+- Comments: 2
+- Reposts: 1
+- Saves: 10
+- Share count: summary UI shows `--`
+- Skip rate: 43.9%
+- Share rate: 0.3%
+- Like rate: 3.8%
+- Save rate: 0.5%
+- Repost rate: 0.1%
+- Comment rate: 0.1%
+- Profile accesses: 17
+- Bio-link clicks: 1
+- Followers / non-followers: 0.9% / 99.1%
+- Age: 13–17 1.4% / 18–24 31.4% / 25–34 37.9% / 35–44 11.7% / 45–54 8.8% / 55–64 4.9% / 65+ 4.0%
+- 18–34 combined: 69.3%
+- Country: India 25.6% / United States 9.8% / Iran 5.7% / Mexico 3.7% / Turkey 3.6%
+- Delta from 2026-09-29 06:15: views +218, viewers +173, likes +10, follows +2, saves +2, profile accesses +2; comments and reposts unchanged; skip 43.6% → 43.9%; like rate 3.5% → 3.8%; save rate 0.5% → 0.5%.
