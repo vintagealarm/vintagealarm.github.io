@@ -97,7 +97,8 @@ Mercari出品者は、広田が MODERN Duke / MODERN DeLuxe / MODERNLITE / MODER
 1. 広田／廣田モダントレーディングが Modern De Luxe 名で時計を扱った直接資料
 2. H.M.C. の正式展開と株式会社広田／廣田製作所との同一性
 3. Modern De Luxe時計の元箱、取説、保証書、値札、輸出ラベル、サービス窓口
-4. 「取説あり」とされるModern De Luxe 2 Jewels旅行時計の取説本文
+4. Label Emmaüsで「Présence de la notice（取扱説明書あり）」と明記されるModern De Luxe 2 Jewels旅行時計の取説本文
+   - https://www.label-emmaus.co/fr/pendulette-de-voyage-vintage-marque-modern-de-luxe-2-jewels-110366114/
 5. 1960–70年代の広田商品・輸出・ノベルティカタログ
 6. Modern / Modern De Luxe / Modernlite の当時商標
 7. 王冠・盾＋MODERN DE LUXEロゴの所有者
@@ -112,6 +113,15 @@ Mercari出品者は、広田が MODERN Duke / MODERN DeLuxe / MODERNLITE / MODER
 これは両ブランドの関係を示す証拠ではない。比較対照として背面操作配置・地板形状を確認する。
 
 https://auctions.yahoo.co.jp/search/search/%E6%9D%B1%E4%BA%AC%E6%99%82%E8%A8%88%20%E3%83%AC%E3%83%88%E3%83%AD/0/
+
+## Country-attribution caution
+
+Modern De Luxe名の大型腕時計型／壁掛け型には、販売市場でGermany attributionを付ける個体がある一方、Japan attributionの旅行時計や、日本で購入されたとされる大型時計も残る。
+
+- Germany attribution: https://www.pamono.eu/wristwatch-from-modern-de-luxe-1960s
+- Japan attribution / purchased in Japan provenance: https://auctionet.com/en/3178670-clock-wall-clock-modern-de-luxe-japan-1970s
+
+いずれも販売・オークション帰属で、ブランド国籍の一次証拠ではない。**ブランド所有者の国籍・完成品の製造国・ムーブメント製造国を分離する。**
 
 ## REJECTED shortcuts
 
@@ -137,6 +147,8 @@ https://auctions.yahoo.co.jp/search/search/%E6%9D%B1%E4%BA%AC%E6%99%82%E8%A8%88%
 - ライテック／モダンロイヤル公式沿革を再確認。記念品、輸出、MODERN系会社、廣田モダントレーディングの存在は確認済み。
 - 欠けている橋は変わらない: **広田／廣田モダントレーディングがModern De Luxe時計を扱った直接文書。**
 - 東京時計は比較群に追加しただけで、OEM帰属は未認定。
+- Label Emmaüsの「取扱説明書あり」個体を再確認。現在もっとも価値の高い紙資料候補としてOPEN #4へURLを固定。
+- Germany / Japanの販売帰属が併存するため、ブランド国籍と個体製造国を分離するルールを追加。
 - 公開WATCH本文・サイト表示は変更しない。
 
 ## Update rule
