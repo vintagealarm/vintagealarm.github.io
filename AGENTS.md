@@ -16,16 +16,7 @@
 6. 必要な資料・実測ログ・Webを確認する
 7. 実装 → 検証 → diff確認へ進む
 
-分野別ルーティング:
-
-- 本文 / WATCH / HISTORY / OWNER'S NOTES / 翻訳 → `SITE_RULES.md`
-- 日本語本文の新規執筆 / 大幅な書き直し → `SITE_RULES.md` + `strategy/japanese-writing.md`。必要な場合だけ `references/voice-samples.md`
-- デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md` + 関係する `SITE_RULES.md`
-- SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
-- Analytics / 計測 → `measurement/metrics.md` + 対象実装
-- 英語入口 → `strategy/english-entry.md`
-- ドイツ語入口 → `strategy/german-entry.md`
-- Council / 焼いて → `council-worker/README.md` + `council-worker/src/index.ts`
+分野別ルーティングは `PROJECT.md` の「分野別ルーティング」だけを正本とする。ここに経路一覧を複製しない。
 
 対象が絞れている場合に、全ルールやリポジトリ全体を理由なく読み直さない。
 

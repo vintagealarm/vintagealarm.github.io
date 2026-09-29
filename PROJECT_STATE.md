@@ -210,23 +210,6 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 
 ## 10. STARTUP ROUTING
 
-新しい作業を始めるときは、全資料を毎回読むのではなく次の順序にする。
-
-1. `PROJECT.md`
-2. `PROJECT_STATE.md` の今回に関係する節
-3. 現在のbranch / PRを確認し、`main`との差分と未完了変更を把握する
-4. 今回の対象ファイル / 対象URL
-5. 今回に必要な分野別ルールだけ読む
-6. 必要な実測ログ / Web / 資料を読む
-7. 実装・検証へ進む
-
-例:
-
-- WATCH本文修正 → `SITE_RULES.md` + 対象WATCH
-- UI / 画像 / mobile修正 → `DESIGN_ENGINEERING.md` + 関係する `SITE_RULES.md` + 対象component
-- SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
-- Analytics → `measurement/metrics.md` + 対象worker / dashboard
-- 翻訳 → `SITE_RULES.md` + 該当言語strategy + 日本語正本
-- 焼いて / Council → `council-worker/README.md` + `council-worker/src/index.ts`
+起動順序と分野別ルーティングの正本は `PROJECT.md` とする。この文書は現在状態・変更禁止事項・失効仕様・未解決事項・完了条件だけを担当し、起動手順や分野別経路を複製しない。
 
 対象が絞れているのに、理由なくリポジトリ全走査や全ルール再読をしない。
