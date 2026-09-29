@@ -1,4 +1,4 @@
-# Modern De Luxe — 2026-09-29 research addendum
+# Modern De Luxe — 2026-09-29/30 research addendum
 
 This addendum records evidence found after the current `MODERN_DE_LUXE_LEDGER.md` update. It does not change public WATCH prose or claim a final manufacturer attribution. Merge into the main ledger after the evidence set stabilizes.
 
@@ -75,6 +75,30 @@ https://www.modernroyal.com/docs/enkaku.pdf
 
 Therefore any product explicitly carrying `Modern Royal` branding cannot be dated to the 1960s merely from a seller estimate without explaining the conflict with the official 1971 company-name chronology.
 
+## 7. 2026-09-30 OEM-comparison search — Tokyo Clock lead, not attribution
+
+A Yahoo! Auctions search index currently exposes a lot titled approximately `折りたたみ式/トラベルアラームクロック/目覚まし時計2点まとめ ... Modern De Luxe /東京時計 2 Jewels`. This is a two-clock mixed lot, not evidence that Tokyo Tokei manufactured Modern De Luxe.
+
+Sources:
+https://auctions.yahoo.co.jp/search/search/%E6%9D%B1%E4%BA%AC%E6%99%82%E8%A8%88%20%E3%83%AC%E3%83%88%E3%83%AD/0/
+https://auctions.yahoo.co.jp/search/search/tokyo%20clock/2084032117/
+
+**Directly supported:** a Modern De Luxe travel alarm and a Tokyo Clock/Tokyo Tokei `2 Jewels` travel alarm have appeared together in a Japanese auction lot, and Tokyo Clock `2 Jewels` travel alarms form a surviving comparison corpus.
+
+**Not supported:** the mixed lot does not establish common manufacture, shared movement, or OEM relationship. It is useful only because it identifies a contemporaneous Japanese 2-jewel travel-alarm family worth image-level topology comparison.
+
+**Next test:** recover the lot images or independent high-resolution Tokyo Clock 2-jewel examples and compare dial diameter, rear winding/setting arbor positions, plate outline, balance position, jewel placement, alarm hammer/gong geometry, and case hinge/stand construction against Modern De Luxe 2-jewel examples.
+
+## 8. Search-result classification warning — Modern De Luxe is being co-indexed with unrelated makers
+
+Broad `2 Jewels alarm clock` marketplace indexes place Modern De Luxe alongside Europa, Rhythm, Tokyo Tokei and other makers. Auctionet also has a multi-clock lot listing `Europa 2 Jewels`, `Tokyo Clock`, and `Modern De Luxe` as separate clocks.
+
+Sources:
+https://www.etsy.com/market/2_jewels_alarm_clock
+https://auctionet.com/sv/1415223-reseur-5-st-bl-a-kienzle-1900-tal
+
+**Use:** these results are discovery aids only. Search-engine or marketplace co-occurrence must not be converted into manufacturer attribution. The OEM route requires physical topology or documentary linkage.
+
 ## Current working model after this pass
 
 Most useful model remains a separated supply-chain model rather than `Hirota made everything`:
@@ -87,10 +111,13 @@ Most useful model remains a separated supply-chain model rather than `Hirota mad
 
 The 1974-inferred Mitsubishi commemorative piece strengthens continuity of `Modern De Luxe` into the post-1971 period, but does **not** yet identify the contracting/supplying company.
 
+The 2026-09-30 comparison search adds **Tokyo Clock/Tokyo Tokei 2-jewel travel alarms as a concrete topology-comparison target**, but does not elevate Tokyo Tokei to an OEM candidate without image/mechanical matching.
+
 ## Highest-priority unresolved bridges
 
 1. Identify the legal/corporate expansion of `H.M.C.` from primary or near-primary period material.
 2. Find a 1965–1975 catalogue, box, guarantee, invoice, export directory, trademark record, or trade advertisement that puts `Modern De Luxe` together with Hirota Modern Trading / Modern Royal / Hirota.
 3. Obtain all available images of the Mitsubishi Nagoya 50th-anniversary clock, especially back, inner cover, movement, box and paperwork.
 4. Compare article/model-number systems and packaging typography across `Modern`, `Modernlite`, `Modern De Luxe`, and early `Modern Royal` goods.
-5. Keep the unresolved `PAT. PEND. NOS 8560 8561` route open; no Japanese patent/utility-model/design publication has yet been securely matched.
+5. Recover image-level evidence for Modern De Luxe 2-jewel and Tokyo Clock/Tokyo Tokei 2-jewel travel alarms and test whether the movement/rear-control topology actually matches.
+6. Keep the unresolved `PAT. PEND. NOS 8560 8561` route open; no Japanese patent/utility-model/design publication has yet been securely matched.
