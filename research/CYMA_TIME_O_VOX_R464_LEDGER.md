@@ -74,6 +74,13 @@ Cyma / R.464 / Chronomètre / No.489 を調査・執筆・実装する前に、�
 - しかし、CYMAVOX原公告はアラームを明記せず、1944年・1949年特許本文にもCYMAVOX / Time-O-Vox名称は確認できない。法的名義も1943年はTavannes Watch Co.、1950年はCyma Watch Co. S.A.で分かれる。
 - よって安全な表現は「VOX名称領域とアラーム技術開発が1950年以前に並行して存在した」。`CYMAVOXはアラーム商品名だった`、`1944年特許はCYMAVOXまたはR.464そのもの`、`1950年は既存CYMAVOX製品の単純改称`とはまだ書かない。
 
+### OPEN — Time-O-Vox以外のVOX商標の実使用
+
+- 1943–1965年の時計業界誌、既知のCyma広告、一般Web、オークションおよび販売記録を、空白・ハイフン・綴り違いを含めて横断したが、`CYMAVOX`、`CYMA VOX`、`MULTIVOX`、`ROTOVOX`、`SUPERVOX`、`ULTRAVOX`を実製品名として示す確実な個体・広告・カタログは確認できなかった。
+- 製品写真と名称を伴う公刊資料として確認できたのは `Time-O-Vox` で、現確認範囲では1956年11月の *Revue internationale de l'horlogerie* p.32が明確な例である。
+- 1953–1954年のCymaアラーム製品広告では、旅行用／卓上アラームに `Cyma-AMIC` が用いられ、上記VOX候補名は確認できない。
+- この未発見結果は、1950年の6商標が候補名または防衛目的の一括確保だった仮説と整合する。しかし、未発見を未使用の確定証明とはせず、機能別の幻の製品ラインが存在したとも記述しない。
+
 ### REJECTED — `TIM-O-VOX`を1950年の第7スイス商標とする解釈
 
 - 1950年原公告の同時出願群はNo.134600–134605の6件で、No.134604の原表記は `TIME·O·VOX`。次のNo.134606は別会社のベゴニア種子商標である。
@@ -100,6 +107,13 @@ Cyma / R.464 / Chronomètre / No.489 を調査・執筆・実装する前に、�
 - MIH共有資料には金製Time-O-Voxへのクロノメーター証明に関する記述がある。
 - ただし上記は「現存する特定個体No.489が特定の観測所試験を通過した」ことの証明とは分離する。
 
+### HOLD — 「1950年にTime-O-VoxがChronomètre証明を取得」したという後年社史の年代
+
+- MIH共有資料 `D_7938.pdf` は、2003年までの製品史を扱う後年のCyma社史パンフレットである。そのp.5は、1950年に金製アラーム腕時計 `Time-O-Vox` がChronomètre certificateを取得したと記す。
+- これはメーカー由来の有力な回顧資料だが、証明書原本、試験番号、観測所名、ムーブメント番号を提示していない。したがって一次証明記録と同格には扱わない。
+- 1956年11月の *Revue internationale de l'horlogerie* p.32では、`Time-O-Vox` の製品写真と名称を確認できる。これは遅くとも1956年に製品が公刊資料へ登場していた証拠だが、発売初年やChronomètre証明年を確定しない。
+- 1950年の商標出願と後年社史の1950年証明記載が一致する可能性はあるが、現状は同年を相互補強させて確定事実にしない。La Chaux-de-Fonds側Bulletin、1950年前後の証明台帳、証明書原本または同時代広告で裏を取るまで `HOLD` とする。
+
 ### ADOPTED — 観測個体群
 
 プロジェクト観測個体表では、公開ページ用にMovement No.を番号帯へマスキングしている。研究時は元表・貼付画像を参照する。
@@ -121,6 +135,14 @@ Cyma / R.464 / Chronomètre / No.489 を調査・執筆・実装する前に、�
 - Chronomètre文字盤なし + 5姿勢/温度調整刻印の個体がある。
 - 金色ケース + `UNADJUSTED` の個体もある。
 - よって文字盤表記、ケース素材、調整刻印、ケースコード、seller ref.を一対一対応させない。
+
+### CONFLICT — R.464の鳴動時間と鳴動中のリューズ挙動
+
+- B. Humbertの1963年R.464技術記事は、鳴動時間を8–10秒とする。また、アラーム作動中は巻上げ中間車が巻上げ角穴車から外れ、冠車・巻上げ小歯車・巻真は駆動されないと説明する。
+- Horlbeck *The Alarm Wristwatch* pp.97–99は、同じCal. R.464の鳴動時間を6秒とし、巻真の切離しを採用していないため鳴動中にリューズが時計回りに回転すると説明する。
+- 両記述は同時には成立しない。掲載個体ではタイミングホイールが約8秒作動する実機動画を確認しており、少なくともその個体はHumbertの時間記述と整合する。
+- 現行WATCH本文はHumbertの同時代技術記事と掲載個体の観察に沿っているため、この衝突だけを理由に変更しない。Horlbeckの記述が誤記なのか、初期／後期または部品変更を伴うR.464変種を示すのかは未確認。
+- 次の確認点は、複数R.464で鳴動中のリューズ挙動を動画観察すること、文字盤側の上側Wippe・巻上げ中間車と巻上げ角穴車の噛合いを分解写真で比較すること、Horlbeck掲載個体のMovement No.または由来を追うことである。
 
 ### ADOPTED — Observatory / archive
 
@@ -180,17 +202,19 @@ ADOPTEDへ昇格する条件：
 
 ## Open research questions — priority order
 
-1. No.489に対応するChronomètre試験・証明記録は存在するか。
-2. `Bulletin: La Chaux-de-Fonds` の実体と、1954–1958年前後のCyma/Tavannes掲載記録。
-3. MIH資料にある「金製アラームウォッチへの証明書」の原資料・制度・対象範囲。
-4. Chronomètre文字盤、5姿勢/温度調整刻印、ケース `8 6525`、Movement No.帯の関係。
-5. No.489 / 1042 / 1058 / 1917 / 1932等の系列・年代順を安全に説明できるか。
-6. seller ref. `1283` / `1261` と、ケース主番号・ケース下段番号の関係。販売者refとメーカーrefを混同しない。
-7. Mémoires d'Ici `16.20 Mémoire sur la question des marques Cyma et Tavannes avec prospectus`（1948–1949）から、法人再編後のCyma / Tavannes商標使い分けを確認できるか。
-8. Mémoires d'Ici `20.5 Brochure Cymavox 1`から、CYMAVOXの対象商品・年代・販売名義・アラームとの関係を確認できるか。
-9. `CH243633A` / `CH293737A` / `CH290046A` / `CH285202A` / `CH327800A`と、HumbertのR.464図・実機の部品対応。
-10. Georges BridevauxのTavannes在籍期の他特許から、R.464開発系譜を復元できるか。
-11. 1943–1958年の `Journal Suisse d'Horlogerie` / `Revue internationale de l'horlogerie` / Guide des Acheteurs / E-Periodica等で、Cymavox / VOX群 / Bridevaux / Tavannes / Cyma / Time-O-Vox / R.464 / réveil を横断探索する。
+1. `D_7938.pdf` が記す「1950年の金製Time-O-Vox Chronomètre証明」の原証明書、台帳、観測所、試験番号を特定できるか。
+2. No.489に対応するChronomètre試験・証明記録は存在するか。
+3. `Bulletin: La Chaux-de-Fonds` の実体と、1950–1958年前後のCyma/Tavannes掲載記録。
+4. MIH資料にある「金製アラームウォッチへの証明書」の原資料・制度・対象範囲。
+5. Humbertの8–10秒／鳴動中リューズ非駆動と、Horlbeckの6秒／リューズ回転という矛盾は、資料誤りかR.464の変種差か。
+6. Chronomètre文字盤、5姿勢/温度調整刻印、ケース `8 6525`、Movement No.帯の関係。
+7. No.489 / 1042 / 1058 / 1917 / 1932等の系列・年代順を安全に説明できるか。
+8. seller ref. `1283` / `1261` と、ケース主番号・ケース下段番号の関係。販売者refとメーカーrefを混同しない。
+9. Mémoires d'Ici `16.20 Mémoire sur la question des marques Cyma et Tavannes avec prospectus`（1948–1949）から、法人再編後のCyma / Tavannes商標使い分けを確認できるか。
+10. Mémoires d'Ici `20.5 Brochure Cymavox 1`から、CYMAVOXの対象商品・年代・販売名義・アラームとの関係を確認できるか。
+11. `CH243633A` / `CH293737A` / `CH290046A` / `CH285202A` / `CH327800A`と、HumbertのR.464図・実機の部品対応。
+12. Georges BridevauxのTavannes在籍期の他特許から、R.464開発系譜を復元できるか。
+13. 1943–1958年の `Journal Suisse d'Horlogerie` / `Revue internationale de l'horlogerie` / Guide des Acheteurs / E-Periodica等で、Cymavox / VOX群 / Bridevaux / Tavannes / Cyma / Time-O-Vox / R.464 / réveil を横断探索する。
 
 ## Search matrix for E-Periodica / archive work
 
@@ -244,8 +268,10 @@ ADOPTEDへ昇格する条件：
 - 『Schweizerisches Handelsamtsblatt』66 (1948), p.3459, [E-Periodica PID `sha-001:1948:66::3761`](https://www.e-periodica.ch/digbib/view?pid=sha-001%3A1948%3A66%3A%3A3761) — Georges BridevauxへのTavannes Watch C° S.A.の代理権付与。
 - 『Schweizerisches Handelsamtsblatt』77 (1959), p.984, [E-Periodica PID `sha-001:1959:77::1070`](https://www.e-periodica.ch/digbib/view?pid=sha-001%3A1959%3A77%3A%3A1070) — Bridevaux発明の `Compteur de temps` 追加特許337149 / 337150。権利者Georges Bürgin、主特許324272でありR.464系譜への接続は `HOLD`。
 - *Actes de la Société jurassienne d'émulation* 49 (1945), 広告欄, [E-Periodica PID `asj-006:1945:49::395`](https://www.e-periodica.ch/digbib/view?pid=asj-006%3A1945%3A49%3A%3A395) — 1本の鍵で時計機構とアラームを同時巻上げするCyma卓上アラーム広告。
+- *Revue internationale de l'horlogerie*, 1956年11月, p.32, [Watch Library / MIH image](https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1956%2FMIH-RIH_1956_11%2FJPG-SOURCE%2FMIH-RIH_1956_11_JPG-SOURCE_0090/full/1600,/0/default.jpg) — `Time-O-Vox` の名称と製品写真を伴う公刊資料。発売初年・Chronomètre証明年の根拠にはしない。
 - Neuchâtel archive reply: 1954–1958 BT registers checked; No.489 correspondence not identified; Cyma/A. Racine records exist from 1956; `Bulletin: La Chaux-de-Fonds` noted.
 - MIH reply: no document directly tied to this model was found in its search; Cyma library file contains a reference to certificates for gold alarm watches.
+- MIH共有資料 `D_7938.pdf`, p.5 — 2003年までの製品史を扱う後年のCyma社史パンフレット。1950年に金製Time-O-VoxがChronomètre certificateを取得したと記すが、原証明書・試験番号・観測所名は示さないため `HOLD`。
 - Mémoires d'Ici, `CH MDI, Schwob - Büttiker - Tavannes Watch, 16.20`, *Mémoire sur la question des marques Cyma et Tavannes avec prospectus*（1948–1949）, [catalog](https://collections.m-ici.ch/detail.aspx?ID=133390). Public / no access restriction; contents not yet obtained.
 - Mémoires d'Ici, `CH MDI, Schwob - Büttiker - Tavannes Watch, 20.5`, *Brochure Cymavox 1*（undated）, [catalog](https://collections.m-ici.ch/detail.aspx?ID=133416). Public / no access restriction; contents not yet obtained.
 
@@ -262,6 +288,8 @@ Safe:
 - 「Tavannes Watch Co.は1943年にCYMAVOXを出願し、1944年にはアラーム時計特許を出願していた」
 - 「1949年にはTavannesによる複数の腕時計アラーム用音響構造特許が出願され、1950年にはCyma Watch Co. S.A.がVOX系6商標を一括出願した」
 - 「CYMAVOXと1950年VOX群は、法的には異なる名義で登録・維持された」
+- 「後年のCyma社史資料は1950年に金製Time-O-VoxがChronomètre証明を得たと記すが、対応する一次証明記録は未確認である」
+- 「1963年のHumbert技術記事と後年のHorlbeck専門書は、R.464の鳴動時間と鳴動中のリューズ挙動について矛盾する」
 
 Do not state yet:
 
@@ -278,8 +306,19 @@ Do not state yet:
 - 「1949年の膜・ケース音響特許群がCal. R.464に採用された」
 - 「1948年にTavannes Watch Co.がCyma Watch Co.へ単純改称した」
 - 「TIM-O-VOXは1950年に独立登録された第7のスイス商標である」
+- 「Time-O-Vox / R.464のChronomètre証明年は1950年で確定している」
+- 「すべてのR.464が鳴動中にリューズ非回転である」または「すべてのR.464が鳴動中にリューズ回転する」
+- 「Time-O-Vox以外の1950年VOX商標群は実製品ラインとして発売された」
 
 ## Research log
+
+### 2026-09-29 — 1950 Chronomètre年代主張 / 1956製品記事 / R.464技術資料衝突
+
+- `D_7938.pdf` p.5を画像とテキストで再確認し、後年のCyma社史パンフレットが1950年に金製Time-O-VoxのChronomètre certificate取得を記していることを確認した。原証明書・試験番号・観測所名がないため年代は `HOLD` とした。
+- 1956年11月の *Revue internationale de l'horlogerie* p.32を画像で確認し、`Time-O-Vox` 名称と製品写真が同時代の公刊資料に存在することを確認した。発売初年や証明年には一般化しない。
+- 1943–1965年の業界誌・広告・市場資料の横断確認では、Time-O-Vox以外のVOX商標を実製品名として示す確実な資料を確認できなかった。未発見を未使用の確定証明とは扱わない。
+- Humbertの1963年R.464技術記事を再確認し、8–10秒の鳴動時間と、鳴動中に巻上げ中間車が外れて巻真・リューズが駆動されない構造説明を確認した。
+- Horlbeck *The Alarm Wristwatch* pp.97–99を画像で再確認し、6秒の鳴動時間と、鳴動中にリューズが時計回りに回転するという逆の記述を確認した。資料間の `CONFLICT` として登録し、現行WATCH本文は変更していない。
 
 ### 2026-09-28 — CYMAVOX / 1948法人再編 / 1944–1949アラーム特許系譜
 
