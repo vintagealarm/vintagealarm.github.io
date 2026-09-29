@@ -389,6 +389,33 @@ Modern De Luxe名の大型腕時計型／壁掛け型には、販売市場でGer
 
 いずれも販売・オークション帰属で、ブランド国籍の一次証拠ではない。**ブランド所有者の国籍・完成品の製造国・ムーブメント製造国を分離する。**
 
+## Model-number cross-check — `HD-600` ≠ 現時点の `Modern Gas/Alpha 600`
+
+Rosen税関訴訟で広田製として扱われる `HD-600` と、現存する `Modern Gas 600` / `Modern Alpha 600` は、番号「600」が一致するため同一系列候補として確認した。
+
+HD-600:
+- 1970年末、Rosen EnterprisesがK.K. Hirotaへ50万個発注
+- 判決本文は `disposable cigarette lighters`
+- Aoyagi宣誓供述は `disposable` / `invisible plastic tank` と記述
+Source:
+https://app.midpage.ai/document/rosen-enterprises-inc-v-united-8120623
+
+Modern Gas / Alpha 600:
+- `MODERN GAS 600` の現存品はJapan表記
+- `Modern Alpha 600` は複数市場で `refillable gas` / `rechargeable au gaz` と整理され、箱・取説・アダプター付き現存例がある
+- eBay検索面には `Vintage Hirota Modern Alpha 600 Gas Lighter` という販売者帰属例もある
+- Modern Alpha 800の元箱・取説付き未使用品では販売者がBrand = Hirotaとしている
+
+Sources:
+https://www.ebay.com/itm/358218928714
+https://www.ebay.com/itm/318894087750
+https://www.lastdodo.fr/fr/items/2339153-modern-alpha-600
+https://www.ebay.com/itm/278400370251
+
+**判断:** `600` の番号一致だけでHD-600 = Modern Gas/Alpha 600とみなさない。現時点の公開記述では、HD-600は使い捨て型、Modern Gas/Alpha 600は再充填型で商品特性が衝突する。
+
+**副次的収穫:** Modern Alpha 600 / 800をHirotaへ帰属させる市場記録は複数あるため、`Modern Alpha` 系は広田ブランド群の有力補強資料。ただし販売者・コレクターデータであり、当時の広田一次資料が出るまで `Modern Alpha = Hirota` を一次確定扱いしない。
+
 ## REJECTED shortcuts
 
 - 名称がModernだから広田と断定
@@ -437,6 +464,8 @@ Modern De Luxe名の大型腕時計型／壁掛け型には、販売市場でGer
 - 2021年RedditのJPO資料翻訳にある `広田良夫 / 台東区浅草橋3-19 / 昭和36年` と、1975年Aoyagi宣誓供述のHirota工場所在地が一致することを確認。原JPO資料未回収のためHOLD。
 - 1980年代の米国意匠特許でYoshio Hirota → Kabushiki Kaisha Hirotaのlighter patentsを確認。1961年の広田良夫との人物同定は未確定。
 - Genoud側・Modern De Luxe完全一致商標・別ブランド同一ケースを追加検索したが、この時点ではHirotaへ直接つながる新規一次資料は未取得。検索不発を不存在証明にはしない。
+- Rosen判決のHD-600と現存するModern Gas / Modern Alpha 600を型番横断。HD-600は判決上disposable / invisible plastic tank、一方Modern Alpha 600はrefillable gasとして現存するため、番号600だけの同一視をREJECTEDへ固定。
+- Modern Alpha 600 / 800をHirotaへ帰属させる複数の販売者・コレクターデータを確認。広田のModern系商品群の補強候補だが、一次資料ではないためADOPTEDへは上げない。
 - 公開WATCH本文・サイト表示は変更しない。
 
 ## Update rule
