@@ -17,6 +17,16 @@
 
 ## 2026-09-29
 
+### 2026-09-29 13:45 JST — 外部照会を保留し、Cyma社史の1950 / 1956衝突を研究正本へ登録
+
+- **変更**：外部機関への照会案を未送信の下流手段へ変更し、自己取得可能な公開資料を先に再監査した。現行Cyma公式 `CYMA STORY` がTime-O-VoxのChronomètre証明年を1956年と記す一方、MIH共有の後年Cyma社史 `D_7938.pdf` p.5は1950年と記すため、研究Ledgerの年代判断を `HOLD — 1950` から `CONFLICT — 1950 / 1956` へ変更した。1956年11月の同時代業界誌は製品の実在を支えるが、証明年の独立証拠には数えない。
+- **理由**：公開資料だけで確認できるメーカー資料間の直接矛盾を検査せず、問い合わせ準備へ進む順序が不適切だったため。Mémoires d'Iciの `20.5 Brochure Cymavox 1` も公開目録までは確認できるが、本文画像はオンライン提供されていないことを確認した。
+- **旧状態・棄却**：1950年説だけをメーカー由来の有力年代として保留する状態、および公開資料監査前にMIH / COSC / IGE-IPIへ照会する進行を棄却する。現行公式史の1956年も原証明書なしに確定年とはしない。
+- **影響範囲**：`research/CYMA_TIME_O_VOX_R464_LEDGER.md` と `research/CYMA_1950_CERTIFICATE_AND_IPI_REQUEST_PACKET.md` の研究判断・送信状態のみ。公開WATCH本文、Chronomètreページ、観測個体データ、画像、音源は変更しない。
+- **検証状態**：Cyma公式史、1956年11月業界誌、Mémoires d'Ici公開目録を再確認済み。調査費0円、外部照会未送信。文書差分・research traceability・decision-log・Astro buildを実行後にcommitする。
+- **関連**：commits `2615b20de0614b516e0fb08ec8fb66be17ce7674`, `3039850801cbf43508e3fd45b8c8905f3e023e7c`。
+- **日時根拠**：作業時刻 2026-09-29 13:45 JST。
+
 ### 2026-09-29 09:48 JST — 1950年Chronomètre説の転載系列を分離し、MIH・COSC・IPI照会準備を追加
 
 - **変更**：`research/CYMA_TIME_O_VOX_R464_LEDGER.md`へ、Watch-Wikiの2007年版と2025年Sammler-Uhren記事を追加し、1950年Chronomètre certificate説のWeb上の反復を独立証拠として数えない判断を記録した。あわせて`research/CYMA_1950_CERTIFICATE_AND_IPI_REQUEST_PACKET.md`を新設し、MIHへの企業年表原典照会、COSCへの前身試験機関台帳の所在照会、IGE/IPIへの旧商標原簿・包袋の存在確認と見積もり依頼を送信可能なフランス語文面にした。

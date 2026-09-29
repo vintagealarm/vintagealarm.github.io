@@ -107,14 +107,15 @@ Cyma / R.464 / Chronomètre / No.489 を調査・執筆・実装する前に、�
 - MIH共有資料には金製Time-O-Voxへのクロノメーター証明に関する記述がある。
 - ただし上記は「現存する特定個体No.489が特定の観測所試験を通過した」ことの証明とは分離する。
 
-### HOLD — 「1950年にTime-O-VoxがChronomètre証明を取得」したという後年社史の年代
+### CONFLICT — Cyma社史内のChronomètre証明年（1950 / 1956）
 
 - MIH共有資料 `D_7938.pdf` は、2003年までの製品史を扱う後年のCyma社史パンフレットである。そのp.5は、1950年に金製アラーム腕時計 `Time-O-Vox` がChronomètre certificateを取得したと記す。
-- これはメーカー由来の有力な回顧資料だが、証明書原本、試験番号、観測所名、ムーブメント番号を提示していない。したがって一次証明記録と同格には扱わない。
+- 一方、現行のCyma公式サイト `CYMA STORY` は、1956年に金色のチャイム付き時計 `Cyma Time-O-Vox` がObservatoryから公式Chronometer certificationを受けたと記す。旧社史パンフレットと現行公式史で年が直接衝突する。
+- どちらもメーカー由来の回顧資料だが、証明書原本、試験番号、観測所名、ムーブメント番号を提示していない。新しい公式記述であることだけを理由に1956年を一次証明済みとは扱わず、旧記述の1950年も確定年として残さない。
 - Watch-WikiのCyma項目は、遅くとも2007-12-16版で同じ1950年説を掲載している。ただし、1943 / 1945 / 1950 / 1957 / 1960年代以降という出来事の並びと表現が `D_7938.pdf` の企業年表と近く、独立した証明資料を提示しない。2025年のSammler-Uhren記事も1950年説を反復するが、記事末尾の出典は `Watchwiki, AI` である。
 - したがって、Web上で1950年説が複数回現れることを独立証拠の累積とは数えない。現状は、後年のCyma企業年表からWatch-Wiki等へ拡散した単一の出典系列である可能性が高い。
-- 1956年11月の *Revue internationale de l'horlogerie* p.32では、`Time-O-Vox` の製品写真と名称を確認できる。これは遅くとも1956年に製品が公刊資料へ登場していた証拠だが、発売初年やChronomètre証明年を確定しない。
-- 1950年の商標出願と後年社史の1950年証明記載が一致する可能性はあるが、現状は同年を相互補強させて確定事実にしない。La Chaux-de-Fonds側Bulletin、1950年前後の証明台帳、証明書原本または同時代広告で裏を取るまで `HOLD` とする。
+- 1956年11月の *Revue internationale de l'horlogerie* p.32では、`Time-O-Vox` の製品写真と名称を確認できる。これは現行公式史の1956年と整合し、遅くとも同年11月に製品が公刊資料へ登場していたことを示す。ただし、同記事はChronomètre証明を記さず、発売初年や証明年を単独では確定しない。
+- 現時点の裁定は、商標出願年 `1950`、公刊資料で確認できる製品実在年 `遅くとも1956`、Chronomètre証明年 `1950 / 1956でメーカー資料が衝突し未確定`。La Chaux-de-Fonds側Bulletin、証明台帳、証明書原本または同時代広告で裏を取るまで `CONFLICT` とする。
 
 ### ADOPTED — 観測個体群
 
@@ -204,7 +205,7 @@ ADOPTEDへ昇格する条件：
 
 ## Open research questions — priority order
 
-1. `D_7938.pdf` が記す「1950年の金製Time-O-Vox Chronomètre証明」の原証明書、台帳、観測所、試験番号を特定できるか。
+1. `D_7938.pdf` の1950年記述と現行Cyma公式史の1956年記述のどちらが、原証明書・台帳・同時代資料に基づくのか。原証明書、観測所、試験番号を特定できるか。
 2. No.489に対応するChronomètre試験・証明記録は存在するか。
 3. `Bulletin: La Chaux-de-Fonds` の実体と、1950–1958年前後のCyma/Tavannes掲載記録。
 4. MIH資料にある「金製アラームウォッチへの証明書」の原資料・制度・対象範囲。
@@ -273,13 +274,14 @@ ADOPTEDへ昇格する条件：
 - *Revue internationale de l'horlogerie*, 1956年11月, p.32, [Watch Library / MIH image](https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1956%2FMIH-RIH_1956_11%2FJPG-SOURCE%2FMIH-RIH_1956_11_JPG-SOURCE_0090/full/1600,/0/default.jpg) — `Time-O-Vox` の名称と製品写真を伴う公刊資料。発売初年・Chronomètre証明年の根拠にはしない。
 - Neuchâtel archive reply: 1954–1958 BT registers checked; No.489 correspondence not identified; Cyma/A. Racine records exist from 1956; `Bulletin: La Chaux-de-Fonds` noted.
 - MIH reply: no document directly tied to this model was found in its search; Cyma library file contains a reference to certificates for gold alarm watches.
-- MIH共有資料 `D_7938.pdf`, p.5 — 2003年までの製品史を扱う後年のCyma社史パンフレット。1950年に金製Time-O-VoxがChronomètre certificateを取得したと記すが、原証明書・試験番号・観測所名は示さないため `HOLD`。
+- MIH共有資料 `D_7938.pdf`, p.5 — 2003年までの製品史を扱う後年のCyma社史パンフレット。1950年に金製Time-O-VoxがChronomètre certificateを取得したと記すが、原証明書・試験番号・観測所名は示さず、現行公式史の1956年とも衝突するため `CONFLICT`。
+- Cyma公式サイト, [CYMA STORY](https://cyma.ch/pages/story) / [1930–1959 mobile image](https://cdn.shopify.com/s/files/1/0848/6492/5995/files/CYMA_Site_BrandHistory_v1_Mobile_Slice_EN_04_430x.jpg?v=1704716909) — 現行メーカー年表は1956年にTime-O-VoxがObservatoryの公式Chronometer certificationを受けたと記す。原証明記録を示さず、`D_7938.pdf` の1950年と衝突するため `CONFLICT`。
 - Watch-Wiki, [Cyma, 2007-12-16 revision](https://watch-wiki.org/index.php?title=Cyma&oldid=59590) — 1950年Chronomètre certificate説を掲載する早期Web例。企業年表の並びが `D_7938.pdf` と近く、独立した一次出典を示さない。
 - Sammler-Uhren, [Cyma watches age determination...](https://sammler-uhren.com/en/blogs/uhren-altersbestimmung-nach-werknummer/cyma-uhren-altersbestimmung-navystar-cymaflex-time-o-vox-sonomatic-watersport-charisma-imperium-signature), 2025-07-27 — 1950年説を再掲するが、記事記載の出典は `Watchwiki, AI`。独立証拠には不採用。
 - [COSC official site](https://www.cosc.swiss/) — COSCは1973年以降の組織と明記。前身となるLa Chaux-de-Fonds等の試験機関の旧台帳を保管・承継しているかは未確認であり、所在照会先候補として保持する。
 - [Swissreg trademark database guidance](https://www.ige.ch/de/uebersicht-dienstleistungen/digitales-angebot/datenbanken-und-verzeichnisse/swissreg/markendatenbank) — 現行・抹消商標と履歴の検索案内。ただしCYMAVOXの検索結果は0件で、法的に確定的なのはIGE/IPI発行の登録簿抄本と公式案内が明記するため、旧原簿・包袋の所在と費用を直接照会する。
 - Mémoires d'Ici, `CH MDI, Schwob - Büttiker - Tavannes Watch, 16.20`, *Mémoire sur la question des marques Cyma et Tavannes avec prospectus*（1948–1949）, [catalog](https://collections.m-ici.ch/detail.aspx?ID=133390). Public / no access restriction; contents not yet obtained.
-- Mémoires d'Ici, `CH MDI, Schwob - Büttiker - Tavannes Watch, 20.5`, *Brochure Cymavox 1*（undated）, [catalog](https://collections.m-ici.ch/detail.aspx?ID=133416). Public / no access restriction; contents not yet obtained.
+- Mémoires d'Ici, `CH MDI, Schwob - Büttiker - Tavannes Watch, 20.5`, *Brochure Cymavox 1*（undated）, [catalog](https://collections.m-ici.ch/detail.aspx?ID=133416). 目録はPublic / no access restrictionだが、画像一覧へ切り替えても `No images found in the results list.` と表示され、本文画像はオンライン公開されていないことを確認した。
 
 ## Publication safety / wording rules
 
@@ -294,7 +296,8 @@ Safe:
 - 「Tavannes Watch Co.は1943年にCYMAVOXを出願し、1944年にはアラーム時計特許を出願していた」
 - 「1949年にはTavannesによる複数の腕時計アラーム用音響構造特許が出願され、1950年にはCyma Watch Co. S.A.がVOX系6商標を一括出願した」
 - 「CYMAVOXと1950年VOX群は、法的には異なる名義で登録・維持された」
-- 「後年のCyma社史資料は1950年に金製Time-O-VoxがChronomètre証明を得たと記すが、対応する一次証明記録は未確認である」
+- 「後年のCyma社史資料は1950年、現行Cyma公式史は1956年にTime-O-VoxがChronomètre証明を得たと記しており、証明年はメーカー資料内で衝突している」
+- 「TIME-O-VOX商標は1950年に出願され、製品は遅くとも1956年11月の同時代業界誌で確認できる。Chronomètre証明年は未確定である」
 - 「1963年のHumbert技術記事と後年のHorlbeck専門書は、R.464の鳴動時間と鳴動中のリューズ挙動について矛盾する」
 
 Do not state yet:
@@ -313,6 +316,7 @@ Do not state yet:
 - 「1948年にTavannes Watch Co.がCyma Watch Co.へ単純改称した」
 - 「TIM-O-VOXは1950年に独立登録された第7のスイス商標である」
 - 「Time-O-Vox / R.464のChronomètre証明年は1950年で確定している」
+- 「Time-O-Vox / R.464のChronomètre証明年は1956年で確定している」
 - 「すべてのR.464が鳴動中にリューズ非回転である」または「すべてのR.464が鳴動中にリューズ回転する」
 - 「Time-O-Vox以外の1950年VOX商標群は実製品ラインとして発売された」
 
@@ -320,13 +324,16 @@ Do not state yet:
 
 ### 2026-09-29 — 1950 Chronomètre年代主張 / 1956製品記事 / R.464技術資料衝突
 
-- `D_7938.pdf` p.5を画像とテキストで再確認し、後年のCyma社史パンフレットが1950年に金製Time-O-VoxのChronomètre certificate取得を記していることを確認した。原証明書・試験番号・観測所名がないため年代は `HOLD` とした。
+- 外部照会より先に自己取得可能な公開資料を再監査した。現行のCyma公式 `CYMA STORY` はChronomètre証明年を1956年と記し、`D_7938.pdf` の1950年記述と直接衝突することを確認した。費用は0円、外部照会は送信していない。
+- 1956年11月の *Revue internationale de l'horlogerie* p.32は製品の同年実在を支えるが、Chronomètre証明への言及はないため、現行公式史の証明年を独立に実証する資料とは数えない。
+- Mémoires d'Iciの `20.5 Brochure Cymavox 1` は、公開目録・アクセス条件・階層まではオンライン確認できた。画像一覧には画像がなく、本文をセルフサービスでは取得できないことも確認した。
+- `D_7938.pdf` p.5を画像とテキストで再確認し、後年のCyma社史パンフレットが1950年に金製Time-O-VoxのChronomètre certificate取得を記していることを確認した。原証明書・試験番号・観測所名がなく、現行公式史とも年が衝突するため年代は `CONFLICT` とした。
 - 1956年11月の *Revue internationale de l'horlogerie* p.32を画像で確認し、`Time-O-Vox` 名称と製品写真が同時代の公刊資料に存在することを確認した。発売初年や証明年には一般化しない。
 - 1943–1965年の業界誌・広告・市場資料の横断確認では、Time-O-Vox以外のVOX商標を実製品名として示す確実な資料を確認できなかった。未発見を未使用の確定証明とは扱わない。
 - Humbertの1963年R.464技術記事を再確認し、8–10秒の鳴動時間と、鳴動中に巻上げ中間車が外れて巻真・リューズが駆動されない構造説明を確認した。
 - Horlbeck *The Alarm Wristwatch* pp.97–99を画像で再確認し、6秒の鳴動時間と、鳴動中にリューズが時計回りに回転するという逆の記述を確認した。資料間の `CONFLICT` として登録し、現行WATCH本文は変更していない。
 - Watch-Wikiの版履歴を初期版まで確認し、1950年Chronomètre certificate説が遅くとも2007-12-16版に存在することを確認した。ただし、その企業年表の出来事順・表現は2003年までを扱う `D_7938.pdf` と近く、独立した証明記録は示されない。2025年Sammler-Uhren記事も出典を `Watchwiki, AI` とするため、Web上の反復を複数証拠とは数えない。
-- COSCには前身試験機関の旧台帳承継の有無、MIHには `D_7938.pdf` p.5の原典・証明書画像・写真メタデータ、IGE/IPIには旧商標原簿・包袋の所在と見積もりを照会する方針を固定した。いずれも有料作業は見積もり承認前に開始させない。
+- 自己取得可能な公開情報の監査を先行し、照会案は追加の原記録が必要になった場合だけ使う下流手段へ降格した。COSC / MIH / IGE-IPIへの送信は未実施。将来送信する場合も、有料作業は日本円換算済み見積もりの承認前に開始させない。
 
 ### 2026-09-28 — CYMAVOX / 1948法人再編 / 1944–1949アラーム特許系譜
 

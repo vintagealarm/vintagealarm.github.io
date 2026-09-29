@@ -2,12 +2,22 @@
 
 更新日: 2026-09-29
 
-この文書は、Mémoires d'Iciの回答待ちに並行して、日本から次の2系統を照会するための送信準備である。
+> STATUS: **HOLD / 未送信**。外部照会より先に、自己取得可能な公開資料の監査を行う。本書は、その監査後も原資料が必要な場合だけ使う下流の送信準備である。
+
+当初は、Mémoires d'Iciの回答待ちに並行して、日本から次の2系統を照会するために作成した。
 
 1. 後年のCyma社史が記す「1950年の金製Time-O-Vox Chronomètre certificate」の原典・台帳所在
 2. `CYMAVOX`および1950年VOX商標群の旧登録原簿・包袋
 
-いずれも**所在確認と見積もり取得だけ**を依頼する。有料調査、複製、認証抄本の作成は、書面見積もりを受けて明示承認するまで開始させない。
+現時点では送信しない。将来送信する場合も、**所在確認と見積もり取得だけ**を依頼する。有料調査、複製、認証抄本の作成は、外貨見積もりを日本円へ換算して明示承認するまで開始させない。
+
+## Public-first audit completed on 2026-09-29
+
+- 現行Cyma公式 `CYMA STORY` は、Time-O-VoxがObservatoryの公式Chronometer certificationを受けた年を1956年と記す。旧社史 `D_7938.pdf` p.5の1950年と直接衝突する。
+- 1956年11月の同時代業界誌にはTime-O-Voxの名称と製品写真があるが、Chronomètre証明の記述はない。したがって製品の同年実在は確認できるが、証明年は確定しない。
+- Mémoires d'Ici `20.5 Brochure Cymavox 1` は公開目録と無制限アクセス表示までは確認できたが、オンライン画像一覧は `No images found in the results list.` で、本文はセルフサービス取得できない。
+- 1950年のVOX商標6件と1943年CYMAVOXの原公告は、E-Periodicaの公刊資料から0円で確認済み。旧原簿・包袋の追加取得は、公告にない情報が必要になった場合だけ検討する。
+- この監査の費用は0円。MIH / COSC / IGE-IPIへの照会は未送信。
 
 ## Current evidence boundary
 
@@ -16,6 +26,7 @@
 - Watch-Wikiは遅くとも2007-12-16版で同説を掲載するが、企業年表の構成が`D_7938.pdf`と近く、独立した一次出典を示さない。
 - 2025年のSammler-Uhren記事は同説を再掲するが、出典を`Watchwiki, AI`と記す。独立証拠にはしない。
 - 1956年11月の*Revue internationale de l'horlogerie* p.32では、Time-O-Voxの製品写真と名称を確認できる。発売初年・証明年までは確定しない。
+- 現行Cyma公式 `CYMA STORY` は証明年を1956年と記す。新しい公式記述だが、原証明書・試験番号・観測所名を示さないため、1950年説を単純に上書きせず資料間の衝突として保持する。
 
 ## Route A — MIHへ企業年表の原典を照会
 
@@ -160,13 +171,13 @@ Avec mes salutations distinguées,
 Japon
 [Adresse e-mail]
 
-## Suggested order
+## Suggested order if public records cannot resolve the conflict
 
 1. MIH follow-up: direct provenance of `D_7938.pdf` p.5.
 2. COSC routing inquiry: identify custody of predecessor records.
 3. IGE/IPI availability and quote: exact old register files.
 
-All three inquiries can be sent in parallel. None authorizes paid work.
+送信が必要になった場合は並行実施できるが、現時点では保留する。いずれも有料作業を許可しない。
 
 ## Reply audit checklist
 
