@@ -1564,3 +1564,62 @@ Instagram Insights screenshots supplied by user.
 - 18–34 combined: 69.3%
 - Country: India 25.6% / United States 9.8% / Iran 5.7% / Mexico 3.7% / Turkey 3.6%
 - Delta from 2026-09-29 06:15: views +218, viewers +173, likes +10, follows +2, saves +2, profile accesses +2; comments and reposts unchanged; skip 43.6% → 43.9%; like rate 3.5% → 3.8%; save rate 0.5% → 0.5%.
+## 2026-09-29 18:08 JST — Basis Alarm (BFG90) fourth Insights snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Basis Alarm (BFG90)
+- Views: 2,912
+- Viewers: 2,144
+- Average watch time: 17s
+- Follows: 2
+- Likes: 68
+- Comments: 0
+- Reposts: 1
+- Saves: 5
+- Share count: summary UI shows `--`
+- Skip rate: 29.3%（低）
+- Share rate: 0.0%（低）
+- Like rate: 3.2%（低）
+- Save rate: 0.2%（低）
+- Repost rate: 0.0%（低）
+- Comment rate: 0.0%（低）
+- Profile accesses: 8
+- Bio-link clicks: 1
+- Followers / non-followers: 1.0% / 99.0%
+
+Audience:
+- Age: 13–17 0.8% / 18–24 31.0% / 25–34 40.1% / 35–44 15.6% / 45–54 7.4% / 55–64 3.2% / 65+ 1.9%
+- 18–34 combined: 71.1%
+- Country: India 31.9% / United States 7.8% / Turkey 5.6% / Iran 5.6% / Indonesia 4.0%
+
+Delta from 2026-09-29 15:44:
+- Views: 2,534 → 2,912 (+378)
+- Viewers: 1,862 → 2,144 (+282)
+- Average watch time: 18s → 17s
+- Likes: 58 → 68 (+10)
+- Follows: 2 → 2
+- Saves: 5 → 5
+- Reposts: 1 → 1
+- Comments: 0 → 0
+- Profile accesses: 4 → 8 (+4)
+- Bio-link clicks: 1 → 1
+- Skip rate: 29.0% → 29.3% (+0.3pt)
+- Like rate: 3.1% → 3.2%
+- Save rate: 0.3% → 0.2%
+- Followers / non-followers: 0.9% / 99.1% → 1.0% / 99.0%
+- 18–34: 71.8% → 71.1%
+- India: 31.0% → 31.9%
+- United States: 8.7% → 7.8%
+
+### Like-timing update
+- The like-timing curve still shows a strong rise at the end of the Reel, with a smaller early peak and relatively low activity through most of the middle.
+- Treat this as timing distribution only; it does not identify the specific visual or audio event that caused each like.
+
+### Interpretation
+- Basis continues to receive broad non-follower distribution: +378 views and +282 viewers since 15:44, with non-followers still at 99.0%.
+- Skip remains extremely stable around 29% despite the wider distribution. Average watch time eased from 18s to 17s but remains above the ~16s Reel runtime, still consistent with aggregate repeat/loop viewing.
+- The clearest downstream movement in this interval is profile access, which doubled from 4 to 8, while follows, saves and bio-link clicks were unchanged.
+- Like rate held essentially flat at 3.2%.
+- India remained the largest country segment and increased slightly to 31.9%; the United States eased to 7.8%.
+- Basis still stands out primarily for retention/rewatch performance rather than for follow/save conversion.
