@@ -278,6 +278,21 @@ https://app.midpage.ai/document/rosen-enterprises-inc-v-united-8120623
 
 ### `MODERN Derringer` → `MODERN ROYAL Derringer` 商品名の継続候補
 
+#### 同一パッケージ内でModern Royal crestと`MODERN TABLE LIGHTER`が共存
+
+Etsyの未使用箱付きDerringer現存例では、商品画像説明上、箱に **Modern Royal crest** があり、同じ箱面には `MODERN TABLE LIGHTER Derringer ... WITH STAND` と読める。
+
+Source:
+https://www.etsy.com/listing/4318173444/vintage-new-old-stock-nib-never-used
+
+**直接言えること:** 少なくとも現存パッケージ上で、`Modern Royal` の紋章／企業表示と `MODERN TABLE LIGHTER` の商品表記が同居する例がある。
+
+**研究上の意味:** `MODERN` 商品ラインが1971年以降のModern Royal流通下でも継続した可能性を、単なる商品名一致より一段強く示す。
+
+**重要な留保:** Etsy販売者の「1960s」年代は、Modern Royal社名が1971年成立という公式沿革と衝突するため不採用。箱・製品の実年代は未確定。
+
+
+
 現存品の元箱で、次の2系統を確認できる。
 
 1. `Derringer Gun / TABLE LIGHTER / MODERN`
@@ -719,7 +734,7 @@ https://hirotacorp.jp/company-guide/history/
 - Modern Royal名義の米国lighter designが1976年出願から確認でき、公式沿革の1986年「時計」契約と合わせ、1971年合弁後の**同一法人内でライター→時計**の両カテゴリを確認。
 - Kaname Ichikawaが1976年以降Modern Royalのlighter design発明者として継続することを確認。創業者市川要との同一人物は高蓋然だが、日本語氏名リンク未取得のため推定扱い。
 - 1991年にKaname Ichikawaのlighter designがRoyal International Corporationへassignされる例を確認。2005年沿革のRICと同一法人である可能性は高いが、法人同定未了のためHOLD。
-- 元箱付き現存品で `MODERN Derringer` と `MODERN ROYAL Derringer` を確認。商品名継承候補としてHOLD。Modern Royal品を1960年代とする販売者年代は1971年社名成立と衝突するため不採用。
+- 元箱付き現存品で `MODERN Derringer` と `MODERN ROYAL Derringer` を確認。さらに同一箱上にModern Royal crestと `MODERN TABLE LIGHTER` が共存する例を確認。商品名継承候補を補強。Modern Royal品を1960年代とする販売者年代は1971年社名成立と衝突するため不採用。
 - 国際購入者リストにModern Royalが `Watch Glasses / 钟表眼镜` カテゴリで掲載される例を確認。電話・FAXは同社2012年公式発表と一致するが、原典・年代・分類根拠未確認のためHOLD。
 - `US3165908A` の引用データ上assigneeが `Hirota Wood Working Mach Works` であることを再確認。東京・浅草橋のHirota & Co.と同一視せず、別の静岡・木工機械系Hirotaが実在するため誤接続防止をREJECTED shortcutへ追加。
 - Modern Lite `8560/8561` は旧JPO公報を追加検索したが未特定。出品ページ自体は物理刻印 `JAPAN` と構造化欄 `Country of Origin: China` が衝突するため、物理刻印を優先する監査例として記録。
