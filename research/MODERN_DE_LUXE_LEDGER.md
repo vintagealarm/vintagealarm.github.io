@@ -80,6 +80,39 @@ https://www.modernroyal.com/docs/enkaku.pdf
 
 **研究上の意味:** 「広田系はライターだけで時計を扱わない会社だった」という反証候補は弱くなった。次に探すべきは、1986年より前の広田／廣田モダントレーディングの商品・輸出・ギフト資料に時計が含まれるか。
 
+### 1960年代の広田が「Modern」名を付したライターを製造・輸出していた一次法務資料
+
+スイスの商標法務誌に掲載されたチューリヒ州商事裁判所1968年7月26日判決では、東京の `Hirota & Co., Ltd.` が製造したライターに `Feudor` または `Modern Feudor` の商標が付され、スイスへ輸入されたと明記される。
+
+判決はさらに、被告側がHirotaとGenoud & Cie SAの間に1962年3月6日付のライセンス兼製造契約があったと主張したこと、Hirotaが1964年7月9日付書面で当該ライターを欧州各国へ輸出する権利があると表明していたこと、1965年4月9日付Hirota書簡では当該契約が失効済みと記されていたことを記録する。
+
+Source:
+https://www.decisions.ch/smi/1969.pdf
+- p.74–78 / Hirota & Co., Ltd. / `Modern Feudor`
+
+**直接言えること:** 1960年代の広田は、少なくともライター分野で `Modern` を冠する商品を実際に製造し、欧州市場へ流す輸出行為に関与していた。
+
+**重要な留保:** `Modern Feudor` は `Modern De Luxe` ではない。この判決だけで両者を同一ブランド系列と確定しない。
+
+**研究上の意味:** これまでの「MODERNという一般語が偶然一致しただけかもしれない」という反証はかなり弱くなった。広田が1960年代に実際に `Modern ...` 命名の商品を製造・輸出していたことは一次法務資料で確認できる。
+
+### Modern De Luxe名の日本製ライター現存例
+
+`Modern De Luxe` / `Modern Deluxe` 名で日本製とされるヴィンテージライターが複数現存する。
+
+- eBay: Modern De Luxe Japan Fleur De Lis lighter
+  https://www.ebay.com/itm/397802726420
+- eBay: Modern de Luxe AAA of Southern California advertising lighter, Country of Origin: Japan
+  https://www.ebay.com/itm/257079769022
+- eBay: Modern Deluxe WINF 1230KC CBS Radio advertising lighter, Country of Origin: Japan
+  https://www.ebay.com/itm/276608496039
+- Ruby Lane: Modern de Luxe Fleur-de-Lys lighter, Japan attribution
+  https://www.rubylane.com/item/2085155-SAV923/Vintage-Modern-de-Luxe-Fleur-de
+
+**直接言えること:** `Modern De Luxe` は時計だけの名称ではなく、日本製と帰属されるライター商品にも使われている。
+
+**直接は言えないこと:** 各現存例の製造者が広田であることは、現状の公開情報だけでは確認できない。
+
 ### Modern De Luxe名の日本製アラームクロック
 
 Modern De Luxe 2 Jewels旅行アラームで、日本製帰属の現存記録が複数ある。
@@ -109,6 +142,10 @@ Mercari出品者は `広田 (H.M.C. CO.)` と説明する。また実物刻印 `
 
 Mercari出品者は、広田が MODERN Duke / MODERN DeLuxe / MODERNLITE / MODERNα 等を輸出ブランドとして使ったと説明する。これは販売者記載であり一次資料へ昇格させない。
 
+ただし新たに、1968年のチューリヒ州商事裁判所判決から、広田が1960年代に `Modern Feudor` 名のライターを実際に製造していたことが一次資料で確認できた。また `Modern De Luxe` 名の日本製ライター現存例も複数ある。
+
+したがって「広田がModern系名称をライターに使った」こと自体はADOPTEDへ進んだが、**`Modern De Luxe` という完全一致名称を広田へ直接つなぐ一本はまだ無い。**
+
 ユーザー報告では、Yahoo!オークション x1105074445 の元箱内カードに `Modern de Luxe` と `K.K. 広田` が同時印刷された資料がある。現調査環境ではカード画像を再取得できていないため user-reported / HOLD とする。
 
 ### Modern De Luxe時計 = 広田／廣田モダントレーディングのOEM商品か
@@ -122,7 +159,7 @@ Mercari出品者は、広田が MODERN Duke / MODERN DeLuxe / MODERNLITE / MODER
 3. Modern De Luxe時計の元箱、取説、保証書、値札、輸出ラベル、サービス窓口
 4. Label Emmaüsで「Présence de la notice（取扱説明書あり）」と明記されるModern De Luxe 2 Jewels旅行時計の取説本文
    - https://www.label-emmaus.co/fr/pendulette-de-voyage-vintage-marque-modern-de-luxe-2-jewels-110366114/
-5. 1960–70年代の広田商品・輸出・ノベルティカタログ
+5. 1960–70年代の広田商品・輸出・ノベルティカタログ（`Modern Feudor` / `Modern De Luxe` / `Modernlite` の同時掲載有無を重点確認）
 6. Modern / Modern De Luxe / Modernlite の当時商標
 7. 王冠・盾＋MODERN DE LUXEロゴの所有者
 8. 2石アラームクロックの基礎ムーブメントメーカー
@@ -170,6 +207,9 @@ Modern De Luxe名の大型腕時計型／壁掛け型には、販売市場でGer
 - `広田 (H.M.C. CO.)` は販売者説明のまま。一次事実へは昇格させない。
 - ライテック／モダンロイヤル公式沿革を再確認。記念品、輸出、MODERN系会社、廣田モダントレーディングの存在は確認済み。
 - ライテック／モダンロイヤル両公式沿革を突合し、1971年の合弁・販売強化と2005年の広田からRICへの株式譲渡を確認。広田↔モダンロイヤルの企業関係は一次資料で強化。
+- スイス商標法務誌掲載のチューリヒ州商事裁判所1968年判決を発見。Hirota & Co., Ltd. Tokyo が `Feudor` / `Modern Feudor` ライターを製造していたことを一次法務資料で確認。
+- 同判決は1962年3月6日のライセンス／製造契約、1964年7月9日のHirotaによる欧州輸出権の表明、1965年4月9日書簡での契約失効認識も記録する。広田の1960年代欧州向けライター製造・輸出実態を強く裏付ける。
+- `Modern De Luxe` / `Modern Deluxe` 名でJapan attributionを持つライター現存例を複数確認。時計専用名ではないことを研究台帳へ追加。ただし各個体の広田製造は未確認。
 - モダンロイヤル公式沿革の1986年項目に `Camel Trophyのアパレル、時計、バッグなどライセンス契約` を確認。広田系販売会社が少なくとも後年に時計カテゴリを扱った事実を追加。
 - ただし欠けている橋は変わらない: **広田／廣田モダントレーディングがModern De Luxe時計を扱った直接文書。**
 - 東京時計は比較群に追加しただけで、OEM帰属は未認定。
