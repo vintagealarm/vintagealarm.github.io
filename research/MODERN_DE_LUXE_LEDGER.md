@@ -80,6 +80,34 @@ https://www.modernroyal.com/recruit/history.pdf
 
 判断: 広田グループは同時期に企業記念品、輸出、MODERN系名称の製造／販売組織を持っていた。ただしModern De Luxe時計との直接接続ではない。
 
+### Modern Royal detailed lineage — 1946→1971の会社系譜
+
+モダンロイヤル公式沿革を詳細に読み直すと、現在のModern Royalは「1965年からModern Royal名で存在した会社」ではない。
+
+- 1946: 市川要が喫煙具輸出商社「市川産業」を新橋に創業
+- 1952: ガスライター開発に着手、バルブ・タンク構造などの特許を多数申請
+- 1957: クラウンガスライター発売
+- 1964: クラウン産業（株）へ改称
+- 1965: ロイヤル産業（株）を台東区鳥越に設立、シガレットライター輸出を開始
+- 1971: （株）廣田モダントレーディングと合弁、**モダンロイヤル（株）へ改称**、浅草橋へ移転
+- 1982: 日本製ライター輸出減により中国生産開始
+- 2005: モダンロイヤル株を（株）廣田からRICへ譲渡
+- 2006: ライター事業をRICへ移管
+
+Source:
+https://www.modernroyal.com/docs/enkaku.pdf
+
+Modern Royal英語公式ページはこの前史を簡略化し、「1965年の設立当初は国産シガレットライターの輸出が主業」と要約している。
+
+Source:
+https://www.modernroyal.com/en/company.html
+
+**重要な判断:** `Modern Royal` という社名は公式詳細沿革上 **1971年の廣田モダントレーディングとの合弁時に成立**する。したがって、マーケットプレイスで `Modern Royal` 製品を「1960年代製」とする年代帰属は、そのまま採用しない。
+
+**推測 / HOLD:** `Modern Royal` の `Modern` 部分が `廣田モダントレーディング` 側に由来する可能性は非常に自然だが、公式沿革は命名由来を明記していない。語形成の推測を事実へ上げない。
+
+**反証として重要:** Royal Industries / 市川系は1965年から既に国産ライター輸出をしており、1971年合弁後も市川要・市川誠系の発明者／経営者がModern Royalに継続する。よって、1971年以降のModern Royal製品すべてを「広田製」と自動的にみなさない。
+
 ### 広田とモダンロイヤルの資本・販売関係は公式資料で直接確認できる
 
 ライテック公式沿革は1971年について、販売業務強化のためモダンロイヤル株式会社を設立し、2005年に株式譲渡したと記す。
@@ -90,6 +118,22 @@ https://lightec-inc.jp/corporate/history.html
 https://www.modernroyal.com/docs/enkaku.pdf
 
 **判断:** `廣田モダントレーディング` とモダンロイヤルを、名称が似るだけの無関係企業として扱う余地はかなり狭まる。少なくとも1971〜2005年の間、広田側とモダンロイヤルには公式沿革上の合弁・株式関係がある。
+
+### 市川要の発明者継続とModern Royalの設計主体
+
+米国意匠特許では、`Kaname Ichikawa` がModern Royal Co., Ltd.のlighter design発明者として少なくとも1976年出願から繰り返し現れる。
+
+- D246996 — filed 1976-08-18
+- D253251 — filed 1977-08-02
+- D261062 — filed 1978-11-17
+- 1985年以降も多数継続
+
+Source:
+https://patents.justia.com/inventor/kaname-ichikawa
+
+公式沿革の創業者 `市川要` と英字 `Kaname Ichikawa` は姓名対応が自然であり、同一人物である可能性が高い。ただしこの台帳では、特許側に日本語氏名リンクがないため **推定同一** として扱う。
+
+**研究上の意味:** 1971年の廣田モダントレーディングとの合弁後も、旧Royal Industries / 市川側の設計活動がModern Royal内で継続していたことを示す。Modern Royalを単純な「Hirotaの別名」と扱うモデルは不正確。
 
 ### 同一法人 Modern Royal 内で「ライター」から「時計」へ — 1976→1986
 
@@ -549,6 +593,23 @@ Modern De Luxe名の大型腕時計型／壁掛け型には、販売市場でGer
 
 いずれも販売・オークション帰属で、ブランド国籍の一次証拠ではない。**ブランド所有者の国籍・完成品の製造国・ムーブメント製造国を分離する。**
 
+## HOLD — Royal International CorporationとModern Royalの設計連続性
+
+Kaname Ichikawaの米国意匠特許群では、1991年出願のD339209だけassigneeが `Royal International Corporation`、前後の多数案件は `Modern Royal Co., Ltd.` となっている。
+
+Source:
+https://patents.justia.com/inventor/kaname-ichikawa
+https://patents.google.com/patent/USD339209S/en
+
+公式沿革は2005年に `モダンロイヤル株を（株）廣田からRICに譲渡`、2006年に `ライター事業はRICへ移管` と記す。
+
+Source:
+https://www.modernroyal.com/docs/enkaku.pdf
+
+**強い示唆:** RICは2005年に突然現れた無関係企業ではなく、少なくとも1990年代前半には市川要のlighter designのassigneeとしてModern Royalと並行して存在した可能性がある。
+
+**未確認:** 1991年特許のRoyal International Corporationと、2005年沿革中の `RIC` が同一法人かを住所・法人番号等で直接確認できていないためHOLD。
+
 ## Model-number cross-check — `HD-600` ≠ 現時点の `Modern Gas/Alpha 600`
 
 Rosen税関訴訟で広田製として扱われる `HD-600` と、現存する `Modern Gas 600` / `Modern Alpha 600` は、番号「600」が一致するため同一系列候補として確認した。
@@ -614,7 +675,7 @@ https://hirotacorp.jp/company-guide/history/
 1. Modern Lite `PAT. PEND. NOS 8560 8561` の旧JPO番号体系を解読
 2. 1961年JPO資料の原文／公開番号回収（広田良夫・浅草橋3-19）
 3. H.M.C.CO.法人指紋（住所・電話・代表者・商標）
-4. 1971〜1986年Modern Royalのカタログ／Derringer型番を追い、廣田モダントレーディング合弁前後の商品継承を確認
+4. 1971〜1986年Modern Royalのカタログ／Derringer型番を追い、Royal Industries→廣田モダントレーディング合弁→Modern Royalの商品継承を確認
 5. 米国・欧州の輸入者／契約先側からHirota製商品名を逆引き
 6. Modern De Luxe完全一致名の商標・輸出名鑑・広告
 7. 同一ケース／同一ムーブメントの別ブランド探索
@@ -654,7 +715,10 @@ https://hirotacorp.jp/company-guide/history/
 - 台東区台帳の日本喫煙具協会ビルは寿3-19-5。1961年候補／1975年Hirota工場の浅草橋3-19とは別住所であり、数字3-19を根拠に接続しない。
 - Modern Lite現存品に `PAT. PEND. NOS 8560 8561 JAPAN` 刻印を確認。旧JPO公報への逆引きを最優先Webルートへ昇格。
 - 江戸東京博物館のModern Lite収蔵記録を確認。一方LastDodoは1954年品をメーカー `Hirato` と記すため、帰属衝突をデータ品質問題として保持。
+- Modern Royal公式詳細沿革を再監査。Modern Royal社名は1971年のRoyal Industries×廣田モダントレーディング合弁時に成立し、1965〜1970年はRoyal Industries。マーケット上の「1960年代Modern Royal」は社名年代と衝突するため不採用。
 - Modern Royal名義の米国lighter designが1976年出願から確認でき、公式沿革の1986年「時計」契約と合わせ、1971年合弁後の**同一法人内でライター→時計**の両カテゴリを確認。
+- Kaname Ichikawaが1976年以降Modern Royalのlighter design発明者として継続することを確認。創業者市川要との同一人物は高蓋然だが、日本語氏名リンク未取得のため推定扱い。
+- 1991年にKaname Ichikawaのlighter designがRoyal International Corporationへassignされる例を確認。2005年沿革のRICと同一法人である可能性は高いが、法人同定未了のためHOLD。
 - 元箱付き現存品で `MODERN Derringer` と `MODERN ROYAL Derringer` を確認。商品名継承候補としてHOLD。Modern Royal品を1960年代とする販売者年代は1971年社名成立と衝突するため不採用。
 - 国際購入者リストにModern Royalが `Watch Glasses / 钟表眼镜` カテゴリで掲載される例を確認。電話・FAXは同社2012年公式発表と一致するが、原典・年代・分類根拠未確認のためHOLD。
 - `US3165908A` の引用データ上assigneeが `Hirota Wood Working Mach Works` であることを再確認。東京・浅草橋のHirota & Co.と同一視せず、別の静岡・木工機械系Hirotaが実在するため誤接続防止をREJECTED shortcutへ追加。
