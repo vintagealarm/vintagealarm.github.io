@@ -1623,3 +1623,60 @@ Delta from 2026-09-29 15:44:
 - Like rate held essentially flat at 3.2%.
 - India remained the largest country segment and increased slightly to 31.9%; the United States eased to 7.8%.
 - Basis still stands out primarily for retention/rewatch performance rather than for follow/save conversion.
+## 2026-09-30 06:26 JST — Basis Alarm (BFG90) overnight breakout snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Basis Alarm (BFG90)
+- Views: 7,631
+- Viewers: 5,647
+- Average watch time: 13s
+- Follows: 6
+- Likes: 159
+- Comments: 2
+- Reposts: 4
+- Saves: 24
+- Share count: summary UI shows `--`
+- Skip rate: 29.2%（低）
+- Share rate: 0.2%（低）
+- Like rate: 2.9%（低）
+- Save rate: 0.4%（低）
+- Repost rate: 0.1%（高）
+- Comment rate: 0.0%（低）
+- Profile accesses: 34
+- Bio-link clicks: 1
+- Followers / non-followers: 0.5% / 99.5%
+
+Audience:
+- Age: 13–17 0.4% / 18–24 26.9% / 25–34 39.1% / 35–44 16.7% / 45–54 9.5% / 55–64 4.8% / 65+ 2.5%
+- 18–34 combined: 66.0%
+- Country: India 27.3% / Turkey 6.7% / Iran 6.0% / France 5.1% / United States 4.3%
+
+Delta from 2026-09-29 18:08:
+- Views: 2,912 → 7,631 (+4,719)
+- Viewers: 2,144 → 5,647 (+3,503)
+- Average watch time: 17s → 13s
+- Likes: 68 → 159 (+91)
+- Follows: 2 → 6 (+4)
+- Saves: 5 → 24 (+19)
+- Reposts: 1 → 4 (+3)
+- Comments: 0 → 2 (+2)
+- Profile accesses: 8 → 34 (+26)
+- Bio-link clicks: 1 → 1
+- Skip rate: 29.3% → 29.2% (-0.1pt)
+- Like rate: 3.2% → 2.9%
+- Save rate: 0.2% → 0.4%
+- Followers / non-followers: 1.0% / 99.0% → 0.5% / 99.5%
+- 18–34: 71.1% → 66.0%
+- India: 31.9% → 27.3%
+- United States: 7.8% → 4.3%
+
+### Interpretation
+- Basis entered a major overnight distribution expansion: +4,719 views and +3,503 viewers after 18:08.
+- The most important stability signal is skip rate: 29.3% → 29.2% despite more than doubling total reach. The hook/retention advantage therefore persisted through a much broader audience.
+- Average watch time fell from 17s to 13s as distribution widened, so the earlier above-runtime aggregate average did not persist. Retention is still strong relative to the observed skip rate, but do not describe the current snapshot as average rewatch above runtime.
+- Downstream actions accelerated materially overnight: profile accesses +26, follows +4, saves +19, reposts +3, comments +2.
+- Like rate diluted to 2.9% while absolute likes rose +91, consistent with broad audience expansion.
+- Non-followers reached 99.5%, confirming that the breakout is overwhelmingly discovery-driven rather than follower-driven.
+- India remains the largest country segment at 27.3% but eased from the prior 31.9%, showing continued audience diversification rather than concentration.
+- Basis has now surpassed Wittnauer in raw views by a wide margin, while Wittnauer still remains stronger on follow/profile conversion efficiency in its latest snapshot.
