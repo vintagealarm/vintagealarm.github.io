@@ -1396,3 +1396,63 @@ Delta from 2026-09-29 10:21–10:22:
 - India rose sharply from 7.1% to 26.4% and became the largest country segment, while the United States stayed effectively flat at ~10.5%. Record this as a distribution-composition shift, not as evidence that India caused the growth.
 - 18–34 share increased from 70.5% to 73.7%.
 - Basis continues to show the strongest observed skip performance among the current Instagram set at this stage. The current evidence remains consistent with the working hypothesis that an explicit human action plus visible mechanical response is a strong Reels hook, but the specific contribution of the phrase `fidget toy` is not isolated.
+## 2026-09-29 15:44 JST — Basis Alarm third Insights snapshot
+
+ユーザー提供Instagram Insightsスクリーンショットで確認。
+
+### Basis Alarm (BFG90)
+- Views: 2,534
+- Viewers: 1,862
+- Average watch time: 18s
+- Follows: 2
+- Likes: 58
+- Comments: 0
+- Reposts: 1
+- Saves: 5
+- Share count: summary UI shows `--`; rate panel shows share rate 0.1%
+- Skip rate: 29.0%（低）
+- Share rate: 0.1%（低）
+- Like rate: 3.1%（低）
+- Save rate: 0.3%（低）
+- Repost rate: 0.1%（低）
+- Comment rate: 0.0%（低）
+- Profile accesses: 4
+- Bio-link clicks: 1
+- Followers / non-followers: 0.9% / 99.1%
+
+Audience:
+- Age: 13–17 0.9% / 18–24 31.8% / 25–34 40.0% / 35–44 15.2% / 45–54 7.4% / 55–64 3.1% / 65+ 1.7%
+- 18–34 combined: 71.8%
+- Country: India 31.0% / United States 8.7% / Turkey 5.7% / Iran 5.2% / Brazil 4.4%
+
+Delta from 2026-09-29 12:51–12:52:
+- Views: 1,741 → 2,534 (+793)
+- Viewers: 1,152 → 1,862 (+710)
+- Average watch time: 22s → 18s
+- Likes: 45 → 58 (+13)
+- Follows: 2 → 2
+- Saves: 4 → 5 (+1)
+- Reposts: 1 → 1
+- Comments: 0 → 0
+- Profile accesses: 2 → 4 (+2)
+- Bio-link clicks: 1 → 1
+- Skip rate: 26.9% → 29.0% (+2.1pt)
+- Like rate: 3.6% → 3.1%
+- Save rate: 0.3% → 0.3%
+- Share rate: 0.1% → 0.1%
+- 18–34: 73.7% → 71.8%
+- India: 26.4% → 31.0%
+- United States: 10.5% → 8.7%
+
+### Like-timing update
+- The graph continues to show a strong rise at the end of the Reel, with a smaller early peak and low-to-modest activity through most of the middle.
+- Treat this as timing distribution only; it does not prove which visual or audio event caused each like.
+
+### Interpretation
+- Basis continued broad non-follower distribution through the afternoon: +793 views and +710 viewers since 12:51, with non-followers at 99.1%.
+- Skip rose from the unusually low 26.9% to 29.0% but remains markedly lower than the current Wittnauer / Pierce / CYMA snapshots. The earlier improvement did not fully persist, yet the hook remains strong on the observed metric.
+- Average watch time fell from 22s to 18s as distribution widened, but remains above the ~16s Reel runtime, still consistent with meaningful repeat/loop viewing at aggregate level.
+- Downstream conversion has slowed: profile accesses rose 2 → 4 and saves 4 → 5, while follows and bio-link clicks were unchanged.
+- India continued to increase as a share of the audience, 26.4% → 31.0%, while the United States fell 10.5% → 8.7%. Record this as changing distribution composition, not causal evidence.
+- 18–34 remained dominant at 71.8%.
+- The working hypothesis remains: Basis is particularly strong at stopping and retaining viewers through visible interaction/mechanical response, while downstream conversion is currently more modest than its viewing performance.
