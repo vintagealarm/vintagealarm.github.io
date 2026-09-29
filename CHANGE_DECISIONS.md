@@ -17,6 +17,16 @@
 
 ## 2026-09-29
 
+### 2026-09-29 16:08 JST — 起動ルータをPROJECT.mdへ一本化
+
+- **変更**：VINTAGE ALARM作業の起動順を `PROJECT.md` → `PROJECT_STATE.md` の関係節 → 現在のbranch / PR → 対象ファイル / URL → 必要な分野別正本へ一本化した。`AGENTS.md` は別ルータではなく、作業中常時適用する実行ガードレールと定義した。実装・公開状態はProject資料で上書きせず、作業branch / PR、GitHub `main`、live siteの役割ごとに確認する。
+- **理由**：`PROJECT.md` は `AGENTS.md` → `PROJECT_STATE.md`、`AGENTS.md` と `PROJECT_STATE.md` は `PROJECT_STATE.md` から開始すると記述し、起動点が三者で一致していなかったため。GitHub現行実体とProject資料の関係も、同順位と読める表現が残っていた。
+- **旧状態・棄却**：`PROJECT.md` / `AGENTS.md` / `PROJECT_STATE.md` がそれぞれ起動順を持つ構造、およびProject資料の記述で現行GitHub / live状態を判定できると読める状態を棄却する。
+- **影響範囲**：作業開始時の文書読み込み順と正本判定のみ。サイト本文、UI、公開route、build / deploy、Councilの形式は変更しない。
+- **検証状態**：文書差分を実装。`PROJECT.md` / `AGENTS.md` / `PROJECT_STATE.md` の起動順突合と `npm run check:decision-log` を実行後にVERIFIEDとする。
+- **関連**：branch `docs/align-project-routing`。
+- **日時根拠**：作業ホストのJST時刻 `2026-09-29 16:08:14 +09:00`。
+
 ### 2026-09-29 13:45 JST — 外部照会を保留し、Cyma社史の1950 / 1956衝突を研究正本へ登録
 
 - **変更**：外部機関への照会案を未送信の下流手段へ変更し、自己取得可能な公開資料を先に再監査した。現行Cyma公式 `CYMA STORY` がTime-O-VoxのChronomètre証明年を1956年と記す一方、MIH共有の後年Cyma社史 `D_7938.pdf` p.5は1950年と記すため、研究Ledgerの年代判断を `HOLD — 1950` から `CONFLICT — 1950 / 1956` へ変更した。1956年11月の同時代業界誌は製品の実在を支えるが、証明年の独立証拠には数えない。
