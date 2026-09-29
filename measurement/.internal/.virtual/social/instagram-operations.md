@@ -1680,3 +1680,90 @@ Delta from 2026-09-29 18:08:
 - Non-followers reached 99.5%, confirming that the breakout is overwhelmingly discovery-driven rather than follower-driven.
 - India remains the largest country segment at 27.3% but eased from the prior 31.9%, showing continued audience diversification rather than concentration.
 - Basis has now surpassed Wittnauer in raw views by a wide margin, while Wittnauer still remains stronger on follow/profile conversion efficiency in its latest snapshot.
+## 2026-09-30 06:55 JST — VA 24h Analytics snapshot after Westclox first post
+
+ユーザー提供Relay VA2 snapshotで確認。
+
+Snapshot metadata:
+- generated: 2026-09-30 06:55:17.904 JST (`20260929T215517904Z`)
+- window / range: 24h / 24h
+- bucket: 1h
+- quality: UNSAMPLED
+- sample: 1
+- coverage: full
+- integrity: PASS
+- compare: previous-period
+- latestBucket: 2026-09-29T13:00:00Z
+- gapLower: 28517
+
+24h totals:
+- Visits: 8
+- Pageviews: 12
+- Previous period: 4 visits / 5 pageviews
+- Change vs previous period: Visits +4 (+100.0%) / Pageviews +7 (+140.0%)
+- Internal Navigation: 0 visits / 4 pageviews
+
+Channels:
+- X: 3
+- Instagram: 3
+- Organic Search: 1
+- Direct / Unknown: 1
+- Facebook: 0
+- YouTube: 0
+- Other SNS: 0
+- AI Assistant: 0
+- Other Referral: 0
+
+Key pages / visits:
+- `/x/`: 3 pageviews / 3 visits
+- `/en/how-they-ring/`: 3 / 3
+- `/de/westclox-watchlarm/`: 1 / 1
+- `/`: 1 / 1
+- `/history/`: 2 pageviews / 0 visits
+- `/owners-notes/`: 1 / 0
+- `/wittnauer-10wa/`: 1 / 0
+
+External entries:
+- Instagram `l.instagram.com → /en/how-they-ring/`: 3 visits
+- X `t.co → /x/`: 3 visits
+- Direct / Unknown `→ /de/westclox-watchlarm/`: 1 visit
+- Bing Search `www.bing.com → /`: 1 visit
+
+Observed internal flows:
+- `/owners-notes/ → /wittnauer-10wa/`: 1 internal pageview
+- `/ → /history/`: 1
+- `/x/ → /history/`: 1
+- `/x/ → /owners-notes/`: 1
+
+SNS landing summary:
+- `/en/how-they-ring/`: Instagram 3
+- `/x/`: X 3
+
+Pageview geography:
+- Japan: 9
+- United States: 1
+- India: 1
+- Spain: 1
+
+Devices by pageview:
+- Mobile: 8
+- Desktop: 3
+- Tablet: 1
+
+Arrival Probe:
+- available: 1
+- total: 15
+- X: 3
+- sampleInterval: 1
+- complete: 1
+- key rows include `/en/how-they-ring/@instagram:3` and `/x/@x:3`
+
+### Interpretation
+- The current 24h window doubled entry events versus the immediately previous 24h: 4 → 8 visits, while pageviews rose 5 → 12. Visits are entry events, not unique people.
+- X and Instagram account for 6 of the 8 recorded entry visits. Their landing behavior is cleanly separated: all 3 Instagram-attributed visits land on the canonical English `/en/how-they-ring/`, while all 3 X-attributed visits land on `/x/`.
+- The X landing route shows observed downstream movement: one internal pageview from `/x/` to `/history/` and one from `/x/` to `/owners-notes/`. These are aggregate flow rows and should not be treated as a single reconstructed user journey.
+- Instagram again shows repeat route-level delivery to the intended English HOW THEY RING landing page. The Relay alone does not prove three distinct people or match these visits one-to-one with Instagram Insights bio-link clicks.
+- A Direct / Unknown entry to the German Westclox page is observed after the Westclox first post, but its source is not attributable to Instagram from this snapshot.
+- Four internal pageviews are observed despite Internal Navigation visits being zero, which is expected under the current metric definition: internal transitions add pageviews without creating new visits.
+- Japan dominates pageviews in this 24h window (9 of 12). This geography is pageview composition, not a unique-visitor count.
+- `latestBucket` / `gapLower` are freshness diagnostics for aggregated buckets, not proof of raw-event collection delay.
