@@ -121,6 +121,50 @@ eBayの元箱付き現存例でも箱面に `Modern Table Gas Lighter Derringer 
 
 **証拠レベル:** 写真アーカイブ／現存品記録。1968年スイス判決のような一次法務資料より下だが、`Modern` とHirotaの実物商品群を視覚的に追う資料として保持する。
 
+### 1970–71年の米国向け大量受注・輸出製造を米国税関裁判記録で確認
+
+米国税関裁判所の `Rosen Enterprises, Inc. v. United States`（76 Cust. Ct. 226, C.D. 4660, 1976）は、1971年に日本から米国へ輸出された使い捨てガスライター HD-600 の評価額を争った事件。
+
+判決記録では、Rosen Enterprisesのbuyer / sales managerであるBenjamin Bloomfieldが、1970年11月末に東京のメーカー `K. K. Hirota` へ HD-600 を **500,000個** 発注したと証言する。
+
+さらにHirota Company副社長Sonosuke Aoyagiの1975年6月16日付宣誓供述書が証拠採用され、次を記録する。
+
+- Hirota Company在籍18年で、sales / financingを監督
+- HD-600をRosen Enterprises, Inc.へ輸出販売
+- 米国顧客向け商品は通常、日本のbuying agentへHirota工場で引き渡す
+- 工場所在地を `#19, 3-chome Asakusa-bashi, Daito-ku, Tokyo` と記載
+- 1971年2〜5月だけでも24,000〜125,000個単位の販売記録を複数提示
+
+米国Customs Serviceのimport specialistは、HD-600をHirota製GL-160と同一商品と判断。裁判所の事実認定も、GL-160をHirota Companyが日本で製造し米国へ輸出した商品として扱う。
+
+Source:
+https://app.midpage.ai/document/rosen-enterprises-inc-v-united-8120623
+- U.S. Customs Court, Jun. 24, 1976, 76 Cust. Ct. 226, C.D. 4660
+
+**直接言えること:** 1970–71年の広田は、自社工場を持つ製造者として、米国顧客から数十万個規模の発注を受け、buying agentを介する輸出販売を行っていた。
+
+**直接は言えないこと:** この判決はModern / Modern De Luxeを扱っていない。Modern De Luxeのブランド所有者、時計供給者、時計OEM関係の直接証拠ではない。
+
+**研究上の意味:** 「製造者＝ブランド所有者＝販売者」という一体モデルを前提にする必要がないことを、広田自身の実際の商流が示す。Modern De Luxe時計についても、ブランド主体・外装・ムーブメント・輸出販売主体を分離して追う現在の調査モデルを強く支持する。
+
+### Rosen Enterprises側のブランド保有と広田製造の関係 — 同一法人確認は未了
+
+同時期・同名の `Rosen Enterprises Inc.` について、米国商標記録には以下がある。
+
+- `ZAIMA` — butane gas cigarette lighters / fuel containers、1964年出願、1965年登録
+  https://uspto.report/TM/72192448
+- `NESOR` — cigarette lighters、1969年出願
+  https://trademarks.justia.com/browse-by-serial-number/72/32/64/
+
+現存するRosen-Nesor日本製広告ライターには `ROSEN ENTERPRISES LTD. JAPAN` や `Rosen Enterprises, Japan` の実物刻印例もある。
+
+- https://www.ebay.com/itm/137025986404
+- https://www.ebay.com/itm/168715764679
+
+**留保:** 商標権者Rosen Enterprises Inc.、税関訴訟のRosen Enterprises, Inc.、現存品のRosen Enterprises Ltd. Japanを、法人登記・住所連続性なしに同一法人群と断定しない。
+
+**研究上の意味:** 広田が海外顧客向けに大量製造していた事実と、同時期の米国側に独自ライターブランドを持つ輸入・販売主体が存在したことは、ブランド名と実製造者が分離する商流の比較材料になる。
+
 ### Modern De Luxe名の日本製ライター現存例
 
 `Modern De Luxe` / `Modern Deluxe` 名で日本製とされるヴィンテージライターが複数現存する。
@@ -215,6 +259,32 @@ https://www.unido.org/publications/ot/9651407/pdf
 
 **判断:** 1939年の「広田氏」同定にはまだ使えないが、後年の広田家／経営・生産側の実名資料として保持する。人物系譜を追う際のアンカー。
 
+### 1961年JPOライター資料の「広田良夫」＋浅草橋3-19 — 原資料未回収
+
+Reddit r/translatorの2021年投稿は、日本特許庁から取得したライター関係資料の画像について翻訳を依頼したもの。回答者は資料から次を読む。
+
+- 住所: `東京都台東区浅草橋3-19`
+- 申請・発行: 昭和36年（1961）
+- 権利者名: `広田良夫`
+- 会社名記載なし
+
+Source:
+https://www.reddit.com/r/translator/comments/mi6492
+
+ここで重要なのは、1975年のHirota Company副社長Aoyagi宣誓供述書が同社工場所在地を `#19, 3-chome Asakusa-bashi, Daito-ku, Tokyo` と記録している点。表記順を除けば **浅草橋3-19が一致する**。
+
+さらに1984–85年出願の米国意匠特許では、`Yoshio Hirota` が発明者、`Kabushiki Kaisha Hirota` がassigneeとして複数のcigarette lighter designを出願している。
+
+Source:
+https://patents.justia.com/patent/D284410
+https://patents.justia.com/inventor/yoshio-hirota
+
+**強い示唆:** 1961年資料の `広田良夫` が株式会社広田関係者である可能性は、住所一致によってかなり高くなった。
+
+**未確認:** Reddit上の翻訳元JPO画像をこの調査環境で再取得できておらず、公開番号・考案名称・原文を独立確認できていない。また `広田良夫` と1980年代の `Yoshio Hirota` が同一人物であることも直接資料では未確認。
+
+**扱い:** 原JPO文書を回収するまでHOLD。住所一致は採用条件を大幅に満たす補強証拠だが、人物同定を確定しない。
+
 ### H.M.C. = 広田／旧廣田製作所か
 
 Mercari出品者は `広田 (H.M.C. CO.)` と説明する。また実物刻印 `H.M.C.CO., TOKYO` と、広田の旧社名 `株式会社廣田製作所` は整合する。
@@ -257,20 +327,22 @@ https://www.kosho.or.jp/search/%E8%A3%BD%E9%80%A0%E6%A5%AD?pageno=4
 
 ## OPEN — 優先順
 
-1. 1966年の株式会社広田社内誌『広苑』第3号の本文確認（Modern / Modern De Luxe / H.M.C. / 時計 / 輸出 / 商品写真 / 役員名・創業者名）
-2. 広田／廣田モダントレーディングが Modern De Luxe 名で時計を扱った直接資料
-3. H.M.C. の正式展開と株式会社広田／廣田製作所との同一性
-4. Modern De Luxe時計の元箱、取説、保証書、値札、輸出ラベル、サービス窓口
-5. Label Emmaüsで「Présence de la notice（取扱説明書あり）」と明記されるModern De Luxe 2 Jewels旅行時計の取説本文
+1. **Web継続:** 1961年JPOライター資料（広田良夫・浅草橋3-19）の公開番号／原画像回収
+2. **Web継続:** H.M.C.CO.の法人指紋（住所・代表者・電話・商標）を株式会社広田へ直接接続
+3. 広田／廣田モダントレーディングが Modern De Luxe 名で時計を扱った直接資料
+4. H.M.C. の正式展開と株式会社広田／廣田製作所との同一性
+5. Modern De Luxe時計の元箱、取説、保証書、値札、輸出ラベル、サービス窓口
+6. Label Emmaüsで「Présence de la notice（取扱説明書あり）」と明記されるModern De Luxe 2 Jewels旅行時計の取説本文
    - https://www.label-emmaus.co/fr/pendulette-de-voyage-vintage-marque-modern-de-luxe-2-jewels-110366114/
-6. 1960–70年代の広田商品・輸出・ノベルティカタログ（`Modern Feudor` / `Modern De Luxe` / `Modernlite` の同時掲載有無を重点確認）
-7. Modern / Modern De Luxe / Modernlite の当時商標
-8. 王冠・盾＋MODERN DE LUXEロゴの所有者
-9. 2石アラームクロックの基礎ムーブメントメーカー
-10. Modern De Luxe旅行時計と他の日本製2石アラーム（Seiko / Rhythm / Haramachi Seiki等）の背面トポロジー比較。Tokyo Clockの確認済み1個体は非一致
-11. 三菱電機以外のModern De Luxe時計ノベルティ個体
-12. 1986年以前の広田／廣田モダントレーディング／モダンロイヤル資料における「時計」取扱記録
-13. 1939年『業界三世代史』の「広田氏」と1937年創業の廣田製作所関係者の人物同定
+7. 1960–70年代の広田商品・輸出・ノベルティカタログ（`Modern Feudor` / `Modern De Luxe` / `Modernlite` の同時掲載有無を重点確認）
+8. Modern / Modern De Luxe / Modernlite の当時商標
+9. 王冠・盾＋MODERN DE LUXEロゴの所有者
+10. 2石アラームクロックの基礎ムーブメントメーカー
+11. Modern De Luxe旅行時計と他の日本製2石アラーム（Seiko / Rhythm / Haramachi Seiki等）の背面トポロジー比較。Tokyo Clockの確認済み1個体は非一致
+12. 三菱電機以外のModern De Luxe時計ノベルティ個体
+13. 1986年以前の広田／廣田モダントレーディング／モダンロイヤル資料における「時計」取扱記録
+14. 1939年『業界三世代史』の「広田氏」と1937年創業の廣田製作所関係者の人物同定
+15. 1966年の株式会社広田社内誌『広苑』第3号の本文確認 — **現物購入はユーザー判断でステイ。Web上の索引・引用・蔵書情報だけ継続探索**
 
 ## Back topology comparison — Modern De Luxe travel alarm vs Tokyo Clock
 
@@ -327,12 +399,16 @@ Modern De Luxe名の大型腕時計型／壁掛け型には、販売市場でGer
 
 ## 次の調査順
 
-1. **株式会社広田社内誌『広苑』第3号（1966）の本文確保**
-2. 取説・箱・保証書
-3. 広田一次資料・商標・輸出資料
-4. 背面トポロジー定量比較
-5. 企業記念品の納入先横断
-6. ロゴ系譜の分離検索
+現物購入は当面ステイ。Web・公開データ・既存画像だけで進める。
+
+1. 1961年JPO資料の原文／公開番号回収（広田良夫・浅草橋3-19）
+2. H.M.C.CO.法人指紋（住所・電話・代表者・商標）
+3. 米国・欧州の輸入者／契約先側からHirota製商品名を逆引き
+4. Modern De Luxe完全一致名の商標・輸出名鑑・広告
+5. 同一ケース／同一ムーブメントの別ブランド探索
+6. 企業記念品の納入先横断
+7. ロゴ系譜の分離検索
+8. 『広苑』第3号はWebで引用・索引が見つかる場合のみ追う
 
 ## Research log — 2026-09-29
 
@@ -355,7 +431,12 @@ Modern De Luxe名の大型腕時計型／壁掛け型には、販売市場でGer
 - 『明治・大正・昭和業界三世代史』再掲本文から、1939年に東京時計附属品製造同業組合が東京輸出金属雑貨工業組合へ改組し、時計部品と喫煙具・ライターを同一取扱品目へまとめ、組合設立に「広田氏」が関与した記録を確認。後の株式会社広田との人物同定は未了のためHOLD。
 - 同資料の別項から、1939年にセイコー・シチズン・真珠・時計バンド・眼鏡・喫煙具業界の協力で全英文カタログを作り世界主要国へ発送した記録を確認。時計と喫煙具が同じ輸出販促ネットワークに載っていたことを追加。
 - UNDP/UNIDO 1983年訪問者一覧から、Hirota & Co.のPresident = Minoru Hirota、Production Manager = Shozo Hirota、Production Section Chief = Shigeru Hirotaを確認。1939年の「広田氏」との同定は未確認。
-- 株式会社広田の社内誌『広苑』第3号（1966、56p）の現存在庫を発見。核心年代の社内一次資料候補として調査優先順位を1位へ変更。本文未読のため内容は未確認。
+- 株式会社広田の社内誌『広苑』第3号（1966、56p）の現存在庫を発見。本文未読のため内容は未確認。2026-09-29、ユーザー判断で現物購入はいったんステイへ変更。
+- U.S. Customs Court `Rosen Enterprises, Inc. v. United States` を確認。1970年末にRosen側がメーカーK.K. HirotaへHD-600を50万個発注し、1971年に数万〜12.5万個単位の販売が続いていたこと、Hirota副社長Aoyagiが工場所在地を `#19, 3-chome Asakusa-bashi` と宣誓供述したことを追加。
+- 同判決から、広田が米国顧客・buying agent向けに大量受注型の輸出製造を行っていたことをADOPTEDへ追加。Modern De Luxeとの直接接続ではない。
+- 2021年RedditのJPO資料翻訳にある `広田良夫 / 台東区浅草橋3-19 / 昭和36年` と、1975年Aoyagi宣誓供述のHirota工場所在地が一致することを確認。原JPO資料未回収のためHOLD。
+- 1980年代の米国意匠特許でYoshio Hirota → Kabushiki Kaisha Hirotaのlighter patentsを確認。1961年の広田良夫との人物同定は未確定。
+- Genoud側・Modern De Luxe完全一致商標・別ブランド同一ケースを追加検索したが、この時点ではHirotaへ直接つながる新規一次資料は未取得。検索不発を不存在証明にはしない。
 - 公開WATCH本文・サイト表示は変更しない。
 
 ## Update rule
