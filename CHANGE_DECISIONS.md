@@ -17,6 +17,16 @@
 
 ## 2026-09-29
 
+### 2026-09-29 18:11 JST — 今後の時計別深掘り調査へ採否・日時Ledgerを強制
+
+- **変更**：過去WATCHの一括遡及作成は求めず、今後、資料衝突・採否変更・事実確度変更・継続調査へ入った時計に専用 `research/*_LEDGER.md` を作成または更新する規則、共通状態語、JST日時、証拠、理由、公開影響、再検討条件、関連情報のテンプレートを追加した。Ledger変更を検査する `check-watch-research-history.mjs` をquality gateへ追加し、`research/` 全体をdecision-log gate対象にした。Councilの単独トリガーへ `焼く`、番号指定へ `1で焼く / 焼いて / 焼こう` を追加した。
+- **理由**：既存の深掘り台帳はCYMA / Wittnauer中心で、全WATCHの過去分を機械的に埋め直す必要はない一方、今後深掘りした時計で採用・棄却・保留・衝突・失効・日時が漏れない強制機構が必要だった。また `焼く` の完全一致が既存Councilルーターに含まれていなかった。
+- **旧状態・棄却**：全公開WATCHへ内容の薄い過去台帳を一括生成する案、通常の軽微修正まで深掘りLedgerを要求する案、`research/` の判断変更が日時台帳なしで通過できる状態、`焼く` だけがCouncilトリガーから漏れる状態を棄却する。
+- **影響範囲**：将来の時計深掘り調査、research CI、Councilトリガー、作業ルーティング。既存CYMA / Wittnauer Ledgerの過去記録、公開WATCH本文、UI、公開routeは変更しない。
+- **検証状態**：decision-log gate、watch-research gate、構文検査、トリガー文字列突合を実行後にVERIFIEDとする。
+- **関連**：branch `docs/align-project-routing`、`research/README.md`、`research/WATCH_RESEARCH_LEDGER_TEMPLATE.md`、`scripts/check-watch-research-history.mjs`。
+- **日時根拠**：作業ホストのJST時刻 `2026-09-29 18:11:39 +09:00`。
+
 ### 2026-09-29 17:56 JST — 外部知見と失敗履歴に基づくガードレールを一般論で再整理しない
 
 - **変更**：行数、文書量、強制語密度、見かけの重複だけで確定済みガードレールを削除・統合・短縮しない規則を `PROJECT.md` / `AGENTS.md` / `PROJECT_STATE.md` に追加した。整理前に判断台帳、監査ログ、失敗事例、ユーザー訂正、外部知見を確認し、具体的な矛盾・未到達・運用失敗がある場合だけ変更候補とする。`PROJECT.md` をdecision-log gateの対象に追加する改善は維持した。

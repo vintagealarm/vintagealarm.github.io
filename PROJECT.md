@@ -28,7 +28,7 @@
 
 ## 1. 「焼いて」/ Council は絶対に独自解釈しない
 
-`焼いて` / `焼こう` / `Council` / Council選択中の番号 `1〜6` を検出したら、**会話から意味を発明せず**、必ず次を正本として扱う。
+`焼く` / `焼いて` / `焼こう` / `Council` / Council選択中の番号 `1〜6` を検出したら、**会話から意味を発明せず**、必ず次を正本として扱う。
 
 - `council-worker/README.md`
 - `council-worker/src/index.ts`
@@ -56,6 +56,7 @@
 ## 2. 分野別ルーティング
 
 - 本文 / WATCH / HISTORY / OWNER'S NOTES / 翻訳 → `SITE_RULES.md`
+- 時計の深掘り調査 / 新資料 / 資料衝突 / 採否変更 → `research/README.md` + 対象時計Ledger + Project資料
 - 日本語本文の新規執筆 / 大幅改稿 → `SITE_RULES.md` + `strategy/japanese-writing.md`
 - デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md`
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`

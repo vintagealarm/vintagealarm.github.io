@@ -63,6 +63,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - OWNER'S NOTES一覧の正本は `src/data/owners-directory.json`
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
+- 時計の深掘り調査、資料衝突、採用・棄却・保留・失効の履歴は `research/README.md` に従い、対象時計の `research/*_LEDGER.md` を正本とする。過去WATCHの一括遡及作成は要求せず、今後深掘りへ入った時計から強制する
 - RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
 - 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
