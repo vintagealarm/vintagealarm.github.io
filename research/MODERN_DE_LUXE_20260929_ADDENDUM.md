@@ -75,33 +75,65 @@ https://www.modernroyal.com/docs/enkaku.pdf
 
 Therefore any product explicitly carrying `Modern Royal` branding cannot be dated to the 1960s merely from a seller estimate without explaining the conflict with the official 1971 company-name chronology.
 
-## 7. 2026-09-30 OEM-comparison search — Tokyo Clock lead, not attribution
+## 7. 2026-09-30 OEM-comparison search — DOWNGRADED after review
 
-A Yahoo! Auctions search index currently exposes a lot titled approximately `折りたたみ式/トラベルアラームクロック/目覚まし時計2点まとめ ... Modern De Luxe /東京時計 2 Jewels`. This is a two-clock mixed lot, not evidence that Tokyo Tokei manufactured Modern De Luxe.
+A Yahoo! Auctions search index exposed a mixed two-clock lot containing a Modern De Luxe travel alarm and a Tokyo Clock/Tokyo Tokei `2 Jewels` travel alarm.
 
-Sources:
-https://auctions.yahoo.co.jp/search/search/%E6%9D%B1%E4%BA%AC%E6%99%82%E8%A8%88%20%E3%83%AC%E3%83%88%E3%83%AD/0/
-https://auctions.yahoo.co.jp/search/search/tokyo%20clock/2084032117/
+**Review decision:** this co-occurrence and the shared `2 Jewels` marking are too weak to justify Tokyo Tokei as a privileged OEM lead. Tokyo Tokei is returned to the general comparison pool. Do not spend targeted research time on Tokyo Tokei unless an image-level or mechanical match appears independently.
 
-**Directly supported:** a Modern De Luxe travel alarm and a Tokyo Clock/Tokyo Tokei `2 Jewels` travel alarm have appeared together in a Japanese auction lot, and Tokyo Clock `2 Jewels` travel alarms form a surviving comparison corpus.
+**Reason:** `2 Jewels` is not a sufficiently discriminating manufacturer fingerprint, and mixed-lot co-occurrence carries no supply-chain meaning.
 
-**Not supported:** the mixed lot does not establish common manufacture, shared movement, or OEM relationship. It is useful only because it identifies a contemporaneous Japanese 2-jewel travel-alarm family worth image-level topology comparison.
+## 8. Independent period-industry evidence: Hirota & Co. was itself a cigarette-lighter producer — ADOPTED
 
-**Next test:** recover the lot images or independent high-resolution Tokyo Clock 2-jewel examples and compare dial diameter, rear winding/setting arbor positions, plate outline, balance position, jewel placement, alarm hammer/gong geometry, and case hinge/stand construction against Modern De Luxe 2-jewel examples.
-
-## 8. Search-result classification warning — Modern De Luxe is being co-indexed with unrelated makers
-
-Broad `2 Jewels alarm clock` marketplace indexes place Modern De Luxe alongside Europa, Rhythm, Tokyo Tokei and other makers. Auctionet also has a multi-clock lot listing `Europa 2 Jewels`, `Tokyo Clock`, and `Modern De Luxe` as separate clocks.
+A 1983 UNDP/UNIDO investment-promotion report records a visit to `Hirota & Co., Ltd.` and states that the company `specializes in producing cigarette lighters` and had strong metalworking capabilities including moulding and plating. The personnel appendix names Minoru Hirota (President), Shozo Hirota (Production Manager), and Shigeru Hirota (Production Section).
 
 Sources:
-https://www.etsy.com/market/2_jewels_alarm_clock
-https://auctionet.com/sv/1415223-reseur-5-st-bl-a-kienzle-1900-tal
+https://www.unido.org/publications/ot/9651407/pdf
+https://downloads.unido.org/ot/48/04/4804284/10001-15000_13029.pdf
 
-**Use:** these results are discovery aids only. Search-engine or marketplace co-occurrence must not be converted into manufacturer attribution. The OEM route requires physical topology or documentary linkage.
+**Directly supported:** by 1983 Hirota & Co. was not merely a trading label; an international industrial-development report described it as a cigarette-lighter producer with metalworking/manufacturing capability.
 
-## Current working model after this pass
+**Limit:** this does not identify `H.M.C.` and does not prove that any specific MODERN or Modern De Luxe product was manufactured by Hirota.
 
-Most useful model remains a separated supply-chain model rather than `Hirota made everything`:
+## 9. MODERN Derringer is independently catalogued as Hirota & Co. — HOLD, important bridge lead
+
+Wikimedia Commons preserves two high-resolution photographs whose source title/description identifies the object as `Vintage "Derringer Gun" Table Gas Lighter by Modern, Hirota & Co., Ltd., Made in Japan`. The files were transferred from a 2013 Flickr collection by Joe Haupt.
+
+Source:
+https://commons.wikimedia.org/wiki/File:Vintage_%22Derringer_Gun%22_Table_Gas_Lighter_by_Modern,_Hirota_%26_Co.,_Ltd.,_Made_in_Japan_(8510784205).jpg
+https://commons.wikimedia.org/wiki/File:Vintage_%22Derringer_Gun%22_Table_Gas_Lighter_by_Modern,_Hirota_%26_Co.,_Ltd.,_Made_in_Japan_(8510797191).jpg
+
+An independent current eBay listing also titles a boxed example `Derringer Gun Modern Table Gas Lighter Hirota & Co LTD Japan`, while the visible box itself is described/shown as `Modern Table Gas Lighter Derringer Gun`.
+
+Source:
+https://www.ebay.com/itm/256911927343
+
+**Evidence grade:** HOLD, not ADOPTED for the MODERN→Hirota bridge. The Commons wording is collector-supplied metadata rather than a period corporate document, and the eBay attribution is seller-supplied. However, the same attribution recurring independently around the same identifiable Derringer product is now a concrete lead that should be traced to its underlying marking, box side-panel, instruction sheet, catalogue, or period advertisement.
+
+**Research significance:** this is more relevant to the central question than generic movement/OEM comparison because it potentially links a named `MODERN` product directly to `Hirota & Co., Ltd.`.
+
+## 10. Hirota itself later held U.S. cigarette-lighter designs — ADOPTED as corporate capability, not brand linkage
+
+U.S. design-patent indexes record multiple cigarette-lighter designs filed in 1984–1985 with `Kabushiki Kaisha Hirota` as assignee and Yoshio Hirota as inventor, including D284410, D284794, D289802, D289803, D289804 and D291494.
+
+Source:
+https://patents.justia.com/inventor/yoshio-hirota
+
+**Directly supported:** Hirota independently designed/owned lighter products in its own corporate name in the 1980s, alongside the separate Modern Royal/Ichikawa patent stream.
+
+**Limit:** these later patents do not prove that the earlier `H.M.C.` abbreviation expands to Hirota or that Modern De Luxe clocks were Hirota products.
+
+## Current working model after review
+
+The research priority is no longer movement-maker guessing. The central unresolved chain is:
+
+`MODERN / Modernlite physical marks`
+→ `H.M.C.` legal identity ?
+→ `Hirota / Hirota Modern Trading` ?
+→ `1971 Modern Royal product/brand succession` ?
+→ `Modern De Luxe clock line` ?
+
+The separated supply-chain model remains plausible:
 
 `MODERN-family branding / export-distribution channel`
 +
@@ -109,15 +141,13 @@ Most useful model remains a separated supply-chain model rather than `Hirota mad
 →
 `Modern / Modern De Luxe clock products`
 
-The 1974-inferred Mitsubishi commemorative piece strengthens continuity of `Modern De Luxe` into the post-1971 period, but does **not** yet identify the contracting/supplying company.
+But OEM attribution is downstream. It should not outrank establishing who controlled the MODERN product family.
 
-The 2026-09-30 comparison search adds **Tokyo Clock/Tokyo Tokei 2-jewel travel alarms as a concrete topology-comparison target**, but does not elevate Tokyo Tokei to an OEM candidate without image/mechanical matching.
-
-## Highest-priority unresolved bridges
+## Highest-priority unresolved bridges — revised 2026-09-30
 
 1. Identify the legal/corporate expansion of `H.M.C.` from primary or near-primary period material.
-2. Find a 1965–1975 catalogue, box, guarantee, invoice, export directory, trademark record, or trade advertisement that puts `Modern De Luxe` together with Hirota Modern Trading / Modern Royal / Hirota.
-3. Obtain all available images of the Mitsubishi Nagoya 50th-anniversary clock, especially back, inner cover, movement, box and paperwork.
-4. Compare article/model-number systems and packaging typography across `Modern`, `Modernlite`, `Modern De Luxe`, and early `Modern Royal` goods.
-5. Recover image-level evidence for Modern De Luxe 2-jewel and Tokyo Clock/Tokyo Tokei 2-jewel travel alarms and test whether the movement/rear-control topology actually matches.
-6. Keep the unresolved `PAT. PEND. NOS 8560 8561` route open; no Japanese patent/utility-model/design publication has yet been securely matched.
+2. Trace the collector/seller attribution `Modern Derringer = Hirota & Co., Ltd.` back to a period marking, box panel, instruction sheet, catalogue, advertisement, or export record.
+3. Find a 1965–1975 catalogue, box, guarantee, invoice, export directory, trademark record, or trade advertisement that places `MODERN`, `Modernlite`, or `Modern De Luxe` together with Hirota Modern Trading / Hirota / Modern Royal.
+4. Build a dated brand matrix for `MODERN`, `MODERNLITE`, `MODERN DE LUXE`, and `MODERN ROYAL`: earliest/latest verified occurrence, product category, accompanying company mark, address, article/model number, and evidence grade.
+5. Revisit `PAT. PEND. NOS 8560 8561` as a possible route to an applicant/owner identity, testing patent, utility-model, design, application/publication, and foreign-right numbering systems.
+6. Keep clock-movement OEM comparison passive until a strong physical match appears; do not privilege Tokyo Tokei from `2 Jewels` or mixed-lot co-occurrence alone.
