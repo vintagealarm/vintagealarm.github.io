@@ -5,7 +5,8 @@ VINTAGE ALARM Instagram Reels の**実投稿本文・ハッシュタグ・最終
 ## 取り扱い
 
 - 実投稿本文は、Instagram投稿画面のユーザー提供スクリーンショットで確認できた文字列を保存する。
-- 「採用」は最終公開本文に実際に入った要素を指す。
+- 投稿前にユーザーが本文を明示確定した場合は `Approved caption` として保存し、公開スクリーンショット確認までは `Published caption` と混同しない。
+- 「採用」は最終公開本文に実際に入った要素を指す。投稿前確定のみの場合は「投稿予定として確定」と区別する。
 - 「非採用」は、最終公開本文に入っていないことを確認できる要素に限る。草案段階で明示的に棄却した理由が確認できない場合、理由を推測しない。
 - 投稿後のViews / Insightsの時系列正本は `instagram-operations.md`。このファイルは実投稿copyとcreative decisionの正本であり、Insightsログを重複保存しない。
 - 投稿案作成前に `instagram-operations.md` と本ファイルを照合し、既存訴求を新案として再発明しない。
@@ -174,25 +175,65 @@ A wonderfully inconvenient way to set an alarm. And then, of course, it rings. �
 
 ---
 
-## 5投稿横断 — 公開済み訴求マップ
+## Citizen Alarm
 
-| Reel | 公開済み主フック | 主役 | 明示CTA |
-|---|---|---|---|
-| Wittnauer 10WA | bezelでalarm設定 / 普通に見える外見とのギャップ | 操作 + alarm史 + 所有動機 | なし |
-| CYMA Time-O-Vox 18K Chronomètre | holy grail / 18K / CHRONOMÈTRE | 希少性 + 外観 + 音 | `Now listen to it ring.` |
-| Pierce Duofon | two selectable alarm volumes | 固有機構 + モード切替 | link in bio |
-| Basis Alarm (BFG90) | winding / fidget toy | 操作密度 + 視覚反応 + 触覚性 | なし |
-| Westclox Watchlarm W5 | red hand / 60 presses / inconvenience | プッシャー操作 + 不便さの魅力 | なし |
+### Approved caption — user finalized 2026-10-01; publication not yet screenshot-verified
+
+```text
+Japan’s first alarm wristwatch. 🔔
+
+This is the Citizen Alarm, introduced in 1958.
+
+Two crowns.
+Two barrels.
+And instead of a fourth alarm hand, this early version uses a rotating disc at the center of the dial to set the alarm time.
+
+When the time comes, a tiny hammer inside strikes the caseback — turning the watch itself into an alarm.
+
+Citizen would later move to a four-hand design, then expand the idea into Alarm Date, sports models, diver-style watches and even ladies’ models.
+
+But this is where that lineage began.
+
+A mechanical alarm, made for the wrist in Japan.
+
+And yes — it still rings. 🔔
+
+#Citizen #CitizenWatch #AlarmWatch
+#VintageWatch #MechanicalWatch #horology
+```
+
+### Creative selection at approval
+
+- **投稿予定として確定**: `Japan’s first alarm wristwatch.` を冒頭フックにし、1958年のCitizen Alarmを国産アラーム腕時計の起点として扱う。
+- **投稿予定として確定**: 2リューズ、2香箱、中央回転ディスク、裏蓋を叩くハンマーという初期型の特徴を本文に入れる。
+- **投稿予定として確定**: 4針式、Alarm Date、sports models、diver-style watches、ladies’ modelsへの展開を短く接続し、`But this is where that lineage began.` で初代へ戻す。
+- **投稿予定として確定**: 結びは `And yes — it still rings. 🔔`。
+- **明示的に採用しなかった方向**: 会話中に追加提案された動画開幕用 `This isn’t the hour hand.` / `It sets the alarm.`、`Japan, 1958. And it rings.`、`still ringing 68 years later` は最終確定本文には入れない。
+- **公開確認状態**: ユーザーが本文を確定したことは会話で確認済み。Instagramへの実投稿および公開画面は未確認のため、`Published caption` とは扱わない。
+
+---
+
+## 6投稿横断 — 訴求マップ（Citizenは投稿前確定）
+
+| Reel | 主フック | 主役 | 明示CTA | 状態 |
+|---|---|---|---|---|
+| Wittnauer 10WA | bezelでalarm設定 / 普通に見える外見とのギャップ | 操作 + alarm史 + 所有動機 | なし | published |
+| CYMA Time-O-Vox 18K Chronomètre | holy grail / 18K / CHRONOMÈTRE | 希少性 + 外観 + 音 | `Now listen to it ring.` | published |
+| Pierce Duofon | two selectable alarm volumes | 固有機構 + モード切替 | link in bio | published |
+| Basis Alarm (BFG90) | winding / fidget toy | 操作密度 + 視覚反応 + 触覚性 | なし | published |
+| Westclox Watchlarm W5 | red hand / 60 presses / inconvenience | プッシャー操作 + 不便さの魅力 | なし | published |
+| Citizen Alarm | Japan’s first alarm wristwatch / 1958 | 国産初 + 初期型構造 + 系譜 | なし | approved / not publication-verified |
 
 ### 次回投稿案での使用ルール
 
 - 上表の主フックを、確認なしに「新しい切り口」として再提案しない。
 - 同じフックを再利用する場合は、媒体横断再検証・個体横断比較・2周目実験など、再利用の目的を明示する。
 - 実投稿copyとInsightsを混同しない。本文の正本は本ファイル、数値時系列は `instagram-operations.md`。
+- `Approved caption` は公開スクリーンショット確認後に `Published caption` へ更新し、差異があれば公開画面を正とする。
 
 ## 復元・登録状態
 
-- Evidence: 2026-09-30ユーザー提供Instagram投稿画面スクリーンショット5枚。
-- Caption text: 5投稿すべて全文を画面から確認して登録。
-- Creative selection: 最終公開本文に実際に入った／入らなかった要素を記録。未確認の草案上の理由は補完していない。
-- この登録は、過去の「Insightsは残っているが実投稿全文が正本化されていない」欠落を補填するもの。
+- Evidence: 2026-09-30ユーザー提供Instagram投稿画面スクリーンショット5枚 + 2026-10-01 Citizen Alarm本文のユーザー明示確定。
+- Caption text: 公開済み5投稿は全文を画面から確認して登録。Citizenはユーザー確定本文を全文登録したが、公開画面は未確認。
+- Creative selection: 公開済み5投稿は最終公開本文に実際に入った／入らなかった要素を記録。Citizenは会話で確定した本文と明示的に採用しなかった追加提案だけを記録し、公開済みとは扱っていない。
+- この登録は、過去の「Insightsは残っているが実投稿全文が正本化されていない」欠落を補填し、投稿前確定本文も公開済み本文と区別して保持する。
