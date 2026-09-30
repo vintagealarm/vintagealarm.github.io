@@ -225,3 +225,100 @@ Sources:
 ### Search discipline
 
 Do not promote the UNIDO description into a Modern/Modern De Luxe attribution. Its value is that it supplies a dated, independent corporate fingerprint for Hirota. The remaining decisive evidence still needs a brand/company bridge or clock/company bridge.
+
+---
+
+## 9. Personnel / overseas-capital reverse path — 2026-09-30
+
+### Run classification
+
+**MATERIAL STRUCTURAL PROGRESS, NO GATE PASS.** This run found an official 1973 Brazilian capital-registration record placing Kaname Ichikawa, two Hirota-named individuals, and Hirota Company vice-president Sonosuke Aoyagi against the same Brazilian entity. It materially strengthens the documented Ichikawa/Royal ↔ Hirota corporate network after the 1971 joint venture, but it still does not identify `H.M.C.` or connect Modern De Luxe clocks to Hirota.
+
+### A. 1970–1975 U.S. Customs Court evidence for Hirota export operations
+
+`Rosen Enterprises, Inc. v. United States`, 76 Cust. Ct. 226, records that at the end of November 1970 a U.S. buyer ordered **500,000 HD-600 disposable cigarette lighters** from the manufacturer `K. K. Hirota, Tokyo, Japan`.
+
+The same case reproduces a June 16, 1975 affidavit by **Sonosuke Aoyagi**, who states that he was **Vice President of Hirota Company**, had been with the company for **18 years**, and supervised sales and financing. He describes Hirota's export sales of disposable cigarette lighters to the United States. The decision also discusses a comparison model `GL-160` manufactured in and exported from Japan by Hirota Company.
+
+Source:
+- https://app.midpage.ai/document/rosen-enterprises-inc-v-united-8120623
+
+Judgment: strong independent evidence for Hirota's direct manufacturer/exporter role and a named sales/finance executive. It does not contain `Modern`, `H.M.C.`, or `Modern De Luxe`.
+
+### B. 1973 Brazilian Central Bank record — Ichikawa and Hirota personnel on one entity
+
+A Brazilian Central Bank historical foreign-capital registration publication contains four consecutive entries dated **03/07/1973** for the same Brazilian entity, `HIROTA CERAMICA MAIRINQUE LTDA.`:
+
+- `KANAME ICHIKAWA — JAPAO`
+- `YOSHIO HIROTA — JAPAO`
+- `RYOHEI HIROTA — JAPAO`
+- `SONOSUKE AOYAGI — JAPAO`
+
+The entries carry consecutive certificate references 260/03742 through 260/03745. The record establishes that these four Japanese names were each recorded in connection with the same Brazilian Hirota entity. It does not, by itself, specify their exact ownership percentages, offices, or the Japanese corporate vehicle through which any investment was made.
+
+Source:
+- Banco Central do Brasil, historical foreign-capital registration publication: https://www.bcb.gov.br/rex/registrosCE/2007/rce112007.pdf
+
+Independent corporate-registry-derived data identifies `HIROTA CERAMICA MAIRINQUE LTDA.` (CNPJ 45.493.806/0001-05) as opened on **27/02/1973** in Mairinque, São Paulo. This is used only to anchor the Brazilian entity's existence/date, not to infer shareholder roles absent from the Central Bank text.
+
+Source:
+- https://www.nacionalconsultas.com.br/cnpj/hirota-ceramica-mairinque-ltda-45493806000105
+
+### C. Why the Kaname Ichikawa occurrence is important
+
+Modern Royal's own detailed history states:
+- Kaname Ichikawa founded Ichikawa Sangyo in 1946;
+- Royal Industries was established in 1965;
+- in **1971 Royal Industries entered a joint venture with Hirota Modern Trading and was renamed Modern Royal Co., Ltd.**
+
+Source:
+- https://www.modernroyal.com/docs/enkaku.pdf
+
+Therefore the 1973 Brazilian record is not being used to invent the Ichikawa–Hirota relationship; that relationship is already directly stated by Modern Royal. The new value is that an **independent government capital record two years after the joint venture places Kaname Ichikawa together with Hirota-linked names on the same overseas Hirota entity**, showing that the relationship extended beyond the bare wording of the Modern Royal corporate-history timeline.
+
+### D. Identity controls on the Hirota/Aoyagi names
+
+- **Sonosuke Aoyagi** is independently identified by the 1975 U.S. Customs Court record as Hirota Company vice president and long-serving sales/finance executive. This makes his appearance in the 1973 Brazilian Hirota entity particularly probative of a real Hirota corporate connection.
+- **Yoshio Hirota** is the name of a later cigarette-lighter designer whose 1984–85 U.S. design applications were assigned to `Kabushiki Kaisha Hirota` in Tokyo. This is a strong same-industry/company-name lead, but the current evidence does **not** prove that the 1973 Brazilian registrant and the 1984–85 inventor are the same individual.
+- **Ryohei Hirota** is the name of a later lighter inventor on a 2000 application assigned to `Hirota & Co., Ltd.` in Tokyo. Again, same-person identity with the 1973 Brazilian registrant is **not established** and must not be assumed.
+
+Sources:
+- https://patents.justia.com/patent/D284410
+- https://patents.justia.com/inventor/yoshio-hirota
+- https://patents.justia.com/patent/6287109
+
+### E. What this changes
+
+The working corporate model gains a stronger documented layer:
+
+`Ichikawa / Royal lineage` ↔ `Hirota lineage`
+
+is no longer supported only by the 1971 Modern Royal corporate-history statement. It now also has an independent 1973 overseas-capital trace involving **Kaname Ichikawa + a confirmed Hirota Company vice president + Hirota-named individuals** on one Hirota entity.
+
+This materially improves the corporate-network reconstruction and makes person-name reverse searching a productive route.
+
+### F. What this does NOT change
+
+No unresolved gate passes yet. The new evidence does **not** establish:
+- `H.M.C.CO.` = Hirota;
+- `MODERN` trademark ownership;
+- `Modern De Luxe` trademark ownership;
+- Modern De Luxe lighter manufacture by Hirota;
+- Modern De Luxe clock manufacture/supply by Hirota;
+- any exact role of Hirota Ceramica Mairinque in lighter or clock production.
+
+Gate status remains:
+- G1 CLOCK → COMPANY: **OPEN**
+- G2 TRADEMARK → OWNER: **OPEN**
+- G3 H.M.C. → ENTITY: **OPEN/HOLD**
+- G4 CLOCK → DATE: **PASS** (unchanged)
+- G5 PROMOTIONAL GOODS / DISTRIBUTION → COMPANY: **OPEN**
+
+### G. Next high-value reverse keys
+
+Prioritize period searches for:
+1. `Sonosuke Aoyagi / 青柳` + Hirota / Modern / export / trademark / address;
+2. `Kaname Ichikawa / 市川要` + Hirota beyond the already-known Modern Royal history;
+3. the 1973 Brazilian entity and its incorporation/shareholder documents, which may expose corporate capacities or parent-company wording;
+4. Yoshio/Ryohei Hirota only where a source can establish same-person identity, not by name matching alone;
+5. company addresses attached to these names, then compare against H.M.C./Modern packaging, patents, directories and trademark records.
