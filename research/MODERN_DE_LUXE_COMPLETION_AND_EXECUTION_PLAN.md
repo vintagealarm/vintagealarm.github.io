@@ -44,11 +44,11 @@ Current: OPEN/HOLD. `MODERN` ↔ `H.M.C.CO., TOKYO` is physically evidenced; `H.
 
 ### G4 CLOCK → DATE
 PASS: at least one Modern De Luxe clock/watch independently dated by contemporaneous documentation or a corporate anniversary/event whose date is itself primary-sourced.
-Current: partial. Anniversary examples are leads; seller dating alone does not pass.
+Current: PASS for a bounded 1975-era anchor, not manufacture date. A Yahoo Auctions object is titled `MODERN DE LUXE ALARM / 創業20周年 / 1兆円達成記念 / 農協の共済 / 贈 福岡県共済連`. Independently, library/CiNii records show the issuer 福岡県共済農業協同組合連合会 published its own `福岡県農協共済二十年史` in 1975 (福岡県立図書館 gives 1975.6; 福岡市総合図書館 gives the same title/issuer; CiNii records 1975). This independently anchors the commemorative event to the 1975 twenty-year milestone. Treat this as an event/provenance anchor only: it does not prove clock manufacture in 1975, supplier identity, or a pre-1971 date.
 
 ### G5 PROMOTIONAL GOODS / DISTRIBUTION → COMPANY
 PASS: Modern De Luxe promotional product + supplier/operator identity, or an independently documented distribution chain that can be tested against the clock line.
-Current: OPEN; high priority.
+Current: OPEN; high priority. The Fukuoka and Mitsubishi commemorative clocks strengthen the promotional-goods corpus, but neither currently names the supplier/operator.
 
 ## 3. Search controls
 
@@ -74,7 +74,7 @@ Every research run must end with one of:
 1. Promotional-goods bridge: exact-name Modern De Luxe lighters and H.M.C./Modernlite promotional products; prioritize markings, boxes, catalogs, institutional collections, and corporate-client records.
 2. H.M.C. entity fingerprint: company/address/officer/patent/trademark/export-directory evidence.
 3. Trademark body text: 1959/1965 trademark references and related registries; bibliographic existence alone does not count.
-4. Customer reverse path: Mitsubishi Nagoya Works and Fukuoka mutual-aid commemorative clocks; seek procurement, anniversary, gift, supplier, or internal-history evidence.
+4. Customer reverse path: Mitsubishi Nagoya Works and Fukuoka mutual-aid commemorative clocks; seek procurement, anniversary, gift, supplier, or internal-history evidence. The Fukuoka 20-year milestone is now independently anchored to 1975; supplier remains open.
 5. Clock-industry body text: 1960/1965/1968 clock dictionaries and 1973/74 chronology/index.
 
 Stop a branch when it returns only already-known marketplace copies or unsupported seller dating.
