@@ -114,3 +114,30 @@
 5. RECORD: GitHub commit。
 
 既確認事項の再説明は、新証拠で評価が変わった場合だけ行う。
+
+## 7. 2026-09-30 第1回ゲート限定Web探索
+
+判定: **NO MATERIAL PROGRESS**。
+
+監査後の最初の探索として、CLOCK→COMPANY / H.M.C.→ENTITYを中心に、`Modern De Luxe` + clock/alarm/Japan/company/catalog/Hirota/H.M.C.、および `H.M.C.CO., TOKYO` / `Modern H.M.C.` の組合せを検索した。
+
+### NEW
+
+4ゲートを動かす新規一次・同時代資料は得られなかった。
+
+### NO-HIT
+
+- CLOCK→COMPANY: 三菱名古屋製作所50周年個体、Modern De Luxe Japan旅行時計、巨大腕時計型個体など既知または販売者由来の市場資料へ戻った。会社責任主体を同一資料上で示す保証書・箱・広告・カタログ・納入記録は未発見。
+- H.M.C.→ENTITY: `Modern (H.M.C.)` / `H.M.C.CO.` 現存ライターと、販売者による「広田」帰属へ戻った。H.M.C.の正式法人名を独立に示す住所録・商標・輸出者資料は未発見。
+- TRADEMARK→OWNER: 今回の通常Web探索では本文行へ到達せず。既定どおり書誌再発見は進捗に数えない。
+- CLOCK→DATE: 1974年三菱個体以外に、販売者推定ではない新しい年代杭は得られなかった。
+
+### FILTERED / 進捗扱いしない
+
+- Pamono / Chairish等の `1960s`、`Germany` 帰属は販売者記載で、同時代資料ではないため年代・製造国ゲートを動かさない。
+- Auctionetの `1970s` 表記もオークションカタログ上の後年帰属で、同時代年代杭にはしない。
+- Modern De Luxe名のライター現存例は既にSUPPORT分類済みであり、時計主体との直接接続がないため再発見として扱う。
+
+### NEXT
+
+通常Webの文字列検索を同じ語で反復しない。次はACCESS-BLOCKED資料の本文取得、または住所・人物・業種からの逆引き資料へ移る。特に商標図鑑本文と全国工場通覧本文が優先。
