@@ -226,6 +226,33 @@
 - countries: India 24.2% / Turkey 8.1% / France 5.7% / United States 5.0% / Iran 4.4%
 - source_status: CANONICAL_LOG_SCREENSHOT
 
+### Snapshot — 2026-09-30 22:10 JST
+- observed_at_jst: 2026-09-30 22:10
+- views: 3,445
+- viewers: 2,683
+- average_watch_time: 6s
+- follows: 15
+- likes: 148
+- comments: 1
+- reposts: 4
+- saves: 28
+- share_count: UI `--`
+- skip_rate: 43.0%
+- share_rate: 1.1%
+- like_rate: 5.4%
+- save_rate: 1.0%
+- repost_rate: 0.1%
+- comment_rate: 0.0%
+- profile_accesses: 47
+- bio_link_clicks: 2
+- followers: 1.2%
+- non_followers: 98.8%
+- age: 13–17 0.5% / 18–24 23.3% / 25–34 40.3% / 35–44 17.4% / 45–54 10.0% / 55–64 5.4% / 65+ 3.0%
+- age_18_34_combined: 63.6%
+- countries: India 22.6% / Turkey 7.6% / France 6.8% / United States 5.1% / Iran 4.3%
+- source_status: CANONICAL_LOG_SCREENSHOT
+- note: 2026-09-30 22:10 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。
+
 ---
 
 # CYMA Time-O-Vox 18K Chronomètre
