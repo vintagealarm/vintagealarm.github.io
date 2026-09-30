@@ -120,6 +120,51 @@ Do **not** let these source leads replace the other open investigations. They ar
 6. continue 1971 product-succession work around Hirota Modern Trading / Royal Industries / Modern Royal;
 7. keep OEM-maker matching passive unless a strong physical identity appears.
 
+## 14. Execution log — 2026-09-30, post-control sweep
+A fresh targeted sweep was run after locking the workflow above. This section records both hits and failures so the same searches are not repeated as if new.
+
+### ADOPTED / bibliographic clarification: `日本有名商標録 新版` is a curated famous-trademark reference, not a comprehensive registry
+NDL confirms the 1972 volume (360p, original price JPY 4,000) and personal/library transmission eligibility. Separate Japanese court material describing the publication states that the new edition selected marks from the older famous-mark corpus after considering whether they still qualified as famous marks. Therefore **absence of `MODERN` from this book, if confirmed, would not prove absence of a registered or used MODERN trademark.** A positive hit would still be valuable and must be traced to the actual owner/JPO record.
+
+Sources:
+- https://ndlsearch.ndl.go.jp/books/R100000002-I000001128318
+- https://www.courts.go.jp/assets/hanrei/hanrei-pdf-14684.pdf
+
+### ADOPTED / source-acquisition status: `広苑 第3号` remains immediately obtainable
+The current 日本の古本屋 result still lists `株式会社広田(現・株式会社 ライテック) 社内誌「広苑」 第3号`, 野尻喜一, 1966, B5, 56p, at JPY 2,200 and describes it as `浅草橋のライター製造業`. This is stronger as a Hirota-side 1960s acquisition target than the later trademark reference, but its internal contents remain unread and no product/clock claim is promoted from the listing alone.
+
+Source: https://www.kosho.or.jp/search/製造業?pageno=4
+
+### HOLD / clock chronology: another Japan-attributed giant Modern De Luxe survives, but still no independent pre-1971 date
+A current Dutch marketplace result describes a 75–78 cm giant wristwatch-form `Modern de Luxe` as Japan and seller-dates it to the 1960s. This conflicts with German attribution in Pamono/Etsy while sharing the same broad giant-watch corpus. Because neither route supplies period provenance, **country/date seller claims remain rejected as chronology evidence.** The search does, however, reinforce that the giant form is not represented by a single isolated online listing.
+
+Sources:
+- https://www.marktplaats.nl/q/burgemeester%2Bklok/
+- https://www.pamono.eu/wristwatch-from-modern-de-luxe-1960s
+
+### HOLD / later provenance anchor: Japan purchase by the 1980s
+Auctionet documents a `Modern de luxe`, Japan wall clock whose stated provenance is purchase in Japan in the 1980s. The movement is noted as later-mounted, so this object is **not** usable to date the movement or prove 1970s manufacture. At most it is a weak provenance point that Modern de luxe-branded clock objects were circulating/purchased in Japan by the 1980s.
+
+Source: https://auctionet.com/en/3178670-clock-wall-clock-modern-de-luxe-japan-1970s
+
+### NEGATIVE / priority routes still unresolved in this sweep
+Fresh exact-string and variant searches did **not** recover:
+- an original 1961 JPO publication tying `広田良夫` / `浅草橋3-19` to a recoverable publication number;
+- a Japanese patent/utility-model/design record corresponding to Modern Lite `PAT. PEND. NOS 8560 8561`;
+- a period corporate/trademark record formally expanding `H.M.C.CO.` as Hirota;
+- a pre-1971 Modern De Luxe clock/watch with independent contemporaneous dating;
+- a period document directly joining a Modern De Luxe clock to Hirota, H.M.C., Hirota Modern Trading, or Modern Royal.
+
+These are recorded as search failures, **not absence proofs**.
+
+### Priority after this sweep
+No priority inversion. Continue:
+1. acquire/read `広苑 第3号` or obtain page images/index;
+2. inspect `時計事典` (1965) contents, not merely bibliography;
+3. inspect `日本有名商標録` contents while remembering it is selective;
+4. attack JPO 8560/8561 and the 1961 Hirota lead through historical number-system/reference routes rather than ordinary exact-string web search;
+5. keep clock chronology search limited to independently dated evidence.
+
 ## Current working model
 Confirmed/strong surrounding structure:
 
