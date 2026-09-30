@@ -19,14 +19,15 @@
 1. 現在の会話にある最新スクリーンショット / Insights / Relay URL・値 / ユーザー訂正
 2. この `ROUTER.md`
 3. `measurement/.internal/.virtual/social/instagram-operations.md` — SNS横断の実測・先行実績・現在の観測
-4. `measurement/experiment-log.md` — 過去のYouTube / Analytics等の詳細実験ログ
-5. `measurement/metrics.md` — 計測定義
-6. `PROJECT_STATE.md` — VA公開個体・HOW THEY RING・サイト現行状態
-7. 対象WATCH / HOW THEY RINGの現行実装
-8. 必要なProject資料・一次資料・Web
-9. 会話記憶は確認先を探す索引としてのみ使う
+4. `measurement/.internal/.virtual/social/instagram-published-copy.md` — Instagram実投稿本文・ハッシュタグ・採用／非採用訴求の正本
+5. `measurement/experiment-log.md` — 過去のYouTube / Analytics等の詳細実験ログ
+6. `measurement/metrics.md` — 計測定義
+7. `PROJECT_STATE.md` — VA公開個体・HOW THEY RING・サイト現行状態
+8. 対象WATCH / HOW THEY RINGの現行実装
+9. 必要なProject資料・一次資料・Web
+10. 会話記憶は確認先を探す索引としてのみ使う
 
-投稿案を作る場合は、対象時計について過去X / YouTube / Instagramで既に使った訴求がないかを3・4で先に確認する。既存コンセプトを新案として再発明しない。
+投稿案を作る場合は、対象時計について過去X / YouTube / Instagramで既に使った訴求がないかを3・4・5で先に確認する。既存コンセプトを新案として再発明しない。
 
 ## 3. CANONICAL FUNNEL — 現行Instagram→VA導線（変更禁止）
 
@@ -37,6 +38,7 @@
 - HOW THEY RINGは「VAへ入った後に選ぶページ」ではない。**InstagramプロフィールTOPに置いたVA側のランディングページそのもの**。
 - Instagram投稿本文には現在VAリンクを置いていない。
 - `IG@l.instagram.com → /en/how-they-ring/` は、この意図的に設計したプロフィールTOP導線の成果を観測する主要指標として扱う。ただしAnalytics単独ではプロフィール画面上のクリック操作そのものまでは証明しない。
+- Instagram実投稿本文に `link in bio` 等のCTAがある場合も、実際のTOP外部URLは上記英語HOW THEY RINGである。
 - Council / 焼き / 通常回答で、`Reel → profile → VA → HOW THEY RING`、`Reel → VA → HOW THEY RING`、`SNS → VA → WATCH / OWNER'S NOTE / HOW THEY RING` のようにHOW THEY RINGをVA到達後の横並び選択肢へ並べ替えてはならない。
 - TOP外部URLがユーザー指示または実画面確認で変更された場合のみ、この節を更新する。
 
@@ -61,6 +63,7 @@
 - Instagram開始とVA visits増加の因果は、同時期に増えただけでは確定しない。
 - 2投稿程度の少数標本からアルゴリズム学習完了・恒常的audience像・単一の勝因を確定しない。
 - `fidget toy` は2026-09-27に新しく思いついた企画ではない。2026-09-09のBasis Alarm (BFG90) YouTube Shortsで実行済みの先行コンセプト。
+- Instagramの公開済み5投稿の本文・hashtags・最終訴求は `instagram-published-copy.md` に復元済み。投稿案作成時に記憶から再構成しない。
 
 **重要:** RESOLVED項目は「忘れる」のではなく、判断の前提として内部適用する。毎回説明文・スレのレス・注意書きとして復活させない。
 
@@ -84,6 +87,7 @@
 
 - まずVA掲載6個体を一巡させる。
 - 一巡中は大きな施策変更を避け、標本を増やす。
+- 公開済みInstagram本文の正確な再利用・比較は `instagram-published-copy.md` を参照する。
 - Wittnauer / CYMAの初期実測詳細は `instagram-operations.md` を参照。
 - Pierce以降も同じ時間窓・同じ指標を可能な範囲で採る。
 - 一巡後に、個体 / 操作 / fidget / 音 / 歴史 / 比較 / URL導線等を次の検証軸として組み直す。
@@ -97,7 +101,7 @@ SNS + Analytics + VAを焼く場合:
 1. **最初にCANONICAL FUNNELを内部で固定し、出力中に並べ替えない。**
 2. ACTIVE論点を主題にする。
 3. RESOLVED項目は内部前提として使い、説明のためだけにレスを消費しない。
-4. 過去SNS実績を確認せず、現在の数字だけから新企画を発明しない。
+4. 過去SNS実績と `instagram-published-copy.md` を確認せず、現在の数字だけから新企画を発明しない。
 5. VAは単なるリンク先ではなく、**HOW THEY RINGをInstagram側の入口として、そこからWATCH / OWNER'S NOTE / 研究資産への内部遷移を評価する。**
 6. 数字の絶対値、率、流入、内部遷移を混同しない。
 7. 未確認の因果は未確認のまま残す。
@@ -107,6 +111,8 @@ SNS + Analytics + VAを焼く場合:
 ## 9. 更新ルール — CANONICAL WRITE CONTRACT
 
 新しいInsights / SNS実績 / Relay観測が来たら、詳細値は **既存の正規保存先** `instagram-operations.md` または、その観測種別について既に正本として定義済みの実験ログへ記録する。
+
+Instagramの**実投稿本文・hashtags・最終的に採用された訴求・公開本文から確認できる非採用範囲**は `instagram-published-copy.md` を正本とする。実投稿スクリーンショットを受け取った場合、要約だけで済ませず、確認できる本文を全文保存する。草案時の棄却理由が資料から確認できない場合は推測で補完しない。
 
 ### Instagram Insights の完了条件
 
@@ -120,12 +126,24 @@ Instagram Insightsスクリーンショットを受け取った場合は、原�
 6. 必要ならcommit diffも確認し、指定外変更・欠落・重複がないことを監査する。
 7. ここまで完了して初めて「記録済み」と扱い、その後に分析回答を返す。
 
+### Instagram Published Copy の完了条件
+
+実投稿本文のスクリーンショットを受け取った場合は、原則として次を1セットで完了する。
+
+1. 画面上の本文・hashtags・CTAを全文確認する。
+2. `instagram-published-copy.md` の既存登録と照合する。
+3. 公開本文を全文保存し、採用された主フック／機構／CTAを記録する。
+4. 最終本文に入らなかった要素を記録する場合、公開本文・既存草案・ユーザー訂正から確認できる範囲だけに限定する。理由を推測しない。
+5. commit成功後に本ファイルを再取得し、全文・hashtags・訴求マップを監査する。
+6. ここまで完了して初めて「実投稿全文を記録済み」と扱う。
+
 ### 禁止
 
 - `sidecar`、`snapshots/`、temporary log、個体別臨時ログ等を、AI判断だけで新しい保存先として作らない。
 - 「ファイルが大きい」「全置換APIで扱いづらい」「ツール都合」「安全そう」を理由に正規保存先を変更しない。
 - 正規保存先への書き込みが安全に完了できない場合、別ファイルへ逃がして「記録済み」としない。**未記録と明示して止める。**
 - スクリーンショットで確認できた主要指標を、AI判断で一部だけ抜き出して保存しない。既存ログの粒度に合わせる。
+- 実投稿全文をフックだけ・要約だけに縮めて保存しない。
 - 観測値と推測・因果解釈を混ぜない。
 - ユーザーが棄却した保存方式・旧仕様を、新証拠や明示指示なしに復活させない。
 
@@ -134,6 +152,7 @@ Instagram Insightsスクリーンショットを受け取った場合は、原�
 - 正本の分割、保存先変更、ログ構造変更、新ディレクトリ導入、履歴の統合・削除は**設計変更**として扱う。
 - 設計変更は、ユーザーの明示指示なしに実行しない。
 - 既存正本が肥大化していても、AIが独断で分割しない。必要なら最適化案として提示し、承認後に移行する。
+- `instagram-published-copy.md` は2026-09-30のユーザー明示指示「全文を登録記録」「綺麗に統合と解決」に基づき、実投稿copy/creative decisionだけを `instagram-operations.md` の時系列Insightsから分離した正本である。ツール都合の臨時sidecarではない。
 
 ### ROUTER自体の更新条件
 
