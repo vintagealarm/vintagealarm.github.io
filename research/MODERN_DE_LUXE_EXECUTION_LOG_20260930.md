@@ -172,3 +172,56 @@ These are search failures, not absence proofs.
 Do not count further advertising-logo variants as progress unless they expose a supplier/manufacturer/exporter/trademark-owner field, packaging label, invoice, catalogue entry, address, or other company fingerprint. Generic web searches combining the already-known brand strings are now low-yield and should not be repeated as a primary tactic.
 
 Highest-value unresolved work remains **body-text acquisition** from the period references already identified, plus recovery of packaging/document imagery carrying company fingerprints.
+
+---
+
+## 8. Institutional-source sweep — UNIDO / patent control — 2026-09-30
+
+### Run classification
+
+**SUPPORTING MATERIAL PROGRESS, NO GATE PASS.** A new institutional document independently characterizes Hirota & Co. and identifies company personnel, but it does not connect Hirota to `H.M.C.` or `Modern De Luxe`. G1/G2/G3/G5 therefore remain OPEN.
+
+### New institutional evidence
+
+A September 1983 UNDP/UNIDO investment-promotion final report records an actual firm visit to **Hirota & Co., Ltd. on March 30, 1983**. The report states that Hirota specialized in producing cigarette lighters, was a medium-size firm, and had strong metalworking capability including **moulding and plating**. It also records prior experience selling machinery to Algeria. This is independent institutional evidence, not Hirota's own retrospective corporate history or marketplace attribution.
+
+The same report's personnel appendix identifies three Hirota & Co. personnel visited by the promotion team:
+- **Minoru Hirota — President**
+- **Shozo Hirota — Production Manager**
+- **Shigeru Hirota — Section Chief, Production Section**
+
+Source:
+- UNIDO, `UNDP/UNIDO Training Programme for Investment Officials from Developing Countries (DP/SEN/82/022) — Final Report`, September 1983, pp.17 and 34 in the report pagination / PDF pp.21 and 38.
+- https://www.unido.org/publications/ot/9651407/pdf
+
+### Why this matters / why it does not close a gate
+
+This strengthens the independently documented corporate profile of Hirota as a lighter producer with in-house metalworking/production capability and named production management. It is relevant when testing whether Hirota could plausibly have manufactured or coordinated metal promotional goods.
+
+It does **not** establish:
+- that `H.M.C.CO.` expands to Hirota;
+- ownership of `MODERN`, `Modernlite`, or `Modern De Luxe`;
+- manufacture, export, distribution, or supply of any Modern De Luxe clock;
+- a Hirota role in the known commemorative clocks.
+
+Therefore it is supporting evidence only, not a bridge proof.
+
+### Patent-side control
+
+Separate patent searches confirm that Kaname Ichikawa was already filing lighter inventions in his own name by 1958 (US 2,921,495, filed 1958-02-11), while later U.S. design patents from 1976 onward identify Modern Royal Co., Ltd. as assignee. This is useful chronology for the Ichikawa/Royal design lineage but does not identify H.M.C. or Modern De Luxe, so it is not scored as progress on the unresolved gates.
+
+Sources:
+- https://patents.google.com/patent/US2921495A/en
+- https://patents.justia.com/inventor/kaname-ichikawa
+
+### Gate status
+
+- G1 CLOCK → COMPANY: **OPEN**
+- G2 TRADEMARK → OWNER: **OPEN**
+- G3 H.M.C. → ENTITY: **OPEN/HOLD**
+- G4 CLOCK → DATE: **PASS** (unchanged)
+- G5 PROMOTIONAL GOODS / DISTRIBUTION → COMPANY: **OPEN**
+
+### Search discipline
+
+Do not promote the UNIDO description into a Modern/Modern De Luxe attribution. Its value is that it supplies a dated, independent corporate fingerprint for Hirota. The remaining decisive evidence still needs a brand/company bridge or clock/company bridge.
