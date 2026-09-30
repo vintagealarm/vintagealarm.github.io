@@ -15,24 +15,42 @@ The seller/page dates the piece to 1974 from the Nagoya Works' 1924 establishmen
 
 **Dating judgment / HOLD:** the 50th-anniversary inscription provides a materially stronger dating anchor than a marketplace style estimate. If the anniversary is counted from the Nagoya Works' 1924 establishment, the intended anniversary year is 1974. Mitsubishi primary documentation proving that this exact clock was distributed in 1974 has not yet been obtained.
 
-## 2. Modern / 4 JEWELS / JAPAN travel alarm — HOLD comparison lead
+## 2. Modern / 4 JEWELS / JAPAN travel alarm — ADOPTED as physical clock-family corpus, relationship HOLD
 
-The same Japanese source documents a book-form travel alarm marked `Modern`, `4JEWELS`, `JAPAN`, with a shared clock/alarm mainspring. This is useful corpus evidence but does not alone connect the clock to Hirota, H.M.C., Modern Royal, or Modern De Luxe.
+The same Japanese source documents a book-form travel alarm explicitly marked `Modern`, `4JEWELS`, `JAPAN`. The seller records that both clock and alarm functions work and that the clock and alarm use the same mainspring.
 
-## 3. Modern De Luxe Japanese travel-alarm corpus
+Source:
+https://noraneco1972.jimdofree.com/ブログ-menu/時計/トラベルクロック/
 
-Surviving marketplace records include mechanical `Modern De Luxe 2 Jewels` travel alarms attributed to Japan. Seller-supplied country/date fields remain secondary evidence only.
+**Directly supported:** `Modern` was used on a Japanese mechanical alarm/travel-clock product, not only on lighters. The `4JEWELS / JAPAN` marking is reported directly by the object page.
+
+**Important control from the same page:** the archive also contains SEIKO 2-jewel and CITIZEN 2-jewel Japanese travel alarms, including single-mainspring examples. Therefore jewel count and shared-mainspring architecture are not manufacturer fingerprints and must not be used alone to infer a common maker.
+
+**Still HOLD:** no direct document or marking yet connects this `Modern / 4JEWELS / JAPAN` clock to Hirota, H.M.C., Modern Royal, or `Modern De Luxe`.
+
+## 3. Modern De Luxe Japanese travel-alarm corpus — strengthened, maker still unresolved
+
+Surviving records include multiple Japanese `Modern De Luxe` travel alarms. In addition to the Mitsubishi commemorative coin-form alarm, Label Emmaüs records a separate cased travel alarm marked `Modern de Luxe - Japan`, approximately 6.5 × 6 × 3 cm.
 
 Sources:
+https://www.label-emmaus.co/fr/reveil-de-voyage-modern-de-luxe-japan-109797152/
 https://www.ebay.com/itm/165225041705
 https://www.ebay.com/itm/205293449679
 
+**Direct conclusion:** `Modern De Luxe` is not represented only by the unusual 55 mm wrist-alarm or a single commemorative clock; a repeatable Japanese travel-alarm corpus exists.
+
+**Limit:** these surviving sales/object records do not identify the legal brand owner or movement/case manufacturer.
+
 ## 4. Modern H.M.C. / Modernlite physical corpus — ADOPTED for existence, HOLD for corporate expansion
 
-Surviving objects establish `Modern`, `Modernlite`, `H.M.C.` and Japanese lighter production as a real physical corpus. The formal expansion/legal identity of `H.M.C.` remains unresolved.
+Surviving objects establish `Modern`, `Modernlite`, `H.M.C.` and Japanese lighter production as a real physical corpus. A museum collection entry (L.T. Jordan Institute) records the bottom inscription of an object as `Modern H.M.C.` and `MODERNLITE AUTOMATIC SUPERLIGHTER ART. No. 510`. A current eBay object record independently shows/reads `Modern H.M.C. Japan` on a lighter.
 
-Source:
+Sources:
+https://hub.catalogit.app/l.t.-jordan-institute-for-international-awareness/folder/entry/set-of-cigarette-case-and-lighter-with-oil-refinery-scene-in-blue-case
 https://commons.wikimedia.org/wiki/File:Vintage_Advertising_Cigarette_Lighter_With_Finest_Tobaccos_Logo,_Modernlite_Automatic_Superlighter,_Art._No._510,_Modern_(H.M.C.),_Made_In_Japan,_Circa_1950s_(19470352601).jpg
+https://www.ebay.com/itm/397596465867
+
+The formal expansion/legal identity of `H.M.C.` remains unresolved. Do not convert these physical marks into `H.M.C. = Hirota` without an independent corporate bridge.
 
 ## 5. Modern Royal official lineage — chronological control
 
@@ -59,12 +77,13 @@ https://downloads.unido.org/ot/48/04/4804284/10001-15000_13029.pdf
 
 User-supplied eBay screenshot (2026-09-30) directly shows the boxed product and hang tag marked `MODERN` / `TABLE GAS LIGHTER Derringer Gun`. The eBay listing title attributes it to `Hirota & Co LTD Japan`, but no HIROTA marking is visible in the supplied screenshot; therefore the physical `MODERN` branding is ADOPTED while the Hirota attribution remains seller metadata/HOLD.
 
-Independent Wikimedia/Flickr records title the same identifiable Derringer product `Vintage "Derringer Gun" Table Gas Lighter by Modern, Hirota & Co., Ltd., Made in Japan`, but this is collector metadata rather than a period corporate inscription.
+Independent Wikimedia/Flickr records title the same identifiable Derringer product `Vintage "Derringer Gun" Table Gas Lighter by Modern, Hirota & Co., Ltd., Made in Japan`, but this is collector metadata rather than a period corporate inscription. A specialist antiques dealer separately catalogues an original-box Derringer as `Modern (Hirota & Co.)`, again useful corroborating metadata but not a period primary inscription.
 
 Sources:
 https://www.ebay.com/itm/256911927343
 https://commons.wikimedia.org/wiki/File:Vintage_%22Derringer_Gun%22_Table_Gas_Lighter_by_Modern,_Hirota_%26_Co.,_Ltd.,_Made_in_Japan_(8510784205).jpg
 https://commons.wikimedia.org/wiki/File:Vintage_%22Derringer_Gun%22_Table_Gas_Lighter_by_Modern,_Hirota_%26_Co.,_Ltd.,_Made_in_Japan_(8510797191).jpg
+https://www.elcoleccionistaeclectico.com/en/deringer-gun-table-lighter-gold-plated-black-lacquer-modern-hirota-company-1980s-p24945
 
 ## 9. 1968 Zurich Commercial Court record: Hirota manufactured `Modern Feudor` lighters — ADOPTED, major bridge
 
@@ -86,42 +105,62 @@ The decision also records documentary assertions concerning a licence/manufactur
 - it does not establish that the Derringer product was manufactured by Hirota, although it makes the recurring collector attribution materially more plausible;
 - it does not connect `Modern De Luxe` clocks/watches to Hirota.
 
-**Research significance:** the previous central bridge `MODERN-family name → Hirota?` is no longer supported only by modern collector metadata. A period judicial record independently establishes Hirota production of a `Modern`-prefixed lighter line before the 1971 Modern Royal joint venture. This materially strengthens the model that a MODERN-family commercial/product vocabulary existed on the Hirota side before the Hirota Modern Trading + Royal Industries combination.
-
 ## 10. Hirota later held U.S. cigarette-lighter designs — ADOPTED as corporate capability
 
 U.S. design-patent indexes record multiple cigarette-lighter designs filed in 1984–1985 with `Kabushiki Kaisha Hirota` as assignee and Yoshio Hirota as inventor. This supports independent Hirota lighter design/manufacturing activity but does not identify H.M.C. or Modern De Luxe.
 
-## Current working model after 1968 court evidence
+## 11. Clock-side status after renewed search — the gap is now explicit
 
-The investigation has moved materially closer to the Hirota side:
+A renewed brand-first search did **not** produce a period catalogue, advertisement, guarantee, patent, trade directory, or corporate document that directly places `Modern De Luxe` clocks/watches with Hirota, Hirota Modern Trading, H.M.C., or Modern Royal.
 
-`Hirota & Co., Ltd. — lighter manufacturer (period legal evidence)`
-→ `Modern Feudor — Hirota production, mid-1960s (period legal evidence)`
+What can now be separated cleanly is:
 
-Parallel physical corpus:
+- `Modern` on a Japanese 4-jewel mechanical travel alarm — physical/object-page evidence;
+- `Modern De Luxe` on multiple Japanese mechanical travel alarms — physical/object-market corpus;
+- `Modern De Luxe` on the 55 mm wrist-alarm documented by Beitl — specialist book evidence already held in project sources;
+- `Modern` / `Modern Feudor` on Hirota-produced lighters — period legal evidence for the lighter side;
+- `Modern H.M.C.` / `Modernlite` on Japanese lighters — physical/museum evidence;
+- **no direct bridge yet between the clock corpus and the Hirota/H.M.C./Modern Royal corporate chain.**
+
+This negative result matters: the surrounding lighter/corporate history is becoming substantially better documented while the clock attribution remains disproportionately opaque. Until a clock-side company mark or period document appears, the clock line must remain an independent corpus rather than being absorbed into the Hirota attribution.
+
+## Current working model
+
+Period-supported lighter side:
+
+`Hirota & Co., Ltd.`
+→ `Modern Feudor` lighter production by mid-1960s
+
+Parallel physical lighter corpus:
 
 `MODERN / Modernlite`
-→ `H.M.C.CO., TOKYO` (physical marks)
+→ `H.M.C.CO., TOKYO`
 
 Corporate succession:
 
 `Hirota Modern Trading + Royal Industries`
-→ `Modern Royal` (1971 official history)
+→ `Modern Royal` (1971)
 
 Clock corpus:
 
 `Modern / Modern De Luxe`
-→ Japanese mechanical alarm products (physical/market corpus)
+→ Japanese mechanical alarm products
+→ manufacturer / legal brand owner still unresolved
 
-The missing bridges have narrowed. The priority is now to determine whether the `Modern` in `Modern Feudor`, the standalone `MODERN`/H.M.C. line, and `Modern De Luxe` are demonstrably part of the same Hirota-controlled brand/product family rather than merely sharing a generic word.
+The separated supply-chain hypothesis remains plausible but is not proven:
 
-## Highest-priority unresolved bridges — revised 2026-09-30
+`MODERN-family commercial branding / export channel ?`
++
+`external clock/watch supplier(s) ?`
+→ `Modern / Modern De Luxe clock products`
 
-1. Search period records around `Modern Feudor` and the 1962 Hirota manufacturing/licence contract for addresses, model names, packaging, catalogues, and other Hirota brand names; this is now the strongest primary-source route.
-2. Identify `H.M.C.` legal/corporate expansion and test it against Hirota & Co. period addresses/marks.
-3. Trace the Derringer `Modern = Hirota` attribution to a physical HIROTA/H.M.C. marking, instruction sheet, catalogue, or advertisement.
-4. Build a dated matrix for `MODERN`, `MODERN FEUDOR`, `MODERNLITE`, `MODERN DE LUXE`, `HIROTA MODERN TRADING`, and `MODERN ROYAL`.
-5. Find a period document directly placing `Modern De Luxe` clocks with Hirota/Hirota Modern Trading/Modern Royal.
-6. Revisit `PAT. PEND. NOS 8560 8561` for applicant/owner identity.
-7. Keep clock-movement OEM comparison passive until a strong physical match appears.
+## Highest-priority unresolved bridges — revised after clock-side search
+
+1. Find the **earliest securely datable `Modern De Luxe` clock/watch** and identify every company/address/model marking on it, its box, guarantee, instruction sheet, or commemorative inscription.
+2. Search period records around `Modern Feudor` and the 1962 Hirota manufacturing/licence contract for addresses, model names, packaging, catalogues, and other Hirota brand names.
+3. Identify `H.M.C.` legal/corporate expansion and test it against Hirota & Co. period addresses/marks.
+4. Trace the Derringer `Modern = Hirota` attribution to a physical HIROTA/H.M.C. marking, instruction sheet, catalogue, or advertisement.
+5. Build a dated matrix for `MODERN`, `MODERN FEUDOR`, `MODERNLITE`, `MODERN DE LUXE`, `HIROTA MODERN TRADING`, and `MODERN ROYAL`.
+6. Find a period document directly placing `Modern De Luxe` clocks with Hirota/Hirota Modern Trading/Modern Royal; until then do not merge the clock corpus into the Hirota chain.
+7. Revisit `PAT. PEND. NOS 8560 8561` for applicant/owner identity.
+8. Keep movement OEM comparison passive until a strong physical match appears; jewel count/shared mainspring alone are explicitly rejected as maker fingerprints.
