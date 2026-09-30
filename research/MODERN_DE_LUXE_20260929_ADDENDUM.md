@@ -79,6 +79,47 @@ Direct conclusion: no later than the mid-1960s, Hirota was manufacturing a light
 ## 12. OEM comparison — passive only
 `2 Jewels`, shared mainspring arrangements, and mixed auction-lot co-occurrence are not sufficiently discriminating manufacturer fingerprints. Tokyo Tokei and other makers remain only in a general comparison pool unless a strong image-level/mechanical identity appears independently.
 
+## 13. Primary-source acquisition targets — 2026-09-30
+Three paper/reference routes are now explicitly separated from ordinary web-product searching.
+
+### A. `広苑 第3号` — Hirota company magazine, 1966 — HIGH PRIORITY / UNREAD
+A currently indexed used-book listing identifies `株式会社広田(現・株式会社 ライテック) 社内誌「広苑」 第3号`, 1966, B5, 56 pages, described as `浅草橋のライター製造業`, offered at JPY 2,200 when checked.
+
+Source: https://www.kosho.or.jp/search/製造業?pageno=4
+
+Research value: this is the strongest currently located company-internal document from the exact 1960s period. It may contain product names, photographs, export information, company abbreviations, addresses, executives or advertisements. **No such content is claimed until the pages are actually read.**
+
+### B. `時計事典` — Seimitsu Kogyo Shimbunsha, 1965 — HIGH PRIORITY / CONTENT UNREAD
+NDL Search confirms `時計事典`, edited/published by 精密工業新聞社, 1965, 382 pages, original price JPY 2,000. Holdings surfaced at Chiba Prefectural Central Library and Ishikawa Prefectural Library.
+
+Source: https://ndlsearch.ndl.go.jp/books/R100000001-I12111000000905535
+
+Research question: whether `Modern`, `Modern De Luxe`, the underlying clock manufacturer, or relevant Japanese alarm/travel-clock makers are documented **before the 1971 Modern Royal formation**. Bibliographic existence is confirmed; relevant content is not yet read.
+
+### C. `日本有名商標録 新版` — 1972 — HIGH PRIORITY / CONTENT UNREAD
+NDL Search confirms `日本有名商標録 新版`, 商標研究会編, 1972, 360 pages, original price JPY 4,000, digitized and eligible for NDL library/personal transmission subject to access conditions. A current used-book listing was also found at JPY 6,300 plus shipping when checked.
+
+Sources:
+- https://ndlsearch.ndl.go.jp/books/R100000002-I000001128318
+- https://www.kosho.or.jp/search/商標　（新版）
+
+Research question: check `MODERN`, `MODERNLITE`, `MODERN DE LUXE`, `H.M.C.`, `廣田/広田`, `ロイヤル産業`, and `Modern Royal` across relevant goods categories. **Important limitation:** inclusion in this reference work is not equivalent to an official JPO registration record; any hit must be followed back to the actual trademark record/owner evidence.
+
+### D. `時計百科事典` — 1983 — SECONDARY FOLLOW-UP
+A 1983 `時計百科事典`, 精密工業新聞社編, 702 pages, is confirmed in bibliographic/used-book records. It is later than the core dating problem and is therefore a follow-up source for maker histories and postwar chronology, not the first chronological anchor.
+
+Source: https://www.kosho.or.jp/products/detail.php?product_id=380700948
+
+### Control decision
+Do **not** let these source leads replace the other open investigations. They are parallel acquisition routes. The live priority remains:
+1. recover the 1961 JPO Hirota document and publication number;
+2. decode Modern Lite `PAT. PEND. NOS 8560 8561`;
+3. identify `H.M.C.CO.` through address/company/trademark evidence;
+4. locate pre-1971 independently dated Modern/Modern De Luxe clock evidence;
+5. inspect the three paper/reference sources above;
+6. continue 1971 product-succession work around Hirota Modern Trading / Royal Industries / Modern Royal;
+7. keep OEM-maker matching passive unless a strong physical identity appears.
+
 ## Current working model
 Confirmed/strong surrounding structure:
 
