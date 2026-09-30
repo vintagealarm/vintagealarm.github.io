@@ -113,3 +113,66 @@ Sources:
 3. 『日本商標大事典』で広田名義から登録商標を逆引き。
 4. 時計側は1960/65/68『時計事典』からModern De Luxeの商品責任主体を独立探索。
 5. `H.M.C.CO.` と時計の会社主体は引き続きOPEN。裁判記録で埋めない。
+
+---
+
+## 2026-09-30 21:20 JST 追跡パス 2
+
+### ADOPTED — 1971年の廣田モダントレーディング接続を公式沿革同士で確認
+
+モダンロイヤル公式沿革は、1971年にロイヤル産業（株）が **（株）廣田モダントレーディングと合弁し、モダンロイヤル（株）と改称、台東区浅草橋へ移転**したと明記する。
+
+Source: https://www.modernroyal.com/docs/enkaku.pdf
+
+株式会社ライテック公式沿革も、株式会社広田側について1963年モダンダイカスト工場株式会社、1966年株式会社広田小見川工場、1971年モダン化学工場株式会社および販売業務強化のためのモダンロイヤル株式会社、1972年Hirota International Corporation等を記録する。
+
+Source: https://lightec-inc.jp/corporate/history.html
+
+判断:
+- 1971年時点で `廣田` 系企業と `Modern Royal` の企業接続が存在したことは公式沿革で固定できる。
+- これは1960年代の `Hirota → Modern Feudor` 製造記録とも整合するが、**Modern De Luxe時計を廣田製／廣田販売と確定する証拠ではない**。
+- `廣田モダントレーディング` の設立年・旧商号・事業範囲、時計取扱いの有無はOPEN。
+
+### ADOPTED — Modern / Modern De Luxe時計群の日本製・2石・アラームという物証群を追加
+
+Web上で独立した複数個体を再確認。
+
+- `Modern De Luxe` 2 Jewels、Japan、機械式トラベルアラームの販売個体が複数地域に存在。
+  - eBay item 205293449679
+  - eBay item 165225041705
+  - Etsy listing 1771051073
+- 国内古物店noraneco1972には `Modern` 4JEWELS / JAPAN / 手巻 / アラーム個体と、`MODERN DE LUXE` / ALARM CLOCK / 手巻個体（三菱電機名古屋製作所50周年記念銘）の両方が記録される。
+
+Sources:
+- https://www.ebay.com/itm/205293449679
+- https://www.ebay.com/itm/165225041705
+- https://www.etsy.com/at/listing/1771051073/vintage-mechanischer-reisewecker-modern
+- https://noraneco1972.jimdofree.com/%E3%83%96%E3%83%AD%E3%82%B0-menu/%E6%99%82%E8%A8%88/%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF/
+
+判断:
+- `Modern` と `Modern De Luxe` の双方が日本製機械式アラームクロック群に使われたことは個体群としてかなり強い。
+- ただしブランド主体・OEM・ムーブメントメーカーはこの物証群だけでは決めない。
+- 三菱個体の1974年推定は「名古屋製作所50周年記念」という現物銘と1924年設立を結ぶ推定であり、三菱一次資料で配布年を確認するまでは推定のまま保持する。
+
+### NEW LEAD — 東京時計との比較をOEM候補ではなくムーブメント／筐体指紋ルートへ格上げ
+
+Yahoo!オークション検索結果で、`Modern De Luxe / 東京時計 2 Jewels` の折りたたみ式トラベルアラーム2点が同一ロットに出ている。これは単なる同梱であり、メーカー関係の証拠ではない。
+
+一方、東京時計の独立個体には `TOKYO TOKEI / 2 JEWELS / JAPAN` の折りたたみ式手巻アラームが多数確認でき、Modern De Luxe群と商品カテゴリ・石数・日本製表記・時代感が近い。
+
+Sources:
+- https://auctions.yahoo.co.jp/search/search/%E6%9D%B1%E4%BA%AC%E6%99%82%E8%A8%88%20%E3%83%AC%E3%83%88%E3%83%AD/0/
+- Yahoo/Aleado archived Tokyo Tokei specimen surfaced in image search: auctionID m1108462138
+
+判断:
+- `Modern De Luxe = 東京時計OEM` は未確認であり、現時点では言わない。
+- 次の有効な比較はブランド名ではなく、**ムーブメント地板形状、巻真配置、アラーム設定機構、2石位置、裏蓋操作系、ケース蝶番／スタンド構造**の一致確認。
+- ここが一致すれば『時計事典』の東京時計製造／輸出系記述と接続して商品責任主体へ迫れる可能性がある。
+
+### 次の攻撃点を更新
+
+1. `廣田モダントレーディング` の法人履歴・旧商号・所在地を1971以前へ遡る。
+2. Modern De Luxe 2 Jewels個体の**裏面・ムーブメント写真**を回収し、東京時計2石トラベルアラームと部品単位で比較する。
+3. 1960/65/68『時計事典』で東京時計製造と輸出商社欄を含めて確認する。
+4. 1959/1965商標資料は引き続き `広田 / 廣田 / MODERN / MODERNLITE / 時計 / 目覚時計` で本文確認する。
+5. 会社接続・時計OEM・ブランド所有の3論点は混ぜず、別々に証明する。
