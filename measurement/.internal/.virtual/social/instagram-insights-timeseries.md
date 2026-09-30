@@ -931,6 +931,46 @@
 
 ---
 
+# Citizen Alarm
+
+## Publication evidence
+- published_date_jst: 2026-10-01
+- published_time_jst: unknown
+- UI age evidence: 2026-10-01 08:28 JSTの投稿画面で `2時間前`
+- elapsed_since_publish: UI display approximately 2h; exact calculation unavailable
+- reel_duration: 18s
+- source_status: CANONICAL_LOG_SCREENSHOT
+
+### Snapshot — 2026-10-01 08:28–08:29 JST
+- observed_at_jst: 2026-10-01 08:28–08:29
+- age_of_post_display: 2h
+- reel_duration: 18s
+- views: 530 (post screen immediately before Insights: 529)
+- viewers: 429
+- average_watch_time: 6s
+- follows: 2
+- likes: 15
+- comments: 2
+- reposts: 0
+- share_count: UI `--`
+- saves: 1
+- skip_rate: 43.9%
+- share_rate: 0.0%
+- like_rate: 3.2%
+- save_rate: 0.2%
+- repost_rate: 0.0%
+- comment_rate: 0.4%
+- profile_accesses: 1
+- followers: 1.1%
+- non_followers: 98.9%
+- age: 13–17 0.7% / 18–24 31.7% / 25–34 44.9% / 35–44 13.4% / 45–54 4.6% / 55–64 3.9% / 65+ 0.7%
+- age_18_34_combined: 76.6%
+- countries: Turkey 17.5% / Iran 11.9% / India 8.7% / United States 5.1% / France 4.9%
+- source_status: CANONICAL_LOG_SCREENSHOT
+- note: 2026-10-01 08:28–08:29 JSTのユーザー提供Instagram投稿・Insightsスクリーンショット7枚から確認。投稿画面は529 views、直後のInsights詳細は530 viewsのため両方を保持。共有数は画面上 `--`、bio link clickとgenderは未表示のため補完しない。
+
+---
+
 ## 2. Cross-source reconciliation / rejected values
 
 - CYMA `2026-09-28 17:41頃 / viewers 1,406 / age 45–54 10.3 / 65+ 5.4` は旧復旧案由来で、main正本の17:49–17:50 snapshot（viewers 1,408 / age 45–54 10.2 / 65+ 5.5）と矛盾するため棄却。
@@ -945,6 +985,7 @@
 - Pierce: 08:07投稿が確認済みのため、各snapshotのelapsedを計算済み。
 - Basis: 公開日時未復旧。10:21初回snapshotは正本deltaから部分復元。
 - Westclox: 公開日時未復旧。2 snapshotは引き継ぎ値。
+- Citizen: 投稿日は2026-10-01。08:28 JSTの投稿画面に `2時間前` と表示されているが、Instagram UIの丸め幅を仮定せず、公開時刻と正確なelapsedは不明のまま保持する。
 - `unknown` は0ではない。
 
 ## 4. Future snapshot template

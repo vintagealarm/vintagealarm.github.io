@@ -65,7 +65,7 @@
 - Instagram開始とVA visits増加の因果は、同時期に増えただけでは確定しない。
 - 2投稿程度の少数標本からアルゴリズム学習完了・恒常的audience像・単一の勝因を確定しない。
 - `fidget toy` は2026-09-27に新しく思いついた企画ではない。2026-09-09のBasis Alarm (BFG90) YouTube Shortsで実行済みの先行コンセプト。
-- Instagramの公開済み5投稿の本文・hashtags・最終訴求は `instagram-published-copy.md` に復元済み。投稿案作成時に記憶から再構成しない。
+- Instagramの公開済み6投稿の本文・hashtags・最終訴求は `instagram-published-copy.md` に復元済み。投稿案作成時に記憶から再構成しない。
 - Instagram Insightsは最新値だけで比較しない。`instagram-insights-timeseries.md` の観測日時・投稿後経過時間を基準にする。
 
 **重要:** RESOLVED項目は「忘れる」のではなく、判断の前提として内部適用する。毎回説明文・スレのレス・注意書きとして復活させない。
@@ -88,13 +88,13 @@
 
 ## 7. CURRENT INSTAGRAM PHASE
 
-- まずVA掲載6個体を一巡させる。
-- 一巡中は大きな施策変更を避け、標本を増やす。
+- VA掲載6個体の初回一巡は2026-10-01のCitizen Alarm公開で完了。
+- Citizen Alarmの同時間窓snapshotを継続して採り、6個体の初回比較に必要な標本を揃えるまでは大きな施策変更を避ける。
 - 公開済みInstagram本文の正確な再利用・比較は `instagram-published-copy.md` を参照する。
 - Instagram Insightsの数値比較は `instagram-insights-timeseries.md` を参照し、観測日時・投稿後経過時間を落とさない。
 - `instagram-operations.md` はSNS横断の分析・先行実績・運用履歴を保持する。
 - Pierce以降も同じ時間窓・同じ指標を可能な範囲で採る。
-- 一巡後に、個体 / 操作 / fidget / 音 / 歴史 / 比較 / URL導線等を次の検証軸として組み直す。
+- 初回比較後に、個体 / 操作 / fidget / 音 / 歴史 / 比較 / URL導線等を次の検証軸として組み直す。
 
 ## 8. Council / 焼きでの出力ルール
 

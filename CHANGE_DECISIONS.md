@@ -17,6 +17,16 @@
 
 ## 2026-10-01
 
+### 2026-10-01 08:33 JST — Citizen Alarm公開本文と初回Insightsを6本目の正本へ登録
+
+- **変更**：Citizen Alarmの公開画面とReel Insights 7枚を確認し、実投稿本文全文・公開hashtags・承認稿との差分を `instagram-published-copy.md` へ、2026-10-01 08:28–08:29 JSTの初回観測値を `instagram-insights-timeseries.md` へ登録する。Instagram時系列の検査・追記・report対象も5本から6本へ拡張し、Social Router上の初回6個体一巡を完了状態へ更新する。
+- **理由**：Citizenは投稿前承認稿だけが正本化され、公開確認とInsights時系列が未登録だったため。公開本文では本文本体は承認稿どおりだが、hashtagsが承認稿の6個から公開画面の4個へ変わっており、承認状態のままでは実投稿との不一致が残る。6本目を既存の単一時系列と同じ検査・report経路へ含め、今後の再取得を同じ形式で累積する。
+- **旧状態・棄却**：Citizenを `approved / not publication-verified` のまま扱う状態、5本固定のInstagram集計、投稿画面529閲覧とInsights詳細530閲覧の一方を捨てる処理を棄却する。公開時刻は画面の `2時間前` から分単位へ逆算せず、時刻不明として保持する。
+- **影響範囲**：Instagram実投稿copy正本、Reel Insights時系列正本、6本横断の集計スクリプト、Social Router、判断履歴。公開サイト、WATCH本文、Instagram投稿そのもの、VA Analytics定義、Project資料PDFは変更しない。
+- **検証状態**：7枚のユーザー提供スクリーンショットを原寸確認。正本追記後にInstagram専用check / report、decision-log、quality gate、diff監査を実行し、main反映後にremote正本を再取得して全文・値・時刻・6本集計を確認する。
+- **関連**：対象は `measurement/.internal/.virtual/social/instagram-published-copy.md`、`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`measurement/.internal/.virtual/social/ROUTER.md`、`scripts/instagram-insights-timeseries.mjs`。
+- **日時根拠**：作業ホストのJST時刻 `2026-10-01 08:33 JST`。スクリーンショット端末時刻は投稿画面・概要・指標が08:28、engagement continuation・audienceが08:29 JST。
+
 ### 2026-10-01 07:51 JST — Instagram Insightsを単一時系列へ直接追記し、自動差分集計を必須化
 
 - **変更**：2026-09-30 22:10–22:14 JSTのWittnauer / CYMA / Pierce / Basis / Westclox確認値を `measurement/.internal/.virtual/social/instagram-insights-timeseries.md` へ統合した。Basisのユーザー指定公開時刻と、旧Westclox sidecarに残っていた08:49–08:50 / 11:52–11:53の確認値も正本へ回収した。今後は一時JSONから正本へ直接追記する `instagram:append`、重複・時系列逆転・未統合sidecarを検出する `check:instagram-insights`、時計別の前回差・時間当たり増加・view→profile→bio・follow / save率を出す `instagram:report` を標準経路とし、quality gateへ組み込む。

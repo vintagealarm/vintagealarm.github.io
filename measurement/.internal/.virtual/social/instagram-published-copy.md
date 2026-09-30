@@ -8,7 +8,7 @@ VINTAGE ALARM Instagram Reels の**実投稿本文・ハッシュタグ・最終
 - 投稿前にユーザーが本文を明示確定した場合は `Approved caption` として保存し、公開スクリーンショット確認までは `Published caption` と混同しない。
 - 「採用」は最終公開本文に実際に入った要素を指す。投稿前確定のみの場合は「投稿予定として確定」と区別する。
 - 「非採用」は、最終公開本文に入っていないことを確認できる要素に限る。草案段階で明示的に棄却した理由が確認できない場合、理由を推測しない。
-- 投稿後のViews / Insightsの時系列正本は `instagram-operations.md`。このファイルは実投稿copyとcreative decisionの正本であり、Insightsログを重複保存しない。
+- 投稿後のViews / Insightsの時系列正本は `instagram-insights-timeseries.md`。このファイルは実投稿copyとcreative decisionの正本であり、Insightsログを重複保存しない。
 - 投稿案作成前に `instagram-operations.md` と本ファイルを照合し、既存訴求を新案として再発明しない。
 
 ---
@@ -177,7 +177,7 @@ A wonderfully inconvenient way to set an alarm. And then, of course, it rings. �
 
 ## Citizen Alarm
 
-### Approved caption — user finalized 2026-10-01; publication not yet screenshot-verified
+### Published caption — screenshot verified 2026-10-01
 
 ```text
 Japan’s first alarm wristwatch. 🔔
@@ -199,21 +199,22 @@ A mechanical alarm, made for the wrist in Japan.
 And yes — it still rings. 🔔
 
 #Citizen #CitizenWatch #AlarmWatch
-#VintageWatch #MechanicalWatch #horology
+#vintagewatch
 ```
 
-### Creative selection at approval
+### Final creative selection
 
-- **投稿予定として確定**: `Japan’s first alarm wristwatch.` を冒頭フックにし、1958年のCitizen Alarmを国産アラーム腕時計の起点として扱う。
-- **投稿予定として確定**: 2リューズ、2香箱、中央回転ディスク、裏蓋を叩くハンマーという初期型の特徴を本文に入れる。
-- **投稿予定として確定**: 4針式、Alarm Date、sports models、diver-style watches、ladies’ modelsへの展開を短く接続し、`But this is where that lineage began.` で初代へ戻す。
-- **投稿予定として確定**: 結びは `And yes — it still rings. 🔔`。
+- **採用**: `Japan’s first alarm wristwatch.` を冒頭フックにし、1958年のCitizen Alarmを国産アラーム腕時計の起点として扱う。
+- **採用**: 2リューズ、2香箱、中央回転ディスク、裏蓋を叩くハンマーという初期型の特徴を本文に入れた。
+- **採用**: 4針式、Alarm Date、sports models、diver-style watches、ladies’ modelsへの展開を短く接続し、`But this is where that lineage began.` で初代へ戻した。
+- **採用**: 結びは `And yes — it still rings. 🔔`。
 - **明示的に採用しなかった方向**: 会話中に追加提案された動画開幕用 `This isn’t the hour hand.` / `It sets the alarm.`、`Japan, 1958. And it rings.`、`still ringing 68 years later` は最終確定本文には入れない。
-- **公開確認状態**: ユーザーが本文を確定したことは会話で確認済み。Instagramへの実投稿および公開画面は未確認のため、`Published caption` とは扱わない。
+- **承認稿からの公開差分**: 本文は承認稿どおり。承認稿末尾の `#VintageWatch #MechanicalWatch #horology` は公開画面では `#vintagewatch` のみとなり、公開hashtagsは合計4個。
+- **公開確認状態**: 2026-10-01 08:28 JSTのユーザー提供Instagram投稿画面で全文とhashtagsを確認済み。
 
 ---
 
-## 6投稿横断 — 訴求マップ（Citizenは投稿前確定）
+## 6投稿横断 — 訴求マップ
 
 | Reel | 主フック | 主役 | 明示CTA | 状態 |
 |---|---|---|---|---|
@@ -222,7 +223,7 @@ And yes — it still rings. 🔔
 | Pierce Duofon | two selectable alarm volumes | 固有機構 + モード切替 | link in bio | published |
 | Basis Alarm (BFG90) | winding / fidget toy | 操作密度 + 視覚反応 + 触覚性 | なし | published |
 | Westclox Watchlarm W5 | red hand / 60 presses / inconvenience | プッシャー操作 + 不便さの魅力 | なし | published |
-| Citizen Alarm | Japan’s first alarm wristwatch / 1958 | 国産初 + 初期型構造 + 系譜 | なし | approved / not publication-verified |
+| Citizen Alarm | Japan’s first alarm wristwatch / 1958 | 国産初 + 初期型構造 + 系譜 | なし | published |
 
 ### 次回投稿案での使用ルール
 
@@ -233,7 +234,7 @@ And yes — it still rings. 🔔
 
 ## 復元・登録状態
 
-- Evidence: 2026-09-30ユーザー提供Instagram投稿画面スクリーンショット5枚 + 2026-10-01 Citizen Alarm本文のユーザー明示確定。
-- Caption text: 公開済み5投稿は全文を画面から確認して登録。Citizenはユーザー確定本文を全文登録したが、公開画面は未確認。
-- Creative selection: 公開済み5投稿は最終公開本文に実際に入った／入らなかった要素を記録。Citizenは会話で確定した本文と明示的に採用しなかった追加提案だけを記録し、公開済みとは扱っていない。
+- Evidence: 2026-09-30ユーザー提供Instagram投稿画面スクリーンショット5枚 + 2026-10-01 08:28 JSTのCitizen Alarm投稿画面スクリーンショット。
+- Caption text: 公開済み6投稿すべての全文を画面から確認して登録。Citizenは承認稿と公開hashtagsの差分も保持した。
+- Creative selection: 公開済み6投稿について、最終公開本文に実際に入った／入らなかった要素を確認できる範囲で記録した。
 - この登録は、過去の「Insightsは残っているが実投稿全文が正本化されていない」欠落を補填し、投稿前確定本文も公開済み本文と区別して保持する。
