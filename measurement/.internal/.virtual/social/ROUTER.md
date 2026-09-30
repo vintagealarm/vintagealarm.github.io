@@ -132,7 +132,18 @@ Instagram Insightsスクリーンショットを受け取った場合は、原�
 7. **分析回答より先に**正規保存先へ記録する。
 8. commit成功後、正規保存先を再取得して反映内容を確認する。
 9. 必要ならcommit diffも確認し、指定外変更・欠落・重複がないことを監査する。
-10. ここまで完了して初めて「記録済み」と扱い、その後に分析回答を返す。
+10. `npm run check:instagram-insights` で重複時刻・時系列逆転・未統合sidecarがないことを確認する。
+11. `npm run instagram:report` で、時計別の前回差・時間当たりのviews増加・view→profile→bio・view→follow / saveを確認する。
+12. ここまで完了して初めて「記録済み」と扱い、その後に分析回答を返す。
+
+### Screenshot → canonical time series の標準経路
+
+1. スクリーンショットから確認できた値だけを、一時JSONへ `watch` / `observed_at_jst` / `source_status` とともに転記する。一時JSONはGit管理しない。
+2. `npm run instagram:append -- <json-path>` で `instagram-insights-timeseries.md` の該当時計末尾へ直接追記する。
+3. `npm run check:instagram-insights` と `npm run instagram:report` を実行する。
+4. 正本・Router・判断変更だけをcommitし、main反映後に正本を再取得する。
+
+手作業で正本へ差分追記してもよいが、個体別sidecarを安全策としてcommitしない。入力値の欠落がある場合は、確認できた項目だけで1 snapshotを作り、未確認値を0にしない。
 
 ### Instagram Published Copy の完了条件
 
@@ -155,6 +166,7 @@ Instagram Insightsスクリーンショットを受け取った場合は、原�
 - 異なる観測時刻の数値を1snapshotへ混ぜない。
 - 観測値と推測・因果解釈を混ぜない。
 - ユーザーが棄却した保存方式・旧仕様を、新証拠や明示指示なしに復活させない。
+- `npm run check:instagram-insights` が未統合snapshotまたはpending markerを検出した状態でcommitしない。
 
 ### 正規保存先・構造変更
 

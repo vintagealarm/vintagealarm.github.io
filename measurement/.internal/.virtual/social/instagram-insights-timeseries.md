@@ -21,6 +21,8 @@
    - `CONVERSATION_RECOVERED`: 過去会話から回収した値。
    - `DERIVED_FROM_CANONICAL_DELTA`: 正本に旧値がdelta比較の左辺として明記されており、そこから復元した値。
 10. `instagram-operations.md` はSNS横断の分析・解釈・VA Analytics突合の履歴として残す。本ファイルはReel Insights数値時系列の正本とし、両者の役割を分離する。
+11. 追記後は `npm run check:instagram-insights` で重複・時系列逆転・未統合sidecarを検査し、`npm run instagram:report` で時計別の最新差分と導線率を確認する。
+12. 新規snapshotは一時JSONから `npm run instagram:append -- <json-path>` で本ファイルへ直接追記できる。JSONはGit管理せず、正本への追記成功後に破棄する。
 
 ## 1. Recovery audit — 2026-09-30
 
@@ -457,6 +459,33 @@
 - countries: India 18.1% / France 8.7% / Turkey 7.8% / Iran 5.7% / Italy 5.2%
 - source_status: CANONICAL_LOG_SCREENSHOT
 
+### Snapshot — 2026-09-30 22:12 JST
+- observed_at_jst: 2026-09-30 22:12
+- views: 1,772
+- viewers: 1,539
+- average_watch_time: 7s
+- follows: 2
+- likes: 68
+- comments: 2
+- reposts: 1
+- saves: 6
+- share_count: UI `--`
+- skip_rate: 53.3%
+- share_rate: 0.3%
+- like_rate: 4.4%
+- save_rate: 0.4%
+- repost_rate: 0.1%
+- comment_rate: 0.1%
+- profile_accesses: 10
+- bio_link_clicks: 1
+- followers: 1.6%
+- non_followers: 98.4%
+- age: 13–17 0.7% / 18–24 25.8% / 25–34 34.8% / 35–44 15.3% / 45–54 10.9% / 55–64 7.3% / 65+ 5.2%
+- age_18_34_combined: 60.6%
+- countries: India 18.1% / France 8.6% / Turkey 7.6% / Iran 5.6% / Italy 5.3%
+- source_status: CANONICAL_LOG_SCREENSHOT
+- note: 2026-09-30 22:12 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。
+
 ---
 
 # Pierce Duofon
@@ -623,14 +652,42 @@
 - countries: India 25.6% / United States 9.8% / Iran 5.7% / Mexico 3.7% / Turkey 3.6%
 - source_status: CANONICAL_LOG_SCREENSHOT
 
+### Snapshot — 2026-09-30 22:12–22:13 JST
+- observed_at_jst: 2026-09-30 22:12–22:13
+- elapsed_since_publish: 62h05m–62h06m
+- views: 2,815
+- viewers: 2,028
+- average_watch_time: 7s
+- follows: 10
+- likes: 86
+- comments: 3
+- reposts: 1
+- saves: 10
+- share_count: UI `--`
+- skip_rate: 44.2%
+- share_rate: 0.3%
+- like_rate: 4.1%
+- save_rate: 0.5%
+- repost_rate: 0.0%
+- comment_rate: 0.1%
+- profile_accesses: 25
+- bio_link_clicks: 2
+- followers: 1.2%
+- non_followers: 98.8%
+- age: 13–17 1.2% / 18–24 29.8% / 25–34 37.1% / 35–44 12.4% / 45–54 9.7% / 55–64 5.6% / 65+ 4.2%
+- age_18_34_combined: 66.9%
+- countries: India 25.3% / United States 9.0% / Iran 5.7% / Turkey 3.9% / Mexico 3.4%
+- source_status: CANONICAL_LOG_SCREENSHOT
+- note: 2026-09-30 22:12–22:13 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。
+
 ---
 
 # Basis Alarm (BFG90)
 
 ## Publication evidence
-- published_at_jst: unknown
+- published_at_jst: approximately 2026-09-28 06:30 (user report)
 - reel_duration: approximately 16s (canonical analysis reference)
-- source_status: CANONICAL_LOG_SCREENSHOT
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
 
 ### Snapshot — 2026-09-29 10:21–10:22 JST — reconstructed from canonical delta
 - observed_at_jst: 2026-09-29 10:21–10:22
@@ -759,24 +816,68 @@
 - countries: India 27.3% / Turkey 6.7% / Iran 6.0% / France 5.1% / United States 4.3%
 - source_status: CANONICAL_LOG_SCREENSHOT
 
+### Snapshot — 2026-09-30 22:13 JST
+- observed_at_jst: 2026-09-30 22:13
+- elapsed_since_publish: approximately 63h43m
+- views: 11,026
+- viewers: 8,167
+- average_watch_time: 13s
+- follows: 14
+- likes: 224
+- comments: 2
+- reposts: 5
+- saves: 41
+- share_count: UI `--`
+- skip_rate: 29.3%
+- share_rate: 0.2%
+- like_rate: 2.9%
+- save_rate: 0.5%
+- repost_rate: 0.1%
+- comment_rate: 0.0%
+- profile_accesses: 44
+- bio_link_clicks: 2
+- followers: 0.4%
+- non_followers: 99.6%
+- age: 13–17 1.3% / 18–24 28.0% / 25–34 39.1% / 35–44 16.0% / 45–54 8.8% / 55–64 4.5% / 65+ 2.3%
+- age_18_34_combined: 67.1%
+- countries: India 25.5% / Turkey 6.5% / France 5.3% / Iran 5.1% / United States 4.7%
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+- note: 2026-09-30 22:13 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。公開時刻はユーザー説明による概算で、共有数は画面上 `--` のため数値化しない。
+
 ---
 
 # Westclox Watchlarm W5
 
 ## Publication evidence
 - published_at_jst: unknown
-- source_status: HANDOFF_RECOVERED
+- reel_duration: 24s
+- source_status: CANONICAL_LOG_SCREENSHOT
 
 ### Snapshot — 2026-09-30 08:49–08:50 JST
 - observed_at_jst: 2026-09-30 08:49–08:50
 - views: 314
 - viewers: 213
 - average_watch_time: 9s
+- follows: 0
+- likes: 5
+- comments: 0
+- reposts: 1
+- saves: 0
+- share_count: UI `--`
 - skip_rate: 46.0%
+- share_rate: 0.0%
+- like_rate: 2.0%
+- save_rate: 0.0%
+- repost_rate: 0.4%
+- comment_rate: 0.0%
+- profile_accesses: 1
+- followers: 2.9%
 - non_followers: 97.1%
-- country_india: 6.1%
-- source_status: HANDOFF_RECOVERED
-- note: main `instagram-operations.md` には未永続化だったため、2026-09-30引き継ぎ記録から復旧。その他の未確認項目は補完しない。
+- age: 13–17 0.0% / 18–24 31.1% / 25–34 45.5% / 35–44 11.4% / 45–54 9.8% / 55–64 1.1% / 65+ 1.1%
+- age_18_34_combined: 76.6%
+- countries: Turkey 13.6% / Iran 12.9% / Germany 6.4% / United States 6.1% / India 6.1%
+- source_status: CANONICAL_LOG_SCREENSHOT
+- note: 旧個体別sidecarへ保存されていたユーザー提供スクリーンショット確認値を正本へ統合。bio link clickは画面で未確認のため補完しない。
 
 ### Snapshot — 2026-09-30 11:52–11:53 JST
 - observed_at_jst: 2026-09-30 11:52–11:53
@@ -798,7 +899,35 @@
 - non_followers: 98.8%
 - age_18_34_combined: 79.2%
 - countries: India 24.4% / United States 11.4% / Turkey 6.6% / Iran 6.1% / Brazil 3.8%
-- source_status: HANDOFF_RECOVERED
+- source_status: CANONICAL_LOG_SCREENSHOT
+- note: 旧Westclox snapshot logに保存されていたユーザー提供スクリーンショット確認値を正本へ統合。年齢の各階級とfollowers比率は未確認のため補完しない。
+
+### Snapshot — 2026-09-30 22:13–22:14 JST
+- observed_at_jst: 2026-09-30 22:13–22:14
+- views: 1,827
+- viewers: 1,436
+- average_watch_time: 9s
+- follows: 0
+- likes: 33
+- comments: 0
+- reposts: 1
+- saves: 1
+- share_count: UI `--`
+- skip_rate: 47.8%
+- share_rate: 0.1%
+- like_rate: 2.3%
+- save_rate: 0.1%
+- repost_rate: 0.1%
+- comment_rate: 0.0%
+- profile_accesses: 9
+- bio_link_clicks: 1
+- followers: 1.8%
+- non_followers: 98.2%
+- age: 13–17 0.6% / 18–24 35.5% / 25–34 39.0% / 35–44 12.7% / 45–54 7.1% / 55–64 3.3% / 65+ 1.9%
+- age_18_34_combined: 74.5%
+- countries: India 26.3% / United States 9.6% / Iran 5.9% / Turkey 5.8% / Indonesia 4.1%
+- source_status: CANONICAL_LOG_SCREENSHOT
+- note: overviewは22:13、詳細指標は22:14の同一確認セット。値が一致する画面を1 snapshotへ統合し、共有数は画面上 `--` のため数値化しない。
 
 ---
 
@@ -851,4 +980,4 @@
 - note:
 ```
 
-新しいInsightsを受け取ったら、分析より先にこのsnapshotを追記し、commit後に再取得して値・時刻・欠落を監査する。
+新しいInsightsを受け取ったら、分析より先にこのsnapshotを追記する。手作業で直接編集する代わりに、一時JSONを `npm run instagram:append -- <json-path>` へ渡してもよい。追記後は `npm run check:instagram-insights` と `npm run instagram:report` を実行し、commit後にmainを再取得して値・時刻・欠落を監査する。
