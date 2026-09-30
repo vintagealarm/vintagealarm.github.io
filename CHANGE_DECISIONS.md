@@ -23,9 +23,9 @@
 - **理由**：スクリーンショット値が個体別evidence / snapshotsへ一時退避され、正本統合待ちのまま増えると、翌日差分と時計横断比較を同じ経路で再現できず、欠落・二重登録・古い値の参照が起きるため。正本を1本に固定したまま、追記と集計だけを機械化する。
 - **旧状態・棄却**：正本全置換を避けるために個体別sidecarや `snapshots/` へInstagram Reel Insightsをcommitし、後で人手統合する運用を棄却する。最新値だけで旧snapshotを上書きする方式、未確認値を0で埋める方式、生成レポートを第二の数値正本として保存する方式も採用しない。
 - **影響範囲**：Instagram Reel Insightsの内部保存・検査・比較コマンド、Social Router、quality gate、2026-09-30観測値。公開サイト、WATCH本文、Instagram投稿、VA Analyticsの集計定義、account-level / VA2 snapshotは変更しない。
-- **検証状態**：Instagram専用checkは38 snapshots / 5 watches・未統合sidecar 0件でPASS。時計別reportの前回差・時間当たり増加・導線率を出力確認済み。隔離fixtureで39件目を `instagram:append` し、再check / reportまでPASS。`git diff --check`、Astro build（45 pages）、quality gate（links / Analytics route / SEO / citations / source traceability / localization / SPEC / Japanese style / imagesを含む）もPASS。main反映SHAと再取得確認はcommit後に確定する。
-- **関連**：`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`measurement/.internal/.virtual/social/ROUTER.md`、`scripts/instagram-insights-timeseries.mjs`、`package.json`。統合元はcommit `15e87e86126428164a1584ec370a9a96ec8c833f` と `bed58d6bb5c4fbcd3a3bb2f06e35d060625109cf` を含むmain上の個体別snapshot / evidence。
-- **日時根拠**：作業ホストのJST時刻 `2026-10-01 07:51 JST`。
+- **検証状態**：Instagram専用checkは38 snapshots / 5 watches・未統合sidecar 0件でPASS。時計別reportの前回差・時間当たり増加・導線率を出力確認済み。隔離fixtureで39件目を `instagram:append` し、再check / reportまでPASS。`git diff --check`、Astro build（45 pages）、quality gate（links / Analytics route / SEO / citations / source traceability / localization / SPEC / Japanese style / imagesを含む）もPASS。main反映後にremoteを再取得し、remote / localのtree一致、正本SHA-256一致、38 snapshots / 5 watches、未統合sidecar 0件を再確認した。
+- **関連**：main commit `6bbe8745543c7c51f34f91c91250403780402c0c`。対象は `measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`measurement/.internal/.virtual/social/ROUTER.md`、`scripts/instagram-insights-timeseries.mjs`、`package.json`。統合元はcommit `15e87e86126428164a1584ec370a9a96ec8c833f` と `bed58d6bb5c4fbcd3a3bb2f06e35d060625109cf` を含むmain上の個体別snapshot / evidence。
+- **日時根拠**：作業ホストのJST時刻 `2026-10-01 07:51 JST`。main commit `6bbe8745543c7c51f34f91c91250403780402c0c` はGitHub時刻 `2026-09-30T23:00:24Z → 2026-10-01 08:00 JST`。
 
 ## 2026-09-29
 
