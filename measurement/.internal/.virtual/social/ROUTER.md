@@ -18,16 +18,17 @@
 
 1. 現在の会話にある最新スクリーンショット / Insights / Relay URL・値 / ユーザー訂正
 2. この `ROUTER.md`
-3. `measurement/.internal/.virtual/social/instagram-operations.md` — SNS横断の実測・先行実績・現在の観測
-4. `measurement/.internal/.virtual/social/instagram-published-copy.md` — Instagram実投稿本文・ハッシュタグ・採用／非採用訴求の正本
-5. `measurement/experiment-log.md` — 過去のYouTube / Analytics等の詳細実験ログ
-6. `measurement/metrics.md` — 計測定義
-7. `PROJECT_STATE.md` — VA公開個体・HOW THEY RING・サイト現行状態
-8. 対象WATCH / HOW THEY RINGの現行実装
-9. 必要なProject資料・一次資料・Web
-10. 会話記憶は確認先を探す索引としてのみ使う
+3. `measurement/.internal/.virtual/social/instagram-insights-timeseries.md` — Instagram Insightsの観測日時・投稿日時・経過時間・全確認値の時系列正本
+4. `measurement/.internal/.virtual/social/instagram-operations.md` — SNS横断の実測・先行実績・分析履歴
+5. `measurement/.internal/.virtual/social/instagram-published-copy.md` — Instagram実投稿本文・ハッシュタグ・採用／非採用訴求の正本
+6. `measurement/experiment-log.md` — 過去のYouTube / Analytics等の詳細実験ログ
+7. `measurement/metrics.md` — 計測定義
+8. `PROJECT_STATE.md` — VA公開個体・HOW THEY RING・サイト現行状態
+9. 対象WATCH / HOW THEY RINGの現行実装
+10. 必要なProject資料・一次資料・Web
+11. 会話記憶は確認先を探す索引としてのみ使う
 
-投稿案を作る場合は、対象時計について過去X / YouTube / Instagramで既に使った訴求がないかを3・4・5で先に確認する。既存コンセプトを新案として再発明しない。
+投稿案を作る場合は、対象時計について過去X / YouTube / Instagramで既に使った訴求がないかを4・5・6で先に確認する。既存コンセプトを新案として再発明しない。
 
 ## 3. CANONICAL FUNNEL — 現行Instagram→VA導線（変更禁止）
 
@@ -47,6 +48,7 @@
 - X / YouTube / Instagramそれぞれの布教実績が、現在のVA流入へどう接続しているか
 - Instagram新設後の非フォロワー配布、保存、共有、Story再共有、フォロー、年齢、国などの変化
 - 公開6個体を一巡させたときの個体別・訴求別の反応差
+- **観測日時と投稿後経過時間を揃えたうえで、Reelごとの伸び方・率の変化を比較すること**
 - **InstagramプロフィールTOPのHOW THEY RINGがランディングページとして再現性を持つか**
 - **HOW THEY RING → 各WATCH / OWNER'S NOTE → VA内研究資産**の内部遷移が成立しているか
 - YouTube Shortsで実行済みのBasis `mechanical wristwatch × fidget toy` 訴求がInstagramでも再現するか
@@ -64,6 +66,7 @@
 - 2投稿程度の少数標本からアルゴリズム学習完了・恒常的audience像・単一の勝因を確定しない。
 - `fidget toy` は2026-09-27に新しく思いついた企画ではない。2026-09-09のBasis Alarm (BFG90) YouTube Shortsで実行済みの先行コンセプト。
 - Instagramの公開済み5投稿の本文・hashtags・最終訴求は `instagram-published-copy.md` に復元済み。投稿案作成時に記憶から再構成しない。
+- Instagram Insightsは最新値だけで比較しない。`instagram-insights-timeseries.md` の観測日時・投稿後経過時間を基準にする。
 
 **重要:** RESOLVED項目は「忘れる」のではなく、判断の前提として内部適用する。毎回説明文・スレのレス・注意書きとして復活させない。
 
@@ -88,7 +91,8 @@
 - まずVA掲載6個体を一巡させる。
 - 一巡中は大きな施策変更を避け、標本を増やす。
 - 公開済みInstagram本文の正確な再利用・比較は `instagram-published-copy.md` を参照する。
-- Wittnauer / CYMAの初期実測詳細は `instagram-operations.md` を参照。
+- Instagram Insightsの数値比較は `instagram-insights-timeseries.md` を参照し、観測日時・投稿後経過時間を落とさない。
+- `instagram-operations.md` はSNS横断の分析・先行実績・運用履歴を保持する。
 - Pierce以降も同じ時間窓・同じ指標を可能な範囲で採る。
 - 一巡後に、個体 / 操作 / fidget / 音 / 歴史 / 比較 / URL導線等を次の検証軸として組み直す。
 
@@ -102,15 +106,16 @@ SNS + Analytics + VAを焼く場合:
 2. ACTIVE論点を主題にする。
 3. RESOLVED項目は内部前提として使い、説明のためだけにレスを消費しない。
 4. 過去SNS実績と `instagram-published-copy.md` を確認せず、現在の数字だけから新企画を発明しない。
-5. VAは単なるリンク先ではなく、**HOW THEY RINGをInstagram側の入口として、そこからWATCH / OWNER'S NOTE / 研究資産への内部遷移を評価する。**
-6. 数字の絶対値、率、流入、内部遷移を混同しない。
-7. 未確認の因果は未確認のまま残す。
-8. ユーザーが既に訂正・確定した論点を、新証拠なしに再びレスバの議題へ戻さない。
-9. 出力前に `Instagram Reel → profile → HOW THEY RING → WATCH / OWNER'S NOTE → research` と矛盾していないか監査する。
+5. Insights比較では `instagram-insights-timeseries.md` の観測日時・投稿後経過時間を確認し、異なる経過時間の値を同条件として扱わない。
+6. VAは単なるリンク先ではなく、**HOW THEY RINGをInstagram側の入口として、そこからWATCH / OWNER'S NOTE / 研究資産への内部遷移を評価する。**
+7. 数字の絶対値、率、流入、内部遷移を混同しない。
+8. 未確認の因果は未確認のまま残す。
+9. ユーザーが既に訂正・確定した論点を、新証拠なしに再びレスバの議題へ戻さない。
+10. 出力前に `Instagram Reel → profile → HOW THEY RING → WATCH / OWNER'S NOTE → research` と矛盾していないか監査する。
 
 ## 9. 更新ルール — CANONICAL WRITE CONTRACT
 
-新しいInsights / SNS実績 / Relay観測が来たら、詳細値は **既存の正規保存先** `instagram-operations.md` または、その観測種別について既に正本として定義済みの実験ログへ記録する。
+新しいInstagram Insightsは `instagram-insights-timeseries.md` へ観測snapshotとして保存する。SNS横断の分析・判断・先行実績は `instagram-operations.md`、実投稿本文・hashtags・creative decisionは `instagram-published-copy.md` を正本とする。
 
 Instagramの**実投稿本文・hashtags・最終的に採用された訴求・公開本文から確認できる非採用範囲**は `instagram-published-copy.md` を正本とする。実投稿スクリーンショットを受け取った場合、要約だけで済ませず、確認できる本文を全文保存する。草案時の棄却理由が資料から確認できない場合は推測で補完しない。
 
@@ -119,12 +124,15 @@ Instagramの**実投稿本文・hashtags・最終的に採用された訴求・�
 Instagram Insightsスクリーンショットを受け取った場合は、原則として次を1セットで完了する。
 
 1. 最新スクリーンショット / ユーザー訂正を確認する。
-2. この `ROUTER.md` と `instagram-operations.md` の現行状態を確認する。
-3. 既存ログと同じ粒度で、画面から確認できた値を抽出する。未確認値を補完しない。
-4. **分析回答より先に**正規保存先へ記録する。
-5. commit成功後、正規保存先を再取得して反映内容を確認する。
-6. 必要ならcommit diffも確認し、指定外変更・欠落・重複がないことを監査する。
-7. ここまで完了して初めて「記録済み」と扱い、その後に分析回答を返す。
+2. この `ROUTER.md` と `instagram-insights-timeseries.md` の現行状態を確認する。
+3. 画面から確認できた値を全て抽出する。未確認値を0や推測で補完しない。
+4. **観測日時JSTを必ず保存する。** スクリーンショット取得時刻またはユーザー明示時刻を使い、確認できない場合は `unknown` とする。
+5. **投稿日時JSTを確認できる場合は保存し、投稿後経過時間を算出する。** 投稿日しか分からない場合は時刻を捏造せず、elapsedを `unknown` とする。
+6. 同じReelの旧snapshotを上書きせず、1観測=1snapshotで追記する。
+7. **分析回答より先に**正規保存先へ記録する。
+8. commit成功後、正規保存先を再取得して反映内容を確認する。
+9. 必要ならcommit diffも確認し、指定外変更・欠落・重複がないことを監査する。
+10. ここまで完了して初めて「記録済み」と扱い、その後に分析回答を返す。
 
 ### Instagram Published Copy の完了条件
 
@@ -141,9 +149,10 @@ Instagram Insightsスクリーンショットを受け取った場合は、原�
 
 - `sidecar`、`snapshots/`、temporary log、個体別臨時ログ等を、AI判断だけで新しい保存先として作らない。
 - 「ファイルが大きい」「全置換APIで扱いづらい」「ツール都合」「安全そう」を理由に正規保存先を変更しない。
-- 正規保存先への書き込みが安全に完了できない場合、別ファイルへ逃がして「記録済み」としない。**未記録と明示して止める。**
-- スクリーンショットで確認できた主要指標を、AI判断で一部だけ抜き出して保存しない。既存ログの粒度に合わせる。
+- スクリーンショットで確認できた主要指標を、AI判断で一部だけ抜き出して保存しない。
 - 実投稿全文をフックだけ・要約だけに縮めて保存しない。
+- 観測日時・投稿日時・投稿後経過時間を確認できるのに省略しない。
+- 異なる観測時刻の数値を1snapshotへ混ぜない。
 - 観測値と推測・因果解釈を混ぜない。
 - ユーザーが棄却した保存方式・旧仕様を、新証拠や明示指示なしに復活させない。
 
@@ -153,6 +162,7 @@ Instagram Insightsスクリーンショットを受け取った場合は、原�
 - 設計変更は、ユーザーの明示指示なしに実行しない。
 - 既存正本が肥大化していても、AIが独断で分割しない。必要なら最適化案として提示し、承認後に移行する。
 - `instagram-published-copy.md` は2026-09-30のユーザー明示指示「全文を登録記録」「綺麗に統合と解決」に基づき、実投稿copy/creative decisionだけを `instagram-operations.md` の時系列Insightsから分離した正本である。ツール都合の臨時sidecarではない。
+- `instagram-insights-timeseries.md` は2026-09-30のユーザー明示指示「日時・経過時間も毎回登録」「完成を定義して作戦を立案検証し、問題なければ実行」に基づき、Instagram Insightsの観測時系列を専用正本へ分離したもの。旧snapshotを保持し、最新値上書きを防ぐための正規構造変更であり、臨時sidecarではない。
 
 ### ROUTER自体の更新条件
 
