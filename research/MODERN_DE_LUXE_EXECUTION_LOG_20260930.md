@@ -116,3 +116,59 @@ Because G4 has moved, stop repeating generic clock-date searches. Highest-value 
 5. Clock-industry body text: inspect 1965 `時計事典` and related period references for Modern / Modern De Luxe / supplier names.
 
 Completion remains governed by `MODERN_DE_LUXE_COMPLETION_AND_EXECUTION_PLAN.md`.
+
+---
+
+## 7. Post-audit bridge sweep — 2026-09-30
+
+### Run classification
+
+**NO MATERIAL PROGRESS.** This sweep deliberately excluded G4/Fukuoka chronology and other closed/known branches from progress scoring. No new evidence moved G1, G2, G3 or G5.
+
+### New corpus observations (support only)
+
+Additional Modern De Luxe promotional lighter examples surfaced:
+- `Vintage Amoco Modern De Luxe Lighter Japan — Parks Amoco Little Rock, AR` in an eBay category result;
+- a Sinclair-branded `Modern De Luxe` advertising lighter;
+- the already known AAA Southern California and Cott Soda examples remain visible;
+- the Konica / Sakura Film / Konishiroku boxed commemorative `Modern de Luxe` lighter remains visible in Yahoo closed-auction search.
+
+These broaden the promotional-goods corpus but **do not identify the supplier, manufacturer, exporter, trademark owner, or distributor**. They therefore do not pass G5.
+
+Sources:
+- https://www.ebay.com/shop/luxe-lighter?_nkw=luxe+lighter
+- https://www.ebay.com/itm/158100056824
+- https://www.ebay.com/itm/257079769022
+- https://www.ebay.com/itm/198562326508
+- https://auctions.yahoo.co.jp/closedsearch/closedsearch/%E5%B0%8F%E8%A5%BF%E5%85%AD/0
+
+### H.M.C. / Modernlite control
+
+Exact and variant searches around `Modern H.M.C.`, `Modernlite`, `H.M.C.CO.`, `Hirota`, and `Modern De Luxe` did not recover a period or institutional source equating H.M.C. with Hirota or joining H.M.C./Modernlite directly to Modern De Luxe.
+
+The L.T. Jordan Institute object remains useful physical evidence that an Art. No.510 lighter is marked `Modern H.M.C.` and `MODERNLITE AUTOMATIC SUPERLIGHTER`, but it does not expand the legal entity behind H.M.C.
+
+Source:
+- https://hub.catalogit.app/l.t.-jordan-institute-for-international-awareness/folder/entry/set-of-cigarette-case-and-lighter-with-oil-refinery-scene-in-blue-case
+
+A current marketplace listing explicitly calling `広田 (H.M.C. CO.)` is retained only as a **lead**, not proof, because the seller does not expose an independent period source for that identification.
+
+Source:
+- https://jp.mercari.com/item/m87843097008
+
+### Search-failure boundary
+
+This run did **not** recover:
+- `Modern De Luxe` + H.M.C. on one object/document;
+- `Modern De Luxe` + Hirota on one period/institutional document;
+- a legal/corporate expansion of `H.M.C.CO.`;
+- a trademark owner for `Modern De Luxe`;
+- a promotional-goods supplier name behind the Modern De Luxe advertising/commemorative corpus.
+
+These are search failures, not absence proofs.
+
+### Operational consequence
+
+Do not count further advertising-logo variants as progress unless they expose a supplier/manufacturer/exporter/trademark-owner field, packaging label, invoice, catalogue entry, address, or other company fingerprint. Generic web searches combining the already-known brand strings are now low-yield and should not be repeated as a primary tactic.
+
+Highest-value unresolved work remains **body-text acquisition** from the period references already identified, plus recovery of packaging/document imagery carrying company fingerprints.
