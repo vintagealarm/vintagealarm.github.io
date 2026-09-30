@@ -23,9 +23,9 @@
 - **理由**：Citizenは投稿前承認稿だけが正本化され、公開確認とInsights時系列が未登録だったため。公開本文では本文本体は承認稿どおりだが、hashtagsが承認稿の6個から公開画面の4個へ変わっており、承認状態のままでは実投稿との不一致が残る。6本目を既存の単一時系列と同じ検査・report経路へ含め、今後の再取得を同じ形式で累積する。
 - **旧状態・棄却**：Citizenを `approved / not publication-verified` のまま扱う状態、5本固定のInstagram集計、投稿画面529閲覧とInsights詳細530閲覧の一方を捨てる処理を棄却する。公開時刻は画面の `2時間前` から分単位へ逆算せず、時刻不明として保持する。
 - **影響範囲**：Instagram実投稿copy正本、Reel Insights時系列正本、6本横断の集計スクリプト、Social Router、判断履歴。公開サイト、WATCH本文、Instagram投稿そのもの、VA Analytics定義、Project資料PDFは変更しない。
-- **検証状態**：7枚のユーザー提供スクリーンショットを原寸確認。正本追記後にInstagram専用check / report、decision-log、quality gate、diff監査を実行し、main反映後にremote正本を再取得して全文・値・時刻・6本集計を確認する。
-- **関連**：対象は `measurement/.internal/.virtual/social/instagram-published-copy.md`、`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`measurement/.internal/.virtual/social/ROUTER.md`、`scripts/instagram-insights-timeseries.mjs`。
-- **日時根拠**：作業ホストのJST時刻 `2026-10-01 08:33 JST`。スクリーンショット端末時刻は投稿画面・概要・指標が08:28、engagement continuation・audienceが08:29 JST。
+- **検証状態**：7枚のユーザー提供スクリーンショットを原寸確認。Instagram専用checkは39 snapshots / 6 watches・未統合sidecar 0件でPASSし、reportでCitizenを含む6本の最新値と導線率を出力確認した。`check:quality`、Astro build（45 pages）、`git diff --check`もPASS。main実装commitを再取得し、remote / localのtree一致と対象5ファイルの内容一致を確認した。
+- **関連**：main実装commit `bf89e964f6344c7d3c8b7fe5cecc2cb14a2783c5`。対象は `measurement/.internal/.virtual/social/instagram-published-copy.md`、`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`measurement/.internal/.virtual/social/ROUTER.md`、`scripts/instagram-insights-timeseries.mjs`。
+- **日時根拠**：作業ホストのJST時刻 `2026-10-01 08:33 JST`。スクリーンショット端末時刻は投稿画面・概要・指標が08:28、engagement continuation・audienceが08:29 JST。main実装commitのGitHub時刻は `2026-09-30T23:37:24Z → 2026-10-01 08:37 JST`。
 
 ### 2026-10-01 07:51 JST — Instagram Insightsを単一時系列へ直接追記し、自動差分集計を必須化
 
