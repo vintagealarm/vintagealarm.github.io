@@ -1391,3 +1391,26 @@ Source:
 No new negative evidence was found. The current user screenshot remains controlling for the live relisted price state at **¥41,721** because Web indexes still surface the stale US$350 version.
 
 The promised movement photograph remains the highest-information unresolved purchase input.
+
+
+### 2026-10-02 — research objective clarified for OWNER'S NOTE
+
+**USER-DIRECTED SCOPE CORRECTION:**
+The ongoing ARSA Blind Alarm investigation is not primarily a purchase-monitoring exercise. Its main purpose is to build a sufficiently deep evidence base for a future **OWNER'S NOTE** that can examine the watch “from every angle.”
+
+Purchase-state facts such as price, seller claims, movement-photo status, and return conditions remain useful as specimen provenance / acquisition context, but they are secondary.
+
+Primary research priority is now:
+- identify exactly what the tactile alarm architecture is doing and why
+- reconstruct ARSA Blind Alarm lineage and chronology
+- compare ARSA with Enicar, BEAT/Friedli-Frères, A. Schild, AFB and later tactile-alarm descendants
+- establish what is generic AS 1475 versus Blind-specific design
+- map case, lid, hinge, crown-pusher, tactile dial, hand geometry and alarm-setting interaction
+- trace blind-watch history before ARSA and the postwar institutional / rehabilitation context without overstating causation
+- investigate failure modes, repairs, contamination, hand damage, lid/hinge durability and serviceability
+- establish surviving examples, variants, dates, case materials, reference numbers and movement families
+- separate source-confirmed facts, Web-confirmed evidence, specimen observations, seller claims, inference and open questions
+- collect contradictions and minority hypotheses instead of smoothing them away
+- preserve material that can later support an OWNER'S NOTE narrative centered on the physical watch, its use, and what the surviving specimen reveals
+
+The target movement photograph remains important because it can resolve specimen identity and internal architecture, not merely because it is a purchase gate.
