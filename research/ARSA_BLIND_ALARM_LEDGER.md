@@ -773,3 +773,313 @@ Source:
    - Ollendorff / Gotham
 3. Search for the original publication source of the 1956 ARSA Alertic advertisement and adjacent ARSA catalog material.
 4. Continue present-specimen movement-photo wait as the highest-value purchase-specific evidence.
+
+
+### 2026-10-02 — deep saturation pass: lineage, war demand, survivors, failure, market, and archive boundaries
+
+This pass deliberately re-separates **what is directly supported** from later narrative synthesis. Public Web searching has reached diminishing returns on the central AFB↔ARSA question; the remaining high-value evidence is likely in non-indexed archives or the target specimen itself.
+
+#### Track A — ARSA Blind Alarm chronology remains anchored by the specialist books
+
+**SOURCE-CONFIRMED:**
+- Beitl places ARSA's AS 1475 blind alarm at around **1956**.
+- Beitl's illustrated ARSA specimen is specifically dated **1958**.
+- Enicar has a comparable **AS 1475 / 17J** blind alarm at about **1957**.
+- Beitl records a later AFB-branded AS 1475 blind alarm at about **1960**, saying it was commissioned from ARSA and was identical to ARSA's own model.
+- A. Schild is shown with an AS 1475 blind-alarm prototype, but the publication does not establish its exact date or prove it was ARSA's direct design ancestor.
+- BEAT / Friedli-Frères also used AS 1475 for a blind alarm, but moved the lid-opening control to 6 o'clock instead of the more usual 4-o'clock crown-pusher arrangement.
+
+**Research consequence:** the evidence supports a small **multi-maker blind-alarm cluster around the newly introduced AS 1475**, not a one-off ARSA curiosity. It still does not establish one common case supplier or one inventor of the whole architecture.
+
+#### Track A — AS 1475 timing makes the 1956–57 blind alarms early applications, not late conversions
+
+**WEB-CONFIRMED / specialist movement reference:**
+A. Schild AS 1475 is documented as a hand-wound alarm caliber introduced in **1954**, 17 jewels, 18,000 A/h, twin barrels, with alarm/time crowns at approximately 2 and 4.
+
+Source:
+- https://reference.grail-watch.com/movement/as-1475/
+
+**Inference:** if Beitl's circa-1956 ARSA and circa-1957 Enicar chronology is accepted, both are very early uses of the caliber. This makes the blind-alarm cluster look more like an early specialist application of a new alarm movement than a much later reuse of obsolete stock.
+
+Exact production totals are not adopted because secondary sources conflict.
+
+#### Track A — ARSA had both blind-watch and alarm-watch competencies in the same broad period
+
+**WEB-CONFIRMED / secondary historical source:**
+WorldTempus' 2010 company history states that after Auguste Reymond's death in 1946, the Tramelan company developed jumping-hour watches and especially **Braille watches**, which were a regional specialty and supplied, among others, **American war veterans**.
+
+Source:
+- https://fr.worldtempus.com/article/auguste-raymond-une-marque-resolument-a-contre-courant-8904.html
+
+**PERIOD-SOURCE LEAD:**
+A 1970 Swiss trade directory / advertisement for A. Reymond S.A. lists both:
+- `Montres pour aveugles`
+- `Montres bracelet réveil`
+
+Source:
+- https://doc.rero.ch/record/323602/files/DAVOINE_1970-2.pdf
+
+**Previously recorded period-ad lead:** a surviving 1956 ARSA Alertic Réveil advertisement shows ARSA was also marketing a conventional alarm wristwatch at approximately the same time Beitl places the Blind Alarm.
+
+**Research consequence:** ARSA's Blind Alarm sits plausibly at the intersection of two real in-house product competencies: tactile watches and mechanical alarm wristwatches.
+
+**Limit:** this is still a convergence model. No period ARSA document found in this pass explicitly says “we combined our blind-watch line with our alarm-watch line to create the Blind Alarm.”
+
+#### Track A — American war-veteran connection to ARSA's broader Braille-watch business is now secondary-supported
+
+WorldTempus specifically links the post-1946 Tramelan Braille-watch specialty to supply for **American war veterans**.
+
+This is stronger than the earlier generic statement that wartime rehabilitation created demand. It supports a real ARSA / Auguste Reymond connection to American veteran users at the broader Braille-watch level.
+
+**Do not overextend:** it does **not** prove:
+- ARSA's circa-1956 Blind Alarm was designed for veterans
+- the circa-1960 AFB blind alarm belonged to AFB's servicemen gift program
+- AFB's order caused ARSA to create the Blind Alarm
+
+Those remain OPEN.
+
+#### Track B — tactile watches clearly predate ARSA's 1950s product
+
+**WEB-CONFIRMED / patent-history evidence:**
+Later tactile-timepiece patent citations include:
+- US360641A, **Watch for the blind**, 1887
+- US1222369A, **Watch readable by touch**, assigned to Waltham Watch Co., 1917
+- later 1930s touch-readable watch patents
+
+Source:
+- https://patents.google.com/patent/US7079454
+
+**PERIOD-SOURCE CONFIRMED:** La Fédération Horlogère Suisse, 18 June 1923, carries a Reymond Frères S.A., Les Bioux advertisement announcing a `Montre pour aveugles`.
+
+Source:
+- https://doc.rero.ch/record/19280/files/19230618.pdf?version=1
+
+**Important company-history boundary:** Auguste Reymond had sold the Les Bioux operation to Reymond Frères in 1910. Therefore the 1923 advertisement is evidence for **Swiss blind-watch manufacture before ARSA's 1950s line**, but is not evidence that ARSA itself made that 1923 watch.
+
+#### Track B — war demand: strong for institutionalization, still not direct proof of ARSA Blind Alarm causation
+
+**WEB-CONFIRMED / official and institutional sources already in ledger:**
+- St Dunstan's / Blind Veterans UK used Braille watches as an early rehabilitation and independence tool for WWI-blinded servicemen.
+- AFB began its WWII servicemen Braille-watch program in 1943.
+- APH records **1,048 watches delivered by December 1945** and another **87** to Korean War-blinded veterans by 1959.
+- AFB's program included repair infrastructure and continued until 1963, when VA / other supply channels made the gift program unnecessary.
+- AFB's wartime research also included a **vibrating alarm clock** in its wider assistive-device program.
+
+Sources:
+- https://www.aph.org/blog/the-gift-of-time/
+- https://www.afb.org/about-afb/history/afb-timeline
+- https://www.afb.org/about-afb/history/online-library/unseen-minority/chapter-17
+- https://www.blindveterans.org.uk/about-us/who-we-are/our-history/our-archives/
+
+**Best-supported causal model:**
+War did not invent tactile watches. WWI and WWII greatly expanded and institutionalized their **procurement, rehabilitation use, training, repair and distribution**. By the postwar 1950s, that established assistive-watch ecosystem could intersect with the rapidly maturing mechanical alarm-wristwatch category.
+
+Thus the Blind Alarm is best treated as a **postwar convergence product**, not a wartime invention.
+
+#### Track A+B — AFB after 1963: watch activity continued beyond the veteran gift program
+
+The end of AFB's servicemen gift program in 1963 did not mean AFB stopped dealing in tactile watches. Its Aids and Appliances activity continued, and later AFB-associated Swiss-made Braille watches are documented.
+
+**AUCTION-ARCHIVE CONFIRMED:** a later `afB (American Foundation for the Blind) De Luxe Alarm` is documented with:
+- jump / opening cover
+- tactile points and hands
+- central alarm-setting hand
+- **AS 1930**
+- 17 jewels
+- 33 mm
+- circa **1970**
+- described as intact
+
+Source:
+- https://www.lotsearch.net/index.php/lot/afb-american-foundation-for-the-blind-de-luxe-alarm-wristwatch-for-the-59842113
+
+**Research consequence:** AFB-branded mechanical Blind Alarm watches existed in a later AS 1930 generation. This weakens any model in which the circa-1960 ARSA/AS1475 AFB watch was a single isolated one-off in the organization's history.
+
+**Limit:** no evidence yet proves continuous production from the AS1475 AFB watch to the AS1930 De Luxe, or identifies ARSA as maker of the later model.
+
+#### AFB↔ARSA documentary bridge — still the main archival gap
+
+No independently indexed AFB / APH Web record naming **ARSA / Auguste Reymond** in the circa-1955–1963 watch-purchasing context was found in this saturation pass.
+
+This is an **absence of indexed Web evidence**, not evidence that no record exists.
+
+The most valuable archive request remains:
+- AFB Archive held by American Printing House for the Blind
+- years approximately 1955–1963
+- Aids and Appliances / Braille Watch Program / purchasing / supplier correspondence / invoices
+- search names: ARSA, Auguste Reymond, Tramelan, Switzerland, alarm watch, wrist alarm, supplier, Katherine/Kathern Gruber
+
+Beitl's circa-1960 ARSA commission remains the only direct source currently found for that specific transaction.
+
+#### Post-1965 AFB Swiss factory — HOLD
+
+A secondary Watch-Wiki entry says former Gotham Watch Company president **Morton Ollendorff** helped AFB establish a Braille-watch factory in Switzerland after retiring in 1965.
+
+Source:
+- https://watch-wiki.org/index.php?title=Ollendorff_Watch_Co
+
+Trade / legal records independently support Ollendorff's long involvement in the Swiss watch-import trade, and later AFB-associated Swiss Braille watches exist. But this pass still found **no AFB annual report, archive document, Swiss factory record or other primary source** confirming the factory claim.
+
+Status remains **HOLD**.
+
+Do not infer:
+- that ARSA was the factory
+- that Ollendorff was connected to the circa-1960 ARSA order
+- that the later AFB De Luxe Alarm was made by ARSA
+
+#### A. Schild prototype — source-confirmed existence, chronology still OPEN
+
+The project specialist book proves an A. Schild blind-alarm prototype with AS 1475 existed. No independent Web source found in this pass dates it or demonstrates whether it preceded or followed ARSA's circa-1956 model.
+
+The source-book photographs also do not justify saying the prototype and ARSA production watch share the same complete exterior design.
+
+Therefore:
+- **prototype exists** — SOURCE-CONFIRMED
+- **A. Schild originated ARSA's case/UI** — NOT PROVEN
+- **prototype date relative to ARSA** — OPEN
+
+#### Alternate ARSA Blind Alarm architecture — Venus 230 survivor lead
+
+**SECONDARY SURVIVOR LEAD:** a detailed collector report documents a 1950s ARSA Blind Alarm using **Venus 230**, with a different control layout:
+- one crown for time / winding
+- one for alarm
+- **separate pusher around 2 o'clock** for opening the front cover
+- tactile dial / hands
+- gold-plated case
+- resonant double-back construction
+
+Movement background source:
+- https://reference.grail-watch.com/movement/venus-230/
+
+Collector source discovered in Web research:
+- UhrForum, ARSA Blind Alarm / Venus 230 survivor discussion
+
+**Research consequence:** ARSA Blind Alarm may have existed in at least two mechanically distinct architectures:
+1. **AS1475 line** — 2/4 crowns, opener integrated in the 4-o'clock crown, documented by Beitl
+2. **Venus 230 survivor lead** — separate opening pusher, collector-documented
+
+**Status of line 2:** not yet period-primary confirmed. Do not elevate it to a catalogued production family until period ARSA literature or another strong source is found.
+
+The current target's exterior matches the **AS1475-type control architecture**, not the reported Venus-230 layout.
+
+#### Track A — failure / repair map upgraded
+
+**CONTEMPORARY PATENT EVIDENCE:** Ferguson's 1957 tactile-indicator patent explicitly states that on conventional tactile watches the user directly touches the hands and may thereby disturb the setting, causing inaccurate time indication.
+
+Source:
+- https://patents.google.com/patent/US2915874
+
+**REPAIR EVIDENCE:** Mitka's restoration of two Cyma Braille watches found one with a **broken hour hand** and the other with a **broken bezel**, and combined the better parts into one watch.
+
+Source:
+- https://mitka.co.uk/2017/02/16/service-cyma-braille-calibre-458/
+
+**INSTITUTIONAL ANECDOTAL EVIDENCE:** Deafblind UK has published a user story in which a tactile watch cover became difficult to open and, after repair altered it, a hand later broke while the user tried to change the time.
+
+**HISTORICAL AFB REPAIR EVIDENCE:** APH records large numbers of Braille-watch repairs and notes contamination through the open face as a recurring cause.
+
+**Supported failure classes now:**
+- direct contact can disturb hand position / setting
+- tactile hands can break
+- special bezel / lid parts can be damaged
+- open tactile designs can admit contamination
+- specialist exterior parts complicate repair
+- unfamiliar repairers can create secondary problems in at least some reported cases
+
+**Still NOT PROVEN:**
+- finger pressure commonly destroys the gear train
+- ARSA hinge pins are a known chronic weak point
+- Blind Alarm watches fail more frequently than ordinary alarm watches
+- present rarity is mainly the result of breakage
+
+#### Target purchase diagnostics — user's earlier checks remain exactly the right special-part checks
+
+The user had already identified hinge / hand risks before the broader failure research and deliberately asked the seller for:
+- alarm function / sound
+- opening and closing behavior
+- hinge condition
+
+The later evidence validates these as meaningful **pre-purchase diagnostics for hard-to-replace blind-specific structures**.
+
+Do not rewrite this chronology as accidental intuition discovered after the fact.
+
+#### Parts-serviceability map — unchanged but now better supported
+
+If the target movement proves to be AS 1475, generic AS1475 donor parts may help with ordinary movement-side problems.
+
+A generic donor does **not** solve:
+- tactile hour/minute hands
+- tactile alarm-setting hand
+- tactile dial / markers
+- opening lid / crystal assembly
+- hinge
+- latch / spring
+- crown-integrated opening pusher
+- blind-specific case geometry
+
+The main preservation risk remains the **blind-specific exterior / interface hardware**, not simply obtaining another AS1475.
+
+#### Current survivor / market snapshot — asking prices, not a proven sold market
+
+**CURRENT ASKING COMPARABLE:** eBay item 387444467772, another ARSA Blind Alarm, asks **US$300 or Best Offer** plus shipping. The seller states watch and alarm are running; 17 jewels; 33 mm; gold-plated case. The listing dates it to the 1970s, but that seller-supplied dating is not independently adopted.
+
+Source:
+- https://www.ebay.com/itm/387444467772
+
+**CURRENT TARGET:** approximately **US$350 asking** before any accepted offer / final landed cost, per listing material already preserved in user screenshots and Web mirrors.
+
+**NON-ALARM CONTROL:** Antiquorum sold an ARSA Braille watch (not an alarm) in March 2022 for **HKD 812** against a much higher estimate. This must not be used as a direct Blind Alarm comp.
+
+Source:
+- https://catalog.antiquorum.swiss/en/lots/arsa-by-auguste-reymond-sa-ref-47066-lot-348-5
+
+**AFB De Luxe archive:** auction appearances around the low-hundreds-of-euros opening range exist, but no clean realized-price series has been found.
+
+**Market conclusion:** current Blind Alarm asking evidence clusters around roughly **US$300–350**, but there is not yet a reliable sold-result dataset. Therefore the target can be described as **within the observed current asking range**, not as objectively cheap, fair or expensive.
+
+#### Current target — identity confidence after deep pass
+
+**Strongly supported externally:**
+- ARSA Blind Alarm identity
+- tactile watch + alarm interface
+- 2/4-crown AS1475-type control architecture
+- lid / hinge / tactile dial / tactile hour-minute hands / central alarm hand visibly present
+- seller claims alarm, lid operation and hinge are functional
+
+**Still OPEN and purchase-critical:**
+- actual movement caliber
+- movement originality
+- corrosion / water history
+- alarm-train completeness
+- service quality / screw damage
+- inside caseback marks
+- exact production date
+- actual timing / amplitude / alarm duration
+
+**Current purchase gate remains unchanged:** the movement photograph is the single highest-information missing item.
+
+#### Archive saturation boundary
+
+Public Web / digitized specialist sources now give a coherent historical model, but the central remaining questions are not likely to be solved by simply repeating broader Web searches.
+
+The next evidence tier is:
+1. **target movement / caseback photos**
+2. **AFB Archive / APH unindexed purchasing correspondence**
+3. **Mémoires d'Ici / Auguste Reymond physical dossiers and trade material**
+4. **Swiss trade press / ARSA catalogs around 1954–1962**
+5. **A. Schild factory / technical records if accessible**
+
+Mémoires d'Ici has catalogued Auguste Reymond / ARSA material, while also warning that absence from electronic search does not establish absence from the archive. Relevant physical dossiers / anniversary material should therefore be treated as archive leads rather than negative search results.
+
+#### Deep-pass consolidated interpretation
+
+The strongest model after this pass is:
+
+> **Tactile watches existed long before ARSA. The World Wars transformed them from a niche watch form into an institutional assistive technology with organized procurement, training and repair. ARSA then operated in a postwar environment where it had both a Braille-watch specialty — including a secondary-documented American-veteran connection — and ordinary mechanical alarm-watch competence. When AS 1475 appeared in 1954, ARSA, Enicar, BEAT and A. Schild all appear in the following years with tactile-alarm experiments or products. Blind Alarm is therefore best understood as a small postwar convergence wave between an established tactile-watch ecosystem and the new generation of alarm-wristwatch movements.**
+
+What remains unproven is equally important:
+- no primary document yet says war-veteran demand directly caused the ARSA Blind Alarm
+- no independent AFB purchase order yet confirms the circa-1960 ARSA commission
+- no dated A. Schild record yet establishes prototype precedence
+- no evidence yet proves a universal common case supplier
+- the current target's movement is still unseen
