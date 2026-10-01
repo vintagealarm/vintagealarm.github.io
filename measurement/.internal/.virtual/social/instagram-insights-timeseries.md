@@ -969,6 +969,35 @@
 - source_status: CANONICAL_LOG_SCREENSHOT
 - note: 2026-10-01 08:28–08:29 JSTのユーザー提供Instagram投稿・Insightsスクリーンショット7枚から確認。投稿画面は529 views、直後のInsights詳細は530 viewsのため両方を保持。共有数は画面上 `--`、bio link clickとgenderは未表示のため補完しない。
 
+### Snapshot — 2026-10-02 06:29–06:30 JST
+- observed_at_jst: 2026-10-02 06:29–06:30
+- elapsed_since_publish: approximately 24h; exact calculation unavailable
+- reel_duration: 18s
+- views: 1,423
+- viewers: 1,242
+- average_watch_time: 6s
+- follows: 3
+- likes: 50
+- comments: 2
+- reposts: 0
+- share_count: UI `--`
+- saves: 4
+- skip_rate: 45.3%
+- share_rate: 0.1%
+- like_rate: 4.0%
+- save_rate: 0.3%
+- repost_rate: 0.0%
+- comment_rate: 0.2%
+- profile_accesses: 4
+- bio_link_clicks: unknown
+- followers: 4.6%
+- non_followers: 95.4%
+- age: 13–17 4.2% / 18–24 31.7% / 25–34 40.0% / 35–44 13.7% / 45–54 5.9% / 55–64 3.1% / 65+ 1.4%
+- age_18_34_combined: 71.7%
+- countries: India 22.5% / Turkey 11.6% / Iran 7.9% / United States 6.6% / Mexico 2.7%
+- source_status: CANONICAL_LOG_SCREENSHOT
+- note: 2026-10-02 06:29–06:30 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。bio link clickとgenderは未表示のため補完しない。Meta UI上の評価は skip rate「低」、share rate「低」、like rate「通常」、save rate「低」、repost rate「低」、comment rate「高」。閲覧数推移グラフでは本Reelが約1,400付近で伸びが鈍化し、通常のReel動画の比較線を下回る表示。
+
 ---
 
 ## 2. Cross-source reconciliation / rejected values
