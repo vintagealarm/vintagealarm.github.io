@@ -1314,3 +1314,31 @@ Purchase-decision consequence:
 At roughly ¥41k, purchasing before the movement photo becomes a more defensible risk trade if the buyer is willing to accept the residual possibility of a non-original / non-AS1475 / poorly serviced movement. It is still not equivalent to a verified movement purchase.
 
 Do not convert this into a definitive market-value conclusion because robust sold-result evidence remains sparse.
+
+
+### 2026-10-02 — current relisted listing screenshot and short link captured
+
+**IMAGE-CONFIRMED — user-supplied current listing screenshot:**
+- seller: Treasuredo (921), 99.5% positive
+- asking price: US $279
+- eBay approximate yen display: ¥43,917
+- coupon-displayed price: **¥41,721**
+- Best Offer available
+- free shipping
+- delivery window shown: **Oct 14–Oct 21**
+- condition: Pre-owned - Good
+- brand: ARSA
+- model: ARSA Braille
+- one heart / watch-list style count visible
+
+The visible thumbnail strip in this screenshot shows front / wrist views only; **no movement photograph is visible in the current screenshot**.
+
+User-supplied eBay short link:
+- https://ebay.io/m/tHhDQR
+
+The short-link endpoint could not be independently fetched by the Web tool in this session, so the screenshot remains the controlling live evidence.
+
+Purchase consequence:
+- effective displayed price is concretely confirmed at **¥41,721** in the current screenshot
+- no new negative condition evidence is visible
+- the movement photo remains the only major outstanding seller-provided purchase input
