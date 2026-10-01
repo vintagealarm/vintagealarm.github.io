@@ -1083,3 +1083,63 @@ What remains unproven is equally important:
 - no dated A. Schild record yet establishes prototype precedence
 - no evidence yet proves a universal common case supplier
 - the current target's movement is still unseen
+
+
+### 2026-10-02 — target listing reappears at materially lower ask
+
+#### IMAGE-CONFIRMED — user-supplied current eBay screenshot
+
+A new screenshot of the same ARSA Blind Alarm target shows:
+
+- seller: **Treasuredo**
+- seller feedback count shown as **921**, 99.5% positive
+- asking price: **US$279**
+- eBay displayed approximate yen price: **¥43,917**
+- coupon-displayed price: **¥41,721**
+- **Best Offer** remains available
+- free shipping
+- displayed delivery window: **Oct 14–Oct 20**
+- condition: Pre-owned - Good
+- model field: ARSA Braille
+- one heart / watcher-style count shown in the screenshot
+
+This is newer image evidence and supersedes the earlier screenshot's price state for the target listing.
+
+#### Price-state consequence
+
+Earlier preserved target asking state was approximately **US$350**.
+
+Current screenshot shows **US$279**, a reduction of **US$71**, approximately **20.3%**.
+
+The coupon-displayed yen amount is also materially lower than the earlier preserved coupon state.
+
+This changes the **price-risk** side of the purchase evaluation, but does not change the technical purchase gate.
+
+#### New rear-view image — useful but movement still not shown
+
+The new listing screenshot also shows a rear-open view. The visible part is a smooth inner metal cover / dust-cover-like surface with faint stamping and peripheral case openings.
+
+**IMAGE-CONFIRMED:**
+- seller has at least opened the rear enough to photograph an internal cover surface
+- no movement plates / bridges / balance / caliber marking are visible in this screenshot
+- therefore **AS 1475 remains unconfirmed for the target**
+
+Do not treat this rear-open image as the requested movement photograph.
+
+#### Purchase-gate update
+
+- **Price barrier:** improved materially.
+- **Blind-specific exterior risk:** unchanged from prior seller claims / image evidence.
+- **Movement uncertainty:** unchanged and still the single highest-information missing item.
+
+The lower ask makes the specimen more attractive economically, but it does **not** justify waiving the movement-photo check.
+
+#### Web cross-check note
+
+A fresh eBay category crawl still surfaced an older / cached listing state for the same title at **US$350**, showing that Web indexing is lagging the user-supplied current screenshot.
+
+Per project evidence priority, the current user screenshot is the controlling source for the live observed price state.
+
+Source:
+- current user-supplied eBay screenshot, 2026-10-02
+- stale category crawl: https://www.ebay.com/b/ARSA-Men-Wristwatches/31387/bn_108282521
