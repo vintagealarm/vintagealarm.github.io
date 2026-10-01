@@ -678,3 +678,98 @@ rather than invention of the hinged tactile watch itself.
 - 1956-60 Swiss tactile-alarm wristwatch cluster
 
 The causal link from wartime rehabilitation demand to ARSA's specific product development remains **OPEN**.
+
+
+### 2026-10-01 — search resumed from organized baseline: ARSA contemporaneous alarm advertising and post-1963 AFB Swiss-watch production lead
+
+#### Track A / ARSA had a normal alarm-watch line at the same moment as the Blind Alarm
+
+**WEB-CONFIRMED / period-advertisement surviving copy:** a 1956 Swiss magazine advertisement for **ARSA Alertic Réveil** survives. The advertisement is dated 1956 and presents a normal two-crown ARSA alarm wristwatch under the phrases `UN APPEL SONORE` / `ARSA Alertic Réveil`.
+
+Sources:
+- https://www.ecrater.com/p/21726872/original-1956-arsa-alertic-watch-ad
+- surviving image surfaced by Web image search from the same listing
+
+The advertisement copy presents ordinary civilian alarm use cases such as waking at a desired hour, reminders and appointments.
+
+**Research consequence:** ARSA was publicly marketing a conventional mechanical alarm wristwatch in 1956, the same approximate year in which Beitl places ARSA's Blind Alarm / AS 1475.
+
+This strengthens a product-history model in which ARSA already had:
+1. a tactile / blind-watch product tradition, and
+2. a contemporary alarm-watch product line,
+
+before / while producing the Blind Alarm.
+
+**Important limit:** the 1956 Alertic advertisement does **not** show the Blind Alarm and does not prove that the Blind Alarm was derived from this exact advertised model. It supports contemporaneous ARSA competence / marketing in alarm watches, not a direct parent-child design relationship.
+
+#### Track B / the 1963 end of the veteran gift program did not mean AFB exited watches
+
+**WEB-CONFIRMED / official AFB history:** AFB states that its practice of presenting every blinded serviceman with a braille watch ended in **1963**, because such personal equipment could then be supplied from other sources / the VA.
+
+Source:
+- https://www.afb.org/about-afb/history/online-library/unseen-minority/chapter-17
+
+**WEB-CONFIRMED / official AFB history:** AFB's Aids and Appliances activity continued as a large civilian distribution business. The 1972-73 catalog offered more than 300 items and included high-end braille watches.
+
+Source:
+- https://afb.org/online-library/unseen-minority-0/chapter-21
+
+**WEB-CONFIRMED / Smithsonian:** the Smithsonian National Museum of American History holds a **Swiss-made braille watch, ca. 1973**, credited to the **American Foundation for the Blind** as maker / source.
+
+Source:
+- https://americanhistory.si.edu/ar/collections/object/nmah_727327
+
+**Research consequence:** distinguish two separate AFB lines:
+- the wartime / veteran **gift program**, which ended in 1963
+- AFB's broader **civilian aids-and-appliances / braille-watch supply activity**, which clearly continued afterward
+
+Therefore, Beitl's circa-1960 AFB-ARSA watch should not automatically be interpreted as part of the veteran gift program.
+
+#### Track A+B / Swiss braille-watch factory lead after 1965 — HOLD, not yet primary-confirmed
+
+**SECONDARY WEB LEAD:** Watch-Wiki's Ollendorff Watch Co. entry states that watch importer / Gotham Watch Company president **Morton Ollendorff** retired in 1965 and then helped the American Foundation for the Blind establish a **braille-watch factory in Switzerland**.
+
+Source:
+- https://watch-wiki.org/index.php?title=Ollendorff_Watch_Co
+
+Independent background support:
+- U.S. Tax Court records confirm Morton Ollendorff and the Ollendorff Watch Company were deeply involved in importing Swiss watches into the United States before this period.
+- A 1939 Swiss watch-industry newspaper independently places Morton Ollendorff in the Swiss watch trade network.
+- Smithsonian preserves an AFB-attributed Swiss braille watch dated ca.1973.
+
+Sources:
+- https://case-law.vlex.com/vid/ollendorff-v-commissioner-docket-889074999
+- https://doc.rero.ch/record/19101/files/19390608.pdf
+- https://americanhistory.si.edu/ar/collections/object/nmah_727327
+
+**Status: HOLD.** No AFB annual report, archive document, obituary, corporate record or Swiss factory record has yet been found that independently confirms the claimed 1965 AFB braille-watch factory project.
+
+**Research consequence if later confirmed:** this would explain how AFB could continue supplying Swiss-made braille watches after ending the veteran gift program in 1963, and could create a second Swiss-production phase distinct from the earlier circa-1960 ARSA order described by Beitl.
+
+**Do not yet infer:** ARSA was the factory, ARSA participated in the post-1965 project, Morton Ollendorff had any connection to the circa-1960 ARSA Blind Alarm, or the Smithsonian 1973 watch came from that specific factory.
+
+#### Track A / AS 1475 context
+
+**WEB-CONFIRMED / specialist movement reference:** AS 1475 is documented as an A. Schild hand-wound alarm caliber introduced in 1954, with 17 jewels, 18,000 A/h, two barrels and two crowns at 2 and 4. Specialist references place the family in production through the 1960s, with AS 1930 as the later 21,600 A/h time-only alarm successor.
+
+Source:
+- https://reference.grail-watch.com/movement/as-1475/
+- https://www.watch-wiki.net/doku.php?id=as_1475&redirect=1
+
+**Research consequence:** the Beitl chronology (ARSA Blind Alarm around 1956; Enicar around 1957) falls extremely early in the commercial life of AS 1475. This makes the 1956-57 Blind Alarm cluster an early application of a newly introduced alarm caliber, rather than a late adaptation of an old movement.
+
+**Limit:** production-volume numbers differ between specialist secondary sources, so no exact total-production figure is adopted here without a stronger source.
+
+#### Updated search priorities after this pass
+
+1. Search AFB annual reports / archive finding aids from 1959-1970 for:
+   - ARSA / Auguste Reymond
+   - Morton Ollendorff
+   - Switzerland / Swiss watch factory
+   - braille watch manufacturing / watch supplier / watch procurement
+2. Search Swiss trade press from 1955-1967 for:
+   - ARSA + aveugle / Blinden / braille
+   - AFB / American Foundation for the Blind
+   - Ollendorff / Gotham
+3. Search for the original publication source of the 1956 ARSA Alertic advertisement and adjacent ARSA catalog material.
+4. Continue present-specimen movement-photo wait as the highest-value purchase-specific evidence.
