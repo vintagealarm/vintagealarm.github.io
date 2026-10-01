@@ -1767,3 +1767,62 @@ Arrival Probe:
 - Four internal pageviews are observed despite Internal Navigation visits being zero, which is expected under the current metric definition: internal transitions add pageviews without creating new visits.
 - Japan dominates pageviews in this 24h window (9 of 12). This geography is pageview composition, not a unique-visitor count.
 - `latestBucket` / `gapLower` are freshness diagnostics for aggregated buckets, not proof of raw-event collection delay.
+
+## 2026-10-02 06:29–06:30 JST — Citizen Alarm approximately-24h Insights snapshot
+
+ユーザー提供Instagram Insightsスクリーンショット6枚で確認。数値時系列の正本は `instagram-insights-timeseries.md` へ同時刻snapshotとして保存。
+
+### Citizen Alarm
+- Views: 1,423
+- Viewers: 1,242
+- Average watch time: 6s / 18s Reel
+- Follows: 3
+- Likes: 50
+- Comments: 2
+- Reposts: 0
+- Saves: 4
+- Share count: summary UI `--`
+- Skip rate: 45.3%（Instagram表示: 低）
+- Share rate: 0.1%（低）
+- Like rate: 4.0%（通常）
+- Save rate: 0.3%（低）
+- Repost rate: 0.0%（低）
+- Comment rate: 0.2%（高）
+- Profile accesses: 4
+- Bio-link clicks: 未表示
+- Followers / non-followers: 4.6% / 95.4%
+
+Audience:
+- Age: 13–17 4.2% / 18–24 31.7% / 25–34 40.0% / 35–44 13.7% / 45–54 5.9% / 55–64 3.1% / 65+ 1.4%
+- 18–34 combined: 71.7%
+- Country: India 22.5% / Turkey 11.6% / Iran 7.9% / United States 6.6% / Mexico 2.7%
+
+Delta from 2026-10-01 08:28–08:29:
+- Views: 530 → 1,423 (+893)
+- Viewers: 429 → 1,242 (+813)
+- Likes: 15 → 50 (+35)
+- Saves: 1 → 4 (+3)
+- Follows: 2 → 3 (+1)
+- Profile accesses: 1 → 4 (+3)
+- Comments: 2 → 2
+- Reposts: 0 → 0
+- Average watch time: 6s → 6s
+- Skip rate: 43.9% → 45.3% (+1.4pt)
+- Like rate: 3.2% → 4.0% (+0.8pt)
+- Save rate: 0.2% → 0.3% (+0.1pt)
+- Share rate: 0.0% → 0.1%
+- Non-followers: 98.9% → 95.4%
+- 18–34: 76.6% → 71.7%
+- India: 8.7% → 22.5%
+- Turkey: 17.5% → 11.6%
+- Iran: 11.9% → 7.9%
+- United States: 5.1% → 6.6%
+
+### Interpretation
+- 2h snapshot以降も+893 views / +813 viewersまで広がったが、Instagramの閲覧数推移グラフでは約1,400付近で伸びが鈍化し、通常Reel比較線を下回っている。現時点ではBasisのような後発breakoutは観測されていない。
+- Skipは43.9%→45.3%へ小幅悪化したものの、Instagram自身の判定は引き続き「低」。したがって開幕で即座に大崩れしたReelとは読まない。一方、平均再生時間は6sのままで、18s尺に対して約1/3という記述的比率に留まる。
+- Like rateは3.2%→4.0%へ改善して「通常」。しかしshare/save/repostはInstagram判定で低く、拡散・保存行動は弱い。コメント率だけは「高」だが絶対数は2のままなので、コメント2件を成長要因と因果化しない。
+- Profile accessesは1→4、followsは2→3。累積view基準ではprofile access約0.28%、follow約0.21%、save約0.28%。これは同一人物ファネルではなく記述的な累積比率としてのみ扱う。
+- Non-followersは95.4%で依然として発見面中心だが、初期98.9%からは下がった。新規非フォロワー配布が止まったと断定せず、分布拡大の鈍化とフォロワー比率上昇が同時に観測された、と記録する。
+- 18–34は71.7%で引き続き主体。Indiaは8.7%→22.5%へ上昇し、Turkey / Iranは低下。Pierce・Basisでも拡張時にIndia比率が上がった先行観測があるため、Citizen固有の嗜好と断定せず、Instagram側の配布構成変化の反復候補として扱う。
+- 現段階の評価は「低skipで一定の初見停止は取れたが、平均再生・share/save/repost・profile actionがBasis級の再配布を呼ぶ形には至っていない」。6個体一巡比較のため、施策変更より同時間窓の比較を優先する。
