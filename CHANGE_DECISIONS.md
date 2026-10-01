@@ -455,3 +455,15 @@
 - **関連**：日本語正本更新 commit `0d54ece601bfa77ecaa792664fdfd16c4fb102f2`、英語同期 `47c697500d63c4e31acd09a1e84b53c423314abe`、ドイツ語同期 `9f68d26fc88f6a1b6fecd962f78f71577b6d3394`、回帰gate `840eab1219d93fbbb3947f02ed6151be46a69b9b`、生成HTML検査修正 `9af346974d77c3a1c6972f51b1959044603599b8`。
 - **日時根拠**：日本語Pages CMS commit `0d54ece601bfa77ecaa792664fdfd16c4fb102f2` は 2026-09-28T05:27:07Z → 2026-09-28 14:27 JST。EN / DE同期commitは 2026-09-28T05:32:13Z → 14:32 JST、2026-09-28T05:32:16Z → 14:32 JST。回帰gate commitは 2026-09-28T05:32:54Z → 14:32 JST。初回CIでAstro生成HTMLでは画像URLが処理され元ファイル名を保持しないため、rendered checkでファイル名を要求する設計が誤りと確認。source側でファイル名、rendered側で可視ラベルを検査する形へ修正したcommit `9af346974d77c3a1c6972f51b1959044603599b8` は 2026-09-28T05:34:25Z → 14:34 JST。
 - **merge / deploy記録**：PR #132 merge commit `8424a7d26f931a3344d009cd09ce952deaa99b91` は 2026-09-28T05:39:28Z → 2026-09-28 14:39 JST（PR merged_at 2026-09-28T05:39:29Z → 14:39 JST）。Deploy GitHub Pages run `36382861442` は 2026-09-28T05:39:31Z → 14:39 JST開始、2026-09-28T05:42:20Z → 14:42 JST終了でsuccess。build / quality / publication output / mobile layout / Pages deploy / complete live artifact parity / live publication stateがすべてsuccess。
+
+
+## 2026-10-02 — ARSA Blind Alarm研究運用整理
+
+### 2026-10-02 08:34 JST — LEDGERとCURRENT MAPを分離し、棄却線と次タスクを固定
+- **変更**：ARSA Blind Alarm調査について、詳細証拠・出典・逐次履歴を保持する既存 `research/ARSA_BLIND_ALARM_LEDGER.md` と、現在位置・調査経緯・一度切った仮説・優先タスク・停止条件を管理する新規 `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` を分離した。LEDGER冒頭からMAPへ明示的にルーティングし、P0〜P5の優先度、REJECTED / NOT PROVEN / HOLD / STOP、seller再質問禁止、公開Web飽和後のarchive-first方針を固定した。
+- **理由**：ARSA LEDGERが約7万字規模まで伸び、詳細証拠・過去の探索経緯・現在判断・購入タスクが一ファイルに混在していたため。既に棄却・降格した線を再探索したり、sellerへ同じ3点を聞き直したり、広域Web検索を反復する再発リスクが高くなっていた。証拠台帳と現在運用MAPを分離することで、履歴を失わず次の調査だけを即座に判断できる形へ変更した。
+- **旧状態・棄却**：単一LEDGERを「証拠履歴」と「現在タスクボード」の両方に使う運用を棄却。新証拠なしに、戦争直接起源説、AFB gift program = ARSA注文、A. Schild直接祖先、全社共通完成ケース、ARSAヒンジ慢性弱点、Venus230量産系列、Ollendorff Swiss factory = ARSA等を再浮上させる運用も棄却する。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_LEDGER.md`、新規 `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、今後のARSA調査開始順。公開サイト本文・WATCH・HISTORY・Analytics・購入個体の証拠分類そのものは変更しない。
+- **検証状態**：mainへ `b043529ae5bc71de02d7be695abc19d58c7a8315` を反映済み。MAPは調査経緯、確定線、切った線、P0〜P5、購入ゲート、停止条件、実行順、禁止事項を保持し、LEDGER冒頭から参照できる状態。最終確認ではmain上のMAP / LEDGER / CHANGE_DECISIONSを再取得して整合を確認する。
+- **関連**：commit `b043529ae5bc71de02d7be695abc19d58c7a8315`（`organize ARSA research map and task board`）。
+- **日時根拠**：GitHub commit `b043529ae5bc71de02d7be695abc19d58c7a8315` の `2026-10-01T23:34:57Z` → `2026-10-02 08:34 JST`。
