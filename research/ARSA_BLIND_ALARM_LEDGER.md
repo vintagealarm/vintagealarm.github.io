@@ -2,6 +2,9 @@
 
 このファイルは、ARSA Blind Alarm（触知式機械アラーム腕時計）と周辺系譜の調査・購入前確認・未解決事項を固定管理する正本。
 
+**現在位置・切った仮説・優先タスクの運用正本:** `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`  
+このLEDGERは詳細な証拠・出典・逐次履歴を保持し、MAPは現在状態と次アクションだけを整理する。
+
 調査は二本立てで並行する。
 
 - **Track A — ARSA / Blind Alarm本線**: 今回個体の同定、ARSA–AFB–A. Schild–Enicar–BEATの系譜、AS 1475、ケース／開閉機構、現存個体、故障、購入判断。
