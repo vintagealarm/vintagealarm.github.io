@@ -1156,3 +1156,15 @@ The seller replied **yes** to the user's full continuity-confirmation message. T
 **USER-CONFIRMED INTERPRETATION / SELLER-CLAIM CONTINUITY:** treat the seller's yes as confirming the relisted listing is the same watch and that the prior three condition answers continue to apply. Do not ask those same condition questions again unless new contradictory evidence appears.
 
 The only outstanding seller-provided purchase evidence is the promised movement photograph.
+
+
+### 2026-10-02 — current price observation around JPY 43,000
+
+**USER-REPORT:** the currently displayed / effective purchase price is now approximately **¥43,000**.
+
+Research consequence:
+- compared with the earlier roughly ¥52,000-range observed state, the price barrier has fallen materially
+- the technical purchase gate is still unchanged: the promised movement photograph remains the final major decision input
+- if the movement photo confirms a historically coherent movement (especially AS 1475) and shows no major corrosion / missing alarm parts / obvious abusive service, the specimen's risk-reward profile improves substantially at the current price level
+
+Do not convert this into a definitive fair-value claim because sold-result data for ARSA Blind Alarm remains sparse.
