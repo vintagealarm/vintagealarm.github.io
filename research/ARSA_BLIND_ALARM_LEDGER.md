@@ -1143,3 +1143,16 @@ Per project evidence priority, the current user screenshot is the controlling so
 Source:
 - current user-supplied eBay screenshot, 2026-10-02
 - stale category crawl: https://www.ebay.com/b/ARSA-Men-Wristwatches/31387/bn_108282521
+
+
+### 2026-10-02 — seller reply after relist
+
+Seller reply received after continuity check:
+- seller replied only that the item was relisted
+
+This confirms the listing action itself, but does **not** yet explicitly confirm:
+- that the relisted listing is the same physical watch discussed previously
+- that the prior three condition answers still apply
+- that the movement photograph is still forthcoming
+
+Therefore the previous condition answers remain seller claims tied to the earlier discussion until continuity is explicitly reconfirmed.
