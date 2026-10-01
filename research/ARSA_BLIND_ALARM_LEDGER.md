@@ -1342,3 +1342,49 @@ Purchase consequence:
 - effective displayed price is concretely confirmed at **¥41,721** in the current screenshot
 - no new negative condition evidence is visible
 - the movement photo remains the only major outstanding seller-provided purchase input
+
+
+### 2026-10-02 — continued research: relist metadata inconsistency and 1970s production context
+
+#### WEB-CONFIRMED — stale mirror of earlier listing version
+
+A current Web mirror for eBay item **206579362229** preserves an earlier version of the target listing at the old higher price state. Its seller description says:
+- approximately 33 mm case
+- approximately 15 mm thickness
+- **silver-tone plated case with stainless-steel back**
+- Swiss manual-wind 17-jewel movement
+- approximate 1970s dating
+
+However, the same mirror's structured item specifics separately label **Case Material: Stainless Steel**.
+
+Source:
+- https://www.grelly.fr/itm/vintage-arsa-braille-alarm-watch-swiss-manual-wind-17j-33mm-tactile-opening-case-206579362229
+
+**Research consequence:** the seller/listing metadata is internally inconsistent on case material. Do not use the eBay item-specific “stainless steel” field as proof of an all-steel case. The prose description's “silver-tone plated case with stainless-steel back” is materially closer to the specialist-book 1958 ARSA Blind Alarm description, which uses a chrome-plated metal case with screw back, but the current specimen's case material remains unconfirmed until markings or direct examination establish it.
+
+The mirror also states that some creative presentation images were AI-generated and that actual product photos should control condition assessment.
+
+#### WEB-CONFIRMED — seller identity continuity
+
+eBay pages show the store as **Treasuredo** while the seller account selector may use **timelessantique**. An eBay search URL explicitly combines the account selector with the Treasuredo store name.
+
+Source:
+- https://www.ebay.ca/sch/i.html?_oac=1&_ssn=timelessantique&store_name=treasuredo
+- https://www.ebay.com/str/treasuredo
+
+**Research consequence:** the earlier mirror's “timelessantique” label does not indicate a different seller from Treasuredo.
+
+#### WEB-CONFIRMED — 1970s ARSA blind-watch production remained possible
+
+Dictionnaire du Jura states that ARSA developed Braille watches in the early 1950s and was still producing watches for blind users in **1973**, alongside other mechanical and early quartz products.
+
+Source:
+- https://www.dictionnaire-du-jura.ch/f/notices/detail/8205-auguste-reymond-sa-tramelan
+
+**Research consequence:** seller dating of the current target to the 1970s is historically possible at the brand/product-category level, but it is still not specimen-level evidence. The target's exact date remains OPEN and should be decided from movement, case marks, reference numbers, and period-comparable construction.
+
+#### Current target implication
+
+No new negative evidence was found. The current user screenshot remains controlling for the live relisted price state at **¥41,721** because Web indexes still surface the stale US$350 version.
+
+The promised movement photograph remains the highest-information unresolved purchase input.
