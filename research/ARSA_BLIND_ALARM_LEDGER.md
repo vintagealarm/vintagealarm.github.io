@@ -544,3 +544,137 @@ For each update record:
 - remaining uncertainty
 
 Do not convert USER-REPORT or SELLER-CLAIM into SOURCE-CONFIRMED without re-verification.
+
+
+### 2026-10-01 — parallel follow-up: pre-ARSA tactile architecture, wartime alarm research, and contemporary failure evidence
+
+#### Track A / mechanism origin — earlier tactile-watch architecture found
+
+**WEB-CONFIRMED / specialist Web lead:** URSS Watch documents a 1938 First Moscow Watch Factory Type-1 blind wristwatch with:
+- no seconds hand
+- raised tactile dial
+- reinforced hands
+- a push-button in the crown that releases the crystal, which opens under spring action
+
+Sources:
+- https://urss.watch/2022/12/04/type-1-pour-aveugle-1fmm/
+- https://urss.watch/2021/07/27/les-montres-pour-aveugles/
+
+**Research consequence:** the crown-integrated push-button + opening crystal + reinforced tactile hands architecture predates ARSA's circa-1956 Blind Alarm by roughly two decades. Therefore:
+- do **not** describe ARSA as inventor of the crown-pusher opening architecture
+- do **not** use the 1950s Swiss Blind Alarm cluster as the origin point of tactile wristwatch construction
+- the 1950s innovation question should be narrowed to the **integration of tactile time-reading with a wrist-alarm function**, not the tactile case architecture itself
+
+The 1938 Soviet example is a strong counterexample but is not yet a factory primary document; primary Soviet catalog / archive confirmation remains desirable.
+
+#### Track B / WWI industrialization — Waltham touch-readable watch patent
+
+**WEB-CONFIRMED / patent register:** Waltham Watch Co. was assigned U.S. Patent **US1222369A, Watch Readable By Touch**, issued 1917-04-10, inventor Harrie E. Duncan.
+
+Sources:
+- https://pocketwatchdatabase.com/guide/company/waltham/patents
+- patent lineage references: https://patents.google.com/patent/US20050135198
+
+**Research consequence:** touch-readable timepieces were an active industrial design problem during WWI itself, not merely a later charitable adaptation. This strengthens the model:
+WWI mass casualty / rehabilitation demand + industrial watchmaking capability -> institutionalization of tactile timekeeping.
+
+It does **not** prove the Waltham patent was created specifically for war-blinded veterans unless the patent / company archive says so.
+
+#### Track A / failure mode — 1957 patent explicitly identifies damage from touching hands
+
+**WEB-CONFIRMED / patent:** Edgar A. Ferguson Jr., **US2915874A, Tactile Indicators**, filed 1957-08-26, states that existing tactile watches required the user to touch the watch hands directly and that doing so could disturb the setting; the German family **DE1147393B** goes further in translation, stating direct touch can disturb the movement or bend the hands.
+
+Sources:
+- https://patents.google.com/patent/US2915874
+- https://patents.google.com/patent/DE1147393B/en
+
+The proposed solution used tactile magnetic elements rather than directly exposed hands.
+
+**Research consequence:** hand disturbance / hand bending is not only a modern repair anecdote. It was a documented design problem contemporaneous with the ARSA / Enicar Blind Alarm era.
+
+This upgrades the failure map:
+- **direct-contact hand disturbance / bending** -> supported as a historically recognized design problem
+- **gear-train breakage caused by finger pressure** -> still NOT PROVEN
+- **ARSA-specific hand-failure frequency** -> still OPEN
+
+#### Track B / wartime assistive-alarm research — AFB 1944 vibrating alarm clock
+
+**WEB-CONFIRMED / official AFB:** AFB's 1944 research laboratory created and distributed assistive devices including a **vibrating alarm clock**. AFB states that by the end of the 1940s it had distributed more than 30,000 devices from this broader program.
+
+Source:
+- https://afb.org/afb100/our-history
+- https://www.afb.org/about-afb/history/afb-timeline
+
+**Research consequence:** during WWII, AFB was working not only on tactile time-reading but also on non-visual / non-auditory alarm signaling in the wider assistive-device program.
+
+Important limit:
+- this was an alarm **clock**, not a wristwatch
+- no current evidence connects this vibrating clock technically to ARSA / AS 1475
+- the 30,000 figure refers to the wider device program, not 30,000 alarm clocks
+
+#### Track B / St Dunstan's and WWI rehabilitation
+
+**WEB-CONFIRMED / institutional archive + AFB history:**
+- Blind Veterans UK archive states that founder Sir Arthur Pearson visited war-blinded men and gave each a braille watch to demonstrate retained independence.
+- AFB's history of WWI rehabilitation records the same St Dunstan's practice and specifically notes that Ian Fraser received a braille watch and encouragement after being blinded at the Somme.
+
+Sources:
+- https://www.blindveterans.org.uk/about-us/who-we-are/our-history/our-archives/
+- https://afb.org/online-library/unseen-minority-0/chapter-16
+
+**Research consequence:** the braille / tactile watch was used institutionally as an early rehabilitation tool and symbolic first step toward independence, not merely as a retail accessory.
+
+#### Track A / ARSA continuity and association distribution
+
+**WEB-CONFIRMED / current manufacturer site:** ARSA's current Blind Watch site states:
+- ARSA blind / braille watches were first launched in the 1950s
+- the company presents itself as a specialist / pioneer in this category
+- current products are distributed through a network of associations for blind people
+- current tactile products retain hinged opening crystals and multiple opening positions (including 4, 6 and 3 o'clock depending on model)
+
+Sources:
+- https://blindwatch.net/
+- https://blindwatch.net/unisex-pocket/
+- https://blindwatch.net/standard/
+
+**Limit:** the current distribution model does not prove that the same association network existed in 1956–60, and it does not independently prove the Beitl AFB -> ARSA order.
+
+#### Track A / surviving ARSA non-alarm blind watch lead
+
+**WEB-CONFIRMED / auction archive:** Antiquorum sold an ARSA Braille watch in 2022:
+- reference 47066
+- case no. 423 117
+- circa 1960-1970
+- manual winding
+- gilded metal / stainless steel
+- opening glass cover at 6 o'clock
+- sold for HKD 812
+
+Source:
+- https://catalog.antiquorum.swiss/en/lots/arsa-by-auguste-reymond-sa-ref-47066-lot-348-5
+
+ARSA's current standard blind-watch range includes reference **AS423B117** with a 6 o'clock opening.
+
+Source:
+- https://blindwatch.net/standard/
+
+**HOLD / inference only:** the shared number string 423B117 / 423 117 may indicate design or case-reference continuity, but this is not proven. Do not use it as a direct lineage claim without ARSA catalog / factory documentation.
+
+#### Updated two-track interpretation
+
+**Track A:** the specific research novelty of the 1950s Blind Alarm cluster is increasingly the combination of:
+- established tactile-watch architecture
+- mechanical alarm movement
+- tactile alarm-setting indication
+- differentiated crowns / controls
+
+rather than invention of the hinged tactile watch itself.
+
+**Track B:** the historical chain now has firmer separate nodes:
+- 1917 industrial touch-readable watch patent (Waltham)
+- WWI St Dunstan's tactile-watch rehabilitation practice
+- 1938 Soviet crown-pusher tactile wristwatch architecture
+- 1943-44 AFB WWII braille-watch distribution + assistive-device research including vibrating alarm clock
+- 1956-60 Swiss tactile-alarm wristwatch cluster
+
+The causal link from wartime rehabilitation demand to ARSA's specific product development remains **OPEN**.
