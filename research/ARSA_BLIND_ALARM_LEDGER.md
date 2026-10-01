@@ -1168,3 +1168,135 @@ Research consequence:
 - if the movement photo confirms a historically coherent movement (especially AS 1475) and shows no major corrosion / missing alarm parts / obvious abusive service, the specimen's risk-reward profile improves substantially at the current price level
 
 Do not convert this into a definitive fair-value claim because sold-result data for ARSA Blind Alarm remains sparse.
+
+
+### 2026-10-02 — continuation research: numbering continuity, current ARSA tactile architecture, and AFB catalog/archive leads
+
+#### Track A — vintage case number 423 117 vs current ARSA ref. AS423B117
+
+**WEB-CONFIRMED:**
+Antiquorum documents a circa-1960–1970 non-alarm ARSA Braille wristwatch with:
+- Reference: 47066
+- Case No.: **423 117**
+- opening glass cover at **6 o'clock**
+- diameter **33.4 mm**
+- manual winding
+
+Source:
+- https://catalog.antiquorum.swiss/en/lots/arsa-by-auguste-reymond-sa-ref-47066-lot-348-5
+
+The current ARSA Blind Watch site lists:
+- Standard Gent Ref. **AS423B117**
+- opening at **6 o'clock**
+- diameter **34 mm**
+- quartz ETA
+
+Source:
+- https://blindwatch.net/standard/
+
+**Research consequence:** the near-exact numeric identity `423 117` → `AS423B117`, together with the same opening position and essentially the same case diameter, is a substantially stronger continuity signal than previously recorded.
+
+**Status:** STRONG CONTINUITY LEAD, not yet factory-primary proof of identical tooling or uninterrupted case production. Do not state that the 1960s case and current case are literally the same tooling without Auguste Reymond records.
+
+#### Track A — current ARSA tactile range still uses multiple lid-opening positions
+
+The current manufacturer-linked ARSA Blind Watch range is not standardized to a single opening position.
+
+**WEB-CONFIRMED:**
+- Standard Gent AS423B117: opening at 6
+- Hi-Touch AS623B160: opening at 4
+- pocket references AS523B204 / AS423B204: opening at 3
+
+Sources:
+- https://blindwatch.net/standard/
+- https://blindwatch.net/unisex-pocket/
+
+**Research consequence:** opening position remains a model-level design variable in ARSA tactile watches. This supports the existing conclusion that 4-o'clock, 6-o'clock, and other opener positions should not be treated as evidence for one universal case architecture.
+
+This does not directly prove continuity between the current Hi-Touch 4-o'clock opener and the 1950s AS1475 Blind Alarm opener.
+
+#### Track B / AFB — AFB's watch channel was much broader than the veterans gift program
+
+AFB's own history says its watch-distribution activity began in the 1920s, initially through an arrangement with Waltham. By 1972 its Aids and Appliances operation listed **30 styles of brailled pocket and wrist watches**.
+
+The 1972–73 catalog contained more than 300 aids and appliances and included a high-end **diamond-dial self-winding gold Braille watch with a 14k Florentine-finish gold bracelet priced at $352.95**.
+
+Sources:
+- https://afb.org/online-library/unseen-minority-0/chapter-7
+- https://afb.org/online-library/unseen-minority-0/chapter-21
+
+**Research consequence:** AFB's watch role must be split into at least:
+1. general civilian sale/distribution of tactile watches and aids
+2. the special blinded-servicemen gift program, which ended in 1963
+
+The circa-1960 AFB/ARSA Blind Alarm recorded by Beitl therefore cannot be assigned to the veterans gift program merely because it carries AFB identity.
+
+#### AFB product-selection context
+
+AFB's Aids and Appliances operation used an informal Technical Research Council made up of blind engineers, teachers and other users to evaluate what devices were practically useful.
+
+Source:
+- https://afb.org/online-library/unseen-minority-0/chapter-21
+
+**Research consequence:** AFB had an established user-evaluation and product-selection mechanism capable of assessing commercial assistive products. This is organizational context only; it is not proof that the ARSA Blind Alarm was evaluated by this council.
+
+#### Archive target upgraded — APH AFB Archive
+
+APH states that the AFB Archive, transferred alongside the Helen Keller material, contains the Foundation's institutional history in correspondence, photographs and recordings.
+
+APH's watch-program article identifies:
+- one AFB Archive folder containing **hundreds of Braille-watch repair receipts**
+- correspondence involving **Kathern/Katherine F. Gruber**, director of AFB's Braille-watch / war-blind veteran services
+- repair evidence and Swiss repeater-watch procurement context
+
+Sources:
+- https://www.aph.org/blog/the-foundation-writer/
+- https://www.aph.org/blog/the-gift-of-time/
+
+**Highest-value archive request terms now:**
+- Braille Watch Program
+- Aids and Appliances
+- Kathern / Katherine / Kay Gruber
+- ARSA
+- Auguste Reymond
+- Tramelan
+- Switzerland
+- alarm watch / wrist alarm
+- purchase order / supplier / invoice / correspondence
+- approximately 1955–1963
+
+This remains the best path to independently confirm or refute Beitl's circa-1960 AFB→ARSA commission statement.
+
+#### Second archive lead — Smithsonian Disability Reference Collection
+
+The Smithsonian National Museum of American History Disability Reference Collection lists:
+- Series 1: Blindness
+- **Box 1, Folder 1: “Aids and Appliances, 1972–1974”**
+
+A contemporary bibliography separately identifies AFB's `Aids and Appliances` catalog in this period, and an external 1973 rehabilitation bibliography identifies the **19th edition, 1973–74, 72 pages**.
+
+Sources:
+- https://sova.si.edu/components/nmah.ac.1319
+- https://sirismm.si.edu/EADpdfs/NMAH.AC.1319.pdf
+- https://files.eric.ed.gov/fulltext/ED123839.pdf
+
+**Research consequence:** this folder is a concrete archive target for identifying the makers / branding / model descriptions of AFB-sold Braille watches in the early 1970s. If ARSA or related Swiss references appear there, it could materially tighten the post-1963 AFB↔Swiss watch-production chain.
+
+No ARSA attribution has yet been found in the accessible finding-aid text, so this remains an archive lead rather than confirmation.
+
+#### Current evidence boundary after continuation pass
+
+New evidence strengthens:
+- continuity of ARSA tactile-watch case/reference numbering
+- long-term coexistence of multiple opener positions
+- AFB's broad civilian/commercial Braille-watch distribution role
+- specific archival paths likely to contain supplier-level evidence
+
+Still not solved:
+- direct independent AFB↔ARSA purchase order / invoice
+- exact maker of the ca.1973 Smithsonian AFB Braille watch
+- exact manufacturer behind the later AFB De Luxe Alarm
+- whether Morton Ollendorff's claimed Swiss Braille-watch factory was ARSA-related
+- movement identity of the current target specimen
+
+For the current target, the promised movement photograph remains the single highest-information purchase input.
