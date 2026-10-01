@@ -1300,3 +1300,17 @@ Still not solved:
 - movement identity of the current target specimen
 
 For the current target, the promised movement photograph remains the single highest-information purchase input.
+
+
+### 2026-10-02 — effective price now around JPY 41,000
+
+**USER-REPORT:** the effective purchase price has fallen further to approximately **¥41,000**.
+
+Purchase-decision consequence:
+- this materially reduces price risk versus the earlier ¥52k-range state
+- seller continuity for alarm function / lid operation / hinge condition has already been reconfirmed
+- the promised movement photograph remains the final major unresolved evidence item
+
+At roughly ¥41k, purchasing before the movement photo becomes a more defensible risk trade if the buyer is willing to accept the residual possibility of a non-original / non-AS1475 / poorly serviced movement. It is still not equivalent to a verified movement purchase.
+
+Do not convert this into a definitive market-value conclusion because robust sold-result evidence remains sparse.
