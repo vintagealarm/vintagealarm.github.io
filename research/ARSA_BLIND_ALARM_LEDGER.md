@@ -1147,12 +1147,12 @@ Source:
 
 ### 2026-10-02 — seller reply after relist
 
-Seller reply received after continuity check:
-- seller replied only that the item was relisted
+The seller replied **yes** to the user's full continuity-confirmation message. That message explicitly asked whether:
+- the relisted item is the same physical watch discussed the previous day
+- the prior three confirmations still apply: alarm works, front lid opens/closes normally, hinge is normal
+- the movement photograph is the only remaining item the buyer is waiting for
+- the watch itself is unchanged and was simply relisted
 
-This confirms the listing action itself, but does **not** yet explicitly confirm:
-- that the relisted listing is the same physical watch discussed previously
-- that the prior three condition answers still apply
-- that the movement photograph is still forthcoming
+**USER-CONFIRMED INTERPRETATION / SELLER-CLAIM CONTINUITY:** treat the seller's yes as confirming the relisted listing is the same watch and that the prior three condition answers continue to apply. Do not ask those same condition questions again unless new contradictory evidence appears.
 
-Therefore the previous condition answers remain seller claims tied to the earlier discussion until continuity is explicitly reconfirmed.
+The only outstanding seller-provided purchase evidence is the promised movement photograph.
