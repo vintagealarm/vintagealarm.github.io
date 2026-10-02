@@ -1718,3 +1718,67 @@ So the convergence model is stronger, but the causal story remains deliberately 
 4. build the survivor matrix around tactile interface differences rather than market price
 5. use the purchased specimen on arrival to document the physical interface, not to reopen purchase-risk monitoring
 
+### 2026-10-03 — tactile alarm survivor matrix v1
+
+The first comparison matrix is now built from the two Project specialist books. It deliberately compares **interface architecture**, not market value.
+
+| Specimen / identity | Date evidence | Movement | Case / size | Tactile interface | Cover opener | Source strength |
+|---|---|---|---|---|---|---|
+| **ARSA Blind Alarm** | illustrated specimen dated **1958** | **AS 1475** | chrome-plated metal case, screw back | raised tactile hour points; robust tactile hour/minute hands; no seconds | pusher integrated in crown at **4** | *Alarm am Arm*, ARSA p.74 — SOURCE-CONFIRMED |
+| **AFB-marked Blind Alarm, ordered from ARSA** | Beitl says **ca. 1960** | **AS 1475** | gold-plated metal case, screw steel back | gilt dial with raised tactile hour points; robust tactile minute/hour hands | hinged glass cover; pusher in crown at **4** | *Alarm am Arm*, AFB p.54 — SOURCE-CONFIRMED as Beitl's statement; transaction still independently unverified |
+| **Enicar blind alarm — Lausanne special model** | special model built for **1964 Lausanne state exposition** | **AS 1475** | gilded case with opening bezel | current time **and set alarm time** can be felt; differentiated hour/minute/alarm hands and hour markers | opening bezel / cover; exact actuator not fixed here | *The Alarm Wrist Watch*, Special Watches pp.222–223 — SOURCE-CONFIRMED |
+| **BEAT / Friedli-Frères Blind Alarm** | no date stated in the cited caption | **AS 1475**; movement signed by Friedli-Frères | chrome-plated metal, **Ø33.8 mm**, screw back | blue dial with raised tactile points; white tactile hands | opening control externally at **6**, explicitly contrasted with the usual 4-o'clock crown pusher | *Alarm am Arm*, BEAT p.91 — SOURCE-CONFIRMED |
+| **A. Schild Blind Alarm prototype** | exact chronology not stated | **AS 1475** | stainless-steel case | blind-alarm prototype; detailed tactile geometry not stated in caption | not fixed from current source | *Alarm am Arm*, A. Schild p.74 — SOURCE-CONFIRMED prototype existence |
+
+#### Matrix consequence 1 — same caliber, materially different human interface
+
+The strongest comparative fact is now visible without assuming a common complete case:
+- ARSA / AFB-marked model: opener integrated at **4**
+- BEAT / Friedli-Frères: opener at **6**
+- Enicar: opening cover with a highly differentiated three-pointer tactile reading system
+
+Therefore **AS 1475 is the common movement platform, not proof of a universal Blind Alarm exterior design**.
+
+#### Matrix consequence 2 — the alarm-setting hand is part of the accessibility system
+
+The Enicar source is unusually explicit:
+- the blind user can feel the **current time**
+- can also feel the **set alarm time**
+- and can set the alarm again
+- the hour, minute and alarm pointers are intentionally differentiated by shape / width / surface
+
+This supports treating the Blind Alarm as an accessible **input + read-back interface**, not just an ordinary alarm watch with a hinged cover.
+
+Exact Enicar values remain specimen-specific:
+- minute hand approx. 1.6 mm
+- hour hand approx. 2.9 mm
+- alarm hand approx. 0.7 mm with four ridges at the tip
+
+Do **not** copy these dimensions to ARSA unless direct ARSA evidence is found.
+
+#### Source-name discrepancy — AFB expansion in Beitl
+
+Beitl labels the ca.1960 commissioned model:
+**“AFB, American Federation for Blinds”**.
+
+The long-established U.S. institution using the initials AFB is officially **American Foundation for the Blind**, founded in 1921:
+- https://afb.org/afb100/our-history
+
+Current handling:
+- preserve Beitl's wording when describing exactly what the book says
+- do not silently rewrite the wording inside a quotation
+- in VINTAGE ALARM synthesis use **American Foundation for the Blind (AFB)** for the institution, while noting that Beitl's caption expands the initials differently
+- the claimed ca.1960 ARSA commission still requires an independent AFB / APH purchase order, invoice or correspondence before it becomes institutionally confirmed
+
+This naming discrepancy makes the archive bridge more important, not less.
+
+#### Survivor-matrix next expansion
+
+Next rows should only be added when provenance is strong enough:
+- later **afB De Luxe Alarm** survivor(s)
+- independently dated ARSA variants
+- any period-catalogued non-AS1475 ARSA tactile alarm
+- AFB / ARSA examples with readable caseback or movement marks
+
+Auction / forum examples without movement or period documentation stay as survivor leads, not production-family proof.
+
