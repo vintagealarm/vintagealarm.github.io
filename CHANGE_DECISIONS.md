@@ -17,6 +17,16 @@
 
 ## 2026-10-02
 
+### 2026-10-02 18:39 JST — 個人時計台帳をwatchdiary cross-repo正本へ固定し、PROJECT起動ルートへ追加
+
+- **変更**：`PROJECT.md` に個人時計台帳のcross-repoルートを追加し、所持時計・取得日/取得経緯/取得額・OH/OVH/修理歴・現在地/現在状態・売却/保有意志を扱う場合は `orima1995-create/watchdiary-ios` のCURRENT Issue群を先に取得する仕様へ変更した。入口は #21 CURRENT OWNED、取得遍歴 #60、保有意志 #23、周辺時計 #25、個体別CURRENT Issue（例: #58 Watchlarm / #31 CYMA）とし、#21の基本項目を「取得日 / 取得方法・場所 / 取得額 / 取得経緯 / OH・OVH・修理歴 / 個体識別情報 / 既知不具合・状態 / 改造・部品交換歴 / 現在地・現在状態」に固定した。日差・振り角・beat error・最終動作確認は台帳必須項目にしない。PROJECT_STATEにも同じcross-repo正本の入口だけを短く同期した。
+- **理由**：既存の個人時計台帳が `watchdiary-ios` に存在するのに、VINTAGE ALARM repo内だけを検索して「台帳がない」と誤判定し、新規台帳作成を提案しかけたため。公開サイト研究正本と個人所有台帳の置き場所が別repoであることを起動時に明示し、同じ見失いを再発させない。
+- **旧状態・棄却**：VINTAGE ALARM repo内だけを検索して個人台帳の有無を判断する運用、公開repoへ個人取得台帳を重複生成する運用、OH時に必ず得られるとは限らない精度測定を台帳必須項目にする案を棄却する。
+- **影響範囲**：`PROJECT.md` の分野別ルーティング / 強制チェック、`PROJECT_STATE.md` のSOURCE OF TRUTH / observation pointer、今後の個人時計台帳取得・更新。公開サイト本文、WATCH / HISTORY / OWNER'S NOTES、Analytics、研究資料そのものには変更なし。
+- **検証状態**：専用branch `docs/route-watch-ledger-20261002` で `PROJECT.md` / `PROJECT_STATE.md` を更新。PR作成前にdiffを確認し、#21 / #60 / #23 / #25 / #58 / #31 / #20 / #19へのroute、台帳必須項目、精度計測非必須、公開repoへの重複保存禁止が文書内に存在することを再取得で確認する。docs-only変更のためサイトbuild/live確認は対象外。decision-log gateはPR CIで確認する。
+- **関連**：`orima1995-create/watchdiary-ios` Issues #21 / #60 / #23 / #25 / #58 / #31 / #20 / #19。PROJECT更新commit `d8de7ceafd2dc93a510e429b187ab40cf3192c9c`、PROJECT_STATE更新commit `8de042ea7cc2d2434b4441ce870750246f202756`。
+- **日時根拠**：GitHub commit `d8de7ceafd2dc93a510e429b187ab40cf3192c9c` の `2026-10-02T09:39:21Z → 2026-10-02 18:39 JST`、commit `8de042ea7cc2d2434b4441ce870750246f202756` の `2026-10-02T09:39:37Z → 2026-10-02 18:39 JST`。
+
 ### 2026-10-02 18:09 JST — Council V3 / 宮廷道化師の誕生経緯を会話実態へ補正し、ノンデリ口調とsilent hookの採用理由を固定
 
 - **変更**：`research/COUNCIL_V3_COURT_JESTER_DESIGN.md` と `council-worker/V3.md` の誕生経緯を補正し、ユーザー自身の気づき→他ユーザーへの助言→「2ch民で焼いて」を多用した理由の自己再解釈→実在の宮廷道化師への到達、という実際の順序を明記した。あわせて、AI側が一度「ノンデリ口調は必須ではない」と提案したが、ユーザーが「道化のネタ扱いだから強い批判を許容できる」と却下し、Fool's Licenseの口調を心理的緩衝UI / 機能要件へ昇格した経緯を追加した。1〜6へのsilent Jester hookも、結論ありきへ当事者が気づいていない重大前提を実装・決定前に安く潰す目的で採用したことを明記した。AGENTS / PROJECT_STATEもV3の7形式と正本へ同期した。

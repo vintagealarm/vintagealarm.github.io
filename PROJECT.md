@@ -66,6 +66,38 @@
 - 英語入口 → `strategy/english-entry.md`
 - ドイツ語入口 → `strategy/german-entry.md`
 - Council / 焼いて → `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`
+- **個人時計台帳 / コレクション台帳 / 所持時計 / 取得日・取得経緯・取得額 / OH・OVH・修理歴 / 現在地・現在状態 / 売却・保有意志 → cross-repo `orima1995-create/watchdiary-ios` のCURRENT Issue群を先に読む**
+
+### 個人時計台帳 — cross-repo正本
+
+個人所有・取得・整備・売却の台帳は、公開VINTAGE ALARMリポジトリへ重複保存しない。正本は **`orima1995-create/watchdiary-ios` のGitHub Issues** に置く。
+
+時計台帳、所持時計、コレクション、購入日／取得日、取得経緯、購入額／取得額、OH・OVH、修理歴、現在地、輸送中、預け中、売却、KEEP / MAY SELL等を扱う場合は、**VINTAGE ALARM repo内だけを検索して「台帳がない」と判断してはならない。**
+
+基本取得順:
+1. **#21 `[CURRENT] 腕時計コレクション台帳｜OWNED`** — 現在所有の主台帳。まずここを取得する
+2. **#60 `[CURRENT] 腕時計コレクション遍歴｜DIRECT-EVIDENCE REBUILD`** — 取得順、購入・譲渡経緯、価格、意味づけ、時系列
+3. **#23 `コレクション保有意志｜KEEP / MAY SELL`** — 現在の保有・売却意向
+4. **#25 `時計周辺コレクション｜Watch-lighter + Eterna 8 DAYS`** — 腕時計本数に含めない周辺時計
+5. 個体別のCURRENT Issueがある場合は追加取得する。例: **#58 WESTCLOX Watchlarm、#31 CYMA Time-O-Vox No.489**
+6. 売却・査定は **#20 Rolex Ref.1501**、金融状態は **#19 loans** へ分離する
+
+#21で持つ基本項目:
+- 取得日
+- 取得方法・場所
+- 取得額
+- 取得経緯
+- OH / OVH / 修理歴
+- **個体識別情報** — Ref. / Cal. / movement No. / case No. 等、分かるものだけ
+- **既知不具合・状態**
+- **改造・部品交換歴**
+- **現在地 / 現在状態**
+
+日差・振り角・beat error等の精度測定や「最終動作確認」は**台帳の必須項目にしない**。個体研究・修理資料に実測が存在し、意味がある場合だけ詳細正本へ残す。
+
+個体の歴史・機構・一次資料・公開研究はVINTAGE ALARM側の研究正本を使う。たとえばARSA Blind Alarmなら `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md` が研究正本で、**所有・取得・OH・現在状態はwatchdiary台帳と突合する**。研究正本と個人台帳の役割を混ぜない。
+
+ユーザーが台帳更新を明示した場合は、該当する `watchdiary-ios` CURRENT Issueを更新する。単なる会話・調査だけで無断更新しない。公開サイトへ載せる指示がない限り、個人台帳をVINTAGE ALARM公開本文へコピーしない。
 
 時計の事実認定では、Project資料『Alarm am Arm』『The Alarm Wrist Watch』等を確認できる場合は一般論より先に使う。
 
@@ -119,6 +151,7 @@ GitHub UTC時刻を根拠にする場合、UTC原文とJST換算を併記する�
 回答・実行前に最低限これを確認する。
 
 - 今回、正本ファイルがあるか。あるなら読んだか。
+- 個人時計台帳案件なのに、`watchdiary-ios` #21を取得せずVINTAGE ALARM repo内だけで「無い」と判断していないか。
 - SNS案件ならSocial Routerを通したか。
 - ACTIVEとRESOLVEDを分け、RESOLVEDを不要に再説明していないか。
 - 目の前の画像 / 資料 / Analytics / GitHubを一般論より先に確認したか。
