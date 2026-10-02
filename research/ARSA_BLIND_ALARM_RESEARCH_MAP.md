@@ -408,3 +408,19 @@ Current state:
 - target regulator / balance-cock geometry is visually consistent with the reference
 - the previous concern about a visibly different regulator / balance-cock is withdrawn
 - do not keep this as an active purchase-risk item unless contradictory evidence appears
+
+
+## 12. 2026-10-02 — probable missing alarm click screw
+
+New user-marked side-by-side comparison shows the target movement apparently lacks the slotted screw at the alarm click beside the upper alarm ratchet wheel.
+
+Technical identification:
+- 7426 = alarm click
+- 7436 = alarm click spring
+- 57426 = alarm click screw
+
+Current priority:
+- treat missing 57426 as the top specimen-specific purchase concern
+- confirm by close-up or seller reply before considering the movement-side condition question closed
+- if simply absent, donor / replacement repair should be easier than any Blind-specific exterior repair
+- if a broken screw shank remains in the plate, repair complexity is higher
