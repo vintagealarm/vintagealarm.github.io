@@ -1440,3 +1440,36 @@ Official sources:
 - therefore “offer arrived before reply” is not, by itself, evidence of a technical problem with the watch
 - economically, the target has moved from the relisted US$279 / ¥41,721 state to a private-offer state of US$251 / approximately ¥39,526
 - the technical evidence hierarchy is unchanged: the promised movement photograph remains the highest-information unresolved specimen evidence
+
+
+### 2026-10-02 09:08 JST — target movement photograph received; AS 1475 confirmed
+
+**IMAGE-CONFIRMED — seller-supplied movement photograph forwarded by user:**
+- plate at the left edge is visibly stamped **AS 1475**
+- main bridge is marked **17 JEWELS**
+- the movement shows the characteristic AS 1475 Y-shaped bridge architecture
+- balance assembly is present
+- major visible bridges and winding / alarm-side gearwork are present
+- no conspicuous major red rust, green verdigris, missing large bridge, or grossly destructive service damage is visible in this photograph
+- ordinary age / handling wear is visible around the case and movement perimeter
+
+**SOURCE / WEB CROSS-CHECK:**
+- *Alarm am Arm* documents the ARSA Blind Alarm with caliber AS 1475
+- independent AS 1475 references describe a 17-jewel manual alarm movement with the same distinctive bridge architecture
+
+**Resolved:**
+- target movement identity = **A. Schild AS 1475**
+- jewel count = **17**
+- the largest purchase-identification uncertainty is closed
+
+**Still not established from this single image:**
+- rate / amplitude / beat error
+- power reserve
+- alarm duration under test
+- under-dial corrosion or hidden damage
+- service history
+- exact production year
+- exact case material
+- inside caseback reference / maker / material marks
+
+**Purchase consequence:** at the current private-offer state of US$251 / about ¥39,526, the previous “unknown movement” risk no longer applies. Remaining risk is condition / service / hidden-part risk rather than movement-family identity.
