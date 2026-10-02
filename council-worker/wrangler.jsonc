@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "council-api",
-  "main": "src/index.ts",
+  "main": "src/v3.ts",
   "compatibility_date": "2026-09-04",
   "vars": {
     "ALLOWED_ORIGIN": "https://vintagealarm.github.io",
