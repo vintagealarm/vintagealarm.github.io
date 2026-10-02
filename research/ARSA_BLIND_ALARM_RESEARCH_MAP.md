@@ -315,10 +315,13 @@ generic donorで救いやすい:
 - したがって、ムーブ写真待ちは技術的不確実性を減らす一方、個体を失うタイミングリスクを伴う
 
 ### 残っているP0
-- **ムーブメント写真**
-- 中身の状態
-- caliber
 - inside caseback / case marks
+- exact production year / case material
+- timing / amplitude / beat error / alarm duration
+- hidden / under-dial condition
+- regulator / balance-cock originality relative to the exact ARSA production batch
+
+**解消済み:** movement identity = **AS 1475 / 17 JEWELS**
 
 ### 今後sellerに同じ3点を聞き直さない
 新しい矛盾証拠が出ない限り、アラーム・蓋・ヒンジは再質問しない。
@@ -353,12 +356,13 @@ generic donorで救いやすい:
 
 ## 8. 次の実行順
 
-1. **sellerのムーブ写真待ち**
-2. 来た瞬間にmovement / corrosion / alarm train / case marksを判定
-3. 待ち時間は **AFB Archive / Mémoires d'Ici / Swiss trade pressの狭い一次資料探索**
-4. 並行して **survivor matrix** を構築
-5. sold-resultは補助線として回収
-6. HOLDテーマは新証拠が出るまで触らない
+1. movement identityは **AS 1475 / 17 JEWELS** で解決済み
+2. 次のspecimen evidenceは inside caseback / case marks と到着後実測
+3. regulator / balance-cock detailは early / late AS1475 variant とservice replacementの両方を比較
+4. **AFB Archive / Mémoires d'Ici / Swiss trade pressの狭い一次資料探索**
+5. 並行して **survivor matrix** を構築
+6. sold-resultは補助線として回収
+7. HOLDテーマは新証拠が出るまで触らない
 
 ---
 
