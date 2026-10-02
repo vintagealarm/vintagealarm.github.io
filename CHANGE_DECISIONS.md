@@ -509,3 +509,15 @@
 - **検証状態**：LEDGER commit `ec509cc9db31cf1abb810519375a94c6de3e5727`、MAP commit `c12d1ac9131e42fe952b14acf085618baf3925e0` へ反映。部品番号はAS1475 technical parts documentationで照合済み。
 - **関連**：user-marked comparison image、AS1475 parts documentation。
 - **日時根拠**：GitHub commit `c12d1ac9131e42fe952b14acf085618baf3925e0` の `2026-10-02T00:49:43Z` → `2026-10-02 09:49:43 JST`。
+
+
+## 2026-10-02 — Council V3完全実装
+
+### 2026-10-02 18:40 JST — MCP本文・silent hook・再裁定・deploy gateを完成
+- **変更**：V3からV2の本文rendererを再利用し、1〜6のMCP `content` にBoard・議論・裁定・Sourcesを復元した。silent Jester hookへCross Exam、adaptive hot-seat、匿名再評価を渡し、発火時は元裁定を保存してJester異論込みの議長再裁定を必須化した。1〜6本文、Cross Exam伝達、再裁定表示のbehavior testをCIへ追加し、README / V3正本 / PROJECT_STATE / 研究記録の現行状態を同期した。deploy workflowはCloudflare資格情報だけを必須とし、OpenAI / Vector Storeのrepository secretsが揃う場合だけWorker secretsを上書きし、未設定時は既存Worker secretsを保持する。
+- **理由**：初期V3はstructuredContentにはV2結果を残す一方、MCP本文がFORMAT / STOPだけになり得た。hook判定もBoardと最終裁定しか見ず、Cross Examで既に攻撃済みの論点を判別できず、発火しても元裁定を更新しなかった。またdeploy workflowは実deployをskipしてもsuccess終了し、Worker側に既存secretがあってもrepository secretsを全件要求していた。
+- **旧状態・棄却**：1〜6のMCP本文をヘッダだけにする状態、Cross Examを見ないhook、Jester乱入を追記するだけで再裁定しない状態、READMEをV2 / 6択のまま正本扱いする状態、実deployなしのsuccess、既存Worker secretを安全に再利用できない全repository-secret必須条件を棄却。
+- **影響範囲**：`council-worker/src/index.ts`、`src/v3.ts`、behavior test、Council Worker check / deploy workflow、Council README / V3 / research正本、PROJECT_STATE。1〜6の意味・番号・V2内部プロトコル、7のFool's License、公開サイト本文は変更しない。
+- **検証状態**：ローカルbehavior test、wrangler dry-run、decision-log gate、Git diff確認を実施後にVERIFIEDとする。main反映、Actions実deploy、Worker `/health` / `/api/menu` / `/mcp` live確認は別状態として追記する。
+- **関連**：branch `fix/council-v3-complete-implementation`。関連commit / PR / deploy runは作成後に追記する。
+- **日時根拠**：作業環境のJST時計 `2026-10-02 18:40:18 +09:00`。

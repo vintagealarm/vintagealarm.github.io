@@ -28,5 +28,8 @@ jobs:
       - name: Install
         run: npm install
 
+      - name: Behavior tests
+        run: npm test
+
       - name: Compile Worker
         run: npx wrangler deploy --dry-run --outdir /tmp/council-worker-dist
