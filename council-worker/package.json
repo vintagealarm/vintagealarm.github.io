@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
+    "test": "tsx --test test/**/*.test.ts",
     "setup:vector": "node scripts/setup-vector-store.mjs"
   },
   "devDependencies": {
+    "tsx": "^4.20.6",
     "wrangler": "^4.0.0"
   }
 }

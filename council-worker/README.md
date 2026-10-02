@@ -1,12 +1,12 @@
-# Council Worker V2
+# Council Worker V3
 
 COUNCIL LAB の実AIバックエンド用 Cloudflare Worker。
 
-V2では、Councilを「キャラが固定ラウンドでレスを続ける仕組み」から、**目的に応じて議論プロトコルと表示形式を切り替える集団思考エンジン**へ変更する。
+V3は、V2の1〜6と共通プロトコルを互換エンジンとして維持し、7の宮廷道化師と1〜6のsilent Jester hookを追加した現行Workerである。entrypointは `src/v3.ts`、V2互換エンジンは `src/index.ts`。
 
 ## 「焼いて」ルーター
 
-ユーザーが **「焼いて」だけ** と言った場合、Councilを即実行しない。毎回、次の6択を明示する。
+ユーザーが **「焼いて」だけ** と言った場合、Councilを即実行しない。毎回、次の7択を明示する。
 
 1. **2ch民で焼いて** → スレ表示。煽り・反論・レスバ込みで論点を削る
 2. **みんなで議論して** → ひな壇。複数視点をテンポよくぶつける
@@ -14,6 +14,7 @@ V2では、Councilを「キャラが固定ラウンドでレスを続ける仕�
 4. **監査して** → Claim Board。主張・根拠・反証・未確認を分解する
 5. **案出して** → Brainstorming Board。独立発想→整理→発展→絞り込み
 6. **事前に地雷探知して** → PRE-MORTEM。実装前に失敗原因を先回りし、作り込む前に撤退・検証・GOを決める
+7. **宮廷道化師で焼いて 🤡** → 王＝ユーザー＋AI＋Councilの共有前提をノンデリに疑い、提示外の案まで比較。異論がなければ「今回は異議なし🤡」で帰る
 
 番号または形式が選ばれた後は、現在の会話、画像、ファイル、Project資料、GitHub、過去の確定判断を先に使う。
 
@@ -30,7 +31,7 @@ V2では、Councilを「キャラが固定ラウンドでレスを続ける仕�
 
 旧V1では `mode` と `engine` が、人数、Web検索、反復回数、表示形式までまとめて決めていた。V2では次を分離する。
 
-- `format`: `thread | panel | council | claims | brainstorm | premortem`
+- `format`: `thread | panel | council | claims | brainstorm | premortem | jester`
 - `domain`: `general | watch | business`
 - `budget`: `quick | standard | deep`
 - `evidence`: `none | project | web | project-web | deep-web`
@@ -53,7 +54,7 @@ V2では、Councilを「キャラが固定ラウンドでレスを続ける仕�
 
 固定の「継続議論×3」などは廃止する。新しい証拠、反例、定義修正、立場変更が止まったら終了する。
 
-## 6形式の役割
+## 7形式の役割
 
 ### 1. thread — 2ch民で焼いて
 
@@ -100,6 +101,12 @@ Claim Boardとして、主張、支持根拠、反証、未確認を分ける。
 
 今回の複数プログラム管理機能で「DB / データモデルが失敗原因だった可能性」は、原因確定ではなく**未確認仮説**として扱う。作成者への評価や印象は証拠にせず、schema、関係、制約、状態遷移、CRUD、削除・複製・切替・復元等で検証する。
 
+### 7. jester — 宮廷道化師で焼いて 🤡
+
+ユーザー、AI、Councilが共同で当然視した前提をFool's Licenseの下で刺す独立形式。逆張りは義務ではなく、異論が弱ければ `今回は異議なし🤡` が正常終了。刺す場合は第三案、削除、統合、撤退、保留、追加確認、何もしない、作り直しまで現案と比較し、最終決定はユーザーへ返す。
+
+1〜6では結論直前に高閾値のsilent Jester hookを一度だけ評価する。hookにはBoardだけでなくCross Exam、adaptive hot-seat、匿名再評価、元裁定を渡す。hookが発火した場合は乱入を追記して終わらず、その異論を含めて議長が再裁定する。発火しなければ1〜6の本文と挙動を変えない。
+
 ## 住民設計
 
 住民は架空の家族構成・年齢・性別を足して人間らしくするのではなく、**認識論的な判断方針**を持つ。
@@ -144,7 +151,7 @@ Web検索は `evidence=web | project-web | deep-web` の時だけ使う。検索
 - `GET /api/thread/:id`（D1接続時）
 - `POST /mcp`
 
-`GET /api/menu` は、ChatGPT側と同じ6択を返す。
+`GET /api/menu` は、ChatGPT側と同じ7択を返す。
 
 ## MCP / ChatGPT
 
@@ -162,9 +169,9 @@ run_council
 
 重要:
 
-- `焼いて` だけでは `run_council` を呼ばず、先に6択を表示する。
+- `焼いて` だけでは `run_council` を呼ばず、先に7択を表示する。
 - 形式が決まったら `run_council` を使う。
-- MCPが未接続でもCouncil自体を中止せず、このREADMEと `src/index.ts` の現行仕様をチャット内で実行する。
+- MCPが未接続でもCouncil自体を中止せず、このREADME、`src/v3.ts`、`src/index.ts` の現行仕様をチャット内で実行する。
 - 既知情報を再質問しない。
 - 精度を上げるために本当に必要な不足だけ聞く。
 
@@ -185,11 +192,11 @@ run_council
 
 `Council Worker Check` が `council-worker/**` 変更時に `wrangler deploy --dry-run` でコンパイル確認する。
 
-Worker deployにはrepository secretsが必要。
+Worker deployにはCloudflareへ接続するrepository secretsが必要。
 
-- `OPENAI_API_KEY`
-- `COUNCIL_VECTOR_STORE_ID`
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
+
+`OPENAI_API_KEY` と `COUNCIL_VECTOR_STORE_ID` はWorker側に既存secretがある場合、通常deployで保持される。repository secretsにも両方ある場合だけworkflowがWorker secretを同期する。値はログへ出さない。Worker側にも存在しない場合は `/health` の `openai` / `vectorStore` が `false` となり、実Councilは未準備である。
 
 Secret不足時に資料やWebを読んだふりはしない。
