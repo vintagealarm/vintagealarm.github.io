@@ -477,3 +477,13 @@
 - **検証状態**：画像確認済み。LEDGER commit `d0ed4fee895a432463d04f4f02182746f94367a9`、MAP commit `78050f78926c04b63ad52ce6f38c8f8cfe721e48`。
 - **関連**：2026-10-02 09:08 JSTのseller movement photo。
 - **日時根拠**：ユーザー提示画像の端末表示 `09:08`。
+
+
+### 2026-10-02 09:41 JST — ARSA regulator / balance-cock mismatch疑義を撤回
+- **変更**：ユーザー提示のEmmyWatch AS1475参照画像と今回個体ムーブ写真の直接比較により、緩急針・テンプ受け周辺は視覚的に整合すると再判定し、Research MAPから active risk を除外した。
+- **理由**：前回は参照画像との比較を十分に行わず、見た目の違いを過大評価していた。今回のside-by-sideではテンプ受け輪郭、緩急針配置、stud-holder形状、耐震部位置、Y字bridgeとの相対関係が一致している。
+- **旧状態・棄却**：「regulator / balance-cock originality remains OPEN」「別時期variantまたはservice replacementの可能性をactiveに追う」という扱いを撤回。新しい反証が出ない限り再浮上させない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、購入前リスク整理。AS1475 / 17J確定、年代・ケース材・service history等の別未解決事項は変更しない。
+- **検証状態**：side-by-side画像を再確認し、LEDGER commit `84c93b3c3387f389ef56f4d97ab00cf00356f2c2`、MAP commit `5a563da75e96dda69a1d58a1c69cb96e3b258a03` へ反映済み。
+- **関連**：EmmyWatch AS1475 reference image、seller movement photo。
+- **日時根拠**：GitHub commit `5a563da75e96dda69a1d58a1c69cb96e3b258a03` の `2026-10-02T00:41:35Z` → `2026-10-02 09:41 JST`。
