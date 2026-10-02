@@ -1473,3 +1473,37 @@ Official sources:
 - inside caseback reference / maker / material marks
 
 **Purchase consequence:** at the current private-offer state of US$251 / about ¥39,526, the previous “unknown movement” risk no longer applies. Remaining risk is condition / service / hidden-part risk rather than movement-family identity.
+
+
+### 2026-10-02 09:23 JST — checkout shipping service and remaining movement concern
+
+**IMAGE-CONFIRMED — user-supplied eBay checkout screen:**
+- shipping service: **UPS Worldwide Expedited**
+- shipping charge shown: **free**
+- delivery estimate shown: **Oct 14–Oct 21**
+- item total: **US$251.10**
+- checkout total: **¥41,367**
+- eBay conversion shown: **¥1 = US$0.00607**
+
+**WEB-CONFIRMED — UPS official service description:**
+- UPS Worldwide Expedited is a standard UPS international parcel service, not a third-party economy consolidator
+- UPS Japan describes it as a **2–5 business day** international service for shipments that are important but not urgent
+- UPS rate documentation states routine door-to-door customs clearance is included in the service
+- duties / taxes / related charges are separate from freight unless the shipment is set up so the shipper pays them; receiver-paid import charges can still occur
+
+Official sources:
+- https://www.ups.com/jp/ja/support/international-tools-resources/international-shipping-services
+- https://www.ups.com/jp/ja/shipping/international-shipping/international-shipping-costs
+
+**MOVEMENT OPEN POINT — visual comparison:**
+The target's regulator / balance-cock detail does not look identical to every commonly illustrated AS 1475 reference image.
+
+However:
+- AS 1475 was produced over a long run with documented detail modifications
+- surviving references show early **Monorex** and later **Incabloc** shock-protection variants
+- therefore a different-looking regulator / balance-cock / shock-setting detail is not by itself evidence of an incorrect caliber or a problem
+
+Current classification:
+- caliber identity remains **IMAGE-CONFIRMED AS 1475 / 17 JEWELS**
+- regulator / balance-cock originality relative to a specific ARSA production batch remains **OPEN**
+- possible explanations include normal production revision or a later service replacement from a compatible AS 1475-family movement; current photo alone cannot distinguish them
