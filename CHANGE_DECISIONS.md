@@ -523,6 +523,15 @@
 
 ## 2026-10-02 — Council V3完全実装
 
+### 2026-10-02 20:08 JST — live smokeでOpenAI接続を確認し、最終blockerをAPI creditsへ特定
+- **変更**：mainへ一時live smoke testを追加し、GitHub Actions runnerから本番 `council-api` の `/health`、`/api/menu`、`POST /api/council` を実呼び出しした。`/health` は `version=council-v3`、`openai=true`、`jester=true`、`jesterHook=true` を通過し、`/api/menu` は7件を通過。explicit Jester POSTはWorkerからOpenAI Responses APIまで到達したが、OpenAI側が `429 You have no credits remaining` を返したためAI本文生成のみ失敗した。
+- **理由**：直前まで残っていた「再同期後のlive `openai=true` と実Council POSTが未観測」を実測で閉じるため。これにより、現runtimeでのcredential欠落説は反証され、残るblockerをbilling / creditsへ切り分けた。
+- **旧状態・棄却**：現Workerに `OPENAI_API_KEY` が入っていない、またはVector Store欠落が一般AI Councilを止めている、という仮説を棄却する。Vector StoreはProject Mirror検索の別機能として未確認を維持する。
+- **影響範囲**：Council Workerのlive検証状態と運用判断のみ。V3コード、7形式、Jester protocol、公開サイト本文は変更しない。一時live smokeは確認後に `test.skip` へ落とし、通常CIから外した。
+- **検証状態**：Council Worker Check run `36999307167` / job `110813084613`。live smokeは `/health` と7択menuを通過し、`POST /api/council` でHTTP 500の内側にOpenAI `429` と `You have no credits remaining` を確認。既存8 behavior testsは同runで全件PASS。したがってWorker配線とOpenAI credentialはLIVE VERIFIED、AI応答生成はbilling blockerにより未成功。
+- **関連**：one-time smoke commit `378cb41c5cdcb8f8258cc82a2a062fdbf9ff513b`、smoke disable commit `6191bfd49517a8770ef389ff75c3f7176eb9d4a1`、Council Worker Check run `36999307167`、job `110813084613`、直前のcredential復旧記録 19:50 JST。
+- **日時根拠**：GitHub Actionsログ `2026-10-02T11:08:11Z → 2026-10-02 20:08 JST`。
+
 ### 2026-10-02 19:50 JST — 旧repo既存OpenAI keyを現Council Workerへ再同期
 - **変更**：legacy repo `orima1995-create/orima1995-creator.github.io` のActions secretに既存 `OPENAI_API_KEY` が残っていることを再確認し、値を表示せず同じCloudflare `council-api` Workerへ再同期した。その後、現行repoのCouncil V3 deploy jobを再実行してV3を再deployした。legacy workflowへ入れた一時変更はrevert済み。
 - **理由**：直前の「新しいAPI keyを作る必要がある」という判断は誤りだった。旧repoの実ログで既存keyが確認でき、現行repoへの移行時にrepo-scoped secretだけが引き継がれていなかった。
