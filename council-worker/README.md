@@ -171,7 +171,7 @@ run_council
 
 - `焼いて` だけでは `run_council` を呼ばず、先に7択を表示する。
 - 形式が決まったら `run_council` を使う。
-- MCPが未接続でもCouncil自体を中止せず、このREADME、`src/v3.ts`、`src/index.ts` の現行仕様をチャット内で実行する。
+- MCPは任意の外部実行surface。未接続でもCouncil自体を中止せず、GitHub `main` の `V3.md`、このREADME、`src/v3.ts`、`src/index.ts` を取得してチャット内で同じプロトコルを実行する。通常のChatGPT内CouncilではWorker secret / API credits / live healthを前提条件にしない。
 - 既知情報を再質問しない。
 - 精度を上げるために本当に必要な不足だけ聞く。
 
@@ -197,6 +197,6 @@ Worker deployにはCloudflareへ接続するrepository secretsが必要。
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-`OPENAI_API_KEY` はAI Councilのモデル呼び出しに必要なruntime secret。`COUNCIL_VECTOR_STORE_ID` は固定Project Mirrorの `file_search` を有効にする追加bindingで、AI Council全体の必須条件ではない。Worker側に既存secretがある場合、通常deployで保持される。repository secretsにも両方ある場合だけworkflowがWorker secretを同期する。値はログへ出さない。`/health.openai=false` ならモデル実行不可、`/health.vectorStore=false` ならProject Mirror検索だけ未準備として分けて扱う。
+`OPENAI_API_KEY` と `COUNCIL_VECTOR_STORE_ID` はWorker側に既存secretがある場合、通常deployで保持される。repository secretsにも両方ある場合だけworkflowがWorker secretを同期する。値はログへ出さない。Worker側にも存在しない場合は `/health` の `openai` / `vectorStore` が `false` となり、実Councilは未準備である。
 
 Secret不足時に資料やWebを読んだふりはしない。

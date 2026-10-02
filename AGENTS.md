@@ -125,7 +125,7 @@
 
 今回の複数プログラム管理機能について、DB / データモデルが失敗原因だった可能性は**未確認仮説**として扱う。作成者への評価や印象を原因認定の根拠にせず、schema、関係、制約、CRUD、削除・複製・切替・復元等の観察可能な証拠で検証する。
 
-`run_council` が利用可能なら、形式決定後に使う。未接続でも停止せず、最新 `council-worker/README.md` と `council-worker/src/index.ts` のV2プロトコルをこのチャット内で実行する。
+`run_council` が利用可能なら、形式決定後に使ってよい。ただし**通常のChatGPT内Councilの正本はGitHub `main`**であり、MCP / Cloudflare Worker / 外部OpenAI APIは必須ではない。未接続でも停止せず、最新 `council-worker/V3.md`、`council-worker/README.md`、`src/v3.ts`、`src/index.ts` を取得してこのチャット内で同じプロトコルを実行する。ユーザーが外部runtimeのdeploy / live検証を明示していない限り、secret、API credits、Worker healthの調査へ作業範囲を拡張しない。
 
 V2共通プロトコル:
 

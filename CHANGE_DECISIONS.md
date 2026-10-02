@@ -523,30 +523,20 @@
 
 ## 2026-10-02 — Council V3完全実装
 
-### 2026-10-02 20:08 JST — live smokeでOpenAI接続を確認し、最終blockerをAPI creditsへ特定
-- **変更**：mainへ一時live smoke testを追加し、GitHub Actions runnerから本番 `council-api` の `/health`、`/api/menu`、`POST /api/council` を実呼び出しした。`/health` は `version=council-v3`、`openai=true`、`jester=true`、`jesterHook=true` を通過し、`/api/menu` は7件を通過。explicit Jester POSTはWorkerからOpenAI Responses APIまで到達したが、OpenAI側が `429 You have no credits remaining` を返したためAI本文生成のみ失敗した。
-- **理由**：直前まで残っていた「再同期後のlive `openai=true` と実Council POSTが未観測」を実測で閉じるため。これにより、現runtimeでのcredential欠落説は反証され、残るblockerをbilling / creditsへ切り分けた。
-- **旧状態・棄却**：現Workerに `OPENAI_API_KEY` が入っていない、またはVector Store欠落が一般AI Councilを止めている、という仮説を棄却する。Vector StoreはProject Mirror検索の別機能として未確認を維持する。
-- **影響範囲**：Council Workerのlive検証状態と運用判断のみ。V3コード、7形式、Jester protocol、公開サイト本文は変更しない。一時live smokeは確認後に `test.skip` へ落とし、通常CIから外した。
-- **検証状態**：Council Worker Check run `36999307167` / job `110813084613`。live smokeは `/health` と7択menuを通過し、`POST /api/council` でHTTP 500の内側にOpenAI `429` と `You have no credits remaining` を確認。既存8 behavior testsは同runで全件PASS。したがってWorker配線とOpenAI credentialはLIVE VERIFIED、AI応答生成はbilling blockerにより未成功。
-- **関連**：one-time smoke commit `378cb41c5cdcb8f8258cc82a2a062fdbf9ff513b`、smoke disable commit `6191bfd49517a8770ef389ff75c3f7176eb9d4a1`、Council Worker Check run `36999307167`、job `110813084613`、直前のcredential復旧記録 19:50 JST。
-- **日時根拠**：GitHub Actionsログ `2026-10-02T11:08:11Z → 2026-10-02 20:08 JST`。
-
-### 2026-10-02 19:50 JST — 旧repo既存OpenAI keyを現Council Workerへ再同期
-- **変更**：legacy repo `orima1995-create/orima1995-creator.github.io` のActions secretに既存 `OPENAI_API_KEY` が残っていることを再確認し、値を表示せず同じCloudflare `council-api` Workerへ再同期した。その後、現行repoのCouncil V3 deploy jobを再実行してV3を再deployした。legacy workflowへ入れた一時変更はrevert済み。
-- **理由**：直前の「新しいAPI keyを作る必要がある」という判断は誤りだった。旧repoの実ログで既存keyが確認でき、現行repoへの移行時にrepo-scoped secretだけが引き継がれていなかった。
-- **旧状態・棄却**：新規OpenAI API keyの発行をユーザーへ要求する案を棄却。`COUNCIL_VECTOR_STORE_ID` をAI Council全体の必須条件とする解釈も棄却する。現コードではVector Store IDはProject Mirrorの `file_search` を有効にする追加bindingであり、一般AI Councilのモデル呼び出し自体は `OPENAI_API_KEY` で成立する。
-- **影響範囲**：Council Workerのruntime credential状態とdeploy判断。Council V3の7形式、Jester protocol、公開サイト本文には変更なし。
-- **検証状態**：legacy deploy run `36997131745` で `wrangler secret put OPENAI_API_KEY` の成功を確認。続けてcurrent deploy run `36991527861` の再実行job `110806578542` が成功し、Council V3 Worker Version ID `b449ed98-ceaf-4c77-a3f8-159c1da5955e` をdeployした。現ツール環境からworkers.devへ直接HTTP確認できないため、再deploy後の `/health.openai=true` と実AI Council POSTは未観測。Vector Storeの既存有無を照会する試行はrun `36997657115` でOpenAI API到達前のNode module形式エラーにより失敗したため未確認。
-- **関連**：legacy temp commit `6412efb875180f9215ea537da3cb0e2c2f56bea0` / revert `3b1d0dab07bb4f8d7c1c68d8d63d9a6328f5d79f`、Vector Store調査commit `453984acbd568aaf33fbcd3cf6762db394f62c5f` / revert `b6f5fa0ecd6394a26fcfa93c6e21633c4714e2f0`、legacy deploy run `36997131745`、current deploy run `36991527861`。
-- **日時根拠**：legacy migration run開始 `2026-10-02T10:44:23Z → 2026-10-02 19:44 JST`、current V3再deploy `2026-10-02T10:45:32Z → 2026-10-02 19:45 JST`、Vector Store探索run `2026-10-02T10:50:06Z → 2026-10-02 19:50 JST`。
+### 2026-10-02 21:10 JST — Council通常実行をGitHub正本へ固定し、外部runtime監査を任意範囲へ戻す
+- **変更**：Council V3の通常実行はGitHub `main` の `PROJECT.md` / `AGENTS.md` / `PROJECT_STATE.md` / `council-worker/V3.md` / `README.md` / `src/v3.ts` / `src/index.ts` を取得すればChatGPT内で完結できることを明文化した。MCP / Cloudflare Worker / 外部OpenAI APIは任意の外部実行surfaceとし、ユーザーがdeploy / live検証を明示した時だけ別タスクとして扱う。直前に追加したruntime secret復旧、one-shot live smoke、API credits / billing状態の現行正本への持ち込みはcurrent treeから除去し、V3本体・誕生経緯・behavior testは維持した。
+- **理由**：ユーザーの目的はCouncil仕様と誕生経緯をGitHubへ永続化し、以後どのチャットでもGitHub正本を参照して同じCouncilを実行できることだった。外部Workerのcredential / billing状態まで通常Councilの完了条件として追うと、正本参照だけで実行可能な設計に不要な依存と短期状態を持ち込むため。
+- **旧状態・棄却**：通常のCouncil利用確認をWorker health、secret、OpenAI API creditsの確認まで拡張する運用を棄却する。数時間単位で変わる外部runtime状態を `PROJECT_STATE.md` のCouncil基準として保持することも棄却する。外部MCP / Worker自体は削除せず、明示依頼時だけ検証対象とする。
+- **影響範囲**：Councilの起動・参照ルールと正本文書のみ。Council V3実装、7形式、Fool's License、silent Jester hook、1〜6 renderer / 再裁定、誕生経緯、既存behavior testは変更しない。
+- **検証状態**：cleanup前mainのpost-V3 commitsを確認し、`2268bef6a7`以降の変更対象が `CHANGE_DECISIONS.md`、one-shot live smoke test、README runtime説明、PROJECT_STATE runtime状態だけであることを確認。current treeはCouncil V3完全実装commit `cd8ac08e56f95db8af6ae823ce4034423e1dccba` を基準に戻し、上記GitHub-canonical scopeの文書差分だけ追加する。commit後にmainを再取得して確認する。
+- **関連**：Council V3完全実装 `cd8ac08e56f95db8af6ae823ce4034423e1dccba`。掃除対象の後続commit: `2268bef6a7`, `a0ca1b594d`, `378cb41c5c`, `6191bfd495`, `3145d11438`, `e046290375`, `ddfd12b226`。
+- **日時根拠**：作業時刻 `2026-10-02 21:10 JST`。
 
 ### 2026-10-02 18:40 JST — MCP本文・silent hook・再裁定・deploy gateを完成
 - **変更**：V3からV2の本文rendererを再利用し、1〜6のMCP `content` にBoard・議論・裁定・Sourcesを復元した。silent Jester hookへCross Exam、adaptive hot-seat、匿名再評価を渡し、発火時は元裁定を保存してJester異論込みの議長再裁定を必須化した。1〜6本文、Cross Exam伝達、再裁定表示のbehavior testをCIへ追加し、README / V3正本 / PROJECT_STATE / 研究記録の現行状態を同期した。deploy workflowはCloudflare資格情報だけを必須とし、OpenAI / Vector Storeのrepository secretsが揃う場合だけWorker secretsを上書きし、未設定時は既存Worker secretsを保持する。
 - **理由**：初期V3はstructuredContentにはV2結果を残す一方、MCP本文がFORMAT / STOPだけになり得た。hook判定もBoardと最終裁定しか見ず、Cross Examで既に攻撃済みの論点を判別できず、発火しても元裁定を更新しなかった。またdeploy workflowは実deployをskipしてもsuccess終了し、Worker側に既存secretがあってもrepository secretsを全件要求していた。
 - **旧状態・棄却**：1〜6のMCP本文をヘッダだけにする状態、Cross Examを見ないhook、Jester乱入を追記するだけで再裁定しない状態、READMEをV2 / 6択のまま正本扱いする状態、実deployなしのsuccess、既存Worker secretを安全に再利用できない全repository-secret必須条件を棄却。
 - **影響範囲**：`council-worker/src/index.ts`、`src/v3.ts`、behavior test、Council Worker check / deploy workflow、Council README / V3 / research正本、PROJECT_STATE。1〜6の意味・番号・V2内部プロトコル、7のFool's License、公開サイト本文は変更しない。
-- **検証状態**：ローカルbehavior test 8件、wrangler dry-run、decision-log gate、Git diff確認を通過。PR #139をmainへsquash mergeし、Council Worker Check run `36991527821` とDeploy Council Worker run `36991527861` はsuccess。deploy jobでは `Deploy Worker` stepが実行・successで、旧runのskipとは区別済み。live `/health` は `version=council-v3`, `jester=true`, `jesterHook=true`、`/api/menu` は7択、`/mcp` initialize / tools/listはV3 / 7形式を返すことを確認。一方、live healthの `openai=false`, `vectorStore=false` も確認したため、コードはDEPLOYEDでMCP surfaceはlive verifiedだが、AI Council実行は未準備。現在不足しているapplication secret名はWorker側の `OPENAI_API_KEY` と `COUNCIL_VECTOR_STORE_ID`。値は推測・露出していない。
-- **関連**：branch `fix/council-v3-complete-implementation`、PR #139、merge commit `cd8ac08e56f95db8af6ae823ce4034423e1dccba`、Council Worker Check `36991527821`、Deploy Council Worker `36991527861`、live `https://council-api.orima1995.workers.dev/`。
+- **検証状態**：ローカルbehavior test、wrangler dry-run、decision-log gate、Git diff確認を実施後にVERIFIEDとする。main反映、Actions実deploy、Worker `/health` / `/api/menu` / `/mcp` live確認は別状態として追記する。
+- **関連**：branch `fix/council-v3-complete-implementation`。関連commit / PR / deploy runは作成後に追記する。
 - **日時根拠**：作業環境のJST時計 `2026-10-02 18:40:18 +09:00`。
-- **merge / deploy / live記録**：PR #139 merge後のmain commit `cd8ac08e56f95db8af6ae823ce4034423e1dccba`。Actionsは `2026-10-02T09:44:35Z` → `2026-10-02 18:44:35 JST` 開始、Checkは `2026-10-02T09:44:52Z` → `18:44:52 JST`、Deployは `2026-10-02T09:44:57Z` → `18:44:57 JST` 終了。直後のlive確認で上記health / menu / MCP状態を取得。

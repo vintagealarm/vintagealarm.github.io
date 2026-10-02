@@ -88,7 +88,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - Councilの7形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知） / 宮廷道化師🤡
 - 7はユーザー＋AI＋Councilの共有前提をFool's Licenseの下でノンデリに自己批評し、必要なら提示外代案まで現案と比較する。有意な異論がなければ `今回は異議なし🤡` が正常終了
 - 1〜6には高閾値silent Jester hookがあり、重大な共有未検証前提が結論・実装・コストを変え得て、Council内で未攻撃の場合だけ一度乱入する。判定にはBoard、Cross Exam、hot-seat、匿名再評価、元裁定を渡し、発火時はその異論を含めて議長が再裁定する。通常は黙る
-- Council Workerのlive runtimeは2026-10-02 20:08 JSTの実スモークで `openai=true`、V3、7択まで確認済み。実Jester POSTはOpenAIまで到達したが `429 You have no credits remaining` で停止したため、現在の実AI Council blockerはcredential欠落ではなくOpenAI API credits / billing。Vector Storeは別件で未確認のまま
+- Councilの通常利用はGitHub `main` のCouncil正本を取得してChatGPT内で実行できる。MCP / Cloudflare Worker / 外部OpenAI APIは任意の外部実行surfaceであり、ユーザーが明示しない限りdeploy・secret・billing・live healthをCouncil完了条件へ持ち込まない
 - Councilはformat / domain / budget / evidence / panelSizeを分離し、人数や固定ラウンド数を品質の代理指標にしない
 - Council共通プロトコルは独立初手 → Board整理 → Cross Exam → 必要時のみadaptive hot-seat → 匿名再評価 → Minority Report → 議長裁定
 - Council住民は架空の家族構成・年齢等ではなく、目的・証拠方針・失敗傾向・修正条件・棄権条件で差別化する

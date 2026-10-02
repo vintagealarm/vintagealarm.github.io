@@ -52,6 +52,7 @@
 - 既知事項を聞き直さない。
 - 「焼いて」用の独自メニューをその場で創作しない。
 - 1〜6ではV2の意味・番号を維持しつつ、重大な共有未検証前提が結論を実質的に変え得て、かつCouncil内で未攻撃の場合だけsilent Jester hookが乱入できる。通常は黙る。
+- **通常のChatGPT内CouncilはGitHub `main` の上記正本を取得すれば実行できる。** MCP / Cloudflare Worker / OpenAI APIは外部実行surfaceであり、ユーザーがその外部runtimeの検証・運用を明示した場合だけ対象にする。未接続・secret不足・API credits等を、通常のCouncil実行やGitHub実装完了のblockerにしない。
 
 ## 2. 分野別ルーティング
 
