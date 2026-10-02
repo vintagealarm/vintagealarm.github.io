@@ -1507,3 +1507,25 @@ Current classification:
 - caliber identity remains **IMAGE-CONFIRMED AS 1475 / 17 JEWELS**
 - regulator / balance-cock originality relative to a specific ARSA production batch remains **OPEN**
 - possible explanations include normal production revision or a later service replacement from a compatible AS 1475-family movement; current photo alone cannot distinguish them
+
+
+### 2026-10-02 — correction: target regulator / balance-cock detail matches the EmmyWatch AS 1475 reference
+
+**USER-SUPPLIED SIDE-BY-SIDE IMAGE / IMAGE-CONFIRMED:**
+A direct side-by-side comparison of the EmmyWatch AS 1475 reference image and the seller's target movement photo shows that the previously suspected regulator / balance-cock mismatch was incorrect.
+
+Visible matching features include:
+- same balance-cock outline and mounting geometry
+- same vertical regulator arm arrangement over the balance
+- same regulator / stud-holder shape
+- same shock-setting position and surrounding cock geometry
+- same relationship between the balance assembly and the adjacent Y-shaped bridge
+
+**Correction:** the earlier note that the target's regulator / balance-cock detail “does not look identical” to the reference is withdrawn.
+
+**Current classification:**
+- movement identity = **IMAGE-CONFIRMED AS 1475 / 17 JEWELS**
+- regulator / balance-cock appearance = **visually consistent with the EmmyWatch AS 1475 reference**
+- there is presently no image-based reason to suspect a non-standard regulator, replacement balance cock, or incompatible service part
+
+Remaining uncertainty is limited to normal hidden-condition / service-history issues that cannot be resolved from a single movement-side photo.
