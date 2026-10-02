@@ -17,6 +17,17 @@
 
 ## 2026-10-02
 
+### 2026-10-02 22:34 JST — llms.txtへVINTAGE ALARMの普及・翻訳・体験目的を明示
+
+- **変更**：`public/llms.txt` の既存Site identity / Evidence policy / Reliabilityを維持したまま、その直後へEditorial purposeを追加した。第一目的を「機械式アラーム腕時計を知り、理解し、興味を持つ人を増やすこと」とし、専門用語→一般読者の言葉、機構→実際の動き、スペック→実音、文献→現存実機、歴史→面白さ、散在情報→比較・判断可能な理解への「翻訳」を編集上の手段として定義した。現代語キャッチは史実主張ではなく編集上の翻訳と明示し、`discovery → understanding → experience → verification → research when necessary` の順序を固定した。
+- **理由**：従来の`llms.txt`は、独立研究サイトであること、証拠種別、個体観察の一般化禁止、訂正方針は説明できていた一方、「なぜ既知情報も扱うのか」「なぜ現代語キャッチ・操作ガイド・実音・比較UIを置くのか」というサイトの目的が機械可読な入口だけでは十分に伝わらなかったため。初見AIが独自研究の有無だけでサイト価値を評価し、普及・理解・体験・購入判断の補助という主目的を落とす誤読を減らす。
+- **旧状態・棄却**：`llms.txt`を研究サイトの身元・証拠方針・独自研究routeの列挙だけに留め、編集的比喩・実音・比較UIの目的を暗黙のままにする状態を棄却する。一方、人向けABOUTページを新設したり、TOP / WATCH / OWNER'S NOTE本文をAIO目的で改稿する案は採用しない。
+- **影響範囲**：`public/llms.txt` と本判断履歴のみ。公開WATCH / HISTORY / OWNER'S NOTE本文、キャッチコピー、HOW THEY RINGの再生実装、音源、分類、UI、sitemap、Analyticsは変更しない。
+- **検証状態**：branch `feat/llms-editorial-purpose-20261002` へ実装済み。Duofon節では、Pierce Cal.135系を既知の量産機械式アラーム腕時計における唯一の二モード量産例、別の既知例をJunghans Minivox prototypeとして記述し、所有前に見つけられた鳴動動画が二モードの片方しか示さずWECKER / SIGNALを比較できなかった原体験を明示した。HOW THEY RING節では同じ大分類でも音が違うこと、複数音源の同時比較、個体録音をモデル全体へ一般化しないことを明示した。PR CIとmain merge後のlive artifact確認は別状態として扱う。
+- **関連**：`public/llms.txt`、`strategy/seo-aio.md`、`SITE_RULES.md`。実装commit `246b1ce0c85b4a4d179adbeac910440acf1c7ffe`。
+- **日時根拠**：GitHub implementation commit `246b1ce0c85b4a4d179adbeac910440acf1c7ffe` の `2026-10-02T13:34:45Z → 2026-10-02 22:34 JST`。
+
+
 ### 2026-10-02 18:39 JST — 個人時計台帳をwatchdiary cross-repo正本へ固定し、PROJECT起動ルートへ追加
 
 - **変更**：`PROJECT.md` に個人時計台帳のcross-repoルートを追加し、所持時計・取得日/取得経緯/取得額・OH/OVH/修理歴・現在地/現在状態・売却/保有意志を扱う場合は `orima1995-create/watchdiary-ios` のCURRENT Issue群を先に取得する仕様へ変更した。入口は #21 CURRENT OWNED、取得遍歴 #60、保有意志 #23、周辺時計 #25、個体別CURRENT Issue（例: #58 Watchlarm / #31 CYMA）とし、#21の基本項目を「取得日 / 取得方法・場所 / 取得額 / 取得経緯 / OH・OVH・修理歴 / 個体識別情報 / 既知不具合・状態 / 改造・部品交換歴 / 現在地・現在状態」に固定した。日差・振り角・beat error・最終動作確認は台帳必須項目にしない。PROJECT_STATEにも同じcross-repo正本の入口だけを短く同期した。
