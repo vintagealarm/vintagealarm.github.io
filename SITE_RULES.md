@@ -52,6 +52,7 @@
 - 旧フィールド`ownedSortYear`を復活させない。CMS・テンプレート・検証スクリプトも`ownedSortKey`へ揃える。
 - 公開済みOWNER'S NOTEは`historyEra`を明示し、WATCHから戻るHISTORY上の位置を所有個体年代から自動推定しない。
 - WATCH末尾の「次の一本」は`src/data/watch-recommendations.ts`の編集推薦を使い、年代順へ自動送出しない。推薦先と推薦理由をセットで管理し、個別WATCH名をテンプレートへハードコードしない。
+- WATCH末尾では「次の一本」とは別に、`OWNER'S NOTES`一覧へ戻れる小さな全件導線をHISTORY導線と同じ補助ナビゲーション群に置く。
 - 推薦先が存在しない、または未公開の場合は「次の一本」を表示しない。年代順の別WATCHへ勝手にフォールバックしない。
 - 例：Pierce DuofonはHISTORYでは1950年代の初出として扱えても、所有個体一覧では掲載個体に合わせて1960sへ置ける。
 - 一覧でWATCHページ用の`catch`や`spec.era`を自動流用しない。一覧専用の`directoryCatch`と所有個体年代を使う。
