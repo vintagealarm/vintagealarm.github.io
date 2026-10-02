@@ -1529,3 +1529,36 @@ Visible matching features include:
 - there is presently no image-based reason to suspect a non-standard regulator, replacement balance cock, or incompatible service part
 
 Remaining uncertainty is limited to normal hidden-condition / service-history issues that cannot be resolved from a single movement-side photo.
+
+
+### 2026-10-02 — new image finding: probable missing alarm click screw
+
+**USER-SUPPLIED SIDE-BY-SIDE / IMAGE-CONFIRMED:**
+In the newly marked comparison image, the target movement shows an open recessed hole immediately beside the upper alarm ratchet wheel where the AS1475 reference shows a slotted screw head.
+
+**TECHNICAL CROSS-CHECK:**
+AS1475 parts documentation identifies:
+- 7418 — alarm ratchet wheel, upper
+- 7426 — alarm click
+- 7436 — alarm click spring
+- 57426 — **alarm click screw**
+
+The circled location and adjacent click geometry are consistent with the **alarm click screw (57426)** position.
+
+**Current classification:**
+- probable missing part: **alarm click screw 57426**
+- confidence: **HIGH from visual comparison, but not yet 100%** because only one seller photo is available
+- alternative failure mode to exclude: screw broken off below the surface / incomplete screw remnant rather than a cleanly missing screw
+
+**Functional significance:**
+The alarm click retains the upper alarm ratchet wheel / alarm barrel winding against unwinding. A missing or failed click screw is therefore not cosmetic; it can compromise reliable alarm winding retention and operation.
+
+**Purchase significance:**
+- this is a real mechanical concern and overrides the prior statement that no obvious missing small movement part was visible
+- it is nevertheless a generic AS1475 movement-side part, not a Blind-specific case / dial / hand / hinge component
+- replacement screw / donor repair is likely materially easier than replacement of Blind-specific exterior parts
+- if a screw shank is broken in the plate, extraction increases repair complexity
+
+**Next evidence required before treating this as resolved:**
+- close-up of the circled location, or direct seller confirmation that screw 57426 is present
+- confirmation that the alarm barrel holds wind and the alarm still rings after winding
