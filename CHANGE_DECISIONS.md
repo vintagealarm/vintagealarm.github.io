@@ -523,6 +523,15 @@
 
 ## 2026-10-02 — Council V3完全実装
 
+### 2026-10-02 19:50 JST — 旧repo既存OpenAI keyを現Council Workerへ再同期
+- **変更**：legacy repo `orima1995-create/orima1995-creator.github.io` のActions secretに既存 `OPENAI_API_KEY` が残っていることを再確認し、値を表示せず同じCloudflare `council-api` Workerへ再同期した。その後、現行repoのCouncil V3 deploy jobを再実行してV3を再deployした。legacy workflowへ入れた一時変更はrevert済み。
+- **理由**：直前の「新しいAPI keyを作る必要がある」という判断は誤りだった。旧repoの実ログで既存keyが確認でき、現行repoへの移行時にrepo-scoped secretだけが引き継がれていなかった。
+- **旧状態・棄却**：新規OpenAI API keyの発行をユーザーへ要求する案を棄却。`COUNCIL_VECTOR_STORE_ID` をAI Council全体の必須条件とする解釈も棄却する。現コードではVector Store IDはProject Mirrorの `file_search` を有効にする追加bindingであり、一般AI Councilのモデル呼び出し自体は `OPENAI_API_KEY` で成立する。
+- **影響範囲**：Council Workerのruntime credential状態とdeploy判断。Council V3の7形式、Jester protocol、公開サイト本文には変更なし。
+- **検証状態**：legacy deploy run `36997131745` で `wrangler secret put OPENAI_API_KEY` の成功を確認。続けてcurrent deploy run `36991527861` の再実行job `110806578542` が成功し、Council V3 Worker Version ID `b449ed98-ceaf-4c77-a3f8-159c1da5955e` をdeployした。現ツール環境からworkers.devへ直接HTTP確認できないため、再deploy後の `/health.openai=true` と実AI Council POSTは未観測。Vector Storeの既存有無を照会する試行はrun `36997657115` でOpenAI API到達前のNode module形式エラーにより失敗したため未確認。
+- **関連**：legacy temp commit `6412efb875180f9215ea537da3cb0e2c2f56bea0` / revert `3b1d0dab07bb4f8d7c1c68d8d63d9a6328f5d79f`、Vector Store調査commit `453984acbd568aaf33fbcd3cf6762db394f62c5f` / revert `b6f5fa0ecd6394a26fcfa93c6e21633c4714e2f0`、legacy deploy run `36997131745`、current deploy run `36991527861`。
+- **日時根拠**：legacy migration run開始 `2026-10-02T10:44:23Z → 2026-10-02 19:44 JST`、current V3再deploy `2026-10-02T10:45:32Z → 2026-10-02 19:45 JST`、Vector Store探索run `2026-10-02T10:50:06Z → 2026-10-02 19:50 JST`。
+
 ### 2026-10-02 18:40 JST — MCP本文・silent hook・再裁定・deploy gateを完成
 - **変更**：V3からV2の本文rendererを再利用し、1〜6のMCP `content` にBoard・議論・裁定・Sourcesを復元した。silent Jester hookへCross Exam、adaptive hot-seat、匿名再評価を渡し、発火時は元裁定を保存してJester異論込みの議長再裁定を必須化した。1〜6本文、Cross Exam伝達、再裁定表示のbehavior testをCIへ追加し、README / V3正本 / PROJECT_STATE / 研究記録の現行状態を同期した。deploy workflowはCloudflare資格情報だけを必須とし、OpenAI / Vector Storeのrepository secretsが揃う場合だけWorker secretsを上書きし、未設定時は既存Worker secretsを保持する。
 - **理由**：初期V3はstructuredContentにはV2結果を残す一方、MCP本文がFORMAT / STOPだけになり得た。hook判定もBoardと最終裁定しか見ず、Cross Examで既に攻撃済みの論点を判別できず、発火しても元裁定を更新しなかった。またdeploy workflowは実deployをskipしてもsuccess終了し、Worker側に既存secretがあってもrepository secretsを全件要求していた。
