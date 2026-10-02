@@ -22,15 +22,18 @@
 
 ## 1. 「焼いて」/ Council は絶対に独自解釈しない
 
-`焼いて` / `焼こう` / `Council` / Council選択中の番号 `1〜6` を検出したら、**会話から意味を発明せず**、必ず次を正本として扱う。
+`焼いて` / `焼こう` / `Council` / Council選択中の番号 `1〜7` を検出したら、**会話から意味を発明せず**、必ず次を正本として扱う。
 
+- `council-worker/V3.md`
 - `council-worker/README.md`
-- `council-worker/src/index.ts`
-- `AGENTS.md` の Council / 焼いて V2
+- `council-worker/src/v3.ts`
+- `council-worker/src/index.ts`（V2互換エンジン）
+- `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`（7の誕生経緯・設計根拠）
+- `AGENTS.md` の Council / 焼いて
 
 ### 「焼いて」だけの場合
 
-次の6択をそのまま出して選択を待つ。
+次の7択をそのまま出して選択を待つ。
 
 1. **2ch民で焼いて** → スレ表示。煽り・反論・レスバ込みで論点を削る
 2. **みんなで議論して** → ひな壇。複数視点をテンポよくぶつける
@@ -38,14 +41,17 @@
 4. **監査して** → Claim Board。主張・根拠・反証・未確認を分解する
 5. **案出して** → Brainstorming Board。独立発想→整理→発展→絞り込み
 6. **事前に地雷探知して** → PRE-MORTEM。実装前に失敗原因を先回りし、作り込む前に撤退・検証・GOを決める
+7. **宮廷道化師で焼いて 🤡** → 王＝ユーザー＋AI＋Councilの前提をノンデリに疑い、必要なら提示外の案・削除・撤退・保留・何もしないまで戻して比較。異論がなければ「今回は異議なし🤡」で帰る
 
 ### 番号または形式が選択済みの場合
 
 - `1` は **2ch民で焼いて**。別の意味へ再定義しない。
+- `7` は **宮廷道化師で焼いて 🤡**。resident追加ではなくCouncil V3の独立format / protocolとして実行する。
 - `2ch民で焼いて` / `5ch民で焼いて` / `スレ民で焼いて` は1を直接実行し、メニューを挟まない。
 - 選択後は現在の会話、画像、ファイル、Project資料、GitHub、既存成果物、確定判断を先に拾う。
 - 既知事項を聞き直さない。
 - 「焼いて」用の独自メニューをその場で創作しない。
+- 1〜6ではV2の意味・番号を維持しつつ、重大な共有未検証前提が結論を実質的に変え得て、かつCouncil内で未攻撃の場合だけsilent Jester hookが乱入できる。通常は黙る。
 
 ## 2. 分野別ルーティング
 
@@ -59,7 +65,7 @@
 - 過去SNS / Analytics実験 → `measurement/experiment-log.md`
 - 英語入口 → `strategy/english-entry.md`
 - ドイツ語入口 → `strategy/german-entry.md`
-- Council / 焼いて → `council-worker/README.md` + `council-worker/src/index.ts`
+- Council / 焼いて → `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`
 
 時計の事実認定では、Project資料『Alarm am Arm』『The Alarm Wrist Watch』等を確認できる場合は一般論より先に使う。
 
