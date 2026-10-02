@@ -11,19 +11,25 @@
 
 ## 1. 今回の調査目的
 
-対象は、現在eBayに出ているARSA Blind Alarm / tactile alarm個体。
+対象は、購入済みのARSA Blind Alarm / tactile alarm個体と、その周辺史・比較個体・制度史。
 
-調査目的は二つ。
+**2026-10-03以降の主目的は、VINTAGE ALARMの将来OWNER'S NOTE / WATCH研究に使える証拠基盤を作ること。**
+購入前リスク評価は履歴として保持するが、欠品・価格・購入判断そのものを研究の主軸にはしない。
 
-1. **購入前同定・リスク評価**
-   - 本当にARSA Blind Alarm系か
-   - ムーブメントは何か
-   - Blind専用外装（蓋・ヒンジ・触覚針等）は生きているか
-   - 修理不能リスクと価格の釣り合い
-2. **歴史的位置づけ**
+主に追うもの:
+
+1. **触覚アラームというインターフェース**
+   - 現在時刻とアラーム設定時刻を、視覚なしでどう区別・確認・再設定できるのか
+   - 触覚針、時標、開閉蓋、クラウン／プッシャー、アラーム針の役割
+   - 「Braille watch」という呼称と、実際のtactile analog interfaceを分けて整理する
+2. **ARSA Blind Alarmの系譜と企業側の能力**
    - ARSA / AFB / A. Schild / Enicar / BEAT / AS1475の関係
+   - ARSAが「盲人用時計」と「腕時計アラーム」を同時期に扱っていたことをperiod sourceで固める
+   - generic AS 1475とBlind専用設計を分離する
+3. **歴史的位置づけ**
    - 触覚時計史と機械式アラーム腕時計史がどこで交差したか
    - 戦傷者・福祉流通との関係を、因果を飛躍させずに確定する
+   - 現存個体・ケース／開閉方式・年代・流通主体を比較表で残す
 
 ---
 
@@ -120,7 +126,26 @@
 
 ## 5. 今追うべき方向 — 優先順位
 
-### P0 — 今回個体の購入判断に直結
+### P0 — VA / OWNER'S NOTE本線
+
+**状態:** ACTIVE / PRIMARY
+
+1. **period ARSA資料**
+   - 1950s–1970sのtrade directory / 広告 / catalogue / company historyで、盲人用時計と腕時計アラームの同時存在を固定する
+   - Mémoires d'Iciの1973年A. Reymond 75周年資料群を最優先archive targetにする
+2. **触覚アラームのinterface**
+   - 「現在時刻を触る」だけでなく「アラーム設定時刻を触って判別し、設定し直せる」設計を比較する
+   - ARSA固有値とEnicar等の比較個体値を混ぜない
+3. **survivor matrix**
+   - ARSA / AFB-ARSA / Enicar / BEAT-Friedli / A. Schild prototype / 後期AFBを並べ、opener・針・時標・caliber・caseを比較する
+4. **AFB↔ARSA documentary bridge**
+   - supplier / purchase order / invoice / correspondenceをarchive tierで追う
+
+欠品・価格・購入可否は、個体provenanceや到着後記録として必要なら残すが、**VA研究の優先順位には置かない**。
+
+---
+
+### P0-OLD — 購入前確認（RESOLVED / RESEARCH PRIORITY外）
 
 #### T0-1 ムーブメント写真を取得・判定
 **状態:** RESOLVED / IMAGE-CONFIRMED — AS 1475 / 17 JEWELS
@@ -355,12 +380,12 @@ generic donorで救いやすい:
 
 ## 8. 次の実行順
 
-1. movement identityは **AS 1475 / 17 JEWELS** で解決済み
-2. 次のspecimen evidenceは inside caseback / case marks と到着後実測
-3. regulator / balance-cock detailはEmmyWatch AS1475 referenceと視覚一致を確認済み。追加調査は新しい反証が出た場合のみ
-4. **AFB Archive / Mémoires d'Ici / Swiss trade pressの狭い一次資料探索**
-5. 並行して **survivor matrix** を構築
-6. sold-resultは補助線として回収
+1. **Mémoires d'Ici D-00454の1973年A. Reymond 75周年資料群**を優先し、盲人用時計・腕時計アラーム・Alertic・輸出／米国・流通先の記述を探す
+2. **Davoine / Swiss trade press**で1950s–1970sのARSA企業広告と分類欄を年代順に取り、blind watch / wrist alarmの並存期間を固定する
+3. **AFB Archive / APH**でARSA / Auguste Reymond / Tramelanをsupplier-level文書へ接続する
+4. 並行して **survivor matrix** を構築し、ARSA / Enicar / BEAT / A. Schild / AFBの触覚UI差を表にする
+5. 「Braille watch」という歴史呼称と、raised markers + exposed handsによる**tactile analog interface**を資料上分離する
+6. 到着後の個体観察は、ケース刻印・実操作・触覚UIを研究資料へ追加する。欠品監視を研究本線へ戻さない
 7. HOLDテーマは新証拠が出るまで触らない
 
 ---
@@ -419,8 +444,7 @@ Technical identification:
 - 7436 = alarm click spring
 - 57426 = alarm click screw
 
-Current priority:
-- treat missing 57426 as the top specimen-specific purchase concern
-- confirm by close-up or seller reply before considering the movement-side condition question closed
-- if simply absent, donor / replacement repair should be easier than any Blind-specific exterior repair
-- if a broken screw shank remains in the plate, repair complexity is higher
+Current classification after the 2026-10-03 VA research scope correction:
+- keep the probable 57426 issue as a **specimen-condition record only**
+- do not spend further VA research time on it unless arrival inspection produces evidence that changes the historical / structural interpretation
+- simple absence vs broken remnant remains unresolved, but this is not an active OWNER'S NOTE research priority

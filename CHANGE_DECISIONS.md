@@ -15,6 +15,18 @@
 
 ---
 
+## 2026-10-03
+
+### 2026-10-03 00:41 JST — ARSA Blind Alarm調査をVA / OWNER'S NOTE本線へ固定し、欠品監視を研究優先順位から外す
+
+- **変更**：ARSA研究MAPの主目的を購入前リスク評価から、VINTAGE ALARMの将来OWNER'S NOTE / WATCH研究用の証拠基盤づくりへ明確化した。旧P0購入確認は履歴として残しつつ`RESEARCH PRIORITY外`へ降格し、新P0をperiod ARSA資料、触覚アラームinterface、survivor matrix、AFB↔ARSA一次文書へ置き換えた。57426欠品疑義は個体状態記録として保持するが、追加調査の優先対象から外した。
+- **理由**：ユーザーが「VA用のリサーチとして続行」「欠品とかはどうでもいい」と明示。詳細LEDGERには2026-10-02時点ですでにOWNER'S NOTEを主目的とするscope correctionがあった一方、MAPのP0と末尾overrideが購入リスク／欠品を最上位に残しており、正本間で優先順位が不一致だったため。
+- **旧状態・棄却**：`P0 = 購入判断`、`57426 = top specimen-specific purchase concern`を現行研究優先順位として扱う状態を失効させる。欠品情報そのものを削除・否定するわけではない。新しい歴史・構造証拠が出ない限り、欠品監視をVA研究本線へ戻さない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴のみ。公開WATCH / OWNER'S NOTE本文、個人時計台帳、修理判断、サイトUIは変更しない。
+- **検証状態**：GitHub mainの現行MAP / LEDGERを基準に差分作成。Davoine 1969/1970、Mémoires d'Ici D-00454、AFB、ARSA現行Blind Watch、Project専門書の既存根拠を再照合し、period evidenceと二次資料・推論を分離してLEDGERへ追記した。
+- **関連**：ARSA research canon更新（本変更commit）。
+- **日時根拠**：session precise time `2026-10-03T00:41:47+09:00`。
+
 ## 2026-10-02
 
 ### 2026-10-02 23:18 JST — WATCH末尾にOWNER'S NOTES全件導線を追加

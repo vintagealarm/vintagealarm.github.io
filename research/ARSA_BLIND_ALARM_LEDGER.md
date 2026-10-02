@@ -1562,3 +1562,159 @@ The alarm click retains the upper alarm ratchet wheel / alarm barrel winding aga
 **Next evidence required before treating this as resolved:**
 - close-up of the circled location, or direct seller confirmation that screw 57426 is present
 - confirmation that the alarm barrel holds wind and the alarm still rings after winding
+
+### 2026-10-03 — VA research continuation: period evidence strengthens the ARSA convergence model
+
+**USER-DIRECTED SCOPE:**
+The investigation is to continue as **VINTAGE ALARM / future OWNER'S NOTE research**. Purchase-risk and missing-part monitoring are secondary. Existing failure evidence — including documented tactile-hand damage — remains preserved, but it is not a reason to keep spending research time on defects unless new evidence changes the historical interpretation.
+
+#### PERIOD TRADE EVIDENCE — Davoine 1969: blind watches were an explicit A. Reymond specialty
+
+The 1969 *Indicateur général de l'horlogerie* carries an A. Reymond S.A. advertisement listing, among the firm's specialties:
+
+- quality lever watches and movements
+- automatic watches
+- chronometers with official rating certificates
+- **montres pour aveugles** (watches for the blind)
+- electric small clocks
+
+The same volume's category **Montres pour aveugles / Watches for the Blind / Blinden-Uhren** lists **Reymond A. SA, Tramelan**.
+
+Source:
+- https://fr.scribd.com/document/495307117/Davoine-1969
+
+**Research consequence:** by 1969, blind watches were not merely a retrospective brand story; they were still presented in a contemporary Swiss trade directory as an A. Reymond product specialty.
+
+This does not identify a specific ARSA blind-watch caliber or prove that every model in the category was made continuously from the 1950s.
+
+#### PERIOD TRADE EVIDENCE — Davoine 1970: blind watches and wrist alarms appear together in the same corporate advertisement
+
+The 1970 *Indicateur général de l'horlogerie* A. Reymond S.A. advertisement expands the specialty list to include, in the same block:
+
+- **Montres pour aveugles**
+- **Montres de plongée**
+- **Montres bracelet réveil**
+
+alongside quality lever watches, automatics and officially rated chronometers.
+
+Source:
+- https://fr.scribd.com/document/705289724/DAVOINE-1970-2
+- archival host identified by Time2Tell: https://doc.rero.ch/record/323602/files/DAVOINE_1970-2.pdf
+
+**Research consequence:** this is strong **period company-level evidence** that A. Reymond simultaneously regarded both blind watches and alarm wristwatches as active specialties by 1970.
+
+It materially strengthens the existing convergence model:
+- ARSA had a blind-watch line
+- ARSA had an alarm-watch line
+- the two capabilities coexisted inside the same manufacturer
+
+But it still does **not** prove why the Blind Alarm was developed, nor does it by itself identify a particular Blind Alarm model. Product-level existence of the AS1475 Blind Alarm remains grounded in the specialist-book specimens.
+
+#### PERIOD AD EVIDENCE — ARSA Alertic was being advertised in 1956
+
+A surviving original Swiss magazine advertisement dated **1956**, currently preserved as a vintage-paper sale image, advertises the **ARSA Alertic Réveil** for A. Reymond S.A., Tramelan.
+
+Source:
+- https://www.ecrater.com/p/21726872/original-1956-arsa-alertic-watch-ad
+
+Evidence class:
+- the underlying object is a period advertisement
+- current provenance is a marketplace listing rather than an institutional archive
+- therefore use it as **period-document image evidence with weaker archival provenance**, not as a factory catalog record
+
+This independently supports ARSA alarm-watch activity in the same mid-1950s window in which specialist literature places the Blind Alarm.
+
+#### SECONDARY ARCHIVAL SYNTHESIS — alarm watches by 1955 and the ASUAG / Ébauches SA context
+
+Joël Pynson's 2024 ARSA history states that A. Reymond introduced **alarm watches in 1955**. The same history notes that ARSA's ASUAG position gave it access to new Ébauches SA calibers as they became available.
+
+Source:
+- https://www.time2tell.com/en/history-of-the-brands/461-the-true-story-of-auguste-reymond-sa-arsa-watches.html
+
+Classification:
+- **secondary research with explicit archival / trade-journal citations**
+- useful as chronology corroboration
+- not a substitute for the underlying period source when a primary document can be obtained
+
+Combined with Beitl's ARSA Blind Alarm / AS1475 documentation, this makes the mid-1950s overlap of ARSA's alarm activity and tactile-watch activity increasingly well supported.
+
+#### TERMINOLOGY — “Braille watch” is often a historical/common label for a tactile analog watch, not literal Braille numerals
+
+AFB's AccessWorld describes traditional “braille watches” as watches with a **hinged crystal**, raised hour markers, and hour/minute hands read by direct touch.
+
+A later US Braille-watch patent explicitly distinguishes the existing **tactile watch** — exposed hands plus raised markings — from its proposed system that actually forms Braille numbers with pins. It notes that tactile-watch hour markings have no standard format.
+
+Sources:
+- https://afb.org/aw/20/1/14989
+- https://patents.google.com/patent/US8483018B2/en
+
+The current ARSA Blind Watch site itself uses both “blind” and “braille” terminology while describing raised markers and hands under a flip-open crystal:
+- https://blindwatch.net/
+
+**VA terminology consequence:** historical labels such as *Braille watch* may be retained when they belong to a source, market or institution, but VINTAGE ALARM should not imply that the vintage ARSA dial encodes time as Braille numerals. Mechanically and ergonomically it is a **tactile analog interface**.
+
+#### ACCESSIBILITY LOOP — the alarm complication is tactile at the input / read-back side, not only audible at the output side
+
+Horlbeck's Enicar Blind Alarm description is especially important because it states that the blind user can feel both:
+- the current clock time
+- the **set alarm time**, and set it again
+
+The Enicar comparison specimen uses deliberately differentiated pointers:
+- minute hand: about 1.6 mm wide
+- hour hand: about 2.9 mm wide
+- alarm hand: about 0.7 mm wide with four ridges at its end
+- enlarged / differentiated hour markers, especially at 3 / 6 / 9
+
+Project source:
+- *The Alarm Wrist Watch*, “Special Watches” / Enicar blind alarm section.
+
+**Boundary:** these exact dimensions and ridges are Enicar-specific evidence. Do not transfer them to the ARSA specimen without direct ARSA evidence.
+
+**Research consequence:** the strongest way to explain the category is not merely “an alarm watch a blind person can hear.” The interface aims to make the **alarm setting itself tactilely inspectable**. That turns an ordinary alarm complication into a three-pointer tactile information system.
+
+#### ARCHIVE TARGET UPGRADE — Mémoires d'Ici has a concrete 1973 A. Reymond company-document bundle
+
+Mémoires d'Ici's public archive plan for A. Reymond lists a concentrated set of near-contemporary company documents:
+
+- *Historique de la Manufacture d'horlogerie A. Reymond SA* (1973)
+- *Bref historique ... exposé de M. D. Houriet* (1973-08-28)
+- *Les 75 ans d'une fabrique d'horlogerie de Tramelan : communiqué de presse* (1973-08-28)
+- *Les activités de A. Reymond SA : résumé de l'exposé de M. J.-R. Marchand, directeur* (1973-08-28)
+- *Présentation de la manufacture ... allocution de M. James Choffat, directeur* (1973-08-28)
+- *A. Reymond SA a fêté son 75e anniversaire* (1973-09-06)
+
+The parent dossier is **D-00454 Auguste Reymond SA**, public and physically usable without restriction.
+
+Sources:
+- https://collections.m-ici.ch/archivplansuche.aspx?ID=38766
+- https://collections.m-ici.ch/detail.aspx?ID=38759
+
+**Research priority upgrade:** these 1973 documents now outrank generic repeated Web searching for the ARSA corporate side. They are close enough to the 1950s–1970s product period to potentially preserve explicit descriptions of:
+- blind-watch activity
+- alarm-watch / Alertic activity
+- export markets
+- institutional customers / associations
+- the firm's own explanation of specialty lines
+
+Search terms when scans / copies become available:
+'aveugles', 'réveil', 'Alertic', 'Etats-Unis', 'Amérique', 'export', 'association', 'AFB', 'handicap'.
+
+#### Current interpretation after this pass
+
+The evidence level has changed in one useful way:
+
+- **company-level coexistence of blind watches and wrist alarms**: now supported by period Swiss trade material, not only retrospective brand history
+- **ARSA AS1475 Blind Alarm as a product**: specialist-book confirmed
+- **ARSA developed the Blind Alarm because it intentionally combined those two product lines**: still an inference; no direct factory statement found
+- **AFB directly ordered / specified the ARSA Blind Alarm**: still archival gap
+
+So the convergence model is stronger, but the causal story remains deliberately narrow.
+
+#### Next research order
+
+1. obtain / inspect the 1973 Mémoires d'Ici A. Reymond bundle
+2. extend Davoine / trade-press sampling backward toward 1954–1962 and forward only as needed to bracket the overlap
+3. continue the APH / AFB supplier-document route
+4. build the survivor matrix around tactile interface differences rather than market price
+5. use the purchased specimen on arrival to document the physical interface, not to reopen purchase-risk monitoring
+
