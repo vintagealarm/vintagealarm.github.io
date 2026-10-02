@@ -17,6 +17,17 @@
 
 ## 2026-10-02
 
+### 2026-10-02 23:18 JST — WATCH末尾にOWNER'S NOTES全件導線を追加
+
+- **変更**：WATCH末尾の既存「次の一本」編集推薦とHISTORY戻り導線の間に、`ALL OWNER'S NOTES ／ 一覧 →` の小さな補助リンクを追加し、`/owners-notes/` へ遷移できるようにした。右側補助ナビゲーションを2段化し、ALL OWNER'S NOTESを上、HISTORYへ戻るを下に配置する。モバイルでは左揃えへ落とす。
+- **理由**：各WATCH末尾では編集推薦1本しか次の選択肢として見えず、外部検索や旧URL由来で一部ページだけ見た来訪者がサイト全体の掲載個体数を把握しにくかったため。編集推薦の強さは維持したまま、全掲載OWNER'S NOTEへ自分で移動できる導線を補助的に追加する。
+- **旧状態・棄却**：右側が`HISTORYへ戻る →`のみの状態を更新する。`OTHER ALL`等の曖昧な表記は採用せず、一覧全体を示す`ALL OWNER'S NOTES ／ 一覧`とする。左側の「次の一本」を一覧リンクへ置き換える案も採用しない。
+- **影響範囲**：`src/components/OwnerNoteEndNav.astro` と末尾導線仕様を記す`SITE_RULES.md`、本判断履歴のみ。個別WATCH本文、推薦先・推薦理由、OWNER'S NOTES一覧内容、HISTORY本文、音源、Analytics定義は変更しない。
+- **検証状態**：branch `feat/owner-note-all-link-20261002` へ実装済み。PR CIでAstro build、quality gates、publication output、mobile layoutを確認後にmerge可否を判断し、main反映・live確認は別状態として扱う。
+- **関連**：実装commit `7cbb8f82638800d953db98a884fef49965d4b25a`、仕様同期commit `79313beddf85009259598c798c48940abe86c805`。
+- **日時根拠**：GitHub implementation commit `7cbb8f82638800d953db98a884fef49965d4b25a` の `2026-10-02T14:18:05Z → 2026-10-02 23:18 JST`、仕様同期commit `79313beddf85009259598c798c48940abe86c805` の `2026-10-02T14:18:28Z → 2026-10-02 23:18 JST`。
+
+
 ### 2026-10-02 22:59 JST — Duofon二モード唯一性の主張範囲を専門書2冊＋確認済みWebへ限定
 
 - **変更**：`public/llms.txt` のPierce Duofon節で、Pierce Cal.135系を二モード機械式アラーム腕時計の量産例として「唯一」とする記述に、調査スコープを明示した。対象範囲はサイトで主要資料として使用する専門書2冊 `Alarm am Arm` / `The Alarm Wrist Watch` と、筆者が確認できたWeb資料であり、その範囲ではPierce Cal.135系が唯一の既知量産例、別の既知例はJunghans Minivox prototypeのみとする。
