@@ -467,3 +467,13 @@
 - **検証状態**：mainへ `b043529ae5bc71de02d7be695abc19d58c7a8315` を反映済み。MAPは調査経緯、確定線、切った線、P0〜P5、購入ゲート、停止条件、実行順、禁止事項を保持し、LEDGER冒頭から参照できる状態。最終確認ではmain上のMAP / LEDGER / CHANGE_DECISIONSを再取得して整合を確認する。
 - **関連**：commit `b043529ae5bc71de02d7be695abc19d58c7a8315`（`organize ARSA research map and task board`）。
 - **日時根拠**：GitHub commit `b043529ae5bc71de02d7be695abc19d58c7a8315` の `2026-10-01T23:34:57Z` → `2026-10-02 08:34 JST`。
+
+
+### 2026-10-02 09:08 JST — ARSA targetのmovementをAS1475へ確定
+- **変更**：今回個体のmovement identityを `A. Schild AS 1475 / 17 jewels` へ更新し、Research MAPのmovement待ち状態をRESOLVEDへ変更。
+- **理由**：新しいムーブメント写真で `AS 1475` と `17 JEWELS` の刻印を直接確認できたため。
+- **旧状態・棄却**：movement未確認扱いを棄却。写真1枚だけで精度・service conditionまで良好と断定する扱いも棄却。
+- **影響範囲**：ARSA research LEDGER / MAPと購入前確認のみ。年代・ケース材・AFB系譜は未変更。
+- **検証状態**：画像確認済み。LEDGER commit `d0ed4fee895a432463d04f4f02182746f94367a9`、MAP commit `78050f78926c04b63ad52ce6f38c8f8cfe721e48`。
+- **関連**：2026-10-02 09:08 JSTのseller movement photo。
+- **日時根拠**：ユーザー提示画像の端末表示 `09:08`。
