@@ -319,7 +319,6 @@ generic donorで救いやすい:
 - exact production year / case material
 - timing / amplitude / beat error / alarm duration
 - hidden / under-dial condition
-- regulator / balance-cock originality relative to the exact ARSA production batch
 
 **解消済み:** movement identity = **AS 1475 / 17 JEWELS**
 
@@ -358,7 +357,7 @@ generic donorで救いやすい:
 
 1. movement identityは **AS 1475 / 17 JEWELS** で解決済み
 2. 次のspecimen evidenceは inside caseback / case marks と到着後実測
-3. regulator / balance-cock detailは early / late AS1475 variant とservice replacementの両方を比較
+3. regulator / balance-cock detailはEmmyWatch AS1475 referenceと視覚一致を確認済み。追加調査は新しい反証が出た場合のみ
 4. **AFB Archive / Mémoires d'Ici / Swiss trade pressの狭い一次資料探索**
 5. 並行して **survivor matrix** を構築
 6. sold-resultは補助線として回収
@@ -399,3 +398,13 @@ Still open:
 - alarm duration
 - hidden / under-dial condition
 - service history
+
+
+## 11. 2026-10-02 — regulator comparison correction
+
+User supplied a direct side-by-side comparison against the EmmyWatch AS 1475 reference.
+
+Current state:
+- target regulator / balance-cock geometry is visually consistent with the reference
+- the previous concern about a visibly different regulator / balance-cock is withdrawn
+- do not keep this as an active purchase-risk item unless contradictory evidence appears
