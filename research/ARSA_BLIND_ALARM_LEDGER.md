@@ -1414,3 +1414,29 @@ Primary research priority is now:
 - preserve material that can later support an OWNER'S NOTE narrative centered on the physical watch, its use, and what the surviving specimen reveals
 
 The target movement photograph remains important because it can resolve specimen identity and internal architecture, not merely because it is a purchase gate.
+
+
+### 2026-10-02 — seller-side private offer received while movement reply is still pending
+
+**IMAGE-CONFIRMED — user-supplied eBay offer screen at 08:55 JST:**
+- private offer price: **US$251**
+- free shipping
+- eBay approximate yen display: **¥39,526**
+- reference listing price shown as US$279
+- offer validity shown as **3 days 23 hours**
+- listing still shows one watcher-style count / “1 person watching today”
+- movement-photo reply has still not arrived at this point
+
+**WEB-CONFIRMED — eBay platform behavior:**
+eBay allows sellers to send private offers to interested buyers, including watchers and cart users, and sellers can also enable **automatic offers** that eBay sends on the seller's behalf to current or future interested buyers.
+
+Official sources:
+- https://www.ebay.com/sellercenter/growth/seller-hub-discounts/offers-to-buyers-best-offer
+- https://www.ebay.com/help/selling/getting-paid/creating-customising-invoice?id=4144
+
+**Research consequence:**
+- receipt of this offer does **not** prove that the seller manually reviewed the user's unanswered movement-photo message before sending it
+- the offer may be manual or automated; the screenshot alone cannot distinguish the two
+- therefore “offer arrived before reply” is not, by itself, evidence of a technical problem with the watch
+- economically, the target has moved from the relisted US$279 / ¥41,721 state to a private-offer state of US$251 / approximately ¥39,526
+- the technical evidence hierarchy is unchanged: the promised movement photograph remains the highest-information unresolved specimen evidence
