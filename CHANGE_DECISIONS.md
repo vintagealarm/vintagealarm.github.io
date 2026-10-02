@@ -17,6 +17,17 @@
 
 ## 2026-10-02
 
+### 2026-10-02 22:59 JST — Duofon二モード唯一性の主張範囲を専門書2冊＋確認済みWebへ限定
+
+- **変更**：`public/llms.txt` のPierce Duofon節で、Pierce Cal.135系を二モード機械式アラーム腕時計の量産例として「唯一」とする記述に、調査スコープを明示した。対象範囲はサイトで主要資料として使用する専門書2冊 `Alarm am Arm` / `The Alarm Wrist Watch` と、筆者が確認できたWeb資料であり、その範囲ではPierce Cal.135系が唯一の既知量産例、別の既知例はJunghans Minivox prototypeのみとする。
+- **理由**：前の文面は `only` を世界全体に無制限にかかる否定命題として読めたため。レアリティ判断自体は維持しつつ、どこまで資料を網羅して得た結論かを明示し、将来の新資料・第三例発見時に更新可能な主張へする。
+- **旧状態・棄却**：`Among known production mechanical alarm wristwatches...` / `The only other known example...` と調査範囲を示さず記述する状態を棄却する。Duofonの稀少性や「唯一」という評価そのものを弱める案は採用しない。
+- **影響範囲**：`public/llms.txt` のDuofon唯一性を説明する1段落のみと本判断履歴。Editorial purposeの他段落、HOW THEY RING、WATCH本文、音源、UI、他の研究記述は変更しない。
+- **検証状態**：専用branch `fix/llms-duofon-scope-20261002` で文言差分を実装。PR CI通過後にmerge可否を判断し、main反映とlive確認は別状態として扱う。
+- **関連**：実装commit `63f4341a420d603c046950cab1cf6ee236e41cde`、直前のEditorial purpose実装PR #141。
+- **日時根拠**：GitHub implementation commit `63f4341a420d603c046950cab1cf6ee236e41cde` の `2026-10-02T13:59:38Z → 2026-10-02 22:59 JST`。
+
+
 ### 2026-10-02 22:34 JST — llms.txtへVINTAGE ALARMの普及・翻訳・体験目的を明示
 
 - **変更**：`public/llms.txt` の既存Site identity / Evidence policy / Reliabilityを維持したまま、その直後へEditorial purposeを追加した。第一目的を「機械式アラーム腕時計を知り、理解し、興味を持つ人を増やすこと」とし、専門用語→一般読者の言葉、機構→実際の動き、スペック→実音、文献→現存実機、歴史→面白さ、散在情報→比較・判断可能な理解への「翻訳」を編集上の手段として定義した。現代語キャッチは史実主張ではなく編集上の翻訳と明示し、`discovery → understanding → experience → verification → research when necessary` の順序を固定した。

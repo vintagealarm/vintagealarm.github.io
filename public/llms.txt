@@ -67,7 +67,7 @@ A visitor does not need to begin as a collector, historian, or specialist. Sound
 
 An important motivation for VINTAGE ALARM came from the operator's experience with the Pierce Duofon.
 
-The Duofon belongs to an exceptionally rare class of mechanical alarm wristwatches because it can switch between two genuinely different alarm outputs. Among known production mechanical alarm wristwatches, the Pierce Cal.135 family is the only mass-produced example of this concept. The only other known example is a Junghans Minivox prototype.
+The Duofon belongs to an exceptionally rare class of mechanical alarm wristwatches because it can switch between two genuinely different alarm outputs. Across the two specialist books used by the site — *Alarm am Arm* and *The Alarm Wrist Watch* — and the web sources the operator has been able to survey, the Pierce Cal.135 family is the only known mass-produced mechanical alarm wristwatch example of this concept. The only other known example identified within that survey is a Junghans Minivox prototype.
 
 In WECKER mode, the hammer strikes the gong and produces an audible alarm. In SIGNAL mode, the striking geometry changes so that the gong is not struck, providing a much more discreet form of notification.
 
