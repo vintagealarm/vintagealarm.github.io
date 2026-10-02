@@ -46,7 +46,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 計測定義: `measurement/metrics.md`
 - 現在までの実験結果: `measurement/experiment-log.md`
 - 外部AI観測: `measurement/aio-observation-log.md`
-- Council / 焼いて: `council-worker/README.md` + `council-worker/src/index.ts`
+- Council / 焼いて: `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`; 7の誕生経緯・設計根拠は `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`
 
 `CHANGE_DECISIONS.md` は仕様・判断の時系列台帳です。「いつ・何を・なぜ変えたか」を追う場合はここを確認します。`PROJECT_STATE.md` は現在値、`CHANGE_DECISIONS.md` は履歴を担当し、役割を分離します。
 
@@ -83,8 +83,10 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - Pierce Duofonの二音源表示は **WECKER / 音あり** と **SIGNAL / 音無し**。ファイル名由来の WAKER / SILENT を表示ラベルへ戻さない。
 - HOW THEY RINGのページ名／TOP入口表示名は **HOW THEY RING**。旧「音で選ぶ」は失効。TOPではOWNER'S NOTES直下に置く。**共通ハンバーガーメニュー内の日本語ラベルだけは「音で見る」**とする。
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
-- Councilはprotocol-driven V2。`焼いて` 単独は即実行せず6形式を毎回明示するランチャー
-- Councilの6形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知）
+- Councilはprotocol-driven V3。`焼いて` 単独は即実行せず7形式を毎回明示するランチャー
+- Councilの7形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知） / 宮廷道化師🤡
+- 7はユーザー＋AI＋Councilの共有前提をFool's Licenseの下でノンデリに自己批評し、必要なら提示外代案まで現案と比較する。有意な異論がなければ `今回は異議なし🤡` が正常終了
+- 1〜6には高閾値silent Jester hookがあり、重大な共有未検証前提が結論・実装・コストを変え得て、Council内で未攻撃の場合だけ一度乱入する。通常は黙る
 - Councilはformat / domain / budget / evidence / panelSizeを分離し、人数や固定ラウンド数を品質の代理指標にしない
 - Council共通プロトコルは独立初手 → Board整理 → Cross Exam → 必要時のみadaptive hot-seat → 匿名再評価 → Minority Report → 議長裁定
 - Council住民は架空の家族構成・年齢等ではなく、目的・証拠方針・失敗傾向・修正条件・棄権条件で差別化する
