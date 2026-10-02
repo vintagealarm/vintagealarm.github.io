@@ -197,6 +197,6 @@ Worker deployにはCloudflareへ接続するrepository secretsが必要。
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-`OPENAI_API_KEY` と `COUNCIL_VECTOR_STORE_ID` はWorker側に既存secretがある場合、通常deployで保持される。repository secretsにも両方ある場合だけworkflowがWorker secretを同期する。値はログへ出さない。Worker側にも存在しない場合は `/health` の `openai` / `vectorStore` が `false` となり、実Councilは未準備である。
+`OPENAI_API_KEY` はAI Councilのモデル呼び出しに必要なruntime secret。`COUNCIL_VECTOR_STORE_ID` は固定Project Mirrorの `file_search` を有効にする追加bindingで、AI Council全体の必須条件ではない。Worker側に既存secretがある場合、通常deployで保持される。repository secretsにも両方ある場合だけworkflowがWorker secretを同期する。値はログへ出さない。`/health.openai=false` ならモデル実行不可、`/health.vectorStore=false` ならProject Mirror検索だけ未準備として分けて扱う。
 
 Secret不足時に資料やWebを読んだふりはしない。
