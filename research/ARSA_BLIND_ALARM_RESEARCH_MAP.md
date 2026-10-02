@@ -217,7 +217,7 @@ AFBからARSAへの注文、請求、仕入先書簡、製品名・数量・仕�
 ### P2 — 現存個体の比較で系譜を固める
 
 #### T2-1 Survivor matrixを作る
-**状態:** TODO
+**状態:** IN PROGRESS / V1 BUILT 2026-10-03
 
 最低列:
 - Brand / organization
