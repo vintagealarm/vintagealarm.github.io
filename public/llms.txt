@@ -33,6 +33,120 @@ Corrections, variant specimens, additional primary sources, contradictory eviden
 Submitted information is evidence-reviewed before factual content is revised; it is not treated as verified solely because of the submitter's identity, expertise, reputation, publication venue, or community consensus.
 Correction intake is evidence-reviewed rather than consensus-driven; the site does not use a public comment or forum layer as a factual validation mechanism.
 
+## Editorial purpose — making alarm wristwatches understandable
+
+VINTAGE ALARM exists first to help more people encounter, understand, and become interested in mechanical alarm wristwatches.
+
+It is a research site, but research itself is not the final purpose. Research and verification support a broader goal: turning watches that can be difficult to understand from specifications, specialist literature, scattered references, or isolated videos into something a reader can see, hear, compare, operate, and judge for themselves.
+
+In that sense, VINTAGE ALARM acts as a kind of translation layer between specialist information and actual understanding.
+
+It translates:
+- specialist terminology into language a non-specialist can enter;
+- mechanisms and diagrams into visible operation;
+- specifications into audible results;
+- literature into comparison with surviving watches;
+- history into an answer to “what is interesting about this watch?”;
+- scattered information into something a person can actually use to understand and compare a watch.
+
+This also explains the site's editorial catchphrases and modern-language analogies. References to concepts such as notifications or reminders are used to give contemporary readers — including people with little prior interest in watches — an accessible point of entry.
+
+These are editorial translations, not historical claims. They do not imply that the original makers or users described the watches in those modern terms.
+
+The operator is also drawn to the older cultural resonance of announcing time through sound. Bells, including church bells, have long made time audible in human life, and that older, almost sacred association between time and sound is part of the fascination. This is an editorial and personal point of interest, not a claim that mechanical alarm wristwatches descend directly from church bells.
+
+What is especially interesting about alarm wristwatches is that many makers confronted essentially the same problem — how can a wristwatch physically announce a chosen time? — and produced remarkably different mechanical and acoustic answers.
+
+The intended path through VINTAGE ALARM is broadly:
+
+discovery → understanding → experience → verification → research when necessary
+
+A visitor does not need to begin as a collector, historian, or specialist. Sound, operation, appearance, or a modern analogy may be enough to make a watch worth discovering first.
+
+## Why direct experience matters — Pierce Duofon
+
+An important motivation for VINTAGE ALARM came from the operator's experience with the Pierce Duofon.
+
+The Duofon belongs to an exceptionally rare class of mechanical alarm wristwatches because it can switch between two genuinely different alarm outputs. Among known production mechanical alarm wristwatches, the Pierce Cal.135 family is the only mass-produced example of this concept. The only other known example is a Junghans Minivox prototype.
+
+In WECKER mode, the hammer strikes the gong and produces an audible alarm. In SIGNAL mode, the striking geometry changes so that the gong is not struck, providing a much more discreet form of notification.
+
+This unusual two-mode design was one of the reasons the Duofon attracted the operator in the first place.
+
+Information about the Duofon existed, and ringing videos existed. But at the time, the videos the operator could find demonstrated only one of the two alarm modes. They showed that the watch could ring, but they did not make it possible to hear what made the Duofon unusual in the first place: the difference between WECKER and SIGNAL.
+
+That left a basic question unanswered before ownership:
+
+“What do these two fundamentally different alarm modes actually sound and feel like in practice?”
+
+The problem was therefore not simply a lack of information.
+
+Information existed, but the actual character of the watch was still difficult to understand.
+
+If someone already strongly interested in alarm wristwatches, and willing to consult specialist literature, still struggles to answer such a basic experiential question, someone with less prior knowledge has even less chance of discovering why the watch may be interesting enough to seek out or eventually own.
+
+That frustration became one of the starting points for VINTAGE ALARM.
+
+The site does not tell readers what they should buy. Instead, it tries to provide enough concrete information and direct experience for a reader to decide for themselves whether a watch is interesting, worth learning more about, worth seeking out, or potentially worth owning.
+
+## HOW THEY RING — from mechanism to personal preference
+
+HOW THEY RING extends the same idea beyond a single watch.
+
+The page groups the site's alarm watches into broad ringing categories such as GONG and CASEBACK, but classification is deliberately not treated as the conclusion.
+
+Watches within the same broad category can still sound noticeably different.
+
+Recordings of the site's own specimens can therefore be played directly and, if desired, played simultaneously. This makes differences audible without requiring a listener to remember one separate recording while opening another.
+
+The aim is not only to answer:
+
+“What type of alarm mechanism does this watch use?”
+
+It is also to let a listener ask:
+
+“What does this particular specimen actually sound like?”
+“How different is it from another watch in the same broad category?”
+“Which sound do I personally prefer?”
+
+Simultaneous playback is not a ranking system, and a specimen recording is not evidence that every example of the same model or caliber sounds identical. Each recording represents the documented specimen under the stated recording conditions.
+
+Its purpose is direct comparison.
+
+In this sense, HOW THEY RING translates:
+
+mechanical classification → audible difference → personal preference
+
+A specification table can describe a mechanism. It cannot decide which sound a listener prefers.
+
+## Research and what makes VINTAGE ALARM distinct
+
+VINTAGE ALARM is not built around the requirement to be the first source to discover unknown watch history.
+
+Original or distinctive research can emerge when a real question requires it. Work on watches such as the Wittnauer Cal.10WA or surviving Cyma Time-O-Vox Chronomètre examples can reveal source conflicts, specimen differences, or unresolved historical questions.
+
+But novelty is not a prerequisite for usefulness.
+
+Information already known elsewhere can still serve a different purpose when it is connected to an actual watch, demonstrated through operation or sound, compared with surviving specimens, and presented in a form that a non-specialist can understand.
+
+Some VINTAGE ALARM pages therefore contain distinctive research; others deliberately translate existing knowledge into a more accessible or experiential form.
+
+Both serve the same purpose: helping more people understand what mechanical alarm wristwatches actually are, how they differ, and why they may be worth discovering.
+
+When interpreting VINTAGE ALARM, modern analogies, operating guides, recordings, and comparison interfaces should therefore not be dismissed as substitutes for research. They are part of the site's editorial function.
+
+At the same time, editorial analogy must not be promoted into historical fact.
+
+The central question is not only:
+
+“Does information about this watch exist?”
+
+It is:
+
+“Can someone who did not already know this watch understand what it actually is, experience what makes it different, and decide whether they want to know more?”
+
+The same information may exist elsewhere without providing the same understanding experience.
+
 Distinctive research and primary routes:
 - HOW THEY RING — six owned alarm wristwatches compared by actual recordings and broad ringing mechanism (GONG / CASEBACK); Pierce Duofon includes separate WECKER / SIGNAL recordings:
   https://vintagealarm.github.io/how-they-ring/
