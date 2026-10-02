@@ -487,3 +487,13 @@
 - **検証状態**：side-by-side画像を再確認し、LEDGER commit `84c93b3c3387f389ef56f4d97ab00cf00356f2c2`、MAP commit `5a563da75e96dda69a1d58a1c69cb96e3b258a03` へ反映済み。
 - **関連**：EmmyWatch AS1475 reference image、seller movement photo。
 - **日時根拠**：GitHub commit `5a563da75e96dda69a1d58a1c69cb96e3b258a03` の `2026-10-02T00:41:35Z` → `2026-10-02 09:41 JST`。
+
+
+### 2026-10-02 09:49 JST — ARSA targetにalarm click screw欠落疑義を追加
+- **変更**：ユーザー提示のside-by-side画像で、upper alarm ratchet wheel横のalarm click部に参照個体では存在するslotted screwが今回個体では見えず、`57426 alarm click screw` 欠落疑義を最優先の個体確認項目へ追加した。
+- **理由**：AS1475部品表で `7426 alarm click`、`7436 alarm click spring`、`57426 alarm click screw` が確認でき、画像上の位置関係が一致するため。これは外観差ではなく、alarm winding retentionに関わる機能部品の可能性が高い。
+- **旧状態・棄却**：movement写真について「見える範囲で欠品懸念なし」と広く扱う整理を撤回。caliber identity = AS1475 / 17Jは維持するが、alarm click screw周辺はclose-upまたはseller確認が必要。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、購入前リスク評価。Blind専用外装、年代、ケース材、AFB系譜は変更しない。
+- **検証状態**：LEDGER commit `ec509cc9db31cf1abb810519375a94c6de3e5727`、MAP commit `c12d1ac9131e42fe952b14acf085618baf3925e0` へ反映。部品番号はAS1475 technical parts documentationで照合済み。
+- **関連**：user-marked comparison image、AS1475 parts documentation。
+- **日時根拠**：GitHub commit `c12d1ac9131e42fe952b14acf085618baf3925e0` の `2026-10-02T00:49:43Z` → `2026-10-02 09:49:43 JST`。
