@@ -47,6 +47,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 現在までの実験結果: `measurement/experiment-log.md`
 - 外部AI観測: `measurement/aio-observation-log.md`
 - Council / 焼いて: `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`; 7の誕生経緯・設計根拠は `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`
+- **個人時計台帳 / 所持・取得・OH・現在状態（cross-repo）**: `orima1995-create/watchdiary-ios` Issue **#21 CURRENT OWNED** を入口とし、取得遍歴は #60、保有意志は #23、周辺時計は #25、個体別CURRENT Issue（例: #58 Watchlarm / #31 CYMA）を必要に応じて追加取得する。公開VINTAGE ALARM repo内に台帳を重複生成しない
 
 `CHANGE_DECISIONS.md` は仕様・判断の時系列台帳です。「いつ・何を・なぜ変えたか」を追う場合はここを確認します。`PROJECT_STATE.md` は現在値、`CHANGE_DECISIONS.md` は履歴を担当し、役割を分離します。
 
@@ -131,6 +132,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 外部AI発見性 / 意味保持: `measurement/aio-observation-log.md`
 - 検索・AIO全体方針: `strategy/seo-aio.md`
 - Council現行仕様: `council-worker/README.md` + `council-worker/src/index.ts`
+- 個人時計台帳: `orima1995-create/watchdiary-ios` #21を主入口に、#60 / #23 / #25および個体別CURRENT Issueへroute
 
 ### CYMA Time-O-Vox Chronomètre — VA準拠テストページ
 
