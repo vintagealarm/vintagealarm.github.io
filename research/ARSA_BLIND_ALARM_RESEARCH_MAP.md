@@ -123,7 +123,7 @@
 ### P0 — 今回個体の購入判断に直結
 
 #### T0-1 ムーブメント写真を取得・判定
-**状態:** BLOCKED / seller待ち
+**状態:** RESOLVED / IMAGE-CONFIRMED — AS 1475 / 17 JEWELS
 
 見る項目:
 - AS1475刻印または同定可能なbridge layout
@@ -373,3 +373,25 @@ generic donorで救いやすい:
 - stale Web indexをユーザー最新スクショより優先しない
 - asking priceをsold marketへ変換しない
 - 一度REJECTED / HOLDへ落とした仮説を、新証拠なしに復活させない
+
+
+## 10. 2026-10-02 09:08 JST — current specimen override
+
+Seller movement photo received.
+
+Confirmed directly from the image:
+- caliber stamp: **AS 1475**
+- bridge marking: **17 JEWELS**
+- bridge layout is consistent with AS 1475
+- no obvious major rust, verdigris, missing large bridge, or gross destructive damage is visible in the photographed movement side
+
+This supersedes the earlier “movement photo / caliber pending” state.
+
+Still open:
+- inside caseback marks
+- exact production year
+- exact case material
+- timing / amplitude / beat error
+- alarm duration
+- hidden / under-dial condition
+- service history
