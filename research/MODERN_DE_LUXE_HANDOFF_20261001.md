@@ -192,25 +192,25 @@ Canonical reset note:
 
 If older sections in this handoff prioritize H.M.C./Hirota-first searching, this strategy-reset section supersedes them.
 
-## Continuation — 2026-10-03 JST / specimen-family comparison
+## Continuation — 2026-10-03 JST / specimen-family comparison — RECLASSIFIED
 
-New run:
+Run:
 - `research/MODERN_DE_LUXE_RUN_20261003_SPECIMEN_FAMILY_COMPARISON.md`
 
-Result:
-- **MATERIAL PROGRESS / NO TERMINAL GATE PASS**
-- The user-held normal-dial specimen matches the Beitl p.317 Modern du Luxe wrist-alarm type in front treatment, case form, and rear-control topology.
-- The user-held tricolor specimen has a different dial treatment and direct `JAPAN` markings, but the same functional rear-control layout as the normal specimen. Treat the two as dial variants around the same or a closely related case/control architecture; do not project the Japan mark to every specimen.
-- The Fukuoka commemorative Modern De Luxe clock shows the same distinctive rear-control set. Its circular rear layout corresponds closely to the wrist-alarm layout when considered after a 180-degree rotation. This strengthens the clock-side family model and is consistent with Beitl's description of a standing/table alarm architecture placed into a wristwatch-form case.
-- G0 remains OPEN because the non-clock Modern De Luxe operator bridge is still unproven.
-- G1 remains OPEN because no named clock commercial actor has been recovered.
-- Label Emmaüs still exposes that an instruction sheet exists, but its body has not been recovered.
-- Yahoo Auctions `x1105074445` / `K.K. 広田` remains user-reported / HOLD; the card image/listing could not be recovered in this run.
+Final audit result:
+- **NO MATERIAL PROGRESS — duplicate/loop**
+- The run reprocessed already-known specimen relationships from existing photographs and Beitl/Fukuoka material.
+- No gate moved.
+- The prior label `MATERIAL PROGRESS` was incorrect and has been corrected.
+- Do not repeat normal-dial vs tricolor vs Beitl p.317 vs Fukuoka family comparison from the same images.
+- Reopen specimen comparison only when genuinely new physical evidence appears: movement/dial-back/case markings, original paperwork, or a new specimen with a new responsibility mark.
 
-Next:
-1. clock-family paperwork / box / labels;
-2. Label Emmaüs instruction sheet body;
-3. recover and audit x1105074445;
-4. Fukuoka/Mitsubishi vendor records;
-5. keep generic H.M.C./Hirota searching parked.
+Current active next actions:
+1. direct Modern De Luxe clock/watch responsibility documents;
+2. exact-brand G0 operator bridge;
+3. Fukuoka/Mitsubishi vendor or procurement records;
+4. exact Modern De Luxe trademark body/owner;
+5. Label Emmaüs instruction-sheet body and x1105074445 source recovery.
+
+Generic H.M.C./Hirota expansion remains parked.
 
