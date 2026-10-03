@@ -47,6 +47,28 @@ I heard that story, fell in love with the idea — and couldn’t resist bringin
 - **最終本文では非採用**: Cal.10WAの詳細SPEC、ケース／金張り等の物性、HOW THEY RINGへの明示CTA、希少性ランキング。最終投稿ではベゼル操作と歴史・所有動機に絞った。
 - **理由の確度**: 採用／非採用は公開本文から確認済み。草案比較による個別の棄却理由までは、このスクリーンショット単独では復元しない。
 
+### Static carousel follow-up — Published caption — screenshot verified 2026-10-03
+
+```text
+Longines — or AS 1200?
+
+The books say Longines.
+Period parts records tell a more complicated story.
+
+The Wittnauer 10WA’s base movement is still an open question. 🔍
+
+#Wittnauer #AlarmWatch #VintageWatch #horology
+```
+
+### Final creative / asset record
+
+- **形式**: 2枚の静止画カルーセル。Reelではない。
+- **画像順**: 1枚目＝ユーザー指定のポケショ、2枚目＝Cal.10WAムーブメント。
+- **採用**: `Longines — or AS 1200?` を主フックにし、専門書のLongines説とperiod parts recordsが示す複雑さを短文で対置。
+- **採用**: 結論を `still an open question` とし、VA現行WATCHの未解決状態を保持。
+- **CTA**: なし。
+- **公開時刻**: 2026-10-03 07:30頃（ユーザー報告）。2026-10-03 10:18 JSTの投稿画面で本文・hashtags・2枚構成を確認。
+
 ---
 
 ## CYMA Time-O-Vox 18K Chronomètre

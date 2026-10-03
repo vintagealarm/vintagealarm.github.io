@@ -255,6 +255,28 @@
 - source_status: CANONICAL_LOG_SCREENSHOT
 - note: 2026-09-30 22:10 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。
 
+### Snapshot — 2026-10-03 10:18 JST — static carousel follow-up
+- observed_at_jst: 2026-10-03 10:18
+- content_id: wittnauer-10wa-static-2026-10-03
+- content_type: static_carousel_2_images
+- published_at_jst: approximately 2026-10-03 07:30 (user report)
+- elapsed_since_publish: approximately 2h48m
+- views: 10
+- viewers: 6
+- follows: 0
+- likes: 1
+- comments: 0
+- reposts: 0
+- share_count: UI `--`
+- saves: 0
+- profile_accesses: UI `--`
+- followers: 100.0%
+- non_followers: 0.0%
+- image_like_counts: first image 1 / second image 0
+- top_source_visible: Feed (share not visible)
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+- note: 2026-10-03 10:18 JSTのユーザー提供Instagram Post Insightsスクリーンショット3枚と投稿画面1枚から確認。ユーザー報告の公開時刻は07:30頃。2枚の静止画カルーセルで、1枚目はユーザー指定のポケショ、2枚目はCal.10WAムーブメント。年齢・国・性別はアクション100未満のためUI上利用不可。共有数とプロフィールアクセスは `--` のため0扱いしない。
+
 ---
 
 # CYMA Time-O-Vox 18K Chronomètre
