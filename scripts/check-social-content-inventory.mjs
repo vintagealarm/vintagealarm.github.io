@@ -20,6 +20,7 @@ if (!text.endsWith('\n')) errors.push(`${file}: file must end with newline`);
 if (!text.includes("OWNER'S NOTE は分割しない")) errors.push(`${file}: OWNER'S NOTE no-split rule missing`);
 if (!text.includes("AI単独の分解は正本化しない")) errors.push(`${file}: collaborative review rule missing`);
 if (!text.includes("Content Assignment Registry")) errors.push(`${file}: assignment registry missing`);
+if (!text.includes("Candidate Review Queue")) errors.push(`${file}: candidate review queue missing`);
 for (const section of requiredSections) {
   if (!text.includes(`## ${section}`)) errors.push(`${file}: missing watch section ${section}`);
 }
@@ -76,6 +77,23 @@ for (const [watch,prefix] of Object.entries(prefixes)) {
 
 if (!rows.some((r)=>r.role === 'URL_FUNNEL')) errors.push(`${file}: URL_FUNNEL row missing`);
 
+const validProposalStates = new Set(['AI_PROPOSED','USER_KEEP','USER_MERGE','USER_SPLIT','USER_DROP']);
+const proposalRows = [];
+for (const line of text.split('\n')) {
+  if (!/^\| PR-[A-Z]{3}-\d{3} \|/.test(line)) continue;
+  const cells = line.split('|').slice(1,-1).map((x)=>x.trim());
+  if (cells.length !== 10) { errors.push(`${file}: proposal row must have 10 cells: ${line}`); continue; }
+  const [proposalId, watch, candidate, relation, social, media, verify, videoFit, status, source] = cells;
+  proposalRows.push({proposalId,watch,candidate,relation,social,media,verify,videoFit,status,source});
+}
+const seenProposal = new Set();
+for (const row of proposalRows) {
+  if (seenProposal.has(row.proposalId)) errors.push(`${file}: duplicate proposal ID ${row.proposalId}`);
+  seenProposal.add(row.proposalId);
+  if (!validProposalStates.has(row.status)) errors.push(`${file}: invalid proposal state ${row.status} at ${row.proposalId}`);
+  if (!row.watch || !row.candidate || !row.relation || !row.social || !row.media || !row.verify || !row.videoFit || !row.source) errors.push(`${file}: empty proposal cell at ${row.proposalId}`);
+}
+
 const validStates = new Set(['PLANNED','SHOT','EDITED','SCHEDULED','PUBLISHED','UNVERIFIED_PAST','DROPPED']);
 const activeStates = new Set(['PLANNED','SHOT','EDITED','SCHEDULED']);
 const validApproval = new Set(['LEGACY_VERIFIED','USER_CONFIRMED']);
@@ -119,4 +137,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Social content inventory check passed: ${rows.length} asset rows, ${contentRows.length} assignments, collaborative approval lock active.`);
+console.log(`Social content inventory check passed: ${rows.length} asset rows, ${proposalRows.length} staged proposals, ${contentRows.length} assignments.`);
