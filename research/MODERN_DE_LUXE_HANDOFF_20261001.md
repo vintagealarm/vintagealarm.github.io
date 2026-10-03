@@ -298,3 +298,18 @@ The highest-information thin boxes are now:
 
 Known company and specimen loops remain closed unless new evidence reopens them.
 
+## 2026-10-03 JST — DEEP DIVE draft assembled
+
+Draft:
+- `research/MODERN_DE_LUXE_DEEP_DIVE_DRAFT_20261003.md`
+
+State:
+- **RESEARCH DRAFT / NOT PUBLIC**
+- assembled from the corrected VA frame rather than from the old gate-first structure
+- six sections currently cover: exact-name/company uncertainty, travel-alarm demand context, 55 mm wrist-form construction, Japanese travel-alarm comparators, unresolved movement/platform, and bounded open questions
+- no OWNER'S NOTE catch/lead was created
+- Hirota/H.M.C. research is not promoted into the draft narrative without a clock-side bridge
+- the 5-jewel Japan-marked object is kept as a research note rather than a main public claim until the stable source page/rear/movement evidence is recovered
+
+Use this draft to judge whether the current research already forms a readable DEEP DIVE and which sections are still visibly thin before any public WATCH implementation.
+
