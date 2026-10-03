@@ -797,3 +797,14 @@
 - **検証状態**: PR #146 の `Astro foundation check` run 37086066419 がSUCCESS。`npm run check:quality` 内の `check:instagram-insights` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。`instagram:report` は既存CIに含まれないため、このPRでは自動実行対象外。
 - **関連**: 2026-10-03 10:18 JST ユーザー提供Wittnauer 10WA static carousel投稿画面 / Post Insights。
 - **日時根拠**: スクリーンショット表示時刻10:18 JSTと、当セッション時刻2026-10-03 10:19 JST。
+
+
+### 2026-10-03 14:43 JST — ARSA Blind Alarmの本番非公開ページシェルをbranch previewとして作成
+
+- **変更:** `src/content/watches/arsa-blind-alarm.md` を `published: false` で追加し、既存 `WatchPage` 構造に沿うOWNER'S NOTE / SPEC / DEEP DIVE 01–05のページシェルを作成した。確認用に `/lab/arsa-blind-alarm/` をbranch内だけに追加し、仮画像を配置した。
+- **理由:** 研究本文・実機写真・到着後実測が未確定でも、公開本文を先走らずに既存WATCHと同じ画面構成・章順を先に確認できるようにするため。
+- **旧状態・棄却:** ARSAには研究MAP / LEDGERのみがありWATCHページ実装はなかった。本番公開用 `published: true` 化、OWNER'S NOTEの本番キャッチ確定、公開導線追加は行わない。
+- **影響範囲:** branch `feat/arsa-blind-alarm-private-shell` のみ。通常WATCH routeは `published: false` のため生成対象外。preview routeでは `noindex, nofollow, noarchive` を付与するため `WatchPage.astro` にpreview flagを追加したが、既存WATCHの既定値は `false` で表示・SEO挙動を変えない。
+- **検証状態:** GitHub上でdraft content / preview route / placeholder assetの存在を確認済み。build・実寸表示・branch preview deployは未検証。
+- **関連:** `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md` / `src/content/watches/arsa-blind-alarm.md` / `src/pages/lab/arsa-blind-alarm.astro`
+- **日時根拠:** 最初のシェル変更commit群の最終commit `5c69600cf67c908ce19a055da4f17aa8d3fbb3af` のGitHub timestamp `2026-10-03T05:43:32Z` → `2026-10-03 14:43 JST`。
