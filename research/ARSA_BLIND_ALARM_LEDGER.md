@@ -2368,3 +2368,132 @@ For the tactile-alarm comparison matrix, “hands” must no longer be a single 
 
 This is likely more informative than case similarity when comparing ARSA / Enicar / BEAT / AFB / A. Schild.
 
+### 2026-10-03 — DEEP DIVE ①: Auguste Reymond / ARSA company baseline for site use
+
+**PURPOSE:** site掲載用Deep Diveの第1章「作った会社」。既存下調べを再利用し、ARSA Blind Alarmを理解するために必要な会社史だけを抽出する。会社史そのものを無限に広げない。
+
+#### SOURCE-CONFIRMED / OFFICIAL — founding and manufacture build-up
+
+Current Auguste Reymond brand history states:
+- **1898** — Auguste Reymond begins watchmaking in Tramelan
+- **1903** — factory opened on rue du Midi
+- **1906** — acquisition of the “Val de Joux Watch Co.” in Les Bioux to produce movements
+- **1910** — company already employed more than 100 people
+- **1926** — acquisition of Unitas Watch Co. in Tramelan
+- in the **1960s**, the manufacture became the largest employer in Tramelan, with more than 300 employees
+
+Source:
+- https://augustereymond.ch/about-ar/history/
+
+**Site-use boundary:** use this current official history for the broad company skeleton, not for precise dating of the first alarm wristwatch. The present-day brand timeline is promotional and compresses product history.
+
+#### INSTITUTIONAL HISTORY — early-1930s restructuring
+
+Dictionnaire du Jura / Mémoires d'Ici material gives the relevant structural transition:
+- Auguste Reymond sold / transferred the company into the ASUAG structure in **1931**
+- the movement / ébauche activity associated with Unitas was separated from the finished-watch business
+- Unitas joined the Ébauches SA structure in **1932**
+- A. Reymond SA / ARSA continued as the finished-watch side
+
+Sources:
+- https://diju.ch/f/notices/detail/1003451-reymond-auguste-1872-1946
+- https://diju.ch/f/notices/detail/8205
+
+Other source traditions place the formal A. Reymond SA / ASUAG integration in **1933**. For site prose, avoid collapsing these distinct corporate steps into a single date unless the individual transaction is specified.
+
+**Recommended wording logic:** “1931–33のスイス時計産業再編の中で、ARSAは完成時計側、Unitasはébauche側へ役割を分けた.”
+
+#### INSTITUTIONAL HISTORY — blind / tactile watches become a company product line
+
+Dictionnaire du Jura states that in the **early 1950s**, A. Reymond developed two notable new product lines:
+- mechanical digital / jumping-hour watches
+- **Braille / blind watches**
+
+The same institutional history states that by **1973**, A. Reymond / ARSA still listed **montres pour aveugles** among its manufactured product categories.
+
+Source:
+- https://diju.ch/f/notices/detail/8205
+
+This supports treating blind / tactile watches as a continuing company product field rather than a one-off 1950s curiosity.
+
+#### PROJECT SPECIALIST SOURCE — ordinary ARSA alarm-watch line was already active in the mid-1950s
+
+*Alarm am Arm* documents:
+- probable first ARSA alarm model around **1954**, Venus 230
+- ARSA Alarm, **1956**, Venus 230
+- ARSA Alertic, **1960**, Venus 230
+- ARSA Precision, **1969**, AS 1568
+- ARSA Precision Alarm, AS 1568
+
+It separately states that ARSA was already making a blind alarm with **AS1475 around 1956**.
+
+**Research consequence:** by the same mid-1950s window, ARSA had both:
+1. ordinary alarm wristwatches
+2. tactile / blind watches, including a tactile alarm
+
+This does not by itself prove an internal “merge two departments” development story, but it establishes that both capabilities existed inside the same company.
+
+#### PERIOD TRADE EVIDENCE — 1969 / 1970 company specialties
+
+Davoine 1969 company advertisement for Manufacture d'horlogerie A. Reymond SA lists:
+- quality lever watches and movements
+- automatic watches
+- officially rated chronometers
+- **Montres pour aveugles**
+- electric small clocks
+
+Source:
+- https://fr.scribd.com/document/495307117/Davoine-1969
+
+Davoine 1970 repeats the company advertisement and explicitly lists both:
+- **Montres pour aveugles**
+- **Montres bracelet réveil**
+
+alongside automatic watches, chronometers and diving watches.
+
+Primary-period PDF host:
+- https://doc.rero.ch/record/323602/files/DAVOINE_1970-2.pdf
+
+**Research consequence:** by 1970 the company itself publicly presented blind watches and alarm wristwatches as simultaneous specialties. This is the cleanest period evidence for the corporate context surrounding the Blind Alarm.
+
+#### ARCHIVE-CATALOG CONFIRMED — high-value company documents exist, full text still not obtained
+
+Mémoires d'Ici holds:
+- **D-11140 — Arsa : 1898-1948**, Marcel André, 1948, 35 illustrated pages
+- **D-15788 — Une page d'histoire de la Fabrique A. Reymond S.A. Tramelan**, 1932, 2 pages
+- a broader **Auguste Reymond SA collection (1931–1950)** including advertisements
+- multiple **1973** 75th-anniversary company-history / management documents
+
+Sources:
+- https://collections.m-ici.ch/detail.aspx?ID=38762
+- https://collections.m-ici.ch/detail.aspx?ID=38774
+- https://collections.m-ici.ch/detail.aspx?ID=38759
+
+**Status:** metadata confirmed / full text not yet obtained.
+
+These documents are the remaining best source for company-self-description, but their absence does not block a site chapter because the structural company story is already supported by official / institutional / period trade evidence.
+
+#### SITE-USE SYNTHESIS — what matters for ARSA Blind Alarm
+
+The useful company story is not “ARSA was a specialist maker of watches for the blind.”
+
+It is:
+
+1. ARSA was a substantial Tramelan watch manufacturer with its own long manufacturing history and a broad finished-watch catalog.
+2. After the early-1930s industry restructuring, ARSA remained on the finished-watch side while Unitas became the ébauche arm inside the wider Swiss movement structure.
+3. By the early 1950s, blind / tactile watches were a defined ARSA product line.
+4. By the mid-1950s, ARSA also had ordinary mechanical alarm wristwatches.
+5. Period trade advertising in 1970 names **blind watches and alarm wristwatches side by side** as A. Reymond specialties.
+6. Therefore the ARSA Blind Alarm sits naturally at the intersection of two product capabilities that are independently documented inside the same company.
+
+**Important limit:** no current primary source says that ARSA management deliberately decided to “combine the blind-watch department and alarm-watch department.” That remains interpretation, not a documented corporate statement.
+
+#### DEEP DIVE ① — current gaps
+
+Only three company-history holes remain worth pursuing for site copy:
+- exact full-text wording in the **1948 company brochure**
+- exact full-text wording in the **1973 75th-anniversary materials**
+- a period-primary advertisement / catalog fixing the **1954–55 introduction of ARSA alarm wristwatches**
+
+Everything else should stay out of P0 unless it directly changes the company chapter.
+

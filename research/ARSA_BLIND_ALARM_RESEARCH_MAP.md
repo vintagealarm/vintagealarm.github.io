@@ -171,9 +171,13 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 ### P0 — 会社 → 需要背景 → 時計本人
 **状態:** ACTIVE / PRIMARY
 
-1. **ARSA会社史**
-   - 1950s–1970sのARSA一次・準一次資料
-   - blind / tactile watch と alarm wristwatch の製品能力・時期
+1. **ARSA会社史 — DEEP DIVE ① PASS 1 COMPLETE 2026-10-03**
+   - 1898 Tramelan創業 → 1903工場 → 1926 Unitas取得 → 1931–33業界再編でfinished-watch ARSA / ébauche Unitasを分離、までの骨格を固定
+   - early 1950sにblind / Braille watch系統、mid-1950sにalarm wristwatch系統が存在
+   - 1969 / 1970 Davoineで`Montres pour aveugles`、1970にはさらに`Montres bracelet réveil`を同じA. Reymond社広告で確認
+   - 1960sにはTramelan最大級の雇用主、1972 merger後も1973にblind watchesを製造品目として確認
+   - **サイト用の主眼:** ARSAは「盲人用時計だけの会社」ではなく、finished watchesを広く作る大規模メーカーの中に tactile watch と alarm watch の両系統があった
+   - **残る一次資料穴:** 1948 company brochure本文、1973 75周年資料本文、1954–55 alarm introductionのperiod primary
 2. **需要背景**
    - 触読時計が必要とされた理由、視覚障害者向け時計文化
    - 戦争・AFBは背景として必要十分まで。ARSA直接因果が出なければ深追いしない
@@ -202,7 +206,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 - case / caliber
 - maker certainty / source tier
 
-**新しい中心質問:** 「時針＝この触感、分針＝この触感、alarm hand＝この触感」という業界共通codeがあったのか、それとも各社が同じ目的を別の触覚語彙で解いたのか。現時点では**共通原理は確認できるが、共通codeは未確認**として比較する。
+**中心質問（ユーザーが以前から繰り返し言及）:** 「時針＝この触感、分針＝この触感、alarm hand＝この触感」という業界共通codeがあったのか、それとも各社が同じ目的を別の触覚語彙で解いたのか。AI側が針の切り欠き・ざらつき・表面差という観点を研究軸へ昇格せず見落としていた。現時点では**共通原理は確認できるが、共通codeは未確認**として比較する。
 
 ### P2 — AS1475 platformと変貌種
 **状態:** ACTIVE / CLOSING CHAPTER
@@ -297,8 +301,8 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 
 ## 8. 次の実行順
 
-1. **①作った会社** — ARSAの会社史・製造能力を、現在あるDIJU / Davoine / Mémoires d'Ici metadata / specialist booksで一度まとめ、不足する一次資料だけを特定する
-2. **②需要背景** — 触読時計の用途・利用者・戦後までの制度背景を、ARSA説明に必要な長さまで圧縮する。1945 WPBを本線にはしない
+1. **①作った会社 — PASS 1 COMPLETE** — 会社史・製造能力・blind / alarm両系統の同時存在まで整理済み。残る一次資料穴だけHOLD
+2. **②需要背景 — NEXT** — 触読時計の用途・利用者・戦後までの制度背景を、ARSA説明に必要な長さまで圧縮する。1945 WPBを本線にはしない
 3. **③時計本人** — ARSA Blind Alarmのmechanism / tactile UI / failure evidence / model差をsource別に整理。購入個体画像を直接証拠として使う
 4. **④触読alarm比較** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBを差分表へ固定する
 5. **⑤AS1475と変貌種** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る

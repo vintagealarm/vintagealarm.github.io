@@ -17,6 +17,30 @@
 
 ## 2026-10-03
 
+### 2026-10-03 13:01 JST — ARSA Deep Dive ①会社史のPass 1を完了し次を需要背景へ進める
+
+- **変更**：サイト掲載用Deep DiveをVA標準順で進める運用に従い、①「作った会社 — Auguste Reymond / ARSA」のPass 1を完了扱いとした。会社史は1898創業、1926 Unitas取得、1931–33の業界再編、early-1950sのblind / Braille watch系統、mid-1950sのalarm wristwatch系統、1969/1970 Davoineでの会社specialty、1972/1973の再編・製造品目までをサイト用骨格として固定。次のACTIVEを②需要背景へ進めた。
+- **理由**：ユーザーが「下調べは済んでいるので、サイト掲載のDeep Dive順に調べる」と指示。既存LEDGER、Project専門書、公式ブランド史、DIJU、Davoine、Mémoires d'Ici metadataを突合すると、会社章は新たな広域探索なしで掲載判断に必要な骨格まで到達しているため。
+- **旧状態・棄却**：①会社史を未整理のP0として広く検索し続ける状態を終了。1948 company brochure本文、1973周年資料本文、1954–55 alarm introductionのperiod primaryは残課題として保持するが、章全体のblockerにはしない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴。公開WATCH本文はまだ変更しない。
+- **検証状態**：現行Auguste Reymond公式史、DIJU / Mémoires d'Ici、Davoine 1969 / 1970、Project資料 *Alarm am Arm* を再確認。ARSA社内でblind watchesとalarm wristwatchesが同時に存在したことは確認、両系統を意図的に統合したという経営判断は未確認のまま維持。
+- **起点・帰属**：Deep Dive順で進める方針はユーザー。AIは既存下調べを章単位へ再編し、不足資料だけを残した。
+- **関連**：ARSA Deep Dive ① company baseline、VA時計研究標準フレーム。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T13:01:16+09:00` = `2026-10-03 13:01 JST`。
+
+
+### 2026-10-03 13:01 JST — 触読針codingの起点をユーザーの継続指摘として訂正
+
+- **変更**：触読alarmのhand coding研究軸について、起点を「今回新たに出た質問」ではなく、**ユーザーが以前から針の切り欠き・ざらつき・質感差、時針／分針／alarm針の触覚的役割分担へ言及していたが、AI側が研究軸へ昇格せず見落としていた**と明記した。MAPの「新しい中心質問」表現を撤回した。
+- **理由**：ユーザーから「だから俺が言及している。普通にずっとスルーする」と訂正を受け、会話上の帰属と正本の帰属保持ルールを一致させる必要があるため。
+- **旧状態・棄却**：hand codingをAIが今回初めて発見したように扱う表現を棄却。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md` の帰属表現。本体研究内容・公開WATCH本文は変更しない。
+- **検証状態**：同日のhand-coding資料検証結果は維持し、起点・帰属のみ訂正。
+- **起点・帰属**：観点の起点はユーザー。AIは後追いでProject資料・patentを照合した。
+- **関連**：同日12:28 JST「触読alarm比較へhour / minute / alarm handの触覚coding軸を追加」。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T13:01:16+09:00` = `2026-10-03 13:01 JST`。
+
+
 ### 2026-10-03 12:28 JST — 触読alarm比較へhour / minute / alarm handの触覚coding軸を追加
 
 - **変更**：ARSA / Enicar / BEAT / AFB / A. Schild等の触読alarm比較で、従来の「hands」一括記述をやめ、hour / minute / alarm handごとの長さ・幅・先端形状・段差・突起・切り欠き・ridge / texture・相対高さ・radial pathを比較軸へ追加した。現時点の仮説は「業界共通の固定codeは未確認だが、各針を触覚的に区別する共通design grammarは長期的に存在する」。
