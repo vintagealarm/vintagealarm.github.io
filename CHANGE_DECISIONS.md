@@ -455,3 +455,13 @@
 - **関連**：PR #135、`research/MODERN_DE_LUXE_RUN_20261003_SPECIMEN_FAMILY_COMPARISON.md`
 - **日時根拠**：handoff訂正commit `57f2d389528e356b38552e2a85031f762a476e19` は 2026-10-03T03:50:49Z → 2026-10-03 12:50:49 JST。
 
+### 2026-10-03 12:57 JST — Modern De Luxe調査をVA既存DEEP DIVE標準フレームへ戻す
+- **変更**：Modern De Luxe調査の主軸をG0〜G5のgate-first運用から、既存VA WATCHで使っている標準フレーム「①作った会社 → ②需要背景 → ③時計そのもの → ④同目的・同機構の比較 → ⑤caliber/platformと変貌種 → ⑥時計固有要件」へ変更。G0〜G5は証拠状態の監査指標として残すが、探索順・進捗・完成条件そのものにはしない。
+- **理由**：mainの公開済み6 WATCH（Basis / Citizen / Cyma / Pierce / Westclox / Wittnauer）のDEEP DIVEを横断確認すると、VAは一つの未解決アイデンティティを解くまで止まる方式ではなく、会社史、需要、機構、実機、比較個体、モデル変遷、供給関係、特許・資料差を並行して掘り、未解決点は未解決のまま境界を示して成立させている。AGENTS.mdにもPierce Duofon / Wittnauer 10WAを基準とする同じ標準フレームが明文化されている。Modern De Luxeだけ「commercial operatorが解けるまでmovement/platformを後回し」にしていたのはVA既存研究の作法と逆だった。
+- **旧状態・棄却**：CLOCK→COMPANYや商標・H.M.C.同定を調査全体の中心blockerとし、movement/platform研究を後段へ送る運用を棄却。「gateが動いたか」だけをMATERIAL PROGRESSの条件にする扱いも棄却する。
+- **影響範囲**：PR #135の研究戦略・完了条件・handoffのみ。既存証拠の格付け、公開WATCH本文、UI、翻訳、Analyticsは変更しない。
+- **再発防止**：各新規探索は「VA DEEP DIVEのどの箱を新証拠で更新するか」を先に明示する。既知材料の再整理はNO MATERIAL PROGRESS。単一の未発見契約書・商標・supplier資料を研究全体のblockerにしない。movement/platform同定は会社同定と独立してP0で追ってよい。
+- **検証状態**：MODERN_DE_LUXE_STRATEGY_RESET_20261003_JESTER.md、MODERN_DE_LUXE_COMPLETION_AND_EXECUTION_PLAN.md、handoffへ反映済み。ARSA側mainのResearch Mapはすでに同じVA標準フレームへ整理済みであることも確認。公開変更なし。
+- **関連**：PR #135、AGENTS.md「時計研究の標準フレーム」、公開済み6 WATCH DEEP DIVE。
+- **日時根拠**：方針反映commit da6ff7345c2d762d7b2b4b0dda818fb71f44f87a は 2026-10-03T03:57:39Z → 2026-10-03 12:57:39 JST。
+
