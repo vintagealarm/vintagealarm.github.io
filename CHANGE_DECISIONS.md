@@ -17,6 +17,18 @@
 
 ## 2026-10-03
 
+### 2026-10-03 15:56 JST — SNS運用判断を既存ログの検証対象へ明示接続し、投稿頻度低下＋品質優先をACTIVE仮説として固定
+
+- **変更**：Social Routerへ `DECISION → EVIDENCE LINK` を追加し、ACTIVEなSNS運用判断ごとに `Decision / Origin / Evidence / Revisit・falsifier / Status` を既存ログへ対応付ける。あわせて、ユーザーが既に採用している「初期運用より投稿頻度を落とし、投稿前のWeb・外部事例・過去SNS実績確認を増やして1本あたりの内容品質を優先する」方針を `ACTIVE / UNDER VALIDATION` として `instagram-operations.md` に明記した。
+- **理由**：Instagram Insights・実投稿copy・X / YouTube先行実績・VA Analyticsは詳細に保存されている一方、「どの運用判断の真偽を審議するためのログか」が正本上で明示されていなかった。ユーザーから、頻度低下はWeb参照後に採用した判断であり、現在のログはその真偽を検証するために取っていると再確認されたため、センサーやKPIを増やさず判断と証拠だけを接続する。
+- **外部確認**：Meta公式Instagram Best PracticesはCreation領域でhow often to postを扱い、一般助言に加えてaccount-specificなpersonalized tipsを提供すると説明しており、公開説明では一律の最適投稿回数を示していない。MetaのInstagram ranking説明もshare等を含む多数の予測を組み合わせ、単一signalだけで価値を決めないとしている。したがってWeb情報を普遍則へ昇格せず、VA自身の実測で検証する方針を採用する。
+- **旧状態・棄却**：詳細ログだけを蓄積し、後から「何を検証していたか」を会話から再構成する状態を棄却する。一方、この改善のために新しいKPI、専用ダッシュボード、別ログディレクトリ、固定の最適投稿回数を新設する案も採用しない。
+- **影響範囲**：`measurement/.internal/.virtual/social/ROUTER.md`、`measurement/.internal/.virtual/social/instagram-operations.md`、本判断履歴。既存Instagram Insights値、実投稿本文、公開サイト、WATCH / OWNER'S NOTE、VA Analytics実装には変更なし。
+- **検証状態**：GitHub mainのSocial Router / instagram-operations / metricsと既存時系列運用を再取得し、既存ログで非フォロワー配布、保存 / 共有、follow、profile action、bio-link、VA到達を観測できることを確認。Meta公式Best Practices（2024-10-01）とInstagram ranking説明（2023-06-29）を外部再確認。Wittnauer 10WAの写真 / Reel差は現時点ではユーザー説明・比較材料として扱い、単発結果からformat全体の優劣へ一般化しない。固定の具体投稿回数は現行正本で確認できないため復元しない。
+- **起点・帰属**：投稿頻度を落として1本あたりの質を上げる判断と「ログはその真偽の審議用」という指摘はユーザー。Decision→Evidence接続の不足指摘は宮廷道化師formatでAIが提示し、ユーザーが採用。外部資料の再確認と正本への実装はAI。
+- **関連**：`measurement/.internal/.virtual/social/ROUTER.md`、`measurement/.internal/.virtual/social/instagram-operations.md`、`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`measurement/.internal/.virtual/social/instagram-published-copy.md`、`measurement/experiment-log.md`、`measurement/metrics.md`。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T15:56+09:00` = `2026-10-03 15:56 JST`。
+
 ### 2026-10-03 14:28 JST — ARSA Deep Dive ④触読alarm比較を完了し⑤AS1475変貌史へ進める
 
 - **変更**：ユーザーが③の設計思想まとめを採用し④へ進むと確認したため、③bをPASS 2 COMPLETE / ARCHIVE BONUS ONLYへ移し、④触読alarm比較をPASS 1 COMPLETEとした。次のACTIVEを⑤AS1475と変貌種へ移す。
