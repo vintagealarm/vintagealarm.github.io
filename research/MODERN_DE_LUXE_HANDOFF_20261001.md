@@ -254,3 +254,47 @@ Result:
 
 **Sequence rule:** box ① is sufficiently bounded to move on. Next active VA box is **② 需要背景**.
 
+## VA frame progression — 2026-10-03 JST / boxes ②–⑥
+
+Sequence continued in the VA standard order after box ①.
+
+- **② 需要背景** — `MODERN_DE_LUXE_RUN_20261003_VA_FRAME_02_DEMAND_CONTEXT.md`
+  - MATERIAL PROGRESS.
+  - 1953 travel-alarm patent gives period-primary rationale: compact luggage transport, protected carriage, bedside self-support.
+  - 1950/1951 Westclox period ads independently establish travel-alarm portability and gift marketing.
+  - Modern De Luxe commemorative clocks fit a documented corporate/institutional gift-use context, while the 55 mm wrist-form product's original sales intention remains unresolved.
+
+- **③ 時計そのもの** — `MODERN_DE_LUXE_RUN_20261003_VA_FRAME_03_CLOCK_ITSELF.md`
+  - MATERIAL PROGRESS.
+  - New direct dial evidence: exact-brand folding travel alarm marked `Modern de Luxe / 5 JEWELS / JAPAN`.
+  - The clock corpus therefore cannot be treated as one 2-jewel movement in different cases.
+  - Base movement maker remains open.
+
+- **④ 同目的・同機構の比較** — `MODERN_DE_LUXE_RUN_20261003_VA_FRAME_04_COMPARATORS.md`
+  - MATERIAL PROGRESS.
+  - Maker-marked Seiko / Rhythm / Tokyo Tokei / Elgin Japanese travel alarms were used as comparators.
+  - Generic traits such as 2 jewels, Japan marking, folding case, rear controls and corporate personalization are not maker fingerprints.
+  - Elgin No.8822 is especially useful as a period Japan-made branded travel alarm with original box/instructions and a 1969 corporate personalization example; it demonstrates brand ≠ physical manufacturer without identifying Modern De Luxe.
+
+- **⑤ caliber/platform** — `MODERN_DE_LUXE_RUN_20261003_VA_FRAME_05_PLATFORM.md`
+  - NO MATERIAL PROGRESS / PLATFORM NOT IDENTIFIED.
+  - 2- vs 5-jewel evidence is insufficient to decide one platform vs multiple sourced platforms.
+  - This box waits for exposed movement / caliber mark / dimensions / maker-marked close architecture match.
+
+- **⑥ 固有追加要件** — `MODERN_DE_LUXE_RUN_20261003_VA_FRAME_06_SPECIFIC_REQUIREMENTS.md`
+  - NO MATERIAL PROGRESS / OPEN QUESTIONS BOUNDED.
+  - trademark owner, Japan/Germany attribution conflict, cross-category G0, commemorative supplier, Label Emmaüs instruction sheet, and x1105074445 card remain bounded open questions.
+  - none is a global DEEP DIVE blocker.
+
+### Current research state after ordered pass
+
+Do not restart at box ① by default.
+
+The highest-information thin boxes are now:
+1. box ③ — exposed movement / 5-jewel rear / maker mark;
+2. box ④ — close maker-marked movement comparator;
+3. box ⑤ — platform identification once physical evidence appears;
+4. box ⑥ — exact paperwork/trademark/vendor evidence when source bodies become available.
+
+Known company and specimen loops remain closed unless new evidence reopens them.
+
