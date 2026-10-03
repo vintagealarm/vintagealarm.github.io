@@ -1892,3 +1892,40 @@ Delta from 2026-10-01 08:28–08:29:
 - ただし1件の静止画カルーセル、約2時間48分、6 viewersという極小標本なので、「Instagramでは動画でなければ伸びない」という一般則までは確定しない。
 - 現時点の運用判断としては、**discovery / reachを狙う主力をReelsから静止画へ置き換える根拠はない**。このカルーセルは研究・細部ネタの補助フォーマットとして追跡し、24h以降にnon-follower配布が発生するかを再確認する。
 - 比較ではcontent format、distribution surface、投稿時刻、題材が同時に変わっているため、原因を「静止画だけ」に単独帰属しない。
+
+## 2026-10-03 20:24 JST — Wittnauer 10WA static carousel follow-up ~13h snapshot
+
+ユーザー提供Instagram Post Insightsスクリーンショット4枚で確認。公開時刻はユーザー報告で07:30頃。
+
+### Observed
+- Format: 2-image static carousel（1枚目ポケショ / 2枚目Cal.10WAムーブメント）
+- Views: 22
+- Viewers: 12
+- Likes: 3
+- Comments: 0
+- Reposts: 0
+- Share count: UI `--`
+- Saves: 0
+- Follows: 0
+- Profile accesses: UI `--`
+- Followers / non-followers: 100.0% / 0.0%
+- Non-follower trend: 0のまま
+- Carousel image-like attribution UI: first image 4 / second image 0（total likes 3と不一致。別UI指標として保持）
+- Observed at: 2026-10-03 20:24 JST
+- Elapsed: approximately 12h54m from the user-reported ~07:30 publish time
+
+Delta from 2026-10-03 10:18:
+- Views: 10 → 22 (+12)
+- Viewers: 6 → 12 (+6)
+- Likes: 1 → 3 (+2)
+- Non-followers: 0.0% → 0.0%
+- Follows: 0 → 0
+- Saves: 0 → 0
+
+数値時系列の正本は `instagram-insights-timeseries.md` の `content_id=wittnauer-10wa-static-2026-10-03`。
+
+### Interpretation
+- 約13時間時点でもnon-followersは0%。この投稿では、少なくとも観測時点までInstagram内の非フォロワー発見面への配布が確認できていない。
+- 10:18→20:24の約10時間6分で +12 views / +6 viewers。配布規模は小さいままだが、既存フォロワー内ではlikesが1→3へ増えている。
+- 現時点の主な差は「見た人が全く反応しない」より「非フォロワーへ配布されていない」にある。12 viewersという極小標本のため、題材そのものの魅力度をこの投稿だけで否定しない。
+- 静止画カルーセル一般が必ず非フォロワーへ出ないとは断定しない。VAアカウントのこの1投稿で、Reels初回群と異なる配布状態が継続している観測として扱う。
