@@ -239,3 +239,18 @@ Important corrections:
 
 For the next session, do **not** begin with “which gate can I pass?” Begin with “which VA DEEP DIVE box is still thin, and what new source would actually explain the watch?”
 
+## VA frame progression — 2026-10-03 JST / ① company context
+
+New run:
+- `research/MODERN_DE_LUXE_RUN_20261003_VA_FRAME_01_COMPANY_CONTEXT.md`
+
+Result:
+- **NO MATERIAL PROGRESS / BOX ① BOUNDED — COMPANY UNRESOLVED**
+- Beitl establishes the Modern du Luxe object/architecture but names no movement maker, finished-clock maker, brand owner, exporter, or distributor.
+- Exact-brand clock records support a real Japanese clock/commercial channel (Japan-marked/Japan-attributed travel alarms + Japanese commemorative examples), while some giant wristwatch-form clocks carry seller-level Germany attribution. No primary source reconciles the country attribution.
+- Hirota/H.M.C./Modern Royal remain context, not a clock-company attribution.
+- Tokyo Clock remains a comparator only; same-lot evidence and prior topology checks do not establish OEM manufacture.
+- Do not continue cyclic company-name searching without a new responsibility source.
+
+**Sequence rule:** box ① is sufficiently bounded to move on. Next active VA box is **② 需要背景**.
+
