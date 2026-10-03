@@ -760,3 +760,38 @@ These remain valid evidence already present in the corpus, but their reorganizat
 
 Reopen only for genuinely new physical evidence: movement/dial-back/case markings, original paperwork, or a new specimen with a new responsibility mark.
 
+## 2026-10-03 — VA frame ordered pass: new evidence
+
+### Direct object image — Modern de Luxe / 5 JEWELS / JAPAN
+A current web image result shows a folding travel alarm whose dial visibly carries:
+- `Modern de Luxe`
+- `5 JEWELS`
+- `JAPAN`
+
+This is direct visible object evidence for the dial markings.
+
+**Effect:** the exact-brand clock corpus is not limited to the 2-jewel specification documented for the Beitl wrist alarm and multiple travel alarms. Do not model Modern De Luxe as one 2-jewel movement in different cases.
+
+**Still open:** rear/movement architecture of this 5-jewel example; whether it is a jewel-count variant of a known platform or a separately sourced movement.
+
+### Period demand context
+US2640668A (filed 1951, published 1953) explicitly explains the travel-alarm design problem: portable alarms were carried by travellers in luggage, requiring compact closed dimensions and a case that opens to support the clock at bedside.
+
+Westclox period advertisements from 1950 and 1951 independently show:
+- travel alarms marketed as gifts;
+- portability marketed directly.
+
+These are context sources, not Modern De Luxe company evidence.
+
+### Comparator evidence
+Maker-marked Japanese travel alarms from Seiko, Rhythm, Tokyo Tokei and Elgin confirm that `2 JEWELS + JAPAN + folding case + rear controls` is a broad product-class combination, not a maker fingerprint.
+
+Elgin No.8822 is especially useful because a surviving example is documented with original box/instruction booklet as Made in Japan and carries a 1969 corporate milestone personalization.
+
+**Effect:** brand on dial, physical manufacturer, distributor and commemorative customer must remain separate propositions.
+
+### Platform status
+Base platform remains OPEN.
+
+Do not infer platform from jewel count. Current exact-brand evidence includes both 2-jewel and 5-jewel clocks, but exposed movements are insufficient to determine one family vs multiple sourced platforms.
+
