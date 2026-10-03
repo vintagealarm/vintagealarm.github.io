@@ -3041,3 +3041,95 @@ Continue only on the high-information design-document route:
 
 Do not reopen generic AFB wartime or Smithsonian branches unless they directly contain an ARSA design specification.
 
+### 2026-10-03 — DEEP DIVE ③b focused pass 2: tactile design grammar before ARSA / factory-document search
+
+**PURPOSE:** continue the user-requested design-philosophy pass before cross-brand comparison.
+
+#### PERIOD MARKET EVIDENCE — differentiated tactile codes predate ARSA
+
+French blind-user publications in 1933 and 1935 advertised tactile watches with special dials using **points** and, on higher-grade models, **points et bâtonnets**. This shows that differentiated tactile marker shapes were already commercial vocabulary well before ARSA's early-1950s line.
+
+Sources:
+- https://argonnaute.parisnanterre.fr/media/a8d0fc1c-9179-42c7-8d79-e5780ee45857.pdf
+- https://argonnaute.parisnanterre.fr/media/40f9211d-78a4-478d-8a6e-394f2f027a61.pdf
+
+#### HISTORICAL DESIGN SYSTEMS — multiple tactile syntaxes already existed
+
+A 2003 L'Impartial / Worldtempus historical review records earlier approaches:
+- Lukaschovsky used different symbolic shapes for different hours, including relief / recessed variants.
+- P. Tissot used Braille characters plus smaller raised minute points.
+- Direct-touch hands were recognized as vulnerable to deformation, breakage or displacement, so robust hands were an explicit design response.
+
+Source:
+- https://fr.worldtempus.com/article/encyclopedie-montres-pour-aveugles-13266.html
+
+**Classification:** secondary historical article, useful for named design systems and terminology; not a substitute for the original patents / drawings.
+
+**Research consequence:** tactile-watch design had competing coding systems before ARSA. The stronger continuity is therefore a **design grammar of discriminability**, not one universal tactile alphabet.
+
+#### ARSA CONTEXT IN THE SAME SOURCE
+
+The same 2003 article attributes the early-1950s jumping-hour and Braille-watch developments to A. Reymond engineers and frames the firm as pursuing technical and aesthetic progress.
+
+**Boundary:** this is retrospective reporting, not a recovered 1950s factory brief. It does not identify the engineers or explain feature-by-feature decisions.
+
+#### LATER ARSA ERGONOMIC LANGUAGE
+
+Specialist distributor Ceciaa describes later ARSA Standard tactile watches as **solid, simple to use, economical**, and ARSA tactile pocket watches as easier to read because of their **large dial and long hands**.
+
+Sources:
+- https://www.ceciaa.com/montre-homme-braille-standard-or.html
+- https://www.ceciaa.com/montre-femme-braille-standard-or.html
+- https://www.ceciaa.com/montre-gousset-braille.html
+
+This reinforces later ARSA's explicit simple / robust / scale-for-readability design language, but must not be retrojected to the 1950s as a period statement.
+
+#### FOCUSED PERIOD-DOCUMENT SEARCH — result
+
+A second indexed search pass combined Auguste Reymond / A. Reymond S.A. / ARSA with:
+- Blindenarmbanduhr / Blindenuhr / Blindenwecker
+- montre pour aveugles / montre braille
+- mode d'emploi / Gebrauchsanweisung / technical sheet
+- brevet / patent / design drawing
+
+It recovered general histories, later product documentation, auction survivors and unrelated later patents, but **no 1950s–60s ARSA tactile-watch factory drawing, engineering specification, user manual, design registration or tactile-watch patent**.
+
+**Status:** NO INDEXED PERIOD DESIGN DOCUMENT RECOVERED AFTER FOCUSED PASS 2.
+
+This does not prove that such documents never existed.
+
+#### “Zeit spühren = Toucher l'heure” — still the best archive target
+
+Exact-phrase and spelling-variant searches still return only the Mémoires d'Ici archive entry:
+- **Zeit spühren = Toucher l'heure**
+- 2008-04-24
+- Auguste Reymond dossier
+
+Source:
+- https://collections.m-ici.ch/archivplansuche.aspx?ID=138116
+
+No mirrored full text was found.
+
+**Status:** ARCHIVE ITEM CONFIRMED / CONTENT NOT OBTAINED.
+
+#### CURRENT DESIGN-REQUIREMENT RECONSTRUCTION
+
+Without pretending to possess the 1950s factory brief, current evidence supports these requirements:
+
+- **orientation without sight:** differentiated tactile landmarks
+- **hand discrimination:** robust and geometrically distinct pointers
+- **reading must not disturb indication:** remove fragile / unnecessary seconds display; later ARSA explicitly strengthens hand fixation
+- **low interaction complexity:** distinct controls and simple physical forms
+- **future-state read-back:** ARSA Blind Alarm allows the alarm setting itself to be felt and reset
+- **tactile quality:** later ARSA explicitly designs for pleasant touch and uses texture / roughness as readable information
+- **scale matters:** later ARSA documentation explicitly links larger dial / longer hands to easier tactile reading
+
+**Interpretive limit:** this is a source-labeled reconstruction from objects, specialist descriptions, earlier tactile-watch systems and later explicit ARSA philosophy. It is not a recovered 1950s ARSA specification sheet.
+
+#### PASS-2 CONCLUSION
+
+The missing direct bridge remains:
+**a 1950s ARSA document stating why feature X was chosen for requirement Y.**
+
+The highest-value remaining route is non-indexed archive / physical documentation, especially “Toucher l'heure” and any period ARSA instruction sheet or technical leaflet. Until that is obtained, keep Deep Dive ③b ACTIVE and do not present reconstructed requirements as quoted factory intent.
+
