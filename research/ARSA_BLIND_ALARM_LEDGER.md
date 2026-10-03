@@ -3551,3 +3551,21 @@ Printed p.234 presents Rodania refs.5424 S / 5423 S, Louis A. Leuba refs.1887/B 
 Checked APH `The Gift of Time` (https://www.aph.org/blog/the-gift-of-time/), AFB *The Unseen Minority* Chapter 17 (https://www.afb.org/about-afb/history/online-library/unseen-minority/chapter-17) and Chapter 21 (https://afb.org/online-library/unseen-minority-0/chapter-21).
 
 AFB Archiveのwatch-program repair receipts / Katherine Gruber correspondence、1963年までのservicemen's watch program、Aids and Appliances供給事業、generic Swiss repeater importsは確認済み。しかし、公開アクセス可能な1955–63 catalog page、invoice、order、supplier letter、archive scanでARSA / A. Reymond / Tramelanを名指す資料は未回収。**AFB→ARSA remains OPEN.**
+
+
+### 2026-10-03 22:38 JST — indexed-Web saturation after viewer failure
+
+**Scope:** 1956–60年のARSA Blind Alarm本人に直結するperiod paperを、Watch Library / JSH / RERO / E-Periodica / Internet Archive系索引 / 現存誌販売 / 仏独英語の語形で再探索。既知Venus 230や通常Alerticを新規成果扱いしない。
+
+#### Confirmed
+- 1958年3–4月号 JSH No.2 に A. Reymond S.A.創業60周年記事があることは、現物誌販売の目次とWatch Libraryの1958年全巻メタデータで再確認。
+- Watch Libraryは1958年全巻を public domain / 822 pages として保持し、IIIF対応を明示しているが、現在の取得surfaceでは埋め込みviewer本文・manifestを直接回収できなかった。
+- 同号の現物はAberbroc/eBayでも流通しており、対象号の実在と目次は独立に確認できる。
+- 1958年のARSA 1898–1958周年ビジュアルはWeb上に現存するが、Blind Alarm / tactile watchを示すものではないため03資料には採用しない。
+- 現行ARSA Blind Watch公式サイトは、ARSAの触読時計を1950年代開始と説明し、開閉式風防・触覚目盛・触って読む針を現在の製品史として記す。ただしperiod-primaryではない。
+
+#### Negative result
+このpassでも、1956–60年の**ARSA Blind Alarm本人を明記または図示する当時広告・カタログ頁**はindexed Webから未回収。JSH 1958記事についても、目次以上の本文は未取得なのでBlind Alarm言及の有無はOPEN。
+
+#### Next high-information action
+同じWeb検索語を反復する段階は終了。次に情報利得があるのは、1958 JSH No.2のA. Reymond記事頁を人手で取得すること（Watch Library/JSHへの頁画像照会、または現物所蔵者・販売者への該当頁写真依頼）。AFB側は1955–63 braille-watch program / Katherine Gruber / supplier資料のarchive照会が次点。
