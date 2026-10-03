@@ -17,6 +17,40 @@
 
 ## 2026-10-03
 
+### 2026-10-03 09:48 JST — OWNER'S NOTEコピー開発を全WATCH共通プロトコル＋CI gateへ昇格
+
+- **変更**：ARSAで得たコピー開発・帰属管理の修正を個別対応で終わらせず、今後の全WATCHへ適用する共通プロトコルとして実装した。起動時の `PROJECT.md` 強制チェック、`PROJECT_STATE.md` の現行baseline、`AGENTS.md` の作業手順、`SITE_RULES.md` のCatch / Lead開発プロトコルを同期し、固定の代表本数ではなく作業時点で `published: true` の日本語WATCHすべてを温度ベンチマークにする。さらに `scripts/check-owner-copy-provenance.mjs` を追加し、実際に `src/content/watches/*.md` の `catch` または `ownersNote.lead` が変わるPRでは、新しい判断履歴に `対象WATCH / 起点・帰属 / VA温度比較 / 採否・現在状態` の4項目がなければquality gateを失敗させる。動的な横並び確認用に `npm run owner-copy:benchmark` も追加し、self-testを `test:quality` へ組み込んだ。あわせて `PROJECT.md` 自体をdecision-bearing fileとして `check:decision-log` の監査対象へ追加した。
+- **理由**：ユーザーから「ARSAだけでなく他の時計にも今後適用するので実装しきる」よう明示されたため。文書へ「温度を見る」と書くだけでは、次回別WATCHで固定の代表数本だけを見たり、発案者・派生元・棄却理由を会話に残したまま実ファイルだけ変更したりする再発を機械的に止められない。起動ルーター → 現行baseline → 編集正本 → 実変更CIの四層へ分けて固定する。
+- **旧状態・棄却**：ARSAの今回判断だけを `CHANGE_DECISIONS.md` へ残し、他WATCHでは任意運用に戻る状態を棄却する。Pierce / Cyma / Basis / Westclox等の固定代表だけを永続ベンチマークにする方式も棄却し、公開WATCHの増減に自動追従する全件比較へ変更する。また「VAっぽさ」を一つの平均文体へ均一化する運用は採用せず、公開中Catch / Leadが持つ低温度〜高温度のレンジ内で時計固有の入口を作る。
+- **影響範囲**：`PROJECT.md`、`PROJECT_STATE.md`、`AGENTS.md`、`SITE_RULES.md`、`scripts/check-decision-log.mjs`、新規 `scripts/check-owner-copy-provenance.mjs`、新規 `scripts/owner-copy-benchmark.mjs`、`package.json`、PR #144。既存公開WATCH / OWNER'S NOTE本文・既存Catch / Leadそのものは変更しない。
+- **検証状態**：copy provenance gateはCatch変更・Lead変更・NOTEのみ変更・必須marker欠落を判定するself-testを内蔵し、`test:quality` から実行する構成へした。quality gateでは `check:decision-log` に続いて `check:owner-copy-provenance` を実行する。branch上の実装完了後、PR CIでself-test / quality / buildを通し、main merge後に正本を再取得して初めてVERIFIED / main反映済みとする。
+- **対象WATCH**：全WATCH共通。実変更時は対象slugを明記する。
+- **起点・帰属**：全WATCH適用の要求はユーザー。ARSAでの「身体・身近なガジェット等へ置換」「既存VAキャッチとの温度整合」「発案者と取捨選択経緯を残す」という基準を、AIが再利用可能な手順とCIへ実装した。
+- **VA温度比較**：固定の既存6本を規則へ埋め込まず、作業時点の公開日本語WATCH全件を動的母集団にする。比較軸は初見理解、親しみやすさ、時計固有機能への接続、遊び・比喩の濃さ、外部ネタ依存、Leadが具体へ戻れる余地。低温度／高温度の共存を許容し平均化しない。
+- **採否・現在状態**：全WATCH共通プロトコルを採用。ARSAの現working candidate自体はこの実装でFINAL化しない。今後Catch / Lead実変更PRはCI gate対象になる。
+- **関連**：PR #144。decision-bearing commits `3f263fdd`, `c90e81e3`, `15e7679a`, `49215773`, `ec6a819a`, `b1fd6dee`, `8abcc0ca`, `cd0cab57`, `bd92a3ed`, `67fc195b`, `6ceb0795`, `5b98f584`, `2ebd7e72`, `738ab5d0`, `6323a445`。
+- **日時根拠**：会話セッションのローカル時刻 `2026-10-03 09:48 JST`。
+
+### 2026-10-03 09:24 JST — ARSAコピー選別基準へ既存VAキャッチの整合性・温度感を追加
+
+- **変更**：PR #144で記録した「誰が提案したか／どう取捨選択したか」に加え、ARSA OWNER'S NOTEのCatch / Lead選別では、公開中のVAキャッチ全体との整合性と温度感を必須基準として扱う。現行比較対象は少なくとも Basis `触って、見て、聴いて楽しむおもちゃ箱。`、Pierce `マナーモードの祖先!? / 1950's通知のオーパーツ。`、Cyma `鳴る黄金のクロノメーター`、Citizen `国産初のベル腕時計、そして伝説へ。`、Westclox `0石腕時計の劇的ビフォーアフター。`、Wittnauer `過酷な現場、アラーム部門。 / 今日もベゼルがワンオペ中🔔`。新案は、抽象度、初見理解、身近な言葉への置換、遊びの濃さ、外部ネタ依存、時計本人がオチを回収できるかで横比較する。
+- **理由**：ユーザーから、PR #144の記録が「発案者と採否理由」には触れている一方、そもそもの選別基準として既存VAキャッチとの整合性・温度感を明記していないと指摘があった。今回のARSA案出しでも、AIは初期に `時間を指で識る。耳で聴く。` 等の硬い／詩的な案を出した後、ユーザーから既存VAの作り方と「身体や身の回りのガジェットなど親しみやすいものへの置換」を再提示され、現行6本を横並び確認して初めて `タッチパネル、物理です。` 等のVA温度へ近づいた。この修正過程自体を選別根拠へ含める必要がある。
+- **旧状態・棄却**：候補単体の語感・面白さだけでARSAコピーを評価する運用、および「身近なものへの置換」だけを守ればVA全体との温度校正を省略できる扱いを棄却する。逆に既存6本へ文体を均一化することも採用しない。Cyma / Citizenの低温度からPierce / Wittnauer / Westcloxの高温度までの現行レンジを基準に、その時計固有の入口を作る。
+- **影響範囲**：`SITE_RULES.md` の新規Catch / Lead選別基準、`AGENTS.md` の提案・帰属記録手順、PR #144のARSAコピー判断履歴。本番WATCH / OWNER'S NOTE本文や既存6本のキャッチは変更しない。
+- **検証状態**：PR branch上で公開中6本の現行 `catch` / `ownersNote.lead` を再取得して横並び確認した。ARSAの working main candidate `開けて、触って、聞く。` はユーザー発のまま維持するが、最終確定では「実機到着後の触読UI確認」に加えて「現行VAレンジ内での温度・整合性」の再比較を必須とする。コナン案は元ネタの存在感がARSA本人より前に立つ懸念から恒久メインでは降格、`タッチパネル、物理です。` や `秒針？ やつは置いてきた。` 等はLead / Sub候補として温度を再評価する。
+- **関連**：同日09:13 JSTの「ARSA OWNER'S NOTEキャッチ案の発案者と取捨選択経緯を遡及補填」、`SITE_RULES.md` OWNER'S NOTE本文構造、PR #144。
+- **日時根拠**：作業環境のJST時計 `2026-10-03T09:24:49+09:00`。
+
+### 2026-10-03 09:13 JST — ARSA OWNER'S NOTEキャッチ案の発案者と取捨選択経緯を遡及補填
+
+- **変更**：ARSA Blind AlarmのOWNER'S NOTEキャッチ検討について、案の発案者と選別経緯を固定した。起点となる作り方はユーザー提示の「身体や身の回りのガジェットなど、親しみやすいものへ置き換えてから案を出す」。AI側は `タッチパネル、物理です。`、`アクセシビリティ、ぜんまい駆動。`、`画面、開きます。しかも触れます。` 等を提案。ユーザー側は `NEXT C○NAN'S HINT 〜時間を触って聞く時計〜`、メイン候補 `開けて、触って、聞く。`、`秒針？ やつは置いてきた。これからの戦い（触読）にはついてこれないからな`、`まだだ、まだ終わらんよ`（ガンダム系サブ案）を提示した。AI側の `中身は量産機。外装は専用機。` 等はAI案として分離する。
+- **理由**：2026-10-02に57426 alarm click screwをユーザー発見ではなくAI発見のように語った再構成ミス、Council V3の宮廷道化師発端順序の逆転を受け、今後は「誰が最初に気づいた / 提案したか」と「誰が後から確認・整理したか」を保持すると約束していた。今回のARSAコピー検討では会話上は帰属を区別していたが、GitHub正本へまだ記録せず、再び後日の要約で発案者が入れ替わる余地を残していたため。
+- **旧状態・棄却**：ARSAコピーの候補群を会話だけに残し、後から「共同案」「AI案」「ユーザー案」を混ぜて再構成できる状態を棄却する。AI初期案 `時間を指で識る。耳で聴く。` 等は、ユーザーから「硬い / 身近な置換になっていない」と指摘され主戦線から降格。コナン案は発想自体は強いが、Council V3 #7で「外部作品のネタがARSA本人より前に立つ」懸念が出たため、恒久メインよりサブ / SNS向きとして降格した。現時点で公開用キャッチを最終確定したとは扱わない。
+- **影響範囲**：`AGENTS.md` の帰属保持ルールと本判断履歴のみ。公開WATCH / OWNER'S NOTE本文、ARSA研究MAP / LEDGERの歴史・機構事実、サイトUIは変更しない。
+- **検証状態**：現行会話の時系列とGitHub mainのARSA MAP / LEDGER /既存判断履歴を照合。修正前mainを検索し、`開けて、触って、聞く。`、`タッチパネル、物理です。`、`秒針？` 等の今回コピー候補が未記録だったことを確認した。現在の working main candidate はユーザー発の `開けて、触って、聞く。`。ただし今回個体の到着後に触読UI・蓋操作・アラーム設定挙動を実機確認するまで最終確定しない。
+- **関連**：2026-10-02 09:49 JSTの57426 user-marked discovery記録、2026-10-02 21:10 JSTのCouncil V3発端順序訂正。ARSA research canon: `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md`。
+- **日時根拠**：作業環境のJST時計 `2026-10-03T09:13:15+09:00`。
+
 ### 2026-10-03 00:41 JST — ARSA Blind Alarm調査をVA / OWNER'S NOTE本線へ固定し、欠品監視を研究優先順位から外す
 
 - **変更**：ARSA研究MAPの主目的を購入前リスク評価から、VINTAGE ALARMの将来OWNER'S NOTE / WATCH研究用の証拠基盤づくりへ明確化した。旧P0購入確認は履歴として残しつつ`RESEARCH PRIORITY外`へ降格し、新P0をperiod ARSA資料、触覚アラームinterface、survivor matrix、AFB↔ARSA一次文書へ置き換えた。57426欠品疑義は個体状態記録として保持するが、追加調査の優先対象から外した。
