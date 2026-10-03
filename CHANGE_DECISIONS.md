@@ -819,3 +819,14 @@
 - **検証状態:** GitHubへの本文実装は完了。source境界は研究MAP / LEDGERに照合済み。build / Japanese style check / 実寸preview表示はこのcommit時点では未検証。
 - **関連:** `src/content/watches/arsa-blind-alarm.md` / `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md`
 - **日時根拠:** ユーザー指示時点のlocal time `2026-10-03T16:02+09:00` を使用。
+
+
+### 2026-10-03 16:33 JST — ARSA Deep Diveの日本語監査をやり直し、frontmatter本文の監査抜けを修正
+
+- **変更:** ARSA Blind Alarm Deep Dive 01–05を日本語ガイドと公開WATCHの文体例に照らして再監査し、ユーザー指摘の保険文・作業メモ的説明・購入個体の列挙を削除、需要背景の総括文を事実ベースへ書き直した。あわせて `scripts/check-japanese-style.mjs` がfrontmatterだけで構成されるWATCH本文をsentence warningの対象から落としていた不具合を修正し、回帰テストを追加した。
+- **理由:** 直前の全文実装ではJapanese style checkを未実行のままユーザー監査へ渡していた。また既存checkerではWATCH本文の文末・文長等の監査が実質0文になる場合があった。
+- **旧状態・棄却:** 本文中の監査メモ、未確認事項を説明するためだけの保険文、購入個体の画像確認事項と到着後TODOの列挙を棄却。frontmatter-only WATCHを十分に監査できているという前提も棄却した。
+- **影響範囲:** branch `feat/arsa-blind-alarm-private-shell` の `src/content/watches/arsa-blind-alarm.md`、`scripts/check-japanese-style.mjs`、`scripts/test-japanese-style.mjs`。ARSAは引き続き `published: false`。main / live siteは未変更。
+- **検証状態:** `npm run test:japanese-style` PASS。ARSA単体の `npm run check:japanese-style -- src/content/watches/arsa-blind-alarm.md` はPASS、warning 0。GitHub branchから取得した現行script / test / WATCH本文と同一内容のローカルfixtureで実行した。build / preview実寸表示は未検証。
+- **関連:** `src/content/watches/arsa-blind-alarm.md` / `strategy/japanese-writing.md` / `references/voice-samples.md` / `scripts/check-japanese-style.mjs` / `scripts/test-japanese-style.mjs`
+- **日時根拠:** current local time `2026-10-03T16:33:30+09:00`。
