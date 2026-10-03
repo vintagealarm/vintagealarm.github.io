@@ -59,7 +59,7 @@ try {
     '---',
     'deepDive:',
     '  - paragraphs:',
-    `      - "${'長い日本語の本文。'.repeat(24)}"`,
+    `      - "${'長'.repeat(170)}。"`,
     '---',
   ].join('\n'));
   const frontmatterOnlyResult = run(frontmatterOnly);
