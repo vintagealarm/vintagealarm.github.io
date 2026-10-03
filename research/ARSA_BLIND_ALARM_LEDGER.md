@@ -3489,3 +3489,65 @@ The Watch Library confirms public archival runs for:
 **Next:** 1958 JSHのA. Reymond記事本文と近接する新モデル頁を最優先で取得。AFB側は1955–63年のwatch-program / Gruber / supplier系ファイルを狙う。
 
 **Still open:** 1956–60年のARSA Blind Alarm本人を明記・図示した当時広告／カタログは未回収。
+
+### 2026-10-03 21:44 JST — 1958 JSH full-page extraction
+
+#### A. Reymond 60th-anniversary article
+
+**Source:** *Journal suisse d'horlogerie et de bijouterie*, No.2, mars–avril 1958, printed p.279 / digital p.281.
+**URL:** https://watchlibrary.org/details/MIH-JSH_1958_281
+**Image:** https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1958%2FMIH-JSH_1958%2FJPG-SOURCE%2FMIH-JSH_1958_JPG-SOURCE_0281/full/full/0/default.jpg
+**Evidence class:** PERIOD-PRIMARY TRADE PRESS / FULL PAGE VISUALLY VERIFIED.
+
+**Original heading:** `LA MANUFACTURE D'HORLOGERIE REYMOND S.A. FÊTE SON 60e ANNIVERSAIRE`
+
+**Original, substantive text:**
+> `La manufacture d'horlogerie Reymond S.A. a été fondée en 1898 par Auguste Reymond dans la petite localité de Tramelan. Depuis cette date, l'entreprise n'a cessé de se développer en s'efforçant de sauvegarder la cohésion entre le travail de l'ouvrier et celui du savant dans leur lutte commune pour la qualité et la production.`
+>
+> `Le programme établi pour les deux marques Arsa et Unitas est fort complexe. On peut néanmoins le résumer de la façon suivante : 1. Amélioration du réglage grâce à l'utilisation du spiral Michel dans les montres pour hommes. 2. Intensification de la fabrication des chronomètres. En 1957, 300 pièces ont été déposées dont plus de 90% ont obtenu la mention « Résultats de marche particulièrement bons ». 3. Développement de la production des montres automatiques. 4. Introduction de nouveaux calibres : notamment le 13''' plat. 5. Soins tout spéciaux voués à la présentation.`
+>
+> `Aussi la manufacture A. Reymond S.A. voue-t-elle une attention particulière à ses campagnes de publicité. Dans ce domaine, signalons, entre autres, le Bulletin mensuel rédigé en trois langues, intitulé l'« Arsa-Post », qui paraît depuis deux ans et le film publicitaire sonore en couleurs qui a été tourné en 1957.`
+
+**Natural Japanese translation:**
+> 「レイモンド時計製造会社は1898年、オーギュスト・レイモンドによってトラメランの小さな町に創業された。以来同社は、品質と生産性をともに追求する職人の仕事と科学者の仕事、その両者の結びつきを守りながら発展を続けてきた。」
+>
+> 「ArsaとUnitasの二ブランドに向けた計画は多岐にわたるが、要点は次の通りである。男性用時計へのMichelひげぜんまい採用による調整性能の向上、クロノメーター生産の強化（1957年の出品300個のうち90%以上が『特に良好な歩度結果』を取得）、自動巻時計の増産、薄型13リーニュをはじめとする新キャリバーの導入、そして外観・仕上げへの特別な配慮である。」
+>
+> 「A. Reymond社は広告活動にも力を入れていた。3言語の月刊誌『Arsa-Post』を2年前から発行し、1957年にはジュラ地方と製造現場を収めたカラー音声付き宣伝映画を制作した。」
+
+Illustrations: ARSA men's 1936; ARSA women's 1936; men's `Dandy` extra-flat, 18 ct gold, 1958; women's `Arsamatic`, 1958.
+
+**Direct ARSA Blind Alarm result: NEGATIVE.** Full-page visual inspection found no Blind Alarm, blind-watch, alarm-watch, tactile-watch, raised-marker, hinged-cover or AFB reference.
+
+#### `Nouveaux modèles` — same issue
+
+**Source:** printed pp.234–236 / digital pp.237–239.
+**URLs:** https://watchlibrary.org/details/MIH-JSH_1958_237 ; https://watchlibrary.org/details/MIH-JSH_1958_238 ; https://watchlibrary.org/details/MIH-JSH_1958_239
+**Evidence class:** PERIOD-PRIMARY TRADE PRESS / FULL PAGES VISUALLY VERIFIED.
+
+Printed p.234 presents Rodania refs.5424 S / 5423 S, Louis A. Leuba refs.1887/B / 1883, Martel Sporting caliber 1112, and Eloga 650 B / 651. Printed pp.235–236 describe Heuer's Ring-Master stopwatch and interchangeable scale rings. **No A. Reymond / ARSA, montre pour aveugles, aveugles, blind alarm, tactile watch or alarm wristwatch appears.**
+
+#### Period-primary comparator — Hy Moser blind watches
+
+**Source:** 1958 volume, printed p.333 / digital p.335.
+**URL:** https://watchlibrary.org/details/MIH-JSH_1958_335
+**Image:** https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1958%2FMIH-JSH_1958%2FJPG-SOURCE%2FMIH-JSH_1958_JPG-SOURCE_0335/full/full/0/default.jpg
+**Evidence class:** PERIOD-PRIMARY TRADE PRESS / DIRECT BLIND-WATCH DESCRIPTION / NON-ARSA COMPARATOR.
+
+**Original:**
+> `Montres pour aveugles — le style a son importance`
+>
+> `La maison Hy Moser, avec quelques autres, fabrique spécialement des montres pour aveugles. L'une d'elles porte une aiguille des heures facettée et une aiguille des minutes plate. Quant au modèle pour dames, il a un cadran couleur crème.`
+>
+> `« Les aveugles aussi tiennent à avoir de jolies montres ; pourquoi ne pas leur en offrir ? », nous a déclaré le chef de vente de la maison Moser. Signalons que ces montres sont vendues par l'intermédiaire des institutions pour aveugles plutôt que par les horlogers détaillants.`
+
+**Natural Japanese translation:**
+> 「盲人用時計――スタイルも大切。Hy Moser社は他の数社とともに、盲人向けの時計を専門に製造している。その一例では時針に面取りを施し、分針を平らにしている。女性用モデルはクリーム色の文字盤を備える。Moser社の販売責任者は『目の見えない人も美しい時計を持ちたいと思っています。ならば、なぜ提供しないのでしょう』と語った。これらの時計は一般の時計小売店より、盲人支援施設を介して販売されていることも付記しておく。」
+
+**Research consequence:** 1958年時点で、触読時計がhour/minuteを異なるhand geometryで区別し、施設経由で流通したことを確認。Hy MoserをARSA、alarm watchまたはAFBへ結ぶ証拠ではない。
+
+#### AFB / APH browser-accessible archive and catalog pass
+
+Checked APH `The Gift of Time` (https://www.aph.org/blog/the-gift-of-time/), AFB *The Unseen Minority* Chapter 17 (https://www.afb.org/about-afb/history/online-library/unseen-minority/chapter-17) and Chapter 21 (https://afb.org/online-library/unseen-minority-0/chapter-21).
+
+AFB Archiveのwatch-program repair receipts / Katherine Gruber correspondence、1963年までのservicemen's watch program、Aids and Appliances供給事業、generic Swiss repeater importsは確認済み。しかし、公開アクセス可能な1955–63 catalog page、invoice、order、supplier letter、archive scanでARSA / A. Reymond / Tramelanを名指す資料は未回収。**AFB→ARSA remains OPEN.**

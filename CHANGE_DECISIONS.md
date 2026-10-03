@@ -17,6 +17,18 @@
 
 ## 2026-10-03
 
+### 2026-10-03 21:44 JST — 1958 JSH本文を実見し03直結候補を陰性確定、Hy Moserを04比較証拠へ追加
+
+- **変更**：JSH No.2（mars–avril 1958）のA. Reymond創業60周年記事（印刷p.279 / digital p.281）と同号`Nouveaux modèles`（印刷pp.234–236 / digital pp.237–239）をThe Watch Library / MIHのIIIF原画像とOCRで全文確認し、**FULLY INSPECTED / NEGATIVE FOR ARSA BLIND ALARM**へ移した。同年巻のHy Moser `Montres pour aveugles — le style a son importance`（印刷p.333 / digital p.335）は、非alarm触読時計のperiod-primary comparatorとしてDeep Dive 04の研究台帳へ追加した。
+- **理由**：60周年記事は会社史・生産計画・通常時計4点、`Nouveaux modèles`はRodania、Louis A. Leuba、Martel、Eloga、Heuer Ring-Masterのみを扱う。一方Hy Moser記事はfaceted hour hand / flat minute handという触覚的hand codingと盲人施設を介した販売を明記する。
+- **旧状態・棄却**：1958年という一致だけから、60周年記事または同号新モデル頁にBlind Alarmが載る可能性をACTIVEに維持する状態を終了。両者をDeep Dive 03のperiod image/document候補にする案を棄却。Hy Moserの施設流通からAFB→ARSA関係を推論することも棄却する。
+- **AFB結果**：APH `The Gift of Time`、AFB *The Unseen Minority* Chapter 17 / 21および公開検索可能なcatalog / archive / supplier資料を確認したが、AFB→ARSA / A. Reymondの直接資料は未回収。generic Swiss import、AFB repair program、Aids and Appliances事業はsupplier evidenceに昇格させない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴。`src/content/watches/arsa-blind-alarm.md`、公開WATCH本文、main/liveは変更しない。
+- **検証状態**：IIIF原画像のdigital pp.237–239 / 281 / 335を目視し、Algolia OCR全文と突合。ARSA Blind Alarm本人の1956–60 period advertisement / catalog pageとAFB→ARSA direct supplier documentationはOPEN。
+- **起点・帰属**：調査指示はユーザー。AIが公開IIIFと公式機関ページを抽出・突合した。既知Uhrforum Venus 230は新発見として再提示していない。
+- **関連**：Deep Dive 03 period evidence lane、Deep Dive 04 tactile-watch comparator、AFB Archive braille-watch program / Katherine Gruber correspondence target。
+- **日時根拠**：ローカル実行時刻 `2026-10-03 21:44:09 +09:00` = `2026-10-03 21:44 JST`。
+
 
 ### 2026-10-03 14:30 JST — ARSA Deep Dive ⑤を完了し、AS1475を「platform→branches」で閉じる
 

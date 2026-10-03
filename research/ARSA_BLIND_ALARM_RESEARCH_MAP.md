@@ -561,3 +561,27 @@ Request/search scope:
 
 ### Current rule
 03 gets period material only when it directly identifies ARSA Blind Alarm or gives ARSA's contemporary description of the tactile/alarm product. Generic blind-watch ads, ordinary ARSA Alertic ads, and the known Uhrforum Venus 230 survivor are not discovery-lane substitutes.
+
+## 2026-10-03 21:44 JST — 1958 JSH本文抽出完了
+
+### P0-A — No.2: CLOSED / NEGATIVE FOR BLIND ALARM
+
+The Watch Library / MIHのIIIF画像とOCRを突合し、創業60周年記事（digital p.281 / printed p.279）と同号`Nouveaux modèles`（digital pp.237–239 / printed pp.234–236）を実見した。
+
+- 60周年記事は1898年創業、Arsa / Unitasの1958年計画、Michel spiral、chronometer、automatic、13 ligne flat caliber、presentation、Arsa-Post、1957年の宣伝映画、1936 / 1958年の通常時計4点を扱う。
+- `Nouveaux modèles`はRodania、Louis A. Leuba、Martel、Eloga、Heuer Ring-Masterを掲載する。
+- **両者にARSA Blind Alarm / montre pour aveugles / aveugles / réveil / tactile watchの記載・写真はない。**
+
+本号は「本文未取得」のACTIVE targetから、**FULLY INSPECTED / NEGATIVE FOR DIRECT 03 EVIDENCE**へ移す。同じ頁を再探索しない。60周年記事は会社史のperiod-primary補強には使えるが、Deep Dive 03のBlind Alarm証拠には採用しない。
+
+### P1 — Hy Moser: PERIOD-PRIMARY COMPARATOR
+
+同年巻のdigital p.335 / printed p.333に、`Montres pour aveugles — le style a son importance`を確認。Hy Moserが盲人用時計を製造し、時針をfaceted、分針をflatとして触覚的に区別したこと、女性用はcream dialであること、販売は小売時計店より盲人施設を介して行われたことを明記する。
+
+Deep Dive 04で、1958年時点の非alarm触読時計にもhand-shape codingとinstitution-mediated distributionが存在した比較証拠として使う。Hy Moser記事であり、ARSA / alarm / AFBを結ぶ証拠にはしない。
+
+### P0-B — AFB / APH
+
+APH公式 `The Gift of Time`、AFB公式 *The Unseen Minority* Chapter 17 / 21、公開検索可能なcatalog / archive / supplier資料を再確認したが、**AFB→ARSA / A. Reymondの直接資料は未回収**。generic Swiss imports、repair program、Aids and Appliances事業からARSA supplier関係を推論しない。
+
+**Current state:** DIRECT AFB→ARSA LINK OPEN / BROWSER-ACCESSIBLE PRIMARY DOCUMENT NOT FOUND。archive staffへのfolder-level照会または1955–63 catalog実物が出た時だけ再開する。
