@@ -20,7 +20,7 @@ Leonhard Beitlは『Alarm am Arm』で、Modern du Luxeの大型アラームを1
 
 1950年代の旅行目覚ましには、持ち運ぶときに小さく収まり、使用時にはベッド脇で自立することが求められていた。1951年出願の旅行目覚ましケース特許は、ホテル、寝台車、客船などを利用する旅行者を例に挙げ、荷物の中では占有空間を小さくし、使用時にはケースを開いて時計を支える構造を説明している。[2]
 
-同時期のWestclox広告でも、Travalarmは持ち運べる時計として販売され、別の広告では贈答品の一つとして扱われている。[3][4] 旅行目覚ましは、特殊な珍品ではなく、携帯性とアラーム機能を組み合わせた一般的な商品カテゴリだった。
+同時期のWestclox広告でも、Travalarmは持ち運べる時計として販売され、別の広告では贈答品の一つとして扱われている。[3][4] 少なくとも1950年代には、携帯性とアラーム機能を組み合わせた旅行目覚ましが複数の製品・広告で確認できる。
 
 Modern De Luxeにも折り畳み式の旅行目覚ましが複数現存しており、2石・日本製として販売記録が残る個体がある。[5][6] また、三菱電機名古屋製作所の周年記念品として残るModern De Luxeの旅行時計も確認できる。[7] 福岡県共済連の記念品個体も研究資料に残っており、Modern De Luxeの時計が日本の企業・団体の記念品として使われた例がある。
 
@@ -28,17 +28,17 @@ Modern De Luxeにも折り畳み式の旅行目覚ましが複数現存してお
 
 Beitl掲載の55mm個体は、一般的なアラーム腕時計とは操作系が異なる。時刻機構とアラーム機構を小型腕時計用ムーブメントへ組み込むのではなく、裏側に置時計型の操作部を残したまま、外装を腕時計型にしている。[1]
 
-掲載個体と現在確認できる同型個体では、裏側に緩急調整、アラーム操作、巻上げ・設定用の複数の操作部が集中する。外側の3時位置リューズは、腕時計らしい外観を作るための部品で、実際の操作には使われない。[1]
+掲載個体と現在確認できる同型個体では、裏側に緩急調整、アラーム操作、巻上げ・設定用の複数の操作部が集中する。外側の3時位置にはリューズ状の部品があるが、Beitlはこれをダミーと記しており、実際の操作には使われない。[1]
 
 同じModern De Luxe名では、折り畳み旅行時計や企業記念時計も残っている。ただし、これらすべてが同じムーブメント、同じ製造者、同じ販売会社による一系列だったことはまだ確認できていない。
 
 ## 04 — 日本製トラベルアラームとの比較
 
-1960年代前後の日本製旅行目覚ましには、Seiko、Citizen、Rhythm、Tokyo Clockなど複数のメーカー／ブランドの機械式製品が存在する。2石、日本製、折り畳みケース、背面操作という要素だけでは、メーカーを特定できない。
+1960年代前後の日本製旅行目覚ましには、Seiko、Citizen、Rhythm、Tokyo Clockなど複数のメーカー／ブランドの機械式製品が現存する。[8][9][10][11] 2石、日本製、折り畳みケース、背面操作という要素だけでは、メーカーを特定できない。
 
-Modern De Luxeの2石旅行時計も、この広い商品群の中で見る必要がある。現在確認しているTokyo Clockの旅行時計とは、背面の操作配置が一致せず、同じ出品に並んでいたことだけからOEM関係を示すことはできない。[8]
+Modern De Luxeの2石旅行時計も、この広い商品群の中で見る必要がある。現在確認しているTokyo Clockの旅行時計とは、背面の操作配置が一致せず、同じ出品に並んでいたことだけからOEM関係を示すことはできない。[11]
 
-別の比較例として、Elgin No.8822には、日本製の折り畳み旅行目覚ましがElgin名義で販売された現存例がある。元箱と取扱説明書を伴う個体があり、1969年の企業記念品として刻印された例も残る。[9] この例では、文字盤上のブランド、物理的な製造国、販売主体、記念品の発注者を別々に考える必要がある。
+別の比較例として、Elgin No.8822には、日本製の折り畳み旅行目覚ましがElgin名義で販売された現存例がある。元箱と取扱説明書を伴う個体があり、1969年の企業記念品として刻印された例も残る。[12] この例では、文字盤上のブランド、物理的な製造国、販売主体、記念品の発注者を別々に考える必要がある。
 
 ## 05 — ムーブメントはまだ分からない
 
@@ -59,7 +59,7 @@ Modern De Luxeの時計について、現在も次の点は未解決である。
 - 旅行時計、55mm腕時計型、企業記念時計がどこまで同じ商品系列だったか
 - Modern De Luxe名のライター類と時計類が同じ事業主体に属していたか
 
-Hirota、H.M.C.、Modern Royal、Tokyo Clockなど周辺に関連候補は存在するが、現在の資料ではModern De Luxe時計との直接接続は確認できていない。これらは本文の結論には使わず、直接資料が出た場合に再評価する。
+周辺資料には製造・流通主体の候補となり得る会社やブランドが複数現れるが、現在の資料ではModern De Luxe時計との直接接続は確認できていない。会社名は本文の結論に置かず、直接資料が出た場合に再評価する。
 
 ---
 
@@ -84,10 +84,19 @@ https://www.peramezat.com/lot/529201/modern-de-luxe-2-jewels-mekanik-kurmali-jap
 [7] Modern De Luxe travel alarm with Mitsubishi Electric Nagoya Works 50th-anniversary marking, surviving-object record.  
 https://noraneco1972.jimdofree.com/%E3%83%96%E3%83%AD%E3%82%B0-menu/%E6%99%82%E8%A8%88/%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF/
 
-[8] Yahoo Auctions search record pairing Modern De Luxe and Tokyo Clock in one lot; used only as a rejected shortcut, not as OEM evidence.  
+[8] Seiko mechanical 2-jewel travel alarm, surviving-object record.  
+https://japanese-microbrands.com/en/products/seiko-reisewecker-mechanischer-wecker-2-jewels-japan-ca-1960er-jahre
+
+[9] Citizen mechanical alarm-clock examples, surviving-object record.  
+https://noraneco1972.jimdofree.com/%E3%83%96%E3%83%AD%E3%82%B0-menu/%E6%99%82%E8%A8%88/%E7%BD%AE%E6%99%82%E8%A8%88/
+
+[10] Rhythm mechanical travel alarm, surviving-object record.  
+https://www.ebay.com/itm/405214703614
+
+[11] Yahoo Auctions record pairing Modern De Luxe and Tokyo Clock in one lot; used only as a rejected shortcut, not as OEM evidence.  
 https://auctions.yahoo.co.jp/search/search/%E6%9D%B1%E4%BA%AC%E6%99%82%E8%A8%88%E3%83%AC%E3%83%88%E3%83%AD/2084032117/
 
-[9] Elgin No.8822 Japanese folding travel alarm, original box/instructions and 1969 corporate-personalized example.  
+[12] Elgin No.8822 Japanese folding travel alarm, original box/instructions and 1969 corporate-personalized example.  
 https://thedesignersconsignment.com/product/44551
 
 ## Draft notes
