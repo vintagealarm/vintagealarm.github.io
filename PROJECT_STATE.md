@@ -45,7 +45,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - ドイツ語入口: `strategy/german-entry.md`
 - 計測定義: `measurement/metrics.md`
 - 現在までの実験結果: `measurement/experiment-log.md`
-- SNS再利用資産の横断索引: `measurement/.internal/.virtual/social/content-inventory.md`（既出 / 部分既出 / Instagram本文未使用候補 / 撮影要否 / 検証要否 / URL誘導。事実正本は各WATCH等へ戻る）
+- SNS再利用資産の横断索引: `measurement/.internal/.virtual/social/content-inventory.md`（原子asset、既出 / 部分既出 / Instagram本文未使用候補、overlap、micro-Reel当て込み、撮影要否、検証要否、Content Assignment Registryによる ASSET → CONTENT → MEDIA duplicate lock。事実正本は各WATCH等へ戻る）
 - 外部AI観測: `measurement/aio-observation-log.md`
 - Council / 焼いて: `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`; 7の誕生経緯・設計根拠は `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`
 - **個人時計台帳 / 所持・取得・OH・現在状態（cross-repo）**: `orima1995-create/watchdiary-ios` Issue **#21 CURRENT OWNED** を入口とし、取得遍歴は #60、保有意志は #23、周辺時計は #25、個体別CURRENT Issue（例: #58 Watchlarm / #31 CYMA）を必要に応じて追加取得する。公開VINTAGE ALARM repo内に台帳を重複生成しない
