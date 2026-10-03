@@ -39,7 +39,7 @@
 - 旧仕様・棄却済み候補を、新証拠または明示的な仕様変更なしに復活させない。
 - **案・発見・指摘・修正の帰属を保持する。** 誰が最初に提示したか（ユーザー / AI / Council / 資料・Web・画像）、その後だれが確認・同定したか、採用 / 棄却 / HOLD / 未決のどこに置いたかを混同しない。後から要約・Roast・Council・本文化するときも発案者を入れ替えない。
 - 帰属が後続判断に効く案・発見は、関連research ledgerまたは `CHANGE_DECISIONS.md` に **起点 → 検証 → 採否理由 → 現在状態** を残す。未採用案を作者の意図や確定方針へ昇格させず、AI案をユーザー案として、ユーザー案をAI案として記録しない。
-- OWNER'S NOTEの `catch` / `ownersNote.lead` を新規作成・大幅改稿・候補選別する場合は、**ARSAに限らず全WATCH共通で** `SITE_RULES.md` のCatch / Lead開発プロトコルを先に適用する。作業時点で `published: true` の日本語WATCHすべての現行Catch / Leadを横並び確認し、候補の発案者・派生元、Reality pin、VA温度比較、採否・現在状態を保持する。固定の代表本数や会話記憶だけで温度を推定しない。
+- OWNER'S NOTEの `catch` / `ownersNote.lead` を新規作成・大幅改稿・候補選別する場合は、**ARSAに限らず全WATCH共通で** `SITE_RULES.md` のCatch / Lead開発プロトコルを先に適用する。作業時点で `published: true` の日本語WATCHすべての現行Catch / Leadを横並び確認し、候補の発案者・派生元、Reality pin、VA温度比較、採否・現在状態を保持する。ローカル環境では `npm run owner-copy:benchmark` を使える。固定の代表本数や会話記憶だけで温度を推定しない。
 - 現行仕様・判断・方針・棄却候補が変わる変更は、`CHANGE_DECISIONS.md` へJST日時付きで同じ変更セット内に記録する。記録漏れがある状態を「完了」「VERIFIED」としない。
 - 実装済み / 検証済み / 公開済み / 成果観測済みを混同しない。
 - 未実行の検査を成功扱いしない。
