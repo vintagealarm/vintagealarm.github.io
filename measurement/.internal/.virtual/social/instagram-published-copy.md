@@ -10,6 +10,7 @@ VINTAGE ALARM Instagram Reels の**実投稿本文・ハッシュタグ・最終
 - 「非採用」は、最終公開本文に入っていないことを確認できる要素に限る。草案段階で明示的に棄却した理由が確認できない場合、理由を推測しない。
 - 投稿後のViews / Insightsの時系列正本は `instagram-insights-timeseries.md`。このファイルは実投稿copyとcreative decisionの正本であり、Insightsログを重複保存しない。
 - 投稿案作成前に `instagram-operations.md` と本ファイルを照合し、既存訴求を新案として再発明しない。
+- SNS再利用候補・撮影要否・未使用候補の横断索引は `content-inventory.md`。本ファイルは実投稿証拠の正本のままとし、投稿公開確認後はinventoryの対応rowも同じ変更セットで更新する。
 
 ---
 
