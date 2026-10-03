@@ -17,6 +17,17 @@
 
 ## 2026-10-03
 
+### 2026-10-03 16:20 JST — 宮廷道化師へ人格UIと最大context pre-flight責務を追加
+
+- **変更**：Council V3の宮廷道化師へ、事実・帰属・時系列・採否・撤回理由に最も几帳面で、自説撤回・`陛下の勝ち`・`今回は異議なし🤡`を正常動作とする人格UIを追加した。あわせて明示7では、Current state / Decision ancestry / Corrections・reversals / REJECTED・HOLD / Evidence trail / Adjacent consequences を評価前に正本から復元する、Council内で最も重いcontext pre-flightを必須化した。
+- **理由**：直前の2ch roastで、コレクション遍歴全体を扱う依頼に対し `Baume → Reverso → Rolex → Wittnauer → Basis → CYMA → Modern → Duofon → Citizen → Westclox → ARSA` と圧縮し、現行遍歴正本にある D1 Milano、Bravingtons Renown、JLC Memovox 14K、Modern De Luxe tricolor、watch-lighter、Eterna 8 DAYS等を落とした。ユーザーから「欠落しすぎ」と訂正され、宮廷道化師は誰よりもログ・判断経緯・全体像を把握しているべきだと明示されたため。
+- **旧状態・棄却**：道化師を主にFool's Licenseとノンデリ口調で定義し、通常Councilと同程度の文脈回収で実行できる状態を棄却する。直近要約や代表例だけを「全体」として扱うことも不可とする。
+- **影響範囲**：`council-worker/V3.md`、`council-worker/README.md`、`AGENTS.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、本判断履歴。V2の1〜6の意味・番号、公開サイト、WATCH本文、SNS実測、個人台帳の事実内容は変更しない。
+- **検証状態**：GitHub mainのCouncil V3正本群を再取得し、cross-repo `orima1995-create/watchdiary-ios` #60の現行CHRONOLOGYを全文確認。欠落していた遍歴要素を特定し、その失敗例を設計根拠へ明記した。ChatGPT内Councilの正本挙動は文書へ反映済み。外部Worker runtimeのprompt実装・deployは別状態として扱う。
+- **起点・帰属**：人格UI案の起点はAI、採用はユーザー。『誰よりもログを遡り、全体・経緯・判断詳細を把握しているべき』というcontext責務の追加はユーザー。正本への制度化はAI。
+- **関連**：`council-worker/V3.md`、`council-worker/README.md`、`AGENTS.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、watchdiary-ios #60。
+- **日時根拠**：最初の実装commit `3406908087988d5fd8ac3a8e28e0bff749b1a6ca` のGitHub時刻 `2026-10-03T07:20:51Z → 2026-10-03 16:20 JST`。
+
 ### 2026-10-03 15:56 JST — SNS運用判断を既存ログの検証対象へ明示接続し、投稿頻度低下＋品質優先をACTIVE仮説として固定
 
 - **変更**：Social Routerへ `DECISION → EVIDENCE LINK` を追加し、ACTIVEなSNS運用判断ごとに `Decision / Origin / Evidence / Revisit・falsifier / Status` を既存ログへ対応付ける。あわせて、ユーザーが既に採用している「初期運用より投稿頻度を落とし、投稿前のWeb・外部事例・過去SNS実績確認を増やして1本あたりの内容品質を優先する」方針を `ACTIVE / UNDER VALIDATION` として `instagram-operations.md` に明記した。
