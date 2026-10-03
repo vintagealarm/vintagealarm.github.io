@@ -78,16 +78,18 @@ deepDive:
       - "BEAT / Friedli-Frèresは33.8mmのケースにAS1475を収め、盛り上がった触覚点と白い触覚針を備える。蓋を開ける機構は4時リューズではなく、6時位置に独立している。[3]"
       - "A. Schild自身にもAS1475を使ったBlind Alarmのプロトタイプが記録されている。現時点の資料で確認できるのはプロトタイプの存在までで、針の触覚符号や蓋の構造は分からない。[3]"
       - "約1960年のAFB表記のAS1475 Blind Alarmについて、BeitlはAFBからARSAへ発注され、ARSA自社モデルと同一だったと記している。[3]"
+      - "2016年にUhrforumで紹介されたARSA Blindenweckerの現存個体には、AS1475とは異なるVenus 230が搭載されている。3時位置が時刻用、5時位置がアラーム用で、前蓋は2時位置の独立プッシャーで開く。投稿者は1950年代の個体としているが、現在確認できる根拠はこの現存個体報告で、当時のARSAカタログや広告による裏付けはまだ取れていない。[15]"
       - "約1970年とされるafB De Luxeの現存例にはAS1930が搭載され、開閉蓋、触覚点、中央アラーム針を備える。製造者は未同定である。[13]"
-      - "ARSAは4時リューズに蓋オープナーを統合し、Enicarは針の幅や隆起、リューズ形状で触覚上の区別をつけ、BEATは6時位置に独立したオープナーを置いた。同じAS1475を使っていても、触読のための外装と操作系は統一されていない。[3][10][13]"
+      - "ARSAのAS1475系は4時リューズに蓋オープナーを統合し、Enicarは針の幅や隆起、リューズ形状で触覚上の区別をつけ、BEATは6時位置に独立したオープナーを置いた。さらにARSAのVenus 230現存報告では2時位置に独立プッシャーを置く。触読アラームは、同じ目的でも蓋の開け方、操作部、針の識別方法まで一種類ではなかった。[3][10][15]"
     citationRefs:
       - "3"
       - "3,10"
       - "3"
       - "3"
       - "3"
+      - "15"
       - "13"
-      - "3,10,13"
+      - "3,10,15"
   - number: "05"
     title: "普通のAS1475が、別の時計へ変わる"
     paragraphs:
@@ -135,6 +137,8 @@ sourceMeta:
     type: provenance
   - id: "14"
     type: reference
+  - id: "15"
+    type: provenance
 sources:
   - "[Auguste Reymond — History](https://augustereymond.ch/about-ar/history/)（1898年創業、1903年工場開設、1926年Unitas取得等）"
   - "[Dictionnaire du Jura — A. Reymond SA / ARSA](https://diju.ch/f/notices/detail/8205)（企業史、1950年代初頭の盲人用時計、1973年の製造品目）"
@@ -150,4 +154,5 @@ sources:
   - "[US2915874A — Tactile Indicators](https://patents.google.com/patent/US2915874)（1957年出願。直接針へ触れる従来式触読時計のsetting disturbanceを問題として記載）"
   - "[LotSearch — afB De Luxe Alarm / AS1930](https://www.lotsearch.net/index.php/lot/afb-american-foundation-for-the-blind-de-luxe-alarm-wristwatch-for-the-59842113)（ca.1970、33mm、17石、jump cover、触覚点、中央alarm hand。maker未同定）"
   - "[Grail Watch Wiki — Parking watch](https://wiki.grail-watch.com/index.php/Parking_watch)（Benedict Park-O-Phonのparking-time表示。詳細表示は二次資料として使用）"
+  - "[Uhrforum — ARSA Blindenwecker / Venus 230 survivor](https://uhrforum.de/threads/vintage-armbandwecker-zeigt-sie-in-bild-und-ton.16190/page-25)（2016年の現存個体報告。Venus 230、3時時刻用／5時アラーム用、2時独立プッシャーによる前蓋開閉。period-primary未確認）"
 ---
