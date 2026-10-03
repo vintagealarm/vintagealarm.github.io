@@ -201,7 +201,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - 到着後の触覚操作実測を重視
 
 ### P0.5 — 設計思想 / 設計資料
-**状態:** ACTIVE / BEFORE COMPARISON
+**状態:** PASS 2 COMPLETE / ARCHIVE BONUS ONLY
 
 Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」を示す設計思想・仕様・設計資料を追加で掘る。
 
@@ -221,36 +221,96 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 - これは2000年代以降のARSA資料ではかなり明示されるが、1950s Blind Alarmへ同じ思想をそのまま遡及適用しない
 - 1950sについては現物構造 + specialist descriptionから設計要件を復元できるが、factory自身のdesign statementはまだOPEN
 
-次に探すもの:
-1. “Zeit spühren = Toucher l'heure” 本文
-2. 1950s–60s ARSA blind-watch instruction / catalog / technical sheet
-3. Swiss patent / design-registration / trade-journal technical note
-4. blind associations側に残るARSA仕様書・評価記録
-5. 上記で新証拠が増えなければ「factory design document not recovered」と明示して④へ進む
+停止判断:
+- focused passを2回実施しても、1950s ARSAのfactory drawing / engineering specification / manual / tactile-watch patentはindexed Webから未回収
+- “Zeit spühren = Toucher l'heure” はarchive itemとして残すが、本文未取得
+- よって**factory design document not recovered**を現在状態として明示し、設計要件は「現物 + 専門書 + 前史 + 後年ARSAの明示的思想」からsource-labeled reconstructionとして扱う
+- archive本文やperiod technical sheetが後日取得できた時だけ再開する
 
 ---
 
 ### P1 — 触読alarm比較
-**状態:** WAITING / AFTER DESIGN-DOC PASS
+**状態:** DEEP DIVE ④ PASS 1 COMPLETE 2026-10-03
 
-比較対象:
-- ARSA AS1475
-- AFB / ARSA AS1475（Beitl記載。取引は独立未確認）
-- Enicar AS1475
-- BEAT / Friedli-Frères AS1475
-- A. Schild prototype AS1475
-- later afB De Luxe AS1930（maker OPEN）
-- BEAT / Friedli-Frères AS1930（forum-only HOLD）
+比較対象と現在の確度:
 
-比較軸:
-- opener / hinge / cover
-- **hour / minute / alarm handの触覚coding** — 長さ、幅、先端形状、段差、突起、切り欠き、ridge / texture、上下高さ、radial path
-- tactile markers / orientation landmarks
-- alarm-time read-back
-- case / caliber
-- maker certainty / source tier
+- **ARSA / AS1475 — SOURCE-CONFIRMED**
+  - around 1956、1958掲載個体
+  - 4時crown内蔵pusherでfront coverを開く
+  - tactile hour points、robust hour / minute hands、seconds handなし
+  - 2時側alarm crownでset alarm timeを設定し、そのalarm time自体を触ってread-back可能
+  - 購入個体では12時3点、細いpatterned alarm pointer、9時hingeを画像確認。patternが触覚ridgeかは到着後確認
 
-**中心質問（ユーザーが以前から繰り返し言及）:** 「時針＝この触感、分針＝この触感、alarm hand＝この触感」という業界共通codeがあったのか、それとも各社が同じ目的を別の触覚語彙で解いたのか。AI側が針の切り欠き・ざらつき・表面差という観点を研究軸へ昇格せず見落としていた。現時点では**共通原理は確認できるが、共通codeは未確認**として比較する。
+- **AFB-marked / ARSA-ordered according to Beitl / AS1475 — SPECIALIST SOURCE**
+  - ca.1960、gold-plated case / steel screw back
+  - raised tactile hour points、robust minute / hour tactile hands
+  - 4時crown内蔵opener、hinged glass cover
+  - BeitlはARSAへ発注しARSA自社モデルとidenticalとする
+  - **独立した別設計として数えない。** AFB↔ARSA取引はinstitutional primary未確認
+
+- **Enicar / AS1475 — SOURCE-CONFIRMED**
+  - ca.1957のBlind AlarmをBeitlで確認。stainless / gold-plated variants
+  - 4時crownのbuttonでcoverを開き、seconds handなし
+  - Horlbeckの1964 Lausanne specialではclockwork crownとalarm crown自体も触覚的に混同しにくく設計
+  - exact hand coding: minute ≈1.6 mm、hour ≈2.9 mm、alarm ≈0.7 mm + tip four ridges
+  - 3 / 6 / 9 markersを特に大きくする
+  - current time + set alarm timeのread-backを明示
+  - **exact widths / four ridgesは1964 special個体固有として扱い、1957全個体へ一般化しない**
+
+- **BEAT / Friedli-Frères / AS1475 — SOURCE-CONFIRMED**
+  - chrome-plated metal case Ø33.8 mm、screw back
+  - blue dial + raised tactile points、white tactile hands
+  - movement signed Friedli-Frères
+  - **openerは4時crown内蔵ではなく外部6時**
+  - hand別のridge / notch / read-back詳細はsource textでは未固定
+
+- **A. Schild prototype / AS1475 — SOURCE-CONFIRMED EXISTENCE / UI DETAILS OPEN**
+  - stainless case、AS1475のBlind Alarm prototype
+  - 現行専門書記述ではprototype存在以上のtactile coding / opener geometryを固定できない
+  - **ARSAのancestorとはしない**
+
+- **afB De Luxe / AS1930 — AUCTION-CATALOG SURVIVOR**
+  - ca.1970、33 mm、gold-plated case + steel screw back、17J
+  - jump cover、tactile points、central alarm hand、alarm function
+  - maker OPEN。AFB / ARSA連続系列とはしない
+  - AS1475世代の後もtactile alarmという製品形式がAS1930世代へ残ったことを示すsurvivor evidence
+
+- **BEAT / Friedli-Frères / AS1930 — FORUM SURVIVOR / HOLD**
+  - movement photo claim: AS1930 signed Friedli-Frères
+  - forum観察では6時側にhood-like opening
+  - later distributor / IRTI attributionとca.1960 datingはそのまま採用しない
+  - confirmed matrixの補助leadに留める
+
+比較から固定できること:
+
+1. **共通なのは完成ケースではなく要求仕様。**
+   - coverを開いて直接触れる
+   - dial orientationを取れる
+   - hour / minute / alarmを区別できる
+   - secondsを排して誤操作・干渉を減らす
+   - set alarm timeを扱える
+
+2. **AS1475は共通platformだがhuman interfaceは複数解。**
+   - ARSA / Enicar: 4時crown-integrated opener系
+   - BEAT: 6時external opener
+   - よってcommon caliberからcommon complete case / universal case supplierへ飛躍しない
+
+3. **hand codingは固定industry codeではなくdesign grammar。**
+   - Enicar 1964 specialは幅 + ridgesまで明示
+   - ARSAはread-back機能を明示するがexact tactile codeは未記載
+   - BEATはtactile handsを確認できるが個別coding未記載
+   - 「時針=この模様」等の全社共通規則は未確認
+
+4. **AFB-marked AS1475はARSA比較の独立メーカー行ではない。**
+   - Beitl自身がARSA自社modelとidenticalとするため、design variationではなくcommission / institutional-marking variationとして扱う
+
+5. **A. Schild prototypeの存在は、ébauche maker自身もtactile-alarm use caseを試した証拠。**
+   - ただしARSA / Enicar / BEATへの設計継承は未証明
+
+6. **AS1930 survivorsはcategory continuityを示すがmaker continuityは示さない。**
+   - afB De LuxeやBEAT leadがあっても、ARSA後継系列とはしない
+
+**サイト用の主眼:** 「同じAS1475を積んだ似た時計」ではなく、**同じ accessibility requirement に対して、各社が針・目盛・蓋・操作子へ別々の触覚UIを与えた**比較にする。
 
 ### P2 — AS1475 platformと変貌種
 **状態:** ACTIVE / CLOSING CHAPTER
@@ -348,9 +408,9 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 1. **①作った会社 — PASS 1 COMPLETE** — 会社史・製造能力・blind / alarm両系統の同時存在まで整理済み。残る一次資料穴だけHOLD
 2. **②需要背景 — PASS 1 COMPLETE** — 前史 / WWI / AFB 1926 / WWII / 日本例まで必要十分に圧縮。戦争は発明起源ではなく制度化・普及の背景として固定
 3. **③時計本人 — PASS 1 COMPLETE / ARRIVAL SUPPLEMENT PENDING** — mechanism / controls / tactile UI / failure map / model variation / purchased specimenまで整理。到着後にhands / read-back / opener / early-late alarm-stateを実測追記
-4. **③b 設計思想 / 設計資料 — ACTIVE / NEXT** — 1950s設計書・仕様書・patent、Mémoires d'Ici “Zeit spühren = Toucher l'heure”、association-side評価を優先。現行ARSA資料は設計思想の継続性だけに使い、1950sへ遡及しない
-5. **④触読alarm比較 — WAITING** — ③bの停止条件到達後、ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBをhand coding / opener / read-back差で比較する
-6. **⑤AS1475と変貌種** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る
+4. **③b 設計思想 / 設計資料 — PASS 2 COMPLETE / ARCHIVE BONUS ONLY** — factory design documentは未回収。source-labeled requirement reconstructionを採用し、archive本文取得時のみ再開
+5. **④触読alarm比較 — PASS 1 COMPLETE** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBをhand coding / opener / read-back / source tierで比較済み
+6. **⑤AS1475と変貌種 — NEXT** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る
 7. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
 8. AFB契約書、Smithsonian、WPB等は、上記1〜6の未解決を直接埋める場合だけ再開する
 

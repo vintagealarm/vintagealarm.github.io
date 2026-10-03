@@ -3133,3 +3133,93 @@ The missing direct bridge remains:
 
 The highest-value remaining route is non-indexed archive / physical documentation, especially “Toucher l'heure” and any period ARSA instruction sheet or technical leaflet. Until that is obtained, keep Deep Dive ③b ACTIVE and do not present reconstructed requirements as quoted factory intent.
 
+### 2026-10-03 — DEEP DIVE ④: tactile-alarm comparison matrix
+
+**PURPOSE:** compare tactile alarm watches as alternative interface solutions to the same accessibility requirement. The primary axes are hand coding, orientation markers, cover / opener, alarm-time read-back, caliber and source certainty.
+
+| Model / source tier | Caliber | Cover / opener | Tactile hands / coding | Markers | Alarm-time read-back | Research role |
+|---|---|---|---|---|---|---|
+| ARSA Blind Alarm — specialist source + purchased specimen | AS1475 | 4-o'clock clockwork crown contains cover pusher; purchased specimen has 9-o'clock hinge | robust H/M; separate alarm pointer; purchased specimen alarm pointer visibly narrow + patterned, tactile relief not yet proven | raised points; purchased specimen 12 = three-dot landmark | **yes**, specialist text explicitly says alarm time can be felt and reset by 2-o'clock alarm crown | core ARSA row |
+| AFB-marked ARSA-order — specialist source | AS1475 | hinged cover; opener in 4-o'clock crown | robust tactile minute + hour hands; alarm-hand coding not described | raised tactile hour points | implied by ARSA-identical model, but do not add details beyond source | commission / institutional-marking variation, not independent design |
+| Enicar Blind Alarm ca.1957 — specialist source | AS1475 | 4-o'clock crown button opens cover | tactile hands; no seconds | tactile points | current time touch-read | same broad architecture, separate maker |
+| Enicar Lausanne special 1964 — specialist source | AS1475 | clockwork crown at 4 has integrated button; crowns shaped differently to avoid confusion | minute ≈1.6 mm; hour ≈2.9 mm; alarm ≈0.7 mm + **four ridges at tip** | 3 / 6 / 9 especially large | **yes**, current + set alarm time explicitly touch-readable / resettable | strongest explicit tactile-coding example |
+| BEAT / Friedli-Frères — specialist source | AS1475 | **external opener at 6**, unlike usual 4-o'clock crown pusher | white tactile hands; exact H/M/alarm coding not described | raised tactile points on blue dial | not fixed by current text | proves alternate case / opener solution |
+| A. Schild Blind Alarm prototype — specialist source | AS1475 | not fixed by current text | not fixed | not fixed | not fixed | proves A. Schild prototype existence only |
+| afB De Luxe — auction catalog survivor | AS1930 | jump cover; exact opener location not fixed | central alarm hand; exact tactile coding not fixed | tactile points + hour indices | not fixed | later-generation survivor, maker OPEN |
+| BEAT / Friedli AS1930 — forum lead / HOLD | AS1930 claimed / Friedli-signed | forum observer describes hood-like opening at 6 | details not fixed | details not fixed | not fixed | continuity lead only |
+
+#### Source anchors
+
+**ARSA**
+*Alarm am Arm* states that around 1956 ARSA made an AS1475 blind alarm where the user opened the glass cover through a pusher on the winding crown, felt both current time and alarm time, and set the alarm via the crown at 2. Its illustrated 1958 example adds tactile points, robust hands, no seconds and the 4-o'clock integrated opener.
+
+**AFB-marked**
+*Alarm am Arm* describes ca.1960 AFB-marked AS1475 with gold-plated case, raised tactile hour points, robust tactile minute/hour hands and 4-o'clock crown-integrated opener, and says it was ordered from ARSA and identical to ARSA's own model. The institutional transaction remains independently unconfirmed.
+
+**Enicar**
+*Alarm am Arm* confirms a ca.1957 AS1475 blind alarm with opening glass, tactile dial points and tactile hands, opened by a 4-o'clock crown button and without seconds.
+
+Horlbeck's 1964 Lausanne special provides the most precise interface data:
+- clockwork and alarm crowns deliberately shaped differently
+- clockwork crown at 4 incorporates the cover button
+- minute hand ≈1.6 mm
+- hour hand ≈2.9 mm
+- alarm hand ≈0.7 mm with four ridges at the tip
+- 3 / 6 / 9 hour markers especially large
+- both current time and alarm setting can be felt and the alarm reset
+
+**BEAT / Friedli-Frères**
+*Alarm am Arm* describes a 33.8 mm chrome-plated AS1475 blind alarm with blue dial, raised tactile points, white tactile hands and a 6-o'clock external opening mechanism. Movement is signed Friedli-Frères.
+
+**A. Schild**
+*Alarm am Arm* identifies an A. Schild blind-alarm prototype with stainless case and AS1475. Current text gives no further interface specification, so do not reconstruct it from neighboring specimens.
+
+**afB De Luxe**
+Peter Klöter auction-catalog archive / LotSearch describes a ca.1970 AS1930, 33 mm, 17-jewel blind alarm with jump cover, tactile points, central alarm hand, gold-plated case and steel screw back.
+Source:
+- https://www.lotsearch.net/index.php/lot/afb-american-foundation-for-the-blind-de-luxe-alarm-wristwatch-for-the-59842113
+
+A current eBay survivor also carries AFB Deluxe / AS1930 seller metadata, but seller dating / branding remains lower-tier evidence.
+Source:
+- https://www.ebay.com/itm/237074297005
+
+**BEAT / AS1930 HOLD**
+A 2014 Uhrforum post reports a BEAT with an AS1930 movement signed Friedli-Frères and describes a 6-o'clock hood-like opening. Keep as forum survivor / HOLD.
+Source:
+- https://uhrforum.de/threads/vintage-armbandwecker-zeigt-sie-in-bild-und-ton.16190/page-8
+
+#### Comparison result
+
+The central pattern is now clearer:
+
+**Shared problem, shared movement in many examples, but not one standardized watch.**
+
+ARSA, Enicar and BEAT all use AS1475 and direct-touch reading, yet:
+- ARSA / Enicar use a 4-o'clock crown-integrated cover release
+- BEAT moves the opening mechanism to 6
+- Enicar's 1964 special encodes three hands with measured width differences plus ridges
+- ARSA source confirms alarm-time read-back but does not document the exact tactile hand code
+- AFB-marked AS1475 is described as an ARSA-identical commission, so it is not a separate interface invention
+- A. Schild's prototype shows the movement producer itself explored the category, without proving ancestry
+- AS1930 survivors show the category outlived the first AS1475 generation, without proving manufacturer continuity
+
+Therefore the useful comparison unit is not “same case?” but:
+
+**How did each watch encode orientation, hand identity, cover access and future alarm state for touch-only use?**
+
+This also strengthens the earlier rejection of a universal complete-case supplier theory. A common AS1475 platform can support visibly different tactile case solutions.
+
+#### DEEP DIVE ④ — status
+
+PASS 1 COMPLETE for site planning.
+
+Open details that remain useful but non-blocking:
+- exact hand code on ARSA beyond visual geometry
+- exact alarm-hand code on BEAT
+- detailed A. Schild prototype interface
+- maker / opener details of afB De Luxe AS1930
+- independent institutional confirmation of AFB→ARSA commission
+
+Next Deep Dive:
+**⑤ AS1475 as mass-market platform and its transformations — ordinary alarm use → parking-time adaptation → tactile-alarm adaptation → later family / direct descendants.**
+

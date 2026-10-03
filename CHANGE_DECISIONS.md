@@ -17,6 +17,19 @@
 
 ## 2026-10-03
 
+### 2026-10-03 14:28 JST — ARSA Deep Dive ④触読alarm比較を完了し⑤AS1475変貌史へ進める
+
+- **変更**：ユーザーが③の設計思想まとめを採用し④へ進むと確認したため、③bをPASS 2 COMPLETE / ARCHIVE BONUS ONLYへ移し、④触読alarm比較をPASS 1 COMPLETEとした。次のACTIVEを⑤AS1475と変貌種へ移す。
+- **理由**：ARSA / AFB-marked ARSA-order / Enicar / BEAT / A. Schild prototype / later afBを同一軸で比較すると、共通するのは完成ケースではなくaccessibility requirementであり、AS1475という同一platform上でもopener・hand coding・marker hierarchyに別解が存在することが固定できたため。
+- **主な比較結果**：ARSA / Enicarは4時crown-integrated opener系、BEATは6時external opener。Enicar 1964 specialではminute ≈1.6 mm / hour ≈2.9 mm / alarm ≈0.7 mm + four ridgesという明示的hand codingを確認。ARSAはset alarm timeのtactile read-backを資料で確認するがexact hand codeは未記載。AFB-marked AS1475はBeitlがARSA自社モデルとidenticalとするため独立設計行ではなくcommission variationとして扱う。A. Schild prototypeは存在のみ確定。afB De Luxe AS1930はlater survivorだがmaker OPEN。
+- **旧状態・棄却**：④をWAITINGのまま設計書探索を無期限に続ける状態を終了。③bではfactory design document not recoveredを明示し、archive item `Toucher l'heure` 等は将来取得時のbonus evidenceへ降格する。common caliber → common complete case / universal case supplierという飛躍は引き続き棄却。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴。公開WATCH本文は変更しない。
+- **検証状態**：Project資料 *Alarm am Arm* のARSA / AFB / Enicar / BEAT / A. Schild項、*The Alarm Wrist Watch* のEnicar blind-alarm design記述、Peter Klöter auction archive / LotSearchのafB De Luxe AS1930、Uhrforum BEAT AS1930 survivor leadを突合。未記載項目はOPENのまま保持。
+- **起点・帰属**：③のsource-labeled design-requirement reconstructionを採用して④へ進む判断はユーザー。hand texture / coding比較軸もユーザーの継続指摘が起点。AIは各個体のsource tierと差分を整理した。
+- **関連**：Deep Dive ③b design philosophy / ④ tactile-alarm comparison / 次タスク⑤ AS1475 platform transformations。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T14:28:50+09:00` = `2026-10-03 14:28 JST`。
+
+
 ### 2026-10-03 13:29 JST — ARSA比較へ進む前に設計思想・設計資料のfocused passを挟む
 
 - **変更**：Deep Dive ③「時計本人」完了後に直ちに④他社比較へ進む順序を変更し、**③b 設計思想 / 設計資料**をACTIVEとして挿入した。④比較はWAITINGへ移す。
