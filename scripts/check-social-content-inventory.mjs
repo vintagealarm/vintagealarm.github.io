@@ -18,7 +18,7 @@ const validVerify = new Set(['READY_FROM_WATCH','RECHECK_SOURCE','OPEN_QUESTION'
 const errors = [];
 if (!text.endsWith('\n')) errors.push(`${file}: file must end with newline`);
 if (!text.includes("OWNER'S NOTE は分割しない")) errors.push(`${file}: OWNER'S NOTE no-split rule missing`);
-if (!text.includes("AI単独の分解は正本化しない")) errors.push(`${file}: collaborative review rule missing`);
+if (!text.includes("AIは候補分類まで先行してよい")) errors.push(`${file}: staged candidate review rule missing`);
 if (!text.includes("Content Assignment Registry")) errors.push(`${file}: assignment registry missing`);
 if (!text.includes("Candidate Review Queue")) errors.push(`${file}: candidate review queue missing`);
 for (const section of requiredSections) {
