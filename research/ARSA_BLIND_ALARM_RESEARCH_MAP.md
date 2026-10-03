@@ -474,3 +474,23 @@ Current classification after the 2026-10-03 VA research scope correction:
 - keep the probable 57426 issue as a **specimen-condition record only**
 - do not spend further VA research time on it unless arrival inspection produces evidence that changes the historical / structural interpretation
 - simple absence vs broken remnant remains unresolved, but this is not an active OWNER'S NOTE research priority
+
+
+## 2026-10-03 19:26 JST — P0 HOLD: Venus 230 ARSA Blind Alarm survivor lead
+
+Focused 03-only ad/catalog search still found **no indexed 1956–60 period ARSA Blind Alarm advertisement/catalog page**.
+
+New high-information survivor lead:
+- 2016 Uhrforum post identifies a 1950s **ARSA Blindenwecker** with **Venus 230**
+- 2-o'clock independent pusher opens the glass/bezel by flip mechanism
+- 3/5-o'clock crowns handle clock/alarm functions
+- this differs materially from the Project-book AS1475 ARSA Blind Alarm with cover opener integrated in the 4-o'clock crown
+
+**Status: HOLD / not public-copy-ready.**
+Do not treat this as a factory ARSA variant until independently corroborated.
+
+P0 verification order:
+1. recover and inspect forum specimen images / movement / case architecture
+2. find a second matching survivor
+3. seek 1954–60 ARSA catalog / ad / price list
+4. seek 1948–63 AFB Aids and Appliances / supplier documentation
