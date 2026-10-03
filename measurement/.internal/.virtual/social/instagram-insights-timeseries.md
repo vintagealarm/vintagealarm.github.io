@@ -887,6 +887,34 @@
 - source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
 - note: 2026-09-30 22:13 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。公開時刻はユーザー説明による概算で、共有数は画面上 `--` のため数値化しない。
 
+### Snapshot — 2026-10-04 08:24–08:25 JST
+- observed_at_jst: 2026-10-04 08:24–08:25
+- reel_duration: approximately 16s
+- views: 12,823
+- viewers: 9,447
+- average_watch_time: 12s
+- follows: 20
+- likes: 277
+- comments: 3
+- reposts: 5
+- share_count: UI `--`
+- saves: 52
+- skip_rate: 29.1%
+- share_rate: 0.2%
+- like_rate: 3.1%
+- save_rate: 0.6%
+- repost_rate: 0.1%
+- comment_rate: 0.0%
+- profile_accesses: 55
+- bio_link_clicks: 2
+- followers: 0.4%
+- non_followers: 99.6%
+- age: 13–17 1.8% / 18–24 28.4% / 25–34 39.0% / 35–44 15.8% / 45–54 8.6% / 55–64 4.3% / 65+ 2.1%
+- age_18_34_combined: 67.4%
+- countries: India 24.7% / Turkey 6.7% / France 5.2% / Iran 5.1% / United States 4.5%
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+- note: 2026-10-04 08:24–08:25 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。Meta UI評価は skip rate「低」、share rate「低」、like rate「低」、save rate「高」、repost rate「低」、comment rate「低」。
+
 ---
 
 # Westclox Watchlarm W5
