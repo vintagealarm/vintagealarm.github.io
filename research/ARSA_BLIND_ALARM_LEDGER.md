@@ -2497,3 +2497,124 @@ Only three company-history holes remain worth pursuing for site copy:
 
 Everything else should stay out of P0 unless it directly changes the company chapter.
 
+### 2026-10-03 — DEEP DIVE ②: demand background for tactile watches / tactile alarms
+
+**PURPOSE:** site掲載用Deep Diveの第2章「需要背景」。既存の触読時計史・戦傷失明者支援・AFB調査を、ARSA Blind Alarmを理解するために必要な長さへ圧縮する。戦争史や福祉制度史そのものを主題化しない。
+
+#### PRE-WAR TECHNICAL BASE — tactile timekeeping predates the World Wars
+
+A U.S. patent granted in **1887** already describes a watch whose time is read by touch:
+- raised / embossed dial indications
+- raised guide points with quarter positions differentiated
+- exposed tactile hands
+- hour hand with **one raised point**
+- minute hand with **two raised points**
+
+Source:
+- https://patents.google.com/patent/US365032
+
+**Research consequence:** tactile / blind-readable watches were not invented by WWI or WWII. The core problem — reading time without sight by touching markers and hands — was already being engineered in the nineteenth century.
+
+#### WWI — rehabilitation turns the watch into a practical independence tool
+
+Blind Veterans UK was founded in **1915** as the Blinded Soldiers and Sailors Care Committee / St Dunstan's to support servicemen blinded in WWI.
+
+Its archive states that founder Sir Arthur Pearson gave returning blinded men braille watches in hospital as a demonstration that blindness did not remove their ability to perform ordinary independent tasks.
+
+Sources:
+- https://www.blindveterans.org.uk/about-us/who-we-are/our-history/
+- https://www.blindveterans.org.uk/about-us/who-we-are/our-history/our-archives/
+
+**Research consequence:** by WWI, the tactile watch was not merely an unusual watch form. It had become part of rehabilitation practice and a concrete tool for restoring independent timekeeping.
+
+#### CIVILIAN / INSTITUTIONAL DISTRIBUTION — AFB from 1926
+
+AFB's institutional history states:
+- in **1926** AFB took over a watch-accommodation service previously handled by the Matilda Ziegler Magazine for the Blind
+- the arrangement initially involved **Waltham Watch Company**
+- the service enabled blind people to obtain reliable watches at low cost
+- it became the nucleus of AFB's Aids and Appliances Division
+- by 1972 that operation offered around 300 products, including **30 styles of brailled pocket and wrist watches**
+
+Source:
+- https://afb.org/online-library/unseen-minority-0/chapter-7
+
+**Research consequence:** tactile watches were already an established civilian assistive-device category with an organized supply channel before ARSA's 1950s Blind Alarm.
+
+#### WWII — large-scale rehabilitation demand and watch adaptation
+
+AFB's own history says:
+- in **1943** it began presenting blinded U.S. servicemen with braille watches
+- the watch was described as an early step in readjustment to blindness
+- an initial watch order required **$8,000**
+- by 1950 AFB had presented **1,464** blinded servicemen with personalized braille watches
+- wartime civilian shortages meant many early watches came from public donations
+- those watches were cleaned, repaired, and modified by adding small metal or glass tactile dots
+- the program continued through later conflicts and ended in **1963** when other sources could supply such equipment
+
+Sources:
+- https://afb.org/online-library/unseen-minority-0/chapter-17
+- https://afb.org/afb100/our-history
+
+**Research consequence:** WWII did not create the tactile-watch concept, but it greatly expanded institutional procurement, adaptation, distribution and rehabilitation use.
+
+#### JAPAN — independent institutional use in the same broad period
+
+The Seiko Museum documents a **1939 Seikosha pocket watch for blind users**:
+- front lid opened by pushbutton
+- time read by touching the hands and raised dial projections
+- during wartime, servicemen who lost their sight were presented with these watches
+- at least seven presentation occasions are recorded through 1944
+
+Source:
+- https://museum.seiko.co.jp/en/collections/watch_previousterm/collect044/
+
+**Research consequence:** the institutional use of tactile watches for war-blinded people was not uniquely American or British. Similar rehabilitation / presentation use existed in Japan.
+
+#### PROJECT SPECIALIST SOURCE — why a tactile alarm is a distinct second step
+
+Horlbeck's *The Alarm Wrist Watch* explains the practical extension:
+- once the hands could be felt, a blind user could also use an alarm watch
+- the cover could be opened and the hand positions felt
+- the user could read the current time **and the set alarm time**
+- the alarm time could then be reset
+- this required deliberately differentiated hands and controls
+
+This turns tactile timekeeping from a one-way function — reading the present time — into an **input + read-back system**:
+1. read the current time by touch
+2. set a future alarm time
+3. feel that alarm setting again to verify it
+4. receive the audible alarm later
+
+**Research consequence:** the demand for a tactile alarm is not simply “a louder watch for blind users.” Its distinctive value is that the **future reminder state itself becomes independently settable and checkable without sight**.
+
+#### SITE-USE SYNTHESIS
+
+For ARSA, the demand background can be reduced to four steps:
+
+1. **Tactile timekeeping already existed before the World Wars.**
+2. **WWI / WWII made independent timekeeping a structured rehabilitation need**, with charities and institutions supplying, adapting and repairing tactile watches at scale.
+3. **By the interwar and postwar period, tactile watches were an established assistive-watch category**, not a one-off wartime expedient.
+4. **The 1950s alarm wristwatch boom added a second function to that existing interface:** not only reading time, but setting and checking a future reminder time by touch.
+
+This supports describing the Blind Alarm as a **postwar convergence product** between an established tactile-watch ecosystem and the maturing mechanical alarm wristwatch.
+
+#### IMPORTANT LIMITS
+
+Do not state:
+- that war invented tactile watches
+- that WWII veteran demand directly caused ARSA to develop the Blind Alarm
+- that the AFB servicemen gift program was the specific customer for ARSA's circa-1960 AFB-marked model
+- that all historical “Braille watches” used literal Braille numerals
+
+Historical institutions often use “braille watch” as a category label for tactile analog watches with raised markers / exposed hands. Mechanically, these should be described by their actual tactile interface when precision matters.
+
+#### DEEP DIVE ② — status
+
+For site copy, this chapter now has sufficient evidence.
+
+Remaining archive branches such as the 1945 War Production Board “BRAILLE WATCHES” correspondence may enrich the background, but they are **NON-BLOCKING** unless they reveal a direct ARSA connection.
+
+Next Deep Dive:
+**③ ARSA Blind Alarm itself — mechanism, controls, tactile UI, failure / repair evidence, model variation, and the purchased specimen.**
+

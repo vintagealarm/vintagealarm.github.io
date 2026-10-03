@@ -17,6 +17,18 @@
 
 ## 2026-10-03
 
+### 2026-10-03 13:05 JST — ARSA Deep Dive ②需要背景のPass 1を完了し次を時計本人へ進める
+
+- **変更**：サイト掲載用Deep Diveの②「需要背景」をPass 1 COMPLETEとした。触読時計は少なくとも1887年のtouch-readable watch特許まで遡ること、WWIのSt Dunstan's / 現Blind Veterans UKでrehabilitationと自立支援の道具として使われたこと、AFBが1926年にWalthamとのwatch-accommodation serviceを引き継ぎ民間流通を制度化したこと、WWIIにAFBが失明軍人へ大規模配布・改造・修理を行ったこと、日本でも1939年Seikosha触読懐中時計が戦時失明軍人へ授与されたことを、ARSA本文に必要な背景として固定した。次のACTIVEを③ARSA Blind Alarm本人へ進めた。
+- **理由**：既存下調べと追加の公式・一次資料確認で、戦争を起源とするのではなく「既存の触読時計技術をrehabilitation / procurement / training / repairの制度へ押し上げた」という需要背景が十分に固まったため。Horlbeckの専門資料では、触読alarmは現在時刻だけでなく設定alarm時刻も触って確認・再設定できることが確認でき、1950年代Blind Alarmを既存触読時計文化への第二段階の機能追加として説明できる。
+- **旧状態・棄却**：需要背景をWWI / WWII / AFB archiveへ際限なく広げる状態を終了。war veterans → ARSA Blind Alarm、AFB gift program → ARSA commissionという直接因果の説明は引き続き棄却／NOT PROVEN。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴。公開WATCH本文はまだ変更しない。
+- **検証状態**：Google Patents US365032、Blind Veterans UK公式史・archive、AFB公式Chapter 7 / 17および100周年史、Seiko Museum 1939 blind watch、Project資料 *The Alarm Wrist Watch* のblind-alarm操作記述を確認。需要背景として十分、ARSA直接因果は未確認のまま保持。
+- **起点・帰属**：Deep Dive順で進める方針はユーザー。AIは既存下調べを需要背景章へ再編し、サイト掲載に必要な範囲へ圧縮した。
+- **関連**：Deep Dive ①会社史、次タスク③ARSA Blind Alarm mechanism / tactile UI / failure / variation / purchased specimen。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T13:05:58+09:00` = `2026-10-03 13:05 JST`。
+
+
 ### 2026-10-03 13:01 JST — ARSA Deep Dive ①会社史のPass 1を完了し次を需要背景へ進める
 
 - **変更**：サイト掲載用Deep DiveをVA標準順で進める運用に従い、①「作った会社 — Auguste Reymond / ARSA」のPass 1を完了扱いとした。会社史は1898創業、1926 Unitas取得、1931–33の業界再編、early-1950sのblind / Braille watch系統、mid-1950sのalarm wristwatch系統、1969/1970 Davoineでの会社specialty、1972/1973の再編・製造品目までをサイト用骨格として固定。次のACTIVEを②需要背景へ進めた。

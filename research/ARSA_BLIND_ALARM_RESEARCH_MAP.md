@@ -178,9 +178,15 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - 1960sにはTramelan最大級の雇用主、1972 merger後も1973にblind watchesを製造品目として確認
    - **サイト用の主眼:** ARSAは「盲人用時計だけの会社」ではなく、finished watchesを広く作る大規模メーカーの中に tactile watch と alarm watch の両系統があった
    - **残る一次資料穴:** 1948 company brochure本文、1973 75周年資料本文、1954–55 alarm introductionのperiod primary
-2. **需要背景**
-   - 触読時計が必要とされた理由、視覚障害者向け時計文化
-   - 戦争・AFBは背景として必要十分まで。ARSA直接因果が出なければ深追いしない
+2. **需要背景 — DEEP DIVE ② PASS 1 COMPLETE 2026-10-03**
+   - 触読時計の発想は少なくとも1887年のtouch-readable watch特許まで遡り、第一次大戦より前から存在
+   - WWIではSt Dunstan's / 現Blind Veterans UKが、失明軍人のrehabilitationと自立の象徴として触読時計を利用
+   - AFBは1926年にWalthamとの時計供給を含むwatch-accommodation serviceを引き継ぎ、民間向けassistive-device流通を制度化
+   - WWIIではAFBが1943年から失明軍人へBraille watchを配布。初期には寄付時計を清掃・修理し、触覚点を追加した例も多い
+   - 日本でもSeikoshaが1939年に視覚障害者向け触読懐中時計を製作し、戦時中に失明軍人への授与例あり
+   - **サイト用の主眼:** 戦争が触読時計を発明したのではなく、既存技術をrehabilitation / procurement / training / repairの制度へ押し上げた
+   - 1950年代のBlind Alarmは、その既存触読時計文化へmechanical alarm wristwatch機能を加えた第二段階として扱う
+   - **禁止:** veteran demand → ARSA開発、AFB gift program → ARSA受注を直接因果として書かない
 3. **ARSA Blind Alarm本人**
    - mechanism / UI / model variation / failure evidence / purchased specimen
    - 針破損やsetting disturbance等はsource別に整理
@@ -302,8 +308,8 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 ## 8. 次の実行順
 
 1. **①作った会社 — PASS 1 COMPLETE** — 会社史・製造能力・blind / alarm両系統の同時存在まで整理済み。残る一次資料穴だけHOLD
-2. **②需要背景 — NEXT** — 触読時計の用途・利用者・戦後までの制度背景を、ARSA説明に必要な長さまで圧縮する。1945 WPBを本線にはしない
-3. **③時計本人** — ARSA Blind Alarmのmechanism / tactile UI / failure evidence / model差をsource別に整理。購入個体画像を直接証拠として使う
+2. **②需要背景 — PASS 1 COMPLETE** — 前史 / WWI / AFB 1926 / WWII / 日本例まで必要十分に圧縮。戦争は発明起源ではなく制度化・普及の背景として固定
+3. **③時計本人 — NEXT** — ARSA Blind Alarmのmechanism / tactile UI / failure evidence / model差をsource別に整理。購入個体画像を直接証拠として使う
 4. **④触読alarm比較** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBを差分表へ固定する
 5. **⑤AS1475と変貌種** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る
 6. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
