@@ -17,6 +17,20 @@
 
 ## 2026-10-03
 
+### 2026-10-03 09:48 JST — OWNER'S NOTEコピー開発を全WATCH共通プロトコル＋CI gateへ昇格
+
+- **変更**：ARSAで得たコピー開発・帰属管理の修正を個別対応で終わらせず、今後の全WATCHへ適用する共通プロトコルとして実装した。起動時の `PROJECT.md` 強制チェック、`PROJECT_STATE.md` の現行baseline、`AGENTS.md` の作業手順、`SITE_RULES.md` のCatch / Lead開発プロトコルを同期し、固定の代表本数ではなく作業時点で `published: true` の日本語WATCHすべてを温度ベンチマークにする。さらに `scripts/check-owner-copy-provenance.mjs` を追加し、実際に `src/content/watches/*.md` の `catch` または `ownersNote.lead` が変わるPRでは、新しい判断履歴に `対象WATCH / 起点・帰属 / VA温度比較 / 採否・現在状態` の4項目がなければquality gateを失敗させる。動的な横並び確認用に `npm run owner-copy:benchmark` も追加し、self-testを `test:quality` へ組み込んだ。あわせて `PROJECT.md` 自体をdecision-bearing fileとして `check:decision-log` の監査対象へ追加した。
+- **理由**：ユーザーから「ARSAだけでなく他の時計にも今後適用するので実装しきる」よう明示されたため。文書へ「温度を見る」と書くだけでは、次回別WATCHで固定の代表数本だけを見たり、発案者・派生元・棄却理由を会話に残したまま実ファイルだけ変更したりする再発を機械的に止められない。起動ルーター → 現行baseline → 編集正本 → 実変更CIの四層へ分けて固定する。
+- **旧状態・棄却**：ARSAの今回判断だけを `CHANGE_DECISIONS.md` へ残し、他WATCHでは任意運用に戻る状態を棄却する。Pierce / Cyma / Basis / Westclox等の固定代表だけを永続ベンチマークにする方式も棄却し、公開WATCHの増減に自動追従する全件比較へ変更する。また「VAっぽさ」を一つの平均文体へ均一化する運用は採用せず、公開中Catch / Leadが持つ低温度〜高温度のレンジ内で時計固有の入口を作る。
+- **影響範囲**：`PROJECT.md`、`PROJECT_STATE.md`、`AGENTS.md`、`SITE_RULES.md`、`scripts/check-decision-log.mjs`、新規 `scripts/check-owner-copy-provenance.mjs`、新規 `scripts/owner-copy-benchmark.mjs`、`package.json`、PR #144。既存公開WATCH / OWNER'S NOTE本文・既存Catch / Leadそのものは変更しない。
+- **検証状態**：copy provenance gateはCatch変更・Lead変更・NOTEのみ変更・必須marker欠落を判定するself-testを内蔵し、`test:quality` から実行する構成へした。quality gateでは `check:decision-log` に続いて `check:owner-copy-provenance` を実行する。branch上の実装完了後、PR CIでself-test / quality / buildを通し、main merge後に正本を再取得して初めてVERIFIED / main反映済みとする。
+- **対象WATCH**：全WATCH共通。実変更時は対象slugを明記する。
+- **起点・帰属**：全WATCH適用の要求はユーザー。ARSAでの「身体・身近なガジェット等へ置換」「既存VAキャッチとの温度整合」「発案者と取捨選択経緯を残す」という基準を、AIが再利用可能な手順とCIへ実装した。
+- **VA温度比較**：固定の既存6本を規則へ埋め込まず、作業時点の公開日本語WATCH全件を動的母集団にする。比較軸は初見理解、親しみやすさ、時計固有機能への接続、遊び・比喩の濃さ、外部ネタ依存、Leadが具体へ戻れる余地。低温度／高温度の共存を許容し平均化しない。
+- **採否・現在状態**：全WATCH共通プロトコルを採用。ARSAの現working candidate自体はこの実装でFINAL化しない。今後Catch / Lead実変更PRはCI gate対象になる。
+- **関連**：PR #144。decision-bearing commits `3f263fdd`, `c90e81e3`, `15e7679a`, `49215773`, `ec6a819a`, `b1fd6dee`, `8abcc0ca`, `cd0cab57`, `bd92a3ed`, `67fc195b`, `6ceb0795`, `5b98f584`, `2ebd7e72`, `738ab5d0`。
+- **日時根拠**：会話セッションのローカル時刻 `2026-10-03 09:48 JST`。
+
 ### 2026-10-03 09:24 JST — ARSAコピー選別基準へ既存VAキャッチの整合性・温度感を追加
 
 - **変更**：PR #144で記録した「誰が提案したか／どう取捨選択したか」に加え、ARSA OWNER'S NOTEのCatch / Lead選別では、公開中のVAキャッチ全体との整合性と温度感を必須基準として扱う。現行比較対象は少なくとも Basis `触って、見て、聴いて楽しむおもちゃ箱。`、Pierce `マナーモードの祖先!? / 1950's通知のオーパーツ。`、Cyma `鳴る黄金のクロノメーター`、Citizen `国産初のベル腕時計、そして伝説へ。`、Westclox `0石腕時計の劇的ビフォーアフター。`、Wittnauer `過酷な現場、アラーム部門。 / 今日もベゼルがワンオペ中🔔`。新案は、抽象度、初見理解、身近な言葉への置換、遊びの濃さ、外部ネタ依存、時計本人がオチを回収できるかで横比較する。
