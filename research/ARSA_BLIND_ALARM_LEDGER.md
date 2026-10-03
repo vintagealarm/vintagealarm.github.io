@@ -2175,3 +2175,76 @@ A cleaner chronology now emerges:
 
 The next archival gain is likely to come from **documents naming suppliers**, not from brand labels alone.
 
+### 2026-10-03 — user-supplied purchased ARSA specimen: direct interface image evidence
+
+**SOURCE CLASS:** USER-SUPPLIED IMAGE SET / PURCHASED TARGET SPECIMEN
+
+The user supplied five screenshots / photographs of the purchased ARSA Blind Alarm, including:
+- movement-side view
+- closed-front listing view
+- three open-front / hinged-cover views
+
+These images are treated as **direct specimen evidence** for visible architecture only. They do not establish production year, case material, tactile feel, operating force, service quality or hidden condition.
+
+#### IMAGE-CONFIRMED — dial and tactile layout
+
+Visible on the purchased specimen:
+- dial signed **ARSA**
+- lower dial text **ALARM / 17 JEWELS**
+- **SWISS MADE** at 6
+- raised tactile hour markers around the perimeter
+- the 12 o'clock landmark is differentiated by a vertical **three-dot** cluster
+- the 6 o'clock landmark is visibly differentiated by vertically grouped tactile dots
+- additional raised-dot differentiation is visible around the quarter-hour areas, though some exact positions are partly obscured by the hands in the available images
+- broad / robust hour and minute hands
+- a separate, much narrower central pointer with a strongly textured / crosshatched surface, visually consistent with the alarm-setting hand
+- **no seconds hand**
+
+**Interpretive boundary:** the images show visual differentiation among the three information pointers, but they do not yet prove how reliably the user can distinguish each by touch. That remains an arrival / hands-on observation.
+
+#### IMAGE-CONFIRMED — front-cover and opener architecture
+
+The open-cover images directly show:
+- hinged front crystal / cover opening to the **left side**
+- hinge located on the **9 o'clock side** of the case
+- two right-side crowns, approximately at 2 and 4 o'clock
+- the lower ~4 o'clock crown has a **projecting central push-piece** visible in the open-cover photographs
+
+This is visually consistent with Beitl's ARSA Blind Alarm description in *Alarm am Arm*: the cover opens by a pusher integrated into the crown at 4 o'clock.
+
+**Important:** this establishes that the purchased specimen uses the documented ARSA-style crown-integrated opener architecture. It does **not** make the purchased specimen the same physical watch as Beitl's illustrated 1958 example, nor does it date the purchased specimen to 1958.
+
+#### IMAGE-CONFIRMED — movement
+
+The movement-side photograph shows:
+- **17 JEWELS** engraved on the bridge
+- visible **AS 1475** caliber stamp at the plate edge
+- bridge / wheel layout consistent with the already-resolved AS1475 identification
+- two crown/stem positions corresponding to the two-crown alarm layout
+
+This independently reinforces the earlier target-specimen movement identification from the seller photo set.
+
+#### Comparison with the specialist-book ARSA example
+
+*Alarm am Arm* describes its 1958 ARSA Blind Alarm example as:
+- chrome-plated metal case with screw back
+- **AS 1475**
+- raised tactile hour points
+- front glass opened by a pusher in the crown at 4
+- robust hands because they are touched directly
+- no seconds hand
+
+The purchased specimen images now directly confirm the same **core interface architecture**:
+AS1475 + raised tactile markers + robust tactile hour/minute hands + no seconds + hinged front cover + 4-o'clock crown-integrated opener.
+
+What remains specimen-specific / open:
+- exact production year
+- exact case material
+- inside caseback marks / case maker
+- tactile distinction of hour / minute / alarm hands in actual use
+- whether the alarm-setting hand can be read back reliably by touch on this specimen
+- opening force / latch feel / hinge play
+- hidden / under-dial condition
+
+**Research consequence:** the purchased specimen can now serve as a direct ARSA interface row in the survivor comparison rather than relying only on seller prose or the 1958 book specimen. The image set supports the hardware architecture; hands-on tactile behavior still waits for arrival.
+
