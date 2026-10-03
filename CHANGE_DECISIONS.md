@@ -815,6 +815,6 @@
 - **OWNER'S NOTE**: OWNER'S NOTEは1個体1完成物として `WHOLE_ONLY`。leadや本文の一文を別々のSNS資産へ分割して同じhero画像で擦る運用は棄却。
 - **確度ルール**: `CANDIDATE_NOT_IN_IG_TEXT` はInstagram公開本文に見つからないことだけを示し、動画内視覚使用まで未使用と断定しない。`NO_EXPLICIT_USE_FOUND_2026-10-03` も現行social canon監査で明示使用が見つからないという限定状態で、絶対未使用とは扱わない。
 - **影響範囲**: SNS投稿案、Council / 焼きのSNS案、引き継ぎ、既出判定、追加撮影計画。公開WATCH本文、OWNER'S NOTE原文、Instagram Insights数値、CANONICAL FUNNELは変更しない。
-- **検証状態**: branch / PRで `npm run check:social-inventory` を含む `npm run check:quality` と既存CIを実行し、diff・decision logを確認後にmainへ反映する。
+- **検証状態**: PR #150 の `Astro foundation check` run `37108055324` がSUCCESS。`npm run check:quality` 内で新規 `check:social-inventory` を含む全quality gateがPASSし、build / publication-aware output / mobile layoutもPASS。diffは9ファイル（新規inventory・checkerを含む）を確認済み。main反映後にinventory・Router・PROJECT系を再取得して最終確認する。
 - **関連**: 2026-10-03ユーザー指示「保存されたVA資産 → SNS投稿ネタ候補の専用棚卸し層を徹底」「引き継いだ後に地獄を見たくない」。
 - **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 16:46 JST`（UTC+09:00）。
