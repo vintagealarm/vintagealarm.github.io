@@ -77,9 +77,18 @@ function allMatches(pattern, text) {
   return [...text.matchAll(regex)];
 }
 
+function sentenceScanText(text) {
+  if (!text.startsWith('---')) return text;
+
+  const frontmatter = text.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  if (!frontmatter) return text;
+
+  const body = text.slice(frontmatter[0].length).trim();
+  return body || frontmatter[1];
+}
+
 function sentences(text) {
-  return text
-    .replace(/^---[\s\S]*?---/m, '')
+  return sentenceScanText(text)
     .split(/(?<=[。！？!?])|\n+/)
     .map((sentence) => sentence.replace(/^\s*[-*>#\d.()①-⑳]+\s*/, '').trim())
     .filter((sentence) => /[ぁ-んァ-ヶ一-龠々]/.test(sentence) && sentence.length >= 8);
