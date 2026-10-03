@@ -1929,3 +1929,14 @@ Delta from 2026-10-03 10:18:
 - 10:18→20:24の約10時間6分で +12 views / +6 viewers。配布規模は小さいままだが、既存フォロワー内ではlikesが1→3へ増えている。
 - 現時点の主な差は「見た人が全く反応しない」より「非フォロワーへ配布されていない」にある。12 viewersという極小標本のため、題材そのものの魅力度をこの投稿だけで否定しない。
 - 静止画カルーセル一般が必ず非フォロワーへ出ないとは断定しない。VAアカウントのこの1投稿で、Reels初回群と異なる配布状態が継続している観測として扱う。
+
+## 2026-10-03 20:25 JST — VA資産をmicro-Reelへ細分化する運用をACTIVE化
+
+### Decision
+- **Decision**: `content-inventory.md` の独立資産を、原則 `1 Reel = 1要素` の短編へ分解して使う。画面文字は最小限、1本で1操作・1機構・1ディテールのみ。数を作る場合も、同じOWNER'S NOTEや同じ既出主題を言い換えて増殖させず、inventoryの別assetを使う。
+- **Origin**: USER。2026-10-03のWittnauer静止画カルーセル観測後、「動画用に細かく分解して文字も少ない短編動画で数も稼ぎながら分解してやっていく」と明示。
+- **Evidence**: Wittnauer静止画カルーセルは約12h54m時点で22 views / 12 viewers / non-followers 0%。一方、初回Reels群では非フォロワー配布を確認済み。ただしformat以外も異なるため、micro-Reelは原因確定ではなく次の比較手段として扱う。
+- **Packaging rule**: 可能なら3–8秒程度の視覚的な1動作・1変化で成立させる。必要なら短いmacro pan / before→after / crown・slider・pusher操作を使う。長い字幕、WATCH本文の圧縮転載、OWNER'S NOTE分割はしない。
+- **Inventory rule**: `CANDIDATE_NOT_IN_IG_TEXT` を優先。`PARTIAL` は別検証理由がある場合のみ。`USED` を新ネタとして再発明しない。投稿前にWATCH / research正本へ戻り、事実と操作を再確認する。
+- **Revisit / falsifier**: micro-Reelを複数本実施しても非フォロワー配布が静止画と同程度に留まる、または保持・保存・共有が継続的に悪化する場合はformat仮説を再検討する。
+- **Status**: ACTIVE。

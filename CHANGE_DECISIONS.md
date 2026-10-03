@@ -827,3 +827,12 @@
 - **検証状態**: PR上で `npm run check:social-inventory` を含むquality gateと既存CIを再実行し、PASS後にmainへ反映する。
 - **関連**: Project / Library `VINTAGE_ALARM_完全引継ぎ_2026-09-09(1).md`、現行 `src/content/watches/cyma-time-o-vox.md` Deep Dive 02、2026-10-03ユーザー指示。
 - **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 17:08 JST`（UTC+09:00）。
+
+### 2026-10-03 20:25 JST — SNS再利用を1要素1本のmicro-Reel運用へ細分化
+- **変更**: 既存VA資産のSNS再利用で、`content-inventory.md` の独立要素を原則 `1 Reel = 1要素` の短編動画へ分解する運用をACTIVE化。画面文字は最小限、短尺、1操作・1機構・1ディテール単位とする。静止画カルーセルは補助扱いに戻す。投稿頻度そのものはこの変更では固定しない。
+- **理由**: 2026-10-03のWittnauer 10WA静止画カルーセルが約12h54m時点で22 views / 12 viewers / non-followers 0%に留まり、既存Reels群と配布状態が大きく異なった。ユーザーから、VA資産をさらに細かく動画化し、少ない文字で短編を多数作る方針が明示されたため。
+- **旧状態・棄却**: 細かい研究ネタを静止画カルーセル中心で試す運用を主力候補から外す。ただし単一投稿だけで「静止画は常に不利」「動画なら必ず伸びる」と断定する判断は棄却し、micro-Reelを次の比較手段として扱う。
+- **影響範囲**: Social `ROUTER.md` のACTIVE判断、`instagram-operations.md` の運用判断。`content-inventory.md` の既出 / 未使用判定、OWNER'S NOTE `WHOLE_ONLY`、公開WATCH本文、CANONICAL FUNNEL、既存投稿頻度の固定値は変更しない。
+- **検証状態**: PR #153 の `Astro foundation check` run `37120376779` がSUCCESS。build / quality gates / OWNER'S NOTES directory / publication-aware output / mobile layoutまでPASS。実際の成果は次回以降のmicro-Reel Insightsで別途観測する。
+- **関連**: 2026-10-03 Wittnauer 10WA static carousel `content_id=wittnauer-10wa-static-2026-10-03`、Social Content Inventory。
+- **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-03 20:25 JST（UTC+09:00）。
