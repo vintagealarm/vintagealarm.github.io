@@ -1968,3 +1968,52 @@ Delta from 2026-10-03 10:18:
 - **Over-correction removed**: 2026-10-03 22:47の「AIはasset境界を決めない」という表現を修正。AIは**候補境界を提案・分類してよい**。禁止するのは、提示・相談を飛ばした正本化。
 - **Reservation rule**: 動画への当て込みも候補提示は可能。実制作の `PLANNED` はユーザー採用後のみ。
 - **Status**: ACTIVE。
+
+## 2026-10-04 08:24–08:25 JST — Basis 12.8K到達 / 外部大型時計アカウント波及イベント
+
+ユーザー提供Instagram InsightsスクリーンショットでBasis Alarm Reelの最新値を確認し、同Reelについて会話内で共有された外部大型時計アカウント（約40.3万フォロワー）による再編集・@vintagealarm attribution付き波及イベントを併記する。外部アカウント側の正確な投稿時刻・増分寄与はこの記録では未確定とし、Basis自身のInstagram Insights実測と因果を分離する。
+
+### Basis latest observed snapshot
+- Views: 12,823
+- Viewers: 9,447
+- Average watch time: 12s（約16s Reel）
+- Follows: 20
+- Likes: 277
+- Comments: 3
+- Reposts: 5
+- Saves: 52
+- Profile accesses: 55
+- Bio-link clicks: 2
+- Non-followers: 99.6%
+- Skip rate: 29.1%（Meta UI: 低）
+- Save rate: 0.6%（Meta UI: 高）
+- Like rate: 3.1%（Meta UI: 低）
+- Countries: India 24.7% / Turkey 6.7% / France 5.2% / Iran 5.1% / United States 4.5%
+- Age 18–34 combined: 67.4%
+
+### Comparison with prior canonical Basis snapshot — 2026-09-30 22:13 JST
+- Views: 11,026 → 12,823 (+1,797 / +16.3%)
+- Viewers: 8,167 → 9,447 (+1,280 / +15.7%)
+- Likes: 224 → 277 (+53 / +23.7%)
+- Saves: 41 → 52 (+11 / +26.8%)
+- Follows: 14 → 20 (+6 / +42.9%)
+- Profile accesses: 44 → 55 (+11 / +25.0%)
+- Comments: 2 → 3 (+1)
+- Reposts: 5 → 5 (unchanged)
+- Average watch time: 13s → 12s
+- Skip rate: 29.3% → 29.1% (-0.2pt)
+- Save rate: 0.5% → 0.6% (+0.1pt)
+- Non-followers: 99.6% → 99.6% (unchanged)
+- 18–34 combined: 67.1% → 67.4% (+0.3pt)
+
+### Cross-Reel comparison against stored mature snapshots
+- Basis 12,823 views is 3.72× Wittnauer 10WA's 3,445 (2026-09-30 22:10), 4.55× Pierce Duofon's 2,815 (2026-09-30 22:12–22:13), 7.02× Westclox Watchlarm's 1,827 (2026-09-30 22:13–22:14), and 9.01× Citizen Alarm's 1,423 (2026-10-02 06:29–06:30). Observation ages differ, so these are absolute stored-snapshot comparisons, not equal-time performance ratios.
+- Basis skip rate 29.1% is materially lower than the stored mature snapshots for Wittnauer 43.0%, Pierce 44.2%, Westclox 47.8%, and Citizen 45.3%.
+- Basis average watch time 12s on ~16s is longer in absolute seconds than Wittnauer 6s, Pierce 7s, Westclox 9s, Citizen 6s, but Reel durations differ; do not treat seconds alone as a normalized retention ranking.
+
+### Interpretation / event handling
+- Confirmed from Basis Insights: the Reel continued to add distribution and conversion after the 2026-09-30 snapshot while retaining 99.6% non-follower exposure and ~29% skip rate.
+- Descriptively, follows (+42.9%) and saves (+26.8%) grew faster than views (+16.3%) over the same snapshot interval.
+- The external ~403K-account event is recorded as a distinct amplification event, not as proof that it caused the entire +1,797-view increase. Exact causal contribution remains unmeasured without source-level attribution / external-post timing evidence.
+- Current evidence strengthens Basis as the strongest observed Instagram Reel in the stored set on absolute distribution and low skip rate, while the creative/mechanical cause remains unresolved.
+
