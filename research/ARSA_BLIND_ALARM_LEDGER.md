@@ -3389,3 +3389,90 @@ The planned research sequence ①→⑤ is now complete at PASS 1 level. Remaini
 3. period Swiss trade paperでのA. Reymond / ARSA product advertisement
 
 の3系統。新しい直接証拠が出た時だけ03候補へ昇格する。
+
+
+### 2026-10-03 20:38 JST — exact 1958 A. Reymond article identified; AFB archive target becomes concrete
+
+#### 1. EXACT 1958 PERIOD ARTICLE — Journal Suisse d'Horlogerie
+
+A focused period-paper pass identified an exact contemporary company article:
+
+**Journal suisse d'horlogerie et de bijouterie, N°2, mars-avril 1958**
+
+The issue table of contents lists:
+> `La manufacture d'horlogerie Reymond S.A. fête son 60e anniversaire`
+
+Natural Japanese:
+> **「レイモンド時計製造会社、創業60周年を迎える」**
+
+The same issue also lists:
+> `Nouveaux modèles`
+
+Japanese:
+> **「新モデル」**
+
+The seller TOC has obvious OCR spelling errors (`hormogerie`, `reymons`), but the intended company/title is clear from context.
+
+Independent archive confirmation:
+- The Watch Library / Musée international d'horlogerie hosts **Journal Suisse d'Horlogerie | 1958**
+- date: 1958
+- 822 pages
+- licence: public domain
+
+**Evidence class:** PERIOD-SOURCE TARGET / EXACT ISSUE CONFIRMED / ARTICLE CONTENT OPEN.
+
+**Why this matters:** Beitl's illustrated ARSA Blind Alarm specimen is dated 1958. A. Reymond receiving a dedicated 60th-anniversary article in the same year's trade journal creates a precise period-primary route into the company and possibly its contemporary model range.
+
+**Boundary:** article body has not yet been extracted. It is not yet evidence that Blind Alarm, tactile watches, or alarm watches appear in that article. Public 03 remains unchanged until the body proves that connection.
+
+Sources:
+- AbeBooks, `Journal suisse d'horlogerie et de bijouterie - N° 2 de mars-avril 1958`
+- The Watch Library, `Journal Suisse d'Horlogerie | 1958`
+
+#### 2. AFB / APH — exact watch-program archive lane
+
+American Printing House for the Blind's official article **The Gift of Time** states that one folder in the AFB Archive contains **hundreds of braille-watch repair receipts**. It also identifies correspondence with **Katherine Gruber**, director of AFB's braille-watch program. The same source says the program continued until 1963 and that repeater watches later had to be imported from Switzerland.
+
+Natural Japanese summary:
+- **AFBにはBraille watch修理票が数百件まとまった実ファイルがある**
+- **時計プログラム責任者Katherine Gruberの書簡も同じ資料群に含まれる**
+- **プログラムは1963年まで継続**
+- **スイスから時計を輸入した実績も確認できる**
+
+**Evidence class:** OFFICIAL ARCHIVE DESCRIPTION / ARCHIVE LOCATION CONFIRMED / ARSA LINK OPEN.
+
+This changes the archive request from a vague institutional search to a concrete file-family request:
+- braille-watch repair receipts
+- Gruber correspondence
+- purchasing / supplier / invoice correspondence
+- 1955–1963
+- ARSA / A. Reymond / Auguste Reymond / Tramelan / Switzerland / alarm watch
+
+Do not infer that the Swiss imports named in the article were ARSA; the article's repeater-watch passage does not establish that.
+
+Source:
+- American Printing House for the Blind, `The Gift of Time`
+
+#### 3. Mémoires d'Ici / Watch Library lane retained
+
+Mémoires d'Ici's A. Reymond dossier still lists:
+- 1948 company anniversary material
+- 1950 A. Reymond advertisement in the iconographic collection
+- 2008 `Zeit spühren = Toucher l'heure`
+
+Natural Japanese for the latter:
+> **「時を感じる／時刻に触れる」**
+
+The full relevant text remains unrecovered.
+
+The Watch Library confirms public archival runs for:
+- Journal Suisse d'Horlogerie, 1876–1978
+- La Suisse Horlogère, 1948–1958
+- Revue internationale de l'horlogerie, 1900–1960
+- Indicateur Davoine, 1841–1977
+
+#### 4. Current outcome
+
+**Still not recovered:** a 1956–60 period advertisement/catalog page explicitly showing or naming the ARSA Blind Alarm itself.
+
+**Highest-value next extraction:** obtain the body/pages of the March–April 1958 Journal Suisse d'Horlogerie A. Reymond 60th-anniversary article, then inspect adjacent `Nouveaux modèles` pages. This outranks another broad Web search.
