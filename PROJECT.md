@@ -62,7 +62,7 @@
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
 - Analytics / 計測単体 → `measurement/metrics.md` + 対象実装
 - **SNS / 布教 / Instagram / X / YouTube / SNSとVA Analyticsの突合 → `measurement/.internal/.virtual/social/ROUTER.md` を最初に読む**
-- **SNS投稿案 / 既出・未使用角度 / 再利用素材 / 要追加撮影の棚卸し → Social `ROUTER.md` の後に `measurement/.internal/.virtual/social/content-inventory.md` を必ず読む**
+- **SNS投稿案 / 既出・未使用角度 / 再利用素材 / 要追加撮影の棚卸し → Social `ROUTER.md` の後に `measurement/.internal/.virtual/social/content-inventory.md` を必ず読む**。final案へ進む前に同inventoryのContent Assignment Registryでasset / content / mediaのactive重複を確認し、採用案は `PLANNED` として予約する。
 - SNS詳細実測 → `measurement/.internal/.virtual/social/instagram-operations.md`
 - 過去SNS / Analytics実験 → `measurement/experiment-log.md`
 - 英語入口 → `strategy/english-entry.md`
