@@ -817,4 +817,4 @@
 - **影響範囲**: SNS投稿案、Council / 焼きのSNS案、引き継ぎ、既出判定、追加撮影計画。公開WATCH本文、OWNER'S NOTE原文、Instagram Insights数値、CANONICAL FUNNELは変更しない。
 - **検証状態**: branch / PRで `npm run check:social-inventory` を含む `npm run check:quality` と既存CIを実行し、diff・decision logを確認後にmainへ反映する。
 - **関連**: 2026-10-03ユーザー指示「保存されたVA資産 → SNS投稿ネタ候補の専用棚卸し層を徹底」「引き継いだ後に地獄を見たくない」。
-- **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 16:46 +09:00`。
+- **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 16:46 JST`（UTC+09:00）。
