@@ -28,7 +28,7 @@
 - **起点・帰属**：問題のSUB候補はAI発。問題点の特定と棄却判断はユーザー指摘。AIが既存VAコピーと照合して一般ルールへ反映した。
 - **VA温度比較**：遊びの強弱以前に意味が通ることを優先する。VAの短文・断片表現は維持するが、読者が「何が？何を？何の時間？」と補完しないと読めない省略は採用しない。
 - **採否・現在状態**：`タッチパネル、物理です。` と上記一連のAI SUB案はREJECTED。`開けて、触って、聞く。` はWORKING_MAINのまま。SUBは再設計。
-- **関連**：2026-10-03 09:48 JST 全WATCH共通Catch / Leadプロトコル、同日10:15 JST Sensitive-context guard。
+- **関連**：2026-10-03 09:48 JST 全WATCH共通Catch / Leadプロトコル、同日10:15 JST Sensitive-context guard、semantic clarity rule commit `2ce62bed`。
 - **日時根拠**：会話ターンのローカル時刻 `2026-10-03T12:31+09:00` = `2026-10-03 12:31 JST`。
 
 ### 2026-10-03 12:28 JST — ARSA調査をDuofon / 10WA型のVA標準フレームへ戻しarchive枝を非blocking化
