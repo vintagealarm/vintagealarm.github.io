@@ -3345,3 +3345,85 @@ Non-blocking OPEN points:
 - arrival test to determine early/late alarm-state logic on the purchased ARSA specimen
 
 The planned research sequence ①→⑤ is now complete at PASS 1 level. Remaining work is **arrival supplementation and archive bonus evidence**, not another broad Web pass.
+
+
+### 2026-10-03 19:26 JST — 03直結広告探索 + Venus 230 ARSA Blindenwecker survivor lead
+
+**PURPOSE:** 公開Deep Diveを「広告祭り」にせず、03「ARSA Blind Alarmそのもの」を直接補強できる当時広告・カタログ・取扱資料だけへ探索を絞る。
+
+#### PERIOD AD / CATALOG SEARCH — focused result
+
+ARSA / A. Reymond / AFB と以下を組み合わせて再探索した。
+
+- Blindenwecker / Blindenuhr
+- montre pour aveugles + réveil / montre-bracelet réveil
+- braille alarm / blind alarm
+- catalog / catalogue / Aids and Appliances
+- 1956 / 1957 / 1958 / circa 1960
+
+**Result:** indexed Web上では、1956–60年の **ARSA Blind Alarmそのものを掲載した当時広告・ARSAカタログ・AFB商品ページは今回も未回収**。
+
+1970 Davoineの会社広告、1956前後の通常ARSA Alertic広告、一般的な盲人時計広告は存在するが、03本人の証拠ではないため公開03の代用品にはしない。
+
+#### SURVIVOR / FORUM LEAD — ARSA Blindenwecker with Venus 230
+
+Uhrforumの2016年投稿（Weckerfreund, Beitrag #492）が、1950年代のARSA (Auguste Reymond S.A.) **Blindenwecker** として、Venus 230搭載個体を詳細に紹介している。
+
+Source:
+- https://uhrforum.de/threads/vintage-armbandwecker-zeigt-sie-in-bild-und-ton.16190/page-25
+
+投稿者記載:
+- Venus 230
+- 17 jewels
+- 18,000 A/h
+- 時計とアラームで1香箱を共有
+- 3時リューズ: 巻上げ / 時刻合わせ
+- 5時リューズ: アラーム時刻合わせ / ON-OFF
+- **2時プッシャー: ガラス付きベゼルをflip mechanismで開く**
+- 金張り系の真鍮ケース
+- ステンレス製の二重裏蓋、共鳴孔あり
+
+投稿原文の要点:
+- `als Blindenwecker` → **盲人用アラーム腕時計として**
+- `Drücker bei 2 = Öffnen der Lünette mit Glas durch einen Flipmechanismus` → **2時位置のプッシャーで、ガラス付きベゼルを跳ね上げて開く**
+
+**Evidence class:** SURVIVOR / FORUM LEAD / HOLD.
+
+#### Why this matters
+
+Project専門書『Alarm am Arm』でARSA Blindenuhrとして固定できている本線は **AS 1475** で、約1956年の歴史記述・1958年掲載個体・4時側クラウン中央の蓋オープナーを持つ。
+
+したがって、このVenus 230個体を現時点で
+- ARSAの別系統量産Blind Alarm
+- AS1475以前の先行型
+- 正規factory variant
+
+のいずれかへ昇格してはならない。
+
+現時点の説明候補は少なくとも:
+1. genuineな別ARSA Blind Alarm architecture
+2. 通常のARSA Venus 230 alarmを後に触読化したconversion
+3. one-off / marriage / repair-derived construction
+
+の3つを残す。
+
+#### Corroborating context
+
+Project専門書は、ARSAが通常のVenus 230アラームを
+- ca.1954
+- 1956
+- 1960 (Alertic)
+
+の時期に実際に扱っていたことを示す。一方、同書の索引は **Arsa Blindenuhr = AS1475** とする。
+
+そのため、Venus 230という組み合わせ自体は年代・メーカー上あり得るが、**Blind Alarmとしてのfactory provenanceは未確認**。
+
+#### Next high-information checks
+
+1. forum個体のムーブメント写真・文字盤・ケース・蓋機構を回収してconversion痕を確認
+2. 同じVenus 230 / 2時プッシャー構成の第2個体を探す
+3. 1954–60 ARSA catalog / price list / adでBlind Alarmまたは開閉蓋付きVenus 230を探す
+4. AFB 1948–63 Aids and Appliances catalog / supplier correspondenceでARSA名・alarm modelを探す
+5. period paperが出るまで公開03へ確定記述として入れない
+
+**Current editorial handling:** 03には代用品広告を置かない。本命のARSA Blind Alarm period paperが取れた場合のみ、03の視覚史料として採用候補にする。
