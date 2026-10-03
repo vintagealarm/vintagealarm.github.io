@@ -745,3 +745,18 @@ https://hirotacorp.jp/company-guide/history/
 ## Update rule
 
 新資料が出たら、直接観察／販売者説明／専門資料／一次資料を分ける。ブランド所有者、ムーブメント製造者、外装製造者、販売者、記念品納入者を混同しない。
+
+## 2026-10-03 — LOOP CORRECTION / RESOLVED INPUT
+
+The post-G0 specimen-family comparison was reclassified as **NO MATERIAL PROGRESS — duplicate/loop**.
+
+Resolved inputs that must not be re-run from the same images:
+- normal-dial user specimen vs Beitl p.317;
+- normal-dial vs tricolor rear-control layout;
+- tricolor direct `JAPAN` marking;
+- Fukuoka commemorative-clock family comparison.
+
+These remain valid evidence already present in the corpus, but their reorganization does not move G0–G5.
+
+Reopen only for genuinely new physical evidence: movement/dial-back/case markings, original paperwork, or a new specimen with a new responsibility mark.
+
