@@ -842,3 +842,14 @@
 - **再開条件**：ARSA period catalog / price list / advertisement、AFB supplier document、または同型Venus 230 Blind Alarmの独立第2個体など、新しい証拠が追加された場合のみ再評価する。
 - **関連**：2026-10-02 saturation pass、2026-10-03 Deep Dive ③、2026-10-03 19:26 JST research entry。
 - **日時根拠**：会話ターンのローカル時刻 `2026-10-03T19:50:25+09:00` = `2026-10-03 19:50 JST`。
+
+
+### 2026-10-03 20:15 JST — ARSA Venus 230 survivorをDeep Dive 04の比較個体として採用
+
+- **変更**：Uhrforumで報告されたARSA Blindenwecker / Venus 230現存個体を、研究上はKNOWN / DUPLICATE / HOLDのまま維持しつつ、非公開ARSA draftのDeep Dive 04「同じ目的への、別々の答え」へ比較個体として追加した。sourceMetaへprovenance sourceを追加し、段落内でperiod-primary未確認を明示した。
+- **理由**：ユーザー判断として、Venus 230のARSA盲人アラーム自体が知られておらず、AS1475本線と異なる3時時刻用／5時alarm用／2時独立蓋プッシャー構成は、同じ触読alarm目的に対する別のinterface architectureを示すため、04の比較対象として価値がある。
+- **旧状態・棄却**：19:50 JSTの「新しい独立証拠がない限り再提示しない」は研究lead再発見としての扱いを指すものとし、公開比較章への掲載まで禁止する解釈は棄却。逆に、Uhrforum個体をARSAの確定量産variant、AS1475以前の先行型、factory-catalogued familyと断定する扱いも引き続き棄却する。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` Deep Dive 04、`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本判断履歴。03、他WATCH、main / liveは変更しない。
+- **検証状態**：Project専門書でARSA AS1475本線を再確認し、Uhrforum該当投稿をWebで再確認。本文はUhrforumの現存個体報告としてのみ記述し、period-primary未確認を保持。1956–60 ARSA Blind Alarm本人のindexed advertisement / catalog pageは今回のfocused searchでも未回収。
+- **関連**：2026-10-02 saturation pass、2026-10-03 Deep Dive ③、2026-10-03 19:50 JST duplicate-lead correction。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T20:15:36+09:00` = `2026-10-03 20:15 JST`。
