@@ -1959,3 +1959,12 @@ Delta from 2026-10-03 10:18:
 - 維持: ASSET → CONTENT → MEDIAのduplicate lockという管理構造は維持する。ただし新規contentをactive化するには USER_CONFIRMED が必須。
 - 新手順: 1時計ずつSource-backed候補を提示 → ユーザーが KEEP / MERGE / SPLIT / DROP → asset正本更新 → その後に動画当て込み → ユーザー採用 → USER_CONFIRMED / PLANNED。
 - Status: ACTIVE。6個体のAsset review stateは全て PENDING_USER_REVIEW から再開。
+
+## 2026-10-04 07:33 JST — candidate classificationはAI先行、確定はユーザー相談へ
+
+### Correction
+- **User correction**: AIが候補を分解・分類すること自体は問題ではない。誤りは、分類済み候補をユーザーへ提示せず、そのまま正本assetとして確定・実装したこと。
+- **Updated flow**: AIがSource-backed候補をCategory / relation / social-use / media / verify / video-fitまで `AI_PROPOSED` で先行分類 → その分類済み一覧をユーザーへ提示 → KEEP / MERGE / SPLIT / DROPを相談 → 相談結果だけを正本assetへ昇格。
+- **Over-correction removed**: 2026-10-03 22:47の「AIはasset境界を決めない」という表現を修正。AIは**候補境界を提案・分類してよい**。禁止するのは、提示・相談を飛ばした正本化。
+- **Reservation rule**: 動画への当て込みも候補提示は可能。実制作の `PLANNED` はユーザー採用後のみ。
+- **Status**: ACTIVE。
