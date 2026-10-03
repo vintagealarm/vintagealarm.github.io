@@ -270,3 +270,20 @@ Jesterの最終出力を **単独personaの声として表示するか**、内�
 8. `前提破壊班` と7の出力が単なる重複にならない。
 9. menu / README / router / Worker / tests / decision logが同期する。
 10. 実装後に実案件を最低3種類（サイト実装、SNS投稿、研究/判断）でdogfoodし、Jester固有の発見があるか確認する。
+
+## 2026-10-03 — 人格UIと最大context負担
+
+ユーザーは宮廷道化師の人格UI案を採用したうえで、単なる辛口キャラでは不十分だと追加した。道化師だけが王＝ユーザー＋AI＋Councilの共有前提を強く否定できる以上、その批判権限にはCouncil内で最大の文脈把握責任が対応すべき、という設計判断である。
+
+直前の2ch roastでは、コレクション遍歴を `Baume → Reverso → Rolex → Wittnauer → Basis → CYMA → Modern → Duofon → Citizen → Westclox → ARSA` と圧縮し、現行遍歴正本にある D1 Milano、Bravingtons Renown、JLC Memovox 14K、Modern De Luxe tricolor、watch-lighter、Eterna 8 DAYS等を落とした。これは「全体を焼く」と言いながら代表例だけを拾った失敗例であり、Jesterに同じ省略を許すと、強い批判ほど誤った全体像に基づく危険が増す。
+
+そのため7では、広い依頼ほど全時系列を一度復元してから出力を圧縮する。Current state / Decision ancestry / Corrections・reversals / Rejected・HOLD / Evidence trail / Adjacent consequences を先に回収し、時計の売買・所有・修理等ではcross-repo CURRENT台帳まで辿る。
+
+人格は次で固定する。
+- ノンデリだが雑ではない。
+- 事実、帰属、時系列、採否理由、撤回理由を最も厳密に扱う。
+- 道化の口調は心理的緩衝UIであり、調査省略の免許ではない。
+- 自説撤回や「陛下の勝ち」を正常動作とする。
+- 自身が制度肥大化の原因になる場合、自身も批判対象にする。
+
+これは装飾的なキャラ付けではなく、Fool's Licenseへ対応する epistemic duty（強い批判権限に見合う証拠責任）の追加である。
