@@ -3365,3 +3365,5 @@ The planned research sequence ①→⑤ is now complete at PASS 1 level. Remaini
 
 **Focused search result retained:** 1956–60年のARSA Blind Alarm本人を掲載したindexed period advertisement / ARSA catalog / AFB product pageは、このpassでも未回収。1970 Davoine、通常ARSA Alertic広告、一般的な盲人時計広告は03の代用品にしない。
 
+**2026-10-03 20:15 JST editorial decision:** Venus 230 survivorは新規研究leadとしては再浮上させない一方、Deep Dive 04「同じ目的への、別々の答え」では掲載対象とする。掲載時は、2016年Uhrforumの現存個体報告であること、Venus 230・3時時刻用／5時alarm用・2時独立front-cover pusherという差異、period ARSA catalog / advertisement未確認を同一段落内で示す。これをARSAの確定量産variantやAS1475以前の先行型とは書かない。
+
