@@ -445,3 +445,13 @@
 - **関連**：PR #135、`research/MODERN_DE_LUXE_STRATEGY_RESET_20261003_JESTER.md`
 - **日時根拠**：2026-10-03 12:14 JST のユーザー採用指示。
 
+### 2026-10-03 12:50 JST — specimen再比較を進捗扱いした誤判定を訂正
+- **変更**：2026-10-03の `MODERN_DE_LUXE_RUN_20261003_SPECIMEN_FAMILY_COMPARISON.md` を `MATERIAL PROGRESS` から **NO MATERIAL PROGRESS — duplicate/loop** へ再分類。通常文字盤／トリコロール／Beitl p.317／福岡記念時計の同一画像・既知関係の再比較を、今後の既定タスクから外した。
+- **理由**：ユーザー指摘どおり、既知材料をG0後の枠組みで再整理しただけで、G0〜G5のどのgateも動いていなかった。既存の研究ルールにも「recycled known hitsをbreakthrough扱いしない」「gateが動かなければNO MATERIAL PROGRESS」と明記済みで、こちらの進捗判定がルール違反だった。
+- **旧状態・棄却**：同じ写真・既知の時計ファミリー比較を、整理方法が新しいという理由で `MATERIAL PROGRESS` と数える扱いを棄却。
+- **影響範囲**：PR #135の研究ログ、戦略reset、execution plan、handoff。公開WATCH・UI・翻訳・Analyticsは変更しない。
+- **再発防止**：既知の通常/トリコロール/Beitl/福岡比較は **RESOLVED INPUT** とする。movement刻印、文字盤裏、ケース内側、紙物、別個体の責任表示など**新しい物理証拠**が出た場合のみ再オープンする。既知証拠の再記述・再構成だけなら自動的に `NO MATERIAL PROGRESS`。
+- **検証状態**：該当runを再分類し、strategy reset / execution plan / handoffへanti-loop guardを反映済み。公開変更なし。
+- **関連**：PR #135、`research/MODERN_DE_LUXE_RUN_20261003_SPECIMEN_FAMILY_COMPARISON.md`
+- **日時根拠**：handoff訂正commit `57f2d389528e356b38552e2a85031f762a476e19` は 2026-10-03T03:50:49Z → 2026-10-03 12:50:49 JST。
+
