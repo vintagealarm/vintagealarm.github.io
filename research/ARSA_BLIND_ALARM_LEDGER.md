@@ -3476,3 +3476,16 @@ The Watch Library confirms public archival runs for:
 **Still not recovered:** a 1956–60 period advertisement/catalog page explicitly showing or naming the ARSA Blind Alarm itself.
 
 **Highest-value next extraction:** obtain the body/pages of the March–April 1958 Journal Suisse d'Horlogerie A. Reymond 60th-anniversary article, then inspect adjacent `Nouveaux modèles` pages. This outranks another broad Web search.
+
+
+### 2026-10-03 20:38 JST — 1958 JSH / AFB archive focused target
+
+**PERIOD TARGET:** `Journal suisse d'horlogerie et de bijouterie, N°2, mars-avril 1958` の目次にA. Reymond S.A.創業60周年記事を確認。日本語では「レイモンド時計製造会社、創業60周年を迎える」。同号には `Nouveaux modèles`（「新モデル」）項もある。The Watch Libraryでも1958年JSH全巻（822頁、public domain）の存在を確認した。
+
+**Boundary:** 記事本文は未取得。Blind Alarmや触読時計への言及はまだ確認していないため、03本文へは未採用。
+
+**AFB TARGET:** APH公式記事は、AFB ArchiveにBraille watch修理票が数百件まとまったフォルダと、時計プログラム責任者Katherine Gruberの書簡があると記す。ARSAとのsupplier関係は未確認。
+
+**Next:** 1958 JSHのA. Reymond記事本文と近接する新モデル頁を最優先で取得。AFB側は1955–63年のwatch-program / Gruber / supplier系ファイルを狙う。
+
+**Still open:** 1956–60年のARSA Blind Alarm本人を明記・図示した当時広告／カタログは未回収。

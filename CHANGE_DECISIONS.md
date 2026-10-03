@@ -853,3 +853,14 @@
 - **検証状態**：Project専門書でARSA AS1475本線を再確認し、Uhrforum該当投稿をWebで再確認。本文はUhrforumの現存個体報告としてのみ記述し、period-primary未確認を保持。1956–60 ARSA Blind Alarm本人のindexed advertisement / catalog pageは今回のfocused searchでも未回収。
 - **関連**：2026-10-02 saturation pass、2026-10-03 Deep Dive ③、2026-10-03 19:50 JST duplicate-lead correction。
 - **日時根拠**：会話ターンのローカル時刻 `2026-10-03T20:15:36+09:00` = `2026-10-03 20:15 JST`。
+
+
+### 2026-10-03 20:38 JST — ARSA period-paper探索を1958年JSH記事とAFB時計資料へ収束
+
+- **変更**：03直結資料のP0を、1958年3–4月号『Journal suisse d'horlogerie et de bijouterie』のA. Reymond創業60周年記事本文取得と、APH所蔵AFB Archiveのbraille-watch program資料群へ絞った。
+- **理由**：JSH目次でA. Reymond創業60周年記事の実在を確認し、The Watch Libraryで1958年全巻（822頁、public domain）を独立確認。APH公式記事ではBraille watch修理票が数百件まとまったフォルダと、時計プログラム責任者Katherine Gruberの書簡の存在を確認できた。
+- **旧状態・棄却**：通常ARSA Alertic広告、一般的な盲人時計広告、既知Venus 230個体を03の新規成果として再提示しない。広い同義語Web検索の反復もP0から外す。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴。WATCH本文03は変更しない。
+- **検証状態**：JSH記事本文とBlind Alarm言及は未取得。AFB→ARSA supplier関係も未取得のためOPEN。
+- **関連**：2026-10-03 20:24 JST focused pass。
+- **日時根拠**：`2026-10-03T20:38:19+09:00` = `2026-10-03 20:38 JST`。
