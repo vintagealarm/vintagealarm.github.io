@@ -166,3 +166,58 @@ Reopen specimen comparison only when a genuinely new physical source appears, su
 - new specimen with a new responsibility mark
 
 A run that merely re-describes known evidence is **NO MATERIAL PROGRESS** even if the presentation or conceptual framing is new.
+
+## 8. VA DEEP DIVE completion model — CURRENT OVERRIDE
+
+This section supersedes the earlier gate-driven completion wording where they conflict.
+
+### Research completion is not identical to identity resolution
+
+A Modern De Luxe DEEP DIVE can be research-ready even if the exact brand owner, commercial operator, or movement maker remains unresolved, provided the unresolved point is bounded and the rest of the watch is adequately documented.
+
+Existing VA DEEP DIVEs already work this way:
+- documented source conflicts can remain unresolved;
+- supplier / licensing relationships can remain probable rather than forced;
+- model chronology can contain explicit gaps;
+- a watch can still be explained through company context, demand context, mechanism, comparison, variants, and platform history.
+
+Therefore:
+- G0–G5 are **sub-question / evidence-status markers**.
+- They are **not a mandatory sequential task queue**.
+- They are **not the sole definition of progress or completion**.
+
+### Current research order
+
+1. **作った会社 / commercial-production context**
+2. **需要背景**
+3. **時計そのもの — including movement/platform identification**
+4. **同目的・同機構の比較個体**
+5. **caliber / platform と変貌種**
+6. **Modern De Luxe固有の追加要件** — trademark/operator/promotional chain etc.
+
+Movement/platform research is P0 and may proceed independently of brand-owner resolution.
+
+### Progress classification
+
+**MATERIAL PROGRESS**
+- genuinely new evidence materially updates one of the six VA research boxes;
+- or a major adopted claim is contradicted / narrowed;
+- or a new mechanical comparator identifies or sharply bounds a platform/supplier.
+
+**ACCESS ADVANCE**
+- a high-value source body becomes concretely obtainable/readable but its contents have not yet been extracted.
+
+**NO MATERIAL PROGRESS**
+- known evidence is re-described or reorganized;
+- same marketplace examples are rediscovered;
+- adjacent corporate history grows without increasing explanatory power for the watch;
+- one unresolved document is chased cyclically without new evidence.
+
+### DEEP DIVE-ready stopping condition
+
+The research is ready for DEEP DIVE drafting when each applicable VA box is either:
+- supported enough to explain the watch; or
+- explicitly bounded as unresolved with the best available evidence.
+
+No single missing contract, trademark entry, supplier invoice, or corporate identity document is allowed to block the whole research project by itself.
+
