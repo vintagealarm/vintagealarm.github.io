@@ -2250,7 +2250,7 @@ What remains specimen-specific / open:
 
 ### 2026-10-03 — tactile hand coding: common design grammar, no universal code yet
 
-**ORIGIN:** user observation — the prior research had compared tactile alarm models without explicitly testing whether hour / minute / alarm hands followed a shared tactile coding convention.
+**ORIGIN / ATTRIBUTION:** this axis comes from the user's repeated earlier observations about hand notches, rough / patterned surfaces, and the possibility that hour / minute / alarm pointers carried distinct tactile identities. The AI repeatedly failed to promote that observation into the research matrix while focusing on caliber, case and archive branches; source verification came later.
 
 #### PROJECT-SOURCE EVIDENCE — Enicar makes the coding explicit
 
@@ -2617,4 +2617,261 @@ Remaining archive branches such as the 1945 War Production Board “BRAILLE WATC
 
 Next Deep Dive:
 **③ ARSA Blind Alarm itself — mechanism, controls, tactile UI, failure / repair evidence, model variation, and the purchased specimen.**
+
+### 2026-10-03 — DEEP DIVE ③: ARSA Blind Alarm itself — mechanism, tactile UI, failure map, variation, purchased specimen
+
+**PURPOSE:** site掲載用Deep Diveの第3章「時計そのもの」。ARSA Blind Alarmを、movement platform / controls / tactile interface / failure evidence / model variation / purchased specimenの順に固定する。比較他社やAS1475一般史へ広げすぎず、ARSA本人に必要な範囲だけを残す。
+
+#### SOURCE-CONFIRMED — product chronology and core ARSA architecture
+
+*Alarm am Arm* gives two separate chronological statements that must not be collapsed:
+
+- historical narrative: ARSA was already making a blind alarm wristwatch with **AS1475 around 1956**
+- illustrated catalog specimen: **1958** ARSA Alarm / Blindenwecker, chrome-plated metal case, screw back, **AS1475**
+
+The historical narrative states that the user could:
+- open the glass cover with a pusher in the winding crown
+- feel not only the current clock time but also the **alarm time**
+- set that alarm time using the alarm crown around **2 o'clock**
+
+The 1958 specimen caption adds:
+- raised tactile points on the dial
+- front cover opened by the pusher integrated into the crown around **4 o'clock**
+- robust hands because the hands are directly touched
+- **no seconds hand**
+
+**Research consequence:** ARSA-specific source evidence already confirms alarm-time tactile read-back. Previous analysis over-weighted Enicar as the only explicit read-back example; Enicar remains the more detailed hand-coding source, but ARSA itself is explicit about feeling and resetting the alarm time.
+
+#### PROJECT SOURCE — AS1475 technical core beneath the ARSA interface
+
+Horlbeck gives the AS1475 platform as:
+- 11.5 lignes
+- **25.94 mm**
+- **5.8 mm** high
+- normally **17 jewels**; higher-jewel variants also existed
+- **18,000 A/h**
+- lever escapement
+- manual winding for both clockwork and alarm
+- around **40 hours** running reserve
+- around **10–15 seconds** alarm duration
+- **2 barrels**
+- built approximately **1954–1970**
+- around **780,000** AS1475 movements
+- direct central seconds in ordinary configuration
+- upper crown = alarm
+- lower crown = clockwork
+
+The standard operation described is:
+- lower / ~4 crown: wind clockwork in position 0; set clock time in position 1
+- upper / ~2 crown: wind alarm spring in position 0; set alarm time in position 1
+- early AS1475: alarm active with crown **down**
+- around 1960 the function was reversed in later AS1475 / 1568: alarm active with crown **pulled up**
+
+**ARSA adaptation:** the lower clockwork crown at ~4 retains the timekeeping role but incorporates a **central cover-opening pusher**. The tactile case therefore adds an accessibility control without changing the basic two-crown division of the AS1475.
+
+#### IMPORTANT INTERFACE ADAPTATION — a movement with central seconds, used without a seconds hand
+
+The ordinary AS1475 platform supports direct central seconds.
+
+The ARSA Blind Alarm intentionally omits the seconds hand. Beitl explicitly connects this to tactile use, and Horlbeck explains the general design logic: a seconds hand would interfere with feeling the other pointers and could stop the movement when touched.
+
+**Site-use insight:** one of the clearest examples of adaptation is not an added component but a removed one. ARSA takes a mass-market alarm caliber capable of central seconds and deliberately suppresses that display to make direct touch-reading usable.
+
+#### ARSA TACTILE INFORMATION LAYERS
+
+The core ARSA tactile interface is now best described in layers:
+
+1. **orientation layer**
+   - raised hour points provide dial position
+   - purchased specimen visibly uses a differentiated **three-dot 12 o'clock landmark**
+   - other quarter / orientation marker differences are visible but should be measured rather than guessed from screenshots
+
+2. **current-time layer**
+   - robust hour and minute tactile hands
+   - exact tactile distinction between the two is not described in Beitl's ARSA caption
+
+3. **alarm-setting layer**
+   - separate central alarm pointer
+   - ARSA historical text confirms the set alarm time itself can be felt and reset
+   - purchased specimen shows a visibly much narrower alarm pointer with a patterned / crosshatched-looking surface
+
+4. **access layer**
+   - hinged front crystal / cover
+   - purchased specimen: hinge at 9, opening to the left
+   - lower ~4 crown incorporates a projecting central push-piece to release the cover
+
+5. **control-identification layer**
+   - upper ~2 crown = alarm
+   - lower ~4 crown = timekeeping + integrated cover button
+   - this physical asymmetry itself reduces control confusion
+
+#### HAND CODING — user-origin research question, ARSA-specific state still partly open
+
+The user had repeatedly pointed out that tactile watches may encode hand identity through:
+- cuts / notches
+- roughness / patterned surfaces
+- different tactile shapes for hour, minute and alarm pointers
+
+The purchased ARSA image makes this question especially relevant:
+- hour and minute hands differ visibly in width / geometry
+- alarm hand is substantially narrower
+- alarm hand surface appears patterned / crosshatched
+
+But image evidence cannot establish whether that pattern is:
+- raised texture
+- engraving
+- paint / printing
+- purely visual decoration
+
+**Current ARSA-specific status:**
+- differentiated pointer geometry: IMAGE-CONFIRMED
+- alarm-time tactile read-back as a design function: SOURCE-CONFIRMED
+- exact ARSA hour-vs-minute-vs-alarm tactile code: **OPEN pending hands-on inspection**
+
+#### ARRIVAL TEST — hand coding and overlap
+
+When the purchased specimen arrives:
+
+- with eyes closed, identify hour / minute / alarm pointer separately
+- repeat with two pointers deliberately aligned / overlapped
+- record which cue does the work:
+  - width
+  - length / radial reach
+  - tip geometry
+  - height
+  - surface texture
+  - ridge / notch
+- macro-photograph the alarm pointer to determine whether the visible pattern is real relief
+- test whether set alarm time can be read back reliably without sight
+
+This is not a generic ownership note; it is a direct functional test of ARSA's accessibility design.
+
+#### MOVEMENT REVISION TEST — early vs later AS1475 alarm state
+
+Because Horlbeck documents an AS1475 operating change around **1960**:
+- early: alarm active with alarm crown **down**
+- later: alarm active with alarm crown **pulled up**
+
+the purchased specimen's actual alarm ON/OFF behavior should be recorded on arrival.
+
+**Boundary:** this can help identify the movement's functional revision but does **not** independently date the complete watch. A movement could have been serviced, replaced, or assembled across a transition period.
+
+#### PURCHASED SPECIMEN — direct image evidence now consolidated
+
+User-supplied images directly show:
+- ARSA dial signature
+- **ALARM / 17 JEWELS**
+- **SWISS MADE**
+- movement stamp **AS 1475**
+- bridge marking **17 JEWELS**
+- raised tactile markers
+- differentiated three-dot 12 o'clock landmark
+- robust hour/minute hands
+- narrow patterned alarm pointer
+- no seconds hand
+- two right-side crowns
+- lower ~4 crown with central pusher
+- hinged front cover opening left
+- 9-o'clock-side hinge
+
+This means the purchased specimen is no longer merely seller-described as a Blind Alarm. It directly reproduces the source-documented **AS1475 + tactile markers + robust hands + no seconds + 4-o'clock crown-integrated opener** architecture.
+
+Still open:
+- exact production year
+- exact case metal / plating construction
+- inside caseback / case-maker marks
+- tactile hand coding in actual use
+- hinge play / latch force
+- alarm sound duration / acoustic performance
+- hidden dial-side condition
+
+#### FAILURE / REPAIR — separate ARSA-specific facts from tactile-watch-wide evidence
+
+**ARSA-specific source evidence:**
+- hands were intentionally made robust because they are directly touched
+- seconds hand was omitted
+- no repeated source currently proves chronic ARSA hinge failure, chronic ARSA hand breakage, or a higher ARSA failure rate
+
+**Tactile-watch-wide evidence:**
+- Horlbeck: touching can interfere with / stop a seconds mechanism, explaining its omission
+- Ferguson tactile-indicator patent (1957) identifies direct contact with conventional tactile-watch hands as a problem the alternative design sought to avoid
+- Mitka repair report: two Cyma Braille donor watches included one with a **broken hour hand** and one with a **broken bezel**
+- Deafblind UK user report: a flip-open tactile watch had a difficult cover, was altered by a repairer, and later suffered a broken hand after the user tried to change the time by touching the hand
+- AFB / APH history records a substantial Braille-watch repair stream and contamination entering through open tactile faces
+
+Sources:
+- https://patents.google.com/patent/US2915874
+- https://mitka.co.uk/2017/02/16/service-cyma-braille-calibre-458/
+- https://deafblind.org.uk/your_stories/deafblind-uk-gives-roy-the-gift-of-time/
+- https://www.aph.org/blog/the-gift-of-time/
+
+**Site-use conclusion:** the honest failure story is not “ARSA hinges break” or “touching destroys the train.” The defensible point is that direct-touch watches place unusual mechanical demands on hands, covers and exposed dial hardware, and surviving repair evidence shows those special interface parts can be damaged.
+
+#### MODEL VARIATION — confirmed core vs survivor leads
+
+**Confirmed Blind Alarm core**
+- ARSA AS1475 architecture, around 1956; illustrated 1958 specimen
+- two-crown layout with 4-o'clock integrated cover pusher
+
+**HOLD survivor lead — ARSA / Venus 230**
+A Uhrforum collector post describes a 1950s ARSA Blind Alarm with:
+- **Venus 230**
+- 17 jewels / 18,000 A/h
+- one common barrel
+- crown at 3 for winding / time
+- crown at 5 for alarm control
+- separate pusher at 2 for the flip-open bezel
+- gold-plated brass case with stainless resonant double back
+
+Source:
+- https://uhrforum.de/threads/vintage-armbandwecker-zeigt-sie-in-bild-und-ton.16190/page-25
+
+This is mechanically plausible because ARSA's ordinary Venus 230 alarm watches are independently source-confirmed. But the tactile Venus230 model is still **forum survivor evidence**, not period-primary or specialist-catalog confirmation. Keep it outside the confirmed production-family line.
+
+#### ARSA TACTILE CASES WERE NOT ONE FIXED OPENING ARCHITECTURE
+
+A non-alarm vintage ARSA Braille watch auctioned by Antiquorum, dated ca.1960–1970, has:
+- opening glass cover at **6 o'clock**
+- 33.4 mm case
+- Case No. **423 117**
+
+Source:
+- https://catalog.antiquorum.swiss/en/lots/arsa-by-auguste-reymond-sa-ref-47066-lot-348-5
+
+Current ARSA Blind Watch products also use different opening positions:
+- Standard Gent: **6 o'clock**
+- Hi-Touch: **4 o'clock**
+- pocket models: **3 o'clock**
+
+Sources:
+- https://blindwatch.net/standard/
+- https://blindwatch.net/unisex-pocket/
+
+**Research consequence:** opening position is a model-level solution, not an ARSA-wide immutable convention. The 4-o'clock crown-integrated opener is highly characteristic of the confirmed AS1475 Blind Alarm architecture, but should not be generalized to all ARSA tactile watches.
+
+#### DEEP DIVE ③ — site-ready interpretation
+
+The most useful way to explain the ARSA Blind Alarm is:
+
+> ARSA did not simply put raised dots on an ordinary alarm watch. It reworked the human interface around an otherwise mass-produced AS1475 platform: an opening cover gives direct finger access; raised landmarks orient the dial; robust hands make current time touch-readable; the separate alarm pointer makes a future time touch-readable; the seconds hand is removed; and the lower clockwork crown gains an integrated button to open the cover.
+
+The movement remains recognizably AS1475 underneath. The novelty is concentrated in the **interface layer**.
+
+This gives the site a clear bridge to the later AS1475 chapter: the same mass-market caliber could support an ordinary alarm wristwatch, a parking-time watch, or a tactile alarm depending on what was built around it.
+
+#### DEEP DIVE ③ — current status
+
+For site copy, the mechanism / control / tactile-UI / failure-map / variation chapter has sufficient evidence for a first published version.
+
+Arrival of the user's specimen can add:
+- actual tactile hand-code observations
+- actual alarm-state revision behavior
+- actual cover / hinge feel
+- measured alarm duration / sound
+- caseback marks
+
+These are **supplements**, not blockers.
+
+Next Deep Dive:
+**④ tactile-alarm comparison — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afB, with hand coding and opener architecture as the primary comparison axes.**
 

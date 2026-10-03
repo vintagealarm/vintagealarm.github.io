@@ -187,9 +187,17 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - **サイト用の主眼:** 戦争が触読時計を発明したのではなく、既存技術をrehabilitation / procurement / training / repairの制度へ押し上げた
    - 1950年代のBlind Alarmは、その既存触読時計文化へmechanical alarm wristwatch機能を加えた第二段階として扱う
    - **禁止:** veteran demand → ARSA開発、AFB gift program → ARSA受注を直接因果として書かない
-3. **ARSA Blind Alarm本人**
-   - mechanism / UI / model variation / failure evidence / purchased specimen
-   - 針破損やsetting disturbance等はsource別に整理
+3. **ARSA Blind Alarm本人 — DEEP DIVE ③ PASS 1 COMPLETE 2026-10-03 / ARRIVAL SUPPLEMENT PENDING**
+   - around 1956にARSA Blind Alarm / AS1475、1958掲載個体を専門書で確認
+   - **AS1475 core:** 25.94 mm / 5.8 mm / 17J / 18,000 A/h / 2 barrels / hand-wound clock + alarm / ca.40 h / alarm 10–15 s / 1954–1970
+   - standard AS1475ではupper crown = alarm、lower crown = clockwork。ARSAではlower ~4 crownの中央pusherがfront cover openerを兼ねる
+   - ARSAについて専門書は、current timeだけでなく**set alarm timeも触って確認し、2時側alarm crownで再設定できる**と明記
+   - AS1475自体はdirect central seconds対応だが、ARSA Blind Alarmではseconds handを省略。直接触読の邪魔を避ける用途adaptation
+   - tactile UIはraised hour points + robust hour/minute hands + separate alarm hand + opening front cover。購入個体では12時3点、太い時分針、細いpatterned alarm pointer、9時hinge、4時crown-integrated pusherを画像確認
+   - **hand codingの起点はユーザー観察。** ARSA個体のalarm pointer表面が本当に触覚ridgeか、3本を重なり時にも識別できるかは到着後実測
+   - failure evidenceは「ARSA固有」と「touch-watch一般」を分離。ARSA固有の慢性hinge弱点や高故障率は未証明
+   - model variationはAS1475系を確定本線とし、Venus230 Blind Alarmはforum survivor lead / HOLD。non-alarm ARSA tactile watchesと現行ARSA blind watchesではopen positionが4 / 6 / 3等に分かれ、ARSA共通の単一case architectureとはしない
+   - **arrival test:** alarm ON/OFF crown state（early AS1475はcrown down、ca.1960以降のlater typeはpulled up）を確認。movement revisionの年代手掛かりにはなるがwatch assembly date確定には使わない
    - 到着後の触覚操作実測を重視
 
 ### P1 — 触読alarm比較
@@ -309,8 +317,8 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 
 1. **①作った会社 — PASS 1 COMPLETE** — 会社史・製造能力・blind / alarm両系統の同時存在まで整理済み。残る一次資料穴だけHOLD
 2. **②需要背景 — PASS 1 COMPLETE** — 前史 / WWI / AFB 1926 / WWII / 日本例まで必要十分に圧縮。戦争は発明起源ではなく制度化・普及の背景として固定
-3. **③時計本人 — NEXT** — ARSA Blind Alarmのmechanism / tactile UI / failure evidence / model差をsource別に整理。購入個体画像を直接証拠として使う
-4. **④触読alarm比較** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBを差分表へ固定する
+3. **③時計本人 — PASS 1 COMPLETE / ARRIVAL SUPPLEMENT PENDING** — mechanism / controls / tactile UI / failure map / model variation / purchased specimenまで整理。到着後にhands / read-back / opener / early-late alarm-stateを実測追記
+4. **④触読alarm比較 — NEXT** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBを、特にhand coding / opener / read-back差で比較する
 5. **⑤AS1475と変貌種** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る
 6. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
 7. AFB契約書、Smithsonian、WPB等は、上記1〜5の未解決を直接埋める場合だけ再開する
@@ -319,7 +327,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 
 ## 9. 研究上の禁止事項
 
-- 今回個体をムーブ未確認のままAS1475確定と書かない
+- 今回個体のmovementは画像で**AS1475 / 17 JEWELS確認済み**。ただしcaliber identityから製造年・ケース材・1958掲載個体との同一性を推定しない
 - Beitlの1958掲載個体と今回個体を同一年代扱いしない
 - AFB gift programとARSA注文を同一視しない
 - 「war veterans → ARSA Blind Alarm」の因果を断定しない
