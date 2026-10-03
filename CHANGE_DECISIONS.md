@@ -808,3 +808,14 @@
 - **検証状態:** GitHub上でdraft content / preview route / placeholder assetの存在を確認済み。build・実寸表示・branch preview deployは未検証。
 - **関連:** `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md` / `src/content/watches/arsa-blind-alarm.md` / `src/pages/lab/arsa-blind-alarm.astro`
 - **日時根拠:** 最初のシェル変更commit群の最終commit `5c69600cf67c908ce19a055da4f17aa8d3fbb3af` のGitHub timestamp `2026-10-03T05:43:32Z` → `2026-10-03 14:43 JST`。
+
+
+### 2026-10-03 16:02 JST — ARSA Blind Alarm非公開シェルへDeep Dive 01–05本文を実装
+
+- **変更:** `src/content/watches/arsa-blind-alarm.md` の仮置きDeep Dive 01–05を、ARSA会社史 → 触読時計の需要背景 → ARSA Blind Alarm本人 → 他社触読alarm比較 → AS1475 platform→branchesの全文へ置換した。各段落へ既存研究LEDGERの証拠境界を反映し、14件のsource register / citationRefsを追加した。
+- **理由:** ①〜⑤のPASS 1調査が完了し、到着後実測をblockerにせず、現在確定できる研究本文を非公開previewで通読できる段階に進んだため。
+- **旧状態・棄却:** 各章は「本文は研究完了後に実装」のplaceholderのみだった。戦争→ARSA開発の直接因果、AFB gift program→ARSA発注の同一視、ARSA/Enicar/BEAT共通完成ケース、ARSA固有の慢性故障、Citizenの確定ライセンス、AS1475変貌種の一本道系譜は本文へ採用しない。
+- **影響範囲:** branch `feat/arsa-blind-alarm-private-shell` の非公開ARSA draftのみ。`published: false`、OWNER'S NOTEのdraft copy、実機写真placeholder、main / live siteは変更しない。
+- **検証状態:** GitHubへの本文実装は完了。source境界は研究MAP / LEDGERに照合済み。build / Japanese style check / 実寸preview表示はこのcommit時点では未検証。
+- **関連:** `src/content/watches/arsa-blind-alarm.md` / `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md`
+- **日時根拠:** ユーザー指示時点のlocal time `2026-10-03T16:02+09:00` を使用。
