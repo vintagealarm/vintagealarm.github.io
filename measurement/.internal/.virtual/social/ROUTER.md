@@ -152,10 +152,11 @@ Instagramの**実投稿本文・hashtags・最終的に採用された訴求・�
 - `Other social` はX / YouTubeの明示証拠へ追随させる。`NO_EXPLICIT_USE_FOUND...` は永久的な未使用認定ではない。
 - OWNER'S NOTEは時計ごとに `*-ON` 1行だけを持ち、`WHOLE_ONLY / OWNER_NOTE_HERO_ONLY / OWNER_NOTE_WHOLE` を維持する。
 - `npm run check:social-inventory` をquality gateで必ず通す。
-- asset表の `Overlap / collision` と `Micro fit / treatment` を、投稿候補の重複監査と動画当て込みに使う。
-- final storyboard / captionへ進める前に、同ファイルのContent Assignment Registryへ `PLANNED` rowを作る。`PLANNED / SHOT / EDITED / SCHEDULED` はactive lockで、同じasset / media keyを別案へ再提案しない。
-- Instagram公開時はassignment rowを `PUBLISHED` にし、primary / secondary assetのIG stateと `instagram-published-copy.md` を同じ変更セットで同期する。micro-ReelのInsights `content_id` はassignment content IDを使う。
-- 中止した案はrowを消さず `DROPPED` とし、なぜ棄却したかを履歴として残してlockだけ解放する。
+- asset表は共同棚卸しの開始点。AI単独で新しいasset境界を正本化せず、対象時計ごとにユーザーと KEEP / MERGE / SPLIT / DROP を確認する。
+- 動画への当て込みをユーザーが採用した後だけContent Assignment Registryへ Approval=USER_CONFIRMED / State=PLANNED を作る。候補提示だけでは予約しない。
+- PLANNED / SHOT / EDITED / SCHEDULED はactive lockで、同じasset / media keyを別案へ再提案しない。
+- Instagram公開時はassignment rowを PUBLISHED にし、primary / secondary assetのIG stateと instagram-published-copy.md を同じ変更セットで同期する。micro-ReelのInsights content_id はassignment content IDを使う。
+- 中止した案はrowを消さず DROPPED とし、lockだけ解放する。
 
 ### Instagram Insights の完了条件
 
