@@ -121,12 +121,11 @@ G0 is not required when G1 is solved directly from clock/watch evidence.
 
 ### Current execution order
 
-1. Compare the two user-held Modern De Luxe specimens from safe observable evidence when photos/observations are available.
-2. Search direct Modern De Luxe clock/watch responsibility evidence: original box, guarantee, instructions, advertisement, catalogue, wholesale/export label, retailer/distributor label, service or warranty entity.
-3. Search exact-brand G0 evidence: `Modern De Luxe` itself crossing categories with a common company/operator fingerprint.
-4. Continue the Fukuoka and Mitsubishi commemorative-clock customer/vendor reverse path.
-5. Read trademark-book body with exact `Modern De Luxe` / `Modern du Luxe` first.
-6. Pursue movement/finished-clock maker only after the commercial/brand chain is materially narrowed.
+1. Search direct Modern De Luxe clock/watch responsibility evidence: original box, guarantee, instructions, advertisement, catalogue, wholesale/export label, retailer/distributor label, service or warranty entity.
+2. Search exact-brand G0 evidence: `Modern De Luxe` itself crossing categories with a common company/operator fingerprint.
+3. Continue the Fukuoka and Mitsubishi commemorative-clock customer/vendor reverse path.
+4. Read trademark-book body with exact `Modern De Luxe` / `Modern du Luxe` first.
+5. Pursue movement/finished-clock maker only after the commercial/brand chain is materially narrowed.
 
 ### Parked unless an exact bridge appears
 
@@ -151,3 +150,19 @@ Existing evidence is retained; only its search priority changes.
 
 COMPLETE-B does not require resolving H.M.C. when no exact Modern De Luxe evidence points to H.M.C. The stopping test is now centered on direct clock-side evidence, exact-brand evidence, and promotional/customer-side evidence.
 
+
+
+### 2026-10-03 anti-loop correction
+
+The user correctly identified that re-comparing the already-known normal/tricolor specimens, Beitl p.317, and the Fukuoka clock family was another research loop rather than material progress.
+
+Treat those materials as **RESOLVED INPUTS**. Do not re-run or re-score them from the same photographs.
+
+Reopen specimen comparison only when a genuinely new physical source appears, such as:
+- movement marking
+- dial-back marking
+- case/interior mark
+- original box / guarantee / instruction sheet
+- new specimen with a new responsibility mark
+
+A run that merely re-describes known evidence is **NO MATERIAL PROGRESS** even if the presentation or conceptual framing is new.
