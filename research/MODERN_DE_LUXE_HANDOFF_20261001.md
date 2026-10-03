@@ -129,3 +129,23 @@ At handoff check, PR #135 is open on branch `research/modern-de-luxe-hirota-2026
 ## First instruction for next session
 
 Resume by fetching the mandatory GitHub source-of-truth files and PR #135. Then continue **from the unresolved bridges above**, not from broad Modern De Luxe searching. The fastest plausible win is one legal/company fingerprint from the H.M.C./Modernlite number series, 1961 JPO original, trademark body text, or a commemorative-clock supplier record.
+
+## Continuation update — 2026-10-03 JST
+
+New run:
+- `research/MODERN_DE_LUXE_RUN_20261003_ICHIKAWA_1961_AND_TRADEMARK_ACCESS.md`
+
+Result:
+- **MATERIAL PROGRESS + ACCESS ADVANCE / NO GATE PASS**
+- Primary patent evidence now fixes independent Kaname Ichikawa / Kunio Ikeda gas-lighter activity in 1961, plus a Kaname Ichikawa lighter priority in 1958. This predates the documented 1971 Royal Sangyo × Hirota Modern Trading combination.
+- This does **not** assign MODERN / MODERN LITE / H.M.C. / Modern De Luxe to Ichikawa. It strengthens the requirement to keep pre-1971 Ichikawa-side and Hirota-side lighter trails separate rather than forcing all MODERN-family objects into a Hirota-only model.
+- Edo-Tokyo Museum has an institutional `MODERN LITE/製` lighter catalog record, but it does not expose the legal entity behind the name.
+- NDL access paths are now fixed for the 1959 and 1965 `全国商標社章図鑑`, 1959 `日本商標大事典`, and 1972 `日本有名商標録 新版`. Relevant body entries have **not yet been read**, so G2 remains OPEN.
+- Gate state remains: G1 OPEN / G2 OPEN (access advanced) / G3 OPEN-HOLD / G4 bounded PASS / G5 OPEN.
+
+Next priority:
+1. recover/read trademark-book body entries;
+2. reverse-search 1961 Japanese lighter applications while separating Ichikawa/Ikeda from Hirota-name families;
+3. continue H.M.C.CO. legal-entity fingerprinting;
+4. continue Fukuoka/Mitsubishi supplier-side recovery.
+
