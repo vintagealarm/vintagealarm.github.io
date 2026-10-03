@@ -214,3 +214,28 @@ Current active next actions:
 
 Generic H.M.C./Hirota expansion remains parked.
 
+## 2026-10-03 VA DEEP DIVE frame correction — CURRENT
+
+The user identified the same failure mode seen in the parallel ARSA work: the research agenda had narrowed into solving one identity puzzle instead of building the kind of DEEP DIVE already used across VINTAGE ALARM.
+
+Current operating rule:
+
+**Use the VA standard research frame first; use G0–G5 only as evidence-status markers.**
+
+Research in this order:
+1. 作った会社 / commercial-production context
+2. 需要背景
+3. 時計そのもの — mechanism, operation, movement/platform, construction, variants, repair/handling evidence
+4. 同目的・同機構の比較個体
+5. caliber / platform と変貌種
+6. Modern De Luxe固有の追加要件 — exact trademark/operator, promotional chain, G0, country-attribution conflicts, paper evidence
+
+Important corrections:
+- movement/platform identification is **not downstream of commercial-operator resolution**; it is a primary DEEP DIVE axis.
+- a run may be MATERIAL PROGRESS when it adds genuinely new mechanism/comparison/platform evidence even if no G0–G5 gate moves.
+- a missing operator/trademark/supplier document is not allowed to block the whole study.
+- unresolved identity is acceptable in a finished research narrative when explicitly bounded by evidence.
+- already-known specimen comparisons remain RESOLVED INPUT and must not be rerun from the same images.
+
+For the next session, do **not** begin with “which gate can I pass?” Begin with “which VA DEEP DIVE box is still thin, and what new source would actually explain the watch?”
+
