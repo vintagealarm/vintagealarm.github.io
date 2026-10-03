@@ -10,8 +10,9 @@
 - `instagram-published-copy.md` は**実投稿本文の証拠正本**、本ファイルは**再利用索引**。役割を混ぜない。
 - 数値はここへ複製しない。Instagram数値は `instagram-insights-timeseries.md`、分析判断は `instagram-operations.md`。
 - **OWNER'S NOTE は分割しない。** 1個体のOWNER'S NOTEを一つの完成物として扱い、leadや本文の一文を別々の投稿ネタへ切り刻まない。
-- **AI単独の分解は正本化しない。** AIはSourceに基づく候補を提示できるが、asset境界の KEEP / MERGE / SPLIT / DROP は時計ごとにユーザー確認を通して確定する。
-- 現在のasset表は共同棚卸しの開始点。ユーザー確認前に「全資産の原子分解完了」と呼ばない。
+- **AIは候補分類まで先行してよい。** Sourceに基づいて候補を切り、Category / relation / media / verify / video-fitまで `AI_PROPOSED` として整理する。
+- **ただし候補は必ずユーザーへ提示する。** 提示前のAI分類を正本assetへ昇格させない。asset境界の KEEP / MERGE / SPLIT / DROP は、提示候補をユーザーと相談して確定する。
+- 現在のasset表は共同棚卸しの開始点。候補レビュー層と正本asset層を混同しない。
 - 動画への当て込みはasset確定後。ユーザーが採用したものだけContent Assignment Registryへ USER_CONFIRMED / PLANNED として予約する。
 
 ## 1. ステータス
@@ -44,17 +45,18 @@
 
 1. PROJECT.md → AGENTS.md → PROJECT_STATE.md → Social ROUTER.md を読む。
 2. 投稿案なら、この content-inventory.md を記憶より先に開く。
-3. 対象時計の現行asset表を開始点としてSourceへ戻る。ただしAIがasset境界を確定しない。
-4. ユーザーと KEEP / MERGE / SPLIT / DROP を確認し、その時計の棚卸しを共同確定する。
-5. 確定assetについて USED / PARTIAL / CANDIDATE_NOT_IN_IG_TEXT、Other social、Media、Verifyを再照合する。
-6. 動画への当て込みをユーザーと決め、final案へ進めるものだけ USER_CONFIRMED / PLANNED で予約する。
-7. activeな PLANNED / SHOT / EDITED / SCHEDULED のasset / media keyは別案へ再利用しない。
-8. 撮影→SHOT、編集→EDITED、予約投稿→SCHEDULED、公開確認→PUBLISHED。中止はDROPPED。
-9. Instagram公開時はpublished-copy、asset state、assignmentを同じ変更セットで同期する。Insightsは同じcontent IDを使う。
+3. 対象時計の現行asset表を開始点としてSourceへ戻り、AIが追加候補を分類する。候補には一時IDを付け、Category / IG state候補 / Other social / Media / Verify / overlap候補 / video-fit候補を整理する。
+4. **その分類済み候補一覧をユーザーへ提示する。** この段階は `AI_PROPOSED` であり、正本assetではない。
+5. ユーザーと KEEP / MERGE / SPLIT / DROP を相談し、その時計のasset境界を共同確定する。必要なら粒度を再分類して再提示する。
+6. 確定assetについて USED / PARTIAL / CANDIDATE_NOT_IN_IG_TEXT、Other social、Media、Verifyを再照合して正本asset表へ反映する。
+7. 確定assetを動画へ当て込む案を提示し、ユーザーが採用したものだけ USER_CONFIRMED / PLANNED で予約する。
+8. activeな PLANNED / SHOT / EDITED / SCHEDULED のasset / media keyは別案へ再利用しない。
+9. 撮影→SHOT、編集→EDITED、予約投稿→SCHEDULED、公開確認→PUBLISHED。中止はDROPPED。
+10. Instagram公開時はpublished-copy、asset state、assignmentを同じ変更セットで同期する。Insightsは同じcontent IDを使う。
 
 ### よくある要求の処理
 
-- 「未使用角度を全部」→ asset表とSourceから候補を出し、ユーザーと境界を確認してから確定する。
+- 「未使用角度を全部」→ AIがSource-backed候補をカテゴリ別に `AI_PROPOSED` で先に出し、ユーザーへ一覧提示。KEEP / MERGE / SPLIT / DROP 後にだけ正本化する。
 - 「既出を除いて」→ USEDを除外。PARTIALは原則除外し、明示的な再検証時だけ戻す。
 - 「写真だけ変えて細かく」→ READY_EXISTINGを開始点にし、同じ物理写真を別ネタへ使うかはユーザー確認で決める。OWNER'S NOTEは除外。
 - 「追加撮影が必要なネタ」→ NEEDS_SHOOTのみ抽出。
@@ -165,7 +167,36 @@ Canonical WATCH: `src/content/watches/citizen-alarm.md`
 |---|---|---|---|---|---|---|---|
 | GLB-01 | HOW THEY RING：GONG / CASEBACKの実機音を入口に各WATCHへ送る | CANDIDATE_NOT_IN_IG_TEXT | X_OR_OTHER_USE_RECHECK_BEFORE_REUSE | READY_EXISTING | READY_FROM_WATCH | URL_FUNNEL | `PROJECT_STATE.md` + `/en/how-they-ring/` canonical funnel |
 
-## 3. 共同棚卸し状態 / Content Assignment Registry
+## 3. Candidate Review Queue — AI分類 → ユーザー相談 → 正本化
+
+ここは**正本assetの前段**。AIはここまで自律的に作ってよいが、必ず会話上でユーザーへ提示する。
+
+Status:
+- `AI_PROPOSED` — AIがSourceから切り出し・分類した候補。未承認。
+- `USER_KEEP` — ユーザーが独立assetとして残す方向を確認。正本反映待ち。
+- `USER_MERGE` — 別候補／既存assetへ統合する方向を確認。
+- `USER_SPLIT` — さらに分割して再提示する。
+- `USER_DROP` — SNS assetとしては採用しない。
+
+候補に最低限持つもの:
+- Proposal ID（一時ID。正本asset IDではない）
+- WATCH
+- Candidate / category
+- Existing asset relation（NEW / OVERLAP / SUBSET / SUPERSET / SAME_MEDIA）
+- IG / Other social の既出候補
+- Media状態
+- Verify状態
+- Video-fit候補
+- Source
+
+**AI_PROPOSEDは正本asset件数に数えない。候補一覧をユーザーへ見せずに USER_KEEP / MERGE / SPLIT / DROP へ進めない。**
+
+| Proposal ID | WATCH | Candidate / category | Relation | IG / Other social | Media | Verify | Video fit | Status | Source |
+|---|---|---|---|---|---|---|---|---|---|
+
+---
+
+## 4. 共同棚卸し状態 / Content Assignment Registry
 
 | WATCH | Review state |
 |---|---|
@@ -199,7 +230,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 現在の新規active reservationは0件。AI単独で出したmicro-Reel分解とWES-02優先案は採用済み扱いにしない。
 
 ---
-## 4. Legacy / Project recovery audit
+## 5. Legacy / Project recovery audit
 
 ### 2026-10-03 — 旧引継ぎ資産の逆引き監査
 
@@ -211,7 +242,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 
 ---
 
-## 5. 更新契約
+## 6. 更新契約
 
 - 実投稿が公開確認されたら、同じ変更セットで `instagram-published-copy.md` を更新し、対応inventory rowを `USED` または `PARTIAL` へ更新する。
 - 同じ時計の別投稿は、Insights側では `content_id` を分ける。inventoryのIDとInsights `content_id` は役割が違うため同一IDへ統合しない。
@@ -220,7 +251,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 - 追加撮影が済んだら `NEEDS_SHOOT → READY_EXISTING`。資料確認が済んだら `RECHECK_SOURCE` 等を適切に更新する。
 - WATCH本文の事実が変わった場合、inventory本文を事実正本として守ろうとせず、WATCHへ追随させる。
 - OWNER'S NOTEをSNSへ使う場合、`*-ON` 行を一つの投稿資産として扱う。**内部のleadや一文を複数行へ増殖させない。**
-- 新しいasset分解・統合はユーザー確認後にだけ正本へ反映する。
+- AIは新しいasset候補を Candidate Review Queue へ `AI_PROPOSED` として分類してよい。**候補は会話上で必ずユーザーへ提示し、相談結果が出るまで正本asset表へ反映しない。**
 - 新規動画案をPLANNEDにするにはApproval=USER_CONFIRMEDが必須。
 - active contentに予約済みのasset / media keyを新しい候補として再提案しない。
 - 同じ物理写真／動画のcrop違いは同一media keyとして扱う。
