@@ -149,3 +149,46 @@ Next priority:
 3. continue H.M.C.CO. legal-entity fingerprinting;
 4. continue Fukuoka/Mitsubishi supplier-side recovery.
 
+## Strategy reset — 2026-10-03 JST — CURRENT
+
+Council V3 format 7 / 宮廷道化師 identified a more basic unresolved premise than the existing Hirota/H.M.C. bridges, and the user explicitly adopted the correction.
+
+### New first question
+
+Are the clock/watch, travel-clock, and lighter uses of `Modern De Luxe` actually one brand/operator family?
+
+This is now **G0 SAME BRAND / SAME OPERATOR — OPEN**.
+
+Do not import non-clock Modern De Luxe, generic MODERN, H.M.C., Modernlite, Hirota, or Modern Royal evidence into the clock attribution until a common operator/brand chain is established. Name identity alone is insufficient.
+
+G0 does not block a direct G1 pass from clock/watch documentation.
+
+### Active priority order
+
+1. Compare the two user-held Modern De Luxe specimens from safe observable evidence when available.
+2. Recover direct clock/watch responsibility evidence: box, guarantee, instructions, advertisement, catalogue, labels, retailer/distributor, warranty/service entity.
+3. Recover exact-brand G0 evidence linking Modern De Luxe across categories to one named operator.
+4. Continue Fukuoka and Mitsubishi commemorative-clock vendor/procurement routes.
+5. Read trademark-book body with exact Modern De Luxe / Modern du Luxe first.
+6. Pursue movement/finished-clock maker after the commercial chain is narrowed.
+
+### Parked by default
+
+Generic H.M.C. entity hunting, generic Hirota/Modern Royal expansion, Modernlite number accumulation, broad Hirota/Ichikawa patent runs, and broad MODERN-lighter collection are retained in the evidence corpus but are no longer default next actions.
+
+Resume them only when exact Modern De Luxe evidence or a direct clock/watch source creates a specific bridge question.
+
+### Gate state after reset
+
+- G0 SAME BRAND / SAME OPERATOR: **OPEN**
+- G1 CLOCK → COMPANY: **OPEN**
+- G2 TRADEMARK → OWNER: **OPEN**, exact Modern De Luxe first
+- G3 H.M.C. → ENTITY: **OPEN/HOLD, CONDITIONAL**
+- G4 CLOCK → DATE: **bounded PASS**, lower priority
+- G5 PROMOTIONAL GOODS / DISTRIBUTION → COMPANY: **OPEN, HIGH VALUE**
+
+Canonical reset note:
+- `research/MODERN_DE_LUXE_STRATEGY_RESET_20261003_JESTER.md`
+
+If older sections in this handoff prioritize H.M.C./Hirota-first searching, this strategy-reset section supersedes them.
+
