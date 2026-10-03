@@ -54,6 +54,28 @@
 - YouTube Shortsで実行済みのBasis `mechanical wristwatch × fidget toy` 訴求がInstagramでも再現するか
 - 将来Reel直URLが利用可能になった場合、現在の `Reel → profile → HOW THEY RING` baselineとの差
 
+### 4.1 DECISION → EVIDENCE LINK — 判断をログへ接続する
+
+ACTIVEなSNS運用判断は、観測ログと切り離して「方針だけ」「数字だけ」にしない。詳細は `instagram-operations.md` に置き、最低限次を対応付ける。
+
+- **Decision** — 何を変えた／維持した判断か
+- **Origin** — USER / AI / COUNCIL / SOURCE / Web等、判断の起点
+- **Evidence** — 既存のどのログ・投稿・媒体差・VA流入で検証するか
+- **Revisit / falsifier** — 何が観測されたら判断を再検討するか
+- **Status** — ACTIVE / HOLD / RESOLVED / REJECTED
+
+運用上の原則:
+- この接続のためだけに新しいKPI・ダッシュボード・保存先を増やさない。まず既存の `instagram-insights-timeseries.md` / `instagram-published-copy.md` / `instagram-operations.md` / `experiment-log.md` / VA Analyticsで判定できるか確認する。
+- Webや外部事例を起点にした判断は、一般論をInstagramの普遍則へ昇格させず、VINTAGE ALARM自身のログで真偽を審議する。
+- 写真 / Reel、時計個体、フック、尺、投稿時刻など複数変数が違う観測は「反証候補・次の比較材料」として扱い、単発結果から単一原因を確定しない。
+- ログの目的は「記録を増やすこと」ではなく、**どの運用判断を維持・修正・棄却するか後から追えること**。
+
+現在のACTIVE判断:
+- **投稿頻度を初期運用より落とし、投稿前のWeb / 既存実績確認と1本あたりの内容品質を優先する方針を、既存ログで継続検証する。**
+- これは「低頻度の方が常に伸びる」という確定則ではない。頻度低下による発見機会の損失と、1投稿あたりの非フォロワー配布・保存 / 共有・フォロー・プロフィール遷移・HOW THEY RING到達等をあわせて見る。
+- 固定の最適投稿回数は現時点で正本化しない。確認できない具体回数を後付けしない。
+- Wittnauer 10WA等で媒体 / format差が出た場合は、この判断を検証する材料へ加えるが、単一投稿だけで写真 / 動画全体の優劣へ一般化しない。
+
 ## 5. RESOLVED / INTERNAL — 原則として再説明・再審議しない
 
 以下は内部処理ルール。新しい矛盾・仕様変更・ユーザーからの明示的な再検討指示がない限り、Councilや通常回答の主要論点へ戻さない。
