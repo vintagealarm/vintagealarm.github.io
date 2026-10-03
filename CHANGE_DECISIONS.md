@@ -861,5 +861,5 @@
 - **旧状態・棄却**: 「AIは候補境界を作らず、ユーザーと一緒にゼロから分解する」運用を棄却。反対に「AI_PROPOSEDをユーザーへ見せず正本assetへ昇格する」運用も引き続き禁止。
 - **影響範囲**: PROJECT.md、AGENTS.md、PROJECT_STATE.md、Social ROUTER.md、content-inventory.md、instagram-operations.md、scripts/check-social-content-inventory.mjs。既存56 asset、OWNER'S NOTE whole-only、既存Published Copy / Insights数値は変更しない。
 - **検証状態**: branch `social-candidate-review-stage` で実装。PR quality gateを通し、main反映後に再取得確認する。
-- **関連**: 2026-10-04 07:33 JST ユーザー訂正「候補までは分類したまま出して俺と相談して決めるべきでは？提示せずにやったのが間違い」。関連commit: `b1b6f4c6` / `6f661980` / `decb1865` / `80735994` / `c7e8f7ed` / `743b0890` / `c67c2341` / `a22142c8`。
+- **関連**: 2026-10-04 07:33 JST ユーザー訂正「候補までは分類したまま出して俺と相談して決めるべきでは？提示せずにやったのが間違い」。関連commit: `b1b6f4c6` / `6f661980` / `decb1865` / `80735994` / `c7e8f7ed` / `743b0890` / `c67c2341` / `a22142c8` / `ca15c351`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 07:33 JST（UTC+09:00）。
