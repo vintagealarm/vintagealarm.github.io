@@ -113,7 +113,7 @@ L.T. Jordan Institute's catalog record for Art. No. 510 describes/records the bo
 - `MODERNLITE AUTOMATIC SUPERLIGHTER ART. No. 510`
 
 Source:
-https://researchworks.oclc.org/archivegrid/collection/data/1225711246
+https://hub.catalogit.app/l.t.-jordan-institute-for-international-awareness/folder/entry/set-of-cigarette-case-and-lighter-with-oil-refinery-scene-in-blue-case
 
 The object-level H.M.C./Modernlite corpus therefore remains real, but the legal expansion of H.M.C. remains unresolved.
 
