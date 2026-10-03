@@ -17,6 +17,20 @@
 
 ## 2026-10-03
 
+### 2026-10-03 10:15 JST — ARSAの戦闘系比喩を棄却しSensitive-context guardを追加
+
+- **変更**：ARSA Blind Alarmでは戦闘を軽い比喩として使う候補をREJECTEDとし、全WATCH共通Catch / LeadプロトコルへSensitive-context collision checkを追加した。
+- **理由**：ARSA自体が戦争復帰用に開発されたという直接因果は未証明。一方、研究正本では触読時計が戦争で失明した人の社会復帰・自立支援に制度的に使われたことは確認済みであり、同じ領域を軽いネタへ転用すると歴史的文脈と温度が衝突するため。
+- **旧状態・棄却**：ARSAの触読設計を戦闘系の作品・台詞で軽く翻訳する方向を棄却。ARSAの直接的な戦争起源を新たに断定するものではない。
+- **影響範囲**：`SITE_RULES.md`、`AGENTS.md`、ARSAコピー候補の状態管理。本番WATCH本文・研究事実は変更しない。
+- **検証状態**：`research/ARSA_BLIND_ALARM_LEDGER.md` のTrack B / Cross-track connectionを再確認し、直接因果はNOT PROVEN、触読時計と社会復帰支援の関係は確認済みという確度分離を維持した。
+- **対象WATCH**：ARSA Blind Alarmを起点とし、guard自体は今後の全WATCH共通。
+- **起点・帰属**：戦闘系の軽い扱いを避ける判断はユーザー指摘。AIが研究正本と照合して一般ルールへ反映した。
+- **VA温度比較**：VAの遊びは維持するが、歴史的に重い背景そのものを笑いの軸にしない。遊びは機構・操作・外観へ移す。
+- **採否・現在状態**：戦闘系フレームはREJECTED。`開けて、触って、聞く。` はWORKING_MAIN、`タッチパネル、物理です。` はSUBのまま。
+- **関連**：`research/ARSA_BLIND_ALARM_LEDGER.md`、commits `d08b22cd`, `becdc81f`。
+- **日時根拠**：会話セッションのローカル時刻 `2026-10-03T10:15:56+09:00` = `2026-10-03 10:15 JST`。
+
 ### 2026-10-03 09:48 JST — OWNER'S NOTEコピー開発を全WATCH共通プロトコル＋CI gateへ昇格
 
 - **変更**：ARSAで得たコピー開発・帰属管理の修正を個別対応で終わらせず、今後の全WATCHへ適用する共通プロトコルとして実装した。起動時の `PROJECT.md` 強制チェック、`PROJECT_STATE.md` の現行baseline、`AGENTS.md` の作業手順、`SITE_RULES.md` のCatch / Lead開発プロトコルを同期し、固定の代表本数ではなく作業時点で `published: true` の日本語WATCHすべてを温度ベンチマークにする。さらに `scripts/check-owner-copy-provenance.mjs` を追加し、実際に `src/content/watches/*.md` の `catch` または `ownersNote.lead` が変わるPRでは、新しい判断履歴に `対象WATCH / 起点・帰属 / VA温度比較 / 採否・現在状態` の4項目がなければquality gateを失敗させる。動的な横並び確認用に `npm run owner-copy:benchmark` も追加し、self-testを `test:quality` へ組み込んだ。あわせて `PROJECT.md` 自体をdecision-bearing fileとして `check:decision-log` の監査対象へ追加した。
