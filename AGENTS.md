@@ -62,7 +62,7 @@ WATCH / OWNER'S NOTE用の個体研究は、特別な理由がない限り **Pie
 - 一つの施策を理由にサイト全体を再設計しない。
 - 他者の未完了変更を上書きしない。
 - 旧仕様・棄却済み候補を、新証拠または明示的な仕様変更なしに復活させない。
-- **SNS投稿案・既出除外・未使用角度抽出では、Social Routerの後に `measurement/.internal/.virtual/social/content-inventory.md` を必ず確認する。** 会話記憶から投稿ネタを再発明せず、inventoryで候補を絞った後にWATCH / research / published-copyの正本へ戻って事実を再確認する。OWNER'S NOTEはinventoryの `WHOLE_ONLY` を守り、leadや本文を複数投稿へ分割しない。final storyboard / captionを確定する前にContent Assignment Registryへ `PLANNED` を作り、primary / secondary assetとmedia keyを予約する。active予約済みasset / mediaは候補から除外し、中止時は削除せず `DROPPED` で解放する。
+- **SNS投稿案・既出除外・未使用角度抽出では、Social Routerの後に `measurement/.internal/.virtual/social/content-inventory.md` を必ず確認する。** 会話記憶から投稿ネタを再発明せず、inventoryで候補を絞った後にWATCH / research / published-copyの正本へ戻って事実を再確認する。OWNER'S NOTEはinventoryの `WHOLE_ONLY` を守り、leadや本文を複数投稿へ分割しない。asset境界の KEEP / MERGE / SPLIT / DROP は対象時計ごとにユーザー確認を通して確定する。AI単独で全資産を原子分解したことにしない。final storyboard / captionを確定する前に、ユーザーが採用した案だけContent Assignment Registryへ USER_CONFIRMED / PLANNED として予約する。active予約済みasset / mediaは候補から除外し、中止時は削除せず DROPPED で解放する。
 - **案・発見・指摘・修正の帰属を保持する。** 誰が最初に提示したか（ユーザー / AI / Council / 資料・Web・画像）、その後だれが確認・同定したか、採用 / 棄却 / HOLD / 未決のどこに置いたかを混同しない。後から要約・Roast・Council・本文化するときも発案者を入れ替えない。
 - 帰属が後続判断に効く案・発見は、関連research ledgerまたは `CHANGE_DECISIONS.md` に **起点 → 検証 → 採否理由 → 現在状態** を残す。未採用案を作者の意図や確定方針へ昇格させず、AI案をユーザー案として、ユーザー案をAI案として記録しない。
 - OWNER'S NOTEの `catch` / `ownersNote.lead` を新規作成・大幅改稿・候補選別する場合は、**ARSAに限らず全WATCH共通で** `SITE_RULES.md` のCatch / Lead開発プロトコルを先に適用する。作業時点で `published: true` の日本語WATCHすべての現行Catch / Leadを横並び確認し、候補の発案者・派生元、Reality pin、VA温度比較、採否・現在状態を保持する。ローカル環境では `npm run owner-copy:benchmark` を使える。固定の代表本数や会話記憶だけで温度を推定しない。

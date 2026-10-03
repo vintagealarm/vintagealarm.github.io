@@ -1950,3 +1950,12 @@ Delta from 2026-10-03 10:18:
 - **Implementation**: asset rowsへ `Overlap / collision`、`Micro fit`、`Micro treatment` を追加。WATCH正本再監査で独立assetを追加し、Content Assignment Registryへ既存Instagram 7件・Basis YouTube・CYMA X timing wheel・Westclox YouTube過去予約を接続。active contentでは同一asset / media keyの二重予約をCIで失敗させる。
 - **Guardrail**: `Micro treatment` は候補であって採用ではない。採用前に `PLANNED`、撮影 `SHOT`、編集 `EDITED`、予約投稿 `SCHEDULED`、公開確認 `PUBLISHED` と同一content IDを進める。中止は `DROPPED`。OWNER'S NOTE `WHOLE_ONLY` は維持。
 - **Status**: ACTIVE。
+
+## 2026-10-03 22:47 JST — AI単独のasset分解を撤回し、共同棚卸しへ修正
+
+### Correction
+- User correction: 「お前だけで分解したら意味ねーじゃん？」。目的はAIが全資産を勝手に原子分解して確定することではなく、各時計の資産をユーザーと棚卸しし、その確定assetを動画へ当て込むこと。
+- 撤回: 2026-10-03 21:33の実装でAI単独追加した19 assetと、全assetへ付けた Overlap / Micro fit / Micro treatment の確定扱いを撤回。WES-02等のmicro-Reel当て込みも未採用候補へ戻す。
+- 維持: ASSET → CONTENT → MEDIAのduplicate lockという管理構造は維持する。ただし新規contentをactive化するには USER_CONFIRMED が必須。
+- 新手順: 1時計ずつSource-backed候補を提示 → ユーザーが KEEP / MERGE / SPLIT / DROP → asset正本更新 → その後に動画当て込み → ユーザー採用 → USER_CONFIRMED / PLANNED。
+- Status: ACTIVE。6個体のAsset review stateは全て PENDING_USER_REVIEW から再開。

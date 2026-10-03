@@ -845,3 +845,12 @@
 - **検証状態**: PR #154 の `Astro foundation check` run `37124672266` がSUCCESS。`check:social-inventory` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。main反映後にinventory / Router / checker / decision logを再取得して最終確認する。
 - **関連**: 2026-10-03ユーザー指示「各資産の棚卸とそれの動画への当て込み」「重複はどうやって管理するの？」「そうだねそれをしてくれるかな？」。関連commit: `292b19f5` / `07b86fbf` / `814ebcd6` / `d0d1cf46` / `158b32d6` / `4214388c` / `c905c335` / `6e26e95d` / `d7ac2119`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 21:33 JST`（UTC+09:00）。
+
+### 2026-10-03 22:47 JST — AI単独のSocial asset原子分解を撤回し、共同確定制へ修正
+- **変更**: PR #154でAI単独追加した19 assetと、全assetへの Overlap / collision・Micro fit・Micro treatment の確定扱いを撤回し、PR #154前の56 asset索引を共同棚卸しの開始点へ戻す。6個体すべてを PENDING_USER_REVIEW とし、対象時計ごとにユーザーが KEEP / MERGE / SPLIT / DROP を確認した後だけasset境界を正本化する。ASSET → CONTENT → MEDIAのduplicate lockは残すが、新規active contentは Approval=USER_CONFIRMED を必須にする。
+- **理由**: ユーザーの目的は「AIだけで細かく分解した完成棚」ではなく、保存済みVA資産を人間とAIで棚卸しし、その合意済みassetを短編動画へ当て込む運用。AI単独分解では粒度・撮影可能性・同じ素材を別ネタとして扱う境界がユーザー意図とずれ、引き継ぎ時に誤った確定事項として残る。
+- **旧状態・棄却**: 2026-10-03 21:33の「AIが6個体を75 assetへ原子分解し、micro treatmentまで正本化した状態」を棄却。PR #154のduplicate-lock発想自体は棄却せず、ユーザー確認後の予約管理へ限定して残す。
+- **影響範囲**: PROJECT.md、AGENTS.md、PROJECT_STATE.md、Social ROUTER.md、content-inventory.md、instagram-operations.md、scripts/check-social-content-inventory.mjs。公開WATCH本文、OWNER'S NOTE原文、既存Instagram本文・Insights数値は変更しない。
+- **検証状態**: PR #155 の `Astro foundation check` run `37128016929` がSUCCESS。`check:social-inventory` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。main反映後にinventory / Router / checker / decision logを再取得して確認する。
+- **関連**: PR #154 / main commit 153d46e1。corrective commits: 1b14677b / 60425726 / 91b5d98a / 6da8fdf8 / a01c8e3e / 1de34087 / f08354f6。2026-10-03 22:47 JST ユーザー訂正「お前だけで分解したら意味ねーじゃん？」。
+- **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-03 22:47 JST（UTC+09:00）。
