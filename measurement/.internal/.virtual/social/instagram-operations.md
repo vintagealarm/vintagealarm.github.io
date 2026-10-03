@@ -77,6 +77,42 @@ Basis自体のVA上の核は、BFG90、2香箱、回転ベゼル式アラーム�
 - Analytics上の `facebook` / `instagram` は生データを保持する。FB値をInstagram実ユーザーへ無条件に加算しない。
 - 投稿本文にVAリンクを置いていない状態で `l.instagram.com → /en/how-they-ring/` が観測された場合、Instagramから英語HOW THEY RINGへの到達は確認済み。ただしAnalyticsだけでプロフィール画面上のクリック操作までは直接証明しない。
 
+## 2026-10-03 — 投稿頻度低下＋1本あたり品質優先をACTIVE仮説としてログへ接続
+
+### Decision
+- 初期運用より投稿頻度を落とし、投稿前にWeb / 外部事例・過去SNS実績・対象WATCHの正本を確認して、1本あたりの内容品質を上げる。
+- 目的は「低頻度そのもの」ではなく、VINTAGE ALARMのミッションである `discovery → understanding → experience → verification → research when necessary` に対して、1投稿がより強い入口になるかを検証すること。
+- 現時点で固定の最適投稿回数は正本化しない。過去会話に具体回数があっても、現行正本で確認できない数値は復元せず `UNRESOLVED` とする。
+
+### Origin
+- **USER起点**。ユーザーがWeb参照を踏まえて投稿頻度を落とし、1本あたりの質を上げる運用を採用したと再確認。
+- AI / Councilはこの判断を「正解」と固定するのではなく、既存ログで真偽を審議する役割とする。
+
+### External check — 一般論の扱い
+- Meta公式のInstagram Best Practicesは、Creation領域で「how often to post」を扱い、一般的な助言に加えて**アカウントごとのpersonalized tips**を提供すると説明している。公開説明自体は一律の最適回数を示していない。
+  - https://about.fb.com/news/2024/10/best-practices-education-hub-creators-instagram/
+- MetaのInstagram ranking説明では、share等を含む多数の予測を組み合わせ、**単一の予測だけで価値を判断しない**としている。
+  - https://about.fb.com/news/2023/06/how-ai-ranks-content-on-facebook-and-instagram/
+- したがって外部情報は「固定頻度の答え」ではなく仮説形成に使い、VINTAGE ALARM自身の実測で判断する。
+
+### Existing evidence — 新KPIを増やさず使う
+- `instagram-insights-timeseries.md`: 非フォロワー配布、views / viewers、平均再生、skip、保存、共有、repost、follow、profile access、bio-link等の時系列。
+- `instagram-published-copy.md`: 実投稿本文・hashtags・採用訴求。内容品質やフック差を後から照合する。
+- 本ファイル: YouTube Shorts / X / Instagramの先行実績と媒体横断比較。
+- `measurement/experiment-log.md` / VA Analytics: SNS側の反応とHOW THEY RING / WATCHへの到達・内部遷移を分離して確認する。
+- 写真 / Reel等のformat差は検証材料へ含める。ただし単発結果だけで「写真は弱い」「動画は強い」と一般化しない。
+
+### Revisit / falsifier
+次のどれかが継続的に観測された場合、低頻度＋品質優先の運用を再審議する。
+- 投稿前調査・制作負荷を増やしても、同程度の比較条件で非フォロワー配布や保存 / 共有 / follow / profile action / VA到達が改善しない。
+- 投稿間隔を空けたことによる発見機会の減少が、1投稿あたりの改善を上回ると観測できる。
+- format差・個体差・投稿時刻差で説明できる変動を、頻度効果と誤認していたことが分かる。
+
+### Status
+**ACTIVE / UNDER VALIDATION**。現行ログはこの判断の審議材料として使う。検証のためだけに新しい計測系・保存先・ダッシュボードは追加しない。
+
+---
+
 ## Instagram 初期完成条件
 
 フォロワー数単独ではなく、初見ユーザーがReelから機械式アラーム腕時計のアカウントだと理解し、別個体・プロフィール・VAへ進む導線が再現すること。
