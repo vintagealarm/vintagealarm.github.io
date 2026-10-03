@@ -836,3 +836,12 @@
 - **検証状態**: PR #153 の `Astro foundation check` run `37120376779` がSUCCESS。build / quality gates / OWNER'S NOTES directory / publication-aware output / mobile layoutまでPASS。実際の成果は次回以降のmicro-Reel Insightsで別途観測する。
 - **関連**: 2026-10-03 Wittnauer 10WA static carousel `content_id=wittnauer-10wa-static-2026-10-03`、Social Content Inventory。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-03 20:25 JST（UTC+09:00）。
+
+### 2026-10-03 21:33 JST — Social Content InventoryをASSET→CONTENT→MEDIA予約制へ拡張
+- **変更**: `content-inventory.md` の6個体資産をWATCH正本へ戻って再棚卸しし、既存assetを動画化可能な粒度へ分解・補完した。各assetへ `Overlap / collision`、`Micro fit`、`Micro treatment` を追加し、別途Content Assignment Registryで `ASSET ID → CONTENT ID → MEDIA KEY` を管理する。final案は `PLANNED` で予約し、`SHOT → EDITED → SCHEDULED → PUBLISHED` と進める。`scripts/check-social-content-inventory.mjs` はasset / content ID重複、overlap参照、Instagram USED baseline、active asset二重予約、active media key二重予約を検査する。
+- **理由**: asset IDと `USED / PARTIAL / CANDIDATE` だけでは「同じ未使用候補を別チャットで再度採用」「同じ映像素材を文言だけ変えて別企画へ割当」「PIE-04とPIE-07のような近接資産を独立新品として扱う」事故を止められなかった。ユーザーの要求は単なるネタ一覧ではなく、全資産棚卸し後に動画へ当て込み、引き継ぎ後も重複を機械的に管理できること。
+- **旧状態・棄却**: inventoryから候補を数件抜き、即座に「次はWES-02」等のstoryboardへ進む順序を棄却。`Micro treatment` を採用済み予約とみなす運用も棄却し、採用はAssignment Registryの `PLANNED` のみとする。先に提示したWES-02案は候補へ戻し、active予約は0から開始する。
+- **影響範囲**: `PROJECT.md`、`AGENTS.md`、`PROJECT_STATE.md`、Social `ROUTER.md`、`content-inventory.md`、`instagram-operations.md`、`scripts/check-social-content-inventory.mjs`。公開WATCH本文、OWNER'S NOTE原文、CANONICAL FUNNEL、既存Instagram本文・Insights数値は変更しない。
+- **検証状態**: PR #154 の `Astro foundation check` run `37124672266` がSUCCESS。`check:social-inventory` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。main反映後にinventory / Router / checker / decision logを再取得して最終確認する。
+- **関連**: 2026-10-03ユーザー指示「各資産の棚卸とそれの動画への当て込み」「重複はどうやって管理するの？」「そうだねそれをしてくれるかな？」。関連commit: `292b19f5` / `07b86fbf` / `814ebcd6` / `d0d1cf46` / `158b32d6` / `4214388c` / `c905c335` / `6e26e95d` / `d7ac2119`。
+- **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 21:33 JST`（UTC+09:00）。

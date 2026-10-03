@@ -1940,3 +1940,13 @@ Delta from 2026-10-03 10:18:
 - **Inventory rule**: `CANDIDATE_NOT_IN_IG_TEXT` を優先。`PARTIAL` は別検証理由がある場合のみ。`USED` を新ネタとして再発明しない。投稿前にWATCH / research正本へ戻り、事実と操作を再確認する。
 - **Revisit / falsifier**: micro-Reelを複数本実施しても非フォロワー配布が静止画と同程度に留まる、または保持・保存・共有が継続的に悪化する場合はformat仮説を再検討する。
 - **Status**: ACTIVE。
+
+## 2026-10-03 21:33 JST — micro-Reelをasset-first予約制へ
+
+### Decision
+- **Decision**: micro-Reel案は「候補を思いつく→即storyboard」の順にせず、6個体のContent Inventoryでassetを棚卸しし、既出 / PARTIAL / overlap / Other social / media状態を照合してから動画へ当て込む。final案はContent Assignment Registryへ `PLANNED` を作り、ASSET ID → CONTENT ID → MEDIA KEYで予約する。
+- **Origin**: USER。micro-Reel方針提示後に「各資産の棚卸とそれの動画への当て込み」「重複はどう管理するの？」と順序・重複管理の欠落を指摘。
+- **Evidence**: 既存inventoryはasset IDとIG stateの重複防止は持っていたが、どの動画へ割り当てたか、同じmediaを別案へ使っていないか、activeな企画予約を逆引きする構造がなかった。
+- **Implementation**: asset rowsへ `Overlap / collision`、`Micro fit`、`Micro treatment` を追加。WATCH正本再監査で独立assetを追加し、Content Assignment Registryへ既存Instagram 7件・Basis YouTube・CYMA X timing wheel・Westclox YouTube過去予約を接続。active contentでは同一asset / media keyの二重予約をCIで失敗させる。
+- **Guardrail**: `Micro treatment` は候補であって採用ではない。採用前に `PLANNED`、撮影 `SHOT`、編集 `EDITED`、予約投稿 `SCHEDULED`、公開確認 `PUBLISHED` と同一content IDを進める。中止は `DROPPED`。OWNER'S NOTE `WHOLE_ONLY` は維持。
+- **Status**: ACTIVE。
