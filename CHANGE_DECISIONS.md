@@ -854,3 +854,12 @@
 - **検証状態**: PR #155 の `Astro foundation check` run `37128016929` がSUCCESS。`check:social-inventory` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。main反映後にinventory / Router / checker / decision logを再取得して確認する。
 - **関連**: PR #154 / main commit 153d46e1。corrective commits: 1b14677b / 60425726 / 91b5d98a / 6da8fdf8 / a01c8e3e / 1de34087 / f08354f6。2026-10-03 22:47 JST ユーザー訂正「お前だけで分解したら意味ねーじゃん？」。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-03 22:47 JST（UTC+09:00）。
+
+### 2026-10-04 07:33 JST — AI候補分類を許可し、提示前の正本化だけを禁止
+- **変更**: Social Content Inventoryに `Candidate Review Queue` を追加し、AIがSource-backed候補を `AI_PROPOSED` として先行分類できるよう明示する。候補には一時Proposal ID、category、existing asset relation、SNS既出候補、media、verify、video-fit、sourceを持たせる。分類済み候補は必ずユーザーへ提示し、KEEP / MERGE / SPLIT / DROP の相談後だけ正本assetへ反映する。
+- **理由**: 2026-10-03 22:47の修正は「AI単独で正本化しない」という再発防止自体は正しかったが、AIによる候補分類まで止める方向へ寄りすぎた。ユーザーが求めるのは、AIが先に整理した候補を見ながら共同で境界を決める運用。
+- **旧状態・棄却**: 「AIは候補境界を作らず、ユーザーと一緒にゼロから分解する」運用を棄却。反対に「AI_PROPOSEDをユーザーへ見せず正本assetへ昇格する」運用も引き続き禁止。
+- **影響範囲**: PROJECT.md、AGENTS.md、PROJECT_STATE.md、Social ROUTER.md、content-inventory.md、instagram-operations.md、scripts/check-social-content-inventory.mjs。既存56 asset、OWNER'S NOTE whole-only、既存Published Copy / Insights数値は変更しない。
+- **検証状態**: branch `social-candidate-review-stage` で実装。PR quality gateを通し、main反映後に再取得確認する。
+- **関連**: 2026-10-04 07:33 JST ユーザー訂正「候補までは分類したまま出して俺と相談して決めるべきでは？提示せずにやったのが間違い」。
+- **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 07:33 JST（UTC+09:00）。
