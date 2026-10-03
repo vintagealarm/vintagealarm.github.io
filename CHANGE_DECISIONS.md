@@ -830,3 +830,15 @@
 - **検証状態:** `npm run test:japanese-style` PASS。ARSA単体の `npm run check:japanese-style -- src/content/watches/arsa-blind-alarm.md` はPASS、warning 0。GitHub branchから取得した現行script / test / WATCH本文と同一内容のローカルfixtureで実行した。build / preview実寸表示は未検証。
 - **関連:** `src/content/watches/arsa-blind-alarm.md` / `strategy/japanese-writing.md` / `references/voice-samples.md` / `scripts/check-japanese-style.mjs` / `scripts/test-japanese-style.mjs`
 - **日時根拠:** current local time `2026-10-03T16:33:30+09:00`。
+
+
+### 2026-10-03 19:50 JST — ARSA Venus 230 / Uhrforum既知leadの再発見扱いを撤回し、再提示禁止へ変更
+
+- **変更**：2026-10-03 19:26 JSTに「new high-information survivor lead」として追加したUhrforumのARSA Venus 230 Blindenweckerを、新規発見扱いから **KNOWN / DUPLICATE / NOT ACTIVE P0** へ変更。RESEARCH_MAPには再提示禁止条件を明記し、LEDGERの19:26記録もRETRACTEDとして訂正した。
+- **理由**：ユーザー指摘を受けて正本を再監査したところ、同一Uhrforum / Venus 230個体はすでに2026-10-02 saturation passの `Alternate ARSA Blind Alarm architecture — Venus 230 survivor lead`、さらに2026-10-03 Deep Dive ③の `HOLD survivor lead — ARSA / Venus 230` に記録済みだった。19:26は少なくとも3回目の再提示であり、既知leadを新規成果として誤分類していた。
+- **旧状態・棄却**：Uhrforum page-25 / Weckerfreund / Venus 230 / 2時独立プッシャーをP0の新規leadとして扱う状態を棄却。新しい独立証拠なしに同leadを検索成果・発見として再掲しない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本判断履歴。公開WATCH本文は変更しない。
+- **検証状態**：LEDGER内で同leadが2026-10-02 saturation passと2026-10-03 Deep Dive ③に既存記録されていることを再確認。RESEARCH_MAPの19:26 entryをNOT ACTIVE P0へ変更。次の探索対象は1956–60 ARSA Blind Alarm本人のperiod paperとAFB / ARSA supplier documentationに限定。
+- **再開条件**：ARSA period catalog / price list / advertisement、AFB supplier document、または同型Venus 230 Blind Alarmの独立第2個体など、新しい証拠が追加された場合のみ再評価する。
+- **関連**：2026-10-02 saturation pass、2026-10-03 Deep Dive ③、2026-10-03 19:26 JST research entry。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T19:50:25+09:00` = `2026-10-03 19:50 JST`。
