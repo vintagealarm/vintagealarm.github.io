@@ -476,7 +476,14 @@ Current classification after the 2026-10-03 VA research scope correction:
 - simple absence vs broken remnant remains unresolved, but this is not an active OWNER'S NOTE research priority
 
 
-## 2026-10-03 19:26 JST — P0 HOLD: Venus 230 ARSA Blind Alarm survivor lead
+## 2026-10-03 19:26 JST — RETRACTED DUPLICATE: Venus 230 ARSA Blind Alarm survivor lead
+
+**2026-10-03 19:50 JST correction:** このUhrforum / Venus 230個体は既知。2026-10-02 LEDGERと2026-10-03 Deep Dive ③ですでにHOLD整理済みだったため、19:26の「new high-information survivor lead」扱いを撤回。
+
+**Current routing: KNOWN / DUPLICATE / NOT ACTIVE P0.**
+- 新しい独立証拠がない限り、このlead自体を再度ユーザー向け成果として出さない
+- ACTIVE探索は **1956–60 ARSA Blind Alarm本人のperiod paper** と **AFB / ARSA supplier documentation** に限定
+- Venus 230系を再開する条件は、period-primary evidence または独立した第2個体の出現
 
 Focused 03-only ad/catalog search still found **no indexed 1956–60 period ARSA Blind Alarm advertisement/catalog page**.
 
