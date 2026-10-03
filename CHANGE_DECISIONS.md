@@ -843,5 +843,5 @@
 - **旧状態・棄却**: inventoryから候補を数件抜き、即座に「次はWES-02」等のstoryboardへ進む順序を棄却。`Micro treatment` を採用済み予約とみなす運用も棄却し、採用はAssignment Registryの `PLANNED` のみとする。先に提示したWES-02案は候補へ戻し、active予約は0から開始する。
 - **影響範囲**: `PROJECT.md`、`AGENTS.md`、`PROJECT_STATE.md`、Social `ROUTER.md`、`content-inventory.md`、`instagram-operations.md`、`scripts/check-social-content-inventory.mjs`。公開WATCH本文、OWNER'S NOTE原文、CANONICAL FUNNEL、既存Instagram本文・Insights数値は変更しない。
 - **検証状態**: branch `social-asset-video-lock` で実装中。`npm run check:social-inventory` を含むPR quality gateを実行し、PASS後にmainへ反映・再取得する。
-- **関連**: 2026-10-03ユーザー指示「各資産の棚卸とそれの動画への当て込み」「重複はどうやって管理するの？」「そうだねそれをしてくれるかな？」。
+- **関連**: 2026-10-03ユーザー指示「各資産の棚卸とそれの動画への当て込み」「重複はどうやって管理するの？」「そうだねそれをしてくれるかな？」。関連commit: `292b19f5` / `07b86fbf` / `814ebcd6` / `d0d1cf46` / `158b32d6` / `4214388c` / `c905c335` / `6e26e95d` / `d7ac2119`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 21:33 JST`（UTC+09:00）。
