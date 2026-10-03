@@ -827,3 +827,13 @@
 - **検証状態**: PR上で `npm run check:social-inventory` を含むquality gateと既存CIを再実行し、PASS後にmainへ反映する。
 - **関連**: Project / Library `VINTAGE_ALARM_完全引継ぎ_2026-09-09(1).md`、現行 `src/content/watches/cyma-time-o-vox.md` Deep Dive 02、2026-10-03ユーザー指示。
 - **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 17:08 JST`（UTC+09:00）。
+
+
+### 2026-10-03 20:17 JST — 外部調査のsite traversalを一般探索規則へ追加
+- **変更**：外部Web調査で意味のある対象ドメインへ到達した後、検索結果だけをサイト全体の母集団とせず、通常ナビゲーション、一覧、sitemap / robots / llms、内部リンクを必要な範囲で確認する一般探索規則を AGENTS.md とSEO/AIO方針へ追加した。公開GitHub等は構造把握の補助経路として許可する一方、exact path後のraw取得を検索発見へ数えない。外部AI観測ログへ2026-10-03事例を追加した。
+- **理由**：外部AIの自己分析で、通常検索から旧VINTAGE ALARMホストへ入り個別ページ/NEXTを辿った一方、現行サイトの一覧・公開構造へ十分到達せず「見えたページ集合」をサイト全体に近いものとして扱った探索欠落が示されたため。また同日確認で、現行GitHub main にはsitemap実装・robotsのSitemap宣言・llmsのcanonical/index記載が存在する一方、Web検索では旧ホスト結果がなお露出し、使用環境から現行sitemap等の直接取得に失敗した。
+- **旧状態・棄却**：検索結果に出たページだけを辿って対象サイトの公開ページ集合を推定する運用を棄却する。同時に、VINTAGE ALARM固有のページ名・URLを研究AIへ列挙して強制発見させる露骨な誘導も棄却する。
+- **影響範囲**：AGENTS.md の外部Web調査、strategy/seo-aio.md のExternal AI観測設計、measurement/aio-observation-log.md。公開WATCH本文・UI・sitemap生成実装・robots / llms本文そのものは変更しない。
+- **検証状態**：GitHub main の src/pages/sitemap.xml.ts、public/robots.txt、public/llms.txt を再取得して現行canonical実装を確認。Web検索では旧ホストのHISTORY / Pierce / Cyma結果を確認。現行sitemap等の直接openは当該Web取得環境でaccess errorのため、live取得可否はこの時点では未確認。branch上のdiffとdecision-log gateを確認後にmain反映を判断する。
+- **関連**：src/pages/sitemap.xml.ts、public/robots.txt、public/llms.txt、measurement/aio-observation-log.md 2026-09-13旧ホスト混在観測。
+- **日時根拠**：作業環境のJST時計 2026-10-03T20:17:41+09:00。
