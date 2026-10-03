@@ -489,3 +489,5 @@ Current classification after the 2026-10-03 VA research scope correction:
 
 **Historical detail:** Venus 230 survivorの仕様・forum URL・仮説は2026-10-02 LEDGERと2026-10-03 Deep Dive ③に既存記録済み。ここでは重複記載しない。
 
+**Editorial decision 2026-10-03 20:15 JST:** 検索上はKNOWN / DUPLICATEのまま維持するが、公開Deep Dive 04の比較個体としては掲載する。理由は、ARSA本人にAS1475本線と異なるVenus 230 / 2時独立プッシャー構成の現存報告があり、「同じ目的への別解」を示す比較価値があるため。本文ではforum survivor / period-primary未確認を明示し、factory production familyへは昇格させない。
+
