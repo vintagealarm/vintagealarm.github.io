@@ -17,6 +17,19 @@
 
 ## 2026-10-03
 
+
+### 2026-10-03 14:30 JST — ARSA Deep Dive ⑤を完了し、AS1475を「platform→branches」で閉じる
+
+- **変更**：⑤AS1475と変貌種をPASS 1 COMPLETE / CLOSING FRAME FIXEDへ移行。AS1475の通常alarm普及をbaselineに、Park-O-Phonのparking UI、ARSA / Enicar / BEATのtactile UI、AS1568 date派生、AS1930 / 1931高振動後継、Citizen / Poljot等のdirectly-based descendantsを、単線進化ではなくplatformからの分岐として整理した。
+- **理由**：Project資料でAS1475が1954–1970・約780,000個の大量普及caliberであること、AS1568 / 1930 / 1931のfamily relation、Benedict Park-O-PhonのAS1475ベース、Citizen / Poljotへの直接的な基礎関係が確認できたため。④で固定したtactile UI差を、この普及platform史へ戻すことでARSAの固有性を「unique caliber」ではなく「mass-market platform上のaccessibility interface」として位置づけられる。
+- **旧状態・棄却**：⑤NEXTを終了。「通常alarm→Park-O-Phon→tactile→AS1930」という単線の製品系譜としては扱わない。parking / tactileはparallel adaptation、AS1568 / 1930 / 1931はcaliber-family development、Citizen / Poljotは別メーカーのdirectly-based relationとして分離する。Citizen license説・Soviet transfer経路は一次資料未確認のため確定しない。
+- **影響範囲**：research/ARSA_BLIND_ALARM_RESEARCH_MAP.md、research/ARSA_BLIND_ALARM_LEDGER.md、本判断履歴。公開WATCH本文は変更しない。
+- **検証状態**：Project資料 The Alarm Wrist Watch / Alarm am Arm のAS1475 family、Benedict Park-O-Phon、通常採用例、Citizen / Poljot記述を確認。WebはRanfft、Museum of Arts and Crafts Zagreb、Grail Watchのparking-watch記述で補助突合。factory production ledger / transfer一次資料はOPEN。
+- **起点・帰属**：VA標準研究frameの⑤「caliber / platformと変貌種」に従い、ユーザーが④完了後に⑤へ進むよう指定。AIがplatform→branchesとして証拠関係を整理。
+- **関連**：Deep Dive ①–④、購入個体ARRIVAL SUPPLEMENT、AS1475 early/late alarm-state test。
+- **日時根拠**：直前main commit b6824ddcのGitHub時刻 2026-10-03T05:30:51Z = 2026-10-03 14:30 JST を本作業開始基準として記録。
+
+
 ### 2026-10-03 14:28 JST — ARSA Deep Dive ④触読alarm比較を完了し⑤AS1475変貌史へ進める
 
 - **変更**：ユーザーが③の設計思想まとめを採用し④へ進むと確認したため、③bをPASS 2 COMPLETE / ARCHIVE BONUS ONLYへ移し、④触読alarm比較をPASS 1 COMPLETEとした。次のACTIVEを⑤AS1475と変貌種へ移す。
