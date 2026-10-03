@@ -481,23 +481,11 @@ Current classification after the 2026-10-03 VA research scope correction:
 **2026-10-03 19:50 JST correction:** このUhrforum / Venus 230個体は既知。2026-10-02 LEDGERと2026-10-03 Deep Dive ③ですでにHOLD整理済みだったため、19:26の「new high-information survivor lead」扱いを撤回。
 
 **Current routing: KNOWN / DUPLICATE / NOT ACTIVE P0.**
-- 新しい独立証拠がない限り、このlead自体を再度ユーザー向け成果として出さない
-- ACTIVE探索は **1956–60 ARSA Blind Alarm本人のperiod paper** と **AFB / ARSA supplier documentation** に限定
-- Venus 230系を再開する条件は、period-primary evidence または独立した第2個体の出現
+- Uhrforum page-25 / Weckerfreund / Venus 230 / 2時独立プッシャーは、既知資料としてのみ保持
+- 新しい独立証拠がない限り、検索成果・新発見・次アクションとして再提示しない
+- 03向けACTIVE探索は **1956–60 ARSA Blind Alarm本人のperiod paper** と **AFB / ARSA supplier documentation** に限定
+- Venus 230系を再開する条件は、ARSA period-primary evidence または独立した第2個体の出現
+- focused 03-only ad/catalog searchでは、1956–60年のARSA Blind Alarm本人の広告 / catalog pageは未回収
 
-Focused 03-only ad/catalog search still found **no indexed 1956–60 period ARSA Blind Alarm advertisement/catalog page**.
+**Historical detail:** Venus 230 survivorの仕様・forum URL・仮説は2026-10-02 LEDGERと2026-10-03 Deep Dive ③に既存記録済み。ここでは重複記載しない。
 
-New high-information survivor lead:
-- 2016 Uhrforum post identifies a 1950s **ARSA Blindenwecker** with **Venus 230**
-- 2-o'clock independent pusher opens the glass/bezel by flip mechanism
-- 3/5-o'clock crowns handle clock/alarm functions
-- this differs materially from the Project-book AS1475 ARSA Blind Alarm with cover opener integrated in the 4-o'clock crown
-
-**Status: HOLD / not public-copy-ready.**
-Do not treat this as a factory ARSA variant until independently corroborated.
-
-P0 verification order:
-1. recover and inspect forum specimen images / movement / case architecture
-2. find a second matching survivor
-3. seek 1954–60 ARSA catalog / ad / price list
-4. seek 1948–63 AFB Aids and Appliances / supplier documentation
