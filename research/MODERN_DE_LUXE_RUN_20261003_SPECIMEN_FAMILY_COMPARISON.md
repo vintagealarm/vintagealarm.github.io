@@ -2,11 +2,19 @@
 
 Date: 2026-10-03 JST  
 Scope: PR #135 research branch only. No public-site change.  
-Result: **MATERIAL PROGRESS / NO TERMINAL GATE PASS**
+Result: **NO MATERIAL PROGRESS — RECLASSIFIED**
+
+## Audit correction
+
+**2026-10-03 user correction: this run was a loop, not progress.**
+
+The photographs and the substantive relationships reviewed here were already known in the working corpus: the two user-held variants, their Japan marking difference, Beitl's p.317 construction, and the Fukuoka commemorative-clock family were not a new external bridge. Reorganizing them after G0 did not move any gate and should not have been reported as a new finding.
+
+This file is retained as an audit trail only. It must not be cited as a material-progress run.
 
 ## Purpose
 
-First evidence run after the 2026-10-03 G0 strategy reset. The run starts from Modern De Luxe clocks themselves rather than expanding Hirota/H.M.C. generally.
+This run attempted to reframe known clock-side evidence after the G0 reset. That attempt was misclassified as progress.
 
 ## Sources directly inspected
 
@@ -41,7 +49,7 @@ The rear layout also agrees closely:
 
 The Beitl specimen additionally has an oval `PASSED` marking/sticker.
 
-**Judgment:** the user-held normal-dial specimen can be treated as the same Modern du Luxe wrist-alarm type shown by Beitl. This does not identify the maker.
+**Audit note:** this relationship was already part of the known specimen picture and is not counted as new evidence. It does not identify the maker.
 
 ## Finding 2 — tricolor is a true architecture variant, not just a same-name object
 
@@ -49,7 +57,7 @@ The tricolor dial differs strongly: script `Modern de Luxe`, blue/white/red cent
 
 Its rear, however, shows the same functional layout as the normal specimen: regulator, bell-marked slot, three-hole center plate, large key-type control, smaller round control, and side-crown arrangement. The tricolor rear also has a directly visible `JAPAN` stamp.
 
-**Judgment:** the two user-held wrist alarms are dial variants built around the same or a closely related case/control architecture. The Japan mark is direct evidence for the tricolor specimen only.
+**Audit note:** this was already-known specimen evidence and is not counted as new progress. The Japan mark remains direct evidence for the tricolor specimen only.
 
 ## Finding 3 — Fukuoka commemorative clock shares the rear-control system
 
@@ -57,7 +65,7 @@ The Fukuoka object is a conventional Modern De Luxe alarm clock. Its rear carrie
 
 The photographed orientation differs, but after considering the circular plate rotated 180 degrees, the relative positions correspond closely with the wrist-alarm layout.
 
-**Judgment:** this materially strengthens the clock-side family model. At least one conventional Modern De Luxe alarm and the wrist-alarm type share a highly similar operating architecture. This is consistent with Beitl's description that the wrist alarm effectively uses a standing/table alarm architecture in a wristwatch-form case.
+**Audit note:** this comparison does not materially strengthen the model because it reprocesses an already-known clock-side relationship. It remains consistent with Beitl's description, but no gate moved.
 
 This does not identify the movement maker, finished-clock maker, trademark owner, or commercial operator.
 
@@ -70,7 +78,7 @@ This does not identify the movement maker, finished-clock maker, trademark owner
 - G4 CLOCK → DATE: **bounded PASS, unchanged**.
 - G5 PROMOTIONAL GOODS / DISTRIBUTION → COMPANY: **OPEN, HIGH VALUE**.
 
-The Fukuoka supplier route becomes more informative because its clock now appears mechanically relevant to the wrist-alarm family.
+The Fukuoka supplier route remains relevant, but this run added no new supplier/operator evidence.
 
 ## Paperwork leads rechecked
 
@@ -78,12 +86,17 @@ Label Emmaüs still indexes a folding `Modern de Luxe 2 Jewels` travel alarm wit
 
 The ledger's Yahoo Auctions `x1105074445` / `K.K. 広田` card claim remains **user-reported / HOLD**. Current web and available project/library retrieval did not recover the card image or listing ID. Do not use it to pass G0 or G1 until the original image/context is recovered.
 
-## Next
+## Anti-loop consequence
 
-Prioritize:
+Do not repeat specimen-family comparison from the same photos.
+
+Resume specimen work only if **new physical evidence** appears, e.g. newly exposed movement markings, dial-back markings, case marks, original paperwork, or another specimen with a genuinely new responsibility mark.
+
+Next active routes:
 1. original clock-family paperwork / box / labels;
-2. the Label Emmaüs instruction sheet;
-3. recovery and audit of the `x1105074445` card;
-4. Fukuoka/Mitsubishi vendor records.
+2. Label Emmaüs instruction-sheet body;
+3. recovery/audit of the x1105074445 card;
+4. Fukuoka/Mitsubishi vendor or procurement records;
+5. exact Modern De Luxe trademark body / owner.
 
 Keep generic H.M.C./Hirota expansion parked.
