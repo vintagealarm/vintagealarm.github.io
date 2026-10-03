@@ -3,6 +3,8 @@
 Status: ACTIVE research protocol
 Scope: PR #135 research branch only. No public-site change.
 
+2026-10-03 strategy reset: Council V3 / 7 (宮廷道化師) identified an earlier untested premise: clock/watch, travel-clock, and lighter uses of `Modern De Luxe` have not yet been proven to share one brand/operator. The user adopted the reset. Cross-category Hirota/H.M.C. evidence must therefore not support clock attribution unless that common-operator bridge is first established.
+
 ## 1. Completion definition
 
 This investigation is not complete merely because Hirota becomes plausible. It is complete at one of two terminal states.
