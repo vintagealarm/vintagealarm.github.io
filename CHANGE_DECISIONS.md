@@ -628,3 +628,12 @@
 - **検証状態**：ローカルbehavior test、wrangler dry-run、decision-log gate、Git diff確認を実施後にVERIFIEDとする。main反映、Actions実deploy、Worker `/health` / `/api/menu` / `/mcp` live確認は別状態として追記する。
 - **関連**：branch `fix/council-v3-complete-implementation`。関連commit / PR / deploy runは作成後に追記する。
 - **日時根拠**：作業環境のJST時計 `2026-10-02 18:40:18 +09:00`。
+
+### 2026-10-03 10:19 JST — Instagram時系列を同一WATCHの複数投稿へ対応
+- **変更**: `instagram-insights-timeseries.md` の新規snapshotへ `content_id` / `content_type` を持たせられるようにし、`instagram:report` の前回差を「同じWATCHの直前snapshot」ではなく「同じ `content_id` の直前snapshot」と比較するよう変更。2026-10-03のWittnauer 10WA静止画カルーセルを第2投稿として記録する。
+- **理由**: 6個体初回一巡後に同じWittnauerを再投稿したため、旧仕様のままでは初回Reel 3,445 viewsと新規カルーセル10 viewsを連続snapshotとして比較し、巨大な負のdeltaを生成してしまう。投稿単位を分離しないと2周目以降の検証が壊れる。
+- **旧状態・棄却**: WATCH名だけを時系列キーにする旧集計は、同一WATCH複数投稿の比較には不採用。既存初回投稿snapshotは変更せず、`content_id` 未設定を `legacy-first-post` として互換維持する。
+- **影響範囲**: `scripts/instagram-insights-timeseries.mjs`、`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`instagram-published-copy.md`、`instagram-operations.md`。Instagram→HOW THEY RINGのCANONICAL FUNNELや既存6投稿の数値・本文は変更しない。
+- **検証状態**: PR上で `npm run check:instagram-insights` / `npm run instagram:report` を含む既存quality gateを実行し、PASS確認後にmainへ反映する。
+- **関連**: 2026-10-03 10:18 JST ユーザー提供Wittnauer 10WA static carousel投稿画面 / Post Insights。
+- **日時根拠**: スクリーンショット表示時刻10:18 JSTと、当セッション時刻2026-10-03 10:19 JST。

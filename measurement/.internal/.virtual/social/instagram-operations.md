@@ -1826,3 +1826,33 @@ Delta from 2026-10-01 08:28–08:29:
 - Non-followersは95.4%で依然として発見面中心だが、初期98.9%からは下がった。新規非フォロワー配布が止まったと断定せず、分布拡大の鈍化とフォロワー比率上昇が同時に観測された、と記録する。
 - 18–34は71.7%で引き続き主体。Indiaは8.7%→22.5%へ上昇し、Turkey / Iranは低下。Pierce・Basisでも拡張時にIndia比率が上がった先行観測があるため、Citizen固有の嗜好と断定せず、Instagram側の配布構成変化の反復候補として扱う。
 - 現段階の評価は「低skipで一定の初見停止は取れたが、平均再生・share/save/repost・profile actionがBasis級の再配布を呼ぶ形には至っていない」。6個体一巡比較のため、施策変更より同時間窓の比較を優先する。
+
+## 2026-10-03 10:18 JST — Wittnauer 10WA static carousel follow-up early snapshot
+
+ユーザー提供Instagram投稿画面・Post Insightsスクリーンショットで確認。公開時刻はユーザー報告で07:30頃。
+
+### Observed
+- Format: 2-image static carousel（1枚目ポケショ / 2枚目Cal.10WAムーブメント）
+- Theme: `Longines — or AS 1200?` / base movement unresolved
+- Views: 10
+- Viewers: 6
+- Likes: 1
+- Comments: 0
+- Reposts: 0
+- Share count: UI `--`
+- Saves: 0
+- Follows: 0
+- Profile accesses: UI `--`
+- Followers / non-followers: 100.0% / 0.0%
+- Carousel image likes: first image 1 / second image 0
+- Top source label visible: Feed（shareは画面外のため数値化しない）
+- Observed at: 2026-10-03 10:18 JST
+- Elapsed: approximately 2h48m from the user-reported ~07:30 publish time
+
+数値時系列の正本は `instagram-insights-timeseries.md` の `content_id=wittnauer-10wa-static-2026-10-03` snapshot。
+
+### Interpretation
+- この時点では6 viewersすべてがfollowersで、non-followersは0%。初回6 Reelsで観測された「大半がnon-followers」という配布状態とは明確に異なる。
+- ただし1件の静止画カルーセル、約2時間48分、6 viewersという極小標本なので、「Instagramでは動画でなければ伸びない」という一般則までは確定しない。
+- 現時点の運用判断としては、**discovery / reachを狙う主力をReelsから静止画へ置き換える根拠はない**。このカルーセルは研究・細部ネタの補助フォーマットとして追跡し、24h以降にnon-follower配布が発生するかを再確認する。
+- 比較ではcontent format、distribution surface、投稿時刻、題材が同時に変わっているため、原因を「静止画だけ」に単独帰属しない。

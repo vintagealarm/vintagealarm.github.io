@@ -44,6 +44,8 @@ const percentageFields = new Set([
 
 const appendFieldOrder = [
   'observed_at_jst',
+  'content_id',
+  'content_type',
   'published_at_jst',
   'elapsed_since_publish',
   'age_of_post_display',
@@ -249,8 +251,11 @@ function latestReport(parsed) {
   for (const watch of watchOrder) {
     const withViews = parsed.watches.get(watch).filter((snapshot) => parseNumber(snapshot.fields.views) !== null);
     const latest = withViews.at(-1);
-    const previous = withViews.at(-2) || null;
     if (!latest) continue;
+    const latestContentId = latest.fields.content_id || 'legacy-first-post';
+    const previous = [...withViews.slice(0, -1)].reverse().find(
+      (snapshot) => (snapshot.fields.content_id || 'legacy-first-post') === latestContentId,
+    ) || null;
 
     const latestTime = parseObserved(latest.fields.observed_at_jst);
     const previousTime = previous ? parseObserved(previous.fields.observed_at_jst) : null;
@@ -269,6 +274,8 @@ function latestReport(parsed) {
 
     const record = {
       watch,
+      content_id: latestContentId,
+      content_type: latest.fields.content_type || null,
       observed_at_jst: latest.fields.observed_at_jst,
       previous_observed_at_jst: previous?.fields.observed_at_jst || null,
       hours_since_previous: hours,
@@ -292,8 +299,9 @@ function latestReport(parsed) {
 
     const growth = `${valueOrDash(latest.fields.views)} (${signed(viewDelta)}${perHour === null ? '' : ` / ${perHour.toFixed(1)}h⁻¹`})`;
     const pipeline = `${pct(profile, latestViews)} → ${pct(bio, profile)}`;
+    const displayWatch = latestContentId === 'legacy-first-post' ? watch : `${watch} / ${latestContentId}`;
     rows.push(
-      `| ${watch} | ${latest.fields.observed_at_jst} | ${growth} | ${signed(viewerDelta)} | ${latest.fields.skip_rate || '—'} | ${latest.fields.average_watch_time || '—'} | ${valueOrDash(latest.fields.follows)} | ${valueOrDash(latest.fields.saves)} | ${pipeline} | ${pct(follows, latestViews)} |`,
+      `| ${displayWatch} | ${latest.fields.observed_at_jst} | ${growth} | ${signed(viewerDelta)} | ${latest.fields.skip_rate || '—'} | ${latest.fields.average_watch_time || '—'} | ${valueOrDash(latest.fields.follows)} | ${valueOrDash(latest.fields.saves)} | ${pipeline} | ${pct(follows, latestViews)} |`,
     );
   }
 
@@ -304,7 +312,7 @@ function latestReport(parsed) {
     '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|',
     ...rows,
     '',
-    'Delta is calculated against the immediately previous snapshot for the same watch that contains views. Ratios are descriptive cumulative snapshot ratios, not unique-person conversion rates.',
+    'Delta is calculated against the immediately previous snapshot for the same content_id within that watch. Legacy first-post snapshots without content_id are treated as one legacy-first-post series. Ratios are descriptive cumulative snapshot ratios, not unique-person conversion rates.',
   ].join('\n');
 
   return { markdown, json };
