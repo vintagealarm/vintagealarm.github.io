@@ -536,3 +536,28 @@ Archive request target is no longer generic “AFB archive”:
 ### CURRENT RULE
 
 03 gets a period image/document only when it directly identifies ARSA Blind Alarm or gives ARSA's own contemporary description of the tactile/alarm product. Generic blind-watch advertisements, ordinary ARSA Alertic ads, and the known Uhrforum Venus 230 survivor remain outside this discovery lane.
+
+
+## 2026-10-03 20:38 JST — period-paper route narrowed
+
+### P0-A — Journal Suisse d'Horlogerie, mars-avril 1958
+Exact issue identified: **Journal suisse d'horlogerie et de bijouterie, N°2, mars-avril 1958**. Its table of contents lists **`La manufacture d'horlogerie Reymond S.A. fête son 60e anniversaire`** — 「レイモンド時計製造会社、創業60周年を迎える」。The same issue also lists **`Nouveaux modèles`** — 「新モデル」。
+
+The Watch Library independently confirms the public-domain 1958 Journal Suisse d'Horlogerie volume (822 pages).
+
+**Status:** EXACT PERIOD ARTICLE IDENTIFIED / ARTICLE TEXT NOT YET EXTRACTED. Do not claim that Blind Alarm appears until the article/body pages are inspected.
+
+### P0-B — AFB Archive watch-program files
+APH's official history confirms that one AFB Archive folder holds **hundreds of braille-watch repair receipts** and correspondence with **Katherine Gruber**, director of AFB's braille-watch program. The program continued until 1963.
+
+**Status:** ARCHIVE FILE FAMILY CONFIRMED / ARSA SUPPLIER LINK OPEN.
+
+Request/search scope:
+- braille-watch program / repair receipts
+- Katherine Gruber correspondence
+- procurement / supplier / invoice records
+- circa 1955–1963
+- ARSA / A. Reymond / Auguste Reymond / Tramelan / Switzerland / alarm watch
+
+### Current rule
+03 gets period material only when it directly identifies ARSA Blind Alarm or gives ARSA's contemporary description of the tactile/alarm product. Generic blind-watch ads, ordinary ARSA Alertic ads, and the known Uhrforum Venus 230 survivor are not discovery-lane substitutes.
