@@ -10,6 +10,8 @@
 - `instagram-published-copy.md` は**実投稿本文の証拠正本**、本ファイルは**再利用索引**。役割を混ぜない。
 - 数値はここへ複製しない。Instagram数値は `instagram-insights-timeseries.md`、分析判断は `instagram-operations.md`。
 - **OWNER'S NOTE は分割しない。** 1個体のOWNER'S NOTEを一つの完成物として扱い、leadや本文の一文を別々の投稿ネタへ切り刻まない。
+- asset表は「何を使うか」、後段のContent Assignment Registryは「どの投稿で使うか」を管理する。**ASSET ID → CONTENT ID → MEDIA KEY** を分離して、同じネタ／同じ素材の再提案を止める。
+- `Micro treatment` は動画化の当て込み案であり予約ではない。実制作へ進める時だけContent Assignment Registryへ `PLANNED` を作り、assetとmediaをロックする。
 
 ## 1. ステータス
 
@@ -37,22 +39,43 @@
 
 `Other social` の `NO_EXPLICIT_USE_FOUND_2026-10-03` は「2026-10-03時点の現行social canonで同じ訴求の明示使用を見つけていない」という意味だけ。**絶対に未使用という意味ではない。**
 
+### Overlap / collision
+
+- `—` — 現時点で明示的な意味重複を置いていない。
+- asset ID列挙 — 同じ操作・同じ主張・同じ既出フックへ近く、別投稿にすると重複事故が起きやすい資産。**片方が未使用でも自動的に新品扱いしない。**
+- overlapは「同一資産」を意味しない。外から見える操作と内部機構など、独立説明できる場合は別assetのまま相互参照する。
+
+### Micro fit
+
+- `BASELINE_USED` — 既存Instagram投稿の主資産。通常は新規候補から除外。
+- `READY_3_8S` — 既存VA素材で3〜8秒micro-Reel化しやすい。
+- `SHOOT_3_8S` — 3〜8秒で成立するが追加撮影が必要。
+- `SOURCE_5_8S` — 資料図・比較画像等を確認してから5〜8秒にする。
+- `CROSS_PLATFORM_RETEST` — 他SNSで使用確認済み。Instagramへ出すなら媒体横断再検証と明示。
+- `RETEST_ONLY` — Instagramで核の一部が既出。別検証の理由がある場合だけ使う。
+- `RESEARCH_CARD` — 研究事実の短いsource-card向け。映像フックより確度保持を優先。
+- `WHOLE_ONLY` — OWNER'S NOTE専用。分割禁止。
+- `HOLD` — 現状は動画化しない。
+
 ## 2. 引き継ぎ後の強制手順
 
 1. `PROJECT.md` → `AGENTS.md` → `PROJECT_STATE.md` → Social `ROUTER.md` を読む。
 2. 投稿案なら、この `content-inventory.md` を**記憶より先に**開く。
-3. `USED` は新案として出さない。`PARTIAL` は再利用理由を付ける。`CANDIDATE_NOT_IN_IG_TEXT` を優先する。
-4. 候補の `Source` を開き、事実・確度・写真の存在を再確認する。
+3. asset表を時計ごとに確認し、`USED` を除外、`PARTIAL` / overlap相手を衝突候補として確認し、`CANDIDATE_NOT_IN_IG_TEXT` を優先する。
+4. 候補の `Source` を開き、事実・確度・写真／動画の存在を再確認する。
 5. `Other social` が不明／古い場合は `instagram-operations.md` / `experiment-log.md` / 現行SNS証拠で再照合する。
-6. 投稿後は `instagram-published-copy.md` と本inventoryを**同じ変更セット**で更新する。Insightsが来たら時系列正本も別途更新する。
-7. WATCH / Deep Diveへ新しい独立ネタ・写真・操作資産を追加した場合、SNS再利用価値があるなら同じPRでinventoryへ追加する。追加しない場合はPR本文に理由を残す。
+6. **Content Assignment Registryを確認し、activeな `PLANNED / SHOT / EDITED / SCHEDULED` に予約済みのassetとmedia keyを候補から除外する。**
+7. 「これで投稿する」とfinal案へ進める時点で、先にcontent rowを `PLANNED` として作り、primary / secondary assetとmedia keyを予約する。予約前のものは「候補」とだけ呼ぶ。
+8. 撮影→`SHOT`、編集確定→`EDITED`、公開予約→`SCHEDULED`、公開確認→`PUBLISHED` と同じcontent IDを進める。中止は削除せず `DROPPED` にしてロックを解放する。
+9. Instagram公開時は `instagram-published-copy.md` とasset row（`USED` / `PARTIAL`）とcontent rowを**同じ変更セット**で更新する。Insightsが来たら同じcontent IDを時系列正本へ使う。
+10. WATCH / Deep Diveへ新しい独立ネタ・写真・操作資産を追加した場合、SNS再利用価値があるなら同じPRでinventoryへ追加する。追加しない場合はPR本文に理由を残す。
 
 ### よくある要求の処理
 
-- 「未使用角度を全部」→ `CANDIDATE_NOT_IN_IG_TEXT` を抽出し、Other socialとSourceを再確認。
+- 「未使用角度を全部」→ `CANDIDATE_NOT_IN_IG_TEXT` を抽出し、Other social / overlap / Assignment Registry / Sourceを再確認。active予約済みは除外。
 - 「既出を除いて」→ `USED` を除外。`PARTIAL` は原則除外し、明示的な再検証時だけ戻す。
 - 「写真だけ変えて細かく」→ `Media=READY_EXISTING` を優先。ただしOWNER'S NOTEは除外。
-- 「追加撮影が必要なネタ」→ `Media=NEEDS_SHOOT` のみ抽出。
+- 「追加撮影が必要なネタ」→ `Media=NEEDS_SHOOT` のみ抽出し、同じmedia keyのactive予約がないことを確認。
 - 「研究ネタだけ」→ `Role=RESEARCH` / `COMPARISON` を優先し、`Verify` を必ず確認。
 - 「URLへ送る投稿」→ `Role=URL_FUNNEL` を使い、現行CANONICAL FUNNELを変更しない。
 
@@ -180,7 +203,46 @@ Canonical WATCH: `src/content/watches/citizen-alarm.md`
 |---|---|---|---|---|---|---|---|---|---|---|
 | GLB-01 | HOW THEY RING：GONG / CASEBACKの実機音を入口に各WATCHへ送る | CANDIDATE_NOT_IN_IG_TEXT | X_OR_OTHER_USE_RECHECK_BEFORE_REUSE | READY_EXISTING | READY_FROM_WATCH | URL_FUNNEL | — | READY_3_8S | 6–8秒。GONG / CASEBACKを1音ずつ短く対置し、HOW THEY RING入口へ接続。 | `PROJECT_STATE.md` + `/en/how-they-ring/` canonical funnel |
 
-## 3. Legacy / Project recovery audit
+## 3. Content Assignment Registry — ASSET → CONTENT → MEDIA duplicate lock
+
+この表は**実制作／公開単位の予約台帳**。asset表の `Micro treatment` は候補の当て込み、この表は実際の使用先を管理する。
+
+### State
+
+- `PLANNED` — final案として採用し、asset / mediaを予約済み。
+- `SHOT` — 必要撮影が完了。
+- `EDITED` — 投稿可能な編集物が確定。
+- `SCHEDULED` — 公開予約済み。
+- `PUBLISHED` — 公開確認済み。
+- `UNVERIFIED_PAST` — 過去に投稿／予約情報はあるが、現行証拠では公開完了を独立確認していない。
+- `DROPPED` — 棄却。履歴は残すがasset / mediaのactive lockは解放。
+
+### Duplicate lock
+
+- `PLANNED / SHOT / EDITED / SCHEDULED` をactive lockとする。同じassetを2つのactive contentへ同時予約しない。
+- active content間で同じ `Media keys` を使い回さない。同じsource写真のcrop違いも同一media keyとして扱う。
+- `Primary asset` はその投稿の一文で言える主題。`Secondary assets` は映像やcaption内で実質的に説明して消費する別asset。**映っただけ**で自動消費にはしない。
+- Instagramで `PUBLISHED` にしたcontentは、同じ変更セットでprimary / secondaryのIG stateを `USED` または `PARTIAL` へ更新する。
+- 新しいInstagram micro-Reelのcontent IDは原則 `MR-<WATCH>-NNN` とし、公開後のInsights `content_id` にも同じ値を使う。
+- final storyboard / captionを確定する前に `PLANNED` rowが必要。rowがない段階では「候補」と「採用済み」を混同しない。
+
+| Content ID | Platform | State | Format | Primary asset | Secondary assets | Media keys | Reuse reason | Evidence |
+|---|---|---|---|---|---|---|---|---|
+| IG-WIT-001 | INSTAGRAM | PUBLISHED | REEL | WIT-01 | — | SOCIAL:IG-WIT-FIRST-REEL | — | `instagram-published-copy.md` first Reel + Insights legacy-first-post |
+| IG-WIT-002 | INSTAGRAM | PUBLISHED | STATIC_CAROUSEL | WIT-02 | — | USER:POCKETSHOT-20261003;WIT:IMG_6609.jpeg | — | Published static 2026-10-03 / Insights `wittnauer-10wa-static-2026-10-03` |
+| IG-CYM-001 | INSTAGRAM | PUBLISHED | REEL | CYM-01 | — | SOCIAL:IG-CYM-FIRST-REEL | — | `instagram-published-copy.md` first Reel + Insights legacy-first-post |
+| IG-PIE-001 | INSTAGRAM | PUBLISHED | REEL | PIE-01 | — | SOCIAL:IG-PIE-FIRST-REEL | — | `instagram-published-copy.md` first Reel + Insights legacy-first-post |
+| IG-BAS-001 | INSTAGRAM | PUBLISHED | REEL | BAS-01 | — | SOCIAL:IG-BAS-FIRST-REEL | YT fidget conceptの媒体横断再検証 | `instagram-published-copy.md` + operations |
+| IG-WES-001 | INSTAGRAM | PUBLISHED | REEL | WES-01 | — | SOCIAL:IG-WES-FIRST-REEL | — | `instagram-published-copy.md` first Reel + Insights legacy-first-post |
+| IG-CIT-001 | INSTAGRAM | PUBLISHED | REEL | CIT-01 | — | SOCIAL:IG-CIT-FIRST-REEL | — | `instagram-published-copy.md` first Reel + Insights legacy-first-post |
+| YT-BAS-20260909 | YOUTUBE | PUBLISHED | SHORT | BAS-01 | — | YT:MWoqA4L2wdM | baseline | 2026-09-27 screen-verified YouTube record in operations |
+| X-CYM-TIMING | X | PUBLISHED | VIDEO | CYM-11 | — | X:CYM-TIMING-WHEEL | cross-platform baseline | WATCH Deep 04 + inventory Other social `X_USED_VERIFIED_TIMING_WHEEL` |
+| YT-WES-20260914 | YOUTUBE | UNVERIFIED_PAST | SHORT | WES-03 | WES-01 | YT:GWkY7hPO89E | historical scheduled post; publication completion not independently verified in experiment log | WATCH video URL + experiment-log scheduled record |
+
+**現在、次のmicro-Reelに予約済みの `PLANNED` assetはない。** 先ほど会話で出たWestclox `WES-02` は候補に戻し、棚卸し完了前の先着予約として扱わない。
+
+---
+## 4. Legacy / Project recovery audit
 
 ### 2026-10-03 — 旧引継ぎ資産の逆引き監査
 
@@ -192,7 +254,7 @@ Canonical WATCH: `src/content/watches/citizen-alarm.md`
 
 ---
 
-## 4. 更新契約
+## 5. 更新契約
 
 - 実投稿が公開確認されたら、同じ変更セットで `instagram-published-copy.md` を更新し、対応inventory rowを `USED` または `PARTIAL` へ更新する。
 - 同じ時計の別投稿は、Insights側では `content_id` を分ける。inventoryのIDとInsights `content_id` は役割が違うため同一IDへ統合しない。
@@ -201,4 +263,9 @@ Canonical WATCH: `src/content/watches/citizen-alarm.md`
 - 追加撮影が済んだら `NEEDS_SHOOT → READY_EXISTING`。資料確認が済んだら `RECHECK_SOURCE` 等を適切に更新する。
 - WATCH本文の事実が変わった場合、inventory本文を事実正本として守ろうとせず、WATCHへ追随させる。
 - OWNER'S NOTEをSNSへ使う場合、`*-ON` 行を一つの投稿資産として扱う。**内部のleadや一文を複数行へ増殖させない。**
+- final投稿案へ進む前にContent Assignment Registryへ `PLANNED` を作る。候補列挙だけでは予約しない。
+- active contentに予約済みのasset / media keyを、新しい候補として再提案しない。
+- 同じ物理写真／動画のcrop違いは同一media keyとして扱う。再利用時は `Reuse reason` を明示し、文言だけ変えた水増しをしない。
+- Instagram公開時はassignment rowを `PUBLISHED` にし、primary / secondary assetのIG stateと `instagram-published-copy.md` を同じ変更セットで同期する。
+- micro-ReelのInsightsはassignmentのcontent IDをそのまま `content_id` に使い、asset IDとcontent IDを混同しない。
 
