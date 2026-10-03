@@ -433,3 +433,15 @@
 - **関連**：日本語正本更新 commit `0d54ece601bfa77ecaa792664fdfd16c4fb102f2`、英語同期 `47c697500d63c4e31acd09a1e84b53c423314abe`、ドイツ語同期 `9f68d26fc88f6a1b6fecd962f78f71577b6d3394`、回帰gate `840eab1219d93fbbb3947f02ed6151be46a69b9b`、生成HTML検査修正 `9af346974d77c3a1c6972f51b1959044603599b8`。
 - **日時根拠**：日本語Pages CMS commit `0d54ece601bfa77ecaa792664fdfd16c4fb102f2` は 2026-09-28T05:27:07Z → 2026-09-28 14:27 JST。EN / DE同期commitは 2026-09-28T05:32:13Z → 14:32 JST、2026-09-28T05:32:16Z → 14:32 JST。回帰gate commitは 2026-09-28T05:32:54Z → 14:32 JST。初回CIでAstro生成HTMLでは画像URLが処理され元ファイル名を保持しないため、rendered checkでファイル名を要求する設計が誤りと確認。source側でファイル名、rendered側で可視ラベルを検査する形へ修正したcommit `9af346974d77c3a1c6972f51b1959044603599b8` は 2026-09-28T05:34:25Z → 14:34 JST。
 - **merge / deploy記録**：PR #132 merge commit `8424a7d26f931a3344d009cd09ce952deaa99b91` は 2026-09-28T05:39:28Z → 2026-09-28 14:39 JST（PR merged_at 2026-09-28T05:39:29Z → 14:39 JST）。Deploy GitHub Pages run `36382861442` は 2026-09-28T05:39:31Z → 14:39 JST開始、2026-09-28T05:42:20Z → 14:42 JST終了でsuccess。build / quality / publication output / mobile layout / Pages deploy / complete live artifact parity / live publication stateがすべてsuccess。
+
+## 2026-10-03 — Modern De Luxe research strategy reset
+
+### 2026-10-03 12:14 JST — G0を追加しHirota/H.M.C.先行探索を停止
+- **変更**：Modern De Luxe調査に G0「SAME BRAND / SAME OPERATOR」を追加。時計以外のModern De Luxe、MODERN、H.M.C.、Modernlite、Hirota、Modern Royalの証拠を時計帰属へ使う前に、同一ブランド／運営主体の橋を要求する。直接の時計→会社証拠はG0なしでもG1を通せる。
+- **理由**：Council V3の7「宮廷道化師」で、Hirota/H.M.C.を中立に扱うルールはあっても、実際の探索量が同系統へ偏り、さらに「異カテゴリのModern De Luxeが同一ブランド」という前提自体が未検証と確認したため。ユーザーがこの修正を明示採用した。
+- **旧状態・棄却**：H.M.C.法人特定、Hirota/Modern Royal一般史、Modernlite型番、広範な関連特許を既定の次アクションとする状態を棄却。既存証拠は削除せず保持する。
+- **影響範囲**：PR #135の研究方針・探索順・完了条件のみ。公開WATCH、UI、翻訳、Analyticsは変更しない。
+- **検証状態**：research strategy note、completion/execution plan、handoffへ反映。公開変更なし。
+- **関連**：PR #135、`research/MODERN_DE_LUXE_STRATEGY_RESET_20261003_JESTER.md`
+- **日時根拠**：2026-10-03 12:14 JST のユーザー採用指示。
+
