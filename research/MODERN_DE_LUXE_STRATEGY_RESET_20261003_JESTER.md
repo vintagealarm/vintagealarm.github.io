@@ -164,3 +164,83 @@ Before another generic H.M.C./Hirota search run:
 **ADOPTED research strategy.**
 
 This does not change any historical fact classification already recorded. It changes what is allowed to drive the next search and prevents the existing Hirota/H.M.C. evidence mass from becoming an implicit attribution shortcut.
+
+## 10. VA DEEP DIVE standard frame — CURRENT OVERRIDE
+
+2026-10-03 review of the six published Japanese WATCH DEEP DIVEs (Basis / Citizen / Cyma / Pierce / Westclox / Wittnauer) and `AGENTS.md` shows that the Modern De Luxe investigation had become too gate-driven.
+
+**The G0–G5 board is evidence QA, not the research agenda.**  
+A gate does not need to move for a run to be materially useful if genuinely new evidence fills a VA DEEP DIVE research box. Conversely, reorganizing known evidence is not progress.
+
+From here, use the same VA research frame already used by Pierce Duofon / Wittnauer 10WA and codified in `AGENTS.md`:
+
+### ① 作った会社 / commercial-production context
+- identify companies actually evidenced around the clock, movement, case, export, or distribution
+- research their manufacturing / sourcing / OEM capabilities only as far as it explains the object
+- do not make unresolved brand ownership a single completion blocker
+
+### ② 需要背景 / why this object existed
+For Modern De Luxe, investigate period evidence for:
+- oversized wrist-alarm / novelty-watch use
+- travel-alarm and portable-alarm market
+- export / promotional / corporate-gift context
+- why a stand/travel-alarm architecture was put into a wristwatch-form case
+
+These are questions, not adopted explanations. Period advertisements, catalogues, boxes, trade literature, and customer records outrank later seller narratives.
+
+### ③ 時計そのもの
+This is P0, not downstream:
+- movement / platform identification
+- 2-jewel pin-lever architecture
+- winding / setting / alarm-control train
+- dummy side crown vs functional rear controls
+- acoustic construction
+- case/chassis construction
+- model / dial / country-mark variation
+- failure / repair / handling evidence
+- owner specimen observations only when they add genuinely new evidence
+
+**Movement/platform identification must not wait for the commercial operator to be solved.**
+
+### ④ 同目的・同機構の比較個体
+Search for:
+- other brands using the same or highly similar rear movement/control plate
+- Japanese / European 2-jewel travel or table alarms with the same functional topology
+- other oversized wrist-alarm / clock-in-wrist-case solutions
+- same-purpose alternatives, even when the brand name is unrelated
+
+The goal is to separate what is generic platform architecture from what is Modern De Luxe-specific. Physical/mechanical comparators can reveal a supplier faster than brand-name searching.
+
+### ⑤ caliber / platform と変貌種
+If a base clock movement/platform can be identified, trace:
+- ordinary table/travel-clock use
+- wrist-cased use
+- promotional/commemorative use
+- cross-brand adoption
+- successor / related movement forms
+
+Modern De Luxe should ultimately be returned to a larger movement / portable-alarm history rather than ending as a brand-identity mystery.
+
+### ⑥ Modern De Luxe固有の追加要件
+Retain as watch-specific questions:
+- exact brand / crest / trademark owner
+- Japan / Germany attribution conflicts
+- whether clock and lighter uses share one operator (G0)
+- Fukuoka / Mitsubishi promotional supply chain
+- original box / guarantee / instructions / export labels
+- x1105074445 card and other exact-brand paper evidence
+
+These are **additional requirements**, not the whole research program.
+
+### Progress rule after this override
+
+Count **MATERIAL PROGRESS** when a genuinely new source materially updates any of the six VA research boxes above, even if G0–G5 do not move.
+
+Count **NO MATERIAL PROGRESS** when the run only:
+- re-describes known evidence
+- repeats the same marketplace hits
+- expands adjacent company history without explaining the watch
+- chases one missing document as if the whole DEEP DIVE depends on it
+
+A DEEP DIVE can be research-ready with an explicitly unresolved company / maker question, just as existing VA pages retain documented conflicts and unknowns. The objective is a sourced explanation of the watch, not mandatory resolution of every identity puzzle.
+
