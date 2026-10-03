@@ -3569,3 +3569,16 @@ AFB Archiveのwatch-program repair receipts / Katherine Gruber correspondence、
 
 #### Next high-information action
 同じWeb検索語を反復する段階は終了。次に情報利得があるのは、1958 JSH No.2のA. Reymond記事頁を人手で取得すること（Watch Library/JSHへの頁画像照会、または現物所蔵者・販売者への該当頁写真依頼）。AFB側は1955–63 braille-watch program / Katherine Gruber / supplier資料のarchive照会が次点。
+
+
+### 2026-10-04 07:42 JST — 1958 JSH viewer route + focused negative search
+
+**Viewer route recovered:** The Watch Libraryの共有ビューアは `share.watchlibrary.org/?manifest=/DOCUMENT_ID` 形式を使うことを、別年のJSH実例で確認した。1958年巻のdocument idは `MIH-JSH_1958_423` なので、対応候補は `https://share.watchlibrary.org/?manifest=/MIH-JSH_1958_423`。Web検索ツール側では直接展開できなかったが、Computer Use / 実ブラウザで試すべき具体URLまで絞れた。
+
+**Focused search:** ARSA / A. Reymond と `montres pour aveugles`, `Blindenuhr`, `Blindenwecker`, `Braille`, 1955–1959 を組み合わせて再検索したが、1956–60年のARSA Blind Alarm本人を載せたperiod advertisement / catalogは未回収。
+
+**Secondary clue only:** Time2TellのARSA社史は1958年にSpringmaster、手巻chronometer、自動巻diverの3本を「目立ったモデル」として列挙しているが、同ページの1958項は一次資料を脚注で特定していないため、JSH 1958周年記事がBlind Alarmを扱わない証拠には使わない。
+
+**Additional survivors / non-period evidence:** ca.1955とされるARSA Braille / Unitas 6325 survivor、1950–60頃とされるAntiquorumのunsigned probably-ARSA tactile watchは見つかるが、どちらもBlind Alarm本人のperiod paperではないため03の広告代替にはしない。
+
+**Current next move:** 実ブラウザで1958 share manifestを開き、A. Reymond 60周年記事の本文頁と隣接 `Nouveaux modèles` を直接確認する。それが失敗した場合はThe Watch Libraryのpage-image / IIIF export URLをビューアから取得する。
