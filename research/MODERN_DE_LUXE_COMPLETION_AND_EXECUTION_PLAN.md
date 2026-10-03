@@ -30,7 +30,12 @@ Reach this state only after all five gates below have been executed to their def
 
 This is a legitimate completion state: `unresolved with bounded evidence`, not a failed search.
 
-## 2. Five gates and pass conditions
+## 2. Gates and pass conditions
+
+### G0 SAME BRAND / SAME OPERATOR
+PASS: clock/watch and non-clock `Modern De Luxe` evidence share a common commercial fingerprint in one attributable source chain. Name identity alone is insufficient.
+Current: OPEN.
+Rule: G0 is not required if G1 is solved directly from clock/watch evidence. G0 is required before cross-category lighter-side evidence may support clock-side attribution.
 
 ### G1 CLOCK → COMPANY
 PASS: clock/watch + named commercial actor in one attributable source chain.
