@@ -3367,3 +3367,25 @@ The planned research sequence ①→⑤ is now complete at PASS 1 level. Remaini
 
 **2026-10-03 20:15 JST editorial decision:** Venus 230 survivorは新規研究leadとしては再浮上させない一方、Deep Dive 04「同じ目的への、別々の答え」では掲載対象とする。掲載時は、2016年Uhrforumの現存個体報告であること、Venus 230・3時時刻用／5時alarm用・2時独立front-cover pusherという差異、period ARSA catalog / advertisement未確認を同一段落内で示す。これをARSAの確定量産variantやAS1475以前の先行型とは書かない。
 
+
+
+### 2026-10-03 20:24 JST — 03直結period-paper focused pass
+
+**Scope:** 1956–60年のARSA Blind Alarm本人に直結する当時広告・カタログ・価格表・AFB商品資料だけを再検索。通常ARSA Alertic、一般的な盲人時計広告、既知Uhrforum Venus 230 survivorは探索成果として再提示しない。
+
+#### Result
+
+- **ARSA Blind Alarm本人の1956–60年period advertisement / catalog / price list:** 未回収
+- **AFB→ARSAのsupplier / order documentation:** 未回収
+- **AFB Aids and Appliancesの1950年代〜1960年代初頭catalog実物:** indexed Webでは未回収
+- **Mémoires d'Ici:** A. Reymond dossierと1931/1936/1950広告コレクション、1948 company brochure、2008 `Zeit spühren = Toucher l'heure` のarchive entryは確認できるが、1956–60 Blind Alarm広告本文には到達せず
+- **AFB online history:** 1940s–60sのBraille watch供給・Aids and Appliances事業は確認できるが、ARSA名を結ぶ商品ページ／発注記録は未回収
+
+#### Current active target
+
+次に価値があるのは broad Web search ではなく、
+1. Mémoires d'Ici A. Reymond dossier内の1950年代後半紙資料
+2. AFB archive / Aids and Appliances catalog 1955–63
+3. period Swiss trade paperでのA. Reymond / ARSA product advertisement
+
+の3系統。新しい直接証拠が出た時だけ03候補へ昇格する。
