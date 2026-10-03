@@ -50,13 +50,7 @@ G0 **is required before lighter/H.M.C./Hirota evidence can be used to support cl
 
 ### ACTIVE — highest information gain
 
-1. **User-held Modern De Luxe specimen comparison, when physical evidence is available.**
-   - compare the two specimens systematically rather than assume one production family
-   - record all safe-to-observe markings, rear-control topology, movement architecture, case construction, dimensions, dial/case relationships, and any manufacturer or service marks
-   - do not infer a maker from resemblance alone
-   - do not require destructive or unsafe disassembly; use only safely obtainable evidence
-
-2. **Exact Modern De Luxe clock/watch responsibility evidence.**
+1. **Exact Modern De Luxe clock/watch responsibility evidence.**
    - original box
    - guarantee / warranty
    - instructions
@@ -66,20 +60,20 @@ G0 **is required before lighter/H.M.C./Hirota evidence can be used to support cl
    - service/warranty entity
    - catalogue entry naming an operator
 
-3. **Exact-brand G0 evidence.**
+2. **Exact-brand G0 evidence.**
    - seek sources where `Modern De Luxe` itself crosses product categories with a common company/operator fingerprint
    - exact-name evidence outranks generic `MODERN` evidence
 
-4. **Customer reverse path for commemorative clocks.**
+3. **Customer reverse path for commemorative clocks.**
    - Fukuoka mutual-aid 20th-anniversary clock
    - Mitsubishi Electric Nagoya Works commemorative clock
    - seek procurement, vendor, supplier, corporate-gift, anniversary, or internal purchasing records
 
-5. **Trademark body text — narrowed first to exact brand.**
+4. **Trademark body text — narrowed first to exact brand.**
    - first search `Modern De Luxe` / `Modern du Luxe` and distinctive logo/crest variants
    - only expand to broad `MODERN`, H.M.C., Hirota, or Ichikawa when the exact-brand result gives a reason to do so
 
-6. **Movement / finished-clock maker only after the commercial/brand chain is materially narrowed.**
+5. **Movement / finished-clock maker only after the commercial/brand chain is materially narrowed.**
 
 ## 4. PARKED / CONDITIONAL
 
@@ -158,11 +152,12 @@ If no exact Modern De Luxe evidence ever points to H.M.C., unresolved H.M.C. ide
 
 Before another generic H.M.C./Hirota search run:
 
-1. build a structured comparison record for the two user-held Modern De Luxe specimens when photographs/observations are available;
-2. search exact Modern De Luxe clock/watch boxes, guarantees, instructions, advertisements, catalogues, and labels;
-3. search exact-brand cross-category operator evidence for G0;
-4. continue Fukuoka/Mitsubishi vendor-side recovery;
-5. read trademark-book body with exact Modern De Luxe first.
+1. search exact Modern De Luxe clock/watch boxes, guarantees, instructions, advertisements, catalogues, and labels;
+2. search exact-brand cross-category operator evidence for G0;
+3. continue Fukuoka/Mitsubishi vendor-side recovery;
+4. read trademark-book body with exact Modern De Luxe first.
+
+**Anti-loop rule:** the existing user-held normal/tricolor photographs, Beitl p.317 comparison, and Fukuoka clock-family comparison are RESOLVED inputs, not active research tasks. Do not repeat them or count a reorganization/re-description of those same materials as progress. Reopen specimen comparison only when genuinely new physical evidence appears (movement/dial-back/case marking, original paperwork, or a new specimen with a new responsibility mark).
 
 ## 9. Status
 
