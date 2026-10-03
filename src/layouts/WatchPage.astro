@@ -21,7 +21,7 @@ import { watchResearchRecords } from '../data/watch-research';
 import { resolveSourceLibraryId } from '../data/source-library';
 import { getGitLastmod, latestDate } from '../lib/git-lastmod';
 
-const { watch } = Astro.props;
+const { watch, preview = false } = Astro.props;
 const siteRoot = 'https://vintagealarm.github.io/';
 const pageTitle = watch.slug === 'pierce-duofon'
   ? 'Pierce Duofon｜Cal.135・2段階アラーム・実機音｜VINTAGE ALARM'
@@ -168,6 +168,7 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f8f4" />
     <OwnerFonts />
+    {preview && <meta name="robots" content="noindex, nofollow, noarchive" />}
     <SeoHead title={pageTitle} description={description} path={pagePath} image={watch.ownersNote.image} type="article" schema={schema} alternates={alternates} />
   </head>
   <body class="owners-v15">
