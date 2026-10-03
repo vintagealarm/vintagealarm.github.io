@@ -55,7 +55,18 @@ try {
   const fencedResult = run(fenced);
   assert.equal(fencedResult.status, 0, fencedResult.stdout + fencedResult.stderr);
 
-  console.log('Japanese style regression tests: PASS — hard gate, warning-only rule, fenced-code exclusion');
+  const frontmatterOnly = write('frontmatter-only.md', [
+    '---',
+    'deepDive:',
+    '  - paragraphs:',
+    `      - "${'長い日本語の本文。'.repeat(24)}"`,
+    '---',
+  ].join('\n'));
+  const frontmatterOnlyResult = run(frontmatterOnly);
+  assert.equal(frontmatterOnlyResult.status, 0, frontmatterOnlyResult.stdout + frontmatterOnlyResult.stderr);
+  assert.ok(frontmatterOnlyResult.stderr.includes('160字を超える文あり'), frontmatterOnlyResult.stderr);
+
+  console.log('Japanese style regression tests: PASS — hard gate, warning-only rule, fenced-code exclusion, frontmatter-only prose scan');
 } finally {
   fs.rmSync(fixture, { recursive: true, force: true });
 }
