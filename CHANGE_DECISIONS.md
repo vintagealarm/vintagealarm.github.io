@@ -818,3 +818,12 @@
 - **検証状態**: PR #150 の `Astro foundation check` run `37108055324` がSUCCESS。`npm run check:quality` 内で新規 `check:social-inventory` を含む全quality gateがPASSし、build / publication-aware output / mobile layoutもPASS。diffは9ファイル（新規inventory・checkerを含む）を確認済み。main反映後にinventory・Router・PROJECT系を再取得して最終確認する。
 - **関連**: 2026-10-03ユーザー指示「保存されたVA資産 → SNS投稿ネタ候補の専用棚卸し層を徹底」「引き継いだ後に地獄を見たくない」。
 - **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 16:46 JST`（UTC+09:00）。
+
+### 2026-10-03 17:08 JST — 旧引継ぎ資産をContent Inventoryへ逆引き監査
+- **変更**: Project / Library `VINTAGE_ALARM_完全引継ぎ_2026-09-09(1).md` をPierce / CYMA / Basis / SNS観点で再検索し、現行WATCH・既存inventoryとの対応を監査した。独立して落ちていたCYMAの「アラームとクロノメーターという矛盾」を `CYM-08` として追加し、旧引継ぎ監査済み範囲をinventory内へ記録した。
+- **理由**: 新しいinventoryだけを正しく作っても、過去チャット／旧引継ぎにしか残っていない独立ネタが未回収なら、次チャットが再び古い資料を掘ることになる。ユーザーの「引き継いだ後に地獄を見たくない」という要求に対し、既知の旧資産を逆引きして初期棚へ吸収する必要がある。
+- **旧状態・棄却**: 「今後だけinventoryへ記録すれば十分」とする運用を棄却。逆に、旧OWNER'S NOTEのcatch / lead / `セミの鳴き声`等を細切れ投稿へ増殖させる案も、OWNER'S NOTE whole-only方針に反するため棄却した。
+- **影響範囲**: `measurement/.internal/.virtual/social/content-inventory.md` のCYMA研究候補とlegacy audit記録のみ。WATCH本文、OWNER'S NOTE原文、SNS実投稿本文、Insights数値は変更しない。
+- **検証状態**: PR上で `npm run check:social-inventory` を含むquality gateと既存CIを再実行し、PASS後にmainへ反映する。
+- **関連**: Project / Library `VINTAGE_ALARM_完全引継ぎ_2026-09-09(1).md`、現行 `src/content/watches/cyma-time-o-vox.md` Deep Dive 02、2026-10-03ユーザー指示。
+- **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 17:08 JST`（UTC+09:00）。
