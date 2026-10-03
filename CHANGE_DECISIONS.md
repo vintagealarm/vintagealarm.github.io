@@ -25,7 +25,7 @@
 - **影響範囲**：`council-worker/V3.md`、`council-worker/README.md`、`AGENTS.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、本判断履歴。V2の1〜6の意味・番号、公開サイト、WATCH本文、SNS実測、個人台帳の事実内容は変更しない。
 - **検証状態**：GitHub mainのCouncil V3正本群を再取得し、cross-repo `orima1995-create/watchdiary-ios` #60の現行CHRONOLOGYを全文確認。欠落していた遍歴要素を特定し、その失敗例を設計根拠へ明記した。ChatGPT内Councilの正本挙動は文書へ反映済み。外部Worker runtimeのprompt実装・deployは別状態として扱う。
 - **起点・帰属**：人格UI案の起点はAI、採用はユーザー。『誰よりもログを遡り、全体・経緯・判断詳細を把握しているべき』というcontext責務の追加はユーザー。正本への制度化はAI。
-- **関連**：`council-worker/V3.md`、`council-worker/README.md`、`AGENTS.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、watchdiary-ios #60。
+- **関連**：`council-worker/V3.md`、`council-worker/README.md`、`AGENTS.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、watchdiary-ios #60。decision-bearing commits: `fdf7dfc9` / `b58476da` / `de78e6ac`。
 - **日時根拠**：最初の実装commit `3406908087988d5fd8ac3a8e28e0bff749b1a6ca` のGitHub時刻 `2026-10-03T07:20:51Z → 2026-10-03 16:20 JST`。
 
 ### 2026-10-03 15:56 JST — SNS運用判断を既存ログの検証対象へ明示接続し、投稿頻度低下＋品質優先をACTIVE仮説として固定
