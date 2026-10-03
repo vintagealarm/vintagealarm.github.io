@@ -3347,7 +3347,11 @@ Non-blocking OPEN points:
 The planned research sequence ①→⑤ is now complete at PASS 1 level. Remaining work is **arrival supplementation and archive bonus evidence**, not another broad Web pass.
 
 
-### 2026-10-03 19:26 JST — 03直結広告探索 + Venus 230 ARSA Blindenwecker survivor lead
+### 2026-10-03 19:26 JST — RETRACTED: 03直結広告探索で既知のVenus 230 survivorを再発見扱いした
+
+> **2026-10-03 19:50 JST correction:** このUhrforum / Venus 230個体は新規発見ではない。LEDGERの2026-10-02 saturation passですでに `Alternate ARSA Blind Alarm architecture — Venus 230 survivor lead` として記録済みで、2026-10-03 Deep Dive ③でも `HOLD survivor lead — ARSA / Venus 230` として再整理済みだった。19:26の「New high-information survivor lead」扱いは撤回する。
+>
+> **再発防止:** Uhrforum page-25 / Weckerfreund / ARSA Venus 230 / 2時独立プッシャーは **KNOWN / DUPLICATE / DO NOT RESURFACE**。新しい独立一次資料、同型第2個体、ARSA period catalog/price list、AFB supplier documentのいずれかが追加された場合だけ再度前面へ出す。
 
 **PURPOSE:** 公開Deep Diveを「広告祭り」にせず、03「ARSA Blind Alarmそのもの」を直接補強できる当時広告・カタログ・取扱資料だけへ探索を絞る。
 
