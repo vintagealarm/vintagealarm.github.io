@@ -410,7 +410,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 3. **③時計本人 — PASS 1 COMPLETE / ARRIVAL SUPPLEMENT PENDING** — mechanism / controls / tactile UI / failure map / model variation / purchased specimenまで整理。到着後にhands / read-back / opener / early-late alarm-stateを実測追記
 4. **③b 設計思想 / 設計資料 — PASS 2 COMPLETE / ARCHIVE BONUS ONLY** — factory design documentは未回収。source-labeled requirement reconstructionを採用し、archive本文取得時のみ再開
 5. **④触読alarm比較 — PASS 1 COMPLETE** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBをhand coding / opener / read-back / source tierで比較済み
-6. **⑤AS1475と変貌種 — NEXT** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る
+6. **⑤AS1475と変貌種 — PASS 1 COMPLETE / CLOSING FRAME FIXED** — AS1475を「特殊時計用caliber」ではなく、1954–1970に約78万個作られた普及platformとして起点化。通常alarm → Benedict Park-O-Phonのparking UI → ARSA / Enicar / BEAT等のtactile UI → date派生AS1568 → 高振動後継AS1930 / 1931 → Citizen / Poljot等のdirectly based descendantsまで、同じ機構骨格が別用途・別地域へ展開した流れを固定
 7. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
 8. AFB契約書、Smithsonian、WPB等は、上記1〜6の未解決を直接埋める場合だけ再開する
 
