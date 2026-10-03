@@ -1782,3 +1782,151 @@ Next rows should only be added when provenance is strong enough:
 
 Auction / forum examples without movement or period documentation stay as survivor leads, not production-family proof.
 
+### 2026-10-03 — continuation pass: ARSA tactile continuity + AFB post-1963 channel
+
+This pass continues the VINTAGE ALARM / future OWNER'S NOTE research line. It does **not** reopen missing-part or purchase-risk monitoring.
+
+#### WEB-CONFIRMED / INSTITUTIONAL SECONDARY — ARSA's tactile-watch line is explicitly present in 1973
+
+The *Dictionnaire du Jura* (DIJU) entry for Auguste Reymond SA, based on the Mémoires d'Ici dossier and period newspaper sources, states:
+
+- at the **beginning of the 1950s**, ARSA developed two new products: jumping-hour mechanical digital watches and **“montres braille” pour aveugles**
+- in **1973**, ARSA's stated manufacturing mix still included **montres pour aveugles**, alongside lever watches, mechanical digital watches and extra-flat pocket watches
+- in that year ARSA employed 130 people in factory / home work, produced 300,000 pieces and had turnover of CHF 15 million
+- the entry cites Mémoires d'Ici plus *L'Impartial* and *Feuille d'avis de Neuchâtel-L'Express* of 31 August 1973
+
+Source:
+- https://diju.ch/f/notices/detail/8205
+
+**Research consequence:**
+ARSA's tactile-watch activity can now be treated as a product line documented from its early-1950s development into the 1973 company product mix. This is stronger than saying merely that a few 1950s survivors exist.
+
+**Boundary:**
+This does **not** show that a Blind **Alarm** remained in production in 1973. It documents the blind-watch line, not the combined tactile-alarm model.
+
+#### WEB-CONFIRMED / AFB INSTITUTIONAL HISTORY — general watch distribution and the military gift program are separate channels
+
+AFB's own institutional history states that the Foundation took over a watch-distribution service in **1926**, initially using an arrangement with Waltham. By 1972 its Aids and Appliances sales offered **30 styles of brailled pocket and wrist watches** among roughly 300 items.
+
+Source:
+- https://afb.org/online-library/unseen-minority-0/chapter-7
+
+Separately, APH's history of the AFB Braille-watch program records:
+- program started in early **1943** for U.S. servicemen blinded in WWII
+- **1,048 watches** delivered by December 1945
+- a free repair service, with one archive folder containing **hundreds of repair receipts**
+- after WWII, additional watches were supplied to later blinded servicemen
+- the special program ended in **1963** as VA access improved
+
+Source:
+- https://www.aph.org/blog/the-gift-of-time/
+
+AFB's 1972–73 Aids and Appliances catalog activity also remained a substantial civilian/commercial channel; its product range included a high-end gold self-winding braille watch at **$352.95**.
+
+Source:
+- https://afb.org/online-library/unseen-minority-0/chapter-21
+
+**Research consequence:**
+Do not use “AFB” as shorthand for a single veterans-gift program. At minimum, distinguish:
+1. the **1943–1963 military gift / repair program**
+2. the much longer **general Aids and Appliances sales / distribution channel**
+
+This matters directly for the Beitl ca.1960 AFB/ARSA claim and for later afB-branded tactile alarms.
+
+#### AUCTION-CATALOG SURVIVOR EVIDENCE — afB De Luxe Alarm / AS 1930, ca.1970
+
+A Peter Klöter auction description preserved by LotSearch identifies an:
+
+**afB (American Foundation for the Blind) De Luxe Alarm**
+
+with:
+- jump / hinged cover
+- mechanical alarm
+- **A. Schild AS 1930**
+- 17 jewels
+- gold-plated case with steel screw back
+- gold-colored dial with Arabic numerals, hour indexes and tactile points
+- central alarm hand
+- **33 mm**
+- dated by the auction house to **ca.1970**
+- described as functioning
+
+Source:
+- https://www.lotsearch.net/index.php/lot/afb-american-foundation-for-the-blind-de-luxe-alarm-wristwatch-for-the-59842113
+
+A separate 2021 Klöter auction index also contains an afB De Luxe Alarm lot, but current accessible metadata are insufficient to establish whether this is a distinct physical specimen rather than a repeated / similar catalog appearance.
+
+**Classification:**
+- surviving-object / auction-catalog evidence: useful
+- period manufacturer source: no
+- AFB archival attribution: not yet independently matched
+- actual manufacturer: **OPEN**
+
+**Research consequence:**
+The tactile-alarm concept under afB branding appears in survivor evidence beyond the AS1475 ca.1960 specimen and into an **AS1930-era architecture around 1970**. This extends the survivor chronology, but it does **not** establish:
+- continuous production from the ARSA AS1475 model
+- ARSA manufacture of the AS1930 model
+- a direct AS1475 → AS1930 product genealogy
+
+#### SURVIVOR MATRIX V2 — add maker certainty as a separate field
+
+| Specimen / identity | Approx. date | Movement | Interface / cover | Maker certainty | Evidence status |
+|---|---:|---|---|---|---|
+| ARSA Blind Alarm | illustrated specimen 1958 | AS 1475 | tactile points + robust hands; 4-o'clock crown-integrated opener | ARSA | specialist-book confirmed |
+| AFB-marked, Beitl says ARSA-ordered | ca.1960 | AS 1475 | tactile points + robust hands; 4-o'clock opener | ARSA **according to Beitl** | transaction independently OPEN |
+| Enicar Lausanne special | 1964 | AS 1475 | current + alarm time tactile read-back; opening cover | Enicar attribution by case architecture in Horlbeck | specialist-book confirmed |
+| BEAT / Friedli-Frères | date not fixed | AS 1475 | tactile points / hands; opener at 6 | Friedli-Frères; movement signed | specialist-book confirmed |
+| A. Schild prototype | chronology OPEN | AS 1475 | Blind Alarm prototype | A. Schild | specialist-book prototype confirmed |
+| **afB De Luxe Alarm** | auction-dated ca.1970 | **AS 1930** | tactile points + central alarm hand + jump cover | **OPEN** | auction-catalog survivor evidence |
+
+#### ARCHIVE TARGET UPGRADE — bracket the postwar product-line emergence
+
+Mémoires d'Ici's A. Reymond dossier contains two especially useful chronological anchors:
+
+- **1948** — Marcel André, *ARSA : 1898-1948*, 35-page company brochure
+- **1973** — multiple 75th-anniversary company-history / management documents, including *Historique de la Manufacture d'horlogerie A. Reymond SA* and *Les activités de A. Reymond SA*
+
+Archive plan:
+- https://collections.m-ici.ch/archivplansuche.aspx?ID=38774
+- dossier: https://collections.m-ici.ch/detail.aspx?ID=38759
+
+**Research plan:**
+Compare the 1948 company self-description — immediately before the documented early-1950s blind-watch development — with the 1973 company material, where the tactile line is known from DIJU to remain in the manufacturing mix.
+
+This is a cleaner chronology test than repeatedly searching modern summaries.
+
+#### ARCHIVE TARGET UPGRADE — Smithsonian / AFB 1972–1974 Aids and Appliances
+
+The Smithsonian National Museum of American History Disability Reference Collection contains:
+
+- Series 1: Blindness
+- **Box 1, Folder 1 — “Aids and Appliances”**
+- date range **1972–1974**
+- in-person research access
+
+Source:
+- https://americanhistory.si.edu/collections/archival-item/sova-nmah-ac-1319-ref22
+
+Because the ca.1970 afB De Luxe Alarm falls near this period, this folder is now a high-value maker / supplier identification target.
+
+**Desired evidence:**
+- watch model name
+- supplier / manufacturer
+- country of manufacture
+- wholesale / retail catalog text
+- movement / case reference
+- correspondence identifying Swiss suppliers
+
+#### Current interpretation after this pass
+
+The evidence now supports three separate continuity statements:
+
+1. **ARSA tactile-watch continuity:** early-1950s development → still listed in ARSA's 1973 manufacturing mix.
+2. **AFB watch-distribution continuity:** civilian / general watch distribution from the 1920s → broad Aids and Appliances watch range by 1972.
+3. **AFB tactile-alarm survivor continuity:** Beitl's ca.1960 AS1475 AFB/ARSA description → auction-catalog afB De Luxe / AS1930 ca.1970 survivor.
+
+These three lines overlap chronologically, but **must not yet be collapsed into one continuous ARSA↔AFB production contract**.
+
+The highest-value unresolved bridge remains documentary:
+**Who manufactured / supplied the later afB De Luxe Alarm, and can an AFB / ARSA order or supplier record independently confirm the ca.1960 Beitl account?**
+

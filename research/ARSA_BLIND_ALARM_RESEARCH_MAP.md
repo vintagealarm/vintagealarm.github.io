@@ -87,6 +87,9 @@
 - BEAT / Friedli-FrèresにもAS1475 Blind Alarm、ただし開閉操作は6時
 - A. SchildにAS1475 Blind Alarm prototype
 - HorlbeckのEnicar 1964特別個体でも、触って時刻とアラーム時刻を読む設計を確認
+- DIJUの企業史では、ARSAのblind / Braille watchは**1950年代初頭に開発**され、**1973年にもARSAの製造品目として「montres pour aveugles」**が明記される
+- AFBの一般向け時計流通は1926年に引き継がれ、1972年にはbrailled pocket / wrist watchを30種類扱っていた。これは1943–1963年の戦盲軍人向けgift programとは別系統として扱う
+- auction-catalog survivorとして、**afB De Luxe Alarm / AS 1930 / ca.1970 / 33 mm**が確認できる。ただし製造者は未同定で、ARSA連続系列とは扱わない
 
 ### 3.3 現在の歴史モデル
 
@@ -96,7 +99,9 @@
 
 これは**現在の最有力解釈**。加えて、Davoine 1969ではA. Reymondが「Montres pour aveugles」を企業specialtyとして掲げ、1970年広告では同じspecialty欄に「Montres pour aveugles」と「Montres bracelet réveil」が同時掲載されることを確認した。したがって、**ARSA社内で盲人用時計と腕時計アラームの両製品能力が並存していたことはperiod trade sourceで補強済み**。
 
-一方、「その二系統を意図的に統合してBlind Alarmを開発した」という因果そのものを述べる一次資料はまだない。
+さらにDIJUでは、ARSAが1950年代初頭にblind / Braille watchを開発し、1973年にも「montres pour aveugles」を製造品目としていたことが確認できる。したがって**ARSAの触覚時計系統は1950年代の一過性企画ではなく、少なくとも1973年まで企業の製品領域として継続していた**と扱える。
+
+一方、「その二系統を意図的に統合してBlind Alarmを開発した」という因果そのものを述べる一次資料はまだない。また、ca.1970のafB De Luxe Alarm / AS1930 survivorはAFB系触覚アラームの後続例だが、製造者未同定のためARSAの後継機とはしない。
 
 ---
 
@@ -217,7 +222,7 @@ AFBからARSAへの注文、請求、仕入先書簡、製品名・数量・仕�
 ### P2 — 現存個体の比較で系譜を固める
 
 #### T2-1 Survivor matrixを作る
-**状態:** IN PROGRESS / V1 BUILT 2026-10-03
+**状態:** IN PROGRESS / V2 — afB De Luxe AS1930 lead + institutional timeline added 2026-10-03
 
 最低列:
 - Brand / organization
@@ -382,11 +387,11 @@ generic donorで救いやすい:
 
 ## 8. 次の実行順
 
-1. **Mémoires d'Ici D-00454の1973年A. Reymond 75周年資料群**を優先し、盲人用時計・腕時計アラーム・Alertic・輸出／米国・流通先の記述を探す
-2. **Davoine / Swiss trade press**で1950s–1970sのARSA企業広告と分類欄を年代順に取り、blind watch / wrist alarmの並存期間を固定する
-3. **AFB Archive / APH**でARSA / Auguste Reymond / Tramelanをsupplier-level文書へ接続する
-4. 並行して **survivor matrix** を構築し、ARSA / Enicar / BEAT / A. Schild / AFBの触覚UI差を表にする
-5. 「Braille watch」という歴史呼称と、raised markers + exposed handsによる**tactile analog interface**を資料上分離する
+1. **Mémoires d'Ici D-00454**で、1948年社史 `Arsa : 1898-1948` と1973年75周年資料群を対にして確認し、blind watch / alarm watchが戦後のどこで社内製品史へ入ったかを一次・準一次資料で狭める
+2. **AFB Archive / APH**でARSA / Auguste Reymond / Tramelanをsupplier-level文書へ接続する。1943–1963の軍人向けgift programと一般Aids & Appliances流通を混同しない
+3. **Smithsonian NMAH Box 1 Folder 1 “Aids and Appliances” (1972–1974)** とAFB 1972–73 / 1973 international catalog系資料から、ca.1970のafB De Luxe Alarmのsupplier / maker記載を探す
+4. **Davoine / Swiss trade press**は1950s–1970sのARSA企業広告・分類欄を年代順に補完し、blind watch / wrist alarmの並存期間を固定する
+5. **survivor matrix**をARSA / Enicar / BEAT / A. Schild / AFB-AS1475 / afB-AS1930へ拡張し、触覚UI差とmaker certaintyを別列で持つ
 6. 到着後の個体観察は、ケース刻印・実操作・触覚UIを研究資料へ追加する。欠品監視を研究本線へ戻さない
 7. HOLDテーマは新証拠が出るまで触らない
 

@@ -17,6 +17,17 @@
 
 ## 2026-10-03
 
+### 2026-10-03 10:20 JST — ARSA触覚時計の1973継続とafB AS1930後続例を研究モデルへ追加
+
+- **変更**：ARSA研究MAPの現在モデルへ、DIJUで確認できる「1950年代初頭にblind / Braille watchを開発し、1973年にもmontres pour aveuglesを製造品目としていた」企業史を追加した。AFB側は1926年開始の一般時計流通と1943–1963年の戦盲軍人向けgift / repair programを明確に分離。survivor matrixをV2へ更新し、auction-catalogで確認できるca.1970の`afB De Luxe Alarm / AS 1930 / 33 mm`を、maker OPENの後続survivorとして追加した。
+- **理由**：ARSAの触覚時計系統が1950年代の単発企画ではなく1973年まで企業の製品領域として続いたこと、またAFB名義の触覚アラームがAS1475だけで終わらない可能性を示す新しい外部証拠が得られたため。一方で、AFBの軍人向けprogramと一般販売、ARSA製造とAFB brandingを混ぜると因果を過大化するため、三つのcontinuity lineを分離した。
+- **旧状態・棄却**：ARSAのblind-watch継続を1969/1970 trade-ad evidenceだけで止める状態、AFBを軍人向けgift programと同義に扱う読み方、ca.1970 afB AS1930をARSA後継機へ自動接続する解釈を棄却する。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴のみ。公開WATCH / OWNER'S NOTE本文、Catch / Lead、個人時計台帳、修理判断、UIは変更しない。
+- **検証状態**：DIJU、AFB公式オンライン史、APH、Smithsonian NMAH、LotSearchのKlöter auction recordを再確認。資料種別をinstitutional history / auction-catalog survivor / archive leadに分け、maker不明・supplier未確認をOPENとして保持した。
+- **関連**：ARSA survivor matrix V2、Mémoires d'Ici D-00454、Smithsonian NMAH.AC.1319_ref22。
+- **日時根拠**：会話セッションのローカル時刻 `2026-10-03T10:20+09:00` = `2026-10-03 10:20 JST`。
+
+
 ### 2026-10-03 10:15 JST — ARSAの戦闘系比喩を棄却しSensitive-context guardを追加
 
 - **変更**：ARSA Blind Alarmでは戦闘を軽い比喩として使う候補をREJECTEDとし、全WATCH共通Catch / LeadプロトコルへSensitive-context collision checkを追加した。
