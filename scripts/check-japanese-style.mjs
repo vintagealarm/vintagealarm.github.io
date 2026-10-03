@@ -84,7 +84,9 @@ function sentenceScanText(text) {
   if (!frontmatter) return text;
 
   const body = text.slice(frontmatter[0].length).trim();
-  return body || frontmatter[1];
+  if (body) return body;
+
+  return frontmatter[1].replace(/\nsourceMeta:\n[\s\S]*$/m, '');
 }
 
 function sentences(text) {
