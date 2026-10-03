@@ -491,3 +491,48 @@ Current classification after the 2026-10-03 VA research scope correction:
 
 **Editorial decision 2026-10-03 20:15 JST:** 検索上はKNOWN / DUPLICATEのまま維持するが、公開Deep Dive 04の比較個体としては掲載する。理由は、ARSA本人にAS1475本線と異なるVenus 230 / 2時独立プッシャー構成の現存報告があり、「同じ目的への別解」を示す比較価値があるため。本文ではforum survivor / period-primary未確認を明示し、factory production familyへは昇格させない。
 
+
+
+## 2026-10-03 20:38 JST — period-paper route narrowed to exact 1958 JSH article + AFB archive watch-program files
+
+### P0-A — Journal Suisse d'Horlogerie, mars-avril 1958
+
+Exact issue recovered:
+- **Journal suisse d'horlogerie et de bijouterie, N°2, mars-avril 1958**
+- contents list includes **`La manufacture d'horlogerie Reymond S.A. fête son 60e anniversaire`**
+- Japanese: **「レイモンド時計製造会社、創業60周年を迎える」**
+- same contents also includes **`Nouveaux modèles`** (“新モデル”)
+
+Source trail:
+- AbeBooks issue listing with table of contents
+- The Watch Library / MIH public-domain 1958 Journal Suisse d'Horlogerie volume, 822 pages
+
+**Status:** EXACT PERIOD ARTICLE IDENTIFIED / ARTICLE TEXT NOT YET EXTRACTED.
+
+This is now the highest-value Swiss period-paper target because it is from 1958, the same year as Beitl's illustrated ARSA Blind Alarm specimen. Do **not** claim it mentions Blind Alarm until the article/full issue is inspected.
+
+### P0-B — AFB Archive at APH: concrete braille-watch program files
+
+APH's official history confirms:
+- one AFB Archive folder contains **hundreds of braille-watch repair receipts**
+- the folder includes correspondence with **Katherine Gruber**, director of AFB's braille-watch program
+- the watch program continued until **1963**
+- later repeater watches had to be imported from Switzerland
+
+**Status:** ARCHIVE LOCATION / FILE TYPE CONFIRMED; ARSA SUPPLIER LINK NOT YET FOUND.
+
+Archive request target is no longer generic “AFB archive”:
+- braille-watch program / repair receipts
+- Katherine Gruber correspondence
+- procurement / supplier / invoice records
+- circa **1955–1963**
+- search names: ARSA / A. Reymond / Auguste Reymond / Tramelan / Switzerland / alarm watch / blind alarm
+
+### P1 — supporting archive lanes
+
+- Mémoires d'Ici A. Reymond dossier: 1948 company material, 1950 advertisement, later `Zeit spühren = Toucher l'heure` (“時を感じる／時刻に触れる”) archive entry; relevant full text still not obtained.
+- The Watch Library collections: Journal Suisse d'Horlogerie 1876–1978, La Suisse Horlogère 1948–1958, Revue internationale de l'horlogerie 1900–1960, Indicateur Davoine 1841–1977.
+
+### CURRENT RULE
+
+03 gets a period image/document only when it directly identifies ARSA Blind Alarm or gives ARSA's own contemporary description of the tactile/alarm product. Generic blind-watch advertisements, ordinary ARSA Alertic ads, and the known Uhrforum Venus 230 survivor remain outside this discovery lane.
