@@ -17,6 +17,17 @@
 
 ## 2026-10-03
 
+### 2026-10-03 10:20 JST — SmithsonianのAFB Swiss Braille Watchをinstitutional comparatorとして追加しmaker意味を分離
+
+- **変更**：ARSA survivor matrixをV3へ更新し、Smithsonian NMAHのMG.306619.07 / Braille Watch / ca.1973 / Switzerland / AFB creditを、アラーム個体ではなくinstitutional comparatorとして追加した。AFB制度史の「メーカーから卸値で仕入れて再販売」という供給構造を根拠に、Smithsonianのrelationship field maker = American Foundation for the Blindを実際のスイス製造工場名と同一視しないルールを明記。あわせて1973 International Catalog、NMAH 1972–74 Aids and Appliances、object付属instructions / boxをmaker同定の最優先資料へ上げた。
+- **理由**：AFB-associatedでSwiss-madeの現物が1973年頃として公的博物館に残ることは、auction survivorより強いinstitutional object evidence。一方、alarm機能もSwiss factoryもcatalog recordだけでは分からず、ここをARSA / afB De Luxeへ短絡すると研究モデルを過大化するため。
+- **旧状態・棄却**：Smithsonianの1972–74 archival folderだけをarchive targetとする状態を更新する。AFB maker表記からAFBが時計を自社製造したと読む解釈、AFB + Switzerland + 1973からARSA製／Blind Alarmへ自動接続する解釈を棄却する。またDIJUの1972年後の市場分担（ARSA=Europe、Hoga=USA等）からHogaをafB De Luxe makerへ即昇格することもしない。
+- **影響範囲**：research/ARSA_BLIND_ALARM_RESEARCH_MAP.md、research/ARSA_BLIND_ALARM_LEDGER.md、本判断履歴のみ。公開WATCH / OWNER'S NOTE本文、Catch / Lead、個人時計台帳、修理情報は変更しない。
+- **検証状態**：Smithsonian object record、Smithsonian NMAH.AC.1319_ref22、AFB The Unseen Minority Chapter 21 / Chapter 7 / bibliography、Mémoires d'Ici 1948資料metadata、DIJU企業史、現行eBay afB De Luxe AS1930 listingを再確認。Mémoires d'Iciの1948 / 1973本文は未取得のためmetadata-confirmed / content-not-obtainedとして保持した。
+- **関連**：Smithsonian nmah_727327、AFB 1973 International Catalog, Aids and Appliances for Blind and Visually Impaired Persons、eBay item 237074297005。
+- **日時根拠**：会話ターンのローカル時刻 2026-10-03T10:20+09:00 = 2026-10-03 10:20 JST。
+
+
 ### 2026-10-03 10:20 JST — ARSA触覚時計の1973継続とafB AS1930後続例を研究モデルへ追加
 
 - **変更**：ARSA研究MAPの現在モデルへ、DIJUで確認できる「1950年代初頭にblind / Braille watchを開発し、1973年にもmontres pour aveuglesを製造品目としていた」企業史を追加した。AFB側は1926年開始の一般時計流通と1943–1963年の戦盲軍人向けgift / repair programを明確に分離。survivor matrixをV2へ更新し、auction-catalogで確認できるca.1970の`afB De Luxe Alarm / AS 1930 / 33 mm`を、maker OPENの後続survivorとして追加した。

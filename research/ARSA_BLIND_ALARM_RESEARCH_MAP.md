@@ -103,6 +103,8 @@
 
 一方、「その二系統を意図的に統合してBlind Alarmを開発した」という因果そのものを述べる一次資料はまだない。また、ca.1970のafB De Luxe Alarm / AS1930 survivorはAFB系触覚アラームの後続例だが、製造者未同定のためARSAの後継機とはしない。
 
+1972年の企業統合後についてDIJUは、主市場を **ARSA = Europe / Damas = UK・中近東 / Hoga = USA・極東・Italy** と記録する。このため「AFBが米国組織だから、1970年代のAFB時計もARSA製だろう」という地理的ショートカットは採用しない。HogaをafB De Luxeのメーカー候補へ昇格する根拠にもまだならない。
+
 ---
 
 ## 4. 一度切った / 降格した線
@@ -217,12 +219,34 @@ AFBからARSAへの注文、請求、仕入先書簡、製品名・数量・仕�
 
 **禁止:** 同じ一般語の広域検索をもう一周しない。
 
+#### T1-4 Smithsonian AFB object / instructionsを掘る
+**状態:** ACTIVE / INSTITUTIONAL OBJECT TIER
+
+National Museum of American History:
+- **MG.306619.07 / Braille Watch**
+- date made: **ca.1973**
+- place made: **Switzerland**
+- credit line: **American Foundation for the Blind**
+- museum relationship field: **American Foundation for the Blind (maker)**
+- set includes **watch + instructions + box**
+- alarm functionは現行catalog recordからは確認できない
+
+重要:
+- AFB自身の制度史では、Aids and Appliancesがメーカーから製品を仕入れて再販売していたことが確認できる。
+- したがってSmithsonianの maker = American Foundation for the Blind を、**実際のスイス時計製造工場名**としてそのまま扱わない。
+- instructions / box / object imagesにbrand・supplier・model・Swiss maker表記がないかを次に確認する。
+
+関連:
+- Smithsonian object: nmah_727327
+- Archive: NMAH.AC.1319 Box 1 Folder 1 “Aids and Appliances”, 1972–1974
+- AFB 1973 International Catalog, Aids and Appliances for Blind and Visually Impaired Persons
+
 ---
 
 ### P2 — 現存個体の比較で系譜を固める
 
 #### T2-1 Survivor matrixを作る
-**状態:** IN PROGRESS / V2 — afB De Luxe AS1930 lead + institutional timeline added 2026-10-03
+**状態:** IN PROGRESS / V3 — Smithsonian ca.1973 AFB Swiss Braille Watch + afB AS1930 live survivor lead added 2026-10-03
 
 最低列:
 - Brand / organization
@@ -244,6 +268,7 @@ AFBからARSAへの注文、請求、仕入先書簡、製品名・数量・仕�
 - BEAT / Friedli AS1475
 - A. Schild prototype
 - later AFB De Luxe / AS1930
+- Smithsonian MG.306619.07 — AFB-associated Swiss Braille Watch, ca.1973（**non-alarm / alarm status unspecified comparator**）
 - Venus230 survivor lead（HOLD枠）
 
 **目的:** 「似ている」を文章で語るのではなく、差分表で見る。
@@ -387,13 +412,13 @@ generic donorで救いやすい:
 
 ## 8. 次の実行順
 
-1. **Mémoires d'Ici D-00454**で、1948年社史 `Arsa : 1898-1948` と1973年75周年資料群を対にして確認し、blind watch / alarm watchが戦後のどこで社内製品史へ入ったかを一次・準一次資料で狭める
-2. **AFB Archive / APH**でARSA / Auguste Reymond / Tramelanをsupplier-level文書へ接続する。1943–1963の軍人向けgift programと一般Aids & Appliances流通を混同しない
-3. **Smithsonian NMAH Box 1 Folder 1 “Aids and Appliances” (1972–1974)** とAFB 1972–73 / 1973 international catalog系資料から、ca.1970のafB De Luxe Alarmのsupplier / maker記載を探す
-4. **Davoine / Swiss trade press**は1950s–1970sのARSA企業広告・分類欄を年代順に補完し、blind watch / wrist alarmの並存期間を固定する
-5. **survivor matrix**をARSA / Enicar / BEAT / A. Schild / AFB-AS1475 / afB-AS1930へ拡張し、触覚UI差とmaker certaintyを別列で持つ
-6. 到着後の個体観察は、ケース刻印・実操作・触覚UIを研究資料へ追加する。欠品監視を研究本線へ戻さない
-7. HOLDテーマは新証拠が出るまで触らない
+1. **Smithsonian MG.306619.07** の6画像・instructions・boxを最優先で確認し、ca.1973のAFB-associated Swiss Braille Watchのbrand / supplier / model表記を回収する。catalog上の maker = AFB だけで実製造者を断定しない
+2. **NMAH Box 1 Folder 1 “Aids and Appliances” (1972–1974)** とAFB 1973 International Catalogを突合し、afB De Luxe / AS1930または同時期Swiss watchのsupplier記載を探す
+3. **Mémoires d'Ici D-00454**は、1948年35p社史と1973年75周年資料の**本文自体は公開indexから未読**。現状をmetadata-confirmed / content-not-obtainedとして固定し、コピー／現地閲覧へ進む
+4. **AFB Archive / APH**でca.1960のARSA注文をsupplier-level文書へ接続する。軍人向けgift programと一般Aids & Appliances流通を分離する
+5. **Davoine / Swiss trade press**を年代順に補完し、ARSAのblind watch / wrist alarm並存期間を固定する
+6. **survivor matrix**はARSA / Enicar / BEAT / A. Schild / AFB-AS1475 / afB-AS1930に加え、非アラームのinstitutional comparatorを別枠で持つ
+7. 到着後の個体観察は、ケース刻印・実操作・触覚UIを研究資料へ追加する。欠品監視を研究本線へ戻さない
 
 ---
 

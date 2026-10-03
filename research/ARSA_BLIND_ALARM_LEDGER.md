@@ -1930,3 +1930,142 @@ These three lines overlap chronologically, but **must not yet be collapsed into 
 The highest-value unresolved bridge remains documentary:
 **Who manufactured / supplied the later afB De Luxe Alarm, and can an AFB / ARSA order or supplier record independently confirm the ca.1960 Beitl account?**
 
+### 2026-10-03 — continuation pass: Smithsonian object-level evidence and AFB supplier semantics
+
+This pass moves one step beyond archive-finding-aid level: a **physical AFB-associated Swiss Braille watch** is catalogued by the Smithsonian around 1973. It is useful as institutional object evidence, but it is not yet an alarm-watch identification.
+
+#### INSTITUTIONAL OBJECT EVIDENCE — Smithsonian MG.306619.07
+
+The National Museum of American History catalogs:
+- object: **Braille Watch**
+- ID: **MG.306619.07**
+- accession: **306619**
+- record: **nmah_727327**
+- date made: **ca.1973**
+- place made: **Switzerland**
+- credit line: **American Foundation for the Blind**
+- relationship field: **American Foundation for the Blind (maker)**
+- stored as a set containing **watch + instructions + box**
+- the web record exposes six object images / IIIF media links
+
+Source:
+- https://americanhistory.si.edu/ar/collections/object/nmah_727327
+
+**Boundary:** the record does **not** state that this is an alarm watch. Do not merge it into the tactile-alarm survivor matrix as an alarm specimen unless the object / instructions prove that function.
+
+**Manufacturer boundary:** the museum relationship field says AFB “maker,” but AFB's own institutional history shows that its mail-order service obtained products **from manufacturers at wholesale prices and resold them**, while also manufacturing some Foundation-developed devices. Therefore the Smithsonian relationship label does not, by itself, identify the Swiss factory that physically made this watch.
+
+AFB source:
+- https://afb.org/online-library/unseen-minority-0/chapter-21
+
+This makes the **instructions and box** unusually high-value evidence. A supplier, model name, import mark or Swiss maker may be printed there even if the catalog record simplifies the relationship to AFB.
+
+#### AFB DISTRIBUTION MODEL — branding / credit is not automatically physical manufacture
+
+AFB's institutional history states that the Foundation's mail-order supply system:
+- had long dealt in watches and radios
+- acquired newer goods from manufacturers at wholesale prices
+- resold them through its service
+- produced an illustrated printed catalog from 1948
+- by 1972 mailed roughly 100,000 inkprint catalogs and 5,000 braille catalogs
+- in 1972–73 offered more than 300 items, including a high-end self-winding gold braille watch
+- participated in international import / export of assistive products
+
+Sources:
+- https://afb.org/online-library/unseen-minority-0/chapter-21
+- https://afb.org/about-afb/history/online-library/unseen-minority/chapter-7
+
+**Research consequence:** for AFB watches, separate:
+1. organization / distributor
+2. commissioner / purchaser
+3. brand or institutional marking
+4. physical Swiss manufacturer
+
+The Beitl ca.1960 ARSA statement supplies one proposed commissioner→manufacturer link. The ca.1973 Smithsonian record does not yet supply the Swiss manufacturer field.
+
+#### 1973 INTERNATIONAL CATALOG — bibliographically confirmed, content not yet obtained
+
+AFB's own bibliography lists:
+*International Catalog, Aids and Appliances for Blind and Visually Impaired Persons*. AFB, **1973**.
+
+Source:
+- https://www.afb.org/online-library/unseen-minority-0/bibliography
+
+The catalog is therefore a concrete period target for supplier / model identification. Current indexed Web access confirms the publication, not the watch entries inside it.
+
+**Status:** BIBLIOGRAPHICALLY CONFIRMED / CONTENT NOT YET OBTAINED.
+
+#### ARCHIVE BARRIER — Mémoires d'Ici 1948 vs 1973 comparison cannot yet be performed from index metadata
+
+Mémoires d'Ici confirms the existence and public accessibility of:
+- **D-11140 — Arsa : 1898-1948**, Marcel André, 1948, 35 illustrated pages
+- **D-16590 — Arsa : 1898-1948 : Jubilé A. Reymond SA**, 1948, 3 pages
+- multiple **1973** company-history / management / press documents in the same A. Reymond archive plan
+
+Sources:
+- https://collections.m-ici.ch/detail.aspx?ID=38762
+- https://collections.m-ici.ch/detail.aspx?ID=38763
+- https://collections.m-ici.ch/archivplansuche.aspx?ID=38774
+
+All are public / physically usable, but the indexed records do not provide the full text needed to compare what ARSA said in 1948 with what it said in 1973.
+
+**Research consequence:** do not write “the 1948 company history omits blind watches” or any similar negative claim. The brochure's **metadata** is known; its **content is not yet reviewed**.
+
+#### CORPORATE-MARKET CAUTION — post-1972 USA does not automatically point to ARSA
+
+DIJU states that after the 1972 merger of A. Reymond, Damas and Hoga under ARSA:
+- ARSA's principal markets were Europe
+- Damas focused on Great Britain and the Near / Middle East
+- **Hoga** covered the USA, Far East and Italy
+
+Source:
+- https://diju.ch/f/notices/detail/8205
+
+**Research consequence:** a later AFB-associated Swiss watch found in the United States cannot be assigned to ARSA merely from geography or corporate affiliation. This evidence makes that shortcut weaker.
+
+It also does **not** prove Hoga made the afB De Luxe Alarm. The Klöter date is only ca.1970 and the exact supplier history remains open.
+
+#### CURRENT SURVIVOR LEAD — afB De Luxe / AS1930 is also live on eBay in 2026
+
+A current eBay listing (item **237074297005**) describes:
+- AFB Deluxe Braille Alarm
+- 17 jewels
+- **AS 1930** in the title
+- Swiss-made
+- mechanical manual wind
+- 33 mm gold-plated case
+- braille / tactile indices
+- alarm function
+
+Source:
+- https://www.ebay.com/itm/237074297005
+
+**Classification:** CURRENT SURVIVOR LEAD / SELLER METADATA.
+
+The listing is useful because the AS1930-form AFB tactile alarm is not known only from an old auction catalog. However:
+- seller branding / dating are not period-primary evidence
+- no case / serial identifier has yet been used to prove whether this is distinct from the Klöter auction specimen
+- do not count auction appearances + current listing as multiple independent surviving watches until identity is resolved
+
+#### SURVIVOR MATRIX V3 — institutional comparator separated from alarm rows
+
+Main alarm rows remain:
+- ARSA AS1475
+- AFB / ARSA AS1475 according to Beitl
+- Enicar AS1475
+- BEAT / Friedli AS1475
+- A. Schild prototype AS1475
+- afB De Luxe AS1930, maker OPEN
+
+Separate institutional comparator:
+- **Smithsonian MG.306619.07**, AFB-associated Swiss Braille Watch, ca.1973, instructions + box, **alarm status unspecified**
+
+This separation prevents an unsupported jump from “AFB + Swiss + 1973” to “AFB mechanical Blind Alarm” or “ARSA.”
+
+#### Highest-information next move
+
+The best next evidence is no longer another broad name search:
+1. inspect / obtain Smithsonian MG.306619.07 **instructions + box + all images**
+2. search the 1972–74 Aids and Appliances folder / 1973 International Catalog for the same model or supplier
+3. only then compare that supplier information with the afB De Luxe AS1930 survivor and the Beitl ca.1960 ARSA account
+
