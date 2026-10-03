@@ -17,6 +17,18 @@
 
 ## 2026-10-03
 
+### 2026-10-03 12:28 JST — ARSA調査をDuofon / 10WA型のVA標準フレームへ戻しarchive枝を非blocking化
+
+- **変更**：ARSA Blind Alarmの調査順を、既存のPierce Duofon / Wittnauer 10WAで使っているVA標準の「①作った会社 → ②需要背景 → ③時計そのもの → ④同目的・同機構の比較 → ⑤最後にcaliber / platformと変貌種 → ⑥時計固有要件」へ組み直した。ARSAでは最後をAS1475の普及・Benedict Park-O-Phon・触読alarm adaptations・AS family / direct descendantsへ戻す構成とする。AFB契約書、Smithsonian、WPB 1945等はbonus / contextへ降格し、研究completion blockerにしない。あわせてこの既存VA調査方式を`AGENTS.md`へdefault frameとして明文化し、Council / 焼いてでも先に適用するよう固定した。
+- **理由**：ユーザーが、Duofon / Wittnauer 10WAでは一貫して会社→需要背景→時計本人→比較→caliber史という順で調査していたのに、今回のCouncilが既存方式を継承せず、AFB / Smithsonian / wartime archive自体を研究目的化していたと指摘。直前の宮廷道化師も、ARSAから離れたarchive枝がP0を占有していることを問題化し、ユーザーがその指摘を採用した。Pierce公開WATCHは実際に「Pierceとは→Cal.135→モデル変遷→Gruen Duo-Tone」、Wittnauer公開WATCHは「Wittnauerとは→10WA→中身→特許→AS1475→variation」と、会社・時計本人・比較／platformへ戻る構造になっている。
+- **旧状態・棄却**：`AFB↔ARSA一次文書`を歴史上の最大未解決としてP0級に置き続ける状態、Smithsonian 1973 object / AFB catalog / WPB 1945 correspondenceを次の最優先にする状態を棄却する。既存証拠は削除せずLEDGERに保持し、ARSA本線へ直接効く時だけ再昇格する。
+- **影響範囲**：`AGENTS.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本判断履歴。公開WATCH / OWNER'S NOTE本文、Catch / Lead、ARSA購入個体の個人台帳、既存LEDGER証拠は変更しない。
+- **検証状態**：GitHub mainのPierce Duofon公開WATCH、Wittnauer 10WA公開WATCH / research ledgerを再取得し、既存VA調査の実例を確認。Project資料ではHorlbeckがBenedict Park-O-PhonをAS1475ベースのparking-time watchとして記し、movement自体に追加技術変更がないと説明すること、同書がAS1475とその後継／派生群およびCitizen / Poljotのdirect basisを記すことを確認。ARSA触読alarm比較対象は既存ARSA MAP / LEDGERの確度分類を維持する。
+- **起点・帰属**：研究フレームの再提示と「既存VA方式をCouncilが外した」という指摘はユーザー。直前の宮廷道化師がarchive枝の過剰拡張を指摘し、ユーザーが採用。AIはDuofon / 10WA正本とProject資料で照合して全WATCH向けdefault frameへ明文化した。
+- **関連**：`src/content/watches/pierce-duofon.md`、`src/content/watches/wittnauer-10wa.md`、`research/WITTNAUER_10WA_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、Project資料 *The Alarm Wrist Watch* / *Alarm am Arm*。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T12:28+09:00` = `2026-10-03 12:28 JST`。
+
+
 ### 2026-10-03 11:25 JST — AFB戦時Braille watchを単一factory lineageから分離しWPB 1945資料をarchive targetへ追加
 
 - **変更**：AFBの1943–45年Braille-watch programを「一つの専用factory model系列」とみなさず、寄付された既存時計の清掃・修理・触覚点追加を含む配布／改造systemとして研究モデルへ明記した。Smithsonian War Production Board Recordsの `BRAILLE WATCHES: Correspondence 1945`（NMAH.AC.0341_ref17, Box 1 Folder 4）を新規archive targetへ追加。併せてBEAT / Friedli-Frères AS1930のforum survivorをHOLD leadとして登録し、forum内のIRTI製・ca.1960という帰属は採用しない。

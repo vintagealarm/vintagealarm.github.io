@@ -9,27 +9,60 @@
 
 ---
 
-## 1. 今回の調査目的
+## 1. 今回の調査目的 — VA標準フレームへ戻す
 
-対象は、購入済みのARSA Blind Alarm / tactile alarm個体と、その周辺史・比較個体・制度史。
+対象は、購入済みのARSA Blind Alarm / tactile alarm個体。**2026-10-03 12:28 JST以降は、Pierce Duofon / Wittnauer 10WAで使ってきたVAの調査方式へ戻す。**
 
-**2026-10-03以降の主目的は、VINTAGE ALARMの将来OWNER'S NOTE / WATCH研究に使える証拠基盤を作ること。**
-購入前リスク評価は履歴として保持するが、欠品・価格・購入判断そのものを研究の主軸にはしない。
+調査順:
 
-主に追うもの:
+### ① 作った会社 — Auguste Reymond / ARSA
+- 会社史、Tramelanでの製造、alarm watchとblind / tactile watch双方の製品能力
+- ARSA自身のcatalog / trade ad / company historyを優先
+- AFBや米国流通は、ARSAとの直接接続が取れる時だけ会社史の主線へ入れる
 
-1. **触覚アラームというインターフェース**
-   - 現在時刻とアラーム設定時刻を、視覚なしでどう区別・確認・再設定できるのか
-   - 触覚針、時標、開閉蓋、クラウン／プッシャー、アラーム針の役割
-   - 「Braille watch」という呼称と、実際のtactile analog interfaceを分けて整理する
-2. **ARSA Blind Alarmの系譜と企業側の能力**
-   - ARSA / AFB / A. Schild / Enicar / BEAT / AS1475の関係
-   - ARSAが「盲人用時計」と「腕時計アラーム」を同時期に扱っていたことをperiod sourceで固める
-   - generic AS 1475とBlind専用設計を分離する
-3. **歴史的位置づけ**
-   - 触覚時計史と機械式アラーム腕時計史がどこで交差したか
-   - 戦傷者・福祉流通との関係を、因果を飛躍させずに確定する
-   - 現存個体・ケース／開閉方式・年代・流通主体を比較表で残す
+### ② 需要背景 — なぜ触読できる腕時計／アラームが必要だったか
+- 触覚時計はARSA以前から存在すること
+- 視覚障害者が時刻を自力で読むための触読時計文化
+- 戦傷失明者支援、AFB等による調達・改造・配布・修理の制度化
+- **背景史はARSA Blind Alarmを理解するためのCONTEXT**。1945 WPBや1970年代AFB流通そのものを研究目的へしない
+
+### ③ ARSA Blind Alarmそのものについて分かっていること
+- AS 1475 / 17J
+- raised tactile hour markers、太い時分針、独立alarm hand、秒針なし
+- hinged front cover、ARSA型の4時クラウン内蔵opener、購入個体では9時側hingeを画像確認
+- ケース・年代・モデル差
+- 触読時計で資料化されている針破損、接触によるsetting disturbance等のfailure evidence
+- 「Blind watch一般」「ARSA固有」「購入個体固有」を混ぜない
+- 到着後は、時・分・alarm handの触り分け、alarm設定時刻のread-back、蓋の操作感を実機確認する
+
+### ④ 触読alarmの比較 — 同じ需要に各社がどう答えたか
+現時点の比較対象:
+- **ARSA / AS1475**
+- **AFB-marked / ARSA-ordered according to Beitl / AS1475**
+- **Enicar / AS1475**
+- **BEAT / Friedli-Frères / AS1475**
+- **A. Schild Blind Alarm prototype / AS1475**
+- **afB De Luxe / AS1930** — later survivor、maker OPEN
+- **BEAT / Friedli-Frères / AS1930** — forum leadのみ、HOLD
+
+比較するのは「同じケースか」ではなく、opener、hinge、hands、markers、alarm read-back、case、caliber、maker certainty。
+
+### ⑤ 最後 — AS1475という普及platformと、その変貌種たち
+ARSAをAS1475史へ戻して終える。
+
+- まず通常の機械式alarm wristwatchとして多数ブランドへ広く採用されたAS1475
+- **Benedict Park-O-Phon**：HorlbeckではAS1475をベースにparking-time indicationを追加。movement自体には技術変更なしとされる
+- **Blind / tactile alarm群**：同じAS1475を、触覚markers / hands / front cover等で別用途へ変えた例
+- **AS1568 → AS1930 / 1931系への展開**、およびCitizen / Poljot等の直接派生は、必要な範囲でplatform史として整理
+- ここで「ARSAだけの奇品」ではなく、**普及caliberが用途ごとに姿を変えた一例**として位置づける
+
+### ⑥ ARSA固有の追加要件
+- ARSA社内でblind watchとalarm wristwatchが同時期に並存したこと
+- ca.1960 AFB→ARSA発注記述の独立確認
+- 現存個体の年代・ケース材・caseback marks
+- ただしAFB契約書は**見つかれば強いbonus evidence**であり、研究全体のcompletion blockerにはしない
+
+購入前リスク評価、価格、欠品監視は履歴として保持するが、VA研究本線には戻さない。
 
 ---
 
@@ -133,247 +166,74 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 
 ---
 
-## 5. 今追うべき方向 — 優先順位
+## 5. 今追うべき方向 — VA標準フレームでの優先順位
 
-### P0 — VA / OWNER'S NOTE本線
-
+### P0 — 会社 → 需要背景 → 時計本人
 **状態:** ACTIVE / PRIMARY
 
-1. **period ARSA資料**
-   - 1950s–1970sのtrade directory / 広告 / catalogue / company historyで、盲人用時計と腕時計アラームの同時存在を固定する
-   - Mémoires d'Iciの1973年A. Reymond 75周年資料群を最優先archive targetにする
-2. **触覚アラームのinterface**
-   - 「現在時刻を触る」だけでなく「アラーム設定時刻を触って判別し、設定し直せる」設計を比較する
-   - ARSA固有値とEnicar等の比較個体値を混ぜない
-3. **survivor matrix**
-   - ARSA / AFB-ARSA / Enicar / BEAT-Friedli / A. Schild prototype / 後期AFBを並べ、opener・針・時標・caliber・caseを比較する
-4. **AFB↔ARSA documentary bridge**
-   - supplier / purchase order / invoice / correspondenceをarchive tierで追う
+1. **ARSA会社史**
+   - 1950s–1970sのARSA一次・準一次資料
+   - blind / tactile watch と alarm wristwatch の製品能力・時期
+2. **需要背景**
+   - 触読時計が必要とされた理由、視覚障害者向け時計文化
+   - 戦争・AFBは背景として必要十分まで。ARSA直接因果が出なければ深追いしない
+3. **ARSA Blind Alarm本人**
+   - mechanism / UI / model variation / failure evidence / purchased specimen
+   - 針破損やsetting disturbance等はsource別に整理
+   - 到着後の触覚操作実測を重視
 
-欠品・価格・購入可否は、個体provenanceや到着後記録として必要なら残すが、**VA研究の優先順位には置かない**。
+### P1 — 触読alarm比較
+**状態:** ACTIVE / PRIMARY COMPARISON
 
----
-
-### P0-OLD — 購入前確認（RESOLVED / RESEARCH PRIORITY外）
-
-#### T0-1 ムーブメント写真を取得・判定
-**状態:** RESOLVED / IMAGE-CONFIRMED — AS 1475 / 17 JEWELS
-
-見る項目:
-- AS1475刻印または同定可能なbridge layout
-- 17石構成
-- 錆 / 緑青 / 水入り跡
-- ネジ頭・ブリッジ傷
-- アラームhammer / trainの欠品
-- movement ring / case interior
-- 内蓋・裏蓋刻印
-
-**完了条件:**  
-「AS1475または歴史的に説明可能な別ムーブ」かつ、大錆・主要欠品・明白な破壊的修理なし。
-
-#### T0-2 写真が来た時点で年代・ケース材も同時回収
-**状態:** READY WHEN PHOTO ARRIVES
-
-- inside caseback marks
-- case maker / material marks
-- reference / serial
-- plating / steelの判別材料
-
-**狙い:** seller説明ではなく個体側の刻印で決める。
-
----
-
-### P1 — 歴史の最大未解決「AFB↔ARSA」
-
-#### T1-1 APH / AFB Archiveを狙い撃ち
-**状態:** ACTIVE / ARCHIVE TIER
-
-対象:
-- circa 1955–1963
-- Braille Watch Program
-- Aids and Appliances
-- purchasing / supplier correspondence / invoices
-- Kathern / Katherine / Kay Gruber
-- ARSA / Auguste Reymond / Tramelan / Switzerland
-- alarm watch / wrist alarm
-
-**欲しい証拠:**  
-AFBからARSAへの注文、請求、仕入先書簡、製品名・数量・仕様。
-
-#### T1-2 Mémoires d'Ici / Auguste Reymond資料
-**状態:** ACTIVE / ARCHIVE TIER
-
-狙い:
-- 1954–1962 ARSA catalogs
-- blind / Braille watch leaflets
-- Alertic / alarm catalogs
-- company anniversary material
-- AFB / America向け取引痕跡
-
-#### T1-3 Swiss trade press targeted search
-**状態:** ACTIVE, BUT NARROW ONLY
-
-検索軸:
-- ARSA + aveugles / Blinden / braille
-- ARSA + réveil / Alarm + 1954–1962
-- American Foundation for the Blind / AFB + Swiss watches
-- Auguste Reymond + USA / veterans / blind
-
-**禁止:** 同じ一般語の広域検索をもう一周しない。
-
-#### T1-4 Smithsonian AFB object / instructionsを掘る
-**状態:** ACTIVE / INSTITUTIONAL OBJECT TIER
-
-National Museum of American History:
-- **MG.306619.07 / Braille Watch**
-- date made: **ca.1973**
-- place made: **Switzerland**
-- credit line: **American Foundation for the Blind**
-- museum relationship field: **American Foundation for the Blind (maker)**
-- set includes **watch + instructions + box**
-- alarm functionは現行catalog recordからは確認できない
-
-重要:
-- AFB自身の制度史では、Aids and Appliancesがメーカーから製品を仕入れて再販売していたことが確認できる。
-- したがってSmithsonianの maker = American Foundation for the Blind を、**実際のスイス時計製造工場名**としてそのまま扱わない。
-- instructions / box / object imagesにbrand・supplier・model・Swiss maker表記がないかを次に確認する。
-
-関連:
-- Smithsonian object: nmah_727327
-- Archive: NMAH.AC.1319 Box 1 Folder 1 “Aids and Appliances”, 1972–1974
-- AFB 1973 International Catalog, Aids and Appliances for Blind and Visually Impaired Persons
-
-#### T1-5 War Production Board「BRAILLE WATCHES」1945 correspondence
-**状態:** ACTIVE / ARCHIVE TIER / CONTENT NOT YET OBTAINED
-
-Smithsonian Archives Center:
-- collection: **War Production Board Records, 1943–1945**
-- item: **BRAILLE WATCHES: Correspondence 1945**
-- ID: **NMAH.AC.0341_ref17**
-- container: **Box 1, Folder 4**
-- collection scopeはcivilian / militaryへ時計・clock・timerを供給するための生産・材料配分・foreign import等
-- collectionはresearch open、当該itemsはreproduction request可能
-
-狙い:
-- 1945時点のBraille watch調達・供給・改造・優先配分で、AFB / Waltham / importers / case or dial modifiers等の固有名が出るか確認する
-- ただしこれは**ARSA以前のwartime supply-chain資料**。ARSA Blind Alarmの直接起源を証明する資料として先取りしない
-
-関連:
-- Smithsonian NMAH.AC.0341_ref17
-- finding aid: NMAH.AC.0341
-
----
-
-### P2 — 現存個体の比較で系譜を固める
-
-#### T2-1 Survivor matrixを作る
-**状態:** IN PROGRESS / V3 — Smithsonian ca.1973 AFB Swiss Braille Watch + afB AS1930 live survivor lead added 2026-10-03
-
-最低列:
-- Brand / organization
-- Approx. date
-- Movement
-- Jewel count
-- Opener position / type
-- Case material
-- Diameter
-- Dial / hand layout
-- Caseback marks
-- Source quality
-- Sold / active / archive
-
-対象:
+比較対象:
 - ARSA AS1475
-- AFB / ARSA AS1475
+- AFB / ARSA AS1475（Beitl記載。取引は独立未確認）
 - Enicar AS1475
-- BEAT / Friedli AS1475
-- A. Schild prototype
-- later AFB De Luxe / AS1930
-- Smithsonian MG.306619.07 — AFB-associated Swiss Braille Watch, ca.1973（**non-alarm / alarm status unspecified comparator**）
-- BEAT / Friedli-Frères AS1930 survivor lead（forum-only / **HOLD** until independent object or catalog evidence）
-- Venus230 survivor lead（HOLD枠）
+- BEAT / Friedli-Frères AS1475
+- A. Schild prototype AS1475
+- later afB De Luxe AS1930（maker OPEN）
+- BEAT / Friedli-Frères AS1930（forum-only HOLD）
 
-**目的:** 「似ている」を文章で語るのではなく、差分表で見る。
+比較軸:
+- opener / hinge / cover
+- hour / minute / alarm hand
+- tactile markers
+- alarm-time read-back
+- case / caliber
+- maker certainty / source tier
 
-#### T2-2 opener / case architectureだけを比較
-**状態:** TODO
+### P2 — AS1475 platformと変貌種
+**状態:** ACTIVE / CLOSING CHAPTER
 
-- 4時クラウン内蔵式
-- 6時外部open式
-- 別push-button式
-- hinge位置
-- case diameter
-- double-back / resonator構造
+最低限:
+- 通常のAS1475 alarm wristwatchとしての普及
+- Benedict Park-O-Phon — AS1475 + parking-time indication
+- tactile / Blind Alarmへの外装・UI adaptation
+- AS1568 / AS1930 / AS1931のfamily progression
+- Citizen / Poljotなどdirectly based examplesは、ARSA本文に必要な範囲で扱う
 
-**目的:** 共通ケース説を無理に復活させず、共有設計要素と固有設計を分離。
+**目的:** ARSAを孤立した珍品として終わらせず、AS1475という普及platformが用途で変貌した一例として戻す。
 
----
+### P3 — BONUS / CONTEXT archive
+**状態:** NON-BLOCKING
 
-### P3 — 故障・保存性
+- AFB↔ARSA supplier / purchase order / invoice / correspondence
+- Mémoires d'Ici 1948 / 1973全文
+- Smithsonian MG.306619.07
+- AFB 1973 International Catalog
+- War Production Board “BRAILLE WATCHES: Correspondence 1945”
 
-#### T3-1 Failure evidenceをsource別に表化
-**状態:** TODO
+これらは**①会社 / ②需要背景 / ③時計本人 / ④比較 / ⑤AS1475 platform**のどこかを更新できる場合のみ昇格する。資料自体が面白いことを理由にP0へ戻さない。
 
-分ける:
-- direct touchによるsetting disturbance
-- tactile hand break
-- lid / bezel damage
-- contamination through opened face
-- repair-induced damage
-- hinge / latch failure
-
-**ルール:**  
-「Blind watch一般」「ARSA固有」「今回個体」の三層を混ぜない。
-
-#### T3-2 AS1475 donorで救える範囲を確定
-**状態:** PARTIAL
-
-generic donorで救いやすい:
-- movement-side common parts
-
-救いにくい:
-- tactile hands
-- tactile alarm hand
-- tactile dial
-- front lid / crystal
-- hinge
-- latch / spring
-- crown-integrated pusher
-- blind-specific case geometry
-
----
-
-### P4 — 市場・価格
-
-#### T4-1 sold-resultを集める
-**状態:** TODO / LOW DATA
-
-採用:
-- mechanical ARSA Blind Alarm
-- AFB mechanical Blind Alarm
-- 可能ならmovement / size / conditionが判別できるもの
-
-除外:
-- non-alarm Braille watch
-- quartz tactile watch
-- conversion / recase
-- seller asking onlyをsold price扱い
-
-**現状:** sold dataset不足。¥41,721が「絶対安い」とは断定しない。
-
----
-
-### P5 — 保留テーマ
-
-新証拠が出た時だけ再開。
+### P4 — HOLD / 研究本線外
 
 - Morton Ollendorff / Swiss Braille-watch factory
-- later AFB De Luxe maker identification
-- **BEAT / Friedli-Frères AS1930 survivor lineage** — forum survivor leadあり。ただしforum内の「IRTI製・ca.1960」は、California DORがIRTIを1979年創業のassistive-technology reseller / integratorと記すため、そのまま採用不可
-- Venus230 ARSA production-family confirmation
-- A. Schild prototype exact chronology
+- later AFB De Luxe maker identification（直接資料が出るまで）
+- BEAT / Friedli-Frères AS1930 lineage（独立資料待ち）
+- Venus230 ARSA Blind Alarm production-family confirmation
 - universal case supplier
-- 現行ARSA case-number continuityの工場レベル証明
+- 市場価格 / asking price / sold comp
+- 購入済み個体の欠品監視
 
 ---
 
@@ -435,14 +295,13 @@ generic donorで救いやすい:
 
 ## 8. 次の実行順
 
-1. **Smithsonian MG.306619.07** の6画像・instructions・boxを最優先で確認し、ca.1973のAFB-associated Swiss Braille Watchのbrand / supplier / model表記を回収する。catalog上の maker = AFB だけで実製造者を断定しない
-2. **NMAH Box 1 Folder 1 “Aids and Appliances” (1972–1974)** とAFB 1973 International Catalogを突合し、afB De Luxe / AS1930または同時期Swiss watchのsupplier記載を探す
-3. **Mémoires d'Ici D-00454**は、1948年35p社史と1973年75周年資料の**本文自体は公開indexから未読**。現状をmetadata-confirmed / content-not-obtainedとして固定し、コピー／現地閲覧へ進む
-4. **AFB Archive / APH**でca.1960のARSA注文をsupplier-level文書へ接続する。軍人向けgift programと一般Aids & Appliances流通を分離する
-5. **Smithsonian War Production Board Records / Box 1 Folder 4 “BRAILLE WATCHES: Correspondence 1945”** のreproduction / 閲覧で、戦時期の調達・改造・supplier固有名を確認する。ARSA直接起源とは先取りしない
-6. **Davoine / Swiss trade press**を年代順に補完し、ARSAのblind watch / wrist alarm並存期間を固定する
-7. **survivor matrix**はARSA / Enicar / BEAT / A. Schild / AFB-AS1475 / afB-AS1930に加え、非アラームinstitutional comparatorとHOLD survivor leadsを分離する
-8. 到着後の個体観察は、ケース刻印・実操作・触覚UIを研究資料へ追加する。欠品監視を研究本線へ戻さない
+1. **①作った会社** — ARSAの会社史・製造能力を、現在あるDIJU / Davoine / Mémoires d'Ici metadata / specialist booksで一度まとめ、不足する一次資料だけを特定する
+2. **②需要背景** — 触読時計の用途・利用者・戦後までの制度背景を、ARSA説明に必要な長さまで圧縮する。1945 WPBを本線にはしない
+3. **③時計本人** — ARSA Blind Alarmのmechanism / tactile UI / failure evidence / model差をsource別に整理。購入個体画像を直接証拠として使う
+4. **④触読alarm比較** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBを差分表へ固定する
+5. **⑤AS1475と変貌種** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る
+6. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
+7. AFB契約書、Smithsonian、WPB等は、上記1〜5の未解決を直接埋める場合だけ再開する
 
 ---
 
