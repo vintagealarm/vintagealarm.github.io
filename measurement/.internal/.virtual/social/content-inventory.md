@@ -88,6 +88,7 @@ Canonical WATCH: `src/content/watches/cyma-time-o-vox.md`
 | CYM-05 | 透かしラグ金無垢→部分透かしSS→滑らかなSS→通常ラグのケース変遷 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | COMPARISON | WATCH Deep 06 |
 | CYM-06 | 裏蓋内側の18K 0.750 / Weber刻印 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Gallery `cyma-caseback-inside.jpg` |
 | CYM-07 | 「アラーム＋Chronomètre」の少数例という文献上の位置づけ | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | RECHECK_SOURCE | RESEARCH | WATCH Deep 02 / `Alarm am Arm` |
+| CYM-08 | 「アラームとクロノメーターという矛盾」＝精度を求める時計へアラーム機構を載せる設計上の緊張 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | RESEARCH | WATCH Deep 02。初回IGではChronomètre自体は使用済みだが、この設計上の緊張を主題にはしていない |
 | CYM-ON | OWNER'S NOTE全体 | WHOLE_ONLY | NO_EXPLICIT_USE_FOUND_2026-10-03 | OWNER_NOTE_HERO_ONLY | READY_FROM_WATCH | OWNER_NOTE_WHOLE | WATCH `ownersNote` |
 
 ## Pierce Duofon
@@ -160,7 +161,19 @@ Canonical WATCH: `src/content/watches/citizen-alarm.md`
 |---|---|---|---|---|---|---|---|
 | GLB-01 | HOW THEY RING：GONG / CASEBACKの実機音を入口に各WATCHへ送る | CANDIDATE_NOT_IN_IG_TEXT | X_OR_OTHER_USE_RECHECK_BEFORE_REUSE | READY_EXISTING | READY_FROM_WATCH | URL_FUNNEL | `PROJECT_STATE.md` + `/en/how-they-ring/` canonical funnel |
 
-## 3. 更新契約
+## 3. Legacy / Project recovery audit
+
+### 2026-10-03 — 旧引継ぎ資産の逆引き監査
+
+- Project / Library `VINTAGE_ALARM_完全引継ぎ_2026-09-09(1).md` を、Pierce / CYMA / Basis / SNS観点で再検索した。
+- 旧引継ぎにある独立研究軸（CYMAの「アラームとクロノメーターという矛盾」、Wippe、単一香箱、鳴動中のリューズ、ケース／ラグ、Basisの一方向双香箱→滑りクラッチ→二窓、Pierceの機構・操作）は現行WATCHと照合し、inventoryへ対応行があることを確認した。
+- 旧引継ぎにある `マナーモードの祖先!?` / `鳴る黄金のクロノメーター` / `触って、見て、聴いて楽しむおもちゃ箱。` と、Basis OWNER'S NOTE内の `セミの鳴き声` 等は、OWNER'S NOTE由来の完成表現として**個別投稿資産へ分解しない**。各 `*-ON` 行へ包含する。
+- 旧引継ぎは2026-09-09時点の履歴資料であり、事実・現在状態の正本には昇格しない。現行WATCH / research / social canonと衝突する場合は現行正本を優先する。
+- この監査の目的は「古いチャットを毎回読み直すこと」ではなく、**引き継ぎ後はinventoryから始めても既知の独立資産を落としにくい状態にすること**。
+
+---
+
+## 4. 更新契約
 
 - 実投稿が公開確認されたら、同じ変更セットで `instagram-published-copy.md` を更新し、対応inventory rowを `USED` または `PARTIAL` へ更新する。
 - 同じ時計の別投稿は、Insights側では `content_id` を分ける。inventoryのIDとInsights `content_id` は役割が違うため同一IDへ統合しない。
