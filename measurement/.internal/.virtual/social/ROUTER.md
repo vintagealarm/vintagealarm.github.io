@@ -18,17 +18,18 @@
 
 1. 現在の会話にある最新スクリーンショット / Insights / Relay URL・値 / ユーザー訂正
 2. この `ROUTER.md`
-3. `measurement/.internal/.virtual/social/instagram-insights-timeseries.md` — Instagram Insightsの観測日時・投稿日時・経過時間・全確認値の時系列正本
-4. `measurement/.internal/.virtual/social/instagram-operations.md` — SNS横断の実測・先行実績・分析履歴
-5. `measurement/.internal/.virtual/social/instagram-published-copy.md` — Instagram実投稿本文・ハッシュタグ・採用／非採用訴求の正本
-6. `measurement/experiment-log.md` — 過去のYouTube / Analytics等の詳細実験ログ
-7. `measurement/metrics.md` — 計測定義
-8. `PROJECT_STATE.md` — VA公開個体・HOW THEY RING・サイト現行状態
-9. 対象WATCH / HOW THEY RINGの現行実装
-10. 必要なProject資料・一次資料・Web
-11. 会話記憶は確認先を探す索引としてのみ使う
+3. `measurement/.internal/.virtual/social/content-inventory.md` — SNS投稿案・既出除外・未使用候補・撮影要否・検証要否の横断索引。投稿案では必須
+4. `measurement/.internal/.virtual/social/instagram-published-copy.md` — Instagram実投稿本文・ハッシュタグ・採用／非採用訴求の証拠正本
+5. `measurement/.internal/.virtual/social/instagram-insights-timeseries.md` — Instagram Insightsの観測日時・投稿日時・経過時間・全確認値の時系列正本
+6. `measurement/.internal/.virtual/social/instagram-operations.md` — SNS横断の実測・先行実績・分析履歴
+7. `measurement/experiment-log.md` — 過去のYouTube / Analytics等の詳細実験ログ
+8. `measurement/metrics.md` — 計測定義
+9. `PROJECT_STATE.md` — VA公開個体・HOW THEY RING・サイト現行状態
+10. 対象WATCH / HOW THEY RINGの現行実装
+11. 必要なProject資料・一次資料・Web
+12. 会話記憶は確認先を探す索引としてのみ使う
 
-投稿案を作る場合は、対象時計について過去X / YouTube / Instagramで既に使った訴求がないかを4・5・6で先に確認する。既存コンセプトを新案として再発明しない。
+投稿案を作る場合は、まず3のinventoryで候補を絞り、4・6・7でInstagram実投稿と過去X / YouTubeの使用実績を照合し、最後に10の対象WATCH / research正本で事実を再確認する。`USED` を新案として再発明せず、`PARTIAL` を使う場合は再利用目的を明示する。OWNER'S NOTEは `WHOLE_ONLY` とし、一文ずつ切り出して複数投稿へ増殖させない。
 
 ## 3. CANONICAL FUNNEL — 現行Instagram→VA導線（変更禁止）
 
@@ -141,6 +142,16 @@ SNS + Analytics + VAを焼く場合:
 
 Instagramの**実投稿本文・hashtags・最終的に採用された訴求・公開本文から確認できる非採用範囲**は `instagram-published-copy.md` を正本とする。実投稿スクリーンショットを受け取った場合、要約だけで済ませず、確認できる本文を全文保存する。草案時の棄却理由が資料から確認できない場合は推測で補完しない。
 
+### Content Inventory の完了条件
+
+- `content-inventory.md` は投稿ネタ本文の保存先ではなく、**再利用候補の索引正本**。
+- 新規投稿が公開確認されたら、`instagram-published-copy.md` の全文登録と同じ変更セットで該当inventory rowを `USED` / `PARTIAL` へ更新する。
+- 新しいWATCH / Deep Dive / gallery資産がSNSで単独利用できる状態になった場合、inventoryへ追加するか、追加しない理由をPR本文へ残す。
+- `CANDIDATE_NOT_IN_IG_TEXT` は「公開本文に未出」を意味し、映像内でも完全未使用とは断定しない。
+- `Other social` はX / YouTubeの明示証拠へ追随させる。`NO_EXPLICIT_USE_FOUND...` は永久的な未使用認定ではない。
+- OWNER'S NOTEは時計ごとに `*-ON` 1行だけを持ち、`WHOLE_ONLY / OWNER_NOTE_HERO_ONLY / OWNER_NOTE_WHOLE` を維持する。
+- `npm run check:social-inventory` をquality gateで必ず通す。
+
 ### Instagram Insights の完了条件
 
 Instagram Insightsスクリーンショットを受け取った場合は、原則として次を1セットで完了する。
@@ -193,6 +204,7 @@ Instagram Insightsスクリーンショットを受け取った場合は、原�
 ### 正規保存先・構造変更
 
 - 正本の分割、保存先変更、ログ構造変更、新ディレクトリ導入、履歴の統合・削除は**設計変更**として扱う。
+- 2026-10-03ユーザー明示指示により、SNS再利用棚として `content-inventory.md` を追加した。これはInsights / Published Copy / Operationsの代替保存先ではなく、それらとWATCH資産を横断する索引である。
 - 設計変更は、ユーザーの明示指示なしに実行しない。
 - 既存正本が肥大化していても、AIが独断で分割しない。必要なら最適化案として提示し、承認後に移行する。
 - `instagram-published-copy.md` は2026-09-30のユーザー明示指示「全文を登録記録」「綺麗に統合と解決」に基づき、実投稿copy/creative decisionだけを `instagram-operations.md` の時系列Insightsから分離した正本である。ツール都合の臨時sidecarではない。

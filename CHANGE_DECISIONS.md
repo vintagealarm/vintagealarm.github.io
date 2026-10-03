@@ -807,3 +807,14 @@
 - **検証状態**: PR #146 の `Astro foundation check` run 37086066419 がSUCCESS。`npm run check:quality` 内の `check:instagram-insights` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。`instagram:report` は既存CIに含まれないため、このPRでは自動実行対象外。
 - **関連**: 2026-10-03 10:18 JST ユーザー提供Wittnauer 10WA static carousel投稿画面 / Post Insights。
 - **日時根拠**: スクリーンショット表示時刻10:18 JSTと、当セッション時刻2026-10-03 10:19 JST。
+
+### 2026-10-03 16:46 JST — VA研究資産→SNS投稿候補の横断Content Inventoryを正本化
+- **変更**: `measurement/.internal/.virtual/social/content-inventory.md` を新設し、公開6個体について、既出 / 部分既出 / Instagram公開本文では未使用の候補 / 要追加撮影 / 要資料素材 / 検証状態 / URL誘導 / OWNER'S NOTE whole-onlyを時計別に索引化した。`PROJECT.md`、`AGENTS.md`、`PROJECT_STATE.md`、Social `ROUTER.md`、`instagram-published-copy.md` から必須参照として接続し、`scripts/check-social-content-inventory.mjs` と `npm run check:social-inventory` をquality gateへ追加する。
+- **理由**: 研究LEDGER・WATCH・Published Copy・Insights・Operations・Experiment Logには資産と証拠が保存されている一方、引き継ぎ後に「未使用角度」「既出除外」「追加撮影」を毎回複数正本から掘り直す必要があった。ユーザー明示指示により、保存済み資産をSNSへ再利用するための軽量な商品棚を恒久化する。
+- **旧状態・棄却**: 会話記憶またはその都度の横断検索だけで投稿候補を再構成する運用を棄却する。inventoryを新たな事実正本・数値正本・投稿本文正本にする設計も棄却し、各WATCH / research / published-copy / insightsへ必ず戻る索引に限定する。
+- **OWNER'S NOTE**: OWNER'S NOTEは1個体1完成物として `WHOLE_ONLY`。leadや本文の一文を別々のSNS資産へ分割して同じhero画像で擦る運用は棄却。
+- **確度ルール**: `CANDIDATE_NOT_IN_IG_TEXT` はInstagram公開本文に見つからないことだけを示し、動画内視覚使用まで未使用と断定しない。`NO_EXPLICIT_USE_FOUND_2026-10-03` も現行social canon監査で明示使用が見つからないという限定状態で、絶対未使用とは扱わない。
+- **影響範囲**: SNS投稿案、Council / 焼きのSNS案、引き継ぎ、既出判定、追加撮影計画。公開WATCH本文、OWNER'S NOTE原文、Instagram Insights数値、CANONICAL FUNNELは変更しない。
+- **検証状態**: PR #150 の `Astro foundation check` run `37108055324` がSUCCESS。`npm run check:quality` 内で新規 `check:social-inventory` を含む全quality gateがPASSし、build / publication-aware output / mobile layoutもPASS。diffは9ファイル（新規inventory・checkerを含む）を確認済み。main反映後にinventory・Router・PROJECT系を再取得して最終確認する。
+- **関連**: 2026-10-03ユーザー指示「保存されたVA資産 → SNS投稿ネタ候補の専用棚卸し層を徹底」「引き継いだ後に地獄を見たくない」。
+- **日時根拠**: 当セッションのユーザーローカル時刻 `2026-10-03 16:46 JST`（UTC+09:00）。

@@ -45,6 +45,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - ドイツ語入口: `strategy/german-entry.md`
 - 計測定義: `measurement/metrics.md`
 - 現在までの実験結果: `measurement/experiment-log.md`
+- SNS再利用資産の横断索引: `measurement/.internal/.virtual/social/content-inventory.md`（既出 / 部分既出 / Instagram本文未使用候補 / 撮影要否 / 検証要否 / URL誘導。事実正本は各WATCH等へ戻る）
 - 外部AI観測: `measurement/aio-observation-log.md`
 - Council / 焼いて: `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`; 7の誕生経緯・設計根拠は `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`
 - **個人時計台帳 / 所持・取得・OH・現在状態（cross-repo）**: `orima1995-create/watchdiary-ios` Issue **#21 CURRENT OWNED** を入口とし、取得遍歴は #60、保有意志は #23、周辺時計は #25、個体別CURRENT Issue（例: #58 Watchlarm / #31 CYMA）を必要に応じて追加取得する。公開VINTAGE ALARM repo内に台帳を重複生成しない
@@ -63,6 +64,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - SMARTWATCHはHISTORYのエピローグ。検索流入目的ではなく `noindex,follow`、sitemap対象外
 - 日本語WATCH本文が多言語版の意味上の正本
 - 公開中のWATCH routeは **Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm / Wittnauer 10WA の6本**。Analytics運用上の **measurement target 5本**（Basis / Pierce / Cyma / Citizen / Westclox）は公開状態とは別の括りで、Wittnauer 10WAも一般公開WATCHとして計測データには現れるが、この5本のtarget groupingには含めない
+- 6個体のSNS再利用は `content-inventory.md` を商品棚として管理する。OWNER'S NOTEは1個体1完成物で分割禁止。実投稿証拠は `instagram-published-copy.md`、数値は `instagram-insights-timeseries.md` のまま分離する
 - OWNER'S NOTES一覧の正本は `src/data/owners-directory.json`
 - OWNER'S NOTEの新規 `catch` / `ownersNote.lead` 開発・大幅改稿は `SITE_RULES.md` の**全WATCH共通Catch / Lead開発プロトコル**を必須とする。比較母集団は固定の代表数本ではなく、作業時点で `published: true` の日本語WATCHすべて。候補ごとに発案者 / 派生元、VA温度比較、採否・現在状態を保持し、Catch / Leadの実ファイル変更時はCIのcopy provenance gateを通す。
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
