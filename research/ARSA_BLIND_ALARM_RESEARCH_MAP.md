@@ -103,6 +103,8 @@
 
 一方、「その二系統を意図的に統合してBlind Alarmを開発した」という因果そのものを述べる一次資料はまだない。また、ca.1970のafB De Luxe Alarm / AS1930 survivorはAFB系触覚アラームの後続例だが、製造者未同定のためARSAの後継機とはしない。
 
+AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度史が「戦時中は民間向け時計が不足し、初期配布品の多くは市民から寄付された既存時計を清掃・修理し、文字盤周囲へ小さな金属またはガラスの触覚点を追加した」と記す。したがって**戦時期AFB配布を単一のfactory-built AFB watch系列として扱わない**。約1960年のBeitl記載ARSA委託モデルを1943–45年へ遡及させることも禁止する。
+
 1972年の企業統合後についてDIJUは、主市場を **ARSA = Europe / Damas = UK・中近東 / Hoga = USA・極東・Italy** と記録する。このため「AFBが米国組織だから、1970年代のAFB時計もARSA製だろう」という地理的ショートカットは採用しない。HogaをafB De Luxeのメーカー候補へ昇格する根拠にもまだならない。
 
 ---
@@ -241,6 +243,25 @@ National Museum of American History:
 - Archive: NMAH.AC.1319 Box 1 Folder 1 “Aids and Appliances”, 1972–1974
 - AFB 1973 International Catalog, Aids and Appliances for Blind and Visually Impaired Persons
 
+#### T1-5 War Production Board「BRAILLE WATCHES」1945 correspondence
+**状態:** ACTIVE / ARCHIVE TIER / CONTENT NOT YET OBTAINED
+
+Smithsonian Archives Center:
+- collection: **War Production Board Records, 1943–1945**
+- item: **BRAILLE WATCHES: Correspondence 1945**
+- ID: **NMAH.AC.0341_ref17**
+- container: **Box 1, Folder 4**
+- collection scopeはcivilian / militaryへ時計・clock・timerを供給するための生産・材料配分・foreign import等
+- collectionはresearch open、当該itemsはreproduction request可能
+
+狙い:
+- 1945時点のBraille watch調達・供給・改造・優先配分で、AFB / Waltham / importers / case or dial modifiers等の固有名が出るか確認する
+- ただしこれは**ARSA以前のwartime supply-chain資料**。ARSA Blind Alarmの直接起源を証明する資料として先取りしない
+
+関連:
+- Smithsonian NMAH.AC.0341_ref17
+- finding aid: NMAH.AC.0341
+
 ---
 
 ### P2 — 現存個体の比較で系譜を固める
@@ -269,6 +290,7 @@ National Museum of American History:
 - A. Schild prototype
 - later AFB De Luxe / AS1930
 - Smithsonian MG.306619.07 — AFB-associated Swiss Braille Watch, ca.1973（**non-alarm / alarm status unspecified comparator**）
+- BEAT / Friedli-Frères AS1930 survivor lead（forum-only / **HOLD** until independent object or catalog evidence）
 - Venus230 survivor lead（HOLD枠）
 
 **目的:** 「似ている」を文章で語るのではなく、差分表で見る。
@@ -347,6 +369,7 @@ generic donorで救いやすい:
 
 - Morton Ollendorff / Swiss Braille-watch factory
 - later AFB De Luxe maker identification
+- **BEAT / Friedli-Frères AS1930 survivor lineage** — forum survivor leadあり。ただしforum内の「IRTI製・ca.1960」は、California DORがIRTIを1979年創業のassistive-technology reseller / integratorと記すため、そのまま採用不可
 - Venus230 ARSA production-family confirmation
 - A. Schild prototype exact chronology
 - universal case supplier
@@ -416,9 +439,10 @@ generic donorで救いやすい:
 2. **NMAH Box 1 Folder 1 “Aids and Appliances” (1972–1974)** とAFB 1973 International Catalogを突合し、afB De Luxe / AS1930または同時期Swiss watchのsupplier記載を探す
 3. **Mémoires d'Ici D-00454**は、1948年35p社史と1973年75周年資料の**本文自体は公開indexから未読**。現状をmetadata-confirmed / content-not-obtainedとして固定し、コピー／現地閲覧へ進む
 4. **AFB Archive / APH**でca.1960のARSA注文をsupplier-level文書へ接続する。軍人向けgift programと一般Aids & Appliances流通を分離する
-5. **Davoine / Swiss trade press**を年代順に補完し、ARSAのblind watch / wrist alarm並存期間を固定する
-6. **survivor matrix**はARSA / Enicar / BEAT / A. Schild / AFB-AS1475 / afB-AS1930に加え、非アラームのinstitutional comparatorを別枠で持つ
-7. 到着後の個体観察は、ケース刻印・実操作・触覚UIを研究資料へ追加する。欠品監視を研究本線へ戻さない
+5. **Smithsonian War Production Board Records / Box 1 Folder 4 “BRAILLE WATCHES: Correspondence 1945”** のreproduction / 閲覧で、戦時期の調達・改造・supplier固有名を確認する。ARSA直接起源とは先取りしない
+6. **Davoine / Swiss trade press**を年代順に補完し、ARSAのblind watch / wrist alarm並存期間を固定する
+7. **survivor matrix**はARSA / Enicar / BEAT / A. Schild / AFB-AS1475 / afB-AS1930に加え、非アラームinstitutional comparatorとHOLD survivor leadsを分離する
+8. 到着後の個体観察は、ケース刻印・実操作・触覚UIを研究資料へ追加する。欠品監視を研究本線へ戻さない
 
 ---
 

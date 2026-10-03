@@ -2069,3 +2069,109 @@ The best next evidence is no longer another broad name search:
 2. search the 1972–74 Aids and Appliances folder / 1973 International Catalog for the same model or supplier
 3. only then compare that supplier information with the afB De Luxe AS1930 survivor and the Beitl ca.1960 ARSA account
 
+### 2026-10-03 — continuation pass: wartime Braille-watch supply chain + BEAT/Friedli AS1930 lead
+
+This pass separates the **wartime AFB distribution mechanism** from the later factory-built tactile-alarm survivors, and adds one high-value archival target plus one low-certainty survivor lead.
+
+#### INSTITUTIONAL ARCHIVE LEAD — War Production Board, “BRAILLE WATCHES: Correspondence 1945”
+
+The Smithsonian Archives Center has a dedicated file:
+
+- collection: **War Production Board Records, 1943–1945**
+- item: **BRAILLE WATCHES: Correspondence 1945**
+- ID: **NMAH.AC.0341_ref17**
+- Box 1, Folder 4
+- collection is open for research
+- collection items can be requested for reproduction, subject to Archives Center conditions / fees
+
+Sources:
+- https://americanhistory.si.edu/collections/archival-item/sova-nmah-ac-0341-ref17
+- https://www.si.edu/object/archives/components/sova-nmah-ac-0341-ref17
+- finding aid: https://sirismm.si.edu/EADpdfs/NMAH.AC.0341.pdf
+
+The broader War Production Board collection concerns watch / clock / timer supply for civilian and military use, including production controls, material allocation and foreign watch imports.
+
+**Research value:**
+This is the strongest newly found near-contemporary archive pointer for the **1945 Braille-watch supply chain**. It may identify organizations, watch manufacturers, importers, modification contractors or allocation problems that later summaries omit.
+
+**Boundary:**
+The file content itself is **not digitized / not yet read** in this research pass. Its title alone does not establish AFB involvement, Waltham involvement or any specific supplier. It predates the ARSA Blind Alarm line and must not be used as direct ARSA-origin evidence without the documents.
+
+#### AFB PRIMARY-INSTITUTIONAL HISTORY — wartime watches were not one standardized factory model
+
+AFB's institutional history states that:
+- in 1943 the Foundation placed watch orders requiring an initial **$8,000** investment
+- by 1950 it had presented **1,464** blinded servicemen with personalized Braille watches
+- wartime civilian watch shortages meant that **many of the first watches distributed were donated existing watches**
+- those watches were cleaned / repaired and small metal or glass tactile dots were added around the dial
+- the watch was used as an early rehabilitation contact and the military gift practice continued until 1963
+
+Source:
+- https://www.afb.org/online-library/unseen-minority-0/chapter-17
+
+APH independently records **1,048 watches delivered by December 1945**, later continuation, and a repair program with hundreds of surviving receipts:
+- https://www.aph.org/blog/the-gift-of-time/
+
+**Research consequence:**
+The wartime AFB “Braille watch” program was at least partly a **conversion / adaptation and distribution system**, not evidence for a single purpose-built watch model from one factory.
+
+Therefore:
+- do not back-project Beitl's ca.1960 AFB / ARSA purpose-built tactile alarm into 1943–45
+- do not describe all wartime AFB watches as Waltham, ARSA or any other single maker
+- treat “AFB watch” as an institutional-use / distribution label unless the individual watch or archive file fixes a manufacturer
+
+#### PROJECT SOURCE RE-CHECK — BEAT / Friedli-Frères AS1475 is source-confirmed
+
+*Alarm am Arm* p.91 describes the BEAT blind alarm as:
+- chrome-plated metal case, **Ø33.8 mm**
+- screw back
+- blue dial with raised tactile points
+- white tactile hands
+- **AS 1475**
+- cover opener externally at **6**, unlike the usual 4-o'clock crown pusher
+- manufactured by **Friedli-Frères SA**
+- AS movement signed by Friedli-Frères
+
+This remains the high-confidence BEAT row.
+
+#### SURVIVOR LEAD / FORUM ONLY — a BEAT with AS1930 signed Friedli-Frères
+
+A 2014 Uhrforum post describes a BEAT blind alarm whose prior-owner movement photograph allegedly shows:
+- **AS 1930**
+- movement signed **FRIEDLI FRERES SA**
+- operation perceived by the owner as similar to AS1475
+- watch acquired from a California eBay seller in 2012
+
+Source:
+- https://uhrforum.de/threads/vintage-armbandwecker-zeigt-sie-in-bild-und-ton.16190/page-8
+
+The same post later attributes the watch to **Innovative Rehabilitation Technology, Inc. (IRTI)** and repeats an eBay-seller age claim of ca.1960.
+
+That attribution cannot be accepted as written. California Department of Rehabilitation's supplier directory states:
+- IRTI has been in business since **1979**
+- IRTI is a **computer systems integrator and reseller** of assistive technology
+- its product range includes talking clocks and watches
+
+Official source:
+- https://test-cal-atsd.dor.ca.gov/Service/Details?id=38
+
+**Classification:**
+- physical BEAT / AS1930 / Friedli-signed claim: **SURVIVOR LEAD / FORUM-BASED**
+- continuous BEAT/Friedli blind-alarm lineage from AS1475 → AS1930: **OPEN**
+- IRTI as ca.1960 physical manufacturer: **REJECTED / chronologically incompatible with official company history**
+- IRTI as a later distributor / reseller associated with the watch: **POSSIBLE, NOT PROVEN**
+- seller date ca.1960: **REJECTED as unsupported in this chain**
+
+This lead is potentially important because it mirrors the already source-confirmed BEAT / Friedli AS1475 combination with a later AS1930-family movement, but it stays outside the confirmed survivor matrix until an independent object, auction record, catalog or movement image is recovered.
+
+#### Current interpretation after this pass
+
+A cleaner chronology now emerges:
+
+1. **1943–45 AFB wartime system** — rapid rehabilitation distribution, including adapted donated watches; not a single factory lineage.
+2. **ca.1960 AFB / ARSA AS1475 claim** — purpose-built tactile alarm according to Beitl; transaction still needs institutional confirmation.
+3. **1960s–1970s dedicated tactile-alarm survivors** — ARSA / Enicar / BEAT and later afB AS1930 forms; manufacturer links must be established per object.
+4. **1970s assistive-technology distribution** — AFB and later specialist resellers can appear as institutional / commercial intermediaries without being the Swiss factory.
+
+The next archival gain is likely to come from **documents naming suppliers**, not from brand labels alone.
+

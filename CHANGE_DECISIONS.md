@@ -17,6 +17,17 @@
 
 ## 2026-10-03
 
+### 2026-10-03 11:25 JST — AFB戦時Braille watchを単一factory lineageから分離しWPB 1945資料をarchive targetへ追加
+
+- **変更**：AFBの1943–45年Braille-watch programを「一つの専用factory model系列」とみなさず、寄付された既存時計の清掃・修理・触覚点追加を含む配布／改造systemとして研究モデルへ明記した。Smithsonian War Production Board Recordsの `BRAILLE WATCHES: Correspondence 1945`（NMAH.AC.0341_ref17, Box 1 Folder 4）を新規archive targetへ追加。併せてBEAT / Friedli-Frères AS1930のforum survivorをHOLD leadとして登録し、forum内のIRTI製・ca.1960という帰属は採用しない。
+- **理由**：AFB自身の制度史が、戦時初期の配布時計の多くが市民から寄付された既存時計を改造したものだったと明記するため、約1960年のBeitl記載ARSA委託モデルを1943–45年へ遡及させると系譜を誤る。またWar Production Boardに1945年Braille-watch専用correspondence folderが現存し、戦時supplier / allocationを一次資料で確認できる可能性が出た。BEAT AS1930についてはFriedli署名というforum情報は研究価値がある一方、California DORはIRTIを1979年創業のassistive-technology reseller / integratorとするため、ca.1960のphysical manufacturerという説明とは両立しない。
+- **旧状態・棄却**：AFB wartime gift programを後年のpurpose-built tactile alarmと連続した単一製品系列として読む余地を棄却する。forumだけでBEAT/FriedliのAS1475→AS1930連続量産を確定すること、IRTIを1960年頃の時計メーカーと扱うこと、eBay由来のca.1960年代付けを採用することも棄却／HOLDとした。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴のみ。公開WATCH / OWNER'S NOTE本文、Catch / Lead、個人時計台帳、購入・修理判断は変更しない。
+- **検証状態**：Smithsonian NMAH.AC.0341 collection / finding aid、AFB Chapter 17、APH `The Gift of Time`、Project資料 `Alarm am Arm` のBEAT項、California Department of RehabilitationのIRTI vendor description、Uhrforum survivor postを突合。WPB Folder 4本文およびBEAT AS1930の独立した現物資料は未取得のためOPEN / HOLDを維持。
+- **関連**：NMAH.AC.0341_ref17、`Alarm am Arm` p.91 BEAT / Friedli-Frères AS1475、Uhrforum 2014 BEAT AS1930 lead、IRTI。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T11:25+09:00` = `2026-10-03 11:25 JST`。
+
+
 ### 2026-10-03 10:20 JST — SmithsonianのAFB Swiss Braille Watchをinstitutional comparatorとして追加しmaker意味を分離
 
 - **変更**：ARSA survivor matrixをV3へ更新し、Smithsonian NMAHのMG.306619.07 / Braille Watch / ca.1973 / Switzerland / AFB creditを、アラーム個体ではなくinstitutional comparatorとして追加した。AFB制度史の「メーカーから卸値で仕入れて再販売」という供給構造を根拠に、Smithsonianのrelationship field maker = American Foundation for the Blindを実際のスイス製造工場名と同一視しないルールを明記。あわせて1973 International Catalog、NMAH 1972–74 Aids and Appliances、object付属instructions / boxをmaker同定の最優先資料へ上げた。
