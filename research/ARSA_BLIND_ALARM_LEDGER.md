@@ -2248,3 +2248,123 @@ What remains specimen-specific / open:
 
 **Research consequence:** the purchased specimen can now serve as a direct ARSA interface row in the survivor comparison rather than relying only on seller prose or the 1958 book specimen. The image set supports the hardware architecture; hands-on tactile behavior still waits for arrival.
 
+### 2026-10-03 — tactile hand coding: common design grammar, no universal code yet
+
+**ORIGIN:** user observation — the prior research had compared tactile alarm models without explicitly testing whether hour / minute / alarm hands followed a shared tactile coding convention.
+
+#### PROJECT-SOURCE EVIDENCE — Enicar makes the coding explicit
+
+Horlbeck's Enicar blind-alarm section states that the hands must be shaped so the user can distinguish them by touch:
+- minute hand: about **1.6 mm** wide
+- hour hand: about **2.9 mm** wide
+- alarm hand: about **0.7 mm** wide with **four ridges at its end**
+- no seconds hand, because it would interfere with tactile reading and could stop the movement when touched
+- hour markers also use differentiated forms, with 3 / 6 / 9 especially large
+
+This is direct evidence that at least one AS1475 blind alarm deliberately encoded the three central pointers by **different width + surface / ridge treatment**, not only by visual length.
+
+#### PROJECT-SOURCE EVIDENCE — ARSA / AFB / BEAT confirm the principle but not the exact code
+
+Beitl's 1958 ARSA entry says the hands were made correspondingly robust because they were directly touched, and omits a seconds hand.
+
+The ca.1960 AFB-marked model, described by Beitl as ordered from ARSA, has:
+- raised tactile hour points
+- **robust tactile minute and hour hands**
+- front cover and 4-o'clock crown-integrated opener
+- AS1475
+
+The BEAT / Friedli-Frères AS1475 example has:
+- raised tactile points
+- **white tactile hands**
+- a different front-cover opener at 6
+
+These descriptions establish deliberate tactile hands, but the text does **not** specify a shared hour-vs-minute texture code for ARSA / AFB / BEAT.
+
+#### HISTORICAL PATENT EVIDENCE — designers repeatedly differentiated the hands, but by different methods
+
+**1887 — US365032A**
+A touch-readable watch gives:
+- hour hand: **one raised protuberance**
+- minute hand: **two raised protuberances**
+so the two can be distinguished by touch.
+
+Source:
+- https://patents.google.com/patent/US365032
+
+**1917 — Waltham US1222369A**
+Waltham uses a different scheme:
+- a pointed touch-readable hour indicator
+- a much more stocky minute indicator
+- different radial paths
+- the minute indicator is placed somewhat lower than the hour indicator
+- the geometry is arranged so both can still be felt when aligned
+
+Source:
+- https://patents.google.com/patent/US1222369A/en
+
+**1939 — US2168314A**
+Another tactile watch again uses a different architecture:
+- raised hour and minute pointers on separate concentric discs
+- hour path outside the minute path
+- different tactile orientation markers at 12 and 6
+
+Source:
+- https://patents.google.com/patent/US2168314A/en
+
+**1957 / 1959 — US2915874A**
+Ferguson's tactile indicator avoids direct hand touching entirely: separate inner / outer tactile magnetic elements correspond to hour and minute positions, specifically to prevent the user from disturbing the actual hands.
+
+Source:
+- https://patents.google.com/patent/US2915874A/en
+
+#### CURRENT INTERPRETATION
+
+No evidence currently supports a universal industry rule such as:
+- hour hand = rough
+- minute hand = smooth
+- alarm hand = notched
+
+Instead, the long-running **design grammar** is:
+
+1. hour and minute must be tactilely distinguishable
+2. distinguish them through one or more redundant dimensions:
+   - length / radial reach
+   - width / bulk
+   - pointed vs flat / different tip geometry
+   - relative height
+   - separate radial path
+   - projections / bumps
+   - ridges / texture
+3. provide orientation landmarks on the dial, especially a distinctive 12 and often emphasized quarter points
+4. remove the seconds hand in direct-touch designs
+5. when a third alarm pointer is added, give it a **third tactile identity** rather than relying only on its angle
+
+The exact encoding scheme appears manufacturer / design specific rather than standardized.
+
+#### PURCHASED ARSA SPECIMEN — image lead, tactile status still open
+
+In the user's purchased ARSA photographs:
+- hour and minute hands are visibly different in width / geometry
+- the central alarm pointer is much narrower
+- the alarm pointer has a visibly patterned / crosshatched-looking surface
+
+This is a strong **visual lead** for a deliberate third-hand texture code, but an image cannot prove that the pattern is raised enough to be felt. Do not call it a tactile ridge / notch until hands-on inspection.
+
+**Arrival test to add:**
+- identify hour / minute / alarm hand with eyes closed
+- note whether recognition comes from length, width, height, tip geometry, surface texture, or a combination
+- test aligned / overlapping hand positions, where visual analog conventions give the least help
+- document the alarm pointer under macro light to determine whether its patterned surface is relief, engraving, paint or another finish
+
+#### Research consequence
+
+For the tactile-alarm comparison matrix, “hands” must no longer be a single descriptive field. Split it into:
+- hour-hand tactile code
+- minute-hand tactile code
+- alarm-hand tactile code
+- overlap distinguishability
+- surface / ridge / notch treatment
+- relative height / radial path
+
+This is likely more informative than case similarity when comparing ARSA / Enicar / BEAT / AFB / A. Schild.
+

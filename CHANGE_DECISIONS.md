@@ -17,6 +17,18 @@
 
 ## 2026-10-03
 
+### 2026-10-03 12:28 JST — 触読alarm比較へhour / minute / alarm handの触覚coding軸を追加
+
+- **変更**：ARSA / Enicar / BEAT / AFB / A. Schild等の触読alarm比較で、従来の「hands」一括記述をやめ、hour / minute / alarm handごとの長さ・幅・先端形状・段差・突起・切り欠き・ridge / texture・相対高さ・radial pathを比較軸へ追加した。現時点の仮説は「業界共通の固定codeは未確認だが、各針を触覚的に区別する共通design grammarは長期的に存在する」。
+- **理由**：ユーザーが、触読時計／触読alarmでは「時針はこれ、分針はこれ、alarmはこれ」という暗黙の触覚codeがあったのではないか、切り欠きやざらつき等の質感差を見落としていないかと指摘。Project資料のEnicarではhour 2.9 mm / minute 1.6 mm / alarm 0.7 mm + tip four ridgesと明記され、1887・1917・1939のtouch-readable watch patentsでも突起数、幅、先端、radial path、高さ等を使う異なるcoding方式を確認したため。
+- **旧状態・棄却**：ケース／opener差を中心に比較し、針を「robust tactile hands」の一項目で処理する状態を棄却する。一方、「hour=rough / minute=smooth / alarm=notched」のような普遍的industry standardが存在したとの断定も採用しない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴。公開WATCH / OWNER'S NOTE本文、Catch / Lead、購入個体台帳は変更しない。
+- **検証状態**：Project資料 *The Alarm Wrist Watch* のEnicar tactile-hand記述、*Alarm am Arm* のARSA / AFB / BEAT項を再確認。WebではUS365032A、Waltham US1222369A、US2168314A、US2915874Aを比較し、年代を跨いで複数の異なるtactile coding方式を確認。購入ARSA画像ではalarm pointerにpatterned surfaceが見えるが、触覚ridgeかどうかは到着後実測までOPEN。
+- **起点・帰属**：触覚codingという比較軸の見落とし指摘はユーザー。AIがProject資料・historical patentsで検証し、比較項目へ昇格した。
+- **関連**：ARSA purchased specimen、Enicar Blind Alarm / AS1475、AFB / ARSA AS1475、BEAT / Friedli-Frères AS1475、historical touch-watch patents。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T12:28+09:00` = `2026-10-03 12:28 JST`。
+
+
 ### 2026-10-03 12:28 JST — ARSA調査をDuofon / 10WA型のVA標準フレームへ戻しarchive枝を非blocking化
 
 - **変更**：ARSA Blind Alarmの調査順を、既存のPierce Duofon / Wittnauer 10WAで使っているVA標準の「①作った会社 → ②需要背景 → ③時計そのもの → ④同目的・同機構の比較 → ⑤最後にcaliber / platformと変貌種 → ⑥時計固有要件」へ組み直した。ARSAでは最後をAS1475の普及・Benedict Park-O-Phon・触読alarm adaptations・AS family / direct descendantsへ戻す構成とする。AFB契約書、Smithsonian、WPB 1945等はbonus / contextへ降格し、研究completion blockerにしない。あわせてこの既存VA調査方式を`AGENTS.md`へdefault frameとして明文化し、Council / 焼いてでも先に適用するよう固定した。

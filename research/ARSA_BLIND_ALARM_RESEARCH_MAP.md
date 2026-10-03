@@ -196,11 +196,13 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 
 比較軸:
 - opener / hinge / cover
-- hour / minute / alarm hand
-- tactile markers
+- **hour / minute / alarm handの触覚coding** — 長さ、幅、先端形状、段差、突起、切り欠き、ridge / texture、上下高さ、radial path
+- tactile markers / orientation landmarks
 - alarm-time read-back
 - case / caliber
 - maker certainty / source tier
+
+**新しい中心質問:** 「時針＝この触感、分針＝この触感、alarm hand＝この触感」という業界共通codeがあったのか、それとも各社が同じ目的を別の触覚語彙で解いたのか。現時点では**共通原理は確認できるが、共通codeは未確認**として比較する。
 
 ### P2 — AS1475 platformと変貌種
 **状態:** ACTIVE / CLOSING CHAPTER
