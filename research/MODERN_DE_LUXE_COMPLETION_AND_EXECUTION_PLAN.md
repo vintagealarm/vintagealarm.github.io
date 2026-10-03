@@ -106,3 +106,48 @@ The investigation should now answer, in this order:
 3. Only after 1–2: who actually manufactured the clock movement / finished clock?
 
 Movement-maker identification is downstream, not the primary completion criterion.
+
+## 7. 2026-10-03 strategy override — CURRENT
+
+This section supersedes the older execution order above where they conflict.
+
+### G0 added
+
+**G0 SAME BRAND / SAME OPERATOR — OPEN**
+
+Before non-clock `Modern De Luxe`, generic `MODERN`, H.M.C., Modernlite, Hirota, or Modern Royal evidence is used to support clock-side attribution, establish that the relevant product categories share one operator/brand chain. Name identity alone is not enough.
+
+G0 is not required when G1 is solved directly from clock/watch evidence.
+
+### Current execution order
+
+1. Compare the two user-held Modern De Luxe specimens from safe observable evidence when photos/observations are available.
+2. Search direct Modern De Luxe clock/watch responsibility evidence: original box, guarantee, instructions, advertisement, catalogue, wholesale/export label, retailer/distributor label, service or warranty entity.
+3. Search exact-brand G0 evidence: `Modern De Luxe` itself crossing categories with a common company/operator fingerprint.
+4. Continue the Fukuoka and Mitsubishi commemorative-clock customer/vendor reverse path.
+5. Read trademark-book body with exact `Modern De Luxe` / `Modern du Luxe` first.
+6. Pursue movement/finished-clock maker only after the commercial/brand chain is materially narrowed.
+
+### Parked unless an exact bridge appears
+
+- generic H.M.C. entity hunting
+- generic Hirota or Modern Royal history expansion
+- Modernlite article-number accumulation
+- broad Hirota / Ichikawa patent accumulation
+- generic `Modern ...` lighter collection
+- `広苑 第3号` as a standalone Hirota-history mission
+
+Existing evidence is retained; only its search priority changes.
+
+### Gate effect
+
+- G1 remains primary and OPEN.
+- G2 remains OPEN but is narrowed first to exact Modern De Luxe.
+- G3 remains OPEN/HOLD and becomes conditional rather than an active blocker.
+- G4 bounded PASS is retained and deprioritized.
+- G5 remains OPEN and high-value because a named commemorative-clock vendor could move G1 directly.
+
+### Completion effect
+
+COMPLETE-B does not require resolving H.M.C. when no exact Modern De Luxe evidence points to H.M.C. The stopping test is now centered on direct clock-side evidence, exact-brand evidence, and promotional/customer-side evidence.
+
