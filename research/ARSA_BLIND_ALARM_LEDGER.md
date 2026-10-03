@@ -2875,3 +2875,169 @@ These are **supplements**, not blockers.
 Next Deep Dive:
 **④ tactile-alarm comparison — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afB, with hand coding and opener architecture as the primary comparison axes.**
 
+### 2026-10-03 — DEEP DIVE ③b: ARSA tactile design philosophy / design-document hunt
+
+**ORIGIN:** user correction / scope refinement. Before moving from Deep Dive ③ to the cross-brand comparison, search specifically for the design philosophy, engineering rationale, design sheets, patents, manuals or association-side evaluation behind ARSA tactile watches.
+
+#### PERIOD COMPANY DESIGN CULTURE — 1946, before the blind-watch line
+
+A 1946 Swiss period profile of Manufacture d'Horlogerie A. Reymond S.A. says the company pursued a constant effort in **new products and technical improvements**, and closes with the company principles:
+
+- **“Art et technique”**
+- **“Beauté et précision”**
+
+Source:
+- https://www.e-periodica.ch/cntmng?pid=swz-003%3A1946%3A0%3A%3A370
+
+**Boundary:** this predates the documented early-1950s blind-watch line and does not describe a tactile-watch design brief. It is useful only as contemporaneous evidence of the firm's stated design / engineering culture immediately before that line emerged.
+
+#### DIRECT DESIGN-PHILOSOPHY EVIDENCE — 2004 Hochparterre / Thomas Loosli
+
+A 2004 Swiss article on watches for visually impaired users includes a direct statement from ARSA / Auguste Reymond director **Thomas Loosli**:
+
+- ARSA had received many improvement proposals from designers
+- repeated experience showed that the **simple form** of these watches guaranteed **optimal utility / Gebrauchswert**
+
+The same article includes an assessment from the Swiss blind-association side that mechanical tactile watches use a hand mechanism which, by design, does not shift easily.
+
+Source:
+- https://www.e-periodica.ch/cntmng?pid=hoc-001%3A2004%3A17%3A%3A1246
+
+**Research consequence:** this is the clearest recovered ARSA statement so far about tactile-watch design philosophy: **simplicity is not lack of design; simplicity is treated as the route to maximum usable value.**
+
+**Boundary:** 2004 evidence describes the later ARSA tactile-watch program, not the original 1950s Blind Alarm design meeting.
+
+#### DIRECT DESIGN-PHILOSOPHY EVIDENCE — 2010 Worldtempus / Thomas Loosli
+
+Thomas Loosli explains that in blind watches:
+- the hands must be robust enough to withstand frequent finger contact
+- for a long time **practicality took precedence over aesthetics**
+- ARSA therefore also developed blind watches with attractive design that are **pleasant to the touch**
+
+Source:
+- https://fr.worldtempus.com/article/auguste-raymond-une-marque-resolument-a-contre-courant-8904.html
+
+**Research consequence:** ARSA's later design philosophy explicitly treats **touch quality and visual/aesthetic quality as simultaneous design requirements**, after an earlier period in which utility dominated.
+
+#### ASSOCIATION / PRODUCT DOCUMENTATION — tactile coding is model-specific and explicit
+
+Association Valentin Haüy current product documentation for ARSA gives concrete tactile codes.
+
+Example Standard model:
+- 12 = one raised line
+- 3 / 6 / 9 = double raised point
+- other hours = single raised point
+- flip-open mineral crystal at 6
+- case described as designed to be as pleasant to touch as to look
+
+Example Sport model:
+- 12 = two long raised lines
+- 3 / 6 / 9 = one long raised line
+- remaining hours = shorter raised lines
+
+Example Prestige:
+- rough synthetic stones replace conventional tactile points
+- the **roughness improves readability**
+- 12 = three stones
+- 3 / 6 / 9 = double stone
+- others = single stone
+
+Sources:
+- https://magasin.avh.asso.fr/p/197-montre-homme-boitier-chrome.html
+- https://magasin.avh.asso.fr/p/948-montre-braille-sport-homme-fond-blanc-boitier-acier-bracelet-cuir-noir.html
+- https://magasin.avh.asso.fr/p/192-montre-prestige-homme-extra-plate-plaque-or.html
+
+**Research consequence:** even within later ARSA production there is **no single immutable tactile marker code**. The recurring design rule is stronger than the exact symbol set: provide orientation hierarchy and discriminable tactile landmarks, then vary the physical vocabulary by model.
+
+This supports the user's earlier hand-coding question: the design logic may be a **grammar of discriminability**, not a fixed universal code.
+
+#### TECHNICAL CONTINUITY — 2014 Europa Star
+
+Europa Star describes ARSA Hi-Touch as using an especially robust system for fixing the hands so the wearer can touch them to determine position **without affecting the watch's operation**. It also frames tactile reading as more discreet than a speaking watch.
+
+Source:
+- https://www.europastar.com/magazine/features/1004087097-independents-auguste-reymond-the-discreet-brand.html
+
+**Research consequence:** later ARSA engineering explicitly attacks one of the central mechanical problems of direct-touch watches: the act of reading must not disturb the displayed time.
+
+#### ASSOCIATION RELATIONSHIP — useful, but not a 1950s co-design proof
+
+A 2004 profile says Thomas Loosli resumed / further developed the ARSA Braille tactile watch in **1994** and maintained regular contact with associations for blind users. A 2014 Europa Star profile likewise notes worldwide cooperation with charitable associations for distribution.
+
+Sources:
+- https://larticle.ch/1004/thomas-loosli-multidisciplinaire-redonne-de-la-vie-a-auguste-reymond-sa/
+- https://www.europastar.com/magazine/features/1004087097-independents-auguste-reymond-the-discreet-brand.html
+
+**Boundary:** these sources show a later institutional feedback / distribution ecosystem. They do **not** prove that the 1950s Blind Alarm was co-designed with AFB, SZB or another blind association.
+
+#### ARCHIVE TARGET — “Zeit spühren = Toucher l'heure” (2008-04-24)
+
+Mémoires d'Ici's Auguste Reymond archive plan contains a specifically titled item:
+
+**“Zeit spühren = Toucher l'heure” — 2008-04-24**
+
+Source:
+- https://collections.m-ici.ch/archivplansuche.aspx?ID=138116
+
+The indexed page exposes the title / date but not the text.
+
+**Classification:** HIGH-VALUE DESIGN-PHILOSOPHY ARCHIVE TARGET / CONTENT NOT YET OBTAINED.
+
+This is now more relevant to Deep Dive ③ than the previously prioritized generic 1945 / AFB archive branches because its title directly concerns **feeling time** and it sits inside the A. Reymond company dossier.
+
+#### PATENT / ENGINEERING-DRAWING SEARCH — negative result must stay narrow
+
+Targeted indexed searches for:
+- Auguste Reymond / A. Reymond S.A.
+- ARSA
+- Blindenuhr / Blindenwecker
+- montres pour aveugles / montre braille
+- tactile watch patents / design patents
+
+did **not** recover a period ARSA patent or engineering drawing specifically for the 1950s tactile watch / Blind Alarm.
+
+This is:
+- **NO INDEXED DOCUMENT FOUND**
+not:
+- “ARSA never patented it”
+- “no design drawing ever existed”
+
+The basic flip-open tactile-watch architecture was already an established watch type before ARSA, which may also explain why the useful evidence may reside in factory drawings, catalogs, association files or case-supplier documentation rather than a broad ARSA patent.
+
+#### CURRENT DESIGN-PHILOSOPHY MODEL
+
+The evidence now supports a layered model:
+
+**1950s source / object level**
+- opening cover
+- direct finger access
+- robust hands
+- omitted seconds
+- orientation points
+- tactile alarm-time read-back
+- differentiated controls
+
+**later ARSA explicit philosophy**
+- simplicity gives the best usable value
+- frequent touch requires mechanical robustness / stable hand fixation
+- tactile distinctions can vary by model
+- touch quality and appearance can be designed together
+- discreet independent reading is a product value
+
+**What is still missing**
+- a 1950s ARSA factory memo, drawing, product specification, patent or manual that explicitly says why each feature was chosen
+- evidence naming a designer / engineer
+- evidence that a blind-users' organization participated in the original 1950s design
+
+#### STOP / CONTINUE RULE
+
+Do not move to Deep Dive ④ yet.
+
+Continue only on the high-information design-document route:
+1. obtain / inspect **“Zeit spühren = Toucher l'heure”**
+2. find any 1950s–60s ARSA tactile-watch manual, catalog, technical sheet or case drawing
+3. look for blind-association evaluation / specification records naming ARSA
+4. if these yield no new period design evidence after a focused pass, record **factory design document not recovered** and then proceed to cross-brand comparison
+
+Do not reopen generic AFB wartime or Smithsonian branches unless they directly contain an ARSA design specification.
+

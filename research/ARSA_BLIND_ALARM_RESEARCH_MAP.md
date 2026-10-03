@@ -200,8 +200,38 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - **arrival test:** alarm ON/OFF crown state（early AS1475はcrown down、ca.1960以降のlater typeはpulled up）を確認。movement revisionの年代手掛かりにはなるがwatch assembly date確定には使わない
    - 到着後の触覚操作実測を重視
 
+### P0.5 — 設計思想 / 設計資料
+**状態:** ACTIVE / BEFORE COMPARISON
+
+Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」を示す設計思想・仕様・設計資料を追加で掘る。
+
+現時点の到達:
+- **1950s ARSA factory design drawing / engineering specification / Blind Alarm patent:** indexed Webでは未発見。不存在の証明ではない
+- **1946 period company profile:** A. Reymondは新規性・技術改良を重視し、企業原則を「Art et technique」「Beauté et précision」と掲げる。blind-watch固有資料ではないが、blind line直前の企業設計文化として使える
+- **2004 Hochparterre / Thomas Loosli:** designersから多数の改善提案を受けても、ARSA tactile watchでは「simple form」が最適なuse valueを保証すると繰り返し確認された、と直接発言
+- 同記事でSZB側は、mechanical tactile watchのhand mechanismは構造上すぐずれにくいことを評価。ARSA設計の実用品価値を当事者流通側が説明
+- **2010 Worldtempus / Thomas Loosli:** 長く実用性が美観より優先されたが、ARSAは「美しく、触って心地よい」blind watchも作ったと説明
+- **modern ARSA / AVH:** modelごとに12 / 3 / 6 / 9とその他hour markersを異なるline / double-dot / single-dot / rough synthetic stone等で符号化。roughnessがreadabilityを高めると明記する製品もある
+- **2014 Europa Star:** ARSA Hi-Touchはhandsを触ってもsettingを乱しにくいrobust fixing systemを持つと説明
+- **2004 L'article:** 1994にARSA tactile lineを再開発し、Thomas Loosliがblind associationsとのregular contactを必要としたと述べる。ただし1950s original designのco-design証拠には使わない
+- Mémoires d'IciのA. Reymond dossierに **“Zeit spühren = Toucher l'heure” (2008-04-24)** が存在。内容未取得だが、現時点で最も直接的なdesign-philosophy archive target
+
+現在の仮説:
+- ARSAに固定された「Braille code」が一つ存在したというより、**simple / robust / hard-to-displace / orientable / discreet / pleasant-to-touch**を満たすためにmodel別のtactile vocabularyを選んだ可能性が高い
+- これは2000年代以降のARSA資料ではかなり明示されるが、1950s Blind Alarmへ同じ思想をそのまま遡及適用しない
+- 1950sについては現物構造 + specialist descriptionから設計要件を復元できるが、factory自身のdesign statementはまだOPEN
+
+次に探すもの:
+1. “Zeit spühren = Toucher l'heure” 本文
+2. 1950s–60s ARSA blind-watch instruction / catalog / technical sheet
+3. Swiss patent / design-registration / trade-journal technical note
+4. blind associations側に残るARSA仕様書・評価記録
+5. 上記で新証拠が増えなければ「factory design document not recovered」と明示して④へ進む
+
+---
+
 ### P1 — 触読alarm比較
-**状態:** ACTIVE / PRIMARY COMPARISON
+**状態:** WAITING / AFTER DESIGN-DOC PASS
 
 比較対象:
 - ARSA AS1475
@@ -318,10 +348,11 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 1. **①作った会社 — PASS 1 COMPLETE** — 会社史・製造能力・blind / alarm両系統の同時存在まで整理済み。残る一次資料穴だけHOLD
 2. **②需要背景 — PASS 1 COMPLETE** — 前史 / WWI / AFB 1926 / WWII / 日本例まで必要十分に圧縮。戦争は発明起源ではなく制度化・普及の背景として固定
 3. **③時計本人 — PASS 1 COMPLETE / ARRIVAL SUPPLEMENT PENDING** — mechanism / controls / tactile UI / failure map / model variation / purchased specimenまで整理。到着後にhands / read-back / opener / early-late alarm-stateを実測追記
-4. **④触読alarm比較 — NEXT** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBを、特にhand coding / opener / read-back差で比較する
-5. **⑤AS1475と変貌種** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る
-6. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
-7. AFB契約書、Smithsonian、WPB等は、上記1〜5の未解決を直接埋める場合だけ再開する
+4. **③b 設計思想 / 設計資料 — ACTIVE / NEXT** — 1950s設計書・仕様書・patent、Mémoires d'Ici “Zeit spühren = Toucher l'heure”、association-side評価を優先。現行ARSA資料は設計思想の継続性だけに使い、1950sへ遡及しない
+5. **④触読alarm比較 — WAITING** — ③bの停止条件到達後、ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBをhand coding / opener / read-back差で比較する
+6. **⑤AS1475と変貌種** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る
+7. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
+8. AFB契約書、Smithsonian、WPB等は、上記1〜6の未解決を直接埋める場合だけ再開する
 
 ---
 

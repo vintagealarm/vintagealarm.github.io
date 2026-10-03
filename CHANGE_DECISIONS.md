@@ -17,6 +17,19 @@
 
 ## 2026-10-03
 
+### 2026-10-03 13:29 JST — ARSA比較へ進む前に設計思想・設計資料のfocused passを挟む
+
+- **変更**：Deep Dive ③「時計本人」完了後に直ちに④他社比較へ進む順序を変更し、**③b 設計思想 / 設計資料**をACTIVEとして挿入した。④比較はWAITINGへ移す。
+- **理由**：ユーザーが「その設計思想や設計書がないかもうちょい掘ってから次」と明示。ARSAの特徴を列挙するだけでなく、なぜsimple / robust / tactilely distinguishableな形を選んだのかをfactory / designer / association資料で確認してから比較する方がサイトDeep Diveとして情報価値が高い。
+- **新証拠**：2004年HochparterreでThomas Loosliが、designersから多数の改善提案を受けてもARSA tactile watchはsimple formがoptimal Gebrauchswertを保証したと直接説明。2010 Worldtempusではpracticalityが長くaestheticsより優先された一方、「美しく触って心地よい」blind watchも作ったと説明。AVH現行ARSA資料ではmodel別に異なるraised line / dot / rough-stone codingを明記し、roughnessがreadabilityを高める例も確認。2014 Europa StarではHi-Touchのrobust hand-fixingがdirect touchでsettingを乱しにくいと説明。
+- **archive target変更**：Mémoires d'IciのA. Reymond dossierにある `Zeit spühren = Toucher l'heure`（2008-04-24）をdesign-philosophyの最優先archive targetへ追加。内容は未取得。
+- **未発見**：indexed Web / patent検索では1950s ARSA Blind Alarm固有のfactory design drawing / engineering specification / patentは未発見。不存在とは扱わない。
+- **境界**：2000年代以降のARSA design philosophyを1950sへそのまま遡及しない。1950sは専門書と現物から機能要件を復元できるが、factory自身の設計意図文書はOPEN。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴。公開WATCH本文は変更しない。
+- **起点・帰属**：比較前に設計思想 / 設計書を追う順序変更はユーザー。AIはARSA / Swiss period press / association / archive / patentのfocused searchで裏取りした。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T13:29+09:00` = `2026-10-03 13:29 JST`。
+
+
 ### 2026-10-03 13:17 JST — ARSA Deep Dive ③時計本人のPass 1を完了し次を触読alarm比較へ進める
 
 - **変更**：サイト掲載用Deep Diveの③「ARSA Blind Alarmそのもの」をPass 1 COMPLETE / ARRIVAL SUPPLEMENT PENDINGとした。ARSA固有のAS1475構成、2/4 crown操作、4時crown内蔵front-cover pusher、raised tactile markers、robust hour/minute hands、alarm pointer、seconds hand省略、購入個体画像、failure evidence、model variationを一章として固定。次のACTIVEを④触読alarm比較へ進めた。
