@@ -860,6 +860,6 @@
 - **理由**: 2026-10-03 22:47の修正は「AI単独で正本化しない」という再発防止自体は正しかったが、AIによる候補分類まで止める方向へ寄りすぎた。ユーザーが求めるのは、AIが先に整理した候補を見ながら共同で境界を決める運用。
 - **旧状態・棄却**: 「AIは候補境界を作らず、ユーザーと一緒にゼロから分解する」運用を棄却。反対に「AI_PROPOSEDをユーザーへ見せず正本assetへ昇格する」運用も引き続き禁止。
 - **影響範囲**: PROJECT.md、AGENTS.md、PROJECT_STATE.md、Social ROUTER.md、content-inventory.md、instagram-operations.md、scripts/check-social-content-inventory.mjs。既存56 asset、OWNER'S NOTE whole-only、既存Published Copy / Insights数値は変更しない。
-- **検証状態**: branch `social-candidate-review-stage` で実装。PR quality gateを通し、main反映後に再取得確認する。
+- **検証状態**: PR #156 の `Astro foundation check` run `37159180757` がSUCCESS。`check:social-inventory` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。main反映後に再取得確認する。
 - **関連**: 2026-10-04 07:33 JST ユーザー訂正「候補までは分類したまま出して俺と相談して決めるべきでは？提示せずにやったのが間違い」。関連commit: `b1b6f4c6` / `6f661980` / `decb1865` / `80735994` / `c7e8f7ed` / `743b0890` / `c67c2341` / `a22142c8` / `ca15c351`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 07:33 JST（UTC+09:00）。
