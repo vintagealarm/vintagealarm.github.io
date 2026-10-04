@@ -316,7 +316,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 **サイト用の主眼:** 「同じAS1475を積んだ似た時計」ではなく、**同じ accessibility requirement に対して、各社が針・目盛・蓋・操作子へ別々の触覚UIを与えた**比較にする。
 
 ### P2 — AS1475 platformと変貌種
-**状態:** ACTIVE / CLOSING CHAPTER
+**状態:** PASS 1 COMPLETE / CLOSING FRAME FIXED
 
 最低限:
 - 通常のAS1475 alarm wristwatchとしての普及
@@ -330,7 +330,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 ### P3 — BONUS / CONTEXT archive
 **状態:** NON-BLOCKING
 
-- **JSH No.2, mars-avril 1958 — A. Reymond 60周年記事本文**。存在確認済み、本文未取得。Blind Alarmを名指し／図示する場合のみ03へ昇格
+- **JSH No.2, mars-avril 1958 — A. Reymond 60周年記事本文**。1958年通年スキャンはThe Watch LibraryでPublic Domain / 822 pagesまで確認済み。記事本文は未取得。Blind Alarmを名指し／図示する場合のみ03へ昇格
 - AFB↔ARSA supplier / purchase order / invoice / correspondence
 - Mémoires d'Ici 1948 / 1973全文
 - Smithsonian MG.306619.07
