@@ -2017,3 +2017,11 @@ Delta from 2026-10-03 10:18:
 - The external ~403K-account event is recorded as a distinct amplification event, not as proof that it caused the entire +1,797-view increase. Exact causal contribution remains unmeasured without source-level attribution / external-post timing evidence.
 - Current evidence strengthens Basis as the strongest observed Instagram Reel in the stored set on absolute distribution and low skip rate, while the creative/mechanical cause remains unresolved.
 
+## 2026-10-04 12:26 JST — 候補棚を時計横断rolling shelfとして運用
+
+### Decision
+- **User intent**: 1個体を完全に棚卸しして閉じることが目的ではない。VA正本から各時計の候補を継続的に分類し、実機で見せられる内容・既出／再利用・資料依存を整理した棚を増やし、そこからユーザーが次の「時計＋内容」を決められる状態を作る。
+- **Workflow**: AI_PROPOSEDを複数WATCHへ並行追加 → ユーザーへ分類済み候補を提示 → KEEP / MERGE / SPLIT / DROP → KEEP済みassetは商品棚へ残す → 次回投稿として選んだものだけUSER_CONFIRMED / PLANNED。
+- **Important distinction**: USER_KEEPはasset採用であって、次の投稿採用ではない。したがってWittnauerのKEEPを確定しても、次にCYMA / Pierce等を棚卸しして比較してよい。
+- **Wittnauer user-confirmed KEEP**: WIT-03＝純正三角錐リューズが半分隠れる、WIT-04＝二階建てケース＋すり鉢状で手首への収まりが良い、WIT-06＝裏スケなのにアラーム機構は文字盤側で見えない。WIT-06の動画案として「裏スケ側を見せたまま鳴らす」がユーザー提案。
+- **Status**: ACTIVE。新規PLANNEDはまだ0。
