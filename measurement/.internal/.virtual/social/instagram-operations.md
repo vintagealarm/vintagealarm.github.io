@@ -2035,3 +2035,11 @@ Delta from 2026-10-03 10:18:
 - **Still pending**: PR-WIT-004（数字インデックス）とPR-WIT-005（波打つアラーム針）はAI_PROPOSEDのまま。次のユーザー判断対象。
 - **Clarification**: DROP対象はproposal PR-WIT-007/008であり、既存研究asset WIT-07（1952特許）/ WIT-08（1955 AS1475）は研究棚に残す。
 - **Status**: ACTIVE。Wittnauer棚の完成判定はPR-WIT-004/005の判断後。
+
+## 2026-10-04 18:55 JST — CYMA双方向alarm settingをKEEP
+
+### Decision
+- PR-CYM-010をUSER_KEEP。双方向でalarm時刻を設定できる操作自体を独立asset CYM-09として棚へ残す。
+- WATCH guideで双方向設定は確認済み。精度重視時は反時計回り推奨の注記も維持。
+- 『双方向設定は唯一』とは扱わない。資料上ほかにも例はあるが、一方向指定のcaliberも多く、少数派寄りの操作特徴として扱う。
+- 次回投稿予約ではないためPLANNEDにはしない。
