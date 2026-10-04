@@ -17,7 +17,7 @@
 - **検証状態**：Project資料 The Alarm Wrist Watch / Alarm am Arm のAS1475 family、Benedict Park-O-Phon、通常採用例、Citizen / Poljot記述を確認。WebはRanfft、Museum of Arts and Crafts Zagreb、Grail Watchのparking-watch記述で補助突合。factory production ledger / transfer一次資料はOPEN。
 - **起点・帰属**：VA標準研究frameの⑤「caliber / platformと変貌種」に従い、ユーザーが④完了後に⑤へ進むよう指定。AIがplatform→branchesとして証拠関係を整理。
 - **関連**：Deep Dive ①–④、購入個体ARRIVAL SUPPLEMENT、AS1475 early/late alarm-state test。
-- **日時根拠**：直前main commit b6824ddcのGitHub時刻 2026-10-03T05:30:51Z = 2026-10-03 14:30 JST を本作業開始基準として記録。
+- **日時根拠**：直前main commit b6824ddcのGitHub時刻 2026-10-03T05:30:51Z → 2026-10-03 14:30 JST を本作業開始基準として記録。
 
 # VINTAGE ALARM — DECISION / CHANGE LOG
 
