@@ -2053,3 +2053,28 @@ Delta from 2026-10-03 10:18:
 - **Cadence**: 当面は `画像 → 動画 → 画像 → 動画` を基本ローテーションにする。次の画像・動画の時計／assetはrolling shelfから都度選ぶ。
 - **Evidence / purpose**: formatを交互に置き、静止画とmicro-Reel双方を継続観測しつつ、同一formatの連投偏りを避けるため。単一のWittnauer静止画結果から『画像は不利』と一般化しない。
 - **Status**: ACTIVE。Duofon動画のmedia implementation / CMS uploadはPR #166側で進行中。
+
+
+## 2026-10-05 08:23 JST — MR-PIE-001本文訂正 / 過去知見の持ち越しを明文化
+
+### Correction / learning
+- **Origin: USER.** 直前のAI草案は、実動画を確認した後も一般的な短文フックへ寄せ、これまでの実投稿・訂正で得た「映像の注目位置を先に示す」「映像と音を同時に見せる」「Source-backedな機構説明を省きすぎない」という知見を十分に反映しなかったため棄却。
+- **Media reality to carry forward:** 現在のMR-PIE-001用動画は文字盤を出さず、ムーブメントの左上側にあるアラーム機構を見せながら実際に鳴動させ、WECKER / SIGNAL切替に伴う内部機構と音の変化を見せる。存在しない文字盤・6時表示窓・別カットを本文やstoryboardへ勝手に足さない。
+- **Drafting behavior:** 最新のユーザー原稿をworking baseとして、説明順・情報量・CTAを維持したうえで自然な英語へ展開する。Instagram全文を求められた場合は **英語全文 → hashtags → 自然な日本語訳** の順で一括提示する。hashtagsは実投稿正本のprecedentを確認し、AI都合で勝手に増量しない。
+
+### USER_WORKING_DRAFT — Japanese / not yet published
+```text
+左上のアラーム部分に注目👀
+機構の動きを見ながら、音の変化も聴いてみてください。🔔
+2種類の音を奏でられるアラーム腕時計　Pierce Duofonが、内部でWECKER（大音量）とSIGNAL（静音）を切り替えているところです。
+アラームを鳴らしたまま4時位置の操作部を回すと、内部の連動機構が動き、打撃ピンの位置が切り替わります。
+WECKERでは、打撃ピンが打撃位置に入り、ハンマーがゴングを打ちます。
+SIGNALでは、打撃ピンが打撃位置から外れ、ハンマーはゴングを打たずに自由振動します。
+リューズを約1/4回転させるだけで、アラームの鳴り方そのものが変わる。すべて機械仕掛けです。
+これは1950年代に開発されたPierce Cal.135。
+ほかの機械式アラーム腕時計の音も、プロフィールのリンクから聴き比べできます。🔔
+```
+
+### Status
+- **WORKING_DRAFT_USER / NOT PUBLISHED / NOT YET PROMOTED TO instagram-published-copy.md**
+- 次稿ではこの原稿と実動画を起点にし、旧AI草案へ巻き戻さない。
