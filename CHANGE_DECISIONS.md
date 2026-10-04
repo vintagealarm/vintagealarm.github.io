@@ -870,5 +870,5 @@
 - **旧状態・棄却**: 「Wittnauerを全部確定してから次の時計へ進む」ような直列運用、およびKEEP＝次回投稿採用とみなす解釈を棄却する。
 - **影響範囲**: PROJECT.md、AGENTS.md、PROJECT_STATE.md、Social ROUTER.md、content-inventory.md、instagram-operations.md。公開WATCH本文、OWNER'S NOTE原文、既存Published Copy / Insightsは変更しない。
 - **検証状態**: branch `social-rolling-candidate-shelf` で実装。PR quality gateを通し、main反映後に再取得確認する。
-- **関連**: 2026-10-04ユーザー指示「こういうのでどんどん棚卸して時計と内容と決めれるようにしようぜって言ってるの。」およびWittnauer 3件のKEEP判断。
+- **関連**: 2026-10-04ユーザー指示「こういうのでどんどん棚卸して時計と内容と決めれるようにしようぜって言ってるの。」およびWittnauer 3件のKEEP判断。関連commit: `28a83082` / `d602ff67` / `b44ee567` / `2c6e14f9` / `8106d500` / `ba2fccc5` / `1fbd75e5`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 12:26 JST（UTC+09:00）。
