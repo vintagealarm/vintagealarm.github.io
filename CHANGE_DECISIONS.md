@@ -1040,3 +1040,13 @@
 - **検証状態**: PR #156 の `Astro foundation check` run `37159180757` がSUCCESS。`check:social-inventory` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。main反映後に再取得確認する。
 - **関連**: 2026-10-04 07:33 JST ユーザー訂正「候補までは分類したまま出して俺と相談して決めるべきでは？提示せずにやったのが間違い」。関連commit: `b1b6f4c6` / `6f661980` / `decb1865` / `80735994` / `c7e8f7ed` / `743b0890` / `c67c2341` / `a22142c8` / `ca15c351`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 07:33 JST（UTC+09:00）。
+
+### 2026-10-04 23:22 JST — Pierce Duofonの切替機構を静止画＋実機動画で見せる構成へ拡張
+- **変更**：Pierce DuofonのDEEP DIVE 02「Pierce Cal.135」で、既存の機構静止画①〜⑤の直後・1955年Pierce資料による用途説明の直前に、セルフホスト動画枠「動画で見る」を追加する。動画は `/videos/pierce-duofon/pierce-duofon-wecker-signal-switch.mp4` を参照し、`controls` / `playsinline` / `preload="metadata"`、自動再生なしとする。日本語と同じ位置・意味でEN / DEも同期する。
+- **理由**：2026-10-04に掲載個体の裏蓋を開け、WECKER / SIGNAL切替に伴う打撃ピン周辺の実働を動画で撮影できた。既存静止画は構造の位置関係を説明でき、今回の動画は同じ掲載個体で動作を連続して見せられるため、置換ではなく「静止画で分解 → 動画で実働確認」として併用する。
+- **旧状態・棄却**：既存の静止画①〜⑤を動画で置き換える案は棄却する。既存本文、1955年Pierce技術資料の説明、WATCH上段の既存実機鳴動（YouTube + X）は変更しない。X埋め込みは使わず、今回の機構動画はVA内でセルフホストする。
+- **影響範囲**：`src/components/DeepDive.astro`、`src/content.config.ts`、Pierce Duofon JA / EN / DEのDEEP DIVE 02のみ。共通WATCH順序、OWNER'S NOTE、SPEC、既存機構静止画、他WATCHの表示は変更しない。
+- **検証状態**：コード側はbranch `feature/pierce-duofon-switch-video` へ実装。動画実体はユーザーが別途 `public/videos/pierce-duofon/pierce-duofon-wecker-signal-switch.mp4` へアップロードするため、現時点ではasset待ち。asset追加後にbuild / localization / 390px・320px・desktop表示 / 再生 / liveを確認するまでVERIFIED / DEPLOYEDとはしない。
+- **関連**：2026-10-04 ユーザー提供Pierce Duofon実機動画、X投稿 `https://x.com/Rimacroissant/status/2106743548867698937?s=20`。
+- **日時根拠**：当セッションのユーザーローカル時刻 `2026-10-04 23:22 JST`（UTC+09:00）。
+
