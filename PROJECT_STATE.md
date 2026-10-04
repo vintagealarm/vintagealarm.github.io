@@ -89,6 +89,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - Pierce Duofonの二音源表示は **WECKER / 音あり** と **SIGNAL / 音無し**。ファイル名由来の WAKER / SILENT を表示ラベルへ戻さない。
 - HOW THEY RINGのページ名／TOP入口表示名は **HOW THEY RING**。旧「音で選ぶ」は失効。TOPではOWNER'S NOTES直下に置く。**共通ハンバーガーメニュー内の日本語ラベルだけは「音で見る」**とする。
 - 履歴保持: **PR / branch / commit / decision / rejected・superseded候補は、整理だけを理由に削除しない。** 現行作業キューと履歴保存を分離し、不要になった作業は close / draft / superseded / HOLD 等で退避する。過去の取捨選択・訂正・撤回理由はGitHub履歴と `CHANGE_DECISIONS.md` から再参照できる状態を維持する。
+- active queueと履歴の境界: **open PR = 現在の作業候補、closed / superseded PRとPRなしbranch = 原則HISTORY**。例外は会話または正本で明示的に作業中指定されたbranchのみ。これによりbranch数が増えても、履歴保存と現在作業の発見性を両立する。
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V3。`焼いて` 単独は即実行せず7形式を毎回明示するランチャー
 - Councilの7形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知） / 宮廷道化師🤡
@@ -132,7 +133,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 
 現在動いている施策・観測の具体値は、このファイルへ重複保存しません。最新状態は以下を確認します。
 
-- 作業中の未merge変更: 対象branch / PR + `main`との差分
+- 作業中の未merge変更: **open PRをactive queueの第一入口**とし、そのPRのbranch + `main`との差分を確認する。PRなしbranchは、会話・正本で明示的に作業中と指定されている場合のみactive扱いする。branchの存在だけではactiveとみなさない
 - merge済みの本番実装: GitHub `main`
 - 実際の公開状態: deploy成功後のlive site
 - 検索 / SNS / Analytics施策: `measurement/experiment-log.md`
