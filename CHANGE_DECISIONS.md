@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 08:23 JST — Instagram本文生成で過去知見と最新ユーザー原稿を強制継承
+
+- **変更**：Social Routerへ `INSTAGRAM COPY LEARNING CONTRACT` を追加し、①目の前の実素材を先に確認、②最新ユーザー訂正／原稿をworking baseとして保持、③過去実投稿で得た視覚誘導・音誘導・機構説明の知見を次稿へ持ち越す、④Instagram全文は英語全文→hashtags→自然な日本語訳の順で一括提示、⑤hashtagsは実投稿precedentを根拠なく増減しない、を再発防止規則として固定した。MR-PIE-001についてはユーザー提示の日本語原稿全文を `instagram-operations.md` に `USER_WORKING_DRAFT` として保存し、実動画が文字盤なしの内部アラーム機構映像である境界もassignmentへ追記した。
+- **理由**：直前のAI回答が、実動画と既存 `instagram-published-copy.md` を確認した後にもかかわらず、一般的なSNS短文へ戻り、これまでの訂正・実投稿から得た知見とユーザーが提示した具体的な説明順を次稿へ継承できなかった。ユーザーから「今までの反省や得た知見を活かせ」と明示訂正されたため。
+- **旧状態・棄却**：毎回ゼロから最適化し直す草案生成、実素材にない文字盤／表示窓／別カットを補う構成、ユーザー原稿受領後にAI旧草案へ巻き戻す運用、全文要求に対してhookや途中稿だけ返す運用を棄却する。
+- **影響範囲**：Social Router、instagram-operations、content-inventoryのMR-PIE-001 evidence。本番公開本文・`instagram-published-copy.md`・Insights実測値・WATCH本文は変更しない。
+- **検証状態**：active PR #169 branch `social-cyma-complete-pierce-alternation` へ反映。USER_WORKING_DRAFTは公開済み扱いにせず、公開確認後にだけPublished Copyへ昇格する。
+- **関連**：MR-PIE-001、Pierce Duofon初回Published Copy、2026-10-05ユーザー訂正「今までの反省や得た知見を活かせ」。
+- **日時根拠**：runtime JST clock `2026-10-05T08:23:30+09:00` = `2026-10-05 08:23 JST`。
+
+
 ### 2026-10-05 06:55 JST — ARSA残タスクの状態同期とJSH 1958メタデータを確定
 
 - **変更**：ARSA Research Map内で⑤AS1475章の状態が一箇所だけ `ACTIVE / CLOSING CHAPTER` のまま残っていたため、既に確定済みの `PASS 1 COMPLETE / CLOSING FRAME FIXED` へ同期した。同時にThe Watch Libraryの1958年JSH通年記録について、Public Domain・822 pagesをWeb確認済みへ昇格し、1958年A. Reymond 60周年記事本文自体は未取得のままOPENとした。1948 / 1973 Mémoires d'Ici資料も再探索したが、今回も本文ではなくarchive metadataまでに留まることをLEDGERへ追記した。さらに1967年SwisstimeのARSA hunter pocket watchで、winding crown上のbuttonを押してcoverを開く当時記述を確認し、Blind Alarmのcrown-integrated openerを「accessibilityに有効なARSAの構造」としつつ「accessibility専用に発明された機構」とは扱わないよう解釈を更新した。
