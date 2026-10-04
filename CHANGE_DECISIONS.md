@@ -17,6 +17,17 @@
 
 ## 2026-10-04
 
+### 2026-10-04 21:53 JST — active queueをopen PR基準へ固定
+
+- **変更**：現在作業中の探索入口を、branch一覧全体ではなくopen PRへ固定した。open PRに紐づくbranch、または会話・正本で明示的に作業中指定されたbranchだけをactive扱いし、closed / superseded PRやPRなしbranchは原則HISTORYとして扱う。履歴自体は削除しない。
+- **理由**：履歴保存を徹底するとbranch数・closed PR数は自然に増えるため、branchの存在だけを未完了作業とみなすとactive queueが再び埋没する。過去の取捨選択を保持しつつ現在作業を即発見するには、作業キューと履歴保存の入口を分離する必要がある。
+- **旧状態・棄却**：branch一覧を広く見て存在するbranchを未完了候補として扱う運用を棄却する。一方、古いbranch・closed PRを削除して一覧を短くする案も引き続き棄却する。
+- **影響範囲**：PROJECT.md、AGENTS.md、PROJECT_STATE.mdの作業開始・active queue判定。GitHub履歴、公開サイト、WATCH本文、Analytics、SNS実測、研究内容は変更しない。
+- **検証状態**：現時点のopen PRはModern De Luxe研究PR #135のみであることを確認。branch一覧には多数の履歴branchが残るが、それらをactive queueへ自動昇格しない規則を3正本へ同期した。CI通過後にmainへ反映する。
+- **関連**：commits `e42b5050` / `aae30593` / `213c6645`; 先行判断 2026-10-04 21:45 JST「履歴保存と現行作業キューを明示分離」。
+- **日時根拠**：system-provided local time 2026-10-04T21:53:05+09:00 = 2026-10-04 21:53 JST。
+
+
 ### 2026-10-04 21:45 JST — 履歴保存と現行作業キューを明示分離
 
 - **変更**：PR / branch / commit / decision / rejected・superseded候補を、整理・最適化だけを理由に削除しない方針をPROJECT / AGENTS / PROJECT_STATEへ明文化した。open / readyは現在の作業キュー、closed / draft / superseded / HOLDは履歴として参照可能な退避状態として扱う。古いbranchを直接mergeしない場合も、必要差分だけcurrent mainへ救出し、元PR / branchは取捨選択・訂正・撤回理由を追える履歴として残す。
