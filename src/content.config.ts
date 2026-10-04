@@ -66,6 +66,12 @@ const watches = defineCollection({
       linkLabel: z.string().optional(),
       linkUrl: z.string().url().optional(),
       mediaStyle: z.enum(['default', 'compact-sequence']).optional(),
+      video: z.object({
+        src: z.string(),
+        title: z.string(),
+        afterParagraph: z.number().int().min(1),
+        ariaLabel: z.string().optional()
+      }).optional(),
       images: z.array(z.object({
         src: z.string(),
         caption: z.string().optional(),
