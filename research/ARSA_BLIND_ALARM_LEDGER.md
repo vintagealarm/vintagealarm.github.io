@@ -3365,3 +3365,49 @@ The planned research sequence ①→⑤ is now complete at PASS 1 level. Remaini
 - Reopen the 03 image slot only when a **1950s period source explicitly naming or illustrating the ARSA Blind Alarm itself** is recovered. The 1958 JSH article is only a candidate until its actual pages are read.
 
 **Status:** 03 period-image search = **HOLD / non-blocking**. A genuine period product ad is an upgrade, not a publication blocker.
+
+
+### 2026-10-05 — focused archive pass: JSH 1958 annual scan verified; 1948/1973 full texts still not recovered
+
+**ORIGIN:** continuation of the user's request to close the remaining ARSA research gaps after the period-ad image gate was fixed.
+
+#### JSH 1958 — annual scan metadata now independently verified
+
+The Watch Library record for **Journal Suisse d'Horlogerie | 1958** now independently confirms:
+- source: Musée international d'horlogerie
+- date: **1958**
+- licence: **Public domain**
+- number of pages: **822**
+
+Source:
+- https://watchlibrary.org/details/MIH-JSH_1958_423
+
+This upgrades the earlier user-reported “1958 full-year / 822 pages” point from user-supplied search result to **WEB-CONFIRMED metadata**.
+
+**Boundary unchanged:** the A. Reymond 60th-anniversary article pages themselves have still not been extracted/read in this pass. Therefore no Blind Alarm content is inferred from the annual scan metadata.
+
+#### Mémoires d'Ici — 1948 / 1973 document bundle remains metadata-confirmed only
+
+A targeted search again confirms the archive entries for:
+- **D-11140 — Arsa : 1898-1948**, Marcel André, 1948, 35 illustrated pages
+- **D-16590 — Arsa : 1898-1948 : Jubilé A. Reymond SA**, 1948, 3 illustrated pages
+- **Historique de la Manufacture d'horlogerie A. Reymond SA** (1973)
+- **Bref historique ...**, D. Houriet, 1973-08-28
+- **Les 75 ans d'une fabrique d'horlogerie de Tramelan : communiqué de presse**, 1973-08-28
+- **Les activités de A. Reymond SA : résumé de l'exposé de M. J.-R. Marchand, directeur**, 1973-08-28
+- **Présentation de la manufacture ...**, James Choffat, 1973-08-28
+- **A. Reymond SA a fêté son 75e anniversaire**, 1973-09-06
+
+Sources:
+- https://collections.m-ici.ch/detail.aspx?ID=38762
+- https://collections.m-ici.ch/detail.aspx?ID=38763
+- https://collections.m-ici.ch/archivplansuche.aspx?ID=38766
+
+**Focused-pass result:** no mirrored or indexed full text for those 1948 / 1973 documents was recovered in this pass. Keep them as **ARCHIVE-CONTENT OPEN**, not as missing Web facts to be filled from later summaries.
+
+#### Consequence
+
+- 1958 JSH annual volume availability / page count = **resolved at metadata level**
+- 1958 A. Reymond article content = **OPEN**
+- 1948 / 1973 Mémoires d'Ici document content = **OPEN**
+- broad Web repetition is still not justified; next gain requires document-level access rather than another generic search pass
