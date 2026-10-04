@@ -13,7 +13,7 @@ const requiredSections = [
 ];
 const validIg = new Set(['USED','PARTIAL','CANDIDATE_NOT_IN_IG_TEXT','WHOLE_ONLY','HOLD']);
 const validMedia = new Set(['READY_EXISTING','NEEDS_SHOOT','NEEDS_SOURCE_ASSET','OWNER_NOTE_HERO_ONLY']);
-const validVerify = new Set(['READY_FROM_WATCH','RECHECK_SOURCE','OPEN_QUESTION','RIGHTS_CHECK']);
+const validVerify = new Set(['READY_FROM_WATCH','READY_FROM_SOURCE','RECHECK_SOURCE','OPEN_QUESTION','RIGHTS_CHECK']);
 
 const errors = [];
 if (!text.endsWith('\n')) errors.push(`${file}: file must end with newline`);
