@@ -1052,3 +1052,12 @@
 - **検証状態**: PR #156 の `Astro foundation check` run `37159180757` がSUCCESS。`check:social-inventory` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。main反映後に再取得確認する。
 - **関連**: 2026-10-04 07:33 JST ユーザー訂正「候補までは分類したまま出して俺と相談して決めるべきでは？提示せずにやったのが間違い」。関連commit: `b1b6f4c6` / `6f661980` / `decb1865` / `80735994` / `c7e8f7ed` / `743b0890` / `c67c2341` / `a22142c8` / `ca15c351`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 07:33 JST（UTC+09:00）。
+
+### 2026-10-05 07:22 JST — CYMA棚完成と画像→動画交互運用、次枠をDuofon機能Reelへ
+- **変更**: CYMA Time-O-Voxの初期AI_PROPOSEDを、ユーザーが明示NG／制約指定したもの以外すべて採用としてreview completeへ進めた。次投稿をPierce Duofon機能Reel `MR-PIE-001` としてPLANNED予約し、当面の投稿順を `画像 → 動画 → 画像 → 動画` の交互ローテーションとする。
+- **理由**: ユーザーが『初期候補NGだけさしてるので採用』『Duofon機能の動画一回挟んで、画像→動画→画像→動画』と確定。rolling shelfから時計＋内容を選ぶ運用と両立しつつ、formatも交互に検証できる。
+- **旧状態・棄却**: CYMAの未明示候補をAI_PROPOSEDのまま保留する状態を終了。Reel連投または静止画連投を基本とする運用は採用しない。ただし交互順をInstagram普遍則・固定頻度とはみなさない。
+- **影響範囲**: Social Router ACTIVE、content inventoryのCYMA review / Assignment Registry、instagram operations。公開WATCH本文・OWNER'S NOTE・既存Published Copy / Insightsは変更しない。Duofon機構動画の公開サイト実装は別PR #166。
+- **検証状態**: branch `social-cyma-complete-pierce-alternation` へ反映。PR作成・CI PASS・main再取得後にmain反映済みと呼ぶ。
+- **関連**: user decision 2026-10-05 07:22 JST。Duofon機構動画実装はopen PR #166。
+- **日時根拠**: developer-provided local time `2026-10-05T07:22+09:00`。
