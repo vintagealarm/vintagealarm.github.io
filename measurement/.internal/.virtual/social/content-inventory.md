@@ -98,6 +98,7 @@ Canonical WATCH: `src/content/watches/cyma-time-o-vox.md`
 | CYM-06 | 裏蓋内側の18K 0.750 / Weber刻印 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Gallery `cyma-caseback-inside.jpg` |
 | CYM-07 | 「アラーム＋Chronomètre」の少数例という文献上の位置づけ | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | RECHECK_SOURCE | RESEARCH | WATCH Deep 02 / `Alarm am Arm` |
 | CYM-08 | 「アラームとクロノメーターという矛盾」＝精度を求める時計へアラーム機構を載せる設計上の緊張 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | RESEARCH | WATCH Deep 02。初回IGではChronomètre自体は使用済みだが、この設計上の緊張を主題にはしていない |
+| CYM-09 | アラーム時刻を双方向で設定できる。精度重視なら反時計回り推奨 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_WATCH | OPERATION | WATCH guide + USER_KEEP 2026-10-04 |
 | CYM-ON | OWNER'S NOTE全体 | WHOLE_ONLY | NO_EXPLICIT_USE_FOUND_2026-10-03 | OWNER_NOTE_HERO_ONLY | READY_FROM_WATCH | OWNER_NOTE_WHOLE | WATCH `ownersNote` |
 
 ## Pierce Duofon
@@ -213,7 +214,7 @@ Status:
 | PR-CYM-007 | CYMA Time-O-Vox 18K Chronomètre | 複雑なalarm機構なのにR.464は約5.38mm高。薄い横顔とのギャップ / DETAIL | NEW | IG本文未使用候補 | READY_EXISTING | READY_FROM_SOURCE | 側面macro。厚み訴求は実機case厚未計測なのでmovement 5.38mmと混同しない | AI_PROPOSED | Humbert R.464 characteristics + WATCH lead |
 | PR-CYM-008 | CYMA Time-O-Vox 18K Chronomètre | 裏蓋内側の18K 0.750 / Weber刻印 / DETAIL | OVERLAP → CYM-06 | 初回IGで18K自体は使用済み、刻印は未使用 | READY_EXISTING | READY_FROM_WATCH | 裏蓋内側macro。新品訴求より証拠・ディテール枠 | AI_PROPOSED | Gallery `cyma-caseback-inside.jpg` |
 | PR-CYM-009 | CYMA Time-O-Vox 18K Chronomètre | Chronomètreなのに1香箱でalarmと動力共有する設計上の緊張 / RESEARCH-COMBINATION | OVERLAP → CYM-08 + CYM-03 | 初回IGでCHRONOMÈTREは使用済み、矛盾自体は未使用 | READY_EXISTING | READY_FROM_WATCH | 3–8秒microより少し説明が必要。research Reel候補 | AI_PROPOSED | WATCH Deep 02 + Deep 04 + The Alarm Wristwatch chronometer section |
-| PR-CYM-010 | CYMA Time-O-Vox 18K Chronomètre | alarm時刻は双方向設定可。精度重視なら反時計回り推奨 / OPERATION | NEW | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機で左右へ設定。理由説明が必要なので単独強度は低め | AI_PROPOSED | WATCH guide |
+| PR-CYM-010 | CYMA Time-O-Vox 18K Chronomètre | alarm時刻は双方向設定可。精度重視なら反時計回り推奨 / OPERATION | NEW → CYM-09 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機で左右へ設定。双方向設定そのものを主題にできる | USER_KEEP | WATCH guide + user decision 2026-10-04 |
 | PR-CYM-011 | CYMA Time-O-Vox 18K Chronomètre | 大きなhammerがムーブメントを囲むtone springを叩く / SOUND-MECHANISM | NEW / sound itself overlaps CYM-01 | 初回IGで実音使用済み、発音機構は未使用 | READY_EXISTING | READY_FROM_SOURCE | movement macro＋音。LATER REUSE寄り | AI_PROPOSED | Beitl p.136 + Humbert R.464 |
 | PR-PIE-001 | Pierce Duofon | 3時リューズ：順回しで時計、逆回しでアラームを巻く / OPERATION | OVERLAP → PIE-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 同じリューズを左右へ回してTIME / ALARMを対比 | AI_PROPOSED | WATCH guide + PIE-02 |
 | PR-PIE-002 | Pierce Duofon | 3時リューズ1段＝alarm設定、2段＝時刻設定 / OPERATION | OVERLAP → PIE-03 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 1段→2段の引き量と役割だけ見せる | AI_PROPOSED | WATCH guide + PIE-03 |
