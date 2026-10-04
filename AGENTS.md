@@ -64,6 +64,7 @@ WATCH / OWNER'S NOTE用の個体研究は、特別な理由がない限り **Pie
 - 一つの施策を理由にサイト全体を再設計しない。
 - 他者の未完了変更を上書きしない。
 - 旧仕様・棄却済み候補を、新証拠または明示的な仕様変更なしに復活させない。
+- 整理・最適化で履歴を消さない。superseded / rejected / closedになったPR・branch・判断・候補は、現行作業キューから外しても削除せず、後から起点・検証・採否・撤回理由を追える状態を保つ。open / closedは「今作業するか」の状態であり、履歴の価値とは分離する。古いbranchを直接mergeしない場合も、必要差分をcurrent mainへ救出したうえで元PR / branchを履歴参照として残す。
 - **SNS投稿案・既出除外・未使用角度抽出では、Social Routerの後に `measurement/.internal/.virtual/social/content-inventory.md` を必ず確認する。** 会話記憶から投稿ネタを再発明せず、inventoryで候補を絞った後にWATCH / research / published-copyの正本へ戻って事実を再確認する。OWNER'S NOTEはinventoryの `WHOLE_ONLY` を守り、leadや本文を複数投稿へ分割しない。AIはSourceに基づいてasset候補を分類し、`AI_PROPOSED` として提示してよい。Candidate Review Queueは**時計横断のrolling shelf**として継続的に増やし、1個体を全件確定してから次の時計へ進む必要はない。asset境界の KEEP / MERGE / SPLIT / DROP は、その候補一覧をユーザーへ見せて相談した後に確定する。KEEPは「assetとして棚に残す」の意味で、次回投稿の採用とは分離する。**候補を提示せずAI単独で確定したことにしない。** final storyboard / captionを確定する前に、ユーザーが選んだ時計＋内容だけContent Assignment Registryへ USER_CONFIRMED / PLANNED として予約する。active予約済みasset / mediaは候補から除外し、中止時は削除せず DROPPED で解放する。
 - **案・発見・指摘・修正の帰属を保持する。** 誰が最初に提示したか（ユーザー / AI / Council / 資料・Web・画像）、その後だれが確認・同定したか、採用 / 棄却 / HOLD / 未決のどこに置いたかを混同しない。後から要約・Roast・Council・本文化するときも発案者を入れ替えない。
 - 帰属が後続判断に効く案・発見は、関連research ledgerまたは `CHANGE_DECISIONS.md` に **起点 → 検証 → 採否理由 → 現在状態** を残す。未採用案を作者の意図や確定方針へ昇格させず、AI案をユーザー案として、ユーザー案をAI案として記録しない。

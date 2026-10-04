@@ -17,6 +17,17 @@
 
 ## 2026-10-04
 
+### 2026-10-04 21:45 JST — 履歴保存と現行作業キューを明示分離
+
+- **変更**：PR / branch / commit / decision / rejected・superseded候補を、整理・最適化だけを理由に削除しない方針をPROJECT / AGENTS / PROJECT_STATEへ明文化した。open / readyは現在の作業キュー、closed / draft / superseded / HOLDは履歴として参照可能な退避状態として扱う。古いbranchを直接mergeしない場合も、必要差分だけcurrent mainへ救出し、元PR / branchは取捨選択・訂正・撤回理由を追える履歴として残す。
+- **理由**：直前のPR整理で「active queueから外す」と「過去を消す」が混同され得る表現があり、ユーザーが、過去も取捨選択を含めて後から参照できる設計であることを明示したため。VINTAGE ALARMでは採用案だけでなく、棄却案・訂正・失敗経路も将来の再判断材料になる。
+- **旧状態・棄却**：古いPR / branchを履歴保存のためopenのまま残す運用は引き続き棄却する。一方、キュー整理のためにPR / branch / decision history自体を削除する案も棄却する。closeは削除ではない。
+- **影響範囲**：PROJECT.md、AGENTS.md、PROJECT_STATE.md、GitHub PR / branch lifecycle方針。公開サイト、WATCH本文、Analytics、SNS実測、研究内容は変更しない。
+- **検証状態**：現mainのclosed PR群が引き続き参照可能で、#157 / #152 / #147等のsuperseded経緯がPR・decision logから追跡可能であることを確認。今回の変更は履歴保持ルールの明文化であり、既存PR / branchの削除は行っていない。
+- **関連**：commits `d93fa7d4` / `dad12de4` / `4654b837`。先行判断: 2026-10-04 18:45 JST「open PRの作業キューを整理」。
+- **日時根拠**：system-provided local time 2026-10-04T21:45:09+09:00 = 2026-10-04 21:45 JST。
+
+
 ### 2026-10-04 20:48 JST — 現行正本の一致検査を最小CIへ追加し、残存driftを修正
 
 - **変更**：PROJECT_STATEのHOW THEY RING FIG.03を現行実装の「ピン伝達型」へ同期し、CASEBACK説明中の旧「ピン／レバー伝達」も同じ現行語へ揃えた。PROJECT_STATEの正本一覧へSocial Routerを追加し、ACTIVE WORKのCouncil pointerをV3.md / README / src/v3.ts / src/index.tsの4正本へ揃えた。さらに `scripts/check-project-consistency.mjs` を追加し、canonical host、Social Router routing、Council V3 pointer、HOW THEY RING FIG.01 / FIG.03、公開WATCH 6 routeとllms列挙、measurement target 5 WATCHの意味分離を `check:quality` で機械検査する。PR #162はcurrent-main replayとしてCI success後にmergeし、同内容を保持していた旧PR #157はsupersededとしてcloseした。

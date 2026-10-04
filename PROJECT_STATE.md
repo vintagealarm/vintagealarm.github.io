@@ -88,6 +88,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 掲載個体の大分類は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK。
 - Pierce Duofonの二音源表示は **WECKER / 音あり** と **SIGNAL / 音無し**。ファイル名由来の WAKER / SILENT を表示ラベルへ戻さない。
 - HOW THEY RINGのページ名／TOP入口表示名は **HOW THEY RING**。旧「音で選ぶ」は失効。TOPではOWNER'S NOTES直下に置く。**共通ハンバーガーメニュー内の日本語ラベルだけは「音で見る」**とする。
+- 履歴保持: **PR / branch / commit / decision / rejected・superseded候補は、整理だけを理由に削除しない。** 現行作業キューと履歴保存を分離し、不要になった作業は close / draft / superseded / HOLD 等で退避する。過去の取捨選択・訂正・撤回理由はGitHub履歴と `CHANGE_DECISIONS.md` から再参照できる状態を維持する。
 - `.codex/config.toml` では multi-agent は無効。明示指示なしに有効化しない
 - Councilはprotocol-driven V3。`焼いて` 単独は即実行せず7形式を毎回明示するランチャー
 - Councilの7形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知） / 宮廷道化師🤡
