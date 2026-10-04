@@ -3582,3 +3582,17 @@ AFB Archiveのwatch-program repair receipts / Katherine Gruber correspondence、
 **Additional survivors / non-period evidence:** ca.1955とされるARSA Braille / Unitas 6325 survivor、1950–60頃とされるAntiquorumのunsigned probably-ARSA tactile watchは見つかるが、どちらもBlind Alarm本人のperiod paperではないため03の広告代替にはしない。
 
 **Current next move:** 実ブラウザで1958 share manifestを開き、A. Reymond 60周年記事の本文頁と隣接 `Nouveaux modèles` を直接確認する。それが失敗した場合はThe Watch Libraryのpage-image / IIIF export URLをビューアから取得する。
+
+
+### 2026-10-04 11:02 JST — 1958 JSH retrieval retry / direct-ad status
+
+**Focused result**
+
+- 1958年3–4月号 `Journal suisse d'horlogerie et de bijouterie` No.2 のA. Reymond S.A.創業60周年記事は、目次上の存在を再確認した。
+- The Watch Library側では1958年全巻（822頁・public domain）まで確認できるが、現行Web経路から記事本文ページを直接抽出することはできなかった。
+- 二次史料Time2Tellは1958年の周年期にARSAがSpringmaster、手巻chronometer、自動巻diverの3モデルを提示したと記すが、Blind Alarmには触れていない。これはJSH本文の代替証拠ではなく、周年記事が03直結とは限らないことを示す補助材料に留める。
+- 現時点で回収できたARSA自身のperiod広告として最も直接的なのはDavoine 1970で、`Montres pour aveugles` と `Montres bracelet réveil` が同一広告のspecialtiesに並ぶ。ただしBlind Alarm単独モデル広告ではないため01向け。
+- 現行ARSA公式系 `blindwatch.net` はblind/braille watchesを1950年代開始と説明し、視覚障害者団体経由の流通を現在も掲げる。これは後年のcompany statementであり、1950年代period paperではない。
+- 1956–60年のARSA Blind Alarm本人を写真・型名・説明付きで示す広告／カタログ／価格表は、今回の再検索でも未回収。
+
+**Editorial consequence:** 03へ代用品広告を入れない。1970 Davoineは01の会社背景、1958 JSHは本文取得までOPEN、ARSA Blind Alarm本人のperiod paperだけを03候補とする。
