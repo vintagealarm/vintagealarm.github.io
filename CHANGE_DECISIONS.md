@@ -17,6 +17,16 @@
 
 ## 2026-10-04
 
+### 2026-10-04 19:24 JST — PR #157のrolling SNS候補棚をcurrent mainへ再適用
+
+- **変更**：PR #157の有効差分をcurrent mainから作り直したbranchへ再適用した。Candidate Review Queueを時計横断rolling shelfとして扱い、KEEPと次回投稿採用を分離する運用、WittnauerのKEEP / MERGE / DROP結果、CYMA双方向alarm settingのKEEPをSocial Router / inventory / operations / PROJECT / AGENTS / PROJECT_STATEへ同期した。
+- **理由**：PR #157はSNS候補棚の現役作業だが、直前のPR hygiene・正本整合修復でmain側が進み、旧branchをそのままmergeするとAGENTS / PROJECT_STATE / CHANGE_DECISIONSの新しい修復を巻き込みやすい状態になったため。現mainを基底に必要差分だけ再適用する。
+- **旧状態・棄却**：競合した旧PR #157へmain側変更を力技で混ぜてそのままmergeする案を棄却する。rolling shelfのユーザー確定判断自体は維持し、履歴として旧PRを残す。
+- **影響範囲**：PROJECT.md、AGENTS.md、PROJECT_STATE.md、Social ROUTER、content-inventory、instagram-operations、本判断履歴。公開WATCH / OWNER'S NOTE / Insights実測値 / Analytics runtimeは変更しない。
+- **検証状態**：旧PR #157 head `ffe620dc31d497d395695273380a7c2571f28d61` のdiffをcurrent mainへ手作業で再適用。social 3正本は旧headの内容をそのまま移し、PROJECT / AGENTS / PROJECT_STATEはcurrent mainの後続修復を保持した差分適用とした。CI通過後に新PRをmergeし、旧PR #157はsupersededとしてcloseする。
+- **関連**：旧PR #157、replay commits `3a32e7b8` / `84e5fb22` / `7351aafe` / `ec26a01a` / `75c7b2b7` / `ca6c7087` / `457940a6`。
+- **日時根拠**：GitHub commit `457940a65ee76cfc90336d7c509f6fb751de2673` 2026-10-04T10:24:18Z → 2026-10-04 19:24 JST。
+
 ### 2026-10-04 19:13 JST — PR #147のsemantic clarity規則とARSA working copy判断を現mainへ救出
 
 - **変更**：全WATCH共通Catch / Lead開発プロトコルへsemantic clarity ruleを復元し、PR #147に残っていたARSA Blind Alarmの12:31棄却判断と12:52 working SUB / NOTE判断を現行decision logへ回収した。
