@@ -81,6 +81,7 @@ Canonical WATCH: `src/content/watches/wittnauer-10wa.md`
 | WIT-07 | 1952特許のslipping bridleと量産10WAの満巻き停止挙動の差 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | RESEARCH | WATCH Deep 04 / CH304088A |
 | WIT-08 | 1950年代前半10WAと、少なくとも1955年のAS1475搭載Wittnauer | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | HISTORY | WATCH Deep 05 |
 | WIT-09 | 10WA外装差：SS、黒文字盤、金張り、Longines銘等 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RIGHTS_CHECK | COMPARISON | WATCH Deep 06 |
+| WIT-10 | 文字盤デザイン：クセのある数字インデックス＋波打つアラーム針を一つの造形assetとして扱う | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL | WATCH note + Horlbeck pp.21,153 + USER_KEEP / USER_MERGE 2026-10-04 |
 | WIT-ON | OWNER'S NOTE全体 | WHOLE_ONLY | NO_EXPLICIT_USE_FOUND_2026-10-03 | OWNER_NOTE_HERO_ONLY | READY_FROM_WATCH | OWNER_NOTE_WHOLE | WATCH `ownersNote` |
 
 ## CYMA Time-O-Vox 18K Chronomètre
@@ -198,14 +199,22 @@ Status:
 | PR-WIT-001 | Wittnauer 10WA | 純正三角錐リューズがケースに半分隠れる。掲載個体では見た目ほど巻き上げにくくない / DETAIL | OVERLAP → WIT-03 refinement | IG本文未使用候補 | READY_EXISTING | WATCH + USER_OBSERVATION | 実機macroで形状＋隠れ方＋実際の巻上げを見せられる | USER_KEEP | WATCH note + Gallery `IMG_2292.jpeg` + user observation / confirmation 2026-10-04 |
 | PR-WIT-002 | Wittnauer 10WA | 二階建てケース＋すり鉢状で手首への収まりが良い / DETAIL | SUPERSET → WIT-04 | IG本文未使用候補 | READY_EXISTING | WATCH_IMAGE + USER_OBSERVATION | 実機側面／装着で形状と収まりを見せる | USER_KEEP | Gallery `IMG_2293.jpeg` + user observation 2026-10-04 |
 | PR-WIT-003 | Wittnauer 10WA | 裏スケなのにアラーム機構は見えない / MECHANISM | OVERLAP → WIT-06 refinement | IG本文未使用候補。直近staticでmovement画像使用 | NEEDS_SHOOT | READY_FROM_WATCH | 裏スケ側を見せたまま鳴らす短編候補 | USER_KEEP | WATCH note + Deep 03 + user confirmation 2026-10-04 |
-| PR-WIT-004 | Wittnauer 10WA | クセのある数字インデックス。文献でもdesigner-watch的造形として評価 / DETAIL | NEW | IG本文未使用候補 | READY_EXISTING | READY_FROM_SOURCE | 正面macroだけで成立 | AI_PROPOSED | WATCH note + Horlbeck pp.21,153 |
-| PR-WIT-005 | Wittnauer 10WA | 波打つアラーム針／独特なhand design / DETAIL | NEW | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | 正面macroだけで成立 | AI_PROPOSED | WATCH note + Horlbeck modular-caliber discussion |
+| PR-WIT-004 | Wittnauer 10WA | クセのある数字インデックス。文献でもdesigner-watch的造形として評価 / DETAIL | MERGE → WIT-10 | IG本文未使用候補 | READY_EXISTING | READY_FROM_SOURCE | 波打つアラーム針と同じ正面造形として一体化 | USER_MERGE | WATCH note + Horlbeck pp.21,153 + user decision 2026-10-04 |
+| PR-WIT-005 | Wittnauer 10WA | 波打つアラーム針／独特なhand design / DETAIL | MERGE → WIT-10 | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | クセのある数字インデックスと同じ正面造形として一体化 | USER_MERGE | WATCH note + Horlbeck modular-caliber discussion + user decision 2026-10-04 |
 | PR-WIT-006 | Wittnauer 10WA | ケースより張り出す回転ベゼル＋後方へ絞るケース形状 / DETAIL | MERGE → WIT-04 | ベゼル操作自体は初回IGで使用済み | READY_EXISTING | READY_FROM_SOURCE | 独立投稿にせずWIT-04の側面形状へ統合 | USER_MERGE | Horlbeck pp.152–153 + user decision 2026-10-04 |
 | PR-WIT-007 | Wittnauer 10WA | Wittnauer最初のアラーム腕時計 / HISTORY | NEW | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | 省エネ歴史枠として提示したが不採用 | USER_DROP | WATCH Deep 02 + user decision 2026-10-04 |
 | PR-WIT-008 | Wittnauer 10WA | 文献値5–7秒 vs 掲載個体実測 / EXPERIMENT | NEW | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_SOURCE | 実測比較案として提示したが不採用 | USER_DROP | Horlbeck p.152 + user decision 2026-10-04 |
 | PR-CYM-001 | CYMA Time-O-Vox 18K Chronomètre | 2プッシャーで1本のリューズの役割を切替 / OPERATION | OVERLAP → CYM-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機側面。上push→巻上げ／下push→alarm設定を短く見せる | AI_PROPOSED | WATCH guide + CYM-02 |
 | PR-CYM-002 | CYMA Time-O-Vox 18K Chronomètre | 鳴動中は巻上げ側が切れてリューズが回らない / MECHANISM | OVERLAP → CYM-04 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機を鳴らし、リューズ側を固定撮影 | AI_PROPOSED | WATCH Deep 05 + CYM-04 |
 | PR-CYM-003 | CYMA Time-O-Vox 18K Chronomètre | 両プッシャー中央でON／どちらかを押すとOFF / OPERATION | SUBSET → CYM-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機側面で中央→片側pushの変化だけ見せる | AI_PROPOSED | WATCH guide |
+| PR-CYM-004 | CYMA Time-O-Vox 18K Chronomètre | 2プッシャーが連動し、一方を押すともう一方が同量だけ出る / OPERATION | SUBSET → CYM-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_SOURCE | 側面固定で上下プッシャーのシーソー動作だけ見せる | AI_PROPOSED | WATCH Deep 03 + Humbert R.464 |
+| PR-CYM-005 | CYMA Time-O-Vox 18K Chronomètre | 1香箱で時計とアラームが動力共有。掲載個体では1回の鳴動で約9時間分を消費 / MECHANISM+SPECIMEN | OVERLAP → CYM-03 | Xでtiming-wheelは使用済み、9時間消費はIG未使用候補 | READY_EXISTING | READY_FROM_WATCH | 実機単独で見せるならbefore/after実測カード向き。micro-Reel化は要工夫 | AI_PROPOSED | WATCH Deep 04 + owner measurement |
+| PR-CYM-006 | CYMA Time-O-Vox 18K Chronomètre | 1 crown + 2 pushersで横顔はクロノグラフ風。ただし役割はalarm control / DETAIL+OPERATION | NEW / overlaps CYM-02 visually | IG本文未使用候補 | READY_EXISTING | READY_FROM_SOURCE | 側面一発で見える。次にpush操作へ繋げてもよい | AI_PROPOSED | Beitl p.134 + WATCH lead / side gallery |
+| PR-CYM-007 | CYMA Time-O-Vox 18K Chronomètre | 複雑なalarm機構なのにR.464は約5.38mm高。薄い横顔とのギャップ / DETAIL | NEW | IG本文未使用候補 | READY_EXISTING | READY_FROM_SOURCE | 側面macro。厚み訴求は実機case厚未計測なのでmovement 5.38mmと混同しない | AI_PROPOSED | Humbert R.464 characteristics + WATCH lead |
+| PR-CYM-008 | CYMA Time-O-Vox 18K Chronomètre | 裏蓋内側の18K 0.750 / Weber刻印 / DETAIL | OVERLAP → CYM-06 | 初回IGで18K自体は使用済み、刻印は未使用 | READY_EXISTING | READY_FROM_WATCH | 裏蓋内側macro。新品訴求より証拠・ディテール枠 | AI_PROPOSED | Gallery `cyma-caseback-inside.jpg` |
+| PR-CYM-009 | CYMA Time-O-Vox 18K Chronomètre | Chronomètreなのに1香箱でalarmと動力共有する設計上の緊張 / RESEARCH-COMBINATION | OVERLAP → CYM-08 + CYM-03 | 初回IGでCHRONOMÈTREは使用済み、矛盾自体は未使用 | READY_EXISTING | READY_FROM_WATCH | 3–8秒microより少し説明が必要。research Reel候補 | AI_PROPOSED | WATCH Deep 02 + Deep 04 + The Alarm Wristwatch chronometer section |
+| PR-CYM-010 | CYMA Time-O-Vox 18K Chronomètre | alarm時刻は双方向設定可。精度重視なら反時計回り推奨 / OPERATION | NEW | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機で左右へ設定。理由説明が必要なので単独強度は低め | AI_PROPOSED | WATCH guide |
+| PR-CYM-011 | CYMA Time-O-Vox 18K Chronomètre | 大きなhammerがムーブメントを囲むtone springを叩く / SOUND-MECHANISM | NEW / sound itself overlaps CYM-01 | 初回IGで実音使用済み、発音機構は未使用 | READY_EXISTING | READY_FROM_SOURCE | movement macro＋音。LATER REUSE寄り | AI_PROPOSED | Beitl p.136 + Humbert R.464 |
 | PR-PIE-001 | Pierce Duofon | 3時リューズ：順回しで時計、逆回しでアラームを巻く / OPERATION | OVERLAP → PIE-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 同じリューズを左右へ回してTIME / ALARMを対比 | AI_PROPOSED | WATCH guide + PIE-02 |
 | PR-PIE-002 | Pierce Duofon | 3時リューズ1段＝alarm設定、2段＝時刻設定 / OPERATION | OVERLAP → PIE-03 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 1段→2段の引き量と役割だけ見せる | AI_PROPOSED | WATCH guide + PIE-03 |
 | PR-PIE-003 | Pierce Duofon | 4時リューズは引く＝ON、押す＝OFF / OPERATION | OVERLAP → PIE-04 / PIE-01 same crown | 初回IGで4時crown自体は使用済み、pull/push ON/OFFは本文未使用 | NEEDS_SHOOT | READY_FROM_WATCH | 同じ4時crownの別操作として短尺化。再利用判定要 | AI_PROPOSED | WATCH guide + Published first Reel |
@@ -221,7 +230,7 @@ Status:
 
 | WATCH | Review state |
 |---|---|
-| Wittnauer 10WA | IN_REVIEW — WIT-03 / WIT-04 / WIT-06 USER_KEEP confirmed |
+| Wittnauer 10WA | REVIEW_COMPLETE — WIT-03 / WIT-04 / WIT-06 / WIT-10 USER_KEEP confirmed; PR-WIT-007/008 DROP |
 | CYMA Time-O-Vox 18K Chronomètre | PENDING_USER_REVIEW |
 | Pierce Duofon | PENDING_USER_REVIEW |
 | Basis Alarm (BFG90) | PENDING_USER_REVIEW |
