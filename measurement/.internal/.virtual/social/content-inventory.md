@@ -198,6 +198,17 @@ Status:
 | PR-WIT-001 | Wittnauer 10WA | 純正三角錐リューズがケースに半分隠れる / DETAIL | OVERLAP → WIT-03 refinement | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | 実機macroで形状＋隠れ方を見せる | USER_KEEP | WATCH note + Gallery `IMG_2292.jpeg` + user confirmation 2026-10-04 |
 | PR-WIT-002 | Wittnauer 10WA | 二階建てケース＋すり鉢状で手首への収まりが良い / DETAIL | SUPERSET → WIT-04 | IG本文未使用候補 | READY_EXISTING | WATCH_IMAGE + USER_OBSERVATION | 実機側面／装着で形状と収まりを見せる | USER_KEEP | Gallery `IMG_2293.jpeg` + user observation 2026-10-04 |
 | PR-WIT-003 | Wittnauer 10WA | 裏スケなのにアラーム機構は見えない / MECHANISM | OVERLAP → WIT-06 refinement | IG本文未使用候補。直近staticでmovement画像使用 | NEEDS_SHOOT | READY_FROM_WATCH | 裏スケ側を見せたまま鳴らす短編候補 | USER_KEEP | WATCH note + Deep 03 + user confirmation 2026-10-04 |
+| PR-CYM-001 | CYMA Time-O-Vox 18K Chronomètre | 2プッシャーで1本のリューズの役割を切替 / OPERATION | OVERLAP → CYM-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機側面。上push→巻上げ／下push→alarm設定を短く見せる | AI_PROPOSED | WATCH guide + CYM-02 |
+| PR-CYM-002 | CYMA Time-O-Vox 18K Chronomètre | 鳴動中は巻上げ側が切れてリューズが回らない / MECHANISM | OVERLAP → CYM-04 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機を鳴らし、リューズ側を固定撮影 | AI_PROPOSED | WATCH Deep 05 + CYM-04 |
+| PR-CYM-003 | CYMA Time-O-Vox 18K Chronomètre | 両プッシャー中央でON／どちらかを押すとOFF / OPERATION | SUBSET → CYM-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機側面で中央→片側pushの変化だけ見せる | AI_PROPOSED | WATCH guide |
+| PR-PIE-001 | Pierce Duofon | 3時リューズ：順回しで時計、逆回しでアラームを巻く / OPERATION | OVERLAP → PIE-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 同じリューズを左右へ回してTIME / ALARMを対比 | AI_PROPOSED | WATCH guide + PIE-02 |
+| PR-PIE-002 | Pierce Duofon | 3時リューズ1段＝alarm設定、2段＝時刻設定 / OPERATION | OVERLAP → PIE-03 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 1段→2段の引き量と役割だけ見せる | AI_PROPOSED | WATCH guide + PIE-03 |
+| PR-PIE-003 | Pierce Duofon | 4時リューズは引く＝ON、押す＝OFF / OPERATION | OVERLAP → PIE-04 / PIE-01 same crown | 初回IGで4時crown自体は使用済み、pull/push ON/OFFは本文未使用 | NEEDS_SHOOT | READY_FROM_WATCH | 同じ4時crownの別操作として短尺化。再利用判定要 | AI_PROPOSED | WATCH guide + Published first Reel |
+| PR-BAS-001 | Basis Alarm (BFG90) | 1本のリューズを同方向へ回して2香箱を巻く / OPERATION | SUBSET → BAS-02 / BAS-01 | 初回IGでwinding＋2 barrelsは使用済み | NEEDS_SHOOT | READY_FROM_WATCH | 実機で巻上げ。新規よりLATER REUSE寄り | AI_PROPOSED | WATCH guide + Published first Reel |
+| PR-WES-001 | Westclox Watchlarm W5 | 9時sliderを上げるとケース側にON表示が現れる / OPERATION | OVERLAP → WES-02 | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | 実機OFF→slider→ON表示。短尺向き | AI_PROPOSED | WATCH guide + Gallery OFF/ON + WES-02 |
+| PR-CIT-001 | Citizen Alarm | 4時crown＝時計、2時crown＝alarm / OPERATION | OVERLAP → CIT-02 / CIT-01 | 初回IGでTwo crownsは使用済み、役割分担は本文未使用 | NEEDS_SHOOT | READY_FROM_WATCH | 2つのcrownを交互に示す。再利用判定要 | AI_PROPOSED | WATCH guide + Published first Reel |
+| PR-CIT-002 | Citizen Alarm | movement刻印 CITIZEN / 17 JEWELS / 3 ADJ / DETAIL | OVERLAP → CIT-03 | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | 実機movement macro。動画化するなら新撮り可 | AI_PROPOSED | WATCH spec + Gallery `IMG_2476.jpeg` |
+| PR-CIT-003 | Citizen Alarm | 初期型の二重裏蓋：内側で鳴らし外側の穴から音を逃がす / MECHANISM | OVERLAP → CIT-05 / CIT-01 caseback sound | 初回IGでcaseback hammerは使用済み、二重裏蓋構造は未使用 | NEEDS_SHOOT | READY_FROM_WATCH | 実機で外蓋→内蓋→穴を見せる。既出との差を相談 | AI_PROPOSED | WATCH Deep 02 + Gallery casebacks + Published first Reel |
 
 ---
 
