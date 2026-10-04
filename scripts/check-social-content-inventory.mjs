@@ -21,6 +21,7 @@ if (!text.includes("OWNER'S NOTE は分割しない")) errors.push(`${file}: OWN
 if (!text.includes("AIは候補分類まで先行してよい")) errors.push(`${file}: staged candidate review rule missing`);
 if (!text.includes("Content Assignment Registry")) errors.push(`${file}: assignment registry missing`);
 if (!text.includes("Candidate Review Queue")) errors.push(`${file}: candidate review queue missing`);
+if (!text.includes("Execution Brief Registry")) errors.push(file + ": execution brief registry missing");
 for (const section of requiredSections) {
   if (!text.includes(`## ${section}`)) errors.push(`${file}: missing watch section ${section}`);
 }
@@ -130,6 +131,15 @@ for (const row of contentRows) {
   }
 }
 if (!contentRows.length) errors.push(`${file}: no content assignment rows`);
+const briefIds = new Set(
+  [...text.matchAll(/^#### EB:([A-Z0-9-]+)$/gm)].map((m)=>m[1]),
+);
+for (const row of contentRows) {
+  if (row.platform === 'INSTAGRAM' && activeStates.has(row.state) && !briefIds.has(row.contentId)) {
+    errors.push(file + ': active Instagram content requires Execution Brief at ' + row.contentId);
+  }
+}
+
 
 if (errors.length) {
   console.error(`Social content inventory check failed (${errors.length}):`);
