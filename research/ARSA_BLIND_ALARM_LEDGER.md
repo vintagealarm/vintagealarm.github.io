@@ -3411,3 +3411,32 @@ Sources:
 - 1958 A. Reymond article content = **OPEN**
 - 1948 / 1973 Mémoires d'Ici document content = **OPEN**
 - broad Web repetition is still not justified; next gain requires document-level access rather than another generic search pass
+
+
+### 2026-10-05 — new period ARSA control-architecture evidence: 1967 hunter crown-button cover release
+
+A Swisstime / Swiss Watch Fair 1967 ARSA press item preserved by Europa Star describes an **ARSA 18 ct. gold hunter pocket watch** whose cover opens by **pressing a button on the winding crown**.
+
+Source:
+- https://www.europastar.com/swisstime/1004104967-arsa.html
+
+**Evidence class:** period trade / manufacturer-supplied press material preserved in the Swisstime archive.
+
+#### Why this matters for the Blind Alarm
+
+The confirmed ARSA Blind Alarm architecture uses a central push-piece integrated into the lower ~4 o'clock clockwork crown to release the hinged front cover.
+
+The 1967 hunter evidence shows that **ARSA also used crown-integrated cover release outside the tactile-alarm category**.
+
+This changes the safest interpretation:
+- the Blind Alarm's crown-button cover release is still a real and important part of its tactile interface
+- but the mechanism should **not** be presented as proven to have been invented specifically for accessibility
+- ARSA demonstrably had a broader company-level precedent / parallel use for opening a protective cover from the winding crown
+
+**Do not infer:**
+- that the 1967 pocket hunter uses the same case supplier or identical release mechanism
+- that the Blind Alarm directly descends from this later pocket watch
+- that the 1950s Blind Alarm borrowed the device from a pocket-watch line
+- that all ARSA covered watches used crown-button release
+
+**Site-use consequence:** describe the Blind Alarm's integrated opener as an accessibility-useful ARSA solution, while keeping its exact origin / design lineage OPEN.
