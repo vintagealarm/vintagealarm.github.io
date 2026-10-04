@@ -3223,3 +3223,145 @@ Open details that remain useful but non-blocking:
 Next Deep Dive:
 **⑤ AS1475 as mass-market platform and its transformations — ordinary alarm use → parking-time adaptation → tactile-alarm adaptation → later family / direct descendants.**
 
+
+
+### 2026-10-03 — DEEP DIVE ⑤: AS1475 as a mass-market platform and its transformations
+
+**PURPOSE:** close the ARSA Blind Alarm research arc by returning the special tactile watch to the larger history of its movement platform. The useful story is not “ARSA used an unusual alarm caliber,” but almost the reverse: a highly successful ordinary alarm platform was repurposed into unusually specific interfaces.
+
+#### 1. Baseline — AS1475 was a mass-market alarm platform
+
+Project source *The Alarm Wrist Watch* gives the AS1475 as:
+- built **1954–1970**
+- approximately **780,000** produced
+- 11.5 ligne / 25.94 mm
+- 17 jewels in the base specification, with 18 / 19 / 21-jewel variants
+- 18,000 A/h
+- two barrels, separately serving clockwork and alarm
+- two-crown architecture: upper crown for alarm, lower crown for clockwork
+- no seconds stop; direct central seconds
+
+The same source calls it the most frequently used alarm caliber and treats the whole AS1475 family, including derivatives, as roughly **1.4 million movements**. That family-total is a specialist-source figure, not a factory production ledger recovered here.
+
+This matters for the ARSA story: the tactile alarm is not evidence of a bespoke movement architecture. The accessibility work sits largely in the **human interface around a common movement platform**.
+
+Independent Web cross-checks are consistent on the core production claim: Ranfft gives 1954–1970 and >781,000; the Museum of Arts and Crafts Zagreb likewise gives about 780,000 for its Rado AS1475 specimen. These are corroboration, not a replacement for the Project source.
+
+Sources:
+- https://ranfft.org/caliber/673-AS-1475
+- https://artsandculture.google.com/asset/rado-alarm-rado/PAFsaRC8Yp-2KA
+
+#### 2. Ordinary alarm watches — the platform before the special interfaces
+
+The Project books document AS1475 across a broad spread of ordinary branded alarm watches. Examples include Tissot 780 / Sonorous, Gallet, Benrus, Helbros, Rado, Tudor and many others in the model/caliber index. *Alarm am Arm* gives period examples such as Tissot Sonorous (1955 onward), Gallet (1956), Helbros (ca.1956–60), Fulton Memo-Time and numerous others.
+
+The point is not to make a brand census. It is to establish the baseline: **AS1475 was already an off-the-shelf architecture used by many brands before we ask what ARSA changed for touch reading.**
+
+#### 3. Parking-time adaptation — Benedict Park-O-Phon
+
+*The Alarm Wrist Watch* describes parking-time watches as functionally normal alarm watches with an added interface that removes the need to calculate the parking-meter expiry time. Instead of a conventional alarm hand, the display uses an alarm disc with added time markings, commonly in 30-minute steps.
+
+The Benedict Park-O-Phon is explicitly based on AS1475 and retains the normal two-crown separation of clock time and alarm time. The transformation is therefore primarily at the **display / task layer**: the same alarm event becomes a parking-duration reminder through a purpose-built visual scale.
+
+A current secondary reference places Benedict's Park-o-Phon introduction in 1959 and describes its 15-minute, 30-minute and hourly disc markings. Keep those fine-grained markings as secondary-source corroboration unless a period Benedict source is recovered.
+
+Source:
+- https://wiki.grail-watch.com/index.php/Parking_watch
+
+**Research significance:** Park-O-Phon is the clean bridge between “ordinary alarm caliber” and “special-purpose interface.” It demonstrates that AS1475 could be retasked without redesigning the movement around the new use case.
+
+#### 4. Tactile adaptation — ARSA / Enicar / BEAT
+
+Deep Dive ④ already fixed the tactile branch:
+- ARSA / Enicar: cover access integrated into the 4-o'clock clockwork crown
+- BEAT: separate 6-o'clock opening mechanism
+- Enicar 1964 special: explicit width / ridge coding for minute, hour and alarm hands
+- ARSA: specialist source explicitly confirms tactile read-back of both current time and set alarm time
+
+The new point in ⑤ is where that branch sits in the platform history. **The movement supplies the alarm/time separation; the makers redesign the physical interface so the same states can be read and manipulated by touch.**
+
+Do not state that A. Schild designed the ARSA / Enicar / BEAT accessibility hardware. The A. Schild AS1475 Blind Alarm prototype proves that the ébauche maker also explored the category, but ancestry / design transfer remains OPEN.
+
+#### 5. Internal family evolution — date and higher beat rate
+
+The AS1475 family develops in two clear axes in *The Alarm Wrist Watch*:
+
+| Function | 18,000 A/h | 21,600 A/h |
+|---|---|---|
+| no date | AS1475 | AS1930 |
+| date | AS1568 | AS1931 |
+
+- **AS1568**: AS1475 architecture with date; built 1956–1970; Project source gives 149,000.
+- **AS1930**: successor to AS1475, 21,600 A/h; built 1970–1974; Project source gives 127,000.
+- **AS1931**: date counterpart / successor to AS1568, 21,600 A/h; built 1970–1974; Project source gives 330,000.
+- The screwed knee-lever architecture was retained through the 1475/1568 → 1930/1931 transition.
+
+This is evolution, not a clean-sheet replacement. The Project source explicitly says AS1930 introduced the higher beat rate with no major technical change otherwise.
+
+A second important evolution happened **within** AS1475 / AS1568 operation: the source says early versions had alarm ON with the upper crown down, while around 1960 the logic was reversed so crown pulled up = alarm ON. That made quick silencing easier but introduced a new risk of accidental deactivation / alarm-time movement. This operational split is directly relevant to the purchased ARSA specimen and remains an ARRIVAL SUPPLEMENT test rather than something to infer from appearance.
+
+#### 6. Cross-manufacturer descendants / transfers
+
+*The Alarm Wrist Watch* states that two movements from other manufacturers were based directly on AS1475:
+- **Citizen alarm family** — described there as based technically on AS1475, but enlarged and substantially reworked rather than a simple imitation. The book itself uses cautious language around possible licensed Japanese production; licensing remains unconfirmed here.
+- **Poljot 2612.1** — described as directly based on AS1475. The same Project source says old Swiss calibers were reproduced in Moscow after constructive changes. Do not collapse “based on” into “identical” or “licensed.”
+
+The book also notes **Tissot 780** as an AS1475 variant / manufacturer designation. That is a relabelled / reworked Swiss use of the platform, not the same category of cross-national descendant as Citizen or Poljot.
+
+#### 7. What the transformation chain actually shows
+
+The useful closing chain is:
+
+**ordinary two-crown alarm**
+→ **task-specific visual UI** (Park-O-Phon / parking reminder)
+→ **accessibility-specific tactile UI** (ARSA / Enicar / BEAT)
+→ **family extension** (AS1568 date)
+→ **higher-beat successors** (AS1930 / 1931)
+→ **other-manufacturer descendants / re-engineering** (Citizen / Poljot; exact transfer terms kept source-limited)
+
+This is not a single linear product genealogy. Park-O-Phon and tactile alarms are **parallel adaptations of the same platform**, while AS1568 / 1930 / 1931 are caliber-family developments. Citizen / Poljot are a third relationship: movements described by the specialist source as directly based on AS1475.
+
+That distinction prevents a misleading “AS1475 evolved into ARSA, then Park-O-Phon, then AS1930” chronology. The better model is **platform → branches**.
+
+#### 8. Site-level closing thesis
+
+For the ARSA page, ⑤ should close with the inversion:
+
+**ARSA Blind Alarm is interesting not because AS1475 was exotic, but because it was ordinary.**
+
+A movement produced in roughly 780,000 examples could sit in a conventional alarm watch, be given a parking-duration display, be wrapped in a tactile interface for blind users, gain a date, be uprated to a higher beat successor, and seed related movements outside A. Schild.
+
+That makes ARSA's contribution easier to locate precisely: **the distinctive historical object is the accessibility interface built around a mass-market alarm platform, not a unique caliber.**
+
+#### DEEP DIVE ⑤ — status
+
+**PASS 1 COMPLETE / CLOSING FRAME FIXED.**
+
+Non-blocking OPEN points:
+- factory production ledger independently confirming the ~780k / family ~1.4m specialist figures
+- primary documentation for exact Citizen transfer / licensing relationship
+- primary documentation for exact Soviet transfer / copying route
+- period Benedict material for the Park-O-Phon's detailed disc markings
+- arrival test to determine early/late alarm-state logic on the purchased ARSA specimen
+
+The planned research sequence ①→⑤ is now complete at PASS 1 level. Remaining work is **arrival supplementation and archive bonus evidence**, not another broad Web pass.
+
+
+### 2026-10-04 — period ad / catalog search: 03 image gate fixed
+
+**ORIGIN:** user research pass and placement decision.
+
+- **Current negative result:** no 1956–1960 advertisement, catalog or price list has yet been recovered that explicitly names or illustrates the **ARSA Blind Alarm itself**. This is a search result, not proof that no such document existed.
+- **1958 JSH:** *Journal suisse d'horlogerie et de bijouterie*, No.2, March–April 1958 is bibliographically confirmed, and its contents include an item on A. Reymond's **60th anniversary**. The article text/pages themselves have not been recovered here, so Blind Alarm content must remain OPEN.
+  - https://www.abebooks.fr/magazines-periodiques/Journal-suisse-dhorlogerie-bijouterie-mars-avril-1958/32517065717/bd
+- **The Watch Library:** its collection includes *Journal Suisse d'Horlogerie* for 1876–1978. The exact annual scan page count reported by the user was not independently re-verified in this pass.
+  - https://watchlibrary.org/en/page/collections-journal-and-magazine
+- **Existing context remains separate:** DIJU and Worldtempus support early-1950s ARSA blind/Braille-watch development; Davoine 1970 supports company-level coexistence of `Montres pour aveugles` and `Montres bracelet réveil`. None of these becomes a 1950s Blind Alarm product ad by substitution.
+
+#### Site placement decision
+
+- **01 / company:** use the **1970 Davoine A. Reymond advertisement** as the one period corporate ad. It supports the company-level coexistence of blind watches and alarm wristwatches; it is **not** a Blind Alarm ad.
+- **03 / ARSA Blind Alarm:** insert **no substitute period ad**. Build the section from specialist-book evidence, the purchased specimen and source-labeled text.
+- Reopen the 03 image slot only when a **1950s period source explicitly naming or illustrating the ARSA Blind Alarm itself** is recovered. The 1958 JSH article is only a candidate until its actual pages are read.
+
+**Status:** 03 period-image search = **HOLD / non-blocking**. A genuine period product ad is an upgrade, not a publication blocker.
