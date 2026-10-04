@@ -132,6 +132,20 @@ content:
           - { name: linkLabel, label: 補足リンク文言, type: string }
           - { name: linkUrl, label: 補足リンクURL, type: string }
           - { name: mediaStyle, label: 画像レイアウト（default / compact-sequence）, type: string }
+          - name: video
+            label: 動画で見る
+            type: object
+            fields:
+              - name: src
+                label: 動画ファイル
+                type: file
+                options:
+                  media: watchVideo
+                  categories: [video]
+                  extensions: [mp4, mov, m4v]
+              - { name: title, label: 見出し, type: string }
+              - { name: afterParagraph, label: 何段落目の後に表示, type: number }
+              - { name: ariaLabel, label: アクセシビリティ用ラベル, type: string }
           - name: images
             label: 補足画像
             type: object
