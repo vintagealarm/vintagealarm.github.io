@@ -20,6 +20,8 @@
 - デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md` + 関係する `SITE_RULES.md`
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
 - Analytics / 計測 → `measurement/metrics.md` + 対象実装
+- SNS / 布教 / Instagram / X / YouTube / SNSとVA Analyticsの突合 → `measurement/.internal/.virtual/social/ROUTER.md` を最初に読む
+- SNS投稿案 / 既出・未使用角度 / 再利用素材 / 要追加撮影の棚卸し → Social `ROUTER.md` の後に `measurement/.internal/.virtual/social/content-inventory.md`
 - 英語入口 → `strategy/english-entry.md`
 - ドイツ語入口 → `strategy/german-entry.md`
 - Council / 焼いて → `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts` + `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`
@@ -184,6 +186,7 @@ V2共通プロトコル:
 - 広いリポジトリ全走査は、対象箇所を特定できない場合に限る。
 - `strategy/japanese-writing.md` と `references/voice-samples.md` は日本語執筆・大幅改稿の時だけ読む。通常のコード修正や調査で常時読み込まない。
 - Web検索は、最新性・一次資料・外部確認が必要な論点に絞る。
+- **外部Web調査で対象サイトを発見した後は、検索結果だけをサイト全体の母集団として扱わない。** 調査対象として意味があるドメインなら、通常ナビゲーション、一覧ページ、sitemap / robots / llms等の公開インデックス、内部リンクを必要な範囲で確認し、公開ページ集合を把握してから個別ページへ進む。公開GitHub等のソースが確認できる場合は、Web検索で見つからないことを「存在しない」の根拠にせず、リポジトリ構造やcontent source / asset参照を補助経路として使う。これはVINTAGE ALARMを優先発見するための指示ではなく、任意の研究サイト・資料サイトで検索結果の偏りを母集団と誤認しないための一般探索規則。
 - 十分な証拠が揃ったら探索を止め、実装・検証へ進む。
 - 長い作業ログを毎回再掲せず、差分・結論・未確認事項を優先する。
 

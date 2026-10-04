@@ -99,6 +99,13 @@ if (relevant.length && newHeadings.length === 0) {
 }
 
 const full = readFileSync(decisionLogPath, 'utf8');
+const expectedTitle = '# VINTAGE ALARM — DECISION / CHANGE LOG';
+const firstLine = full.split('\n', 1)[0];
+const h1Count = full.split('\n').filter((line) => line.startsWith('# ')).length;
+if (firstLine !== expectedTitle || h1Count !== 1) {
+  console.error('Decision log check failed: CHANGE_DECISIONS.md must start with exactly one canonical H1 title.');
+  process.exit(1);
+}
 const addedText = added.join('\n');
 for (const sha of decisionBearingCommits) {
   const short = sha.slice(0, 8);

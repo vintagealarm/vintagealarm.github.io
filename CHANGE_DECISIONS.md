@@ -1,3 +1,44 @@
+# VINTAGE ALARM — DECISION / CHANGE LOG
+
+この文書は「いつ・何を・なぜ変えたか」を人間が時系列で追うための台帳です。Gitのcommit履歴を置き換えるものではなく、仕様判断・棄却理由・再検討条件を短く残します。
+
+## 記録ルール
+
+- 日時は **JST (UTC+09:00)**、`### YYYY-MM-DD HH:mm JST — ...` 形式で記録する。
+- 現行仕様・判断・方針・棄却候補が変わる変更は、実装と同じbranch / PR内で必ずここへ追記する。未記録のまま完了・VERIFIED扱いしない。
+- 各新規項目は最低限 **変更 / 理由 / 旧状態・棄却 / 影響範囲 / 検証状態 / 関連 / 日時根拠** を残す。
+- GitHub時刻を日時根拠にする場合は、元のUTC時刻とJST換算を `2026-09-23T06:28:13Z → 2026-09-23 15:28 JST` の形で併記し、CIで換算を検証する。
+- PR完了前にmerge-base以降のcommit / changed filesと本台帳を突合し、判断変更の未記録が0件であることを確認する。
+- 単なるtypo、依存更新、意味を変えない整形など、後から判断経緯を追う価値がない変更は記録不要。ただしdecision-bearingなパスを変更するPRで例外を使う場合は、PR本文に `Decision-Log: not-required — <理由>` を明示する。
+- `PROJECT_STATE.md` は「今どうなっているか」、このファイルは「いつ・なぜそうなったか」を担当する。現在値を両方へ長文で重複させない。
+- 過去履歴も可能な範囲で遡及復元する。日時はGit commit / PRを第一根拠とし、保存済み会話・Project資料・スクリーンショット等を突合して判断理由を補う。確認できない日時・理由だけ「未復元」とし、推測では埋めない。
+
+---
+
+## 2026-10-04
+
+### 2026-10-04 19:07 JST — 正本・履歴・外部探索の横断矛盾を修復
+
+- **変更**：①AGENTSのstartup routingへSNS / Social Routerを復元、②PROJECT_STATEのHOW THEY RING FIG.01を現行「輪状の音バネ」へ訂正、③PR #152のsite traversal一般探索規則と外部AI観測をcurrent main基準で救出、④AIO再現テストの「公開済み5 WATCH」を「measurement target 5 WATCH（公開6本とは別）」へ訂正、⑤CHANGE_DECISIONSのH1より前に新規項目が積まれる構造崩れを修復し、checkerへcanonical H1先頭・単一H1の検査を追加、⑥PR #113で未着地だった2026-09-23の時刻訂正と欠落判断を現行形式で回収した。#157は#159 merge後の競合状態を踏まえ、一時的にdraftへ戻してcurrent-main追従後にready判定する。
+- **理由**：正本・実装・履歴・作業キューを突合すると、公開実装は「輪状」なのにPROJECT_STATEだけ「棒状」、公開WATCHは6本なのにAIOログの現行再現テストだけ「公開済み5」、PROJECT.mdではSNS Router必須なのにAGENTS上段routingにはSNS行がない、decision log自身がH1より前へ追記されてもCIが通る、という複数のdriftが同時に残っていた。さらにsite traversalの重要な再発防止策と9/23履歴補修が古い競合PRへ取り残されていた。
+- **旧状態・棄却**：各正本の重複記述を目視だけで同期する運用、検索結果だけを対象サイト全体の母集団とみなす探索、歴史保存のためだけに古いfixをopen PRへ残し続ける運用を棄却する。公開6本とmeasurement target 5本を同一概念へ戻さない。
+- **影響範囲**：AGENTS.md、PROJECT_STATE.md、strategy/seo-aio.md、measurement/aio-observation-log.md、scripts/check-decision-log.mjs、CHANGE_DECISIONS.md、PR #157のreview state。公開WATCH本文・OWNER'S NOTE・HOW THEY RING実装・音源・Analytics集計ロジックは変更しない。
+- **検証状態**：GitHub mainのHOW THEY RING localizationsでJA「輪状の音バネ」、EN ring-shaped、DE ringförmigを確認。PROJECT_STATEの公開6本 / measurement target 5本を確認。PR #152 / #113のdiffを現mainと照合し、古い状態をそのままmergeせず必要差分だけ再適用した。branch CIでdecision-log構造・quality gate・buildを通した後にmerge可否を判定する。
+- **関連**：commits `e59eaa2a`, `5049b540`, `7763ae78`, `00f6bf2c`, `671824fb`, `7a493759`; rescue元 PR #152 / #113; active PR #157。
+- **日時根拠**：GitHub commit `7a4937598fc8b4c90e69b9c86323e61d4532a298` 2026-10-04T10:07:02Z → 2026-10-04 19:07 JST。
+
+#### 2026-09-23 backfill（PR #113から現行形式へ救出）
+
+- 15:59 JST — GONGの表示を「棒状の音ばね」へ変更した判断。翌9/25に「輪状の音バネ」へ再修正され、現在は失効。commit `b0a9f9358b7e52581f94d8d3d9f4a33c682c4238`。
+- 16:07 JST — Pages本番deployで進行中runをcancelせず後続をqueueする運用へ変更。commit `02a98c87dca02ea60db0f0bf487d58a4bd0ada79`。
+- 16:21 JST — 公開変更時にbuild / live / layout / workflowの旧仕様まで回帰監査するルールを必須化。commits `d89d559d93f8f4fc6fe8bce21b6218647beb8e70`, `bbc731545d4505ca67e91965e24b49ca511c8235`。
+- 16:25 JST — HOW THEY RINGを共通section menuへ追加。後日、日本語メニュー表示だけ「音で見る」へ変更。commit `8c59094e6549d1468ba5c82b81fe8cc1d83c7787`。
+- 16:56 JST — 公開変更を1 deploy単位で原子的に扱う運用へ変更。commit `2ece305039e5ce2fb94963ccf46a80b65f6fc779`。
+- 21:22 JST — llms / schemaとHOW THEY RING操作導線を最小拡張。commit `23db671fe28bbe84834587342688bec286391261`。
+- 22:17 JST — Analytics AI URL relay v2のrange / bucket / sampling表示境界を確定。関連commit群は旧PR #113の履歴を参照。
+- 22:29 JST — HOW THEY RINGの録音条件を iPhone 16 / 約20 cm / unprocessed と公開注記化。commit `462feded4fbe0adb7c37dbaf4b33d7fc4f5fec55`。
+- 22:57 JST — GONG / CASEBACK selectorのベル＋TAP装飾をactive側だけに限定。commit `cfc67d3c42adacefd90c22b461a2a17b8cef7132`。
+
 ### 2026-10-04 18:45 JST — open PRの作業キューを整理
 
 - **変更**：open PR 14件を再監査し、#13 / #45 / #59 / #62 / #65 / #88 / #105 / #109 / #127 をcloseして履歴へ退避。#135 / #147 / #152 は有効な未merge情報を含むが現行mainと競合するためdraft化。#113は未反映の時刻訂正を含むhistorical repairとしてdraft保持。#157は現行SNS作業としてreadyのまま維持。
@@ -17,34 +58,6 @@
 - **起点・帰属**：探索と「01=Davoine 1970を1点、03=代用品なし、本物が出た時だけ再判定」という採用判断はユーザー。AIはGitHub現行状態と公開Webで証拠境界を再確認し正本化。
 - **関連**：Deep Dive ① / ③ / ③b、Davoine 1970、JSH No.2 mars-avril 1958、DIJU、Worldtempus 2003。
 - **日時根拠**：current local time source 2026-10-04T13:06:48+09:00 = 2026-10-04 13:06 JST。
-
-### 2026-10-03 14:30 JST — ARSA Deep Dive ⑤を完了し、AS1475を「platform→branches」で閉じる
-
-- **変更**：⑤AS1475と変貌種をPASS 1 COMPLETE / CLOSING FRAME FIXEDへ移行。AS1475の通常alarm普及をbaselineに、Park-O-Phonのparking UI、ARSA / Enicar / BEATのtactile UI、AS1568 date派生、AS1930 / 1931高振動後継、Citizen / Poljot等のdirectly-based descendantsを、単線進化ではなくplatformからの分岐として整理した。
-- **理由**：Project資料でAS1475が1954–1970・約780,000個の大量普及caliberであること、AS1568 / 1930 / 1931のfamily relation、Benedict Park-O-PhonのAS1475ベース、Citizen / Poljotへの直接的な基礎関係が確認できたため。④で固定したtactile UI差を、この普及platform史へ戻すことでARSAの固有性を「unique caliber」ではなく「mass-market platform上のaccessibility interface」として位置づけられる。
-- **旧状態・棄却**：⑤NEXTを終了。「通常alarm→Park-O-Phon→tactile→AS1930」という単線の製品系譜としては扱わない。parking / tactileはparallel adaptation、AS1568 / 1930 / 1931はcaliber-family development、Citizen / Poljotは別メーカーのdirectly-based relationとして分離する。Citizen license説・Soviet transfer経路は一次資料未確認のため確定しない。
-- **影響範囲**：research/ARSA_BLIND_ALARM_RESEARCH_MAP.md、research/ARSA_BLIND_ALARM_LEDGER.md、本判断履歴。公開WATCH本文は変更しない。
-- **検証状態**：Project資料 The Alarm Wrist Watch / Alarm am Arm のAS1475 family、Benedict Park-O-Phon、通常採用例、Citizen / Poljot記述を確認。WebはRanfft、Museum of Arts and Crafts Zagreb、Grail Watchのparking-watch記述で補助突合。factory production ledger / transfer一次資料はOPEN。
-- **起点・帰属**：VA標準研究frameの⑤「caliber / platformと変貌種」に従い、ユーザーが④完了後に⑤へ進むよう指定。AIがplatform→branchesとして証拠関係を整理。
-- **関連**：Deep Dive ①–④、購入個体ARRIVAL SUPPLEMENT、AS1475 early/late alarm-state test。
-- **日時根拠**：直前main commit b6824ddcのGitHub時刻 2026-10-03T05:30:51Z → 2026-10-03 14:30 JST を本作業開始基準として記録。
-
-# VINTAGE ALARM — DECISION / CHANGE LOG
-
-この文書は「いつ・何を・なぜ変えたか」を人間が時系列で追うための台帳です。Gitのcommit履歴を置き換えるものではなく、仕様判断・棄却理由・再検討条件を短く残します。
-
-## 記録ルール
-
-- 日時は **JST (UTC+09:00)**、`### YYYY-MM-DD HH:mm JST — ...` 形式で記録する。
-- 現行仕様・判断・方針・棄却候補が変わる変更は、実装と同じbranch / PR内で必ずここへ追記する。未記録のまま完了・VERIFIED扱いしない。
-- 各新規項目は最低限 **変更 / 理由 / 旧状態・棄却 / 影響範囲 / 検証状態 / 関連 / 日時根拠** を残す。
-- GitHub時刻を日時根拠にする場合は、元のUTC時刻とJST換算を `2026-09-23T06:28:13Z → 2026-09-23 15:28 JST` の形で併記し、CIで換算を検証する。
-- PR完了前にmerge-base以降のcommit / changed filesと本台帳を突合し、判断変更の未記録が0件であることを確認する。
-- 単なるtypo、依存更新、意味を変えない整形など、後から判断経緯を追う価値がない変更は記録不要。ただしdecision-bearingなパスを変更するPRで例外を使う場合は、PR本文に `Decision-Log: not-required — <理由>` を明示する。
-- `PROJECT_STATE.md` は「今どうなっているか」、このファイルは「いつ・なぜそうなったか」を担当する。現在値を両方へ長文で重複させない。
-- 過去履歴も可能な範囲で遡及復元する。日時はGit commit / PRを第一根拠とし、保存済み会話・Project資料・スクリーンショット等を突合して判断理由を補う。確認できない日時・理由だけ「未復元」とし、推測では埋めない。
-
----
 
 ## 2026-10-03
 
@@ -70,6 +83,17 @@
 - **起点・帰属**：投稿頻度を落として1本あたりの質を上げる判断と「ログはその真偽の審議用」という指摘はユーザー。Decision→Evidence接続の不足指摘は宮廷道化師formatでAIが提示し、ユーザーが採用。外部資料の再確認と正本への実装はAI。
 - **関連**：`measurement/.internal/.virtual/social/ROUTER.md`、`measurement/.internal/.virtual/social/instagram-operations.md`、`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`measurement/.internal/.virtual/social/instagram-published-copy.md`、`measurement/experiment-log.md`、`measurement/metrics.md`。
 - **日時根拠**：会話ターンのローカル時刻 `2026-10-03T15:56+09:00` = `2026-10-03 15:56 JST`。
+
+### 2026-10-03 14:30 JST — ARSA Deep Dive ⑤を完了し、AS1475を「platform→branches」で閉じる
+
+- **変更**：⑤AS1475と変貌種をPASS 1 COMPLETE / CLOSING FRAME FIXEDへ移行。AS1475の通常alarm普及をbaselineに、Park-O-Phonのparking UI、ARSA / Enicar / BEATのtactile UI、AS1568 date派生、AS1930 / 1931高振動後継、Citizen / Poljot等のdirectly-based descendantsを、単線進化ではなくplatformからの分岐として整理した。
+- **理由**：Project資料でAS1475が1954–1970・約780,000個の大量普及caliberであること、AS1568 / 1930 / 1931のfamily relation、Benedict Park-O-PhonのAS1475ベース、Citizen / Poljotへの直接的な基礎関係が確認できたため。④で固定したtactile UI差を、この普及platform史へ戻すことでARSAの固有性を「unique caliber」ではなく「mass-market platform上のaccessibility interface」として位置づけられる。
+- **旧状態・棄却**：⑤NEXTを終了。「通常alarm→Park-O-Phon→tactile→AS1930」という単線の製品系譜としては扱わない。parking / tactileはparallel adaptation、AS1568 / 1930 / 1931はcaliber-family development、Citizen / Poljotは別メーカーのdirectly-based relationとして分離する。Citizen license説・Soviet transfer経路は一次資料未確認のため確定しない。
+- **影響範囲**：research/ARSA_BLIND_ALARM_RESEARCH_MAP.md、research/ARSA_BLIND_ALARM_LEDGER.md、本判断履歴。公開WATCH本文は変更しない。
+- **検証状態**：Project資料 The Alarm Wrist Watch / Alarm am Arm のAS1475 family、Benedict Park-O-Phon、通常採用例、Citizen / Poljot記述を確認。WebはRanfft、Museum of Arts and Crafts Zagreb、Grail Watchのparking-watch記述で補助突合。factory production ledger / transfer一次資料はOPEN。
+- **起点・帰属**：VA標準研究frameの⑤「caliber / platformと変貌種」に従い、ユーザーが④完了後に⑤へ進むよう指定。AIがplatform→branchesとして証拠関係を整理。
+- **関連**：Deep Dive ①–④、購入個体ARRIVAL SUPPLEMENT、AS1475 early/late alarm-state test。
+- **日時根拠**：直前main commit b6824ddcのGitHub時刻 2026-10-03T05:30:51Z → 2026-10-03 14:30 JST を本作業開始基準として記録。
 
 ### 2026-10-03 14:28 JST — ARSA Deep Dive ④触読alarm比較を完了し⑤AS1475変貌史へ進める
 
@@ -542,11 +566,14 @@
 - **関連**：commit `33ce28c95e282e6dd8829f6f92b09ca2f6cd90fb`
 - **日時根拠**：GitHub commit 2026-09-23 11:35:14 JST。判断内容は保存済み会話と突合済み。
 
-### 2026-09-23 13:28 JST — TOPにHOW THEY RING入口を追加
+### 2026-09-23 15:28 JST — TOPにHOW THEY RING入口を追加
 - **変更**：OWNER'S NOTES直下にHOW THEY RING入口を配置し、TOP表示をCMSスイッチで管理。
 - **理由**：独立した音・鳴らし方の入口としてTOPから到達可能にするため。
+- **旧状態・棄却**：TOPからHOW THEY RINGへ直接入れない状態。旧見出し時刻13:28 JSTはUTC→JST換算ミスとして棄却。
+- **影響範囲**：TOPのHOW THEY RING入口と本判断履歴。後続のページ内容・分類・音源はこの項目では変更しない。
+- **検証状態**：対象commitsのGitHub UTC時刻を再取得し、両commitが15:28 JST帯であることを確認。
 - **関連**：commits `84a478a7b7d731ffab655a41f3ec41175e7689c1`, `b6d1f80c9ea9402156cc7e529fa351f97420ad6c`
-- **日時根拠**：GitHub commit 13:28 JST、保存済み会話の指示時刻 15:28 JSTも確認。実装時刻を採用。
+- **日時根拠**：GitHub commits 2026-09-23T06:28:13Z → 2026-09-23 15:28 JST、2026-09-23T06:28:20Z → 2026-09-23 15:28 JST。
 
 ### 2026-09-23 15:31 JST — Cricketの詳細呼称を「振動板型」に変更
 - **変更**：FIG.02を「膜状バック型」から「振動板型」へ変更。
@@ -637,13 +664,14 @@
 
 ## 2026-09-23
 
-### 2026-09-23 19:01 JST — GitHub運用：現在状態と変更履歴を分離
+### 2026-09-23 18:58 JST — GitHub運用：現在状態と変更履歴を分離
 - **変更**：`CHANGE_DECISIONS.md` を新設し、仕様・判断・方針・棄却候補の変更をJST日時付きで追跡する運用へ変更。PROJECT_STATE / AGENTSの完了条件・起動ルーティングにも組み込んだ。
 - **理由**：「今どうなっているか」だけでなく「いつ・何を・なぜ変えたか」をGitHubだけで追跡可能にし、会話履歴への依存と旧仕様復活を減らすため。
-- **旧状態・棄却**：PROJECT_STATEへ現在仕様と一部の理由を集約するだけの運用。時系列の判断履歴としては不足するため廃止。
+- **旧状態・棄却**：PROJECT_STATEへ現在仕様と一部の理由を集約するだけの運用。時系列の判断履歴としては不足するため廃止。旧見出し時刻19:01 JSTはcommit時刻と不一致のため棄却。
 - **影響範囲**：GitHub作業運用・PROJECT_STATE・AGENTS。サイト表示変更なし。
-- **検証状態**：PR #91をmainへmerge後、`CHANGE_DECISIONS.md` / `PROJECT_STATE.md` / `AGENTS.md` をmainから再取得し、相互参照を確認済み。
+- **検証状態**：PR #91をmainへmerge後、`CHANGE_DECISIONS.md` / `PROJECT_STATE.md` / `AGENTS.md` をmainから再取得し、相互参照を確認済み。今回commit時刻も再取得した。
 - **関連**：PR #91 / commit `51b60433dc6b40fdded3d9d9aec770b373f67107`
+- **日時根拠**：GitHub commit 2026-09-23T09:58:06Z → 2026-09-23 18:58 JST。
 
 ### 2026-09-23 18:55 JST — HOW THEY RING：2分類の判断理由を履歴化
 - **変更**：GONG / CASEBACK の2分類を採用した理由、FIG.02–04をCASEBACK内部の代表例とする設計、個体カードへ詳細分類を持ち込まない方針を `PROJECT_STATE.md` に明文化。
