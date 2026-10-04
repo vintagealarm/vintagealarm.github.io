@@ -1086,6 +1086,6 @@
 - **旧状態・棄却**：PR #166の旧実装は、存在しないMP4パス `/videos/pierce-duofon/pierce-duofon-wecker-signal-switch.mp4` と古いmainを前提にしているため、そのままmergeする運用を棄却し、最新mainへ必要差分だけを救出する。別素材 `/videos/pierce-duofon/time-alarm-winding.mov` は3時位置リューズによる時計側 / アラーム側の巻き上げ切替用として保持し、今回の「動画で見る」には使用しない。
 - **影響範囲**：`src/content/watches/pierce-duofon.md`、`src/components/DeepDive.astro`、`src/content.config.ts`、`.pages.yml`、Pierce DuofonのEN / DEローカライズ。既存静止画①〜⑤、資料本文、OWNER'S NOTE、WATCH上段のYouTube / X、他WATCHの表示は変更しない。
 - **検証状態**：branch `feat/duofon-deep-video` に実装済み。CI / build / mobile layout / main merge / liveの動画要素・asset URL確認が完了するまでVERIFIED / DEPLOYEDとはしない。MOV内部codecの全ブラウザ互換性は現時点では未確認。
-- **関連**：PR #166（superseded予定）、PR #171（動画ファイル名整理）、main asset `public/videos/pierce-duofon/wecker-signal-switch.mov`、2026-10-05ユーザー指示「じゃああとはサイトに　動画で見るを埋め込むのは任せて平気だな？」。
+- **関連**：PR #166（superseded）、PR #171（動画ファイル名整理）、PR #172。実装commit `142bb4e5241d3c442255e6348c26b94a042aae33` / `52d8f5e8c084bb1539a65a053139cf6bb382f438` / `45f3fd46c6307df9c5fee0d39ddd75257296a620` / `48e1d770a84f31d865c3b380b42e8fd5b40a7ffb` / `4eb1209c895d8028aacd6dc33b32b1e4f6de4b0e` / `633ceebfe57596b87d0e99b3345ff9d7af0d3343`。main asset `public/videos/pierce-duofon/wecker-signal-switch.mov`、2026-10-05ユーザー指示「じゃああとはサイトに　動画で見るを埋め込むのは任せて平気だな？」。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T08:30:16+09:00` → `2026-10-05 08:30 JST`。
 
