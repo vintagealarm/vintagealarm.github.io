@@ -1,3 +1,13 @@
+### 2026-10-04 18:45 JST — open PRの作業キューを整理
+
+- **変更**：open PR 14件を再監査し、#13 / #45 / #59 / #62 / #65 / #88 / #105 / #109 / #127 をcloseして履歴へ退避。#135 / #147 / #152 は有効な未merge情報を含むが現行mainと競合するためdraft化。#113は未反映の時刻訂正を含むhistorical repairとしてdraft保持。#157は現行SNS作業としてreadyのまま維持。
+- **理由**：「履歴を残す」と「現在の作業キューに置く」が混在し、数百commit behindのbranchや後続実装済みPRまで未完了作業に見えていたため。
+- **旧状態・棄却**：古いPRを履歴保存だけの理由でopenのまま残す運用を棄却する。
+- **影響範囲**：GitHub PR lifecycleのみ。公開サイト・WATCH本文・Analytics・SNSデータ・runtimeは変更しない。
+- **検証状態**：整理後のopen PRは #157 / #152 / #147 / #135 / #113 の5件。#135 / #147 / #152 / #113はdraft、#157はready。#88は現行mainでDuofonのWECKER / SIGNAL二音源が実装済み、#105は「公開WATCH 6本 / measurement target 5本」が現行正本化済みであることを個別確認。
+- **関連**：上記PR群。
+- **日時根拠**：PR #152 draft化後のGitHub `updated_at=2026-10-04T09:45:43Z` → `2026-10-04 18:45:43 JST`。見出しは分単位へ丸めた。
+
 ### 2026-10-04 13:06 JST — ARSA 01/03のperiod-image採用条件を固定
 - **変更**：1956–60のARSA Blind Alarm本人を名指し／図示する広告・catalog・price listは未回収として03のperiod-image探索をHOLDへ移し、代用品広告を入れない方針を固定した。01では1970 DavoineのA. Reymond社広告を1点だけ使い、blind watchesとalarm wristwatchesが同時に企業specialtyとして掲げられていた会社レベル証拠に限定する。1958年3–4月号JSH No.2のA. Reymond 60周年記事は存在確認済みだが本文未取得のため、Blind Alarm掲載有無はOPENのままbonus archiveへ置く。
 - **理由**：商品本人を示す1950年代一次画像がない状態で、通常ARSA alarm、非alarm tactile watch、AFB、Enicar等を近似広告として03へ置くと、本人資料と誤認させる。03は実機・専門書・本文だけで成立しており、period adは発見時のupgradeであってcompletion blockerではない。
