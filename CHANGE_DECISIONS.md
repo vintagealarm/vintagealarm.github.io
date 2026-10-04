@@ -1052,3 +1052,13 @@
 - **検証状態**: PR #156 の `Astro foundation check` run `37159180757` がSUCCESS。`check:social-inventory` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。main反映後に再取得確認する。
 - **関連**: 2026-10-04 07:33 JST ユーザー訂正「候補までは分類したまま出して俺と相談して決めるべきでは？提示せずにやったのが間違い」。関連commit: `b1b6f4c6` / `6f661980` / `decb1865` / `80735994` / `c7e8f7ed` / `743b0890` / `c67c2341` / `a22142c8` / `ca15c351`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 07:33 JST（UTC+09:00）。
+
+### 2026-10-05 07:23 JST — Pages CMS mainにWATCH動画アップロード領域を追加
+- **変更**：Pages CMSの `.pages.yml` に `WATCH動画` media library を追加し、mainブランチのCMSからMP4を `public/videos` へアップロードできるようにする。
+- **理由**：2026-10-05 07:23 JSTのユーザー提供スクリーンショットで、Pages CMSが `main` を選択中で、Media欄には `images` と `アラーム音源` しか表示されていないことを確認した。Pierce Duofon機構動画のアップロードだけのために作業branchを選ばせるより、既存CMSのmain側に常設の動画アップロード領域を置く方が既存運用と一致する。
+- **旧状態・棄却**：動画アップロード時に `feature/pierce-duofon-switch-video` へ切り替えさせる運用を棄却する。通常の動画素材アップロードはmainのCMSから行い、掲載コードの変更は別PRで管理する。
+- **影響範囲**：Pages CMSのMedia欄のみ。公開サイト本文、WATCH表示、動画の掲載位置、既存画像・音源管理は変更しない。
+- **検証状態**：branch `fix/cms-watch-video-upload` に実装。PR / CI / main反映後、Pages CMSのmainで `WATCH動画` が表示されることを確認するまでVERIFIEDとはしない。
+- **関連**：実装commit `b3397364a8f4e825105fba1ad08c7952800950de`、2026-10-05ユーザー提供Pages CMSスクリーンショット。
+- **日時根拠**：ユーザー提供スクリーンショットの端末表示 `7:23` と当セッション日付 `2026-10-05` から、`2026-10-05 07:23 JST` とした。
+
