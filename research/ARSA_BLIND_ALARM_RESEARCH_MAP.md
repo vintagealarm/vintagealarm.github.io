@@ -194,6 +194,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - around 1956にARSA Blind Alarm / AS1475、1958掲載個体を専門書で確認
    - **AS1475 core:** 25.94 mm / 5.8 mm / 17J / 18,000 A/h / 2 barrels / hand-wound clock + alarm / ca.40 h / alarm 10–15 s / 1954–1970
    - standard AS1475ではupper crown = alarm、lower crown = clockwork。ARSAではlower ~4 crownの中央pusherがfront cover openerを兼ねる
+   - **1967 period ARSA cross-check:** SwisstimeのARSA hunter pocket watchでもwinding crown上のbuttonでcoverを開く仕様を確認。したがってcrown-integrated cover releaseはBlind Alarmでaccessibilityに有効な構造だが、**accessibility専用に発明されたとは扱わない**。同一case / supplier / 直接系譜は未証明
    - ARSAについて専門書は、current timeだけでなく**set alarm timeも触って確認し、2時側alarm crownで再設定できる**と明記
    - AS1475自体はdirect central seconds対応だが、ARSA Blind Alarmではseconds handを省略。直接触読の邪魔を避ける用途adaptation
    - tactile UIはraised hour points + robust hour/minute hands + separate alarm hand + opening front cover。購入個体では12時3点、太い時分針、細いpatterned alarm pointer、9時hinge、4時crown-integrated pusherを画像確認
@@ -316,7 +317,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 **サイト用の主眼:** 「同じAS1475を積んだ似た時計」ではなく、**同じ accessibility requirement に対して、各社が針・目盛・蓋・操作子へ別々の触覚UIを与えた**比較にする。
 
 ### P2 — AS1475 platformと変貌種
-**状態:** ACTIVE / CLOSING CHAPTER
+**状態:** PASS 1 COMPLETE / CLOSING FRAME FIXED
 
 最低限:
 - 通常のAS1475 alarm wristwatchとしての普及
@@ -330,7 +331,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 ### P3 — BONUS / CONTEXT archive
 **状態:** NON-BLOCKING
 
-- **JSH No.2, mars-avril 1958 — A. Reymond 60周年記事本文**。存在確認済み、本文未取得。Blind Alarmを名指し／図示する場合のみ03へ昇格
+- **JSH No.2, mars-avril 1958 — A. Reymond 60周年記事本文**。1958年通年スキャンはThe Watch LibraryでPublic Domain / 822 pagesまで確認済み。記事本文は未取得。Blind Alarmを名指し／図示する場合のみ03へ昇格
 - AFB↔ARSA supplier / purchase order / invoice / correspondence
 - Mémoires d'Ici 1948 / 1973全文
 - Smithsonian MG.306619.07
