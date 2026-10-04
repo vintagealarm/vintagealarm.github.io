@@ -3596,3 +3596,96 @@ AFB Archiveのwatch-program repair receipts / Katherine Gruber correspondence、
 - 1956–60年のARSA Blind Alarm本人を写真・型名・説明付きで示す広告／カタログ／価格表は、今回の再検索でも未回収。
 
 **Editorial consequence:** 03へ代用品広告を入れない。1970 Davoineは01の会社背景、1958 JSHは本文取得までOPEN、ARSA Blind Alarm本人のperiod paperだけを03候補とする。
+### 2026-10-04 22:15 JST — AFB archive scans / journal OCR / Swiss private-label control
+
+#### 1. 1950 AFB internal memo — Elginを直接指名
+
+**Source item:** https://archive.org/details/image-1_20221021_1543
+
+**Direct scan:** https://archive.org/download/image-1_20221021_1543/Image.jpg
+
+**Archive metadata:** `AFB Archive Box: AFB-PHOT-005`, `Folder: EVENTS 1950: Braille Watches Presented to Veterans, photo 102985`, `Box: AFB-RES-032`
+
+**Evidence class:** PERIOD-PRIMARY / AFB INTERNAL MEMO / DIRECT BRAND IDENTIFICATION.
+
+AFB `INTER-OFFICE CORRESPONDENCE`、K. GruberからMr. Barnett宛、1950年9月15日。
+
+**Original:**
+> `The Foundation has received its first request to present a braille dial Elgin pocket watch to a Korean casualty - Sergeant First Class Edward Sanders, totally blind, presently hospitalized at Letterman Hospital in San Francisco.`
+>
+> `Before I write to the Commanding Officer of Letterman concerning details of such presentations, it seems wise to have the Executive Committee of the Trustees go on formal record approving such a continued policy for the blinded casualties of this emergency. As I recall it, the last official action of the Foundation specified "service-connected blinded men of World War II".`
+
+**Natural Japanese translation:**
+> 「財団は、朝鮮戦争で負傷した人へ点字文字盤付きElgin懐中時計を贈る最初の依頼を受けた。対象者は全盲で、サンフランシスコのLetterman病院に入院しているEdward Sanders一等軍曹である。」
+>
+> 「この種の贈呈の詳細について病院司令官へ連絡する前に、今回の非常事態で失明した負傷者に対しても同じ方針を継続することを、理事会執行委員会が正式に承認・記録するのが適切だと思う。記憶では、財団の直近の正式措置は『第二次大戦で軍務により失明した男性』を対象としていた。」
+
+**Consequence / boundary:** 朝鮮戦争向けprogramの最初の記録依頼ではElgin pocket watchが指定された。当該recipient / trancheはARSAではない。ただし、この1件からAFB program全体、1955–63年、後年のSwiss importsをElgin製と一般化しない。`AFB-RES-032` は今後のsupplier / procurement照会で使える具体的box番号になった。
+
+#### 2. *Outlook for the Blind*, October 1955 — Gotham / AFB catalogの同時代証言
+
+**Source:** *Outlook for the Blind*, vol.49 no.8, October 1955, printed p.308
+
+**URL:** https://archive.org/details/sim_journal-of-visual-impairment-blindness_1955-10_49_8/page/n37/mode/1up
+
+**Article:** `Letter from a Young Blind Man`, addressed to Charles G. Ritter, Consultant, Aids and Appliances, AFB
+
+**Evidence class:** PERIOD-PRIMARY USER LETTER IN AFB JOURNAL / CATALOG TESTIMONY / NOT THE CATALOG ITSELF.
+
+**Original:**
+> `At one time in the Ziegler, there was mention of the Gotham self-winding watches for somewhere around $23.00. The Gotham was not listed in the catalog, in fact, no self-winding watches were mentioned. I wonder if they have been discontinued. ... Our finest department store here in the city has a few braille watches, but no men's wrist watches. They are going to write to Gotham and some other company about the self-winding watches. I know I will get my watch from AFB, however.`
+
+**Natural Japanese translation:**
+> 「以前『Ziegler』で、23ドル前後のGotham自動巻時計が紹介されていた。ところがGothamはカタログに載っておらず、そもそも自動巻時計の記載がないので、販売中止になったのか知りたい。地元の百貨店には点字時計が少しあるが、男性用腕時計はない。百貨店はGothamほかへ問い合わせる予定だが、自分はAFBから買うつもりだ。」
+
+**Consequence / boundary:** 1955年時点の利用者が、AFBから時計を購入する意図とAFB catalogの不掲載状態を同時に記録している。Gothamは同時代候補名だが、AFB supplierまたはAFB販売品だったことを証明しない。alarm watch / ARSAとも結びつかない。
+
+#### 3. AFB journal OCR cross-search — 1955–61
+
+Internet Archiveで公開された *Outlook for the Blind* / *New Outlook for the Blind* の1955–61年各号OCRを横断検索した。検索語は `ARSA`、`A. Reymond`、`Auguste Reymond`、`braille watch`、blind/watch近接、Swiss/watch近接、repeater、alarm watch。
+
+- ARSA / Reymondの指名記載は回収されなかった
+- 1958–61年の該当箇所は、会議・旅行・スピーチ中にbraille watchで時刻を確認する等の一般的使用例で、maker / supplierを特定しない
+- 1959年1月号にはNational Institute for the Blindで特殊時計を開発した人物への言及があるが、ARSAではない
+
+**Evidence class:** PRIMARY PERIODICAL SEARCH NEGATIVE / CORPUS-LIMITED. これは検索した公開号における陰性であり、AFB archive、catalog、invoice、未公開号からの不存在を意味しない。
+
+#### 4. Smithsonian `MG.306619.07` — ca.1973 AFB Braille Watch set
+
+**Official object page:** https://americanhistory.si.edu/collections/object/nmah_727327
+
+**Object ID:** `MG.306619.07`
+
+**Hero image:** https://ids.si.edu/ids/deliveryService?id=NMAH-AHB2014q089912
+
+**Guarantee image:** https://ids.si.edu/ids/deliveryService?id=NMAH-AHB2009q11452
+
+**Evidence class:** PERIOD-PRIMARY OBJECT / LATER CONTROL / AFB PRIVATE-LABEL SWISS SUPPLY.
+
+Official metadataはca.1973、made in Switzerland、credit line American Foundation for the Blind。公開6画像を確認すると、箱に `AMERICAN FOUNDATION FOR THE BLIND, INC.` / AFB logo / `Quality Watches`、文字盤にAFB logo / `17 JEWELS` / `SWISS`、保証書に `AFB Braille Watch Guarantee` がある。
+
+保証書の判読可能部分:
+> `AFB watches are made in Switzerland, for the Foundation ...`
+>
+> `Every AFB watch is covered by a LIFETIME GUARANTEE against defects in material and workmanship, provided the watch has received normal use and care.`
+
+**Natural Japanese translation:**
+> 「AFBの時計は財団向けにスイスで製造されている。すべてのAFB時計は、通常の使用と手入れがなされていることを条件に、材料・製造上の欠陥に対する生涯保証の対象となる。」
+
+**Consequence / boundary:** 1973年頃にAFB private-labelのSwiss OEM supplyが存在したことは物証で確認できる。maker名、ARSA、A. Reymond名はない。1955–63年program終了後のlater controlであり、AFB→ARSAの証拠にもARSA Blind Alarmの帰属資料にも昇格させない。
+
+#### 5. Mémoires d'Ici — exact archive request route
+
+- `D-00454 Auguste Reymond SA`: https://collections.m-ici.ch/detail.aspx?ID=38759 — physical location `300-A-4`
+- `D-11140 Arsa : 1898-1948`: https://collections.m-ici.ch/detail.aspx?ID=38762 — André Marcel、1948年、図版入り35頁
+
+両recordはpublic-access catalog metadataまで確認したが、本文scan / attachmentはない。内容を読んだとは扱わず、archive staffへのrequest targetとして保持する。
+
+#### 6. Current outcome
+
+- **Direct AFB→ARSA documentation: OPEN / NOT RECOVERED**
+- **1950 first Korean-war request: Elgin pocket watch CONFIRMED**
+- **ca.1973 AFB private-label Swiss supply: CONFIRMED / MAKER OPEN**
+- 次のarchive requestは `AFB-RES-032`、Katherine Gruber correspondence、braille-watch repair / procurement receipts、1955–63 catalogs、ARSA / A. Reymond / Tramelan名を指定する
+- 新しい資料はAFB programの供給者線を限定するがARSA本人を直接指名しないため、Deep Dive 03と公開WATCH本文は更新しない
+- 既知Uhrforum Venus 230はKNOWN / DUPLICATE / HOLDのまま。新発見として再提示しない

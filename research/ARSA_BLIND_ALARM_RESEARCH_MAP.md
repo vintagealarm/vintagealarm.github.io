@@ -327,9 +327,9 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 ### P3 — BONUS / CONTEXT archive
 **状態:** NON-BLOCKING
 
-- AFB↔ARSA supplier / purchase order / invoice / correspondence
-- Mémoires d'Ici 1948 / 1973全文
-- Smithsonian MG.306619.07
+- AFB↔ARSA supplier / purchase order / invoice / correspondence。公開スキャンでは `AFB-RES-032` を具体的な照会先として特定
+- Mémoires d'Ici `D-00454 Auguste Reymond SA`（所在 `300-A-4`）、`D-11140 Arsa : 1898-1948`（35頁）の全文
+- Smithsonian `MG.306619.07` — **INSPECTED / ca.1973 AFB private-label Swiss set / NO ARSA NAME**
 - AFB 1973 International Catalog
 - War Production Board “BRAILLE WATCHES: Correspondence 1945”
 
@@ -585,3 +585,47 @@ Deep Dive 04で、1958年時点の非alarm触読時計にもhand-shape codingと
 APH公式 `The Gift of Time`、AFB公式 *The Unseen Minority* Chapter 17 / 21、公開検索可能なcatalog / archive / supplier資料を再確認したが、**AFB→ARSA / A. Reymondの直接資料は未回収**。generic Swiss imports、repair program、Aids and Appliances事業からARSA supplier関係を推論しない。
 
 **Current state:** DIRECT AFB→ARSA LINK OPEN / BROWSER-ACCESSIBLE PRIMARY DOCUMENT NOT FOUND。archive staffへのfolder-level照会または1955–63 catalog実物が出た時だけ再開する。
+
+
+## 2026-10-04 22:15 JST — AFB公開アーカイブを再開、Elgin一次資料でsupplier laneを限定
+
+### AFB Korean War program — PERIOD-PRIMARY / DIRECT BRAND IDENTIFICATION
+
+Internet Archive上のAPH Migel Collectionで、AFB Archive `AFB-RES-032` / `AFB-PHOT-005` に由来する1950年9月15日付Katherine Gruber内部メモを実見した。朝鮮戦争で失明した最初の対象者Edward Sanders一等軍曹への贈呈品を **`a braille dial Elgin pocket watch`** と明記する。
+
+**状態:** FIRST KOREAN-WAR REQUEST = ELGIN / NOT ARSA.
+
+この資料が確定するのは1950年の当該依頼と、その前提となる軍務失明者向け贈呈方針だけである。AFBの全年度・全モデルをElgin製と一般化しない。後年のSwiss supplyやARSA関与の可能性も否定しない。
+
+### AFB journal search — 1955–61
+
+AFBの *Outlook for the Blind* / *New Outlook for the Blind* の公開OCR（1955–61年分）をARSA / A. Reymond / Auguste Reymond / braille watch / alarm / Swiss等で横断確認した。
+
+- ARSA / A. Reymondの指名記載は0件
+- 1955年10月号、印刷p.308の読者書簡は、Gotham自動巻時計が以前 *Ziegler* に掲載された一方、当時のAFB catalogにはGothamもself-winding watchも見当たらない、と記す
+- その他はbraille watchの一般的使用例で、supplier / makerを特定しない
+
+**状態:** PUBLICATION SEARCH NEGATIVE FOR ARSA / LIMITED TO SEARCHED ISSUES. 書簡は利用者の同時代証言でありcatalog現物ではない。GothamをAFB supplierとして確定せず、alarm watchとも結びつけない。
+
+### Smithsonian `MG.306619.07` — later AFB private-label control
+
+ca.1973のAFB Braille Watch setを6画像で確認。箱と文字盤はAFB mark、保証書は `AFB Braille Watch Guarantee` で、AFB向けにSwiss製造されたことを記す。maker / ARSA / A. Reymond名はない。
+
+**状態:** PERIOD-PRIMARY OBJECT / LATER CONTROL / PRIVATE-LABEL SWISS SUPPLY CONFIRMED / ARSA OPEN.
+
+これは1955–63年watch program終了後の比較資料であり、ARSAへの遡及帰属には使わない。Deep Dive 03への反映条件を満たさない。
+
+### Mémoires d'Ici — exact request targets
+
+- `D-00454 Auguste Reymond SA` — 所在 `300-A-4`
+- `D-11140 Arsa : 1898-1948` — André Marcel、1948年、図版入り35頁
+
+どちらもcatalog metadataは公開されるが、本文スキャンの添付はない。現時点では内容証拠でなく、archive照会先として保持する。
+
+### Current routing
+
+- **AFB→ARSA direct supplier link: OPEN**
+- **1950 Korean War first request: ELGIN CONFIRMED**
+- 次の照会は `AFB-RES-032`、Katherine Gruber correspondence、repair / procurement receipts、1955–63 catalogsを指定する
+- 既知Uhrforum Venus 230はKNOWN / DUPLICATE / HOLDのまま。新発見として再提示しない
+- ARSA本人を名指すperiod-primary evidenceではないため、Deep Dive 03と公開本文は変更しない

@@ -15,6 +15,29 @@
 
 ---
 
+## 2026-10-04
+
+### 2026-10-04 22:15 JST — AFB一次資料で1950年Elginを確定し、ARSA supplier探索をbox単位へ限定
+
+- **変更**：APH Migel CollectionのAFB内部メモ（1950-09-15、Katherine Gruber、`AFB-RES-032`）を実見し、朝鮮戦争で失明した最初の対象者への贈呈品が `a braille dial Elgin pocket watch` だったことをperiod-primary / direct brand evidenceとして追加した。AFB機関誌1955–61年分を横断しARSA / Reymond指名がないこと、1955年読者書簡にGotham自動巻と当時のAFB catalog不掲載の証言があること、Smithsonian `MG.306619.07` がca.1973のAFB private-label Swiss setであることも研究台帳へ追加した。
+- **理由**：前回の公開browser passではAFB watch-programの一般史までしか到達しなかったが、今回の公開archive scanは特定の配布回・brand・archive boxを同時に確定する一次資料であり、supplier探索をgeneric AFBから `AFB-RES-032` / Gruber correspondence / procurement recordsへ狭められるため。
+- **旧状態・棄却**：`BROWSER-ACCESSIBLE PRIMARY DOCUMENT NOT FOUND` はAFB program一般については更新する。ただし **direct AFB→ARSA document not found** は継続する。1950年の1件から全AFB watchesをElgin製とする一般化、1973年のSwiss private-label setをARSA製とする帰属、1955年書簡からGothamをAFB supplierとする推論はいずれも棄却する。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴のみ。`src/content/watches/arsa-blind-alarm.md`、Deep Dive 03、公開WATCH本文、main/liveは変更しない。
+- **検証状態**：1950年AFB memo原画像、関連presentation photo metadata、1955年10月号印刷p.308、1955–61年AFB機関誌OCR、Smithsonian objectの公開6画像と保証書、Mémoires d'Iciのcatalog recordを実見。ARSA / A. Reymondを指名するAFB一次資料は未回収でOPEN。
+- **起点・帰属**：継続調査指示はユーザー。AIが公開archive / catalog / object imagesを抽出・突合した。既知Uhrforum Venus 230は新発見として再提示していない。
+- **関連**：AFB Archive `AFB-RES-032` / `AFB-PHOT-005`、Katherine Gruber correspondence、Smithsonian `MG.306619.07`、Mémoires d'Ici `D-00454` / `D-11140`。
+- **日時根拠**：ローカル実行時刻 `2026-10-04 22:15:32 +09:00` = `2026-10-04 22:15 JST`。
+
+### 2026-10-04 22:19 JST — private ARSA branchの既存実装commitを判断履歴へ遡及接続
+
+- **変更**：本branchの既存decision-bearing commitのうち、後続の判断記録はあるがcommit番号が明記されていなかった12件を、decision-log検査用に本項へ遡及接続した。
+- **理由**：`check:decision-log` はmainとのmerge-base以降について、判断ログを同時更新しなかった実装commitを新規判断項目の関連欄から参照することを要求する。今回の研究更新後の全branch検査で既存欠落が検出されたため。
+- **旧状態・棄却**：既存のprivate shell / preview / noindex / deep-dive prose / Japanese-style scan / Venus 230 comparisonの判断内容は変更しない。欠落を今回のAFB調査判断へ混在させる案は棄却し、traceability修復を独立項目にした。
+- **影響範囲**：本判断履歴のcommit traceabilityのみ。コード、公開本文、研究結論、main/liveは変更しない。
+- **検証状態**：`origin/main..HEAD` の各commitをdecision-bearing path規則で再走査し、対象12件を抽出した。追記後に `scripts/check-decision-log.mjs` を再実行する。
+- **関連**：`b8437a76`、`99f5c187`、`a9faf415`、`5b24cc77`、`8d597634`、`d04f0b17`、`09148495`、`449ed6cd`、`126e5f16`、`29198202`、`df1f902c`、`ae8eaae5`。
+- **日時根拠**：ローカル実行時刻 `2026-10-04 22:19:40 +09:00` = `2026-10-04 22:19 JST`。
+
 ## 2026-10-03
 
 ### 2026-10-03 21:44 JST — 1958 JSH本文を実見し03直結候補を陰性確定、Hy Moserを04比較証拠へ追加
@@ -39,7 +62,7 @@
 - **検証状態**：Project資料 The Alarm Wrist Watch / Alarm am Arm のAS1475 family、Benedict Park-O-Phon、通常採用例、Citizen / Poljot記述を確認。WebはRanfft、Museum of Arts and Crafts Zagreb、Grail Watchのparking-watch記述で補助突合。factory production ledger / transfer一次資料はOPEN。
 - **起点・帰属**：VA標準研究frameの⑤「caliber / platformと変貌種」に従い、ユーザーが④完了後に⑤へ進むよう指定。AIがplatform→branchesとして証拠関係を整理。
 - **関連**：Deep Dive ①–④、購入個体ARRIVAL SUPPLEMENT、AS1475 early/late alarm-state test。
-- **日時根拠**：直前main commit b6824ddcのGitHub時刻 2026-10-03T05:30:51Z = 2026-10-03 14:30 JST を本作業開始基準として記録。
+- **日時根拠**：直前main commit b6824ddcのGitHub時刻 2026-10-03T05:30:51Z → 2026-10-03 14:30 JST を本作業開始基準として記録。
 
 
 ### 2026-10-03 14:28 JST — ARSA Deep Dive ④触読alarm比較を完了し⑤AS1475変貌史へ進める
@@ -813,35 +836,35 @@
 
 ### 2026-10-03 14:43 JST — ARSA Blind Alarmの本番非公開ページシェルをbranch previewとして作成
 
-- **変更:** `src/content/watches/arsa-blind-alarm.md` を `published: false` で追加し、既存 `WatchPage` 構造に沿うOWNER'S NOTE / SPEC / DEEP DIVE 01–05のページシェルを作成した。確認用に `/lab/arsa-blind-alarm/` をbranch内だけに追加し、仮画像を配置した。
-- **理由:** 研究本文・実機写真・到着後実測が未確定でも、公開本文を先走らずに既存WATCHと同じ画面構成・章順を先に確認できるようにするため。
-- **旧状態・棄却:** ARSAには研究MAP / LEDGERのみがありWATCHページ実装はなかった。本番公開用 `published: true` 化、OWNER'S NOTEの本番キャッチ確定、公開導線追加は行わない。
-- **影響範囲:** branch `feat/arsa-blind-alarm-private-shell` のみ。通常WATCH routeは `published: false` のため生成対象外。preview routeでは `noindex, nofollow, noarchive` を付与するため `WatchPage.astro` にpreview flagを追加したが、既存WATCHの既定値は `false` で表示・SEO挙動を変えない。
-- **検証状態:** GitHub上でdraft content / preview route / placeholder assetの存在を確認済み。build・実寸表示・branch preview deployは未検証。
-- **関連:** `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md` / `src/content/watches/arsa-blind-alarm.md` / `src/pages/lab/arsa-blind-alarm.astro`
-- **日時根拠:** 最初のシェル変更commit群の最終commit `5c69600cf67c908ce19a055da4f17aa8d3fbb3af` のGitHub timestamp `2026-10-03T05:43:32Z` → `2026-10-03 14:43 JST`。
+- **変更**：`src/content/watches/arsa-blind-alarm.md` を `published: false` で追加し、既存 `WatchPage` 構造に沿うOWNER'S NOTE / SPEC / DEEP DIVE 01–05のページシェルを作成した。確認用に `/lab/arsa-blind-alarm/` をbranch内だけに追加し、仮画像を配置した。
+- **理由**：研究本文・実機写真・到着後実測が未確定でも、公開本文を先走らずに既存WATCHと同じ画面構成・章順を先に確認できるようにするため。
+- **旧状態・棄却**：ARSAには研究MAP / LEDGERのみがありWATCHページ実装はなかった。本番公開用 `published: true` 化、OWNER'S NOTEの本番キャッチ確定、公開導線追加は行わない。
+- **影響範囲**：branch `feat/arsa-blind-alarm-private-shell` のみ。通常WATCH routeは `published: false` のため生成対象外。preview routeでは `noindex, nofollow, noarchive` を付与するため `WatchPage.astro` にpreview flagを追加したが、既存WATCHの既定値は `false` で表示・SEO挙動を変えない。
+- **検証状態**：GitHub上でdraft content / preview route / placeholder assetの存在を確認済み。build・実寸表示・branch preview deployは未検証。
+- **関連**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md` / `src/content/watches/arsa-blind-alarm.md` / `src/pages/lab/arsa-blind-alarm.astro`
+- **日時根拠**：最初のシェル変更commit群の最終commit `5c69600cf67c908ce19a055da4f17aa8d3fbb3af` のGitHub timestamp 2026-10-03T05:43:32Z → 2026-10-03 14:43 JST。
 
 
 ### 2026-10-03 16:02 JST — ARSA Blind Alarm非公開シェルへDeep Dive 01–05本文を実装
 
-- **変更:** `src/content/watches/arsa-blind-alarm.md` の仮置きDeep Dive 01–05を、ARSA会社史 → 触読時計の需要背景 → ARSA Blind Alarm本人 → 他社触読alarm比較 → AS1475 platform→branchesの全文へ置換した。各段落へ既存研究LEDGERの証拠境界を反映し、14件のsource register / citationRefsを追加した。
-- **理由:** ①〜⑤のPASS 1調査が完了し、到着後実測をblockerにせず、現在確定できる研究本文を非公開previewで通読できる段階に進んだため。
-- **旧状態・棄却:** 各章は「本文は研究完了後に実装」のplaceholderのみだった。戦争→ARSA開発の直接因果、AFB gift program→ARSA発注の同一視、ARSA/Enicar/BEAT共通完成ケース、ARSA固有の慢性故障、Citizenの確定ライセンス、AS1475変貌種の一本道系譜は本文へ採用しない。
-- **影響範囲:** branch `feat/arsa-blind-alarm-private-shell` の非公開ARSA draftのみ。`published: false`、OWNER'S NOTEのdraft copy、実機写真placeholder、main / live siteは変更しない。
-- **検証状態:** GitHubへの本文実装は完了。source境界は研究MAP / LEDGERに照合済み。build / Japanese style check / 実寸preview表示はこのcommit時点では未検証。
-- **関連:** `src/content/watches/arsa-blind-alarm.md` / `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md`
-- **日時根拠:** ユーザー指示時点のlocal time `2026-10-03T16:02+09:00` を使用。
+- **変更**：`src/content/watches/arsa-blind-alarm.md` の仮置きDeep Dive 01–05を、ARSA会社史 → 触読時計の需要背景 → ARSA Blind Alarm本人 → 他社触読alarm比較 → AS1475 platform→branchesの全文へ置換した。各段落へ既存研究LEDGERの証拠境界を反映し、14件のsource register / citationRefsを追加した。
+- **理由**：①〜⑤のPASS 1調査が完了し、到着後実測をblockerにせず、現在確定できる研究本文を非公開previewで通読できる段階に進んだため。
+- **旧状態・棄却**：各章は「本文は研究完了後に実装」のplaceholderのみだった。戦争→ARSA開発の直接因果、AFB gift program→ARSA発注の同一視、ARSA/Enicar/BEAT共通完成ケース、ARSA固有の慢性故障、Citizenの確定ライセンス、AS1475変貌種の一本道系譜は本文へ採用しない。
+- **影響範囲**：branch `feat/arsa-blind-alarm-private-shell` の非公開ARSA draftのみ。`published: false`、OWNER'S NOTEのdraft copy、実機写真placeholder、main / live siteは変更しない。
+- **検証状態**：GitHubへの本文実装は完了。source境界は研究MAP / LEDGERに照合済み。build / Japanese style check / 実寸preview表示はこのcommit時点では未検証。
+- **関連**：`src/content/watches/arsa-blind-alarm.md` / `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md`
+- **日時根拠**：ユーザー指示時点のlocal time `2026-10-03T16:02+09:00` = `2026-10-03 16:02 JST` を使用。
 
 
 ### 2026-10-03 16:33 JST — ARSA Deep Diveの日本語監査をやり直し、frontmatter本文の監査抜けを修正
 
-- **変更:** ARSA Blind Alarm Deep Dive 01–05を日本語ガイドと公開WATCHの文体例に照らして再監査し、ユーザー指摘の保険文・作業メモ的説明・購入個体の列挙を削除、需要背景の総括文を事実ベースへ書き直した。あわせて `scripts/check-japanese-style.mjs` がfrontmatterだけで構成されるWATCH本文をsentence warningの対象から落としていた不具合を修正し、回帰テストを追加した。
-- **理由:** 直前の全文実装ではJapanese style checkを未実行のままユーザー監査へ渡していた。また既存checkerではWATCH本文の文末・文長等の監査が実質0文になる場合があった。
-- **旧状態・棄却:** 本文中の監査メモ、未確認事項を説明するためだけの保険文、購入個体の画像確認事項と到着後TODOの列挙を棄却。frontmatter-only WATCHを十分に監査できているという前提も棄却した。
-- **影響範囲:** branch `feat/arsa-blind-alarm-private-shell` の `src/content/watches/arsa-blind-alarm.md`、`scripts/check-japanese-style.mjs`、`scripts/test-japanese-style.mjs`。ARSAは引き続き `published: false`。main / live siteは未変更。
-- **検証状態:** `npm run test:japanese-style` PASS。ARSA単体の `npm run check:japanese-style -- src/content/watches/arsa-blind-alarm.md` はPASS、warning 0。GitHub branchから取得した現行script / test / WATCH本文と同一内容のローカルfixtureで実行した。build / preview実寸表示は未検証。
-- **関連:** `src/content/watches/arsa-blind-alarm.md` / `strategy/japanese-writing.md` / `references/voice-samples.md` / `scripts/check-japanese-style.mjs` / `scripts/test-japanese-style.mjs`
-- **日時根拠:** current local time `2026-10-03T16:33:30+09:00`。
+- **変更**：ARSA Blind Alarm Deep Dive 01–05を日本語ガイドと公開WATCHの文体例に照らして再監査し、ユーザー指摘の保険文・作業メモ的説明・購入個体の列挙を削除、需要背景の総括文を事実ベースへ書き直した。あわせて `scripts/check-japanese-style.mjs` がfrontmatterだけで構成されるWATCH本文をsentence warningの対象から落としていた不具合を修正し、回帰テストを追加した。
+- **理由**：直前の全文実装ではJapanese style checkを未実行のままユーザー監査へ渡していた。また既存checkerではWATCH本文の文末・文長等の監査が実質0文になる場合があった。
+- **旧状態・棄却**：本文中の監査メモ、未確認事項を説明するためだけの保険文、購入個体の画像確認事項と到着後TODOの列挙を棄却。frontmatter-only WATCHを十分に監査できているという前提も棄却した。
+- **影響範囲**：branch `feat/arsa-blind-alarm-private-shell` の `src/content/watches/arsa-blind-alarm.md`、`scripts/check-japanese-style.mjs`、`scripts/test-japanese-style.mjs`。ARSAは引き続き `published: false`。main / live siteは未変更。
+- **検証状態**：`npm run test:japanese-style` PASS。ARSA単体の `npm run check:japanese-style -- src/content/watches/arsa-blind-alarm.md` はPASS、warning 0。GitHub branchから取得した現行script / test / WATCH本文と同一内容のローカルfixtureで実行した。build / preview実寸表示は未検証。
+- **関連**：`src/content/watches/arsa-blind-alarm.md` / `strategy/japanese-writing.md` / `references/voice-samples.md` / `scripts/check-japanese-style.mjs` / `scripts/test-japanese-style.mjs`
+- **日時根拠**：current local time `2026-10-03T16:33:30+09:00` = `2026-10-03 16:33 JST`。
 
 
 ### 2026-10-03 19:50 JST — ARSA Venus 230 / Uhrforum既知leadの再発見扱いを撤回し、再提示禁止へ変更
