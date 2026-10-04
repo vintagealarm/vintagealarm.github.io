@@ -74,8 +74,8 @@ Canonical WATCH: `src/content/watches/wittnauer-10wa.md`
 |---|---|---|---|---|---|---|---|
 | WIT-01 | 普通の時計に見える／第2リューズなし／ベゼルでアラーム設定 | USED | X_LINK_PRESENT_ANGLE_UNKNOWN | READY_EXISTING | READY_FROM_WATCH | OPERATION | Published copy first Reel + WATCH guide |
 | WIT-02 | Longinesベース説 vs 10S / AS1200部品共通性。ベースムーブメント未解決 | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | OPEN_QUESTION | RESEARCH | Published static 2026-10-03 + WATCH Deep 03 + Gallery `IMG_6609.jpeg` |
-| WIT-03 | 純正の三角錐リューズがケースへ半分隠れる | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | WATCH note + Gallery `IMG_2292.jpeg` + USER_KEEP 2026-10-04 |
-| WIT-04 | 9時側から見る「二階建て」ケース。すり鉢状で手首への収まりが良いのが掲載個体のポイント | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Gallery `IMG_2293.jpeg` + USER_OBSERVATION / USER_KEEP 2026-10-04 |
+| WIT-03 | 純正の三角錐リューズがケースへ半分隠れる。掲載個体では見た目ほど巻き上げにくくない | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | WATCH note + Gallery `IMG_2292.jpeg` + USER_OBSERVATION / USER_KEEP 2026-10-04 |
+| WIT-04 | 9時側から見る「二階建て」ケース。後方へすり鉢状に絞られて手首への収まりが良く、ケースより張り出す回転ベゼルまで含めて側面形状を見せる | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Gallery `IMG_2293.jpeg` + Horlbeck pp.152–153 + USER_OBSERVATION / USER_KEEP / USER_MERGE 2026-10-04 |
 | WIT-05 | ベゼル1操作でアラーム設定＋アラームゼンマイ巻上げ | PARTIAL | X_LINK_PRESENT_ANGLE_UNKNOWN | NEEDS_SHOOT | READY_FROM_WATCH | OPERATION | WATCH Deep 02 / guide |
 | WIT-06 | せっかくの裏スケでもアラーム機構は見えない。裏から見えるのは時刻側で、アラーム機構は文字盤側モジュール | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH note + Deep 03 + movement photo + USER_KEEP 2026-10-04 |
 | WIT-07 | 1952特許のslipping bridleと量産10WAの満巻き停止挙動の差 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | RESEARCH | WATCH Deep 04 / CH304088A |
@@ -195,9 +195,14 @@ Status:
 
 | Proposal ID | WATCH | Candidate / category | Relation | IG / Other social | Media | Verify | Video fit | Status | Source |
 |---|---|---|---|---|---|---|---|---|---|
-| PR-WIT-001 | Wittnauer 10WA | 純正三角錐リューズがケースに半分隠れる / DETAIL | OVERLAP → WIT-03 refinement | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | 実機macroで形状＋隠れ方を見せる | USER_KEEP | WATCH note + Gallery `IMG_2292.jpeg` + user confirmation 2026-10-04 |
+| PR-WIT-001 | Wittnauer 10WA | 純正三角錐リューズがケースに半分隠れる。掲載個体では見た目ほど巻き上げにくくない / DETAIL | OVERLAP → WIT-03 refinement | IG本文未使用候補 | READY_EXISTING | WATCH + USER_OBSERVATION | 実機macroで形状＋隠れ方＋実際の巻上げを見せられる | USER_KEEP | WATCH note + Gallery `IMG_2292.jpeg` + user observation / confirmation 2026-10-04 |
 | PR-WIT-002 | Wittnauer 10WA | 二階建てケース＋すり鉢状で手首への収まりが良い / DETAIL | SUPERSET → WIT-04 | IG本文未使用候補 | READY_EXISTING | WATCH_IMAGE + USER_OBSERVATION | 実機側面／装着で形状と収まりを見せる | USER_KEEP | Gallery `IMG_2293.jpeg` + user observation 2026-10-04 |
 | PR-WIT-003 | Wittnauer 10WA | 裏スケなのにアラーム機構は見えない / MECHANISM | OVERLAP → WIT-06 refinement | IG本文未使用候補。直近staticでmovement画像使用 | NEEDS_SHOOT | READY_FROM_WATCH | 裏スケ側を見せたまま鳴らす短編候補 | USER_KEEP | WATCH note + Deep 03 + user confirmation 2026-10-04 |
+| PR-WIT-004 | Wittnauer 10WA | クセのある数字インデックス。文献でもdesigner-watch的造形として評価 / DETAIL | NEW | IG本文未使用候補 | READY_EXISTING | READY_FROM_SOURCE | 正面macroだけで成立 | AI_PROPOSED | WATCH note + Horlbeck pp.21,153 |
+| PR-WIT-005 | Wittnauer 10WA | 波打つアラーム針／独特なhand design / DETAIL | NEW | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | 正面macroだけで成立 | AI_PROPOSED | WATCH note + Horlbeck modular-caliber discussion |
+| PR-WIT-006 | Wittnauer 10WA | ケースより張り出す回転ベゼル＋後方へ絞るケース形状 / DETAIL | MERGE → WIT-04 | ベゼル操作自体は初回IGで使用済み | READY_EXISTING | READY_FROM_SOURCE | 独立投稿にせずWIT-04の側面形状へ統合 | USER_MERGE | Horlbeck pp.152–153 + user decision 2026-10-04 |
+| PR-WIT-007 | Wittnauer 10WA | Wittnauer最初のアラーム腕時計 / HISTORY | NEW | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | 省エネ歴史枠として提示したが不採用 | USER_DROP | WATCH Deep 02 + user decision 2026-10-04 |
+| PR-WIT-008 | Wittnauer 10WA | 文献値5–7秒 vs 掲載個体実測 / EXPERIMENT | NEW | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_SOURCE | 実測比較案として提示したが不採用 | USER_DROP | Horlbeck p.152 + user decision 2026-10-04 |
 | PR-CYM-001 | CYMA Time-O-Vox 18K Chronomètre | 2プッシャーで1本のリューズの役割を切替 / OPERATION | OVERLAP → CYM-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機側面。上push→巻上げ／下push→alarm設定を短く見せる | AI_PROPOSED | WATCH guide + CYM-02 |
 | PR-CYM-002 | CYMA Time-O-Vox 18K Chronomètre | 鳴動中は巻上げ側が切れてリューズが回らない / MECHANISM | OVERLAP → CYM-04 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機を鳴らし、リューズ側を固定撮影 | AI_PROPOSED | WATCH Deep 05 + CYM-04 |
 | PR-CYM-003 | CYMA Time-O-Vox 18K Chronomètre | 両プッシャー中央でON／どちらかを押すとOFF / OPERATION | SUBSET → CYM-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機側面で中央→片側pushの変化だけ見せる | AI_PROPOSED | WATCH guide |
