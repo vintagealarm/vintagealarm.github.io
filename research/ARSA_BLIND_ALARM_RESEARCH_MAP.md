@@ -18,6 +18,7 @@
 ### ① 作った会社 — Auguste Reymond / ARSA
 - 会社史、Tramelanでの製造、alarm watchとblind / tactile watch双方の製品能力
 - ARSA自身のcatalog / trade ad / company historyを優先
+- **01 period image:** 1970 DavoineのA. Reymond社広告を1点使用。blind watchとalarm wristwatchが同じ企業specialty欄に並ぶ会社レベル証拠として使い、Blind Alarm本人の広告とは扱わない
 - AFBや米国流通は、ARSAとの直接接続が取れる時だけ会社史の主線へ入れる
 
 ### ② 需要背景 — なぜ触読できる腕時計／アラームが必要だったか
@@ -27,6 +28,7 @@
 - **背景史はARSA Blind Alarmを理解するためのCONTEXT**。1945 WPBや1970年代AFB流通そのものを研究目的へしない
 
 ### ③ ARSA Blind Alarmそのものについて分かっていること
+- **03 period image gate:** 1956–60のARSA Blind Alarm本人を名指し／図示する広告・catalog・price listは未回収。近似ARSA / AFB / Enicar等を代用品広告として入れない。1950年代一次資料で本人を確認できた時だけ画像採用を再判定
 - AS 1475 / 17J
 - raised tactile hour markers、太い時分針、独立alarm hand、秒針なし
 - hinged front cover、ARSA型の4時クラウン内蔵opener、購入個体では9時側hingeを画像確認
@@ -178,6 +180,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - 1960sにはTramelan最大級の雇用主、1972 merger後も1973にblind watchesを製造品目として確認
    - **サイト用の主眼:** ARSAは「盲人用時計だけの会社」ではなく、finished watchesを広く作る大規模メーカーの中に tactile watch と alarm watch の両系統があった
    - **残る一次資料穴:** 1948 company brochure本文、1973 75周年資料本文、1954–55 alarm introductionのperiod primary
+   - **1958 JSH No.2:** A. Reymond 60周年記事の存在は確認。本文未取得のためBlind Alarm掲載有無はOPEN。現時点では01/03のblockerにしない
 2. **需要背景 — DEEP DIVE ② PASS 1 COMPLETE 2026-10-03**
    - 触読時計の発想は少なくとも1887年のtouch-readable watch特許まで遡り、第一次大戦より前から存在
    - WWIではSt Dunstan's / 現Blind Veterans UKが、失明軍人のrehabilitationと自立の象徴として触読時計を利用
@@ -327,6 +330,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 ### P3 — BONUS / CONTEXT archive
 **状態:** NON-BLOCKING
 
+- **JSH No.2, mars-avril 1958 — A. Reymond 60周年記事本文**。存在確認済み、本文未取得。Blind Alarmを名指し／図示する場合のみ03へ昇格
 - AFB↔ARSA supplier / purchase order / invoice / correspondence
 - Mémoires d'Ici 1948 / 1973全文
 - Smithsonian MG.306619.07
@@ -410,9 +414,10 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 3. **③時計本人 — PASS 1 COMPLETE / ARRIVAL SUPPLEMENT PENDING** — mechanism / controls / tactile UI / failure map / model variation / purchased specimenまで整理。到着後にhands / read-back / opener / early-late alarm-stateを実測追記
 4. **③b 設計思想 / 設計資料 — PASS 2 COMPLETE / ARCHIVE BONUS ONLY** — factory design documentは未回収。source-labeled requirement reconstructionを採用し、archive本文取得時のみ再開
 5. **④触読alarm比較 — PASS 1 COMPLETE** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBをhand coding / opener / read-back / source tierで比較済み
-6. **⑤AS1475と変貌種 — NEXT** — 普及AS1475 → Benedict Park-O-Phon → tactile alarm adaptations → caliber family / direct descendantsの順でclosing materialを作る
+6. **⑤AS1475と変貌種 — PASS 1 COMPLETE / CLOSING FRAME FIXED** — AS1475を「特殊時計用caliber」ではなく、1954–1970に約78万個作られた普及platformとして起点化。通常alarm → Benedict Park-O-Phonのparking UI → ARSA / Enicar / BEAT等のtactile UI → date派生AS1568 → 高振動後継AS1930 / 1931 → Citizen / Poljot等のdirectly based descendantsまで、同じ機構骨格が別用途・別地域へ展開した流れを固定
 7. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
-8. AFB契約書、Smithsonian、WPB等は、上記1〜6の未解決を直接埋める場合だけ再開する
+8. **03のperiod-ad探索はHOLD。** ARSA Blind Alarm本人を名指し／図示する1950年代広告・catalog・price list、または1958 JSH本文が取れた時だけ再開する
+9. AFB契約書、Smithsonian、WPB等は、上記1〜6の未解決を直接埋める場合だけ再開する
 
 ---
 
