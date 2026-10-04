@@ -2078,3 +2078,22 @@ SIGNALでは、打撃ピンが打撃位置から外れ、ハンマーはゴン�
 ### Status
 - **WORKING_DRAFT_USER / NOT PUBLISHED / NOT YET PROMOTED TO instagram-published-copy.md**
 - 次稿ではこの原稿と実動画を起点にし、旧AI草案へ巻き戻さない。
+
+
+## 2026-10-05 08:44 JST — Assignment→Execution Brief→制作の引継ぎ層を追加
+
+### Decision
+- **Origin: USER + Council 1 correction.** ユーザーが「今までの分析の意味は？ 棚卸はその視点でしてなかったの？」と指摘し、2ch Councilで、棚卸し自体ではなく **asset選択後に過去SNS分析を実制作へ渡す層が無い**ことを根本原因と裁定。
+- **Pipeline**: `Content Inventory → Content Assignment → Execution Brief → storyboard / caption → publish → Published Copy / Insights` とする。
+- **No inventory bloat**: 過去に撤回した全assetへのMicro treatment固定化は復活させない。Execution BriefはUSER_CONFIRMEDでactive化したcontentだけに作り、asset棚は「何を持っているか」の軽量索引のまま維持する。
+- **Brief inputs**: 実素材を最優先に、既存Published Copyの既出訴求、Operations / Insightsの関連学習、WATCH / researchの事実、最新ユーザー訂正を今回のcontent IDへ束ねる。
+- **Media gate**: 実素材未確認のPLANNEDはMEDIA_PENDINGを許すがcaption / storyboardをfinal扱いしない。SHOT / EDITED / SCHEDULEDはMEDIA_VERIFIED必須。active Instagram assignmentにbriefがない状態は `check:social-inventory` で失敗させる。
+- **First application**: `MR-PIE-001` を最初のExecution Briefとして登録。左上のalarm mechanism、鳴動しながらのWECKER / SIGNAL切替、視覚＋音の同時変化、初回Duofon Reelとの既出衝突、文字盤無しという実素材境界を一つのbriefへ接続した。
+
+### Why this is different from the rejected 2026-10-03 Micro treatment model
+- 旧案は全assetへAIが見せ方を先回り確定し、棚自体を肥大化させた。
+- 新案はユーザーが選んだ**投稿contentだけ**に、実素材を確認したうえで制作判断を一時的／履歴的に束ねる。
+- KEEP済みassetは今後もpresentationを固定されない。別の物理mediaを選べば別content ID / 別Execution Briefで再評価できる。
+
+### Status
+**IMPLEMENTED ON ACTIVE PR #169 BRANCH / CI PENDING**
