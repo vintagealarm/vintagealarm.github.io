@@ -66,7 +66,7 @@
 - **影響範囲**: social content inventoryのCYMA候補棚。公開WATCH本文、既存投稿、Insightsは変更しない。
 - **検証状態**: branch social-rolling-candidate-shelfへ反映。PR #157のCIとmain反映は別途確認。
 - **関連**: user decision 2026-10-04 18:55 JST「10はkeep」。commit fd218180。
-- **日時根拠**: 2026-10-04T18:55:57+09:00。
+- **日時根拠**: system-provided user local time `2026-10-04T18:55:57+09:00` = `2026-10-04 18:55 JST`。
 
 ### 2026-10-04 18:45 JST — open PRの作業キューを整理
 
@@ -85,7 +85,7 @@
 - **影響範囲**: `measurement/.internal/.virtual/social/content-inventory.md` と `instagram-operations.md` のWittnauer candidate review。公開WATCH本文、OWNER'S NOTE、Published Copy、Insights、既存研究asset WIT-07（1952特許）/ WIT-08（1955 AS1475）は変更しない。
 - **検証状態**: branch `social-rolling-candidate-shelf` に反映。PR #157のquality gateを再確認し、main反映前にinventoryとdecision logを再取得する。
 - **関連**: user decision 2026-10-04 17:58 JST「６ 合体 ７８drop」。関連commit: `cd45eb8a` / `8ad67d99`。
-- **日時根拠**: system-provided user local time `2026-10-04T17:58+09:00`。
+- **日時根拠**: system-provided user local time `2026-10-04T17:58+09:00` = `2026-10-04 17:58 JST`。
 
 ### 2026-10-04 13:06 JST — ARSA 01/03のperiod-image採用条件を固定
 - **変更**：1956–60のARSA Blind Alarm本人を名指し／図示する広告・catalog・price listは未回収として03のperiod-image探索をHOLDへ移し、代用品広告を入れない方針を固定した。01では1970 DavoineのA. Reymond社広告を1点だけ使い、blind watchesとalarm wristwatchesが同時に企業specialtyとして掲げられていた会社レベル証拠に限定する。1958年3–4月号JSH No.2のA. Reymond 60周年記事は存在確認済みだが本文未取得のため、Blind Alarm掲載有無はOPENのままbonus archiveへ置く。
