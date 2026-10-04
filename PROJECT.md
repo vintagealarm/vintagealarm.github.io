@@ -148,6 +148,7 @@ GitHub UTC時刻を根拠にする場合、UTC原文とJST換算を併記する�
 - エラーは自力で原因特定・再試行できる範囲を先に処理する。
 - ユーザーが棄却した候補は、新証拠がない限り復活させない。
 - 過去のPR / branch / decision / 棄却案 / superseded案を、整理だけを理由に削除しない。active queueから外す必要がある場合は close / draft / superseded / HOLD 等で状態を分け、PR・commit・branch・decision logから「何を検討し、何を採用／棄却し、なぜそうしたか」を後から参照できる状態を保つ。closeは削除ではなく作業キューからの退避として扱う。
+- **active queueの判定はopen PRを第一基準にする。** branchが存在するだけでは「現在作業中」とみなさない。open PRに紐づくbranch、または会話・正本で明示的に作業中と指定されたbranchだけをactive扱いし、closed PRや孤立branchは履歴候補として参照する。
 
 ## 6. 回答前の強制チェック
 
