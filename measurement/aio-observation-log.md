@@ -246,9 +246,41 @@ VINTAGE ALARMは特に、Time-O-Voxのケース／ラグ差（完全な透かし
 
 この2種類を混ぜずに記録する。
 
+## 2026-10-03｜外部AI自己分析｜検索結果偏重とsite traversal欠落
+
+### 条件
+
+ユーザーが別AIにVINTAGE ALARM周辺の探索失敗を自己分析させ、その回答全文を本会話へ提示した。これはVINTAGE ALARM側が同一環境を直接再現した観測ではなく、**外部AI自身の説明 + ユーザー提示記録**として保存する。
+
+### 提示記録から確認できること
+
+- そのAIは通常検索から旧 orima1995-create.github.io/orima1995-creator.github.io 側のVINTAGE ALARMページへ入り、個別ページやNEXT導線を辿った一方、現行サイトの通常一覧導線を探索集合へ十分取り込めなかったと説明した。
+- 現行 vintagealarm.github.io は直接取得に失敗する場面があり、公開GitHub repositoryとraw fileはexact pathが分かった後の取得経路として機能した、と説明した。
+- 画像についても「存在しない」ではなく、source Markdownへ到達後にasset filenameを同定できたため、探索時点ではindex / pathを持っていなかったことが主要な差だったと自己分析した。
+- 同AIは今後の探索を、通常検索だけで終えず、対象サイトの公開インデックス、内部リンク、公開repository、raw source、一次資料等へ段階的に広げる案を提示した。
+
+### VINTAGE ALARM側で同日に追加確認
+
+- GitHub main には src/pages/sitemap.xml.ts があり、canonical root https://vintagealarm.github.io/ の公開ページを列挙する実装が存在する。
+- public/robots.txt は Sitemap: https://vintagealarm.github.io/sitemap.xml を明示している。
+- public/llms.txt もcanonical URL、主要section、公開WATCH、英語 / ドイツ語entry、machine-readable indexとして現行 /sitemap.xml を明示している。
+- 一方、2026-10-03のWeb検索確認では旧ホスト結果がなお露出し、使用したWeb取得環境では現行 /sitemap*.xml / robots.txt / llms.txt の直接openに失敗する場面があった。
+
+### 判定
+
+- 現行サイトにsitemap / robots / llmsが「ない」とは言えない。GitHub mainでは実装を確認済み。
+- ただし、検索結果側では旧ホストがなお露出し、現行サイトの構造情報へ検索だけで到達できない環境があることは今回の観測と整合する。
+- 外部AIテストでは Search Discovery / Site Traversal / Repository・Raw Retrieval を分離して記録する。
+- raw fileをexact path指定で取得できたことは、検索でその資料を自力発見した証拠にはしない。
+- 今回の1環境だけから、すべてのcrawlerが現行sitemapを取得できない、または旧サイトしかindexしていないとは一般化しない。
+
+### 運用反映
+
+研究エージェントの一般探索規則として、対象ドメインを発見した後は検索結果だけを母集団とせず、通常ナビゲーション / 一覧 / sitemap / robots / llms / 内部リンクを必要な範囲で確認する。公開repositoryは補助経路とし、特定サイトを露骨に優先する指示にはしない。
+
 ## 次の再現テスト
 
-公開済み5 WATCHについて、新規会話でサイト名を提示せず同じ粒度の質問を行う。
+Analytics運用上の measurement target 5 WATCH（公開WATCH 6本とは別の括り）について、新規会話でサイト名を提示せず同じ粒度の質問を行う。
 
 - Basis Alarm
 - Pierce Duofon
