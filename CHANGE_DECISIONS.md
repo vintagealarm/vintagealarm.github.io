@@ -1071,3 +1071,12 @@
 - **関連**：実装commit `1295fdbe5a7e8a8853940bcba36c43ccad7845c0`、2026-10-05ユーザー指示「Iphoneどうがであげれるようにしなさいよ」。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T07:37:29+09:00` → `2026-10-05 07:37 JST`。
 
+### 2026-10-05 08:18 JST — Pierce Duofon動画を用途別の恒久ファイル名へ整理
+- **変更**：iPhoneから直接アップロードされた `public/videos/IMG_2760.mov` と `public/videos/IMG_2767.mov` を、Pierce Duofon専用ディレクトリへ用途ベースの恒久名で整理する。対応は `public/videos/pierce-duofon/wecker-signal-switch.mov` = WECKER / SIGNAL鳴らし分け、`public/videos/pierce-duofon/time-alarm-winding.mov` = 3時位置リューズによる時計側 / アラーム側の動力巻き上げ切替。
+- **理由**：カメラ連番 `IMG_2760` / `IMG_2767` は内容を示さず、今後動画資産が増えた際にCMS・GitHub・WATCH実装から用途を判別できない。ブランド / モデル配下に機能名で整理し、将来の参照・再利用・差し替えを容易にする。
+- **旧状態・棄却**：iPhoneの元ファイル名を恒久的な公開資産名として残す運用を棄却する。元のblob内容は変更せず、Git上のパスだけを整理する。
+- **影響範囲**：`public/videos` 内のPierce Duofon動画2本のパスのみ。動画内容、公開WATCH本文、既存画像、音源、CMS設定は変更しない。
+- **検証状態**：branch `chore/video-filenames` で新パスへ同一blobを配置し、旧 `IMG_2760.mov` / `IMG_2767.mov` を削除済み。PR / CI / main反映後にmain treeで旧名消失・新名2本の存在を再確認するまでVERIFIEDとはしない。
+- **関連**：ユーザー指定「2760→Duofon鳴らしわけ」「2767→リューズによる動力巻き上げの変更」、rename commits `bdc3470169b75b8c0ad6490fb3dd6c802950624c` / `adc9385117578a3d184d9447da7f5ba135264da0` / `d4885cc6e691ecf7448b09968dcf4984e678b37f`。
+- **日時根拠**：当セッションのユーザーローカル時刻 `2026-10-05 08:18 JST`（UTC+09:00）。
+
