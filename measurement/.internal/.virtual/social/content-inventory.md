@@ -264,7 +264,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | X-CYM-TIMING | X | PUBLISHED | LEGACY_VERIFIED | VIDEO | CYM-03 | — | X:CYM-TIMING-WHEEL | WATCH Deep 04 |
 | YT-WES-20260914 | YOUTUBE | UNVERIFIED_PAST | LEGACY_VERIFIED | SHORT | WES-03 | WES-01 | YT:GWkY7hPO89E | experiment-log |
 
-| MR-PIE-001 | INSTAGRAM | PLANNED | USER_CONFIRMED | REEL | PIE-07 | PIE-05,PIE-06 | PIE:WECKER-SIGNAL-SWITCH-VIDEO | user selected Duofon function video as next post; media implementation tracked in PR #166 |
+| MR-PIE-001 | INSTAGRAM | PLANNED | USER_CONFIRMED | REEL | PIE-07 | PIE-05,PIE-06 | PIE:WECKER-SIGNAL-SWITCH-VIDEO | user selected Duofon function video as next post; current Reel media shows the internal alarm mechanism with no dial shot; USER_WORKING_DRAFT is recorded in instagram-operations; media implementation tracked in PR #166 |
 
 現在の新規active reservationは1件（MR-PIE-001）。Duofon機能動画を次の投稿として予約。
 
