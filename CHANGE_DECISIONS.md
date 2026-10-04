@@ -890,3 +890,13 @@
 - **検証状態**: branch social-rolling-candidate-shelfへ反映。PR #157のCIとmain反映は別途確認。
 - **関連**: user decision 2026-10-04 18:55 JST「10はkeep」。commit fd218180。
 - **日時根拠**: 2026-10-04T18:55:57+09:00。
+
+### 2026-10-04 18:59 JST — CYMA残肉3件採用と厚さ・リューズ扱いの確定
+- **変更**: CYM-10（Cymaflex耐震）、CYM-11（tone springの空間を確保する段付きムーブメント構造）を追加。双方向設定の小スパイラルスプリング機構はCYM-09へMERGE。CYM-04は掲載個体で鳴動中にリューズが回らないという直接観察をKEEP。
+- **理由**: ユーザーが3候補を全採用。掲載個体は裏スケ換装後のためケース厚・実寸を訴求に使わないよう指定。リューズ挙動は掲載個体の直接観察を優先。
+- **旧状態・棄却**: PR-CYM-007の『5.38mm高／薄い横顔』を掲載個体の厚さ訴求へ使う案を棄却。Cymaflexを未採用候補に留める案も棄却。
+- **資料衝突**: HorlbeckにはR.464でalarm release時にcrownが回る旨の記述がある。これを無理に整合させず、SNS棚では掲載個体のUSER_OBSERVATIONとして非回転を記録し、一般化しない。
+- **影響範囲**: social content inventory / instagram operations。公開WATCH本文、OWNER'S NOTE、既存投稿・Insightsは変更しない。
+- **検証状態**: branch `social-rolling-candidate-shelf` に反映。PR #157でCI再確認後、main反映は別途判断。
+- **関連**: user decision 2026-10-04 18:59 JST「全部採用」「厚さは裏スケ換装後なので実寸は避けたい」「リューズは回らないでいい」。関連commit `0e7e06bc`。
+- **日時根拠**: developer-provided local time `2026-10-04T18:59+09:00`。
