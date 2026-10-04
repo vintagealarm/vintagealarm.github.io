@@ -1080,3 +1080,12 @@
 - **関連**：ユーザー指定「2760→Duofon鳴らしわけ」「2767→リューズによる動力巻き上げの変更」、rename commits `bdc3470169b75b8c0ad6490fb3dd6c802950624c` / `adc9385117578a3d184d9447da7f5ba135264da0` / `d4885cc6e691ecf7448b09968dcf4984e678b37f`。
 - **日時根拠**：当セッションのユーザーローカル時刻 `2026-10-05 08:18 JST`（UTC+09:00）。
 
+### 2026-10-05 08:30 JST — Pierce DuofonのWECKER / SIGNAL実機動画をDEEP DIVEへ埋め込む
+- **変更**：Pierce DuofonのDEEP DIVE 02「Pierce Cal.135」で、既存の機構静止画①〜⑤の直後・1955年Pierce資料による用途説明の直前に、小見出し「動画で見る」とセルフホスト動画を追加する。動画は `/videos/pierce-duofon/wecker-signal-switch.mov` を使用し、`controls` / `playsinline` / `preload="metadata"`、自動再生なしとする。JA / EN / DEで同じ位置と意味を同期し、Pages CMSのDEEP DIVE編集欄からも動画ファイルを指定できるようにする。
+- **理由**：ユーザーが掲載個体のWECKER / SIGNAL切り替え時の実働を撮影し、既存の静止画①〜⑤の直後へ「動画で見る」として掲載する位置を明示した。静止画は機構の位置関係を分解して示し、動画は同じ機構の連続動作を実機で確認する役割として併用する。
+- **旧状態・棄却**：PR #166の旧実装は、存在しないMP4パス `/videos/pierce-duofon/pierce-duofon-wecker-signal-switch.mp4` と古いmainを前提にしているため、そのままmergeする運用を棄却し、最新mainへ必要差分だけを救出する。別素材 `/videos/pierce-duofon/time-alarm-winding.mov` は3時位置リューズによる時計側 / アラーム側の巻き上げ切替用として保持し、今回の「動画で見る」には使用しない。
+- **影響範囲**：`src/content/watches/pierce-duofon.md`、`src/components/DeepDive.astro`、`src/content.config.ts`、`.pages.yml`、Pierce DuofonのEN / DEローカライズ。既存静止画①〜⑤、資料本文、OWNER'S NOTE、WATCH上段のYouTube / X、他WATCHの表示は変更しない。
+- **検証状態**：branch `feat/duofon-deep-video` に実装済み。CI / build / mobile layout / main merge / liveの動画要素・asset URL確認が完了するまでVERIFIED / DEPLOYEDとはしない。MOV内部codecの全ブラウザ互換性は現時点では未確認。
+- **関連**：PR #166（superseded予定）、PR #171（動画ファイル名整理）、main asset `public/videos/pierce-duofon/wecker-signal-switch.mov`、2026-10-05ユーザー指示「じゃああとはサイトに　動画で見るを埋め込むのは任せて平気だな？」。
+- **日時根拠**：ChatGPT time取得値 `2026-10-05T08:30:16+09:00` → `2026-10-05 08:30 JST`。
+
