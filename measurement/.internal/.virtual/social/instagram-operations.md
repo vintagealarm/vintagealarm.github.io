@@ -2025,3 +2025,13 @@ Delta from 2026-10-03 10:18:
 - **Important distinction**: USER_KEEPはasset採用であって、次の投稿採用ではない。したがってWittnauerのKEEPを確定しても、次にCYMA / Pierce等を棚卸しして比較してよい。
 - **Wittnauer user-confirmed KEEP**: WIT-03＝純正三角錐リューズが半分隠れる、WIT-04＝二階建てケース＋すり鉢状で手首への収まりが良い、WIT-06＝裏スケなのにアラーム機構は文字盤側で見えない。WIT-06の動画案として「裏スケ側を見せたまま鳴らす」がユーザー提案。
 - **Status**: ACTIVE。新規PLANNEDはまだ0。
+
+## 2026-10-04 17:58 JST — Wittnauer 10WA candidate review: WIT-04統合、PR-WIT-007/008棄却
+
+### Decision
+- **User decision**: PR-WIT-006（ケースより張り出すベゼル形状）は独立assetにせずWIT-04へMERGE。WIT-04は二階建て／すり鉢状ケース＋手首への収まり＋張り出した回転ベゼルまでを一つの側面形状assetとして扱う。
+- **User decision**: PR-WIT-007（Wittnauer最初のアラーム腕時計）とPR-WIT-008（文献5–7秒 vs 掲載個体実測）はSNS candidate shelfからDROP。
+- **Specimen correction carried forward**: WIT-03の純正三角錐リューズは掲載個体では見た目ほど巻き上げにくくない。Horlbeckの操作性評価を掲載個体の事実として一般化しない。
+- **Still pending**: PR-WIT-004（数字インデックス）とPR-WIT-005（波打つアラーム針）はAI_PROPOSEDのまま。次のユーザー判断対象。
+- **Clarification**: DROP対象はproposal PR-WIT-007/008であり、既存研究asset WIT-07（1952特許）/ WIT-08（1955 AS1475）は研究棚に残す。
+- **Status**: ACTIVE。Wittnauer棚の完成判定はPR-WIT-004/005の判断後。
