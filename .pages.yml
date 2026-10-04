@@ -17,7 +17,7 @@ media:
     output: /videos
     rename: safe
     categories: [video]
-    extensions: [mp4]
+    extensions: [mp4, mov, m4v]
 
 content:
   - name: watches
