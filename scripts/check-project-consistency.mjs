@@ -1,0 +1,90 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+const read = (path) => readFileSync(path, 'utf8');
+const fail = (message) => {
+  console.error(`Project consistency check failed: ${message}`);
+  process.exitCode = 1;
+};
+const requireText = (text, needle, label) => {
+  if (!text.includes(needle)) fail(`${label} is missing: ${needle}`);
+};
+
+const project = read('PROJECT.md');
+const agents = read('AGENTS.md');
+const state = read('PROJECT_STATE.md');
+const llms = read('public/llms.txt');
+const aio = read('measurement/aio-observation-log.md');
+const ring = read('src/data/how-they-ring-localizations.ts');
+
+const canonical = 'https://vintagealarm.github.io/';
+requireText(state, `正規公開ホスト: \`${canonical}\``, 'PROJECT_STATE canonical host');
+requireText(llms, `Canonical URL: ${canonical}`, 'llms canonical host');
+
+const socialRouter = 'measurement/.internal/.virtual/social/ROUTER.md';
+requireText(project, socialRouter, 'PROJECT social routing');
+requireText(agents, socialRouter, 'AGENTS social routing');
+requireText(state, socialRouter, 'PROJECT_STATE social routing');
+
+const councilPointer = state.split('\n').find((line) => line.startsWith('- Council現行仕様:')) || '';
+for (const path of [
+  'council-worker/V3.md',
+  'council-worker/README.md',
+  'council-worker/src/v3.ts',
+  'council-worker/src/index.ts'
+]) {
+  if (!councilPointer.includes(path)) fail(`PROJECT_STATE Council pointer is missing ${path}`);
+}
+
+const jaFigureMatch = ring.match(/ja:\s*\{[\s\S]*?figureLabel:\s*\{\s*'01':\s*'([^']+)'[\s\S]*?'03':\s*'([^']+)'/);
+if (!jaFigureMatch) {
+  fail('could not parse JA HOW THEY RING figure labels');
+} else {
+  const [, fig01, fig03] = jaFigureMatch;
+  if (!state.includes(`FIG.01 GONG: OMEGA MEMOMATIC。現行表示は「${fig01}」`)) {
+    fail(`PROJECT_STATE FIG.01 does not match JA implementation: ${fig01}`);
+  }
+  if (!state.includes(`FIG.03 CASEBACK: 「${fig03} — JUNGHANS MINIVOX」`)) {
+    fail(`PROJECT_STATE FIG.03 does not match JA implementation: ${fig03}`);
+  }
+}
+
+const watchDir = 'src/content/watches';
+const publishedSlugs = readdirSync(watchDir)
+  .filter((name) => name.endsWith('.md'))
+  .flatMap((name) => {
+    const body = read(join(watchDir, name));
+    if (!/^published:\s*true\s*$/m.test(body)) return [];
+    const slug = body.match(/^slug:\s*['"]?([^'"\n]+)['"]?\s*$/m)?.[1]?.trim();
+    if (!slug) {
+      fail(`published WATCH has no parseable slug: ${name}`);
+      return [];
+    }
+    return [slug];
+  })
+  .sort();
+
+const publishedSection = llms.match(/Published watch pages:\s*([\s\S]*?)\n\nEnglish entry:/)?.[1] || '';
+const llmsSlugs = [...publishedSection.matchAll(/https:\/\/vintagealarm\.github\.io\/([^/\s]+)\//g)]
+  .map((match) => match[1])
+  .sort();
+
+if (publishedSlugs.length !== 6) {
+  fail(`published WATCH count is ${publishedSlugs.length}, while current PROJECT_STATE baseline requires 6`);
+}
+if (!state.includes('公開中のWATCH routeは **') || !state.includes('の6本**')) {
+  fail('PROJECT_STATE no longer states the current six published WATCH routes');
+}
+if (publishedSlugs.join('|') !== llmsSlugs.join('|')) {
+  fail(`llms Published watch pages differ from published WATCH files: files=${publishedSlugs.join(',')} llms=${llmsSlugs.join(',')}`);
+}
+
+requireText(state, 'measurement target 5本', 'PROJECT_STATE measurement target');
+requireText(aio, 'measurement target 5 WATCH', 'AIO measurement target');
+if (aio.includes('公開済み5 WATCH')) {
+  fail('AIO log revived the ambiguous "公開済み5 WATCH" wording');
+}
+
+if (!process.exitCode) {
+  console.log(`Project consistency check passed: canonical host, routing pointers, HOW THEY RING labels, ${publishedSlugs.length} published WATCH routes, and five-watch measurement semantics are aligned.`);
+}

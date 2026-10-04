@@ -45,6 +45,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - ドイツ語入口: `strategy/german-entry.md`
 - 計測定義: `measurement/metrics.md`
 - 現在までの実験結果: `measurement/experiment-log.md`
+- SNS運用ルーター: `measurement/.internal/.virtual/social/ROUTER.md`（SNS / 布教 / Instagram / X / YouTube / SNSとVA Analyticsの突合では最初に読む）
 - SNS再利用資産の横断索引: `measurement/.internal/.virtual/social/content-inventory.md`（現行asset索引＋時計横断rolling `AI_PROPOSED`候補棚。AIがSource-backed候補を分類して継続追加し、ユーザーは棚から時計＋内容を選んで KEEP / MERGE / SPLIT / DROP を確定する。1個体を完了してから次へ進む必要はなく、KEEP済みassetも後日選択可能。動画採用後だけContent Assignment Registryで ASSET → CONTENT → MEDIA を USER_CONFIRMED 予約。事実正本は各WATCH等へ戻る）
 - 外部AI観測: `measurement/aio-observation-log.md`
 - Council / 焼いて: `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`; 7の誕生経緯・設計根拠は `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`
@@ -75,13 +76,13 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
 - HOW THEY RINGの現行分類は **GONG / CASEBACK の2種類だけ**。詳細機構を第三・第四カテゴリへ増やさない。
   - **2分類にした理由**：このページの主目的は機構分類表を作ることではなく、実機の音を入口に「どう鳴っているか」を見て・聴いてもらうこと。入口でGONG / CASEBACK / BELL / PINの4分類を並べると、CASEBACK側に含まれる構造差を同列の大分類として扱うことになり、閲覧者にも個体カードにも細分類を要求する設計になる。
-  - **採用した整理**：入口は「独立した発音体を叩くGONG」と「ケースバック側の構造を使って鳴らすCASEBACK」の2つに留める。CASEBACK内部の振動板・ピン／レバー伝達・ベル状発音体などの差はFIG.02–04で見せる。つまり「大枠2分類＋内部構造の代表例」であり、FIG.02–04は第三・第四カテゴリではない。
+  - **採用した整理**：入口は「独立した発音体を叩くGONG」と「ケースバック側の構造を使って鳴らすCASEBACK」の2つに留める。CASEBACK内部の振動板・ピン伝達・ベル状発音体などの差はFIG.02–04で見せる。つまり「大枠2分類＋内部構造の代表例」であり、FIG.02–04は第三・第四カテゴリではない。
   - **この判断で守るもの**：掲載個体はGONG / CASEBACKだけで切り替え、各カードにFIG番号・詳細型名を付けない。音を聴く導線を分類学より前に置き、同じCASEBACKでも構造が大きく違うこと自体を発見要素にする。
   - **旧4分類を棄却した理由**：GONG / CASEBACK / BELL / PINを同階層に置くと、大枠とCASEBACK内部の機構差が混在する。分類粒度が揃わず、個体ごとの細分類まで波及するため不採用。新しい一次資料で大枠そのものを変更すべき根拠が出ない限り復活させない。
 - 上段の図は分類体系ではなく「同じ大分類でも鳴らし方の構造差がある」ことを見せる代表例。個体カードへFIG番号や詳細機構分類を持ち込まない。
 - FIG.01 GONG: OMEGA MEMOMATIC。現行表示は「輪状の音バネを叩く」。2026-09-25にJA / EN / DEをこの現行表現へ同期済み。機構説明の資料境界は引き続き個別出典で管理し、一般論だけで拡張しない。
 - FIG.02 CASEBACK: 「振動板型 — VULCAIN CRICKET」。旧「膜状バック型」は失効。
-- FIG.03 CASEBACK: 「ピン／レバー伝達型 — JUNGHANS MINIVOX」。
+- FIG.03 CASEBACK: 「ピン伝達型 — JUNGHANS MINIVOX」。
 - FIG.04 CASEBACK: 「BELL-BASE型 — LANCO-FON · CAL.1241」。Lanco-Fon全体へ一般化しない。Cal.1241は資料上hammerがGlockeを打つことを確認したため、このcaliberに限定する。
 - HOW THEY RINGの機構図根拠は、各FIGにつき確定的な1出典だけを折りたたみ表示する。原則『The Alarm Wristwatch』『ALARM AM ARM』を優先し、2冊で直接支えられない場合のみ外部資料1件を採用する。補助資料は内部検証用で、閲覧者へ列挙しない。GONG / CASEBACKと各型名はVINTAGE ALARMでの整理として明示する。
 - 掲載個体の大分類は CYMA Time-O-Vox / Pierce Duofon / Wittnauer 10WA＝GONG、Citizen Alarm / Westclox Watchlarm / Basis Alarm＝CASEBACK。
@@ -136,7 +137,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 検索 / SNS / Analytics施策: `measurement/experiment-log.md`
 - 外部AI発見性 / 意味保持: `measurement/aio-observation-log.md`
 - 検索・AIO全体方針: `strategy/seo-aio.md`
-- Council現行仕様: `council-worker/README.md` + `council-worker/src/index.ts`
+- Council現行仕様: `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`
 - 個人時計台帳: `orima1995-create/watchdiary-ios` #21を主入口に、#60 / #23 / #25および個体別CURRENT Issueへroute
 
 ### CYMA Time-O-Vox Chronomètre — VA準拠テストページ

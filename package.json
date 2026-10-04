@@ -17,7 +17,7 @@
     "check:images": "node scripts/check-image-duplicates.mjs",
     "check:owner-copy-provenance": "node scripts/check-owner-copy-provenance.mjs",
     "owner-copy:benchmark": "node scripts/owner-copy-benchmark.mjs",
-    "check:quality": "npm run check:decision-log && npm run check:owner-copy-provenance && npm run check:social-inventory && npm run check:instagram-insights && npm run check:links && npm run check:analytics-routes && npm run check:seo && npm run check:citations && npm run check:source-traceability && npm run check:localization-sync && npm run check:localization-coverage && npm run check:localization-purity && npm run check:spec-evidence && npm run check:japanese-style && npm run check:images",
+    "check:quality": "npm run check:decision-log && npm run check:project-consistency && npm run check:owner-copy-provenance && npm run check:social-inventory && npm run check:instagram-insights && npm run check:links && npm run check:analytics-routes && npm run check:seo && npm run check:citations && npm run check:source-traceability && npm run check:localization-sync && npm run check:localization-coverage && npm run check:localization-purity && npm run check:spec-evidence && npm run check:japanese-style && npm run check:images",
     "test:japanese-style": "node scripts/test-japanese-style.mjs",
     "test:owner-copy-provenance": "node scripts/check-owner-copy-provenance.mjs --self-test",
     "test:quality": "node scripts/test-quality-gates.mjs && npm run test:japanese-style && npm run test:owner-copy-provenance",
@@ -28,7 +28,8 @@
     "check:instagram-insights": "node scripts/instagram-insights-timeseries.mjs check",
     "instagram:append": "node scripts/instagram-insights-timeseries.mjs append",
     "instagram:report": "node scripts/instagram-insights-timeseries.mjs report",
-    "check:social-inventory": "node scripts/check-social-content-inventory.mjs"
+    "check:social-inventory": "node scripts/check-social-content-inventory.mjs",
+    "check:project-consistency": "node scripts/check-project-consistency.mjs"
   },
   "dependencies": {
     "astro": "^7.0.0"
