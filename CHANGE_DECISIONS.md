@@ -17,6 +17,16 @@
 
 ## 2026-10-04
 
+### 2026-10-04 19:13 JST — PR #147のsemantic clarity規則とARSA working copy判断を現mainへ救出
+
+- **変更**：全WATCH共通Catch / Lead開発プロトコルへsemantic clarity ruleを復元し、PR #147に残っていたARSA Blind Alarmの12:31棄却判断と12:52 working SUB / NOTE判断を現行decision logへ回収した。
+- **理由**：PR #147はcurrent mainから32 commits遅れた競合branchになっていた一方、追加した意味回収規則とユーザー原文のworking stateはmainへ着地していなかった。古いbranchをmergeするのではなく、現mainへ必要差分だけ救出する。
+- **旧状態・棄却**：身近な語へ置換しただけで説明力が下がる比喩や、主語・述語・指示先を読者側で補完しないと読めない断片を候補として残す運用を棄却する。PR #147をそのまま競合解消してmergeする案も採用しない。
+- **影響範囲**：SITE_RULES.mdのCatch / Lead開発プロトコル、ARSA copy判断履歴、CHANGE_DECISIONS.md。公開WATCH / OWNER'S NOTE本文そのものは変更しない。
+- **検証状態**：current mainのSITE_RULESとPR #147 diffを照合し、未着地なのがsemantic clarity 2項と当該2判断であることを確認。branch CIでquality / build / mobileまで通過後にmergeする。
+- **関連**：commit `57445624`; rescue元 PR #147。
+- **日時根拠**：GitHub commit `5744562479d241eedf4dadf039aaf6be6ee36714` 2026-10-04T10:13:59Z → 2026-10-04 19:13 JST。
+
 ### 2026-10-04 19:07 JST — 正本・履歴・外部探索の横断矛盾を修復
 
 - **変更**：①AGENTSのstartup routingへSNS / Social Routerを復元、②PROJECT_STATEのHOW THEY RING FIG.01を現行「輪状の音バネ」へ訂正、③PR #152のsite traversal一般探索規則と外部AI観測をcurrent main基準で救出、④AIO再現テストの「公開済み5 WATCH」を「measurement target 5 WATCH（公開6本とは別）」へ訂正、⑤CHANGE_DECISIONSのH1より前に新規項目が積まれる構造崩れを修復し、checkerへcanonical H1先頭・単一H1の検査を追加、⑥PR #113で未着地だった2026-09-23の時刻訂正と欠落判断を現行形式で回収した。#157は#159 merge後の競合状態を踏まえ、一時的にdraftへ戻してcurrent-main追従後にready判定する。
@@ -182,6 +192,34 @@
 - **関連**：ARSA purchased specimen、Enicar Blind Alarm / AS1475、AFB / ARSA AS1475、BEAT / Friedli-Frères AS1475、historical touch-watch patents。
 - **日時根拠**：会話ターンのローカル時刻 `2026-10-03T12:28+09:00` = `2026-10-03 12:28 JST`。
 
+
+### 2026-10-03 12:52 JST — ARSAの現SUB / NOTEをユーザー原文で復元しworking setへ固定
+
+- **変更**：ARSA Blind AlarmのCatch `開けて、触って、聞く。` に続く現SUBとNOTEを、ユーザー提示原文のままworking setとして記録した。SUBは `文字盤を覆う蓋が開く。／現在時刻も、アラーム時刻も、指先で読む。／設定した時刻になれば、／今度は耳の出番。`。NOTEは `触読時計では、文字盤に直接指を触れて時刻を読む。／そのため時分針とアラーム針は、触って区別できる形を持つ。／秒針はない。触読の邪魔になり、触れることで時計を止めるおそれもある。／ARSA Blind Alarmでは、／今の時刻だけでなく、アラームを設定した時刻まで指で確かめられる。／設定した時間になれば、今度は音で知らせる。／ちなみに、麻酔針は出ない。` とする。
+- **理由**：直前の12:31 JST記録では旧SUBをREJECTEDにした後、新しいSUBとNOTEの具体文言がGitHubへ残っておらず、再び会話依存になっていた。ユーザーが現SUBを「として進めていく」と明示し、続けてNOTE全文と、最後の `ちなみに、麻酔針は出ない。` だけで温度を一段上げる構成を提示したため、その原文と判断理由を復元する。ユーザー評価では、本文自体は元ネタを知らなくても成立し、最後だけ知っている読者に遊びとして効くため、`NEXT C○NAN'S HINT` を前面に出す案より時計本人が主役のままになる。
+- **旧状態・棄却**：12:31 JST時点の「SUBは再設計」を解消する。旧 `タッチパネル、物理です。` 系SUBはREJECTEDのまま復活させない。戦闘系比喩もREJECTEDのまま。全面的な `NEXT C○NAN'S HINT` フレームをメインへ戻さない。語尾へ `ご安心を` 等を足してユーザー原文の温度を変えない。
+- **影響範囲**：ARSA Blind AlarmのCatch / SUB / NOTE候補状態と本判断履歴のみ。公開WATCH / OWNER'S NOTE本文はまだ変更しない。
+- **検証状態**：`research/ARSA_BLIND_ALARM_LEDGER.md` を再確認。Project-source evidenceとして、触読時計は時分針とアラーム針を触って区別できる形にすること、現在時刻と設定アラーム時刻を触読できること、秒針は触読を妨げ触れた際に時計を止めるおそれがあるため通常設けないことが記録済み。購入個体でも秒針なし・3本の情報針の視覚的差は画像確認済みだが、実機での触り分け性能は到着後確認事項のまま維持する。末尾の麻酔針は事実説明ではなく編集上の遊びとして扱う。
+- **対象WATCH**：ARSA Blind Alarm。
+- **起点・帰属**：現SUB本文、NOTE本文、`ちなみに、麻酔針は出ない。`、Westcloxの `なんということでしょう。` 程度の温度に収めるという判断、`ご安心を` 等を足さない判断はいずれもユーザー提示。AIは研究正本との事実整合だけを再確認し、GitHubへ記録した。
+- **VA温度比較**：説明本文は低温度のまま機構・操作を具体化し、最後の一行だけ遊びを上げる。元ネタ依存で本文理解を失わせず、時計本人の説明が先に完結するため、全面ネタ化より既存VAの温度レンジへ収まりやすいと扱う。
+- **採否・現在状態**：Catch `開けて、触って、聞く。` = `WORKING_MAIN`。今回SUB = `WORKING`。今回NOTE = `WORKING`。公開FINAL化は未実施。購入個体の実機触読UI確認後に必要なReality checkを行う。
+- **関連**：同日09:13 JST ARSAコピー帰属記録、09:24 JST VA温度比較、10:15 JST Sensitive-context guard、12:31 JST semantic clarity rule、PR #147。
+- **日時根拠**：ChatGPT local-time source `2026-10-03T12:52:35+09:00` = `2026-10-03 12:52 JST`。
+
+### 2026-10-03 12:31 JST — ARSA SUB候補「タッチパネル、物理です。」を棄却し意味回収ルールを追加
+
+- **変更**：ARSA Blind AlarmのAI発SUB候補 `タッチパネル、物理です。` と、その直後に提示した `前蓋を開けて、針と時標を直接触って読む。／今の時刻も、アラームを設定した時刻も。／時間になれば、今度は音で知らせる。` をREJECTEDとした。全WATCH共通のCatch / Lead開発プロトコルへ、置換比喩が本当に意味を増やしているか、各行の省略が読者側で回収可能か、初出の機構名・曖昧な指示語を避けているかを確認するsemantic clarity ruleを追加した。
+- **理由**：ユーザーが、`タッチパネル、物理です。` はタッチパネル自体が物理物なので対比として成立していない、`前蓋` は初見読者には対象不明、`今の時刻も、アラームを設定した時刻も。` は述語が欠けて「何をするのか」が不明、`時間になれば` は何の時間か曖昧、と具体的に指摘したため。これは単なる好みではなく、SUBコピーが説明を増やすどころか読者に補完作業を要求している問題。
+- **旧状態・棄却**：身近なガジェット語へ置換できていれば意味精度が低くても候補として残す運用を棄却する。断片的な行分け自体はVAで使用可能だが、各行の意味関係まで切断してよいとは扱わない。
+- **影響範囲**：`SITE_RULES.md` の全WATCH共通Catch / Lead開発プロトコル、ARSA SUB候補の状態管理、本判断履歴。公開WATCH / OWNER'S NOTE本文は変更しない。
+- **検証状態**：公開中日本語WATCHのCatch / Leadを横並び再確認。Westclox / Cyma等も断片的な行分けを使うが、直前・直後の行で述語や対比が回収できる。今回のARSA候補はその条件を満たさないため棄却。
+- **対象WATCH**：ARSA Blind Alarmを起点とし、semantic clarity ruleは今後の全WATCH共通。
+- **起点・帰属**：問題のSUB候補はAI発。問題点の特定と棄却判断はユーザー指摘。AIが既存VAコピーと照合して一般ルールへ反映した。
+- **VA温度比較**：遊びの強弱以前に意味が通ることを優先する。VAの短文・断片表現は維持するが、読者が「何が？何を？何の時間？」と補完しないと読めない省略は採用しない。
+- **採否・現在状態**：`タッチパネル、物理です。` と上記一連のAI SUB案はREJECTED。`開けて、触って、聞く。` はWORKING_MAINのまま。SUBは再設計。
+- **関連**：2026-10-03 09:48 JST 全WATCH共通Catch / Leadプロトコル、同日10:15 JST Sensitive-context guard、semantic clarity rule commit `2ce62bed`。
+- **日時根拠**：会話ターンのローカル時刻 `2026-10-03T12:31+09:00` = `2026-10-03 12:31 JST`。
 
 ### 2026-10-03 12:28 JST — ARSA調査をDuofon / 10WA型のVA標準フレームへ戻しarchive枝を非blocking化
 
