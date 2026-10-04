@@ -1,3 +1,13 @@
+### 2026-10-05 06:55 JST — ARSA残タスクの状態同期とJSH 1958メタデータを確定
+
+- **変更**：ARSA Research Map内で⑤AS1475章の状態が一箇所だけ `ACTIVE / CLOSING CHAPTER` のまま残っていたため、既に確定済みの `PASS 1 COMPLETE / CLOSING FRAME FIXED` へ同期した。同時にThe Watch Libraryの1958年JSH通年記録について、Public Domain・822 pagesをWeb確認済みへ昇格し、1958年A. Reymond 60周年記事本文自体は未取得のままOPENとした。1948 / 1973 Mémoires d'Ici資料も再探索したが、今回も本文ではなくarchive metadataまでに留まることをLEDGERへ追記した。
+- **理由**：同じResearch Map内で⑤の完了状態が二重化しており、次回タスク分解で未完了扱いへ戻る再発要因になっていた。また前回はユーザー報告として扱っていたJSH 1958の822ページ情報を、The Watch Library本人のメタデータで独立確認できたため確度を更新する必要があった。
+- **旧状態・棄却**：⑤をACTIVEへ戻す読み方を棄却。JSHの通年スキャンが存在することと、その中のA. Reymond記事にBlind Alarmが掲載されることを同一視する解釈も引き続き棄却する。1948 / 1973資料の本文を後年二次資料から補完することもしない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴。公開WATCH / OWNER'S NOTE本文・画像、個人時計台帳は変更しない。
+- **検証状態**：The Watch Libraryの `Journal Suisse d'Horlogerie | 1958` 記録で1958 / Public domain / 822 pagesを確認。Mémoires d'IciでD-11140、D-16590および1973年のA. Reymond関連文書群の存在を再確認したが、本文は未取得。Research Mapの「次の実行順」では⑤が既にPASS 1 COMPLETEだったため、P2見出し側だけがstaleであることをGitHub main上で確認した。
+- **関連**：commits `8984ca8d` / `b635b01d`、2026-10-04 13:06 JST「ARSA 01/03のperiod-image採用条件を固定」。
+- **日時根拠**：system-provided local time 2026-10-05T06:55+09:00 = 2026-10-05 06:55 JST。
+
 # VINTAGE ALARM — DECISION / CHANGE LOG
 
 この文書は「いつ・何を・なぜ変えたか」を人間が時系列で追うための台帳です。Gitのcommit履歴を置き換えるものではなく、仕様判断・棄却理由・再検討条件を短く残します。
