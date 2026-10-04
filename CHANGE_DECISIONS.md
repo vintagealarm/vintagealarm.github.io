@@ -881,3 +881,12 @@
 - **検証状態**: branch `social-rolling-candidate-shelf` に反映。PR #157のquality gateを再確認し、main反映前にinventoryとdecision logを再取得する。
 - **関連**: user decision 2026-10-04 17:58 JST「６ 合体 ７８drop」。関連commit: `cd45eb8a` / `8ad67d99`。
 - **日時根拠**: system-provided user local time `2026-10-04T17:58+09:00`。
+
+### 2026-10-04 18:55 JST — CYMA双方向アラーム設定をKEEP
+- **変更**: PR-CYM-010をUSER_KEEPへ変更し、正本asset CYM-09として追加。内容は「アラーム時刻を双方向で設定可能。精度重視なら反時計回り推奨」。
+- **理由**: ユーザーが、双方向でアラーム時刻を設定できるタイプは少数派寄りでSNS資産価値があると判断。WATCH guideでも双方向設定は確認済み。
+- **旧状態・棄却**: PR-CYM-010を弱め／DROP寄りとしたAI初期評価を棄却。
+- **影響範囲**: social content inventoryのCYMA候補棚。公開WATCH本文、既存投稿、Insightsは変更しない。
+- **検証状態**: branch social-rolling-candidate-shelfへ反映。PR #157のCIとmain反映は別途確認。
+- **関連**: user decision 2026-10-04 18:55 JST「10はkeep」。commit fd218180。
+- **日時根拠**: 2026-10-04T18:55:57+09:00。
