@@ -872,3 +872,12 @@
 - **検証状態**: branch `social-rolling-candidate-shelf` で実装。PR quality gateを通し、main反映後に再取得確認する。
 - **関連**: 2026-10-04ユーザー指示「こういうのでどんどん棚卸して時計と内容と決めれるようにしようぜって言ってるの。」およびWittnauer 3件のKEEP判断。関連commit: `28a83082` / `d602ff67` / `b44ee567` / `2c6e14f9` / `8106d500` / `ba2fccc5` / `1fbd75e5` / `df45aee5` / `c1f7a6a5`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 12:26 JST（UTC+09:00）。
+
+### 2026-10-04 17:58 JST — Wittnauer 10WAのベゼル形状をWIT-04へ統合し、歴史・実測2候補を棄却
+- **変更**: PR-WIT-006「ケースより張り出す回転ベゼル＋後方へ絞るケース形状」を独立assetにせずWIT-04へMERGE。WIT-04は二階建て／すり鉢状ケース、掲載個体での手首への収まり、ケースより張り出す回転ベゼルを一つの側面形状assetとして扱う。PR-WIT-007「Wittnauer最初のアラーム腕時計」とPR-WIT-008「文献5–7秒 vs 掲載個体実測」はUSER_DROP。WIT-03には掲載個体観察「見た目ほど巻き上げにくくない」を付記した。
+- **理由**: ユーザーがPR-WIT-006はWIT-04と同じ側面造形として合体、PR-WIT-007/008はSNS棚に不要と判断。直前の実機写真・操作感から、Horlbeckの『巻上げが非常に難しい』という評価を掲載個体へそのまま適用しないことも確認済み。
+- **旧状態・棄却**: PR-WIT-006を独立micro-Reel候補として残す案、PR-WIT-007/008をKEEP候補として残す案を棄却。『すり鉢状ケースだから掲載個体も巻き上げにくい』という解釈も棄却。
+- **影響範囲**: `measurement/.internal/.virtual/social/content-inventory.md` と `instagram-operations.md` のWittnauer candidate review。公開WATCH本文、OWNER'S NOTE、Published Copy、Insights、既存研究asset WIT-07（1952特許）/ WIT-08（1955 AS1475）は変更しない。
+- **検証状態**: branch `social-rolling-candidate-shelf` に反映。PR #157のquality gateを再確認し、main反映前にinventoryとdecision logを再取得する。
+- **関連**: user decision 2026-10-04 17:58 JST「６ 合体 ７８drop」。関連commit: `cd45eb8a` / `8ad67d99`。
+- **日時根拠**: system-provided user local time `2026-10-04T17:58+09:00`。
