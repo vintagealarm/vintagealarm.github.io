@@ -11,7 +11,9 @@
 - 数値はここへ複製しない。Instagram数値は `instagram-insights-timeseries.md`、分析判断は `instagram-operations.md`。
 - **OWNER'S NOTE は分割しない。** 1個体のOWNER'S NOTEを一つの完成物として扱い、leadや本文の一文を別々の投稿ネタへ切り刻まない。
 - **AIは候補分類まで先行してよい。** Sourceに基づいて候補を切り、Category / relation / media / verify / video-fitまで `AI_PROPOSED` として整理する。
-- **ただし候補は必ずユーザーへ提示する。** 提示前のAI分類を正本assetへ昇格させない。asset境界の KEEP / MERGE / SPLIT / DROP は、提示候補をユーザーと相談して確定する。
+- Candidate Review Queueは**時計横断のrolling shelf**。一つの時計を終えてから次へ進む必要はなく、各WATCHから候補を継続追加し、ユーザーが次の「時計＋内容」を選べる状態を作る。
+- **候補は必ずユーザーへ提示する。** 提示前のAI分類を正本assetへ昇格させない。asset境界の KEEP / MERGE / SPLIT / DROP は、提示候補をユーザーと相談して確定する。
+- `USER_KEEP` はassetとして棚に残す確定であり、次回投稿の採用とは別。KEEP済みassetは他時計の候補と後から比較して選べる。
 - 現在のasset表は共同棚卸しの開始点。候補レビュー層と正本asset層を混同しない。
 - 動画への当て込みはasset確定後。ユーザーが採用したものだけContent Assignment Registryへ USER_CONFIRMED / PLANNED として予約する。
 
@@ -46,8 +48,8 @@
 1. PROJECT.md → AGENTS.md → PROJECT_STATE.md → Social ROUTER.md を読む。
 2. 投稿案なら、この content-inventory.md を記憶より先に開く。
 3. 対象時計の現行asset表を開始点としてSourceへ戻り、AIが追加候補を分類する。候補には一時IDを付け、Category / IG state候補 / Other social / Media / Verify / overlap候補 / video-fit候補を整理する。
-4. **その分類済み候補一覧をユーザーへ提示する。** この段階は `AI_PROPOSED` であり、正本assetではない。
-5. ユーザーと KEEP / MERGE / SPLIT / DROP を相談し、その時計のasset境界を共同確定する。必要なら粒度を再分類して再提示する。
+4. **分類済み候補を時計横断のrolling shelfとしてユーザーへ提示する。** この段階は `AI_PROPOSED` であり、正本assetではない。1個体を完了するまで他個体を止めない。
+5. ユーザーは棚から時計＋内容を見て KEEP / MERGE / SPLIT / DROP を相談する。KEEPはasset採用であり次回投稿採用ではない。必要なら粒度を再分類して再提示する。
 6. 確定assetについて USED / PARTIAL / CANDIDATE_NOT_IN_IG_TEXT、Other social、Media、Verifyを再照合して正本asset表へ反映する。
 7. 確定assetを動画へ当て込む案を提示し、ユーザーが採用したものだけ USER_CONFIRMED / PLANNED で予約する。
 8. activeな PLANNED / SHOT / EDITED / SCHEDULED のasset / media keyは別案へ再利用しない。
@@ -72,10 +74,10 @@ Canonical WATCH: `src/content/watches/wittnauer-10wa.md`
 |---|---|---|---|---|---|---|---|
 | WIT-01 | 普通の時計に見える／第2リューズなし／ベゼルでアラーム設定 | USED | X_LINK_PRESENT_ANGLE_UNKNOWN | READY_EXISTING | READY_FROM_WATCH | OPERATION | Published copy first Reel + WATCH guide |
 | WIT-02 | Longinesベース説 vs 10S / AS1200部品共通性。ベースムーブメント未解決 | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | OPEN_QUESTION | RESEARCH | Published static 2026-10-03 + WATCH Deep 03 + Gallery `IMG_6609.jpeg` |
-| WIT-03 | ケースへ半分隠れる三角錐リューズ | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | WATCH note + Gallery `IMG_2292.jpeg` |
-| WIT-04 | 9時側から見る「二階建て」ケース | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Gallery `IMG_2293.jpeg` |
+| WIT-03 | 純正の三角錐リューズがケースへ半分隠れる | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | WATCH note + Gallery `IMG_2292.jpeg` + USER_KEEP 2026-10-04 |
+| WIT-04 | 9時側から見る「二階建て」ケース。すり鉢状で手首への収まりが良いのが掲載個体のポイント | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Gallery `IMG_2293.jpeg` + USER_OBSERVATION / USER_KEEP 2026-10-04 |
 | WIT-05 | ベゼル1操作でアラーム設定＋アラームゼンマイ巻上げ | PARTIAL | X_LINK_PRESENT_ANGLE_UNKNOWN | NEEDS_SHOOT | READY_FROM_WATCH | OPERATION | WATCH Deep 02 / guide |
-| WIT-06 | 裏から見えるのは時刻側。アラーム機構は文字盤側モジュール | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH note + Deep 03 + movement photo |
+| WIT-06 | せっかくの裏スケでもアラーム機構は見えない。裏から見えるのは時刻側で、アラーム機構は文字盤側モジュール | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH note + Deep 03 + movement photo + USER_KEEP 2026-10-04 |
 | WIT-07 | 1952特許のslipping bridleと量産10WAの満巻き停止挙動の差 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | RESEARCH | WATCH Deep 04 / CH304088A |
 | WIT-08 | 1950年代前半10WAと、少なくとも1955年のAS1475搭載Wittnauer | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | HISTORY | WATCH Deep 05 |
 | WIT-09 | 10WA外装差：SS、黒文字盤、金張り、Longines銘等 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RIGHTS_CHECK | COMPARISON | WATCH Deep 06 |
@@ -169,11 +171,11 @@ Canonical WATCH: `src/content/watches/citizen-alarm.md`
 
 ## 3. Candidate Review Queue — AI分類 → ユーザー相談 → 正本化
 
-ここは**正本assetの前段**。AIはここまで自律的に作ってよいが、必ず会話上でユーザーへ提示する。
+ここは**正本assetの前段かつ時計横断の選択棚**。AIはここまで自律的に作ってよいが、必ず会話上でユーザーへ提示する。候補は複数WATCHを並行して増やし、ユーザーが次の「時計＋内容」を選べる状態を維持する。
 
 Status:
 - `AI_PROPOSED` — AIがSourceから切り出し・分類した候補。未承認。
-- `USER_KEEP` — ユーザーが独立assetとして残す方向を確認。正本反映待ち。
+- `USER_KEEP` — ユーザーが独立assetとして棚に残すことを確認。正本反映済みでもレビュー履歴として残せる。次回投稿採用とは別。
 - `USER_MERGE` — 別候補／既存assetへ統合する方向を確認。
 - `USER_SPLIT` — さらに分割して再提示する。
 - `USER_DROP` — SNS assetとしては採用しない。
@@ -193,6 +195,9 @@ Status:
 
 | Proposal ID | WATCH | Candidate / category | Relation | IG / Other social | Media | Verify | Video fit | Status | Source |
 |---|---|---|---|---|---|---|---|---|---|
+| PR-WIT-001 | Wittnauer 10WA | 純正三角錐リューズがケースに半分隠れる / DETAIL | OVERLAP → WIT-03 refinement | IG本文未使用候補 | READY_EXISTING | READY_FROM_WATCH | 実機macroで形状＋隠れ方を見せる | USER_KEEP | WATCH note + Gallery `IMG_2292.jpeg` + user confirmation 2026-10-04 |
+| PR-WIT-002 | Wittnauer 10WA | 二階建てケース＋すり鉢状で手首への収まりが良い / DETAIL | SUPERSET → WIT-04 | IG本文未使用候補 | READY_EXISTING | WATCH_IMAGE + USER_OBSERVATION | 実機側面／装着で形状と収まりを見せる | USER_KEEP | Gallery `IMG_2293.jpeg` + user observation 2026-10-04 |
+| PR-WIT-003 | Wittnauer 10WA | 裏スケなのにアラーム機構は見えない / MECHANISM | OVERLAP → WIT-06 refinement | IG本文未使用候補。直近staticでmovement画像使用 | NEEDS_SHOOT | READY_FROM_WATCH | 裏スケ側を見せたまま鳴らす短編候補 | USER_KEEP | WATCH note + Deep 03 + user confirmation 2026-10-04 |
 
 ---
 
@@ -200,7 +205,7 @@ Status:
 
 | WATCH | Review state |
 |---|---|
-| Wittnauer 10WA | PENDING_USER_REVIEW |
+| Wittnauer 10WA | IN_REVIEW — WIT-03 / WIT-04 / WIT-06 USER_KEEP confirmed |
 | CYMA Time-O-Vox 18K Chronomètre | PENDING_USER_REVIEW |
 | Pierce Duofon | PENDING_USER_REVIEW |
 | Basis Alarm (BFG90) | PENDING_USER_REVIEW |
