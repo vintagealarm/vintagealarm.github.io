@@ -20,11 +20,26 @@ const nextLabel = isEnglish ? 'Next image' : isGerman ? 'Nächstes Bild' : '次�
   <div class="deep-list">
     {items.map((item: any) => {
       const images = item.images ?? [];
+      const video = item.video;
       const compactMedia = item.mediaStyle === 'compact-sequence';
       const trailingImages = images.filter((image: any) =>
         !Number.isInteger(image.afterParagraph)
         || image.afterParagraph < 1
         || image.afterParagraph > item.paragraphs.length
+      );
+
+      const renderVideo = (mediaVideo: any) => (
+        <div class="deep-video">
+          {mediaVideo.title && <h4 class="deep-video__title">{mediaVideo.title}</h4>}
+          <video
+            controls
+            preload="metadata"
+            playsinline
+            aria-label={mediaVideo.ariaLabel || mediaVideo.title || item.title}
+          >
+            <source src={resolveImage(mediaVideo.src)} type="video/mp4" />
+          </video>
+        </div>
       );
 
       const renderMedia = (mediaImages: any[]) => (
@@ -98,6 +113,7 @@ const nextLabel = isEnglish ? 'Next image' : isGerman ? 'Nächstes Bild' : '次�
                     )}
                   </p>
                   {imagesAfter.length > 0 && renderMedia(imagesAfter)}
+                  {video?.afterParagraph === index + 1 && renderVideo(video)}
                 </>
               );
             })}
@@ -183,6 +199,9 @@ const nextLabel = isEnglish ? 'Next image' : isGerman ? 'Nächstes Bild' : '次�
 </script>
 
 <style>
+  .deep-video{max-width:600px;margin:28px auto 30px}
+  .deep-video__title{margin:0 0 10px;font:600 14px/1.5 var(--sans,sans-serif);letter-spacing:.03em}
+  .deep-video video{display:block;width:100%;height:auto;border:1px solid rgba(31,28,24,.16);background:#000}
   .deep-media{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin:22px 0 28px}
   .deep-media figure{margin:0}
   .deep-media img{display:block;width:100%;height:auto;border:1px solid rgba(31,28,24,.16)}
@@ -213,6 +232,8 @@ const nextLabel = isEnglish ? 'Next image' : isGerman ? 'Nächstes Bild' : '次�
   .cite-refs a:hover,.cite-refs a:focus-visible{border-bottom-color:currentColor}
   .cite-refs span{color:var(--soft,#58634e);margin:0 .08em}
   @media(max-width:480px){
+    .deep-video{margin:24px auto 26px}
+    .deep-video__title{font-size:13px}
     .deep-media{margin:18px 0 24px;gap:14px}
     .deep-media figcaption{font-size:12px;line-height:1.65}
     .deep-media--compact{gap:12px 8px;margin:18px auto 24px}
