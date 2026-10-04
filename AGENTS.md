@@ -20,6 +20,8 @@
 - デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md` + 関係する `SITE_RULES.md`
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
 - Analytics / 計測 → `measurement/metrics.md` + 対象実装
+- SNS / 布教 / Instagram / X / YouTube / SNSとVA Analyticsの突合 → `measurement/.internal/.virtual/social/ROUTER.md` を最初に読む
+- SNS投稿案 / 既出・未使用角度 / 再利用素材 / 要追加撮影の棚卸し → Social `ROUTER.md` の後に `measurement/.internal/.virtual/social/content-inventory.md`
 - 英語入口 → `strategy/english-entry.md`
 - ドイツ語入口 → `strategy/german-entry.md`
 - Council / 焼いて → `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts` + `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`
