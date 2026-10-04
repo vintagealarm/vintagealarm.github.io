@@ -1050,3 +1050,12 @@
 - **関連**：2026-10-04 ユーザー提供Pierce Duofon実機動画、X投稿 `https://x.com/Rimacroissant/status/2106743548867698937?s=20`。
 - **日時根拠**：当セッションのユーザーローカル時刻 `2026-10-04 23:22 JST`（UTC+09:00）。
 
+### 2026-10-05 07:18 JST — Pierce機構動画をPages CMSからアップロード可能に修正
+- **変更**：PR #166 のPierce Duofon機構動画について、GitHubの生パスへ手動アップロードさせる運用を撤回し、既存Pages CMSへ `WATCH動画` media library を追加した。WATCH → DEEP DIVE 内に `動画で見る` object を追加し、`動画ファイル` からMP4をCMSアップロードできるようにする。
+- **理由**：既存サイトには `/admin/` → Pages CMS の編集導線と `.pages.yml` が既に存在し、画像・アラーム音源もCMS経由で管理している。今回だけ `public/videos/...` のGitHubパスを直接指定するのは既存運用と不整合で、ユーザーが「どこやねんそこ」となる状態だった。
+- **旧状態・棄却**：ユーザーへ `public/videos/pierce-duofon/pierce-duofon-wecker-signal-switch.mp4` へ直接アップロードさせる案を棄却する。保存先自体は `public/videos` のままだが、通常操作はCMSの `WATCH動画` から行う。
+- **影響範囲**：`.pages.yml` のmedia定義とWATCH / DEEP DIVE編集UI、PR #166。公開ページの本文・既存静止画・動画表示位置・JA/EN/DEの意味は変更しない。
+- **検証状態**：branch `feature/pierce-duofon-switch-video` にCMS定義を追加済み。Pages CMS上での実アップロード、保存後の生成パス、build / playback / live確認は動画アップロード後に行う。
+- **関連**：PR #166、`src/pages/admin/index.astro`（Pages CMSへの既存導線）、2026-10-05ユーザー訂正「cmsに入れられすようにしろよ　どこやねんそこ」。
+- **日時根拠**：当セッションのユーザーローカル時刻 `2026-10-05 07:18 JST`（UTC+09:00）。
+
