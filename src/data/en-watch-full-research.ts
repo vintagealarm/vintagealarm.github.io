@@ -13,6 +13,12 @@ export type EnglishFullResearch = {
     paragraphs: string[];
     citationRefs: string[];
     mediaStyle?: string;
+    video?: {
+      src: string;
+      title: string;
+      afterParagraph: number;
+      ariaLabel?: string;
+    };
     images?: Array<{
       src: string;
       caption: string;
@@ -397,6 +403,12 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
         ],
         citationRefs: ['1', '1', '1'],
         mediaStyle: 'compact-sequence',
+        video: {
+          src: '/videos/pierce-duofon/wecker-signal-switch.mov',
+          title: 'See it in motion',
+          afterParagraph: 2,
+          ariaLabel: 'Pierce Cal. 135 specimen video showing WECKER / SIGNAL switching'
+        },
         images: [
           {
             src: '/images/pierce-duofon/mechanism/05-crown-linkage.webp',

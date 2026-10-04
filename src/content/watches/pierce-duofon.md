@@ -82,6 +82,11 @@ deepDive:
       - "1"
       - "1"
     mediaStyle: "compact-sequence"
+    video:
+      src: "/videos/pierce-duofon/wecker-signal-switch.mov"
+      title: "動画で見る"
+      afterParagraph: 2
+      ariaLabel: "Pierce Cal.135 WECKER / SIGNAL切り替えの実機動画"
     images:
       - src: "/images/pierce-duofon/mechanism/05-crown-linkage.webp"
         caption: "① 4時位置のリューズを回すと、連動するバーと打撃ピンの位置が動く。"
