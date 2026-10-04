@@ -62,7 +62,7 @@
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
 - Analytics / 計測単体 → `measurement/metrics.md` + 対象実装
 - **SNS / 布教 / Instagram / X / YouTube / SNSとVA Analyticsの突合 → `measurement/.internal/.virtual/social/ROUTER.md` を最初に読む**
-- **SNS投稿案 / 既出・未使用角度 / 再利用素材 / 要追加撮影の棚卸し → Social `ROUTER.md` の後に `measurement/.internal/.virtual/social/content-inventory.md` を必ず読む**。AIはSourceに基づいて候補を先に分類し、`AI_PROPOSED` としてユーザーへ提示してよい。対象時計のasset境界は、その提示候補をユーザーと KEEP / MERGE / SPLIT / DROP で相談してから確定する。動画への当て込みをユーザーが採用した後だけContent Assignment Registryへ USER_CONFIRMED / PLANNED として予約する。**候補提示を飛ばしてAI単独で正本化しない。**
+- **SNS投稿案 / 既出・未使用角度 / 再利用素材 / 要追加撮影の棚卸し → Social `ROUTER.md` の後に `measurement/.internal/.virtual/social/content-inventory.md` を必ず読む**。AIはSourceに基づいて候補を先に分類し、`AI_PROPOSED` としてユーザーへ提示してよい。候補棚は**時計横断のrolling shelf**として増やしてよく、1個体を棚卸し完了するまで次の時計へ進めない運用にはしない。ユーザーは提示済み候補から**時計＋内容**を選び、KEEP / MERGE / SPLIT / DROP でasset境界を確定する。KEEP済みassetは「次回投稿に採用済み」とは限らず、棚に残して後から選べる。動画への当て込みをユーザーが採用した後だけContent Assignment Registryへ USER_CONFIRMED / PLANNED として予約する。**候補提示を飛ばしてAI単独で正本化しない。**
 - SNS詳細実測 → `measurement/.internal/.virtual/social/instagram-operations.md`
 - 過去SNS / Analytics実験 → `measurement/experiment-log.md`
 - 英語入口 → `strategy/english-entry.md`
