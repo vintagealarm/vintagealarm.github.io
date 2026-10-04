@@ -1,3 +1,24 @@
+### 2026-10-04 13:06 JST — ARSA 01/03のperiod-image採用条件を固定
+- **変更**：1956–60のARSA Blind Alarm本人を名指し／図示する広告・catalog・price listは未回収として03のperiod-image探索をHOLDへ移し、代用品広告を入れない方針を固定した。01では1970 DavoineのA. Reymond社広告を1点だけ使い、blind watchesとalarm wristwatchesが同時に企業specialtyとして掲げられていた会社レベル証拠に限定する。1958年3–4月号JSH No.2のA. Reymond 60周年記事は存在確認済みだが本文未取得のため、Blind Alarm掲載有無はOPENのままbonus archiveへ置く。
+- **理由**：商品本人を示す1950年代一次画像がない状態で、通常ARSA alarm、非alarm tactile watch、AFB、Enicar等を近似広告として03へ置くと、本人資料と誤認させる。03は実機・専門書・本文だけで成立しており、period adは発見時のupgradeであってcompletion blockerではない。
+- **旧状態・棄却**：広告がないため近似資料で空白を埋める案を棄却。1958 JSH記事の存在だけからBlind Alarm掲載を推定することも禁止する。
+- **影響範囲**：research/ARSA_BLIND_ALARM_LEDGER.md、research/ARSA_BLIND_ALARM_RESEARCH_MAP.md、本判断履歴。公開WATCH / OWNER'S NOTE本文・画像はまだ変更しない。
+- **検証状態**：ユーザー探索結果を起点に、AbeBooks上でJSH No.2 mars-avril 1958の書誌と目次中のA. Reymond 60周年記事をWeb確認。The Watch LibraryがJSH 1876–1978を収蔵することも確認。DIJU / Worldtempusのearly-1950s tactile-watch記述は既存研究と整合。JSH記事本文およびBlind Alarm掲載有無は未確認。
+- **起点・帰属**：探索と「01=Davoine 1970を1点、03=代用品なし、本物が出た時だけ再判定」という採用判断はユーザー。AIはGitHub現行状態と公開Webで証拠境界を再確認し正本化。
+- **関連**：Deep Dive ① / ③ / ③b、Davoine 1970、JSH No.2 mars-avril 1958、DIJU、Worldtempus 2003。
+- **日時根拠**：current local time source 2026-10-04T13:06:48+09:00 = 2026-10-04 13:06 JST。
+
+### 2026-10-03 14:30 JST — ARSA Deep Dive ⑤を完了し、AS1475を「platform→branches」で閉じる
+
+- **変更**：⑤AS1475と変貌種をPASS 1 COMPLETE / CLOSING FRAME FIXEDへ移行。AS1475の通常alarm普及をbaselineに、Park-O-Phonのparking UI、ARSA / Enicar / BEATのtactile UI、AS1568 date派生、AS1930 / 1931高振動後継、Citizen / Poljot等のdirectly-based descendantsを、単線進化ではなくplatformからの分岐として整理した。
+- **理由**：Project資料でAS1475が1954–1970・約780,000個の大量普及caliberであること、AS1568 / 1930 / 1931のfamily relation、Benedict Park-O-PhonのAS1475ベース、Citizen / Poljotへの直接的な基礎関係が確認できたため。④で固定したtactile UI差を、この普及platform史へ戻すことでARSAの固有性を「unique caliber」ではなく「mass-market platform上のaccessibility interface」として位置づけられる。
+- **旧状態・棄却**：⑤NEXTを終了。「通常alarm→Park-O-Phon→tactile→AS1930」という単線の製品系譜としては扱わない。parking / tactileはparallel adaptation、AS1568 / 1930 / 1931はcaliber-family development、Citizen / Poljotは別メーカーのdirectly-based relationとして分離する。Citizen license説・Soviet transfer経路は一次資料未確認のため確定しない。
+- **影響範囲**：research/ARSA_BLIND_ALARM_RESEARCH_MAP.md、research/ARSA_BLIND_ALARM_LEDGER.md、本判断履歴。公開WATCH本文は変更しない。
+- **検証状態**：Project資料 The Alarm Wrist Watch / Alarm am Arm のAS1475 family、Benedict Park-O-Phon、通常採用例、Citizen / Poljot記述を確認。WebはRanfft、Museum of Arts and Crafts Zagreb、Grail Watchのparking-watch記述で補助突合。factory production ledger / transfer一次資料はOPEN。
+- **起点・帰属**：VA標準研究frameの⑤「caliber / platformと変貌種」に従い、ユーザーが④完了後に⑤へ進むよう指定。AIがplatform→branchesとして証拠関係を整理。
+- **関連**：Deep Dive ①–④、購入個体ARRIVAL SUPPLEMENT、AS1475 early/late alarm-state test。
+- **日時根拠**：直前main commit b6824ddcのGitHub時刻 2026-10-03T05:30:51Z = 2026-10-03 14:30 JST を本作業開始基準として記録。
+
 # VINTAGE ALARM — DECISION / CHANGE LOG
 
 この文書は「いつ・何を・なぜ変えたか」を人間が時系列で追うための台帳です。Gitのcommit履歴を置き換えるものではなく、仕様判断・棄却理由・再検討条件を短く残します。
