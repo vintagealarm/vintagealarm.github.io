@@ -2043,3 +2043,13 @@ Delta from 2026-10-03 10:18:
 - WATCH guideで双方向設定は確認済み。精度重視時は反時計回り推奨の注記も維持。
 - 『双方向設定は唯一』とは扱わない。資料上ほかにも例はあるが、一方向指定のcaliberも多く、少数派寄りの操作特徴として扱う。
 - 次回投稿予約ではないためPLANNEDにはしない。
+
+## 2026-10-05 07:22 JST — CYMA棚完成 / 次投稿はDuofon機能Reel / 画像→動画ローテーション
+
+### Decision
+- **CYMA review complete**: ユーザーは初期AI_PROPOSEDについて、明示的にNG／制約指定したもの以外を採用と確定。PR-CYM-001〜011は該当する既存assetまたは新規CYM-12/13へUSER_KEEP、双方向設定の補助機構はCYM-09へMERGE、CymaflexはCYM-10、段付きムーブメント構造はCYM-11として棚へ残す。
+- **Constraint retained**: 裏スケ換装後の掲載個体ケース厚・実寸はSNS訴求に使わない。CYM-04は掲載個体観察として鳴動中にリューズが回らないを採用し、一般化しない。
+- **Next content**: 直近のWittnauer静止画の次にPierce Duofonの機能動画を1本挟む。Primary=PIE-07、Secondary=PIE-05/06、content ID=`MR-PIE-001`、State=PLANNED、Approval=USER_CONFIRMED。
+- **Cadence**: 当面は `画像 → 動画 → 画像 → 動画` を基本ローテーションにする。次の画像・動画の時計／assetはrolling shelfから都度選ぶ。
+- **Evidence / purpose**: formatを交互に置き、静止画とmicro-Reel双方を継続観測しつつ、同一formatの連投偏りを避けるため。単一のWittnauer静止画結果から『画像は不利』と一般化しない。
+- **Status**: ACTIVE。Duofon動画のmedia implementation / CMS uploadはPR #166側で進行中。
