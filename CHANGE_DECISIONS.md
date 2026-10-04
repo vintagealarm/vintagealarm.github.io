@@ -17,6 +17,17 @@
 
 ## 2026-10-04
 
+### 2026-10-04 20:48 JST — 現行正本の一致検査を最小CIへ追加し、残存driftを修正
+
+- **変更**：PROJECT_STATEのHOW THEY RING FIG.03を現行実装の「ピン伝達型」へ同期し、CASEBACK説明中の旧「ピン／レバー伝達」も同じ現行語へ揃えた。PROJECT_STATEの正本一覧へSocial Routerを追加し、ACTIVE WORKのCouncil pointerをV3.md / README / src/v3.ts / src/index.tsの4正本へ揃えた。さらに `scripts/check-project-consistency.mjs` を追加し、canonical host、Social Router routing、Council V3 pointer、HOW THEY RING FIG.01 / FIG.03、公開WATCH 6 routeとllms列挙、measurement target 5 WATCHの意味分離を `check:quality` で機械検査する。PR #162はcurrent-main replayとしてCI success後にmergeし、同内容を保持していた旧PR #157はsupersededとしてcloseした。
+- **理由**：直前監査で、実装が「ピン伝達型」なのにPROJECT_STATEだけ旧語、Social RouterがPROJECT / AGENTSにはあるのにPROJECT_STATEの正本一覧ではinventoryしか示さない、Council V3の正本を同じPROJECT_STATE内で完全列挙している一方ACTIVE WORK pointerだけ旧2ファイル、という目視同期由来のdriftが残っていた。既に同種のFIG.01・公開6本/measurement 5本・AIO traversal driftも発生しており、毎回人間またはAIが複数文書を手作業で照合するより、意味が固定された少数項目だけをCIで比較する方が再発防止コストが低いと判断した。
+- **旧状態・棄却**：重複する現行事実を各文書へ記載しつつ目視だけで同期する運用を棄却する。一方、全PROJECT_STATEや全方針文書をschema化して巨大な単一正本へ集約する案は過剰設計として採用しない。checkerは今回実際にdriftした少数の機械的一致項目だけを対象とする。
+- **影響範囲**：PROJECT_STATE.md、scripts/check-project-consistency.mjs、package.json、quality gate、PR lifecycle (#162 / #157)。公開WATCH本文、OWNER'S NOTE、HOW THEY RING表示実装、Analytics runtime、SNS実測値は変更しない。
+- **検証状態**：PR #162 headのAstro foundation check run 37195443524がsuccessであることを確認してmerge commit `3b70698507abcd8752616cfe460fc2f05ec2f94f` を作成し、旧#157をclose。新しいconsistency branchでは対象正本と現行実装を再取得して差分を限定した。branch CIで新checkerを含むquality / buildを通過後にmerge可否を判断する。
+- **関連**：commits `2bb38232` / `eedaed4c` / `c9712bcd`; PR #162 merge commit `3b70698507abcd8752616cfe460fc2f05ec2f94f`; superseded PR #157。
+- **日時根拠**：system-provided user local time 2026-10-04T20:48+09:00 = 2026-10-04 20:48 JST。
+
+
 ### 2026-10-04 19:27 JST — Social inventoryのVerify taxonomyへREADY_FROM_SOURCEを正式追加
 
 - **変更**：正本assetのVerify状態へ `READY_FROM_SOURCE` を追加し、`check-social-content-inventory.mjs` の許可集合へ同期した。
