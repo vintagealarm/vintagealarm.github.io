@@ -16,6 +16,7 @@
 - `USER_KEEP` はassetとして棚に残す確定であり、次回投稿の採用とは別。KEEP済みassetは他時計の候補と後から比較して選べる。
 - 現在のasset表は共同棚卸しの開始点。候補レビュー層と正本asset層を混同しない。
 - 動画への当て込みはasset確定後。ユーザーが採用したものだけContent Assignment Registryへ USER_CONFIRMED / PLANNED として予約する。
+- **Execution Briefはasset表ではなくcontent単位で持つ。** USER_CONFIRMED / PLANNEDを作った投稿だけ、実素材・既出衝突・過去SNS学習・素材制約を短いbriefへ束ねる。棚の全assetへ見せ方を埋めて肥大化させない。
 
 ## 1. ステータス
 
@@ -52,9 +53,11 @@
 5. ユーザーは棚から時計＋内容を見て KEEP / MERGE / SPLIT / DROP を相談する。KEEPはasset採用であり次回投稿採用ではない。必要なら粒度を再分類して再提示する。
 6. 確定assetについて USED / PARTIAL / CANDIDATE_NOT_IN_IG_TEXT、Other social、Media、Verifyを再照合して正本asset表へ反映する。
 7. 確定assetを動画へ当て込む案を提示し、ユーザーが採用したものだけ USER_CONFIRMED / PLANNED で予約する。
-8. activeな PLANNED / SHOT / EDITED / SCHEDULED のasset / media keyは別案へ再利用しない。
-9. 撮影→SHOT、編集→EDITED、予約投稿→SCHEDULED、公開確認→PUBLISHED。中止はDROPPED。
-10. Instagram公開時はpublished-copy、asset state、assignmentを同じ変更セットで同期する。Insightsは同じcontent IDを使う。
+8. **予約と同じcontent IDでExecution Briefを作る。** 実素材、Published Copy、Operations / Insightsの関連学習、WATCH / research事実を突合し、Media reality / Attention cue / Sensory proof / Causal beat / Published collision / Carry-forward / Constraints / Working copyを埋める。
+9. 実素材未確認なら Status=MEDIA_PENDING とし、caption / storyboardをfinal扱いにしない。実素材確認後は MEDIA_VERIFIED へ更新する。SHOT / EDITED / SCHEDULEDへ進むInstagram assignmentは MEDIA_VERIFIED 必須。
+10. activeな PLANNED / SHOT / EDITED / SCHEDULED のasset / media keyは別案へ再利用しない。
+11. 撮影→SHOT、編集→EDITED、予約投稿→SCHEDULED、公開確認→PUBLISHED。中止はDROPPED。
+12. Instagram公開時はpublished-copy、asset state、assignmentを同じ変更セットで同期する。Insightsは同じcontent IDを使う。
 
 ### よくある要求の処理
 
@@ -264,9 +267,25 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | X-CYM-TIMING | X | PUBLISHED | LEGACY_VERIFIED | VIDEO | CYM-03 | — | X:CYM-TIMING-WHEEL | WATCH Deep 04 |
 | YT-WES-20260914 | YOUTUBE | UNVERIFIED_PAST | LEGACY_VERIFIED | SHORT | WES-03 | WES-01 | YT:GWkY7hPO89E | experiment-log |
 
-| MR-PIE-001 | INSTAGRAM | PLANNED | USER_CONFIRMED | REEL | PIE-07 | PIE-05,PIE-06 | PIE:WECKER-SIGNAL-SWITCH-VIDEO | user selected Duofon function video as next post; current Reel media shows the internal alarm mechanism with no dial shot; USER_WORKING_DRAFT is recorded in instagram-operations; media implementation tracked in PR #166 |
+| MR-PIE-001 | INSTAGRAM | PLANNED | USER_CONFIRMED | REEL | PIE-07 | PIE-05,PIE-06 | PIE:WECKER-SIGNAL-SWITCH-VIDEO | user selected Duofon function video as next post; Execution Brief `EB:MR-PIE-001`; USER_WORKING_DRAFT is recorded in instagram-operations |
 
 現在の新規active reservationは1件（MR-PIE-001）。Duofon機能動画を次の投稿として予約。
+
+
+### Execution Brief Registry
+
+Execution Briefは**activeな投稿contentだけ**に作る。asset棚全体へ展開しない。Instagramのactive assignment（PLANNED / SHOT / EDITED / SCHEDULED）は対応する `EB:<Content ID>` を1件持つ。PLANNEDで実素材がまだ無い場合だけ `MEDIA_PENDING` を許容し、SHOT以降は `MEDIA_VERIFIED` 必須。
+
+#### EB:MR-PIE-001
+- Status: MEDIA_VERIFIED
+- Media reality: ムーブメント側のみ。文字盤は出ない。アラームを実際に鳴らしながら、左上側のアラーム機構を動かしてWECKER / SIGNALを切り替える実演素材。
+- Attention cue: 冒頭で「左上のアラーム部分」に視線を固定し、機構の動きと音の変化を同時に追わせる。
+- Sensory proof: 内部機構が動く視覚情報と、切替に伴う鳴り方の変化を同じ実素材で提示できる。
+- Causal beat: 4時位置の操作 → 内部の連動機構／バーが動く → 打撃ピンの位置が切り替わる → WECKER / SIGNALで発音挙動が変わる。
+- Published collision: 初回Duofon Reelですでに「2 selectable alarm volumes」「WECKER=loud / SIGNAL=discreet」「4時操作」「6時窓」は紹介済み。今回は2種類の存在紹介を繰り返すのではなく、その切替が内部でどう起きるかを実演する深掘り。
+- Carry-forward: 過去実投稿の「最初に観察対象を指定する」型、実機・実音・操作・機構差を主役にする運用、今回ユーザー訂正の「位置を先に示し、視覚と聴覚を同時誘導し、機構説明を省きすぎない」を適用する。
+- Constraints: 文字盤／6時表示窓／別カットは素材に無いので勝手に足さない。一般的な「2種類の音があります」だけへ薄めない。未確認の編集展開を発明しない。
+- Working copy: `instagram-operations.md` の「2026-10-05 08:23 JST — MR-PIE-001本文訂正 / 過去知見の持ち越しを明文化」にある USER_WORKING_DRAFT を現行baseとする。公開確認までは `instagram-published-copy.md` へ入れない。
 
 ---
 ## 5. Legacy / Project recovery audit
