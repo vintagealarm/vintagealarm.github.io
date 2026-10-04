@@ -863,3 +863,12 @@
 - **検証状態**: PR #156 の `Astro foundation check` run `37159180757` がSUCCESS。`check:social-inventory` を含むquality gate、build、publication-aware output、mobile layoutまでPASS。main反映後に再取得確認する。
 - **関連**: 2026-10-04 07:33 JST ユーザー訂正「候補までは分類したまま出して俺と相談して決めるべきでは？提示せずにやったのが間違い」。関連commit: `b1b6f4c6` / `6f661980` / `decb1865` / `80735994` / `c7e8f7ed` / `743b0890` / `c67c2341` / `a22142c8` / `ca15c351`。
 - **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 07:33 JST（UTC+09:00）。
+
+### 2026-10-04 12:26 JST — SNS候補棚を時計横断rolling shelfへ変更
+- **変更**: Candidate Review Queueを「時計ごとに順番に完了させるレビュー」ではなく、複数WATCHのAI_PROPOSEDを継続的に追加し、ユーザーが候補棚から次の「時計＋内容」を選べるrolling shelfとして定義した。USER_KEEPはassetとして棚に残す確定であり、次回投稿採用とは分離する。WittnauerではWIT-03 / WIT-04 / WIT-06をUSER_KEEPとして反映した。
+- **理由**: ユーザーの目的は各時計を一つずつ完了させることではなく、VA基礎情報から実機で使える内容をどんどん棚卸しし、時計と内容の組み合わせを比較して投稿を決められる状態を作ること。
+- **旧状態・棄却**: 「Wittnauerを全部確定してから次の時計へ進む」ような直列運用、およびKEEP＝次回投稿採用とみなす解釈を棄却する。
+- **影響範囲**: PROJECT.md、AGENTS.md、PROJECT_STATE.md、Social ROUTER.md、content-inventory.md、instagram-operations.md。公開WATCH本文、OWNER'S NOTE原文、既存Published Copy / Insightsは変更しない。
+- **検証状態**: branch `social-rolling-candidate-shelf` で実装。PR quality gateを通し、main反映後に再取得確認する。
+- **関連**: 2026-10-04ユーザー指示「こういうのでどんどん棚卸して時計と内容と決めれるようにしようぜって言ってるの。」およびWittnauer 3件のKEEP判断。
+- **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 12:26 JST（UTC+09:00）。
