@@ -17,6 +17,26 @@
 
 ## 2026-10-04
 
+### 2026-10-04 19:27 JST — Social inventoryのVerify taxonomyへREADY_FROM_SOURCEを正式追加
+
+- **変更**：正本assetのVerify状態へ `READY_FROM_SOURCE` を追加し、`check-social-content-inventory.mjs` の許可集合へ同期した。
+- **理由**：rolling shelf replayでWIT-10を正本assetへ昇格した際、候補層では既に `READY_FROM_SOURCE` を使っていた一方、正本asset checkerは `READY_FROM_WATCH / RECHECK_SOURCE / OPEN_QUESTION / RIGHTS_CHECK` だけを許可しており、データモデルとgateが不一致だった。WIT-10はWATCHだけでなくHorlbeck等の資料確認を根拠にするため、`READY_FROM_WATCH`へ意味を潰して寄せず、source確認済み状態を正式化する。
+- **旧状態・棄却**：source確認済みassetを便宜上 `READY_FROM_WATCH` へ偽装する案、およびcheckerだけを無効化する案を棄却する。
+- **影響範囲**：`scripts/check-social-content-inventory.mjs` のVerify taxonomy。既存assetの判定、公開SNS投稿、WATCH本文、Insights値は変更しない。
+- **検証状態**：初回replay CI run `37195353045` がWIT-10の `READY_FROM_SOURCE` をinvalidとして正しく検出したため、taxonomy側を明示同期。修正後CIで再検証する。
+- **関連**：commit `1f0dc21777542718b49ba7f0ed906cde8ec996f5`、PR #162。
+- **日時根拠**：GitHub commit `1f0dc21777542718b49ba7f0ed906cde8ec996f5` 2026-10-04T10:27:19Z → 2026-10-04 19:27 JST。
+
+### 2026-10-04 19:24 JST — PR #157のrolling SNS候補棚をcurrent mainへ再適用
+
+- **変更**：PR #157の有効差分をcurrent mainから作り直したbranchへ再適用した。Candidate Review Queueを時計横断rolling shelfとして扱い、KEEPと次回投稿採用を分離する運用、WittnauerのKEEP / MERGE / DROP結果、CYMA双方向alarm settingのKEEPをSocial Router / inventory / operations / PROJECT / AGENTS / PROJECT_STATEへ同期した。
+- **理由**：PR #157はSNS候補棚の現役作業だが、直前のPR hygiene・正本整合修復でmain側が進み、旧branchをそのままmergeするとAGENTS / PROJECT_STATE / CHANGE_DECISIONSの新しい修復を巻き込みやすい状態になったため。現mainを基底に必要差分だけ再適用する。
+- **旧状態・棄却**：競合した旧PR #157へmain側変更を力技で混ぜてそのままmergeする案を棄却する。rolling shelfのユーザー確定判断自体は維持し、履歴として旧PRを残す。
+- **影響範囲**：PROJECT.md、AGENTS.md、PROJECT_STATE.md、Social ROUTER、content-inventory、instagram-operations、本判断履歴。公開WATCH / OWNER'S NOTE / Insights実測値 / Analytics runtimeは変更しない。
+- **検証状態**：旧PR #157 head `ffe620dc31d497d395695273380a7c2571f28d61` のdiffをcurrent mainへ手作業で再適用。social 3正本は旧headの内容をそのまま移し、PROJECT / AGENTS / PROJECT_STATEはcurrent mainの後続修復を保持した差分適用とした。CI通過後に新PRをmergeし、旧PR #157はsupersededとしてcloseする。
+- **関連**：旧PR #157、replay commits `3a32e7b8` / `84e5fb22` / `7351aafe` / `ec26a01a` / `75c7b2b7` / `ca6c7087` / `457940a6`。
+- **日時根拠**：GitHub commit `457940a65ee76cfc90336d7c509f6fb751de2673` 2026-10-04T10:24:18Z → 2026-10-04 19:24 JST。
+
 ### 2026-10-04 19:13 JST — PR #147のsemantic clarity規則とARSA working copy判断を現mainへ救出
 
 - **変更**：全WATCH共通Catch / Lead開発プロトコルへsemantic clarity ruleを復元し、PR #147に残っていたARSA Blind Alarmの12:31棄却判断と12:52 working SUB / NOTE判断を現行decision logへ回収した。
@@ -49,6 +69,15 @@
 - 22:29 JST — HOW THEY RINGの録音条件を iPhone 16 / 約20 cm / unprocessed と公開注記化。commit `462feded4fbe0adb7c37dbaf4b33d7fc4f5fec55`。
 - 22:57 JST — GONG / CASEBACK selectorのベル＋TAP装飾をactive側だけに限定。commit `cfc67d3c42adacefd90c22b461a2a17b8cef7132`。
 
+### 2026-10-04 18:55 JST — CYMA双方向アラーム設定をKEEP
+- **変更**: PR-CYM-010をUSER_KEEPへ変更し、正本asset CYM-09として追加。内容は「アラーム時刻を双方向で設定可能。精度重視なら反時計回り推奨」。
+- **理由**: ユーザーが、双方向でアラーム時刻を設定できるタイプは少数派寄りでSNS資産価値があると判断。WATCH guideでも双方向設定は確認済み。
+- **旧状態・棄却**: PR-CYM-010を弱め／DROP寄りとしたAI初期評価を棄却。
+- **影響範囲**: social content inventoryのCYMA候補棚。公開WATCH本文、既存投稿、Insightsは変更しない。
+- **検証状態**: branch social-rolling-candidate-shelfへ反映。PR #157のCIとmain反映は別途確認。
+- **関連**: user decision 2026-10-04 18:55 JST「10はkeep」。commit fd218180。
+- **日時根拠**: system-provided user local time `2026-10-04T18:55:57+09:00` = `2026-10-04 18:55 JST`。
+
 ### 2026-10-04 18:45 JST — open PRの作業キューを整理
 
 - **変更**：open PR 14件を再監査し、#13 / #45 / #59 / #62 / #65 / #88 / #105 / #109 / #127 をcloseして履歴へ退避。#135 / #147 / #152 は有効な未merge情報を含むが現行mainと競合するためdraft化。#113は未反映の時刻訂正を含むhistorical repairとしてdraft保持。#157は現行SNS作業としてreadyのまま維持。
@@ -59,6 +88,15 @@
 - **関連**：上記PR群。
 - **日時根拠**：PR #152 draft化後のGitHub updated_at 2026-10-04T09:45:43Z → 2026-10-04 18:45 JST。
 
+### 2026-10-04 17:58 JST — Wittnauer 10WAのベゼル形状をWIT-04へ統合し、歴史・実測2候補を棄却
+- **変更**: PR-WIT-006「ケースより張り出す回転ベゼル＋後方へ絞るケース形状」を独立assetにせずWIT-04へMERGE。WIT-04は二階建て／すり鉢状ケース、掲載個体での手首への収まり、ケースより張り出す回転ベゼルを一つの側面形状assetとして扱う。PR-WIT-007「Wittnauer最初のアラーム腕時計」とPR-WIT-008「文献5–7秒 vs 掲載個体実測」はUSER_DROP。WIT-03には掲載個体観察「見た目ほど巻き上げにくくない」を付記した。
+- **理由**: ユーザーがPR-WIT-006はWIT-04と同じ側面造形として合体、PR-WIT-007/008はSNS棚に不要と判断。直前の実機写真・操作感から、Horlbeckの『巻上げが非常に難しい』という評価を掲載個体へそのまま適用しないことも確認済み。
+- **旧状態・棄却**: PR-WIT-006を独立micro-Reel候補として残す案、PR-WIT-007/008をKEEP候補として残す案を棄却。『すり鉢状ケースだから掲載個体も巻き上げにくい』という解釈も棄却。
+- **影響範囲**: `measurement/.internal/.virtual/social/content-inventory.md` と `instagram-operations.md` のWittnauer candidate review。公開WATCH本文、OWNER'S NOTE、Published Copy、Insights、既存研究asset WIT-07（1952特許）/ WIT-08（1955 AS1475）は変更しない。
+- **検証状態**: branch `social-rolling-candidate-shelf` に反映。PR #157のquality gateを再確認し、main反映前にinventoryとdecision logを再取得する。
+- **関連**: user decision 2026-10-04 17:58 JST「６ 合体 ７８drop」。関連commit: `cd45eb8a` / `8ad67d99`。
+- **日時根拠**: system-provided user local time `2026-10-04T17:58+09:00` = `2026-10-04 17:58 JST`。
+
 ### 2026-10-04 13:06 JST — ARSA 01/03のperiod-image採用条件を固定
 - **変更**：1956–60のARSA Blind Alarm本人を名指し／図示する広告・catalog・price listは未回収として03のperiod-image探索をHOLDへ移し、代用品広告を入れない方針を固定した。01では1970 DavoineのA. Reymond社広告を1点だけ使い、blind watchesとalarm wristwatchesが同時に企業specialtyとして掲げられていた会社レベル証拠に限定する。1958年3–4月号JSH No.2のA. Reymond 60周年記事は存在確認済みだが本文未取得のため、Blind Alarm掲載有無はOPENのままbonus archiveへ置く。
 - **理由**：商品本人を示す1950年代一次画像がない状態で、通常ARSA alarm、非alarm tactile watch、AFB、Enicar等を近似広告として03へ置くと、本人資料と誤認させる。03は実機・専門書・本文だけで成立しており、period adは発見時のupgradeであってcompletion blockerではない。
@@ -68,6 +106,15 @@
 - **起点・帰属**：探索と「01=Davoine 1970を1点、03=代用品なし、本物が出た時だけ再判定」という採用判断はユーザー。AIはGitHub現行状態と公開Webで証拠境界を再確認し正本化。
 - **関連**：Deep Dive ① / ③ / ③b、Davoine 1970、JSH No.2 mars-avril 1958、DIJU、Worldtempus 2003。
 - **日時根拠**：current local time source 2026-10-04T13:06:48+09:00 = 2026-10-04 13:06 JST。
+
+### 2026-10-04 12:26 JST — SNS候補棚を時計横断rolling shelfへ変更
+- **変更**: Candidate Review Queueを「時計ごとに順番に完了させるレビュー」ではなく、複数WATCHのAI_PROPOSEDを継続的に追加し、ユーザーが候補棚から次の「時計＋内容」を選べるrolling shelfとして定義した。USER_KEEPはassetとして棚に残す確定であり、次回投稿採用とは分離する。WittnauerではWIT-03 / WIT-04 / WIT-06をUSER_KEEPとして反映した。
+- **理由**: ユーザーの目的は各時計を一つずつ完了させることではなく、VA基礎情報から実機で使える内容をどんどん棚卸しし、時計と内容の組み合わせを比較して投稿を決められる状態を作ること。
+- **旧状態・棄却**: 「Wittnauerを全部確定してから次の時計へ進む」ような直列運用、およびKEEP＝次回投稿採用とみなす解釈を棄却する。
+- **影響範囲**: PROJECT.md、AGENTS.md、PROJECT_STATE.md、Social ROUTER.md、content-inventory.md、instagram-operations.md。公開WATCH本文、OWNER'S NOTE原文、既存Published Copy / Insightsは変更しない。
+- **検証状態**: branch `social-rolling-candidate-shelf` で実装。PR quality gateを通し、main反映後に再取得確認する。
+- **関連**: 2026-10-04ユーザー指示「こういうのでどんどん棚卸して時計と内容と決めれるようにしようぜって言ってるの。」およびWittnauer 3件のKEEP判断。関連commit: `28a83082` / `d602ff67` / `b44ee567` / `2c6e14f9` / `8106d500` / `ba2fccc5` / `1fbd75e5` / `df45aee5` / `c1f7a6a5`。
+- **日時根拠**: 当セッションのユーザーローカル時刻 2026-10-04 12:26 JST（UTC+09:00）。
 
 ## 2026-10-03
 
