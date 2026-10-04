@@ -15,6 +15,19 @@
 
 ---
 
+## 2026-10-05
+
+### 2026-10-05 07:55 JST — JSH No.2のARSA広告索引を回収し、広告本文欠落と年巻内別広告を分離
+
+- **変更**：JSH No.2（mars–avril 1958）の広告主索引（digital p.292）から`Arsa 221`を確認し、同号にARSA広告が存在したことをperiod-primary evidenceとして研究MAP / LEDGERへ追加した。同時に1958年巻digital pp.119–120のARSA周年広告2頁を抽出し、No.2 p.221広告とは分離して記録した。
+- **理由**：前回確認は60周年記事と`Nouveaux modèles`本文だけで、広告主索引と広告頁の探索が不足していた。No.2のARSA広告の存在は索引で確定できる一方、公開scanはdigital p.225のprinted p.137から`Vente`扉を挟んでdigital p.227のprinted p.224へ移り、索引が指すprinted p.221を表示しない。年巻digital pp.119–120をNo.2広告へ無根拠に代用すると号・頁を混同するため分離した。
+- **旧状態・棄却**：No.2を「60周年記事＋Nouveaux modèlesを見たので広告も含めFULLY INSPECTED」と扱う状態を撤回する。新状態は、本文2区画はFULLY INSPECTED / NEGATIVE、No.2広告はEXISTENCE CONFIRMED / BODY PAGE MISSING。digital pp.119–120は1958年巻のARSA広告として確定するがNo.2帰属はOPEN。通常のARSA自動巻広告をBlind Alarm広告へ昇格させない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴。`src/content/watches/arsa-blind-alarm.md`、Deep Dive 03、main/liveは変更しない。
+- **検証状態**：The Watch Library / MIHのIIIF原画像digital pp.119–120 / 225–227 / 281 / 292とOCRを実ブラウザで照合。広告主索引`Arsa 221`、ARSA周年広告2頁、p.221画像欠落を確認。p.221広告がBlind Alarm本人を扱うかはOPEN。
+- **起点・帰属**：広告探索の不足を指摘したのはユーザー。AIが広告主索引、連続scan、年巻内ARSA広告を抽出・区分した。
+- **関連**：2026-10-03 21:44 JST JSH No.2本文抽出、Deep Dive 03 period-ad lane。
+- **日時根拠**：ローカル実行時刻 `2026-10-05 07:55:28 +09:00` = `2026-10-05 07:55 JST`。
+
 ## 2026-10-04
 
 ### 2026-10-04 22:15 JST — AFB一次資料で1950年Elginを確定し、ARSA supplier探索をbox単位へ限定

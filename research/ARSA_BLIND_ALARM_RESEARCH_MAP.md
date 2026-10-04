@@ -574,6 +574,16 @@ The Watch Library / MIHのIIIF画像とOCRを突合し、創業60周年記事（
 
 本号は「本文未取得」のACTIVE targetから、**FULLY INSPECTED / NEGATIVE FOR DIRECT 03 EVIDENCE**へ移す。同じ頁を再探索しない。60周年記事は会社史のperiod-primary補強には使えるが、Deep Dive 03のBlind Alarm証拠には採用しない。
 
+### 2026-10-05 07:55 JST — No.2のARSA広告索引を確認 / 広告本文頁はscan欠落
+
+No.2末尾の広告主索引（digital p.292）を実見し、**`Arsa 221`** を確認した。したがって、同号にARSA広告が存在し、誌面p.221へ割り当てられていたことはperiod-primary index evidenceとして確定する。
+
+ただし公開IIIFの連続画像は、digital p.225のprinted p.137からdigital p.226の`Vente`扉を挟み、digital p.227でprinted p.224へ移る。広告主索引が指すprinted p.221の画像は、この公開scanの該当runには含まれていない。**広告の存在は確定、広告本文・写真・モデルは未確認**のまま保持する。
+
+同じ1958年巻のdigital pp.119–120にはARSA周年広告2頁を確認した。digital p.119は赤いカラーの`ARSA 1898–1958`企業広告、digital p.120は`Vivre avec son temps / porter une ARSA AUTOMATIQUE`、`Très plate et étanche`と5項目の製造方針を載せる。いずれも通常のARSA自動巻・企業広告で、**Blind Alarm / montre pour aveugles / aveugles / réveil / tactile watchの記載・図示はない**。号帰属をNo.2へ固定できないため、No.2 p.221広告の代替画像にはしない。
+
+**Routing:** No.2 ad = PERIOD-PRIMARY INDEX CONFIRMED / BODY PAGE MISSING. 1958 annual digital pp.119–120 = PERIOD-PRIMARY ARSA ADVERTISING / NEGATIVE FOR BLIND ALARM / ISSUE ASSIGNMENT OPEN. Deep Dive 03は変更しない。
+
 ### P1 — Hy Moser: PERIOD-PRIMARY COMPARATOR
 
 同年巻のdigital p.335 / printed p.333に、`Montres pour aveugles — le style a son importance`を確認。Hy Moserが盲人用時計を製造し、時針をfaceted、分針をflatとして触覚的に区別したこと、女性用はcream dialであること、販売は小売時計店より盲人施設を介して行われたことを明記する。

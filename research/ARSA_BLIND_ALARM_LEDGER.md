@@ -3527,6 +3527,55 @@ Illustrations: ARSA men's 1936; ARSA women's 1936; men's `Dandy` extra-flat, 18 
 
 Printed p.234 presents Rodania refs.5424 S / 5423 S, Louis A. Leuba refs.1887/B / 1883, Martel Sporting caliber 1112, and Eloga 650 B / 651. Printed pp.235–236 describe Heuer's Ring-Master stopwatch and interchangeable scale rings. **No A. Reymond / ARSA, montre pour aveugles, aveugles, blind alarm, tactile watch or alarm wristwatch appears.**
 
+#### ARSA advertising — No.2 index hit and 1958 annual advertisements
+
+**No.2 advertiser index source:** *Journal suisse d'horlogerie et de bijouterie*, No.2, mars–avril 1958, digital p.292.
+**URL:** https://watchlibrary.org/details/MIH-JSH_1958_292
+**Image:** https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1958%2FMIH-JSH_1958%2FJPG-SOURCE%2FMIH-JSH_1958_JPG-SOURCE_0292/full/full/0/default.jpg
+**Evidence class:** PERIOD-PRIMARY TRADE-PRESS ADVERTISER INDEX / VISUALLY VERIFIED.
+
+The `LISTE DES ANNONCEURS` gives the exact entry:
+
+> `Arsa 221`
+
+This confirms that No.2 carried an ARSA advertisement assigned to printed p.221. The public scan run does not expose that page: digital p.225 is printed p.137, digital p.226 is the `Vente` divider, and digital p.227 resumes at printed p.224. Therefore the advertisement's body, image and model cannot be verified from the available No.2 page images.
+
+**Status:** NO.2 ARSA ADVERTISEMENT EXISTENCE CONFIRMED / PRINTED P.221 BODY PAGE MISSING / DIRECT BLIND-ALARM CONTENT OPEN.
+
+The same 1958 annual volume contains two visually verified ARSA advertisements at digital pp.119–120. Their assignment to No.2 is not established, so they are recorded separately and are not substituted for the missing printed p.221 advertisement.
+
+**Digital p.119 source:** https://watchlibrary.org/details/MIH-JSH_1958_119
+**Image:** https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1958%2FMIH-JSH_1958%2FJPG-SOURCE%2FMIH-JSH_1958_JPG-SOURCE_0119/full/full/0/default.jpg
+
+**Original:**
+> `ARSA 1898 1958`
+>
+> `MANUFACTURE D'HORLOGERIE A. REYMOND S.A. TRAMELAN (SUISSE)`
+
+**Natural Japanese translation:**
+> 「ARSA 1898–1958。時計製造会社 A. Reymond S.A.、トラメラン（スイス）。」
+
+The color advertisement depicts an ordinary wristwatch and a balance assembly over a red planetary motif. It does not depict or name a blind/tactile/alarm watch.
+
+**Digital p.120 source:** https://watchlibrary.org/details/MIH-JSH_1958_120
+**Image:** https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1958%2FMIH-JSH_1958%2FJPG-SOURCE%2FMIH-JSH_1958_JPG-SOURCE_0120/full/full/0/default.jpg
+
+**Original heading/copy:**
+> `Vivre avec son temps — porter une ARSA AUTOMATIQUE`
+>
+> `Très plate et étanche`
+>
+> `Après 60 ans d'expériences au service de la montre suisse, A. Reymond S.A. s'oriente vers une amélioration constante de sa production par un programme de fabrication en 5 points.`
+
+The five points specify: Michel hairspring regulation for men's wristwatches; increased chronometer production, with 300 pieces submitted in 1957 and more than 90% receiving `Résultats de marche particulièrement bons`; expansion of thin men's and small women's automatic models; introduction of a thin 13-ligne caliber, also for calendar models with a 3 o'clock window, small seconds or direct-drive center seconds; and special attention to presentation, technical finish and pricing.
+
+**Natural Japanese translation:**
+> 「時代とともに生きる――ARSA AUTOMATIQUEを身に着ける。非常に薄く、防水。スイス時計に60年携わってきたA. Reymond S.A.は、5項目の製造計画によって製品を継続的に改良する。」
+>
+> 「男性用腕時計へのMichelひげぜんまい採用による調整性能の向上、クロノメーター製造の強化、薄型男性用・小型女性用を含む自動巻時計の増産、薄型13リーニュをはじめとする新キャリバーの導入、そして外観・技術的完成度・価格への特別な配慮である。」
+
+**Direct ARSA Blind Alarm result for digital pp.119–120: NEGATIVE.** No `Blind Alarm`, `montre pour aveugles`, `aveugles`, `réveil`, tactile dial, hinged cover or accessibility description appears. These pages support 1958 ARSA corporate/automatic-watch advertising only.
+
 #### Period-primary comparator — Hy Moser blind watches
 
 **Source:** 1958 volume, printed p.333 / digital p.335.
