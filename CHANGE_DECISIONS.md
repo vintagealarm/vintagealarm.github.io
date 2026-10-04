@@ -17,6 +17,16 @@
 
 ## 2026-10-04
 
+### 2026-10-04 19:27 JST — Social inventoryのVerify taxonomyへREADY_FROM_SOURCEを正式追加
+
+- **変更**：正本assetのVerify状態へ `READY_FROM_SOURCE` を追加し、`check-social-content-inventory.mjs` の許可集合へ同期した。
+- **理由**：rolling shelf replayでWIT-10を正本assetへ昇格した際、候補層では既に `READY_FROM_SOURCE` を使っていた一方、正本asset checkerは `READY_FROM_WATCH / RECHECK_SOURCE / OPEN_QUESTION / RIGHTS_CHECK` だけを許可しており、データモデルとgateが不一致だった。WIT-10はWATCHだけでなくHorlbeck等の資料確認を根拠にするため、`READY_FROM_WATCH`へ意味を潰して寄せず、source確認済み状態を正式化する。
+- **旧状態・棄却**：source確認済みassetを便宜上 `READY_FROM_WATCH` へ偽装する案、およびcheckerだけを無効化する案を棄却する。
+- **影響範囲**：`scripts/check-social-content-inventory.mjs` のVerify taxonomy。既存assetの判定、公開SNS投稿、WATCH本文、Insights値は変更しない。
+- **検証状態**：初回replay CI run `37195353045` がWIT-10の `READY_FROM_SOURCE` をinvalidとして正しく検出したため、taxonomy側を明示同期。修正後CIで再検証する。
+- **関連**：commit `1f0dc21777542718b49ba7f0ed906cde8ec996f5`、PR #162。
+- **日時根拠**：GitHub commit `1f0dc21777542718b49ba7f0ed906cde8ec996f5` 2026-10-04T10:27:19Z → 2026-10-04 19:27 JST。
+
 ### 2026-10-04 19:24 JST — PR #157のrolling SNS候補棚をcurrent mainへ再適用
 
 - **変更**：PR #157の有効差分をcurrent mainから作り直したbranchへ再適用した。Candidate Review Queueを時計横断rolling shelfとして扱い、KEEPと次回投稿採用を分離する運用、WittnauerのKEEP / MERGE / DROP結果、CYMA双方向alarm settingのKEEPをSocial Router / inventory / operations / PROJECT / AGENTS / PROJECT_STATEへ同期した。
