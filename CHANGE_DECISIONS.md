@@ -1047,7 +1047,7 @@
 - **旧状態・棄却**：既存の静止画①〜⑤を動画で置き換える案は棄却する。既存本文、1955年Pierce技術資料の説明、WATCH上段の既存実機鳴動（YouTube + X）は変更しない。X埋め込みは使わず、今回の機構動画はVA内でセルフホストする。
 - **影響範囲**：`src/components/DeepDive.astro`、`src/content.config.ts`、Pierce Duofon JA / EN / DEのDEEP DIVE 02のみ。共通WATCH順序、OWNER'S NOTE、SPEC、既存機構静止画、他WATCHの表示は変更しない。
 - **検証状態**：コード側はbranch `feature/pierce-duofon-switch-video` へ実装。動画実体はユーザーが別途 `public/videos/pierce-duofon/pierce-duofon-wecker-signal-switch.mp4` へアップロードするため、現時点ではasset待ち。asset追加後にbuild / localization / 390px・320px・desktop表示 / 再生 / liveを確認するまでVERIFIED / DEPLOYEDとはしない。
-- **関連**：2026-10-04 ユーザー提供Pierce Duofon実機動画、X投稿 `https://x.com/Rimacroissant/status/2106743548867698937?s=20`。
+- **関連**：2026-10-04 ユーザー提供Pierce Duofon実機動画、X投稿 `https://x.com/Rimacroissant/status/2106743548867698937?s=20`。実装commit: `8e3cbe34670b8146f6ba15b4821dafbcbea17c35` / `f5da24e1b206110b33c9a07635afe9e21e230cd4` / `39aab7f6b2bb64f3278ce7fe6a0d46d6a01d82f4` / `7a47a421c8dfe45571cab9abd25737e4e441ddfa` / `7eb2fe4e60e839a20345bcd3811dc991fd497c90`。
 - **日時根拠**：当セッションのユーザーローカル時刻 `2026-10-04 23:22 JST`（UTC+09:00）。
 
 ### 2026-10-05 07:18 JST — Pierce機構動画をPages CMSからアップロード可能に修正
@@ -1056,6 +1056,6 @@
 - **旧状態・棄却**：ユーザーへ `public/videos/pierce-duofon/pierce-duofon-wecker-signal-switch.mp4` へ直接アップロードさせる案を棄却する。保存先自体は `public/videos` のままだが、通常操作はCMSの `WATCH動画` から行う。
 - **影響範囲**：`.pages.yml` のmedia定義とWATCH / DEEP DIVE編集UI、PR #166。公開ページの本文・既存静止画・動画表示位置・JA/EN/DEの意味は変更しない。
 - **検証状態**：branch `feature/pierce-duofon-switch-video` にCMS定義を追加済み。Pages CMS上での実アップロード、保存後の生成パス、build / playback / live確認は動画アップロード後に行う。
-- **関連**：PR #166、`src/pages/admin/index.astro`（Pages CMSへの既存導線）、2026-10-05ユーザー訂正「cmsに入れられすようにしろよ　どこやねんそこ」。
+- **関連**：PR #166、`src/pages/admin/index.astro`（Pages CMSへの既存導線）、CMS実装commit `d1f88c7f948e897ada209474361b03895e012563`、2026-10-05ユーザー訂正「cmsに入れられすようにしろよ　どこやねんそこ」。
 - **日時根拠**：当セッションのユーザーローカル時刻 `2026-10-05 07:18 JST`（UTC+09:00）。
 
