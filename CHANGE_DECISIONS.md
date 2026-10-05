@@ -120,6 +120,15 @@
 - **関連**：commits `8984ca8d` / `b635b01d` / `6c0c2ba3` / `c3adc71b`、2026-10-04 13:06 JST「ARSA 01/03のperiod-image採用条件を固定」。
 - **日時根拠**：system-provided local time 2026-10-05T06:55+09:00 = 2026-10-05 06:55 JST。
 
+### 2026-10-05 17:13 JST — Pierce創業年sync gateをYAML改行に耐える形へ修正
+- **変更**：pierce-founding-yearの日本語source checkを、YAML折返し後も同じ事実を検査できる2つの部分文字列へ分割する。
+- **理由**：現行本文は1883年・創業者・Biel/Bienneの意味を保持しているが、YAML改行でraw完全一致だけが失敗していたため。
+- **旧状態・棄却**：本文をchecker都合で1行へ戻す案、1883年の事実を変更する案は採用しない。
+- **影響範囲**：src/data/localization-fact-sync.jsonと本判断履歴のみ。Pierce本文・翻訳・公開表示は変更しない。
+- **検証状態**：current mainでJA/EN/DEの事実保持を確認済み。PR CI通過までVERIFIEDとはしない。
+- **関連**：commit 2c608e50、PR #182 CI run 37281767057。
+- **日時根拠**：GitHub commit time 2026-10-05T08:13:34Z → 2026-10-05 17:13 JST。
+
 ## 2026-10-04
 
 ### 2026-10-04 21:53 JST — active queueをopen PR基準へ固定
