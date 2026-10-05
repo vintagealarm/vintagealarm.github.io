@@ -60,6 +60,15 @@
 - **関連**：MR-PIE-001、2026-10-05 08:23 copy learning contract、2026-10-05 08:44 Execution Brief bridge、2026-10-05 09:22 initial snapshot。
 - **日時根拠**：developer-provided local time `2026-10-05T16:06+09:00` = `2026-10-05 16:06 JST`。
 
+### 2026-10-05 16:05 JST — OWNER'S NOTE Slides PNG exporterを正本化
+- **変更**：現行Google Slidesの18枚をmanifestで固定し、1600×2233 PNGを書き出すexporter・checker・Actions workflow・READMEを追加する。
+- **理由**：Slides実体は残る一方、旧local-only export実装はcurrent GitHub正本に無く、remoteで再現可能な書き出し基盤が必要なため。
+- **旧状態・棄却**：旧local実装の推測復元、手動スクリーンショットや後処理リサイズの正規export扱い、deck公開化は採用しない。
+- **影響範囲**：owner-note slide export用tools/scripts/workflow、package.json、.gitignore、PROJECT_STATE.md、本判断履歴。Slides本文・公開WATCHは変更しない。
+- **検証状態**：connected Slidesで18枚すべてimage/png・1600×2233を実測済み。PR CI通過までVERIFIEDとはしない。Actions実exportは認証設定後の成功実行までruntime未検証。
+- **関連**：2026-10-05ユーザー指示「じゃあそこを作成しようか部長」「GitHubどうぞ」。
+- **日時根拠**：developer-provided local time 2026-10-05T16:05+09:00 = 2026-10-05 16:05 JST。
+
 ### 2026-10-05 09:23 JST — MR-PIE-001初回比較をoperationsへ同期
 
 - **変更**：MR-PIE-001の初回比較要約をinstagram-operationsへ同期。
