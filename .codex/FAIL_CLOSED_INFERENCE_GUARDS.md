@@ -85,6 +85,31 @@ REPORT / 回答出力直前に、今回の結論を次と照合する。
 
 矛盾が新証拠による正当な更新なら、先にDECISION REVERSAL GATEを通す。
 
+## 5.5 PLATFORM OUTPUT CONTRACT GATE
+
+SNS / platform-bound copyの生成では、正本を「読んだ」だけでPASSにしない。Social Router等のCURRENTから **PLATFORM / LANGUAGE / AUDIENCE / CHARACTER LIMIT / SOURCE COPY / TRANSFORMATION / DESTINATION / OUTPUT VALIDATOR** をTask Envelopeへ固定し、actual post candidateそのものを検査する。
+
+次のいずれかなら **FAIL-CLOSED**。
+
+- CURRENTに定義されたlanguage / audience / character limitを解決せずに本文生成へ進む
+- source copyが指定されているのに未確認のまま記憶・一般論から再生成する
+- actual post candidateがCURRENT languageと衝突する
+- actual post candidateがCURRENT character limitを超える
+- 媒体固有のCURRENT format / transformation ruleを満たさない
+- 周辺の説明文を検査して、actual post candidate自体の違反を見逃す
+
+### X current lock
+
+`measurement/.internal/.virtual/social/ROUTER.md` の **X CURRENT OUTPUT CONTRACT** がCURRENTの間、X actual post candidateは少なくとも次を満たす。
+
+- English only
+- overseas-facing
+- VINTAGE ALARM editorial cap 140 user-perceived characters以内
+- Instagram既存投稿の再利用なら `instagram-published-copy.md` を起点に English compression/adaptation する
+- current repost modeでは WATCH NAME → short English description → English hashtags
+
+日本語Script（Han / Hiragana / Katakana）がactual post candidateへ入った場合は、内容がもっともらしくてもPASS禁止。CURRENTの変更にはDECISION REVERSAL GATEを先に通す。
+
 ## 6. CORRECTION PERSISTENCE
 
 再発性がある訂正は会話だけで閉じない。
