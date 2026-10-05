@@ -44,9 +44,30 @@ for (const field of [
   requireText(taskEnvelope, field, 'Task Envelope field');
   requireText(managerControlPlane, field, 'Manager Control Plane field');
 }
-for (const stateName of ['RECEIVED','SCOPED','READY','EXECUTING','VERIFYING','PASS','FAIL','REPORT']) {
+for (const stateName of ['RECEIVED','SCOPED','AUDIT_REPORTED','READY','EXECUTING','VERIFYING','PASS','FAIL','REPORT']) {
   requireText(managerControlPlane, stateName, 'Manager Control Plane state');
 }
+for (const field of [
+  'CHAT AUDIT REPORT',
+  'Required: YES / NO',
+  'Reported in chat: PENDING / YES / NO',
+  'Current state reported:',
+  'Defect / gap reported:',
+  'Cause reported:',
+  'Change scope reported:',
+  'Out of scope reported:',
+  'Success criteria reported:',
+  'User approval required: YES / NO',
+  'Approval status: N/A / PENDING / APPROVED / REJECTED'
+]) {
+  requireText(taskEnvelope, field, 'Task Envelope chat-audit field');
+}
+requireText(managerControlPlane, 'Pre-implementation CHAT AUDIT REPORT — mandatory', 'Manager chat-audit gate');
+requireText(managerControlPlane, '実装系の書き込み操作より前', 'Manager chat-audit mutation barrier');
+requireText(managerControlPlane, '監査報告は承認要求と同義ではない', 'Manager chat-audit approval semantics');
+requireText(agents, 'RECEIVED → SCOPED → AUDIT_REPORTED → READY', 'AGENTS chat-audit state transition');
+requireText(state, 'RECEIVED → SCOPED → AUDIT_REPORTED → READY', 'PROJECT_STATE chat-audit state transition');
+
 for (const metric of [
   'USER_REINSTRUCTION_COUNT',
   'CANONICAL_SOURCE_REDIRECT_COUNT',
