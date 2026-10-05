@@ -117,16 +117,16 @@ const publishedSlugs = readdirSync(watchDir)
   })
   .sort();
 
-const publishedSection = llms.match(/Published watch pages:\s*([\s\S]*?)\n\nEnglish entry:/)?.[1] || '';
+const publishedSection = llms.match(/Published watch pages:\s*([\s\S]*?)\r?\n\r?\nEnglish entry:/)?.[1] || '';
 const llmsSlugs = [...publishedSection.matchAll(/https:\/\/vintagealarm\.github\.io\/([^/\s]+)\//g)]
   .map((match) => match[1])
   .sort();
 
-if (publishedSlugs.length !== 6) {
-  fail(`published WATCH count is ${publishedSlugs.length}, while current PROJECT_STATE baseline requires 6`);
+if (publishedSlugs.length !== 7) {
+  fail(`published WATCH count is ${publishedSlugs.length}, while current PROJECT_STATE baseline requires 7`);
 }
-if (!state.includes('公開中のWATCH routeは **') || !state.includes('の6本**')) {
-  fail('PROJECT_STATE no longer states the current six published WATCH routes');
+if (!state.includes('公開中のWATCH routeは **') || !state.includes('の7本**')) {
+  fail('PROJECT_STATE no longer states the current seven published WATCH routes');
 }
 if (publishedSlugs.join('|') !== llmsSlugs.join('|')) {
   fail(`llms Published watch pages differ from published WATCH files: files=${publishedSlugs.join(',')} llms=${llmsSlugs.join(',')}`);

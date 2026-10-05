@@ -7,7 +7,7 @@ const howTheyRingRelease = JSON.parse(readFileSync(new URL('../src/data/how-they
 const watchStates = readWatchPublicationState();
 const englishEntrySource = readFileSync(new URL('../src/data/en-watch-entry.ts', import.meta.url), 'utf8');
 const englishWatchSlugs = new Set([...englishEntrySource.matchAll(/^  '([^']+)': \\{/gm)].map((match) => match[1]));
-const germanWatchSlugs = new Set(['pierce-duofon', 'westclox-watchlarm', 'cyma-time-o-vox']);
+const germanWatchSlugs = new Set(['pierce-duofon', 'westclox-watchlarm', 'cyma-time-o-vox', 'arsa-blind-alarm']);
 const required = {
   '/': ['WebSite'],
   '/history/': ['Article', 'BreadcrumbList'],
@@ -61,12 +61,14 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
   const title = titleNodes[0] ? content(titleNodes[0]).trim() : '';
   if (titleNodes.length !== 1 || !title) fail('missing/duplicate/empty title');
   const description = value('description');
-  for (const [v, map, label] of [[title, titles, 'title'], [description, descriptions, 'description']]) {
-    if (map.has(v)) fail(`duplicate ${label} with ${map.get(v)}`); else map.set(v, page);
+  if (!page.startsWith('/preview/')) {
+    for (const [v, map, label] of [[title, titles, 'title'], [description, descriptions, 'description']]) {
+      if (map.has(v)) fail(`duplicate ${label} with ${map.get(v)}`); else map.set(v, page);
+    }
   }
   const robots = value('robots').toLowerCase().split(',').map(s => s.trim());
-  if (page.startsWith('/lab/')) {
-    if (!robots.includes('noindex') || !robots.includes('nofollow') || robots.includes('index')) fail('lab preview must remain noindex,nofollow');
+  if (page.startsWith('/lab/') || page.startsWith('/preview/')) {
+    if (!robots.includes('noindex') || !robots.includes('nofollow') || robots.includes('index')) fail('preview must remain noindex,nofollow');
   } else if (page === '/history/smartwatch/') {
     if (!robots.includes('noindex') || !robots.includes('follow') || robots.includes('nofollow')) fail('smartwatch finale must remain noindex,follow');
   } else if (!['index', 'follow', 'max-image-preview:large'].every(v => robots.includes(v)) || robots.includes('noindex') || robots.includes('nofollow')) {

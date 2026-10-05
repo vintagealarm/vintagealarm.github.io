@@ -18,6 +18,7 @@ export const WATCH_PAGE_NAMES = Object.freeze({
   "/cyma-time-o-vox/": "Cyma Time-O-Vox",
   "/citizen-alarm/": "Citizen Alarm",
   "/westclox-watchlarm/": "Westclox Watchlarm",
+  "/arsa-blind-alarm/": "ARSA Blind Alarm",
 });
 
 export const STATIC_PAGE_NAMES = Object.freeze({
@@ -38,6 +39,7 @@ export const ENGLISH_GATEWAY_NAMES = Object.freeze({
   "/en/cyma-time-o-vox/": "Cyma Time-O-Vox (EN)",
   "/en/citizen-alarm/": "Citizen Alarm (EN)",
   "/en/westclox-watchlarm/": "Westclox Watchlarm (EN)",
+  "/en/arsa-blind-alarm/": "ARSA Blind Alarm (EN)",
 });
 
 export const GERMAN_GATEWAY_NAMES = Object.freeze({
@@ -50,6 +52,7 @@ export const GERMAN_GATEWAY_NAMES = Object.freeze({
   "/de/cyma-time-o-vox/": "Cyma Time-O-Vox (DE)",
   "/de/citizen-alarm/": "Citizen Alarm (DE)",
   "/de/westclox-watchlarm/": "Westclox Watchlarm (DE)",
+  "/de/arsa-blind-alarm/": "ARSA Blind Alarm (DE)",
 });
 
 const WATCH_SLUGS = new Set(

@@ -25,6 +25,47 @@ export type EnglishWatchEntry = {
 };
 
 export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
+  'arsa-blind-alarm': {
+    slug: 'arsa-blind-alarm',
+    title: 'ARSA Blind Alarm — Tactile Mechanical Alarm Watch | VINTAGE ALARM',
+    description: 'ARSA Blind Alarm with AS 1475: an opening front cover, raised tactile markers and hands, and an alarm hand whose set time can be read by touch.',
+    indexBlurb: 'Open the front cover and read both the current time and the alarm time with a fingertip.',
+    catch: ['Open the cover and touch the time.', 'Read even the scheduled alarm time with a fingertip.'],
+    ownersNote: {
+      lead: [
+        'Press the centre of the crown at 4 o’clock and the front cover opens.',
+        'Read the current time from the raised markers and broad hands,',
+        'then touch the central alarm hand to check the time at which it is set to ring.'
+      ],
+      guideTitle: 'Quick operating guide',
+      guide: [
+        'The following is based on the literature. Operation and condition of the shown specimen remain to be checked after arrival.',
+        '1. Open the front cover — press the pusher in the centre of the time-setting crown at 4 o’clock',
+        '2. Read the time — touch the raised markers and the hour and minute hands',
+        '3. Read the alarm time — touch the central alarm hand to check its set time',
+        '4. Set the alarm — use the alarm crown at 2 o’clock',
+        '5. Wind the watch — wind the timekeeping and alarm sides with their respective crowns'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'The dial carries raised hour markers and three hands.',
+        'The hour and minute hands are made broad enough to touch directly; a seconds hand is omitted.',
+        'The control that opens the front cover is housed in the centre of the time-setting crown at 4 o’clock.',
+        'The watch turns its states into differences of shape and passes otherwise invisible information to the fingertip.'
+      ]
+    },
+    spec: {
+      era: '1958 (example in specialist literature); production year of the shown specimen unverified',
+      caseSize: 'Approx. 33 mm (shown specimen; not yet measured)',
+      caliber: 'A. Schild AS 1475',
+      jewels: '17 jewels',
+      frequency: '18,000 vph',
+      barrels: '2 barrels',
+      winding: 'Manual winding',
+      acoustic: 'Mechanical alarm',
+      notes: 'Opening front cover, tactile markers and hands, centre pusher in the 4 o’clock crown. Case material and exact production year unverified.'
+    }
+  },
   'wittnauer-10wa': {
     slug: 'wittnauer-10wa',
     title: 'Wittnauer Cal. 10WA — Bezel-Wound Mechanical Alarm | VINTAGE ALARM',

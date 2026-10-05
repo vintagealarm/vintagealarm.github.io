@@ -37,6 +37,84 @@ export type EnglishFullResearch = {
 };
 
 export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
+  'arsa-blind-alarm': {
+    title: 'ARSA Blind Alarm — Tactile AS 1475 Alarm Watch | VINTAGE ALARM',
+    description: 'ARSA Blind Alarm with AS 1475: opening cover, raised markers and tactile hands, the history of watches for blind users, related designs and cited sources.',
+    specimenGallery: [],
+    deepDive: [
+      {
+        number: '01', title: 'Auguste Reymond / ARSA',
+        paragraphs: [
+          'Auguste Reymond began making watches in Tramelan, Switzerland, in 1898 and opened a factory in 1903. He acquired Unitas Watch Co. in 1926, building an organisation that also produced movements. After the reorganisation of the Swiss watch industry in 1931–33, the roles were divided between A. Reymond / ARSA for finished watches and Unitas on the ébauche side.[1][2]',
+          'The Dictionnaire du Jura records that ARSA developed a watch for blind users in the early 1950s. In the same period, the company also made conventional mechanical alarm wristwatches.[2][3]',
+          'A 1970 A. Reymond advertisement in Davoine lists “Montres pour aveugles” and “Montres bracelet réveil” side by side. This is company-level evidence that ARSA handled both watches for blind users and alarm wristwatches; it is not an advertisement for the Blind Alarm itself.[4]'
+        ], citationRefs: ['1,2', '2,3', '4']
+      },
+      {
+        number: '02', title: 'From reading time by touch to setting an alarm by touch',
+        paragraphs: [
+          'Watches read without relying on sight did not suddenly appear in the 1950s. US patent US365032, granted in 1887, describes a structure that uses raised markers and hands distinguishable by touch so that time can be read with a fingertip.[5]',
+          'During the First World War, tactile watches were used in rehabilitation for servicemen who had lost their sight. At St Dunstan’s, founded in 1915, people were given tactile watches and trained to learn the time independently. In the United States, the American Foundation for the Blind took over a watch-supply service in 1926.[6][7]',
+          'During the Second World War, the AFB distributed Braille watches to blinded servicemen and cleaned, repaired and added tactile markers to donated watches. In Japan, Seikosha made a tactile pocket watch in 1939; surviving records describe examples presented to servicemen blinded during the war.[8][9]',
+          'The ARSA Blind Alarm lets the wearer read not only the current time but also the alarm time by touch. The time set with the crown at 2 o’clock can be checked from the separate alarm hand.[3][10]'
+        ], citationRefs: ['5', '6,7', '8,9', '3,10']
+      },
+      {
+        number: '03', title: 'ARSA Blind Alarm', subtitle: 'A tactile interface built around the AS 1475',
+        paragraphs: [
+          'Alarm am Arm states that ARSA was making a Blind Alarm with the A. Schild AS 1475 by about 1956. The 1958 example illustrated in the book has a dial with tactile dots, hour and minute hands made robust enough to touch directly, no seconds hand, and an opener for the front cover built into the centre of the crown at 4 o’clock.[3]',
+          'The AS 1475 measures 25.94 mm in diameter and 5.8 mm in height, has 17 jewels and runs at 18,000 vibrations per hour. It is a manually wound alarm movement with separate barrels for timekeeping and alarm; normally the 2 o’clock side operates the alarm and the 4 o’clock side the watch. Specialist literature records about 40 hours of running time and an alarm duration of 10–15 seconds.[10]',
+          'Opening the front cover gives direct access to the raised markers and three hands. The broad hour and minute hands give the current time, while the separate alarm hand gives the set alarm time. Although the AS 1475 supports centre seconds, this Blind Alarm omits the seconds hand that would interfere with tactile reading.[3][10]',
+          'Tactile-display patent US2915874A, filed in 1957, identifies a problem in earlier systems where touching the hands could disturb their setting. Whether the ARSA specimen shown here has the same problem is unverified; hand retention and the feel of operation remain points to check after arrival.[11]',
+          'An ARSA hunter pocket watch from 1967 also has a front cover opened by a button on the crown. A crown-integrated opener assists tactile reading on the Blind Alarm, but the evidence does not establish that ARSA developed the structure specifically for blind users.[12]'
+        ], citationRefs: ['3', '10', '3,10', '11', '12']
+      },
+      {
+        number: '04', title: 'Different answers to the same purpose',
+        paragraphs: [
+          'Alarm am Arm records Blind Alarm watches by Enicar, BEAT / Friedli-Frères and A. Schild itself in addition to ARSA. Each opens a cover so that the hands and markers can be touched, but the cover-opening method and the way the hands are distinguished differ.[3]',
+          'ARSA integrates the front-cover opener into the centre of the time-setting crown at 4 o’clock. A special Enicar watch made for Lausanne in 1964 varies the widths of the minute, hour and alarm hands and puts four raised ridges on the tip of the alarm hand. Its two crowns are also shaped so that they can be distinguished by touch.[10]',
+          'BEAT / Friedli-Frères housed the AS 1475 in a 33.8 mm case and placed a separate cover-opening mechanism at 6 o’clock rather than in the crown at 4. A. Schild itself is also recorded as making an AS 1475 Blind Alarm prototype, but the sources used here do not reveal the tactile codes of its hands or its cover structure.[3]',
+          'A surviving ARSA Blindenwecker presented on Uhrforum in 2016 uses a Venus 230 rather than an AS 1475. Its front cover opens with a separate pusher at 2 o’clock. The poster describes it as a 1950s watch, but no period ARSA catalogue or advertisement supporting that date has yet been recovered.[13]',
+          'Cover-opening positions, hand widths and surfaces, and crown shapes vary. Tactile alarm watches shared a purpose, but there was more than one way to pass information to the fingertip.[3][10][13]'
+        ], citationRefs: ['3', '10', '3', '13', '3,10,13']
+      },
+      {
+        number: '05', title: 'An ordinary AS 1475 becomes a different watch',
+        paragraphs: [
+          'The AS 1475 was a mass-produced alarm movement, with about 780,000 made from 1954 to 1970, and was used by numerous brands including Tissot, Gallet, Benrus and Helbros.[10]',
+          'The Benedict Park-O-Phon is another example of an AS 1475 adapted for a special purpose. It reframed the normal alarm display around parking-time management and was made to announce when a parking meter would expire.[10][14]',
+          'ARSA, Enicar and BEAT used the same AS 1475 timekeeping and alarm systems while remaking the cover, markers, hands and controls for tactile reading.[3][10]',
+          'The family includes the date-equipped AS 1568, the AS 1930 raised to 21,600 vibrations per hour, and its date version, the AS 1931. Specialist literature describes the AS 1930 as the successor to the AS 1475 and says there were no major technical changes other than frequency.[10]',
+          'Specialist literature also identifies Citizen alarm movements and the Poljot 2612.1 as directly based on the AS 1475. The same book, however, presents Citizen licence production only as a supposition, and the route of technology transfer to Poljot has not been verified in the sources used here.[10]',
+          'What distinguishes the ARSA Blind Alarm is the tactile interface added around the AS 1475: an opening cover, tactile markers, hands made for touch and dedicated controls combined with a mass-produced alarm movement.[3][10]'
+        ], citationRefs: ['10', '10,14', '3,10', '10', '10', '3,10']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'primary' }, { id: '2', type: 'reference' }, { id: '3', type: 'reference' }, { id: '4', type: 'primary' },
+      { id: '5', type: 'primary' }, { id: '6', type: 'reference' }, { id: '7', type: 'primary' }, { id: '8', type: 'primary' },
+      { id: '9', type: 'primary' }, { id: '10', type: 'reference' }, { id: '11', type: 'primary' }, { id: '12', type: 'primary' },
+      { id: '13', type: 'provenance' }, { id: '14', type: 'reference' }
+    ],
+    sources: [
+      '[Auguste Reymond — History](https://augustereymond.ch/about-ar/history/) — founding in 1898, factory in 1903 and acquisition of Unitas in 1926.',
+      '[Dictionnaire du Jura — A. Reymond SA / ARSA](https://diju.ch/f/notices/detail/8205) — company history, watches for blind users in the early 1950s and the 1973 product range.',
+      'Leonhard Beitl, Alarm am Arm (2009), pp. 26, 54, 74 and elsewhere — ARSA Blind Alarm, AFB, Enicar, BEAT and A. Schild.',
+      '[Davoine 1970 — A. Reymond SA company advertisement](https://doc.rero.ch/record/323602/files/DAVOINE_1970-2.pdf) — Montres pour aveugles / Montres bracelet réveil.',
+      '[US365032 — Watch for the Blind](https://patents.google.com/patent/US365032) — 1887 tactile markers and hands.',
+      '[Blind Veterans UK — History / Archives](https://www.blindveterans.org.uk/about-us/who-we-are/our-history/) — St Dunstan’s, tactile watches and rehabilitation from 1915.',
+      '[American Foundation for the Blind — Chapter 7](https://afb.org/online-library/unseen-minority-0/chapter-7) — watch-accommodation service taken over in 1926.',
+      '[American Foundation for the Blind — Chapter 17](https://www.afb.org/about-afb/history/online-library/unseen-minority/chapter-17) — distribution, conversion and repair of Braille watches for blinded servicemen.',
+      '[Seiko Museum Ginza — Watch for the Blind](https://museum.seiko.co.jp/en/collections/watch_previousterm/collect044/) — Seikosha tactile pocket watch of 1939 and wartime presentation examples.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), pp. 81–83, 222–223 and elsewhere — AS 1475 specifications and operation, tactile alarms, derivatives and successors.',
+      '[US2915874A — Tactile Indicators](https://patents.google.com/patent/US2915874) — filed in 1957; disturbance of settings when hands are touched directly.',
+      '[Swisstime — ARSA hunter pocket watch](https://www.swisstime.ch/news/history-of-the-ar-hunter-pocket-watch/) — 1967 crown-integrated front-cover button.',
+      '[Uhrforum — ARSA Blindenwecker / surviving Venus 230 watch](https://uhrforum.de/threads/vintage-armbandwecker-zeigt-sie-in-bild-und-ton.16190/page-25) — surviving example posted in 2016; period-primary evidence unverified.',
+      '[Grail Watch Wiki — Parking watch](https://wiki.grail-watch.com/index.php/Parking_watch) — parking-time display of the Benedict Park-O-Phon.'
+    ],
+    related: { href: '/en/citizen-alarm/', name: 'CITIZEN ALARM', reason: 'Another two-barrel AS 1475-related alarm architecture from the same decade.' }
+  },
   'basis-alarm': {
     title: 'Basis Alarm BFG 90 — Two-Barrel Mechanical Alarm | VINTAGE ALARM',
     description: 'Basis Alarm with Baumgartner BFG 90: two barrels wound in one direction, slipping clutches, twin winding-state windows, rotating-bezel alarm setting, specimen photographs, original alarm sound and cited sources.',

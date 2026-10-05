@@ -1283,3 +1283,12 @@
 - **関連**：PR #188、実装commit `35d6e30784b8f7a1e4292a9c43b0ff191f66c5b6`、GitHub Actions run `37307682050` / job `111755217314`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、旧branch `feat/arsa-blind-alarm-private-shell`、Project資料『Alarm am Arm』『The Alarm Wrist Watch』。
 - **日時根拠**：developer-provided local date `2026-10-05` と作業環境時計 `2026-10-05 20:47:10 +09:00` → `2026-10-05 20:47 JST`。GitHub Actions完了時刻 `2026-10-05T12:12:38Z → 2026-10-05 21:12 JST`。
 
+### 2026-10-05 21:42 JST — ARSAを公開対象へ変更し全WATCH共通の専用プレビューURLを追加
+- **変更**：ユーザーの明示指示に基づきARSA Blind Alarmを `published: true` へ変更し、日本語・英語・ドイツ語の公開route、OWNER'S NOTES / HISTORY導線、sitemap / llms索引へ接続する。CMSの既存公開スイッチを維持し、公開状態にかかわらず全WATCHを本番と同じ `WatchPage` で確認できる `/preview/watch/<slug>/` を追加する。previewは検索対象外とし、言語切替リンクも公開routeへ誘導しない。
+- **理由**：ユーザーが「公開にしておいてCMSで公開非公開切り替え」「専用URLから非アクティブも公開ビューと同じように見たい」と明示したため。安定した共通preview routeを全WATCHから生成すれば、CMSでOFFにした後も表示確認用URLが消えず、個別時計ごとの一時routeも不要になる。
+- **旧状態・棄却**：前項の「実機到着・実画像まで `published: false`」判断を今回の明示指示で撤回し、ARSAだけに固定された `/lab/arsa-blind-alarm/` を廃止する。preview専用の別テンプレート、公開状態に応じてpreview URL自体を消す設計、previewをsitemapへ載せる設計は採用しない。
+- **影響範囲**：ARSAの公開フラグ、JA / EN / DE WATCH、OWNER'S NOTES / HISTORY、sitemap / llms、共通WatchPageのpreview metadata、SEO gate、全WATCHの `/preview/watch/<slug>/`。時計本文の日本語正本、実機未確認表示、画像placeholder、HOW THEY RINGは変更しない。
+- **検証状態**：VERIFIED。Astro buildでARSAのJA / EN / DE通常routeと全7WATCHのpreview route生成を確認。internal links、analytics route、SEO、citation / source traceability、localization sync / coverage / purity、SPEC evidence、Japanese style、image duplicate、project consistency、inference guard、OWNER copy provenanceを通過した。ブラウザ実寸で通常routeとpreview routeの見出し構造一致、previewの `noindex,nofollow,noarchive` と専用canonical、通常routeのindex canonicalを確認。PC幅と390px幅で横スクロール・画像欠落なし。Windows権限制約によりsymlink作成を伴う `test-quality-gates.mjs` のみローカル未完了で、GitHub Actionsで再検証する。
+- **関連**：PR #188、先行実装commit `35d6e30784b8f7a1e4292a9c43b0ff191f66c5b6` / `c314c759ef6fa1846f0b6411fcecfc98f8a9ae59`、main同期merge commit `03e0174ce1165898e64db00230847b0895059d1c`。
+- **日時根拠**：developer-provided local date `2026-10-05` と作業環境時計 `2026-10-05 21:42:40 +09:00` → `2026-10-05 21:42 JST`。
+

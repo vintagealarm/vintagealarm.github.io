@@ -1,6 +1,6 @@
 ---
 slug: "arsa-blind-alarm"
-published: false
+published: true
 ownerNumber: "07"
 brand: "ARSA"
 model: "BLIND ALARM"

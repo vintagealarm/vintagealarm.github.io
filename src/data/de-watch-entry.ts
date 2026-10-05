@@ -59,6 +59,121 @@ export type GermanWatchEntry = {
 };
 
 export const germanWatchEntries: Record<string, GermanWatchEntry> = {
+  'arsa-blind-alarm': {
+    slug: 'arsa-blind-alarm',
+    title: 'ARSA Blind Alarm — taktile Wecker-Armbanduhr mit AS 1475 | VINTAGE ALARM',
+    description: 'ARSA Blind Alarm mit AS 1475: aufklappbarer Vorderdeckel, erhabene Tastmarken und Zeiger sowie ein Alarmzeiger, dessen eingestellte Zeit ertastet werden kann.',
+    indexBlurb: 'Den Vorderdeckel öffnen und sowohl die Uhrzeit als auch die Alarmzeit mit der Fingerspitze lesen.',
+    catch: ['Deckel öffnen und die Zeit ertasten.', 'Sogar die vorgemerkte Alarmzeit lässt sich mit der Fingerspitze lesen.'],
+    ownersNote: {
+      lead: [
+        'Ein Druck auf die Mitte der Krone bei 4 Uhr öffnet den Vorderdeckel.',
+        'Die aktuelle Zeit wird an den erhabenen Marken und breiten Zeigern ertastet,',
+        'die eingestellte Weckzeit am mittleren Alarmzeiger.'
+      ],
+      guideTitle: 'Kurzanleitung',
+      guide: [
+        'Die folgenden Angaben beruhen auf der Literatur. Bedienung und Zustand des gezeigten Exemplars werden nach seiner Ankunft geprüft.',
+        '1. Vorderdeckel öffnen — den Drücker in der Mitte der Aufzugskrone bei 4 Uhr betätigen',
+        '2. Uhrzeit lesen — die erhabenen Marken sowie Stunden- und Minutenzeiger ertasten',
+        '3. Alarmzeit lesen — am mittleren Alarmzeiger die eingestellte Zeit prüfen',
+        '4. Alarmzeit einstellen — die Alarmkrone bei 2 Uhr verwenden',
+        '5. Aufziehen — Uhrwerk und Alarmwerk mit den jeweiligen Kronen aufziehen'
+      ],
+      noteTitle: 'NOTE',
+      note: [
+        'Auf dem Zifferblatt liegen erhabene Stundenmarken und drei Zeiger.',
+        'Stunden- und Minutenzeiger sind so breit ausgeführt, dass sie direkt berührt werden können; ein Sekundenzeiger fehlt.',
+        'Der Öffner des Vorderdeckels sitzt in der Mitte der Aufzugskrone bei 4 Uhr.',
+        'Die Uhr übersetzt ihre Zustände in Formunterschiede und gibt unsichtbare Information an die Fingerspitze weiter.'
+      ]
+    },
+    spec: {
+      era: '1958 (Beispiel in der Fachliteratur); Baujahr des gezeigten Exemplars ungeklärt',
+      caseSize: 'ca. 33 mm (gezeigtes Exemplar; noch nicht nachgemessen)',
+      caliber: 'A. Schild AS 1475',
+      jewels: '17 Steine',
+      frequency: '18.000 A/h',
+      barrels: '2 Federhäuser',
+      winding: 'Handaufzug',
+      acoustic: 'Mechanischer Alarm',
+      notes: 'Aufklappbarer Vorderdeckel, Tastmarken und tastbare Zeiger, mittiger Drücker in der Krone bei 4 Uhr. Gehäusematerial und genaues Baujahr ungeklärt.'
+    },
+    specimenGallery: [],
+    deepDive: [
+      {
+        number: '01', title: 'Auguste Reymond / ARSA',
+        paragraphs: [
+          'Auguste Reymond begann 1898 im schweizerischen Tramelan mit der Uhrenfertigung und eröffnete 1903 eine Fabrik. 1926 übernahm er die Unitas Watch Co. und schuf damit eine Struktur, die auch Uhrwerke herstellte. Nach der Neuordnung der Schweizer Uhrenindustrie 1931–33 wurden die Aufgaben zwischen A. Reymond / ARSA für fertige Uhren und Unitas auf der Ébauche-Seite geteilt.[1][2]',
+          'Das Dictionnaire du Jura hält fest, dass ARSA Anfang der 1950er-Jahre eine Uhr für blinde Menschen entwickelte. Im selben Zeitraum fertigte das Unternehmen auch konventionelle mechanische Wecker-Armbanduhren.[2][3]',
+          'Eine Anzeige von A. Reymond im Davoine von 1970 nennt „Montres pour aveugles“ und „Montres bracelet réveil“ nebeneinander. Sie belegt auf Unternehmensebene, dass ARSA sowohl Uhren für blinde Menschen als auch Wecker-Armbanduhren anbot; sie ist keine Anzeige für die Blind Alarm selbst.[4]'
+        ], citationRefs: ['1,2', '2,3', '4']
+      },
+      {
+        number: '02', title: 'Vom Ertasten der Uhrzeit zum Ertasten der Alarmzeit',
+        paragraphs: [
+          'Uhren, die ohne Sehen abgelesen werden konnten, entstanden nicht erst in den 1950er-Jahren. Das 1887 erteilte US-Patent US365032 beschreibt erhabene Marken und durch Berührung unterscheidbare Zeiger, mit denen die Uhrzeit mit der Fingerspitze gelesen wird.[5]',
+          'Im Ersten Weltkrieg wurden Tastuhren bei der Rehabilitation erblindeter Soldaten eingesetzt. Im 1915 gegründeten St Dunstan’s erhielten sie solche Uhren und lernten, die Zeit selbstständig zu bestimmen. In den USA übernahm die American Foundation for the Blind 1926 einen Uhrendienst.[6][7]',
+          'Während des Zweiten Weltkriegs verteilte die AFB Braille-Uhren an erblindete Soldaten und reinigte, reparierte und ergänzte gespendete Uhren um Tastmarken. In Japan fertigte Seikosha 1939 eine Tast-Taschenuhr; erhaltene Unterlagen nennen Exemplare, die im Krieg erblindeten Soldaten überreicht wurden.[8][9]',
+          'Bei der ARSA Blind Alarm lässt sich nicht nur die aktuelle Zeit, sondern auch die Alarmzeit ertasten. Die mit der Krone bei 2 Uhr eingestellte Zeit kann am separaten Alarmzeiger geprüft werden.[3][10]'
+        ], citationRefs: ['5', '6,7', '8,9', '3,10']
+      },
+      {
+        number: '03', title: 'ARSA Blind Alarm', subtitle: 'Eine taktile Schnittstelle rund um das AS 1475',
+        paragraphs: [
+          'Alarm am Arm schreibt, dass ARSA um 1956 eine Blind Alarm mit dem A. Schild AS 1475 fertigte. Das dort abgebildete Exemplar von 1958 besitzt ein Zifferblatt mit Tastpunkten, ausreichend robuste Stunden- und Minutenzeiger für direkte Berührung, keinen Sekundenzeiger und einen Öffner des Vorderdeckels in der Mitte der Krone bei 4 Uhr.[3]',
+          'Das AS 1475 misst 25,94 mm im Durchmesser und 5,8 mm in der Höhe, besitzt 17 Steine und läuft mit 18.000 Halbschwingungen pro Stunde. Es ist ein Handaufzugswerk mit getrennten Federhäusern für Uhr und Alarm; gewöhnlich bedient die Seite bei 2 Uhr den Alarm und die Seite bei 4 Uhr die Uhr. Die Fachliteratur nennt etwa 40 Stunden Gangdauer und 10–15 Sekunden Alarmdauer.[10]',
+          'Nach dem Öffnen des Vorderdeckels sind die erhabenen Marken und drei Zeiger direkt zugänglich. Die breiten Stunden- und Minutenzeiger zeigen die aktuelle Zeit, der separate Alarmzeiger die eingestellte Alarmzeit. Obwohl das AS 1475 eine Zentralsekunde unterstützt, fehlt bei dieser Blind Alarm der Sekundenzeiger, der das tastende Ablesen stören würde.[3][10]',
+          'Das 1957 angemeldete Tastanzeige-Patent US2915874A nennt bei älteren Systemen das Problem, dass eine Berührung die Zeigerstellung verändern kann. Ob dies beim hier gezeigten ARSA-Exemplar ebenfalls geschieht, ist ungeklärt; Halt der Zeiger und Bediengefühl werden nach der Ankunft geprüft.[11]',
+          'Auch eine ARSA Hunter-Taschenuhr von 1967 besitzt einen Vorderdeckel, der über einen Knopf auf der Krone geöffnet wird. Ein kronenintegrierter Öffner unterstützt bei der Blind Alarm das tastende Ablesen, doch lässt sich nicht belegen, dass ARSA diese Konstruktion eigens für blinde Menschen entwickelte.[12]'
+        ], citationRefs: ['3', '10', '3,10', '11', '12']
+      },
+      {
+        number: '04', title: 'Verschiedene Antworten auf denselben Zweck',
+        paragraphs: [
+          'Alarm am Arm dokumentiert neben ARSA auch Blind-Alarm-Uhren von Enicar, BEAT / Friedli-Frères und A. Schild selbst. Bei allen wird ein Deckel geöffnet, damit Zeiger und Marken ertastet werden können; Öffnungsmechanismus und Unterscheidung der Zeiger sind jedoch verschieden.[3]',
+          'ARSA integriert den Öffner des Vorderdeckels in die Mitte der Aufzugskrone bei 4 Uhr. Bei einem 1964 für Lausanne gefertigten Enicar-Sonderexemplar unterscheiden sich Minuten-, Stunden- und Alarmzeiger in der Breite; die Spitze des Alarmzeigers trägt vier Erhebungen. Auch die beiden Kronen sind durch Berührung unterscheidbar geformt.[10]',
+          'BEAT / Friedli-Frères setzte das AS 1475 in ein 33,8-mm-Gehäuse und platzierte den separaten Deckelöffner bei 6 Uhr statt in der Krone bei 4. Auch A. Schild selbst ist mit einem Blind-Alarm-Prototyp auf Basis des AS 1475 dokumentiert; die hier verwendeten Quellen zeigen jedoch weder Tastcodes der Zeiger noch die Deckelkonstruktion.[3]',
+          'Ein 2016 im Uhrforum vorgestellter ARSA Blindenwecker verwendet statt des AS 1475 ein Venus 230. Sein Vorderdeckel wird durch einen separaten Drücker bei 2 Uhr geöffnet. Der Verfasser beschreibt ihn als Uhr der 1950er-Jahre; ein zeitgenössischer ARSA-Katalog oder eine entsprechende Anzeige wurde bislang nicht gefunden.[13]',
+          'Position des Deckelöffners, Breite und Oberfläche der Zeiger und Form der Kronen unterscheiden sich. Tastbare Wecker-Armbanduhren verfolgten dasselbe Ziel, übermittelten die Information an die Fingerspitze aber auf verschiedene Weise.[3][10][13]'
+        ], citationRefs: ['3', '10', '3', '13', '3,10,13']
+      },
+      {
+        number: '05', title: 'Ein gewöhnliches AS 1475 wird zu einer anderen Uhr',
+        paragraphs: [
+          'Das AS 1475 war ein in großer Stückzahl gefertigtes Weckerwerk: Von 1954 bis 1970 entstanden etwa 780.000 Stück, verwendet unter anderem von Tissot, Gallet, Benrus und Helbros.[10]',
+          'Auch die Benedict Park-O-Phon ist ein Beispiel für ein AS 1475 mit besonderem Zweck. Sie deutete die übliche Alarmanzeige zur Kontrolle der Parkzeit um und sollte auf das Ende der Zeit am Parkautomaten aufmerksam machen.[10][14]',
+          'ARSA, Enicar und BEAT verwendeten dieselben Zeit- und Alarmfunktionen des AS 1475, gestalteten jedoch Deckel, Marken, Zeiger und Bedienelemente für das tastende Ablesen neu.[3][10]',
+          'Zur Familie gehören das AS 1568 mit Datum, das auf 21.600 Halbschwingungen pro Stunde erhöhte AS 1930 und dessen Datumsversion AS 1931. Die Fachliteratur bezeichnet das AS 1930 als Nachfolger des AS 1475 und nennt außer der Frequenz keine wesentlichen technischen Änderungen.[10]',
+          'Die Fachliteratur nennt außerdem Citizen-Weckerwerke und das Poljot 2612.1 als direkte Ableitungen des AS 1475. Eine Lizenzfertigung bei Citizen bleibt dort jedoch eine Vermutung, und auch der Weg des Technologietransfers zu Poljot ist in den hier verwendeten Quellen nicht belegt.[10]',
+          'Das Besondere der ARSA Blind Alarm ist die um das AS 1475 ergänzte taktile Schnittstelle: Ein aufklappbarer Deckel, Tastmarken, berührbare Zeiger und passende Bedienelemente verbinden sich mit einem seriengefertigten Weckerwerk.[3][10]'
+        ], citationRefs: ['10', '10,14', '3,10', '10', '10', '3,10']
+      }
+    ],
+    sourceMeta: [
+      { id: '1', type: 'primary' }, { id: '2', type: 'reference' }, { id: '3', type: 'reference' }, { id: '4', type: 'primary' },
+      { id: '5', type: 'primary' }, { id: '6', type: 'reference' }, { id: '7', type: 'primary' }, { id: '8', type: 'primary' },
+      { id: '9', type: 'primary' }, { id: '10', type: 'reference' }, { id: '11', type: 'primary' }, { id: '12', type: 'primary' },
+      { id: '13', type: 'provenance' }, { id: '14', type: 'reference' }
+    ],
+    sources: [
+      '[Auguste Reymond — History](https://augustereymond.ch/about-ar/history/) — Gründung 1898, Fabrik 1903 und Übernahme von Unitas 1926.',
+      '[Dictionnaire du Jura — A. Reymond SA / ARSA](https://diju.ch/f/notices/detail/8205) — Unternehmensgeschichte, Uhren für blinde Menschen Anfang der 1950er-Jahre und Fertigungsprogramm 1973.',
+      'Leonhard Beitl, Alarm am Arm (2009), S. 26, 54, 74 u. a. — ARSA Blind Alarm, AFB, Enicar, BEAT und A. Schild.',
+      '[Davoine 1970 — Anzeige von A. Reymond SA](https://doc.rero.ch/record/323602/files/DAVOINE_1970-2.pdf) — Montres pour aveugles / Montres bracelet réveil.',
+      '[US365032 — Watch for the Blind](https://patents.google.com/patent/US365032) — Tastmarken und tastbare Zeiger, 1887.',
+      '[Blind Veterans UK — History / Archives](https://www.blindveterans.org.uk/about-us/who-we-are/our-history/) — St Dunstan’s, Tastuhren und Rehabilitation seit 1915.',
+      '[American Foundation for the Blind — Chapter 7](https://afb.org/online-library/unseen-minority-0/chapter-7) — Übernahme des Uhrendienstes 1926.',
+      '[American Foundation for the Blind — Chapter 17](https://www.afb.org/about-afb/history/online-library/unseen-minority/chapter-17) — Ausgabe, Umbau und Reparatur von Braille-Uhren für erblindete Soldaten.',
+      '[Seiko Museum Ginza — Watch for the Blind](https://museum.seiko.co.jp/en/collections/watch_previousterm/collect044/) — Tast-Taschenuhr von Seikosha, 1939, und Beispiele kriegszeitlicher Übergaben.',
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 81–83, 222–223 u. a. — Daten und Bedienung des AS 1475, Tastwecker, Ableitungen und Nachfolger.',
+      '[US2915874A — Tactile Indicators](https://patents.google.com/patent/US2915874) — Anmeldung 1957; Verstellen bei direkter Berührung der Zeiger.',
+      '[Swisstime — ARSA hunter pocket watch](https://www.swisstime.ch/news/history-of-the-ar-hunter-pocket-watch/) — kronenintegrierter Vorderdeckelknopf, 1967.',
+      '[Uhrforum — ARSA Blindenwecker / erhaltenes Exemplar mit Venus 230](https://uhrforum.de/threads/vintage-armbandwecker-zeigt-sie-in-bild-und-ton.16190/page-25) — 2016 vorgestelltes Exemplar; zeitgenössischer Primärbeleg ungeklärt.',
+      '[Grail Watch Wiki — Parking watch](https://wiki.grail-watch.com/index.php/Parking_watch) — Parkzeitanzeige der Benedict Park-O-Phon.'
+    ],
+    related: { href: '/de/citizen-alarm/', hreflang: 'de', name: 'CITIZEN ALARM', reason: 'Eine weitere Weckerarchitektur mit zwei Federhäusern und Bezug zum AS 1475 aus demselben Jahrzehnt.' }
+  },
   'basis-alarm': {
     slug: 'basis-alarm',
     title: 'Basis Alarm BFG 90 — Mechanischer Wecker mit zwei Federhäusern | VINTAGE ALARM',

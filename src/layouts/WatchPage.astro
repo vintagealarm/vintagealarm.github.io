@@ -43,20 +43,20 @@ const description = watch.slug === 'cyma-time-o-vox'
       : watch.slug === 'westclox-watchlarm'
         ? 'Westclox Watchlarm W5。0石、1香箱、2時位置プッシャー式アラーム設定、9時位置ON/OFF。掲載個体の実測と資料差を含めて構造を追う。'
         : `${watch.brand} ${watch.model}。${watch.spec.caliber}、${watch.spec.barrels}、${watch.spec.acoustic}。OWNER'S NOTE、SPEC、${watch.video ? '実機鳴動、' : ''}資料に基づくDEEP DIVEを掲載。`;
-const pagePath = preview ? `lab/${watch.slug}/` : `${watch.slug}/`;
+const pagePath = preview ? `preview/watch/${watch.slug}/` : `${watch.slug}/`;
 const pageUrl = new URL(pagePath, siteRoot).href;
 const imageUrl = new URL(watch.ownersNote.image.replace(/^\//, ''), siteRoot).href;
 const englishEntry = englishWatchEntries[watch.slug];
 const germanEntry = germanWatchEntriesWithCyma[watch.slug];
 const englishUrl = englishEntry ? new URL(`en/${watch.slug}/`, siteRoot).href : null;
 const germanUrl = germanEntry ? new URL(`de/${watch.slug}/`, siteRoot).href : null;
-const alternates = [
+const alternates = preview ? [] : [
   { hreflang: 'ja', href: pageUrl },
   ...(englishUrl ? [{ hreflang: 'en', href: englishUrl }] : []),
   ...(germanUrl ? [{ hreflang: 'de', href: germanUrl }] : []),
   { hreflang: 'x-default', href: pageUrl }
 ];
-const languageLinks = [
+const languageLinks = preview ? [] : [
   ...(englishEntry ? [{ href: `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }] : []),
   ...(germanEntry ? [{ href: `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
 ];

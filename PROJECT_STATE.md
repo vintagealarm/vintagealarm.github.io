@@ -64,7 +64,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 主セクション: HISTORY / OWNER'S NOTES / WATCH / RESEARCH
 - SMARTWATCHはHISTORYのエピローグ。検索流入目的ではなく `noindex,follow`、sitemap対象外
 - 日本語WATCH本文が多言語版の意味上の正本
-- 公開中のWATCH routeは **Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm / Wittnauer 10WA の6本**。Analytics運用上の **measurement target 5本**（Basis / Pierce / Cyma / Citizen / Westclox）は公開状態とは別の括りで、Wittnauer 10WAも一般公開WATCHとして計測データには現れるが、この5本のtarget groupingには含めない
+- 公開中のWATCH routeは **Basis Alarm / Pierce Duofon / Cyma Time-O-Vox / Citizen Alarm / Westclox Watchlarm / Wittnauer 10WA / ARSA Blind Alarm の7本**。Analytics運用上の **measurement target 5本**（Basis / Pierce / Cyma / Citizen / Westclox）は公開状態とは別の括りで、Wittnauer 10WAとARSA Blind Alarmも一般公開WATCHとして計測データには現れるが、この5本のtarget groupingには含めない
 - 6個体のSNS再利用は `content-inventory.md` を商品棚として管理する。OWNER'S NOTEは1個体1完成物で分割禁止。実投稿証拠は `instagram-published-copy.md`、数値は `instagram-insights-timeseries.md` のまま分離する
 - SNS再利用の現行運用は **micro-Reel ACTIVE**。`content-inventory.md` の独立資産を原則 `1 Reel = 1要素` の短編動画へ分解し、画面文字は最小限、1操作・1機構・1ディテール単位で扱う。静止画カルーセルは補助扱い。これは2026-10-03 Wittnauer 10WA静止画カルーセルの観測を受けた比較施策であり、「静止画は常に不利」「動画なら必ず伸びる」という因果確定ではない。実績評価は今後のmicro-Reel Insightsで別途観測する
 - OWNER'S NOTES一覧の正本は `src/data/owners-directory.json`
