@@ -1098,3 +1098,12 @@
 - **関連**：ユーザー訂正「動画逆のが登録されてる　なんなら名前も俺が伝え損ねてるかも交換して」、実装commit `fadf387e43d3ccd23d9e8ec83f3d905a5aec8d36`。訂正前の判断は2026-10-05 08:18 JST / 08:30 JSTのdecision entry。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T09:27:13+09:00` → `2026-10-05 09:27 JST`。
 
+
+### 2026-10-05 09:48 JST — Manager Control Plane pilotを導入し、multi-agent化前にTask Envelope＋独立Verifierを固定
+- **変更**：別Managerエージェントを常駐させる前に、`.codex/MANAGER_CONTROL_PLANE.md` と `.codex/TASK_ENVELOPE_TEMPLATE.md` を追加する。非自明な作業では CURRENT STATE / CANONICAL SOURCES / SCOPE / MUST / DO NOT / REJECTED-HOLD / SUCCESS CRITERIA / VERIFY PLAN を先に固定し、RECEIVED → SCOPED → READY → EXECUTING → VERIFYING → PASS / FAIL → REPORTで状態管理する。VerifierはBuilderの自己申告ではなく、正本・diff・test / build / gate・render / live・実画像 / 動画 / 音声等の対象実体から再判定する。AGENTS / PROJECT_STATEから正本へルーティングし、既存 `check:project-consistency` でcontrol-plane文書、必須field、状態、介入metric、`multi_agent = false` を機械検査する。
+- **理由**：過去監査では正本未確認、旧仕様復活、実装と検証の混同、Router無視等が反復し、直近でもExecution Briefの欠落やDuofon動画内容の逆登録をユーザーが発見している。一方、既存のProject Router / open PR / decision log / CIは既に存在するため、AI人数を先に増やすより、ユーザーが手動で担っているscope固定・正本誘導・完了監督をcontrol planeへ移す方を先に試す。
+- **旧状態・棄却**：`multi_agent = true` を先に有効化し、Manager / Researcher / Builder / Verifierを常時起動する案はHOLD。新DB、新queue、常駐agent registryも追加しない。小タスクを理由なく分解する運用も採用しない。
+- **影響範囲**：`.codex/MANAGER_CONTROL_PLANE.md`、`.codex/TASK_ENVELOPE_TEMPLATE.md`、`AGENTS.md`、`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`。公開WATCH本文、UI、SNS実測値、Council形式、`.codex/config.toml` の値は変更しない。
+- **検証状態**：branch `ops/manager-control-plane-pilot-20261005` へ実装。GitHub Actionsで `check:project-consistency` を含む既存gateが通るまでVERIFIEDとはしない。pilotの成果は今後の実案件で USER_REINSTRUCTION_COUNT / CANONICAL_SOURCE_REDIRECT_COUNT / VERIFY_PROMPT_COUNT / POST_COMPLETION_DEFECT_COUNT を観測してOBSERVED判定する。
+- **関連**：2026-10-05の過去案件監査、Council 1 + 7裁定「Manager Control Plane＝GO / 独立Verifier＝GO / multi-agent有効化＝HOLD」、PR #173 Execution Brief、PR #174 Duofon動画内容訂正。
+- **日時根拠**：developer-provided local time `2026-10-05T09:48+09:00` = `2026-10-05 09:48 JST`。
