@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 09:23 JST — MR-PIE-001初回比較をoperationsへ同期
+
+- **変更**：MR-PIE-001の初回比較要約をinstagram-operationsへ同期。
+- **理由**：Insights正本に保存した観測を運用判断へ接続するため。
+- **旧状態・棄却**：timeseriesだけに数値を置き、比較判断を会話だけに残す状態を棄却。
+- **影響範囲**：instagram-operationsのみ。
+- **検証状態**：active PR #173 branchへ反映。CI再実行待ち。
+- **関連**：commit `88cab14d`、MR-PIE-001。
+- **日時根拠**：ユーザー提供スクリーンショットの端末時刻 2026-10-05 09:22 JST直後。
+
+
 ### 2026-10-05 09:22 JST — MR-PIE-001公開と初回Insightsを正本化
 
 - **変更**：MR-PIE-001をPLANNEDからPUBLISHEDへ移行し、実投稿全文をinstagram-published-copy、09:21–09:22 JSTの初回Insightsをinstagram-insights-timeseriesへ保存。Pierce assetはPIE-05 / PIE-06をUSED、PIE-07は6時窓が今回未表示のためPARTIAL維持。
