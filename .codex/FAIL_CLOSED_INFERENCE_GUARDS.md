@@ -85,6 +85,21 @@ REPORT / 回答出力直前に、今回の結論を次と照合する。
 
 矛盾が新証拠による正当な更新なら、先にDECISION REVERSAL GATEを通す。
 
+## 5.1 CHANNEL OUTPUT CONTRACT GATE
+
+SNS等の媒体別出力を生成する場合、正本取得だけでREADYにしない。対象媒体のCURRENTから次を固定する。
+
+1. **PLATFORM**
+2. **LANGUAGE**
+3. **AUDIENCE**
+4. **CHARACTER LIMIT / FORMAT**
+5. **SOURCE REUSE FLOW**
+6. **PRE-OUTPUT VALIDATOR**（定義されている場合）
+
+いずれかを取得できない場合はUNKNOWN / HOLD。取得済み条件に反する候補は、内容がもっともらしくてもPASS禁止。
+
+XのCURRENT contractはSocial Routerを正本とし、ENGLISH / OVERSEAS / `/en/` / 140 characters以内 / `WATCH NAME → short English description → English hashtags` を固定する。X投稿候補に日本語文字が含まれる、または140 charactersを超える場合はFAILする。
+
 ## 6. CORRECTION PERSISTENCE
 
 再発性がある訂正は会話だけで閉じない。
