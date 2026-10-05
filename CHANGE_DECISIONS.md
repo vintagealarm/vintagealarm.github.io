@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 09:22 JST — MR-PIE-001公開と初回Insightsを正本化
+
+- **変更**：MR-PIE-001をPLANNEDからPUBLISHEDへ移行し、実投稿全文をinstagram-published-copy、09:21–09:22 JSTの初回Insightsをinstagram-insights-timeseriesへ保存。Pierce assetはPIE-05 / PIE-06をUSED、PIE-07は6時窓が今回未表示のためPARTIAL維持。
+- **理由**：ユーザー提供の公開投稿画面とReel Insightsで、公開本文・hashtags・194 views / 33 viewers / 5s average watch / likes 6 / saves 2 / skip 12.9% / non-followers 95.4%等を確認したため。
+- **旧状態・棄却**：MR-PIE-001をPLANNEDのまま残す状態、今回の動画で6時窓まで使用済みと扱う状態を棄却。
+- **影響範囲**：Instagram Published Copy、Insights time series、Social Content Inventory、MR-PIE-001。WATCH本文・既存投稿は変更しない。
+- **検証状態**：active PR #173 branchへ記録。CI再実行後にVERIFIED判定する。
+- **関連**：commits `c5a8705e` / `a011530f` / `21dde07f`、MR-PIE-001、Wittnauer static carousel comparison baseline。
+- **日時根拠**：ユーザー提供スクリーンショットの端末時刻 2026-10-05 09:21–09:22 JST。
+
+
 ### 2026-10-05 08:44 JST — Social棚から実制作へExecution Briefを必須化
 
 - **変更**：Social運用へ `Content Inventory → Content Assignment → Execution Brief → storyboard / caption → publish` の引継ぎ層を追加した。Execution BriefはactiveなInstagram content単位で持ち、Media reality / Attention cue / Sensory proof / Causal beat / Published collision / Carry-forward / Constraints / Working copyを必須項目とする。実素材未確認のPLANNEDのみ `MEDIA_PENDING` を許容し、SHOT / EDITED / SCHEDULEDは `MEDIA_VERIFIED` 必須。 `check:social-inventory` へactive Instagram assignmentとbriefの対応・必須field・media status検査を追加し、MR-PIE-001を最初の実例として登録した。
