@@ -621,16 +621,31 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         number: '03',
         title: 'Zwei Federhäuser mit einer Krone getrennt aufziehen',
         paragraphs: [
-          'Beim Drehen der Aufzugskrone bei 3 Uhr wird die Drehung auf das Wechsel-Kronrad übertragen, das auf einer schwenkbaren Wippe sitzt. Ändert sich die Drehrichtung der Krone, schwenkt die Wippe von einer Seite auf die andere; dadurch greift das Wechsel-Kronrad entweder in das Sperrad des Gehwerk-Federhauses oder in das Sperrad des Wecker-Federhauses ein. So lassen sich mit einer einzigen Krone die beiden Federhäuser für Gehwerk und Wecker getrennt aufziehen.',
-          'Pierces technische Unterlage von 1955 beschreibt, dass das Wechsel-Kronrad durch eine Feder mit satter Reibung auf dem Wippenstift gehalten wird. Dadurch bleibt die richtige Eingriffstiefe erhalten, und beim Umschalten wird verhindert, dass zwei Zähne frontal aufeinanderstoßen.'
+          'Bei der Krone bei 3 Uhr bestimmt die Drehrichtung, welches Federhaus aufgezogen wird.',
+          'Beim Drehen der Krone bewegt sich ein schwenkbarer Hebel mit dem Wechsel-Kronrad und schaltet den Eingriff auf das jeweils andere Sperrad um. In den Bildern wird beim Eingriff auf der oberen Seite das Gehwerk-Federhaus aufgezogen, beim Eingriff auf der unteren Seite das Wecker-Federhaus.',
+          'Cal. 135 kann damit zwei Federhäuser – für Gehwerk und Wecker – getrennt aufziehen, allein dadurch, dass dieselbe Krone in entgegengesetzte Richtungen gedreht wird.'
         ],
-        citationRefs: ['1', '1'],
+        citationRefs: ['1', '1', '1'],
         video: {
           src: '/videos/pierce-duofon/time-alarm-winding.mov',
           title: 'In Bewegung sehen',
-          afterParagraph: 2,
+          afterParagraph: 3,
           ariaLabel: 'Pierce Cal. 135: Video des gezeigten Exemplars beim Umschalten des Aufzugs zwischen Gehwerk- und Wecker-Federhaus über die Krone bei 3 Uhr'
-        }
+        },
+        images: [
+          {
+            src: '/images/IMG_2762-1.jpeg',
+            caption: 'Oben: Eingriff mit dem Gehwerk-Federhaus zum Aufziehen',
+            afterParagraph: 3,
+            fullRow: true
+          },
+          {
+            src: '/images/IMG_2763-1.jpeg',
+            caption: 'Unten: Eingriff mit dem Wecker-Federhaus zum Aufziehen',
+            afterParagraph: 3,
+            fullRow: true
+          }
+        ]
       },
       {
         number: '04',
