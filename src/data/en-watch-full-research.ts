@@ -447,16 +447,31 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
         number: '03',
         title: 'Winding two barrels with one crown',
         paragraphs: [
-          'Turning the crown at 3 o’clock transmits its rotation to a changeover crown wheel mounted on a rocking lever. Reversing the direction of the crown shifts the rocker from side to side, changing which ratchet wheel the crown wheel engages: the going-train side or the alarm side. This allows the single crown to wind the two barrels independently.',
-          'Pierce’s 1955 technical description states that the changeover crown wheel is held on the rocker pin by spring friction, maintaining the correct depth of engagement and preventing the teeth from meeting head-on as the drive switches sides.'
+          'With the crown at 3 o’clock, the direction of rotation determines which barrel is wound.',
+          'Turning the crown moves a rocking lever that carries the changeover crown wheel, switching which ratchet wheel it engages. In the images, engagement on the upper side winds the timekeeping barrel, while engagement on the lower side winds the alarm barrel.',
+          'In other words, Cal. 135 can wind its two barrels separately—one for timekeeping and one for the alarm—simply by turning a single crown in opposite directions.'
         ],
-        citationRefs: ['1', '1'],
+        citationRefs: ['1', '1', '1'],
         video: {
           src: '/videos/pierce-duofon/time-alarm-winding.mov',
           title: 'See it in motion',
-          afterParagraph: 2,
-          ariaLabel: 'Pierce Cal. 135 specimen video showing the 3 o’clock crown switching winding between the going-train and alarm barrels'
-        }
+          afterParagraph: 3,
+          ariaLabel: 'Pierce Cal. 135 specimen video showing the 3 o’clock crown switching winding between the timekeeping and alarm barrels'
+        },
+        images: [
+          {
+            src: '/images/IMG_2762-1.jpeg',
+            caption: 'Upper side: engaged with the main timekeeping barrel for winding',
+            afterParagraph: 3,
+            fullRow: true
+          },
+          {
+            src: '/images/IMG_2763-1.jpeg',
+            caption: 'Lower side: engaged with the alarm barrel for winding',
+            afterParagraph: 3,
+            fullRow: true
+          }
+        ]
       },
       {
         number: '04',

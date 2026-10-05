@@ -1239,3 +1239,14 @@
 - **関連**：ユーザー提示Pages CMSスクリーンショット。実装commit `6fe48960582f98f0fd4eec1f20b86821683903d1` / `4f07536f561a7a777c4d3f12d025cf7c175d3ec4` / `22da5b507f40b78fb2aa2af06326e9627dfd0683` / `6f5c4c7e3a414803a10450994b852c4cf1e57cef`。同時刻付近にPages CMSから `public/images/IMG_2763.jpeg` のアップロード自体はmainへ作成済み。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T16:51:07+09:00` → `2026-10-05 16:51 JST`。
 
+### 2026-10-05 17:26 JST — Pierce Cal.135巻き上げ説明を画像連動の三段落へ改稿し日英独同期
+- **変更**：Pierce Duofon DEEP DIVE 03の巻き上げ説明を、ユーザー指定の日本語3段落へ差し替える。旧稿の「揺動するウィップ上の切替用クラウンホイール」から始まる説明と、ばね摩擦・噛み合い深さ・歯の正面衝突防止を別段落で説明する構成は可視本文から外す。新稿は①3時位置リューズは回す方向で巻き上げる香箱が変わる、②切替用クラウンホイールを載せた揺動レバーが動いて噛み合うラチェット車を切り替え、画像上では上側＝時計側／下側＝アラーム側、③1本のリューズを正逆に回して2香箱を別々に巻く、の順で説明する。JA / EN / DEを同じ3段落構造・同じ出典番号で同期する。
+- **画像・動画順**：ユーザーがPages CMSで追加済みの `/images/IMG_2762-1.jpeg` と `/images/IMG_2763-1.jpeg` をEN / DEにも同期し、各キャプションを翻訳する。3言語すべてで画像2点と `/videos/pierce-duofon/time-alarm-winding.mov` を第3段落後へ置き、現行 `DeepDive.astro` の描画順 `images → video` を利用して、**写真2点が動画より上に表示される**状態とする。
+- **翻訳監査**：JAを意味正本として文単位で照合。ENは `direction of rotation / rocking lever / changeover crown wheel / ratchet wheel / timekeeping barrel / alarm barrel`、DEは `Drehrichtung / schwenkbarer Hebel / Wechsel-Kronrad / Sperrad / Gehwerk-Federhaus / Wecker-Federhaus` を使用する。両言語とも①回転方向で対象香箱が変わる、②レバーが噛み合い先を切り替える、③上＝時計側・下＝アラーム側、④正逆回転で2香箱を別々に巻く、の4点に意味の増減・逆転なし。日本語本文には原語 `Wippe` / 「ウィップ」を出さない。
+- **理由**：ユーザーが旧説明を「説明キモくない？」としてCouncil 1で監査し、部品名の点呼になっていて、掲載画像の上下関係と文章の「左右」が噛み合わず、最も重要な「正逆回転だけで2香箱を巻き分ける」が後ろに埋もれていると判断したため。ユーザーが新日本語本文を明示し、画像翻訳と動画より上への配置も指定した。
+- **旧状態・棄却**：旧JA / EN / DEの、部品名称から入り `Wippe` / rocking lever / Wippe相当の機構説明を主役にする構成を棄却する。Pierce 1955技術資料の詳細説明自体を否定するものではなく、この公開セクションの可視本文からは外す。
+- **影響範囲**：Pierce Duofon DEEP DIVE 03のJA / EN / DE本文、引用配列、同章の画像キャプションと配置位置、動画配置位置のみ。DEEP DIVE 02、他章、OWNER'S NOTE、WATCH上段動画、画像ファイル本体、動画ファイル本体は変更しない。
+- **検証状態**：branch `fix/duofon-winding-copy-and-media-order` で実装済み。PR CIのlocalization / citations / Japanese style / build / mobile layout、main merge、deploy、liveで三言語本文と `images → video` 順を確認するまでVERIFIED / DEPLOYEDとはしない。
+- **関連**：実装commit `18160e1de64e88c77bbabec5c6ba40c2ffd92e11` / `82be7526ca576b75ae3b681774e871c20914474c` / `e51880782f267bfe0817b077f48945754bd5bf8b`。ユーザー指定本文および「写真も入れてあるからそれの翻訳と動画の上にくるように調整」。
+- **日時根拠**：ChatGPT time取得値 `2026-10-05T17:25:55+09:00` → `2026-10-05 17:26 JST`（分単位丸め）。
+

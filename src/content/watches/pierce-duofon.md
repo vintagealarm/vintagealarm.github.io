@@ -111,24 +111,26 @@ deepDive:
   - number: "03"
     title: 1本のリューズで、2つの香箱を巻き分ける
     paragraphs:
-      - 3時位置のリューズを回すと、その回転は揺動するウィップ上の切替用クラウンホイールへ伝わる。リューズの回転方向が変わるとウィップが左右に移動し、クラウンホイールの噛み合い先が、時計側のラチェットホイールとアラーム側のラチェットホイールの間で切り替わる。これによって、1本のリューズから時計用とアラーム用、2つの香箱を別々に巻き上げられる。
-      - 1955年のPierce技術資料では、この切替用クラウンホイールはばねの摩擦によってウィップの軸に保持され、適切な噛み合い深さを確保しながら、切り替え時に歯同士が正面から衝突するのを防ぐ構造と説明されている。
+      - 3時位置のリューズは、回す方向によって巻き上げる香箱が変わる。
+      - リューズを回すと、切替用のクラウンホイールを載せた揺動レバーが動き、噛み合うラチェット車を切り替える。画像上では、上側に噛み合うと時計側、下側に噛み合うとアラーム側が巻き上がる。
+      - つまりCal.135は、1本のリューズを正逆に回し分けるだけで、時計用とアラーム用の2つの香箱を別々に巻くことができる。
     citationRefs:
+      - "1"
       - "1"
       - "1"
     video:
       src: /videos/pierce-duofon/time-alarm-winding.mov
       title: 動画で見る
-      afterParagraph: 2
+      afterParagraph: 3
       ariaLabel: Pierce Cal.135 3時位置リューズによる時計側／アラーム側の巻き上げ切り替え実機動画
     images:
       - src: /images/IMG_2762-1.jpeg
         caption: メインの香箱（上側）に接続し巻き上げ
-        afterParagraph: 2
+        afterParagraph: 3
         fullRow: true
       - src: /images/IMG_2763-1.jpeg
         caption: アラームの香箱（下側）に接続し巻き上げ
-        afterParagraph: 2
+        afterParagraph: 3
         fullRow: true
   - number: "04"
     title: Duofonのモデル変遷
