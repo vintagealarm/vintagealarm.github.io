@@ -28,6 +28,21 @@
 
 正本が不足している、CURRENT STATEが不明、SUCCESS CRITERIAが曖昧、またはVERIFY PLANが「作った本人の確認だけ」になっている場合は `READY` へ進まない。
 
+### Pre-implementation CHAT AUDIT REPORT — mandatory
+
+非自明なrepository変更・公開変更・研究判断・複数工程では、**SCOPEDの後、実装系の書き込み操作より前に、監査結果をユーザーが見えるチャットへ報告する。** read-onlyの正本取得・diff確認・Web調査・実物確認は監査のため先に行ってよいが、branch作成後のファイル変更、commit、PR作成、merge、公開変更などのmutationは `AUDIT_REPORTED` 前に始めない。
+
+チャット監査報告には最低限次を含める。
+
+- **CURRENT STATE** — main / active PR / branch / live / 実物の現在値
+- **DEFECT / GAP** — 何が壊れている、欠けている、または今回変える必要があるか
+- **CAUSE** — 何が原因か。未確認なら未確認と書く
+- **CHANGE SCOPE** — 何を変更するか
+- **OUT OF SCOPE** — 今回触らないもの
+- **SUCCESS CRITERIA** — 何を満たせばPASSか
+
+監査報告は承認要求と同義ではない。ユーザーが明示的に承認待ちを求めていない限り、報告後は `AUDIT_REPORTED → READY` へ進んでよい。逆に、監査報告をチャットへ出していない状態では、内部Task Envelopeが完成していてもREADYへ進めない。
+
 テンプレート: `.codex/TASK_ENVELOPE_TEMPLATE.md`
 
 ### SNS / platform-bound copy — OUTPUT CONTRACT
@@ -49,7 +64,7 @@ PASS前には、actual post candidateそのものをOUTPUT VALIDATORへ通す。
 
 ## 1.5 Fail-Closed Inference Gate
 
-正本: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`。SCOPED→READYとVERIFYING→PASSの両方で強制する。
+正本: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`。SCOPED→AUDIT_REPORTED→READYとVERIFYING→PASSの両方で強制する。
 
 ### READY前
 - **NO INVERSE INFERENCE**: directional ruleの使用方向を確認。逆・裏・対偶・双方向・一般化には直接根拠が必要。
@@ -69,6 +84,8 @@ RECEIVED
   ↓
 SCOPED
   ↓
+AUDIT_REPORTED
+  ↓
 READY
   ↓
 EXECUTING
@@ -83,6 +100,9 @@ VERIFYING
 
 ### SCOPED
 Task Envelopeの CURRENT STATE / CANONICAL SOURCES / SCOPE / MUST / DO NOT / REJECTED-HOLD / SUCCESS CRITERIA / VERIFY PLAN を固定した状態。
+
+### AUDIT_REPORTED
+実装前監査をユーザーが見えるチャットへ報告済みの状態。CURRENT STATE / DEFECT-GAP / CAUSE / CHANGE SCOPE / OUT OF SCOPE / SUCCESS CRITERIAが提示されていること。承認待ちはユーザーが明示した場合だけ追加する。
 
 ### READY
 必要な正本・active queue・権限・実素材・前提が確認でき、実行可能と判断した状態。未確認を自然に補完して進めない。

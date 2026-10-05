@@ -47,6 +47,21 @@
 - Render / live / real media:
 - Verifier decision: PENDING / PASS / FAIL
 
+## CHAT AUDIT REPORT
+
+非自明なrepository変更・公開変更・研究判断・複数工程では必須。実装系mutation前にユーザーが見えるチャットへ報告する。
+
+- Required: YES / NO
+- Reported in chat: PENDING / YES / NO
+- Current state reported:
+- Defect / gap reported:
+- Cause reported:
+- Change scope reported:
+- Out of scope reported:
+- Success criteria reported:
+- User approval required: YES / NO
+- Approval status: N/A / PENDING / APPROVED / REJECTED
+
 ## PLATFORM OUTPUT CONTRACT
 
 SNS / platform-bound copyのときだけCURRENTから埋める。該当しない場合はN/Aとする。
@@ -87,6 +102,7 @@ SNS / platform-bound copyのときだけCURRENTから埋める。該当しない
 
 - RECEIVED:
 - SCOPED:
+- AUDIT_REPORTED:
 - READY:
 - EXECUTING:
 - VERIFYING:
