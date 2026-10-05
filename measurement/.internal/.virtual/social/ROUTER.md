@@ -118,6 +118,22 @@ Execution Briefは **棚→実制作の引継ぎ伝票**。最低限次を持つ
 
 制作順は **Content Inventory → Assignment → Execution Brief → storyboard / caption → publish → Published Copy / Insights** とする。
 
+### 4.4 X CURRENT OUTPUT CONTRACT — ENGLISH / OVERSEAS
+
+X投稿生成では、次を**CURRENT出力条件**として先に固定する。Social Routerを読んだだけではREADYにしない。
+
+- **Platform**: X
+- **Language**: ENGLISH
+- **Audience**: OVERSEAS
+- **Profile URL**: `/en/`
+- **Character limit**: 140 characters以内
+- **Current repost format**: `WATCH NAME → short English description → English hashtags`
+- **Reuse flow**: `Instagram Published Copy → English compression/adaptation → 140-character validation → output`
+- Instagram既存投稿はsourceとして再利用してよいが、Xへ単純コピーせず、X向けに圧縮・再構成する。
+- X投稿候補の本文・hashtagsへ日本語を混ぜない。必要な日本語説明は投稿候補の外に置く。
+- X投稿候補は出力前に `node scripts/check-inference-guards.mjs --validate-x-output <candidate-file>` で検査し、日本語文字または140 characters超過があればFAILする。
+- このCURRENT条件を変える場合は、Fail-ClosedのDECISION REVERSAL GATE（REVERSAL TARGET + NEW EVIDENCE）を先に通す。
+
 ## 5. RESOLVED / INTERNAL — 原則として再説明・再審議しない
 
 以下は内部処理ルール。新しい矛盾・仕様変更・ユーザーからの明示的な再検討指示がない限り、Councilや通常回答の主要論点へ戻さない。
