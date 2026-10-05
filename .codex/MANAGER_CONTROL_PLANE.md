@@ -30,6 +30,23 @@
 
 テンプレート: `.codex/TASK_ENVELOPE_TEMPLATE.md`
 
+### SNS / platform-bound copy — OUTPUT CONTRACT
+
+SNSや文字数制約付き媒体の本文を生成する場合、READY前に以下をTask Envelopeへ固定する。1項目でもCURRENTから解決できなければREADYへ進めない。
+
+- **PLATFORM**
+- **LANGUAGE**
+- **AUDIENCE**
+- **CHARACTER LIMIT**
+- **SOURCE COPY**
+- **TRANSFORMATION**
+- **DESTINATION / PROFILE**
+- **OUTPUT VALIDATOR**
+
+Social Routerに媒体固有のCURRENT契約がある場合は、それを一般論より優先する。特にXでは、`measurement/.internal/.virtual/social/ROUTER.md` の **X CURRENT OUTPUT CONTRACT** を読み、actual post candidateへ適用する。
+
+PASS前には、actual post candidateそのものをOUTPUT VALIDATORへ通す。X current contractでは少なくとも **English-only / overseas-facing / VA editorial cap 140 / Instagram再利用時のPublished Copy起点** を検査し、日本語Script混入・上限超過・CURRENT format違反をPASSさせない。周辺説明文が日本語でも、実投稿候補と混同して検査しない。
+
 ## 1.5 Fail-Closed Inference Gate
 
 正本: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`。SCOPED→READYとVERIFYING→PASSの両方で強制する。

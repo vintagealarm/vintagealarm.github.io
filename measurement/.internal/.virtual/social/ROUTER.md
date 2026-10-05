@@ -44,6 +44,25 @@
 - Council / 焼き / 通常回答で、`Reel → profile → VA → HOW THEY RING`、`Reel → VA → HOW THEY RING`、`SNS → VA → WATCH / OWNER'S NOTE / HOW THEY RING` のようにHOW THEY RINGをVA到達後の横並び選択肢へ並べ替えてはならない。
 - TOP外部URLがユーザー指示または実画面確認で変更された場合のみ、この節を更新する。
 
+## 3.5 X CURRENT OUTPUT CONTRACT — overseas English / Instagram reuse
+
+Status: **CURRENT / USER_CONFIRMED**
+
+X向け本文生成では、一般的なSNS論より先に次を出力契約として固定する。
+
+- **Platform**: X
+- **Language**: actual post candidateは **English only**。日本語の説明文を回答本文で添えることと、X投稿候補へ日本語本文・日本語hashtagsを混ぜることは分離する。後者はFAIL。
+- **Audience**: overseas-facing
+- **Profile destination**: `https://vintagealarm.github.io/en/`
+- **Source copy**: Instagram既存投稿を再利用する場合は `instagram-published-copy.md` の公開本文を起点にする。記憶や一般論から再生成しない。
+- **Transformation**: Instagram本文の単純コピー／単純翻訳ではなく、**Published Copy → English compression/adaptation → 140-character validation → output** の順でX向けに再構成する。
+- **Current repost format**: `WATCH NAME` → short English description → English hashtags。実投稿候補は3つの非空セクションをこの順で持つ。
+- **Editorial character cap**: 実投稿候補全体を **140 user-perceived characters以内** とする。空白・改行・hashtagsも含む。これはVINTAGE ALARMの現行編集上限であり、Xプラットフォーム一般の上限値とは別に扱う。
+- **Pre-output FAIL conditions**: 実投稿候補に日本語Script（Han / Hiragana / Katakana）が含まれる、140文字を超える、上記3セクション順を満たさない、Instagram再利用なのにPublished Copyを確認していない、のいずれか。
+- **Web reality note**: X公式ヘルプでは通常ポストは英語で最大280 characters、Premiumのlonger postsはそれを超えて作成可能。twitter-textの公開設定では通常ポストはweighted length 280、URLは23として扱う。したがって今回の140は「Xの技術上限」としてではなく、ユーザー確定のVA編集契約として検査する。現行repost formatは本文URLを前提にしないため、URL重み付けで140上限を緩めない。
+
+この契約を変更する場合は、REVERSAL TARGET + NEW EVIDENCE + `CHANGE_DECISIONS.md` 更新を先に行う。
+
 ## 4. ACTIVE — 今回の分析・Councilで前面に出す論点
 
 - X / YouTube / Instagramそれぞれの布教実績が、現在のVA流入へどう接続しているか
@@ -269,5 +288,6 @@ SNS案件でも `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` と `.codex/inference-g
 - SOCIAL-DIRECTION-001
 - REALITY-X-ROUTE-001
 - SOCIAL-DUOFON-001
+- SOCIAL-X-LANGUAGE-001
 
 この3件は、既存判断・現物・実素材を確認したうえで処理し、一般論だけで現行方針を書き換えない。
