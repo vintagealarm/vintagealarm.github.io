@@ -57,6 +57,31 @@ for (const metric of [
   requireText(taskEnvelope, metric, 'Task Envelope metric');
   requireText(managerControlPlane, metric, 'Manager Control Plane metric');
 }
+for (const field of [
+  'PLATFORM',
+  'LANGUAGE',
+  'AUDIENCE',
+  'CHARACTER LIMIT',
+  'SOURCE COPY',
+  'TRANSFORMATION',
+  'DESTINATION / PROFILE',
+  'OUTPUT VALIDATOR'
+]) {
+  requireText(managerControlPlane, field, 'Manager Control Plane platform-output field');
+}
+for (const field of [
+  'Platform:',
+  'Language:',
+  'Audience:',
+  'Character limit:',
+  'Source copy:',
+  'Transformation:',
+  'Destination / profile:',
+  'Output validator:',
+  'Actual candidate validation:'
+]) {
+  requireText(taskEnvelope, field, 'Task Envelope platform-output field');
+}
 requireText(managerControlPlane, 'Builderの自己申告を証拠にしない', 'Manager Control Plane verifier independence');
 requireText(managerControlPlane, 'single-agent', 'Manager Control Plane default execution mode');
 
