@@ -16,6 +16,45 @@ const state = read('PROJECT_STATE.md');
 const llms = read('public/llms.txt');
 const aio = read('measurement/aio-observation-log.md');
 const ring = read('src/data/how-they-ring-localizations.ts');
+const managerControlPlane = read('.codex/MANAGER_CONTROL_PLANE.md');
+const taskEnvelope = read('.codex/TASK_ENVELOPE_TEMPLATE.md');
+const codexConfig = read('.codex/config.toml');
+
+const managerControlPlanePath = '.codex/MANAGER_CONTROL_PLANE.md';
+const taskEnvelopePath = '.codex/TASK_ENVELOPE_TEMPLATE.md';
+requireText(agents, managerControlPlanePath, 'AGENTS manager control plane pointer');
+requireText(agents, taskEnvelopePath, 'AGENTS task envelope pointer');
+requireText(state, managerControlPlanePath, 'PROJECT_STATE manager control plane pointer');
+requireText(state, taskEnvelopePath, 'PROJECT_STATE task envelope pointer');
+requireText(codexConfig, 'multi_agent = false', 'Codex multi-agent safety');
+for (const field of [
+  'CURRENT STATE',
+  'CANONICAL SOURCES',
+  'SCOPE',
+  'MUST',
+  'DO NOT',
+  'REJECTED / HOLD',
+  'SUCCESS CRITERIA',
+  'VERIFY PLAN'
+]) {
+  requireText(taskEnvelope, field, 'Task Envelope field');
+  requireText(managerControlPlane, field, 'Manager Control Plane field');
+}
+for (const stateName of ['RECEIVED','SCOPED','READY','EXECUTING','VERIFYING','PASS','FAIL','REPORT']) {
+  requireText(managerControlPlane, stateName, 'Manager Control Plane state');
+}
+for (const metric of [
+  'USER_REINSTRUCTION_COUNT',
+  'CANONICAL_SOURCE_REDIRECT_COUNT',
+  'VERIFY_PROMPT_COUNT',
+  'POST_COMPLETION_DEFECT_COUNT',
+  'NEW_REQUIREMENT_COUNT'
+]) {
+  requireText(taskEnvelope, metric, 'Task Envelope metric');
+  requireText(managerControlPlane, metric, 'Manager Control Plane metric');
+}
+requireText(managerControlPlane, 'Builderの自己申告を証拠にしない', 'Manager Control Plane verifier independence');
+requireText(managerControlPlane, 'single-agent', 'Manager Control Plane default execution mode');
 
 const canonical = 'https://vintagealarm.github.io/';
 requireText(state, `正規公開ホスト: \`${canonical}\``, 'PROJECT_STATE canonical host');
