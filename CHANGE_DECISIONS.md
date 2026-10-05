@@ -1116,3 +1116,13 @@
 - **検証状態**：branch `ops/fail-closed-inference-guards-20261005` に実装。CI通過までVERIFIEDとはしない。
 - **関連**：PR #175 / active PR #173。commits `c4ae40d4` / `623fcb1d` / `cbaed804` / `4a9fa87c` / `d2b7322e` / `076d7278` / `04fcef58` / `00b52b1b` / `d38abf3a` / `22a56ac5` / `bc9031c7` / `0f4dfb71` / `85c2ca24` / `0864542f` / `03bc9764`。
 - **日時根拠**：developer-provided local time `2026-10-05T10:54+09:00` = `2026-10-05 10:54 JST`。
+
+### 2026-10-05 16:05 JST — OWNER'S NOTE Slidesを1600×2233 PNGへ書き出す再利用基盤を正本化
+- **変更**：private Google Slides `1Lcz0CEZncDw1GncI4RMY6qDmfO4Fknq4NvpGtBZAaLk` を制作正本とし、現行6 WATCH × JA / EN / DE = 18 slideのobjectIdと恒久ファイル名を `tools/owner-note-slides/manifest.json` に固定する。Google Slides APIの`LARGE` thumbnailを取得してPNG実体のIHDRまで1600×2233を検査する `scripts/export-owner-note-slides.mjs`、manifest / workflow / dimension parserをCIで検査する `scripts/check-owner-note-slide-export.mjs`、手動起動用GitHub Actions workflow、運用READMEを追加する。生成PNGはGitへcommitせずartifactとして扱う。
+- **理由**：Google Slidesの実体は現存し、2026-10-05の再確認で18 slideすべてが`LARGE` PNG 1600×2233を返すことを確認できた一方、以前のローカルSlides資産化 / export実装はcurrent GitHub正本に存在しない。再びlocal-only資産へ戻さず、現在のdeck実体から再現可能なexport契約と実行surfaceをremote正本へ置く必要がある。
+- **旧状態・棄却**：過去のlocal-only実装が存在した前提で内容を推測復元する案、手作業スクリーンショットや後処理リサイズを正規exportとみなす案、private deckを`anyone with link`へ公開して認証を省く案を棄却する。現物slide objectIdと実寸を先に確認したうえでcurrent mainから再実装する。
+- **影響範囲**：`tools/owner-note-slides/`、`scripts/export-owner-note-slides.mjs`、`scripts/check-owner-note-slide-export.mjs`、`.github/workflows/export-owner-note-slides.yml`、`package.json`、`.gitignore`、`PROJECT_STATE.md`、本判断履歴。Google Slides本文・翻訳・レイアウト、公開WATCH / UI / SNS実測値は変更しない。
+- **検証状態**：connected Google Slidesで現行18 objectIdすべての`LARGE` thumbnailが`image/png` / 1600×2233であることを実測済み。repository側はbranch `ops/owner-note-slide-exporter-20261005` へ実装し、PR CIで`check:slide-export`を含むquality gateを通すまでVERIFIEDとはしない。GitHub Actionsからの実exportは、Actions secret `GOOGLE_SERVICE_ACCOUNT_JSON` とservice accountへのdeck Viewer共有を設定してworkflowを成功実行するまでRUNTIME VERIFIEDとはしない。
+- **関連**：2026-10-05ユーザー指示「じゃあそこを作成しようか部長」「GitHubどうぞ」、canonical Slides title `VINTAGE ALARM — OWNER'S NOTE SLIDE SYSTEM — CITIZEN SPIKE`、branch `ops/owner-note-slide-exporter-20261005`。
+- **日時根拠**：developer-provided local time `2026-10-05T16:05+09:00` = `2026-10-05 16:05 JST`。
+
