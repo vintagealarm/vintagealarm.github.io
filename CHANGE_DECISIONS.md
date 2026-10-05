@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 20:44 JST — Fail-Closed重複driftを解消し、Slides exporter重複PRをcurrent mainへ一本化
+
+- **変更**：PROJECT.md / AGENTS.md / `.codex/MANAGER_CONTROL_PLANE.md` / PROJECT_STATE.md に重複挿入されていたFail-Closed系CURRENT記述を、意味を落とさず各1系統へ整理した。PROJECT.md末尾の同一確認項目5行の重複も除去した。同時に、同一exporter実装を保持していたPR #182 / #185を比較し、workflow / scripts / manifest / README / package contractが同一であることを確認したうえで、current main起点のbranchへ有効差分だけ再playした。元PRは履歴として削除せず、new current-main PRの検証・merge後にsupersededとしてcloseする。
+- **理由**：Fail-Closed導入自体がCURRENT正本へ重複を作り、再発防止ルールがdrift源になっていた。また #182 / #185 は同一9ファイルを扱う重複active queueで、片方を古いbaseのままmergeするとmain側のPierce / Social更新を巻き戻す危険があったため。
+- **旧状態・棄却**：重複文言を履歴保存と誤認してCURRENT正本へ二重保持する状態、#182または#185をmergeabilityだけで選んでそのままmergeする案、重複PRやbranch自体を削除する案を棄却する。履歴はPR / branch / commit / decision logに残し、CURRENTだけを一意化する。
+- **影響範囲**：PROJECT.md、AGENTS.md、`.codex/MANAGER_CONTROL_PLANE.md`、PROJECT_STATE.md、OWNER'S NOTE slide exporter関連workflow / scripts / manifest / README / package.json / .gitignore、PR #182 / #185 lifecycle。公開WATCH本文・OWNER'S NOTE本文・SNS実測・PR #135 / #186は変更しない。
+- **検証状態**：source PR #182 / #185のexporter主要8ファイルがbyte-for-byte同一であることをGitHub取得で確認。current mainからfresh branchへ差分適用済み。新PRのCI通過・merge・main再取得・旧PR close完了まではVERIFIEDとしない。
+- **関連**：source PR #182 / #185、branch `fix/failclosed-exporter-consolidation-20261005`、先行判断 2026-10-04 21:45 JST「履歴保存と現行作業キューを明示分離」。
+- **日時根拠**：system-provided local time `2026-10-05T20:44:40+09:00` = `2026-10-05 20:44 JST`。
+
+
 ### 2026-10-05 16:51 JST — Social Execution Brief一式をmain反映・CI検証完了
 
 - **変更**：PR #178をmainへmergeし、MR-PIE-001の公開記録・16:03 Insights snapshot・Execution Brief bridge・観察箇所指定standard・Instagram Insights parser修正を現行mainへ確定した。旧PR #173はsupersededとしてclose済み。
@@ -59,6 +70,15 @@
 - **検証状態**：active PR #173 branchへ実装中。Router commit `f5e32c79`、16:03 Insights commit `078b328b`。正本再取得とPR CI確認後にVERIFIED判定する。
 - **関連**：MR-PIE-001、2026-10-05 08:23 copy learning contract、2026-10-05 08:44 Execution Brief bridge、2026-10-05 09:22 initial snapshot。
 - **日時根拠**：developer-provided local time `2026-10-05T16:06+09:00` = `2026-10-05 16:06 JST`。
+
+### 2026-10-05 16:05 JST — OWNER'S NOTE Slides PNG exporterを正本化
+- **変更**：現行private Google Slidesの6 WATCH × JA/EN/DE = 18枚をmanifestで固定し、Slides APIのLARGE PNGを1600×2233で実ピクセル検査してartifact化するexporter、checker、手動Actions workflow、運用READMEを追加する。
+- **理由**：Slides実体は現存する一方、以前のlocal-only export実装はcurrent GitHub正本に無く、再現可能なremote正本が必要なため。
+- **旧状態・棄却**：旧local実装を推測復元する案、手動スクリーンショットや後処理リサイズを正規exportとみなす案、private deckを公開リンク化する案は採用しない。
+- **影響範囲**：owner-note slide export用tools/scripts/workflow、package.json、.gitignore、PROJECT_STATE.md、本判断履歴。Slides本文・翻訳・レイアウト、公開WATCHは変更しない。
+- **検証状態**：connected Google Slidesで18枚すべてがimage/png・1600×2233で返ることを実測済み。repository側はPR CI通過までVERIFIEDとはしない。Actions実exportは認証設定後の成功実行までruntime未検証。
+- **関連**：2026-10-05ユーザー指示「じゃあそこを作成しようか部長」「GitHubどうぞ」／canonical deck ID `1Lcz0CEZncDw1GncI4RMY6qDmfO4Fknq4NvpGtBZAaLk`／source PR #182 / #185。
+- **日時根拠**：developer-provided local time `2026-10-05T16:05+09:00` = `2026-10-05 16:05 JST`。
 
 ### 2026-10-05 09:23 JST — MR-PIE-001初回比較をoperationsへ同期
 
