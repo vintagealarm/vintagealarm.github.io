@@ -22,16 +22,6 @@
 
 ### FAIL-CLOSED推論ゲート
 
-詳細正本は `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`。
-
-- A→BからB→A・裏・対偶・双方向・一般化を導かない。逆向きの直接根拠が無ければHOLD。
-- USER_CONFIRMED / RESOLVED / CURRENTを変える場合は、撤回対象と新証拠を先に確認する。どちらかが無ければ変更禁止。
-- URL / route / account / media / postの新設・転用提案前に、既存実装・実物を確認する。
-- 正本にない一般論はAI_PROPOSED / CANDIDATEまで。
-- 回答直前に、直近ユーザー決定・正本・既存実装を反転していないか確認する。矛盾が残る場合は回答を続けない。
-
-### FAIL-CLOSED推論ゲート
-
 正本を読んだ後も、確認済み情報を勝手に変形しない。詳細正本は `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`。
 
 - **A→BからB→A・裏・対偶・双方向・一般化を導かない。** 逆向きの根拠が無ければHOLD。
@@ -191,12 +181,6 @@ GitHub UTC時刻を根拠にする場合、UTC原文とJST換算を併記する�
 - directional ruleを逆向き・対偶・双方向へ変形していないか。
 - 既存判断を変える場合、REVERSAL TARGETとNEW EVIDENCEが両方あるか。
 - route / account / page / media / postを、現物確認なしに無い前提・新設前提で扱っていないか。
-- 一般論をProject固有の決定へ昇格していないか。
-- 最終結論が直近ユーザー決定・正本・既存実装と矛盾していないか。
-
-- directional ruleを逆向き・対偶・双方向へ変形していないか。
-- 既存判断を変える場合、REVERSAL TARGETとNEW EVIDENCEが両方あるか。
-- route / account / page / media / postを現物確認なしに無い前提で扱っていないか。
 - 一般論をProject固有の決定へ昇格していないか。
 - 最終結論が直近ユーザー決定・正本・既存実装と矛盾していないか。
 
