@@ -26,17 +26,6 @@
 
 ### Fail-Closed Inference Guard
 
-`.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` をManager Control Planeの強制gateとして使う。固定回帰例は `.codex/inference-guard-cases.json`。
-
-- **NO INVERSE INFERENCE**: 一方向規則を逆・裏・対偶・双方向・一般則へ変形しない。
-- **DECISION REVERSAL GATE**: USER_CONFIRMED / RESOLVED / CURRENTを変える前にREVERSAL TARGETとNEW EVIDENCEを固定する。欠ければFAIL / HOLD。
-- **REALITY FIRST**: route / URL / account / page / media / postの提案前に既存実装・実物・active PRを確認する。
-- **GENERAL KNOWLEDGE = CANDIDATE ONLY**: 一般論は候補であり、正本・実測・ユーザー確定を上書きしない。
-- **PRE-OUTPUT CONTRADICTION CHECK**: REPORT前に直近ユーザー決定・正本・既存実装との反転を検査し、矛盾があればPASS禁止。
-- 再発性のある訂正は会話だけで終わらせず、guard / domain Router / regression case / decision logへ必要範囲で昇格する。
-
-### Fail-Closed Inference Guard
-
 `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` をManager Control Planeの強制gateとして使う。回帰例は `.codex/inference-guard-cases.json`。
 
 - **NO INVERSE INFERENCE**: 一方向規則を逆・裏・対偶・双方向・一般則へ変形しない。必要ならその向きを直接支える証拠を取り直す。
