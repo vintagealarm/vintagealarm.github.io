@@ -2097,3 +2097,12 @@ SIGNALでは、打撃ピンが打撃位置から外れ、ハンマーはゴン�
 
 ### Status
 **IMPLEMENTED ON ACTIVE PR #169 BRANCH / CI PENDING**
+
+
+## 2026-10-05 09:22 JST — MR-PIE-001 initial comparison
+
+- MR-PIE-001 first-hour snapshot is canonicalized in `instagram-insights-timeseries.md`.
+- Current Reel: 194 views, 95.4% non-followers, skip 12.9%.
+- Stored Wittnauer static follow-up: 10 views / 0% non-followers at about 2h48m; 22 views / 0% non-followers at about 12h54m.
+- Operational read: the current mechanism Reel broke out to non-followers immediately, while the stored static carousel did not.
+- Keep this as an account-level observed contrast, not a universal photo-vs-Reel law. Other variables differ.
