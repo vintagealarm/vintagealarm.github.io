@@ -119,9 +119,9 @@ Canonical WATCH: `src/content/watches/pierce-duofon.md`
 | PIE-02 | 3時リューズ：順回しで時計、逆回しでアラームを巻く | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_WATCH | OPERATION | WATCH guide |
 | PIE-03 | 3時リューズ1段引き＝アラーム設定、2段引き＝時刻設定 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_WATCH | OPERATION | WATCH guide |
 | PIE-04 | 4時リューズ：引く＝ON、押す＝OFF | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_WATCH | OPERATION | WATCH guide |
-| PIE-05 | SIGNALでは打撃ピンが外れ、ハンマーはゴングを打たず自由振動 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 image 02 |
-| PIE-06 | WECKERでは打撃ピンが入り、ハンマーがゴングを打つ | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 image 03 |
-| PIE-07 | 4時操作→内部バー移動→6時表示窓が赤／白へ連動 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 images 01 / 04 / 05 |
+| PIE-05 | SIGNALでは打撃ピンが外れ、ハンマーはゴングを打たず自由振動 | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 image 02 + Published MR-PIE-001 |
+| PIE-06 | WECKERでは打撃ピンが入り、ハンマーがゴングを打つ | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 image 03 + Published MR-PIE-001 |
+| PIE-07 | 4時操作→内部バー移動→6時表示窓が赤／白へ連動 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 images 01 / 04 / 05 + MR-PIE-001 uses internal linkage only; 6時窓は今回未表示 |
 | PIE-08 | 1952プロトタイプ1香箱→1955完成型2香箱、後期ケース変化 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | HISTORY | WATCH Deep 03 |
 | PIE-09 | Pierce Cal.135 → Gruen Cal.920 SS / Duo-Tone Precision | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | COMPARISON | WATCH Deep 04 + Gruen images |
 | PIE-ON | OWNER'S NOTE全体 | WHOLE_ONLY | NO_EXPLICIT_USE_FOUND_2026-10-03 | OWNER_NOTE_HERO_ONLY | READY_FROM_WATCH | OWNER_NOTE_WHOLE | WATCH `ownersNote` |
@@ -268,9 +268,9 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | X-CYM-TIMING | X | PUBLISHED | LEGACY_VERIFIED | VIDEO | CYM-03 | — | X:CYM-TIMING-WHEEL | WATCH Deep 04 |
 | YT-WES-20260914 | YOUTUBE | UNVERIFIED_PAST | LEGACY_VERIFIED | SHORT | WES-03 | WES-01 | YT:GWkY7hPO89E | experiment-log |
 
-| MR-PIE-001 | INSTAGRAM | PLANNED | USER_CONFIRMED | REEL | PIE-07 | PIE-05,PIE-06 | PIE:WECKER-SIGNAL-SWITCH-VIDEO | user selected Duofon function video as next post; Execution Brief `EB:MR-PIE-001`; USER_WORKING_DRAFT is recorded in instagram-operations |
+| MR-PIE-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | PIE-07 | PIE-05,PIE-06 | PIE:WECKER-SIGNAL-SWITCH-VIDEO | published 2026-10-05 around 08:30 JST; exact copy in instagram-published-copy; first-hour Insights in instagram-insights-timeseries |
 
-現在の新規active reservationは1件（MR-PIE-001）。Duofon機能動画を次の投稿として予約。
+現在の新規active reservationは0件。MR-PIE-001は2026-10-05にPUBLISHEDへ移行。
 
 
 ### Execution Brief Registry
@@ -286,7 +286,7 @@ Execution Briefは**activeな投稿contentだけ**に作る。asset棚全体へ�
 - Published collision: 初回Duofon Reelですでに「2 selectable alarm volumes」「WECKER=loud / SIGNAL=discreet」「4時操作」「6時窓」は紹介済み。今回は2種類の存在紹介を繰り返すのではなく、その切替が内部でどう起きるかを実演する深掘り。
 - Carry-forward: 過去実投稿の「最初に観察対象を指定する」型、実機・実音・操作・機構差を主役にする運用、今回ユーザー訂正の「位置を先に示し、視覚と聴覚を同時誘導し、機構説明を省きすぎない」を適用する。
 - Constraints: 文字盤／6時表示窓／別カットは素材に無いので勝手に足さない。一般的な「2種類の音があります」だけへ薄めない。未確認の編集展開を発明しない。
-- Working copy: `instagram-operations.md` の「2026-10-05 08:23 JST — MR-PIE-001本文訂正 / 過去知見の持ち越しを明文化」にある USER_WORKING_DRAFT を現行baseとする。公開確認までは `instagram-published-copy.md` へ入れない。
+- Working copy: PUBLISHED。実投稿全文は `instagram-published-copy.md`、初回Insightsは `instagram-insights-timeseries.md` を正本とする。USER_WORKING_DRAFTは履歴として `instagram-operations.md` に保持。
 
 ---
 ## 5. Legacy / Project recovery audit
