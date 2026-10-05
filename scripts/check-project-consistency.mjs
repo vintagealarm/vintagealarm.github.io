@@ -9,6 +9,10 @@ const fail = (message) => {
 const requireText = (text, needle, label) => {
   if (!text.includes(needle)) fail(`${label} is missing: ${needle}`);
 };
+const requireSingleOccurrence = (text, needle, label) => {
+  const count = text.split(needle).length - 1;
+  if (count !== 1) fail(`${label} must appear exactly once; found ${count}: ${needle}`);
+};
 
 const project = read('PROJECT.md');
 const agents = read('AGENTS.md');
@@ -55,6 +59,16 @@ for (const metric of [
 }
 requireText(managerControlPlane, 'Builderの自己申告を証拠にしない', 'Manager Control Plane verifier independence');
 requireText(managerControlPlane, 'single-agent', 'Manager Control Plane default execution mode');
+
+requireSingleOccurrence(project, '### FAIL-CLOSED推論ゲート', 'PROJECT fail-closed heading');
+requireSingleOccurrence(agents, '### Fail-Closed Inference Guard', 'AGENTS fail-closed heading');
+requireSingleOccurrence(managerControlPlane, '## 1.5 Fail-Closed Inference Gate', 'Manager Control Plane fail-closed heading');
+requireSingleOccurrence(
+  state,
+  '- Fail-Closed Inference Guard: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` + `.codex/inference-guard-cases.json`。',
+  'PROJECT_STATE fail-closed baseline'
+);
+requireSingleOccurrence(project, '- directional ruleを逆向き・対偶・双方向へ変形していないか。', 'PROJECT pre-output fail-closed checklist');
 
 const canonical = 'https://vintagealarm.github.io/';
 requireText(state, `正規公開ホスト: \`${canonical}\``, 'PROJECT_STATE canonical host');
