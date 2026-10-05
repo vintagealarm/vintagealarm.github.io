@@ -584,6 +584,16 @@ No.2末尾の広告主索引（digital p.292）を実見し、**`Arsa 221`** を
 
 **Routing:** No.2 ad = PERIOD-PRIMARY INDEX CONFIRMED / BODY PAGE MISSING. 1958 annual digital pp.119–120 = PERIOD-PRIMARY ARSA ADVERTISING / NEGATIVE FOR BLIND ALARM / ISSUE ASSIGNMENT OPEN. Deep Dive 03は変更しない。
 
+### 2026-10-05 14:28 JST — Basel 1958の盲人用時計programを示す匿名記事を確認
+
+*Revue internationale de l'horlogerie* 1958年3月号（digital p.60 / printed p.22）の`LES NOUVEAUTÉS HORLOGÈRES / A LA FOIRE DE BALE 1958`欄に、見出し`MONTRES POUR AVEUGLES`を実見した。記事は、ある匿名メーカーが男性用・女性用について通常型と自動巻の盲人用時計を発表し、盲人のための中央機関と緊密に共同研究して、確実に読み取れながら通常の時計との差をできるだけ小さくすることを目指したと記す。
+
+同号digital p.39には、JSH 1958年巻digital p.119と同じ赤い`ARSA 1898–1958`周年広告を確認した。これは1958年3月にARSA周年creativeが別の業界誌にも出稿されていたことを示すcross-publication controlだが、匿名の盲人用時計記事のメーカーをARSAと同定せず、JSH No.2 printed p.221の広告画像とも同一視しない。
+
+**Routing:** blind-watch article = PERIOD-PRIMARY TRADE-PRESS EDITORIAL / ANONYMOUS MAKER / NON-ALARM COMPARATOR. ARSA ad = PERIOD-PRIMARY CROSS-PUBLICATION CONTROL / NEGATIVE FOR BLIND ALARM. `ARSA`、`A. Reymond`、`réveil`、`alarm`、AFBの直接記載はないため、Deep Dive 03とwatch本文は変更しない。Deep Dive 02 / 04の時代背景候補に限定する。
+
+JSH No.2現物については、AbeBooksで同号（seller inventory `028651`）の販売在庫を確認したが、公開画像は表紙1点だけでprinted p.221は見えない。販売者への画像依頼は送信していない。
+
 ### P1 — Hy Moser: PERIOD-PRIMARY COMPARATOR
 
 同年巻のdigital p.335 / printed p.333に、`Montres pour aveugles — le style a son importance`を確認。Hy Moserが盲人用時計を製造し、時針をfaceted、分針をflatとして触覚的に区別したこと、女性用はcream dialであること、販売は小売時計店より盲人施設を介して行われたことを明記する。

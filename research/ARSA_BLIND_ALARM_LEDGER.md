@@ -3576,6 +3576,38 @@ The five points specify: Michel hairspring regulation for men's wristwatches; in
 
 **Direct ARSA Blind Alarm result for digital pp.119–120: NEGATIVE.** No `Blind Alarm`, `montre pour aveugles`, `aveugles`, `réveil`, tactile dial, hinged cover or accessibility description appears. These pages support 1958 ARSA corporate/automatic-watch advertising only.
 
+#### Basel 1958 period comparator — anonymous blind-watch program
+
+**Source:** *Revue internationale de l'horlogerie*, 1958, No.3/12, `LES NOUVEAUTÉS HORLOGÈRES / A LA FOIRE DE BALE 1958`, printed p.22 / digital p.60.
+**Detail URL:** https://watchlibrary.org/en/details/MIH-RIH_1958_03_60?searchQuery=montres%20pour%20aveugles
+**Image:** https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1958%2FMIH-RIH_1958_03%2FJPG-SOURCE%2FMIH-RIH_1958_03_JPG-SOURCE_0060/full/2600,/0/default.jpg
+**Evidence class:** PERIOD-PRIMARY TRADE-PRESS EDITORIAL / VISUALLY VERIFIED / ANONYMOUS MAKER.
+
+**Original heading and key passage:**
+> `MONTRES POUR AVEUGLES`
+>
+> `Ces modèles étudiés en étroite collaboration avec une centrale pour aveugles tendent à offrir au porteur une montre d'une lecture sûre`
+
+**Natural Japanese rendering of the full finding:**
+> 「あるメーカーは盲人用時計に特別な注意を払い、男性用・女性用について、通常型と自動巻の各モデルを発表する。これらは盲人のための中央機関と緊密に協力して研究され、着用者が確実に読み取れる一方で、通常の時計との違いを可能な限り小さくした時計を提供することを目指している。」
+
+The facing montage at printed p.23 / digital p.61 does not identify the anonymous maker. It carries other brand/model captions and cannot be used to assign the blind-watch paragraph to ARSA.
+
+**Facing image:** https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1958%2FMIH-RIH_1958_03%2FJPG-SOURCE%2FMIH-RIH_1958_03_JPG-SOURCE_0061/full/2600,/0/default.jpg
+
+The same issue carries the red `ARSA 1898–1958` anniversary advertisement at digital p.39, visually matching the creative already found at JSH 1958 annual digital p.119.
+
+**ARSA cross-publication detail:** https://watchlibrary.org/en/details/MIH-RIH_1958_03_39
+**ARSA cross-publication image:** https://nhc023gqfi.execute-api.eu-central-1.amazonaws.com/prd/iiif/image/iiif%2FMIH%2F1958%2FMIH-RIH_1958_03%2FJPG-SOURCE%2FMIH-RIH_1958_03_JPG-SOURCE_0039/full/2200,/0/default.jpg
+
+**Boundary:** the blind-watch article says only `Une maison`; it contains no `ARSA`, `A. Reymond`, `réveil`, `alarm`, AFB or model name. The ARSA ad elsewhere in the issue shows an ordinary dress watch and does not identify the anonymous maker. This evidence establishes a Basel 1958 blind-watch program with institutional collaboration, not an ARSA Blind Alarm attribution. It is eligible only as Deep Dive 02 / 04 context; Deep Dive 03 remains unchanged.
+
+#### Alternate physical-copy lead — JSH No.2, mars–avril 1958
+
+**Listing:** https://www.abebooks.com/magazines-periodicals/Journal-suisse-dhorlogerie-bijouterie-mars-avril-1958/32517065717/bd
+**Seller / inventory:** Aberbroc, Plonévez du Faou, France / `028651`.
+**Retrieval outcome:** exact issue offered for sale, but the public listing supplies only one cover image. Printed p.221 is not visible. No seller-contact request has been sent. A straight-on photograph of printed p.221 remains the shortest recovery route for the indexed `Arsa 221` advertisement.
+
 #### Period-primary comparator — Hy Moser blind watches
 
 **Source:** 1958 volume, printed p.333 / digital p.335.

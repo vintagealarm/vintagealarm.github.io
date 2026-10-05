@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 14:28 JST — Basel 1958の匿名盲人用時計記事を比較資料として追加し、ARSA帰属を保留
+
+- **変更**：*Revue internationale de l'horlogerie* 1958年3月号digital p.60 / printed p.22の`MONTRES POUR AVEUGLES`記事をperiod-primary comparatorとして研究MAP / LEDGERへ追加した。同号digital p.39の赤い`ARSA 1898–1958`周年広告はcross-publication controlとして記録し、JSH No.2現物のAbeBooks販売在庫もp.221回収leadとして追加した。
+- **理由**：匿名記事は、Basel 1958で男性用・女性用の通常型／自動巻盲人用時計が発表され、盲人中央機関との共同研究、確実な読取、通常時計との差の最小化を目標にしたことを同時代資料で示す。一方、記事に社名・alarm記載はなく、同号内のARSA広告との近接だけでメーカー帰属はできない。現物販売listingも表紙1画像のみでp.221本文を補えない。
+- **旧状態・棄却**：1958年のblind-watch programについてJSHのHy Moser記事だけが比較資料だった状態を更新する。匿名メーカーをARSAと同定する解釈、RIHのARSA周年広告をJSH No.2 p.221広告の画像とみなす解釈、通常のARSA周年広告をBlind Alarm広告へ昇格させる解釈はいずれも棄却する。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、本判断履歴のみ。`src/content/watches/arsa-blind-alarm.md`、Deep Dive 03、main/liveは変更しない。
+- **検証状態**：The Watch Library / MIHのIIIF原画像でRIH digital pp.39 / 60–61を実見。匿名記事の見出し・本文と、別頁のARSA周年広告を照合した。AbeBooks listingは書誌・seller inventory・公開画像数を確認。JSH printed p.221本文、匿名記事のメーカー、AFB→ARSA直接資料はOPEN。
+- **起点・帰属**：広告探索の継続指示はユーザー。AIが同時代業界誌、cross-publication広告、現物販売leadを抽出し、帰属境界を設定した。既知Uhrforum Venus 230は新発見として再提示していない。
+- **関連**：2026-10-05 07:55 JST JSH No.2広告索引、RIH 1958 No.3/12 digital pp.39 / 60–61、JSH No.2 seller inventory `028651`。
+- **日時根拠**：ローカル実行時刻 `2026-10-05 14:28:47 +09:00` = `2026-10-05 14:28 JST`。
+
 ### 2026-10-05 07:55 JST — JSH No.2のARSA広告索引を回収し、広告本文欠落と年巻内別広告を分離
 
 - **変更**：JSH No.2（mars–avril 1958）の広告主索引（digital p.292）から`Arsa 221`を確認し、同号にARSA広告が存在したことをperiod-primary evidenceとして研究MAP / LEDGERへ追加した。同時に1958年巻digital pp.119–120のARSA周年広告2頁を抽出し、No.2 p.221広告とは分離して記録した。
