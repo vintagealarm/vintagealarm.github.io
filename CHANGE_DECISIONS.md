@@ -24,7 +24,7 @@
 - **旧状態・棄却**：全assetへMicro fit / Micro treatmentをAI単独で固定して棚を肥大化させる2026-10-03旧案は復活させない。反対に、Assignmentだけ作って「どう見える／何が聞こえる／既出との差分／素材制約」を会話記憶へ任せる運用も棄却する。
 - **影響範囲**：Social Router、content-inventory、instagram-operations、social inventory checker、MR-PIE-001。公開WATCH本文、OWNER'S NOTE、既存Published Copy、Insights実測値は変更しない。
 - **検証状態**：stale化したPR #169で先行実装後、current mainから `social-execution-brief-replay` へ有効差分を再適用。GitHub再取得とCI通過後にVERIFIEDとする。main反映／公開サイト変更は別状態。
-- **関連**：PR #169、2026-10-03 21:33 asset→content→media予約制、2026-10-03 22:47 AI単独Micro treatment撤回、2026-10-05 08:23 copy learning contract、MR-PIE-001。
+- **関連**：PR #169、replay commits `263667c4` / `dff111dc` / `c774e76a` / `5a52d4b8`、2026-10-03 21:33 asset→content→media予約制、2026-10-03 22:47 AI単独Micro treatment撤回、2026-10-05 08:23 copy learning contract、MR-PIE-001。
 - **日時根拠**：developer-provided local time `2026-10-05T08:44+09:00` = `2026-10-05 08:44 JST`。
 
 ### 2026-10-05 08:23 JST — Instagram本文生成で過去知見と最新ユーザー原稿を強制継承
