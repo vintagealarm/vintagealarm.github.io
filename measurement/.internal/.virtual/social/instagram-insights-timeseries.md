@@ -723,6 +723,39 @@
 - source_status: CANONICAL_LOG_SCREENSHOT
 - note: 2026-09-30 22:12–22:13 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。
 
+## Mechanism follow-up — MR-PIE-001
+
+### Publication evidence
+- content_id: MR-PIE-001
+- content_type: reel_internal_alarm_mechanism
+- published_at_jst: approximately 2026-10-05 08:30 (user report)
+- ui_age_evidence: 2026-10-05 09:22 JSTの投稿画面で「58分前」表示
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+
+### Snapshot — 2026-10-05 09:21–09:22 JST
+- observed_at_jst: 2026-10-05 09:21–09:22
+- elapsed_since_publish: approximately 52m by user report / UI age 58m
+- views: 194
+- viewers: 33
+- average_watch_time: 5s
+- follows: 0
+- likes: 6
+- comments: 0
+- reposts: 0
+- share_count: UI `--`
+- saves: 2
+- skip_rate: 12.9%
+- share_rate: 1.7%
+- like_rate: 5.2%
+- save_rate: 1.7%
+- repost_rate: 0.0%
+- comment_rate: 0.0%
+- followers: 4.6%
+- non_followers: 95.4%
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+- note: 2026-10-05 09:21–09:22 JSTのユーザー提供Instagram投稿画面／Reel Insights 5枚から確認。共有数はUI上 `--` のため0扱いしない。
+
+
 ---
 
 # Basis Alarm (BFG90)
