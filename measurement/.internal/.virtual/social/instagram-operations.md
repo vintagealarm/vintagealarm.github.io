@@ -2106,3 +2106,16 @@ SIGNALでは、打撃ピンが打撃位置から外れ、ハンマーはゴン�
 - Stored Wittnauer static follow-up: 10 views / 0% non-followers at about 2h48m; 22 views / 0% non-followers at about 12h54m.
 - Operational read: the current mechanism Reel broke out to non-followers immediately, while the stored static carousel did not.
 - Keep this as an account-level observed contrast, not a universal photo-vs-Reel law. Other variables differ.
+
+
+## 2026-10-05 16:06 JST — 観察箇所指定をReelの標準へ
+
+### Decision
+- **Origin: USER.** MR-PIE-001の16:03 Insightsを確認後、「見る箇所指定は今後のスタンダートになる」と確定。
+- **Decision**: 視聴者が追うべき機構・部品・変化点が明確なInstagram Reelでは、冒頭で観察箇所を明示する。音の変化も主題なら、視線誘導と同時に聴覚誘導を置く。
+- **First precedent**: MR-PIE-001の公開hook `Look at the alarm mechanism in the upper left. 👀 / And listen to how the sound changes. 🔔`。
+- **Evidence**: 2026-10-05 16:03 JST時点で 3,264 views / 1,840 viewers / 6s average watch / 51 likes / 10 saves / 10 profile accesses / 3 bio-link clicks / 2 follows。non-followers 98.4%。Meta UIはskip 37.0%を「低」、share 0.6%とsave 0.5%を「高」と表示。
+- **Interpretation boundary**: この1本だけから「観察箇所指定が伸びの単一原因」とは確定しない。動画内容、尺、投稿時刻、配布段階等も異なる。ただし、ユーザーが今後の制作標準として採用したため、因果確定とは分離して運用ルールへ昇格する。
+- **Scope**: 観察対象が一点に定まる機構・操作・変化系Reelが対象。全景・雰囲気・複数要素を同時に見せる素材へ文言だけ機械的に付けない。
+- **Revisit / falsifier**: 複数の適用例で視聴維持・非フォロワー配布・保存／共有・profile遷移が継続的に悪化する、または観察箇所指定が素材理解を妨げる場合は表現と適用範囲を見直す。
+- **Status**: ACTIVE / STANDARD.

@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 16:06 JST — Reelの観察箇所指定を標準化
+
+- **変更**：Instagram Reelで、視聴者が追うべき機構・部品・変化点が明確な素材は、冒頭で観察箇所を指定することを標準化した。音の変化も主題なら聴覚誘導も併記する。MR-PIE-001の16:03 Insights snapshotも時系列正本へ追加した。
+- **理由**：ユーザーがMR-PIE-001の実績確認後に「見る箇所指定は今後のスタンダートになる」と明示確定。今回Reelは16:03 JST時点で3,264 views / 1,840 viewers / non-followers 98.4%、profile accesses 10 / bio-link clicks 3 / follows 2まで到達し、Meta UIはskip 37.0%を「低」、share 0.6%・save 0.5%を「高」と表示した。
+- **旧状態・棄却**：観察箇所指定をMR-PIE-001だけの個別copy知見として留め、次回制作時に会話記憶へ依存する状態を棄却する。一方で「観察箇所指定が伸びの単一原因」「全Reelへ同じ文型を機械適用」という一般化は採用しない。
+- **影響範囲**：Social Router ACTIVE、instagram-operations、instagram-insights-timeseries、今後のExecution Brief / Reel copy。WATCH本文・Published Copyの過去投稿本文・静止画投稿には遡及変更しない。
+- **検証状態**：active PR #173 branchへ実装中。Router commit `f5e32c79`、16:03 Insights commit `078b328b`。正本再取得とPR CI確認後にVERIFIED判定する。
+- **関連**：MR-PIE-001、2026-10-05 08:23 copy learning contract、2026-10-05 08:44 Execution Brief bridge、2026-10-05 09:22 initial snapshot。
+- **日時根拠**：developer-provided local time `2026-10-05T16:06+09:00` = `2026-10-05 16:06 JST`。
+
+
 
 ### 2026-10-05 09:23 JST — MR-PIE-001初回比較をoperationsへ同期
 
