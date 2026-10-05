@@ -1239,3 +1239,13 @@
 - **関連**：ユーザー提示Pages CMSスクリーンショット。実装commit `6fe48960582f98f0fd4eec1f20b86821683903d1` / `4f07536f561a7a777c4d3f12d025cf7c175d3ec4` / `22da5b507f40b78fb2aa2af06326e9627dfd0683` / `6f5c4c7e3a414803a10450994b852c4cf1e57cef`。同時刻付近にPages CMSから `public/images/IMG_2763.jpeg` のアップロード自体はmainへ作成済み。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T16:51:07+09:00` → `2026-10-05 16:51 JST`。
 
+
+### 2026-10-05 16:05 JST — OWNER'S NOTE Slides PNG exporterを正本化
+- **変更**：現行private Google Slidesの6 WATCH × JA/EN/DE = 18枚をmanifestで固定し、Slides APIのLARGE PNGを1600×2233で実ピクセル検査してartifact化するexporter、checker、手動Actions workflow、運用READMEを追加する。
+- **理由**：Slides実体は現存する一方、以前のlocal-only export実装はcurrent GitHub正本に無く、再現可能なremote正本が必要なため。
+- **旧状態・棄却**：旧local実装を推測復元する案、手動スクリーンショットや後処理リサイズを正規exportとみなす案、private deckを公開リンク化する案は採用しない。
+- **影響範囲**：owner-note slide export用tools/scripts/workflow、package.json、.gitignore、PROJECT_STATE.md、本判断履歴。Slides本文・翻訳・レイアウト、公開WATCHは変更しない。
+- **検証状態**：connected Google Slidesで18枚すべてがimage/png・1600×2233で返ることを実測済み。repository側はPR CI通過までVERIFIEDとはしない。Actions実exportは認証設定後の成功実行までruntime未検証。
+- **関連**：2026-10-05ユーザー指示「じゃあそこを作成しようか部長」「GitHubどうぞ」／canonical deck ID 1Lcz0CEZncDw1GncI4RMY6qDmfO4Fknq4NvpGtBZAaLk。
+- **日時根拠**：developer-provided local time 2026-10-05T16:05+09:00 = 2026-10-05 16:05 JST。
+
