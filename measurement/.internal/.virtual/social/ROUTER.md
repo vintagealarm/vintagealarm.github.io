@@ -288,5 +288,6 @@ SNS案件でも `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` と `.codex/inference-g
 - SOCIAL-DIRECTION-001
 - REALITY-X-ROUTE-001
 - SOCIAL-DUOFON-001
+- SOCIAL-X-LANGUAGE-001
 
 この3件は、既存判断・現物・実素材を確認したうえで処理し、一般論だけで現行方針を書き換えない。
