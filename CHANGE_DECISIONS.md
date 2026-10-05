@@ -1116,3 +1116,15 @@
 - **検証状態**：branch `ops/fail-closed-inference-guards-20261005` に実装。CI通過までVERIFIEDとはしない。
 - **関連**：PR #175 / active PR #173。commits `c4ae40d4` / `623fcb1d` / `cbaed804` / `4a9fa87c` / `d2b7322e` / `076d7278` / `04fcef58` / `00b52b1b` / `d38abf3a` / `22a56ac5` / `bc9031c7` / `0f4dfb71` / `85c2ca24` / `0864542f` / `03bc9764`。
 - **日時根拠**：developer-provided local time `2026-10-05T10:54+09:00` = `2026-10-05 10:54 JST`。
+
+### 2026-10-05 16:20 JST — Pierce Duofonに2香箱巻き分け機構のDEEP DIVEを日英独で追加
+- **変更**：Pierce DuofonのDEEP DIVEに新しい03「1本のリューズで、2つの香箱を巻き分ける」を追加する。3時位置リューズの回転が、揺動するウィップ上の切替用クラウンホイールへ伝わり、回転方向に応じてウィップが移動して、時計側／アラーム側の各ラチェットホイールへ噛み合い先を切り替える構造を説明する。1955年Pierce技術資料にある、切替用クラウンホイールをばね摩擦でウィップ軸に保持して噛み合い深さを保ち、歯同士の正面衝突を防ぐ説明も同章へ置く。既存 `/videos/pierce-duofon/time-alarm-winding.mov` を同章の「動画で見る」に配置し、旧03 / 04は04 / 05へ繰り下げる。JA / EN / DEを同一構造で同期する。
+- **理由**：既存ページは簡易操作ガイドで3時位置リューズによる時計側／アラーム側の巻き分けを示していたが、DEEP DIVEでは「どの部品がどう連動して巻き上げ先を切り替えるか」を説明していなかった。ユーザーが実機の巻き上げ切替動画を撮影済みで、機構説明と実動画を対応させられるため。
+- **旧状態・棄却**：単に「可動する巻き上げ機構が移動して巻き上げ先が変わる」とだけ書く説明を棄却する。クラウンホイール／ウィップ／時計側・アラーム側ラチェットホイールの連動を明記する。画像を未登録のまま仮画像・仮パスで公開する案も棄却する。
+- **影響範囲**：Pierce DuofonのJA / EN / DEのDEEP DIVEのみ。既存DEEP DIVE 02、OWNER'S NOTE、既存機構画像①〜⑤、WATCH上段YouTube / X、他WATCHは変更しない。ユーザー撮影写真は後日追加するため今回の公開変更には含めない。
+- **翻訳監査**：日本語正本→EN / DEの順で文単位監査。ENは `changeover crown wheel / rocking lever / ratchet wheel / barrel`、DEは一次資料語 `Wechsel-Kronrad / Wippe / Sperrad / Federhaus` を使用。逆翻訳で両言語とも①3時リューズから切替クラウンホイールへ伝達、②回転方向でウィップが左右移動、③時計側／アラーム側の噛み合い先切替、④1本のリューズで2香箱を別々に巻く、⑤ばね摩擦・噛み合い深さ・歯の正面衝突防止、の5点に増減・断定度変更なしを確認した。英独とも日本語にない説明は追加していない。
+- **画像HOLD**：ユーザー確認「画像上に接続＝時計側の香箱、下に接続＝アラーム側の巻き上げ」を、後日ユーザーが機構写真を登録した際のキャプション正本としてHOLDする。現時点では該当画像assetがmainに存在しないため、可視本文から未掲載画像を参照しない。
+- **検証状態**：branch `feat/duofon-winding-deep-dive` にJA / EN / DE本文と動画参照を実装。localization sync / coverage / purity、citation、Japanese style、build、mobile layout、PR CI、main merge、deploy、live publicationを通すまでVERIFIED / DEPLOYEDとはしない。
+- **関連**：ユーザー指示「実装しよう」「動画は君が入れられる」「画像はこっちでやる」、既存動画 `public/videos/pierce-duofon/time-alarm-winding.mov`、Pierce source #1（1955年技術資料）。実装commit `f1ca6a5e02fd81a8649421d9895c8bfb245d1abd` / `f096c859c08e21584d326caabf6b9e2426a4e148` / `6967f5c2205f8a5b1ffc4bf527fab29627fe0232`、監査記録commit `9b5927fc85b18a1eaaac8d90179383132db56eef`。
+- **日時根拠**：ChatGPT time取得値 `2026-10-05T16:20:13+09:00` → `2026-10-05 16:20 JST`。
+
