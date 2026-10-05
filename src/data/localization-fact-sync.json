@@ -12,7 +12,8 @@
         {
           "path": "src/content/watches/pierce-duofon.md",
           "mustContain": [
-            "Pierceの前身となるLéon Lévy & Frèreは1883年、Léon LévyとThéodore Lévyによってスイス・ビエンヌで設立された。",
+            "Pierceの前身となるLéon Lévy & Frèreは1883年、Léon LévyとThéodore",
+            "Lévyによってスイス・ビエンヌで設立された。",
             "p.131では創業年を1888年と記載",
             "創業年注記：本文では1883年を採用"
           ],
