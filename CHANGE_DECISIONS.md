@@ -1125,6 +1125,6 @@
 - **翻訳監査**：日本語正本→EN / DEの順で文単位監査。ENは `changeover crown wheel / rocking lever / ratchet wheel / barrel`、DEは一次資料語 `Wechsel-Kronrad / Wippe / Sperrad / Federhaus` を使用。逆翻訳で両言語とも①3時リューズから切替クラウンホイールへ伝達、②回転方向でウィップが左右移動、③時計側／アラーム側の噛み合い先切替、④1本のリューズで2香箱を別々に巻く、⑤ばね摩擦・噛み合い深さ・歯の正面衝突防止、の5点に増減・断定度変更なしを確認した。英独とも日本語にない説明は追加していない。
 - **画像HOLD**：ユーザー確認「画像上に接続＝時計側の香箱、下に接続＝アラーム側の巻き上げ」を、後日ユーザーが機構写真を登録した際のキャプション正本としてHOLDする。現時点では該当画像assetがmainに存在しないため、可視本文から未掲載画像を参照しない。
 - **検証状態**：branch `feat/duofon-winding-deep-dive` にJA / EN / DE本文と動画参照を実装。localization sync / coverage / purity、citation、Japanese style、build、mobile layout、PR CI、main merge、deploy、live publicationを通すまでVERIFIED / DEPLOYEDとはしない。
-- **関連**：ユーザー指示「実装しよう」「動画は君が入れられる」「画像はこっちでやる」、既存動画 `public/videos/pierce-duofon/time-alarm-winding.mov`、Pierce source #1（1955年技術資料）。
+- **関連**：ユーザー指示「実装しよう」「動画は君が入れられる」「画像はこっちでやる」、既存動画 `public/videos/pierce-duofon/time-alarm-winding.mov`、Pierce source #1（1955年技術資料）。実装commit `f1ca6a5e02fd81a8649421d9895c8bfb245d1abd` / `f096c859c08e21584d326caabf6b9e2426a4e148` / `6967f5c2205f8a5b1ffc4bf527fab29627fe0232`、監査記録commit `9b5927fc85b18a1eaaac8d90179383132db56eef`。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T16:20:13+09:00` → `2026-10-05 16:20 JST`。
 
