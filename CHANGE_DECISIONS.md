@@ -1281,3 +1281,13 @@
 - **関連**：ユーザー確定「Xは英語で海外勢向け」「プロフィールURLは英語版トップ /en/」「Instagramの単純コピーではなくX向けに再構成」「Instagram既存投稿を時計名→短文説明→hashtagsへ140字以内で圧縮・改変」、今回の再発指摘「部長＝Manager Control Planeを作った目的そのものに反している」。実装commits `9d32f0cf` / `98aa5c83` / `fac0cb01` / `318adc0b` / `aa71b50a` / `fbac76ff` / `a64f7c52` / `dd7fdb12` / `0acca40e`。
 - **日時根拠**：developer-provided local time 2026-10-05T21:57+09:00 = 2026-10-05 21:57 JST。
 
+
+### 2026-10-05 22:27 JST — 非自明な実装前にチャット監査報告を必須化
+- **変更**：Manager Control Planeの状態遷移を `RECEIVED → SCOPED → AUDIT_REPORTED → READY → EXECUTING → VERIFYING → PASS / FAIL → REPORT` へ変更する。非自明なrepository変更・公開変更・研究判断・複数工程では、SCOPED後かつ実装系mutation前に、ユーザーが見えるチャットへ CURRENT STATE / DEFECT-GAP / CAUSE / CHANGE SCOPE / OUT OF SCOPE / SUCCESS CRITERIA を監査報告する。Task EnvelopeへCHAT AUDIT REPORT欄を追加し、`scripts/check-project-consistency.mjs` でManager / Task Envelope / AGENTS / PROJECT_STATEの監査gate接続を検査する。
+- **理由**：内部でTask Envelopeと正本確認を済ませても、ユーザーが監査内容を見る前に実装へ進める欠損が残っていた。直前のX再発防止実装でも、ユーザーから「まず監査をチャットで報告必須」と再指示が必要になったため、監査の可視化をREADY前の状態遷移へ昇格する。
+- **旧状態・棄却**：旧状態 `RECEIVED → SCOPED → READY` のまま内部監査だけで実装開始できる運用を撤回する。一方で、監査報告を常に承認待ちへ変える案は採用しない。ユーザーが明示的に承認待ちを求めた場合だけApprovalを待ち、それ以外は監査報告後にREADYへ進める。
+- **影響範囲**：`.codex/MANAGER_CONTROL_PLANE.md`、`.codex/TASK_ENVELOPE_TEMPLATE.md`、`AGENTS.md`、`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`、本判断履歴。公開WATCH本文、SNS正本、Fail-Closedの推論規則、multi-agent設定は変更しない。
+- **検証状態**：branch `ops/chat-audit-report-gate-20261005` へ実装済み。PR CIで `check:project-consistency` と既存quality gateを通し、main merge後に正本再取得で `AUDIT_REPORTED` とCHAT AUDIT REPORT欄を確認するまでVERIFIEDとはしない。
+- **関連**：ユーザー指示「まず監査をチャットで報告必須」→監査報告→「では実行」。実装commits `d2938798` / `a5775513` / `3603e468` / `3242fcff` / `becf98a7`。
+- **日時根拠**：GitHub commit `becf98a7ad3e9b9e1346be7e1c942172c34966db` の `2026-10-05T13:27:17Z` → `2026-10-05 22:27:17 JST`。見出しは分単位 `22:27 JST`。
+
