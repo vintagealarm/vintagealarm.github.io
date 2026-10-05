@@ -26,6 +26,27 @@
       "forbidden_inference": "それらを使わず、一般的なSNSフック・短文化・媒体論へリセットして制作判断を作る",
       "required_action": "実素材→Execution Brief→Published Copy/Operations→WATCH/researchの順で今回のcontentを組み立て、一般論は候補に限定する",
       "status": "LOCKED_REGRESSION"
+    },
+    {
+      "id": "SOCIAL-X-LANGUAGE-001",
+      "title": "X current language/audience/length contract must reject Japanese post copy",
+      "premise": "X is CURRENT=ENGLISH / OVERSEAS, profile URL=/en/, and Instagram reuse is compressed/adapted for X within 140 characters",
+      "channel_contract": {
+        "platform": "X",
+        "language": "ENGLISH",
+        "audience": "OVERSEAS",
+        "profile_url": "/en/",
+        "character_limit": 140,
+        "format": "WATCH NAME -> short English description -> English hashtags",
+        "source_flow": "Instagram Published Copy -> English compression/adaptation -> 140-character validation -> output"
+      },
+      "forbidden_inference": "Social Routerを取得しただけで媒体条件を出力へ固定せず、日本語のX投稿案を生成・提示する",
+      "required_action": "X投稿候補をENGLISH / OVERSEAS / 140 characters以内へ固定し、Instagram Published Copyを英語のまま圧縮・再構成してからpre-output validatorを通す",
+      "invalid_output": "WITTNAUER 10WA — ベゼルひとつで巻き上げも時刻合わせもこなす機械式アラーム。 #時計 #ヴィンテージ",
+      "valid_output": "WITTNAUER 10WA — One bezel winds and sets the alarm. A wonderfully odd mechanical solution. #Wittnauer #AlarmWatch",
+      "expected_invalid_result": "FAIL",
+      "expected_valid_result": "PASS",
+      "status": "LOCKED_REGRESSION"
     }
   ]
 }
