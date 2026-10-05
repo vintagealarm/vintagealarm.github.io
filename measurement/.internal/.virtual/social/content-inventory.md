@@ -38,6 +38,7 @@
 ### Verify
 
 - `READY_FROM_WATCH` — 現行WATCH正本で根拠・確度が整理済み。投稿時は正本を再取得して確認する。
+- `READY_FROM_SOURCE` — WATCH外の一次・専門資料まで再確認済み。Source列の根拠を投稿時に再確認する。
 - `RECHECK_SOURCE` — 文献表現・比較条件・資料差を投稿直前に再確認する。
 - `OPEN_QUESTION` — 未解決であること自体が主題。結論へ変換しない。
 - `RIGHTS_CHECK` — 外部画像・資料図等を使う場合の権利確認が必要。
@@ -96,12 +97,12 @@ Canonical WATCH: `src/content/watches/cyma-time-o-vox.md`
 | CYM-01 | holy grail／18K／透かしラグ／CHRONOMÈTRE／R.464／実音 | USED | X_LINK_PRESENT_ANGLE_UNKNOWN | READY_EXISTING | READY_FROM_WATCH | DETAIL | Published copy first Reel + WATCH |
 | CYM-02 | 2プッシャーとWippeで、1本のリューズの接続先を切替 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 03 + side / mechanism images |
 | CYM-03 | 1香箱で時計とアラームが動力共有／約8–10秒制限／掲載個体は約9時間消費 | CANDIDATE_NOT_IN_IG_TEXT | X_USED_VERIFIED_TIMING_WHEEL | READY_EXISTING | READY_FROM_WATCH | RESEARCH | WATCH Deep 04 + existing X timing-wheel video |
-| CYM-04 | 掲載個体では鳴動中にリューズが回らない | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | USER_OBSERVATION + READY_FROM_WATCH | MECHANISM | WATCH Deep 05 + USER_KEEP 2026-10-05 |
+| CYM-04 | 掲載個体では鳴動中にリューズが回らない | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_WATCH | MECHANISM | WATCH Deep 05 + USER_OBSERVATION + USER_KEEP 2026-10-05 |
 | CYM-05 | 透かしラグ金無垢→部分透かしSS→滑らかなSS→通常ラグのケース変遷 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | COMPARISON | WATCH Deep 06 |
 | CYM-06 | 裏蓋内側の18K 0.750 / Weber刻印 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Gallery `cyma-caseback-inside.jpg` |
 | CYM-07 | 「アラーム＋Chronomètre」の少数例という文献上の位置づけ | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | RECHECK_SOURCE | RESEARCH | WATCH Deep 02 / `Alarm am Arm` |
 | CYM-08 | 「アラームとクロノメーターという矛盾」＝精度を求める時計へアラーム機構を載せる設計上の緊張 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | RESEARCH | WATCH Deep 02。初回IGではChronomètre自体は使用済みだが、この設計上の緊張を主題にはしていない |
-| CYM-09 | アラーム時刻を双方向で設定できる。小さなスパイラルスプリングを含む切替機構が時計回り設定も可能にする。精度重視なら反時計回り推奨 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_WATCH + READY_FROM_SOURCE | OPERATION+MECHANISM | WATCH guide + Horlbeck R.464 discussion + USER_KEEP / USER_MERGE 2026-10-05 |
+| CYM-09 | アラーム時刻を双方向で設定できる。小さなスパイラルスプリングを含む切替機構が時計回り設定も可能にする。精度重視なら反時計回り推奨 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_SOURCE | OPERATION+MECHANISM | WATCH guide + Horlbeck R.464 discussion + USER_KEEP / USER_MERGE 2026-10-05 |
 | CYM-10 | Cymaflex耐震機構。ムーブメント側からC字形に見える独自の耐震構造 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+MECHANISM | Horlbeck R.464 discussion + USER_KEEP 2026-10-05 |
 | CYM-11 | tone springの空間を確保するための段付きムーブメント構造。裏スケ換装後の掲載個体ケース厚・実寸は訴求に使わない | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+MECHANISM | Horlbeck R.464 discussion + USER_KEEP 2026-10-05 |
 | CYM-12 | 1 crown + 2 pushersで横顔はクロノグラフ風だが、役割はalarm control | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+OPERATION | Beitl p.134 + WATCH side gallery + USER_KEEP 2026-10-05 |
