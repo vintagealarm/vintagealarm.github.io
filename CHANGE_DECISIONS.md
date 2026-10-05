@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 16:47 JST — Instagram Insights parserでsubsection境界をsnapshot終端にする
+
+- **変更**：`scripts/instagram-insights-timeseries.mjs` のcanonical parserで、同一WATCH内の `## ` subsection見出しをsnapshot終端として扱うよう修正した。WATCH自体は維持するため、その後の別content snapshot（例: Pierce Duofon `MR-PIE-001`）は同じWATCHの時系列として引き続き集計される。
+- **理由**：PR #178 CI #591で、Pierce Duofonの旧snapshot後に追加した `## Mechanism follow-up — MR-PIE-001` 配下のPublication evidenceが直前snapshotのfieldとして誤解釈され、`duplicate field source_status` で `check:instagram-insights` が失敗したため。
+- **旧状態・棄却**：新snapshot側の `source_status` を削る、区切り `---` でWATCH contextごと切る、checkerを無効化する回避策は棄却。いずれも正本契約またはMR-PIE-001の時系列集計を壊す。
+- **影響範囲**：Instagram Insights canonical parserのみ。保存済み数値・Published Copy・WATCH本文・UIには変更なし。
+- **検証状態**：commit `ba614dca` で実装。PR #178の再CIで `check:instagram-insights` と後続quality gatesがPASSするまで未VERIFIED。
+- **関連**：PR #178 / failed workflow run #591 / MR-PIE-001 16:03 snapshot。
+- **日時根拠**：GitHub commit `ba614dcac282b86a3ce732d0c470486a0be1cd3d` `2026-10-05T07:47:13Z → 2026-10-05 16:47 JST`。
+
+
 ### 2026-10-05 16:43 JST — PR #173有効差分をcurrent mainへ再replay
 
 - **変更**：non-mergeable化したPR #173の有効なSocial差分を、current `main` から新規branch `social-execution-brief-finalize-20261005` へ再適用した。main側で進んだFail-Closed / Manager Control Plane等を保持しつつ、Content Inventory / Insights / Operations / Published Copy / social checkerを再playし、Social RouterとDecision Logはcurrent mainへ差分mergeした。
