@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "policy": "FAIL_CLOSED",
+  "cases": [
+    {
+      "id": "SOCIAL-DIRECTION-001",
+      "title": "Instagram→X directional rule must not be inverted",
+      "premise": "InstagramをXの単純英訳にしない",
+      "forbidden_inference": "XもInstagramの転載・再利用をしてはいけない、という逆向き・双方向ルールを新根拠なしで導く",
+      "required_action": "Instagram側の一方向ルールとして保持する。X側の制約はX側を直接支える正本・ユーザー指示・実測がある場合だけ別判断する",
+      "status": "LOCKED_REGRESSION"
+    },
+    {
+      "id": "REALITY-X-ROUTE-001",
+      "title": "Do not propose a new X route/account use before checking existing reality",
+      "premise": "X向けの新しい導線・専用route・account用途を提案したい",
+      "forbidden_inference": "既存 /x/ routeや現在用途・既存アカウントを確認せず、新VA X専用として新設・転用を提案する",
+      "required_action": "まず src/pages/x/index.astro と関連する現行実装・アカウント情報を確認し、既存用途をUNKNOWNのまま上書きしない",
+      "required_repo_path": "src/pages/x/index.astro",
+      "status": "LOCKED_REGRESSION"
+    },
+    {
+      "id": "SOCIAL-DUOFON-001",
+      "title": "Verified Duofon media and prior analysis outrank generic SNS advice",
+      "premise": "Duofonの実素材・Execution Brief・過去Published Copy/Operations分析が存在する",
+      "forbidden_inference": "それらを使わず、一般的なSNSフック・短文化・媒体論へリセットして制作判断を作る",
+      "required_action": "実素材→Execution Brief→Published Copy/Operations→WATCH/researchの順で今回のcontentを組み立て、一般論は候補に限定する",
+      "status": "LOCKED_REGRESSION"
+    }
+  ]
+}
