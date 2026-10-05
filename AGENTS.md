@@ -13,6 +13,17 @@
 5. 必要な資料・実測ログ・Webを確認する
 6. 実装 → 検証 → diff確認へ進む
 
+## Manager Control Plane — pilot
+
+通常作業は `.codex/MANAGER_CONTROL_PLANE.md` を管理プロトコルとして使う。これは別のManager人格を常駐させる規則ではなく、**single-agentを既定にしたまま、依頼受領 → scope固定 → 実行 → 独立検証 → 報告を崩さないためのcontrol plane**である。
+
+- 非自明なrepository変更・公開変更・研究判断・複数工程では、実行前に `.codex/TASK_ENVELOPE_TEMPLATE.md` の **CURRENT STATE / CANONICAL SOURCES / SCOPE / MUST / DO NOT / REJECTED-HOLD / SUCCESS CRITERIA / VERIFY PLAN** を固定する。軽微な単発作業は内部短縮版でよい。
+- 状態は **RECEIVED → SCOPED → READY → EXECUTING → VERIFYING → PASS / FAIL → REPORT**。FAILは原因を保持してEXECUTINGへ戻し、未確認のままPASSへ進めない。
+- 既定はsingle-agent。specialistは分野固有判断・長い探索・文脈衝突・並列化の明確な利得・権限分離がある場合だけ検討する。
+- VerifierはBuilderの説明を最終証拠にしない。正本、diff、test / build / gate、render / live、実画像・動画・音声等の**対象実体から再判定**する。
+- pilotの評価はAI人数ではなく、ユーザーの再指示・正本誘導・確認催促・完了後不具合発見が減ったかで見る。
+- `.codex/config.toml` の `multi_agent = false` は維持し、明示指示なしに変更しない。
+
 分野別ルーティング:
 
 - 本文 / WATCH / HISTORY / OWNER'S NOTES / 翻訳 → `SITE_RULES.md`
