@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 16:43 JST — PR #173有効差分をcurrent mainへ再replay
+
+- **変更**：non-mergeable化したPR #173の有効なSocial差分を、current `main` から新規branch `social-execution-brief-finalize-20261005` へ再適用した。main側で進んだFail-Closed / Manager Control Plane等を保持しつつ、Content Inventory / Insights / Operations / Published Copy / social checkerを再playし、Social RouterとDecision Logはcurrent mainへ差分mergeした。
+- **理由**：PR #173は現行main進行後に `mergeable=false` となり、そのままmergeするとcurrent mainの変更を落とす危険があるため。ユーザー指示「じゃそこまで」に基づき、main反映可能な経路へ救出する。
+- **旧状態・棄却**：PR #173 branchを古いbaseのまま強行mergeする状態、current mainのRouter / Decision Logをbranch版で全置換する状態を棄却。
+- **影響範囲**：Social Router、content inventory、Instagram Insights / Operations / Published Copy、social inventory checker、Decision Log。公開WATCH本文・UI・別PR #177には触れない。
+- **検証状態**：fresh branchへreplay済み。新PR作成後、mergeability / GitHub Actions / diffを確認し、PASS後にmainへmergeして再取得するまで未VERIFIED。
+- **関連**：旧PR #173、replay commits `1da841b5` / `eb29fe6a` / `ac7ba540` / `f6d190d1` / `fc1f865f` / `539afb91` / `231ab06c`。
+- **日時根拠**：GitHub commit `231ab06c4382e35f9bc3a0fb910dcc2dba9c5489` `2026-10-05T07:43:44Z → 2026-10-05 16:43 JST`。
+
+
 ### 2026-10-05 16:06 JST — Reelの観察箇所指定を標準化
 
 - **変更**：Instagram Reelで、視聴者が追うべき機構・部品・変化点が明確な素材は、冒頭で観察箇所を指定することを標準化した。音の変化も主題なら聴覚誘導も併記する。MR-PIE-001の16:03 Insights snapshotも時系列正本へ追加した。
