@@ -121,6 +121,15 @@ deepDive:
       title: 動画で見る
       afterParagraph: 2
       ariaLabel: Pierce Cal.135 3時位置リューズによる時計側／アラーム側の巻き上げ切り替え実機動画
+    images:
+      - src: /images/IMG_2762-1.jpeg
+        caption: メインの香箱（上側）に接続し巻き上げ
+        afterParagraph: 2
+        fullRow: true
+      - src: /images/IMG_2763-1.jpeg
+        caption: アラームの香箱（下側）に接続し巻き上げ
+        afterParagraph: 2
+        fullRow: true
   - number: "04"
     title: Duofonのモデル変遷
     paragraphs:
