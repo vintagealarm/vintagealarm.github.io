@@ -17,6 +17,7 @@
 
 ## 2026-10-05
 
+
 ### 2026-10-05 09:23 JST — MR-PIE-001初回比較をoperationsへ同期
 
 - **変更**：MR-PIE-001の初回比較要約をinstagram-operationsへ同期。
@@ -68,6 +69,7 @@
 - **検証状態**：PR #169で先行実装し、current-main replay branchへ有効差分を救出。CI通過後にmain反映可否を判定する。
 - **関連**：user decision 2026-10-05 07:22 JST、MR-PIE-001。
 - **日時根拠**：developer-provided local time `2026-10-05T07:22+09:00` = `2026-10-05 07:22 JST`。
+
 
 
 ### 2026-10-05 06:55 JST — ARSA残タスクの状態同期とJSH 1958メタデータを確定
@@ -1142,3 +1144,21 @@
 - **関連**：PR #166（superseded）、PR #171（動画ファイル名整理）、PR #172。実装commit `142bb4e5241d3c442255e6348c26b94a042aae33` / `52d8f5e8c084bb1539a65a053139cf6bb382f438` / `45f3fd46c6307df9c5fee0d39ddd75257296a620` / `48e1d770a84f31d865c3b380b42e8fd5b40a7ffb` / `4eb1209c895d8028aacd6dc33b32b1e4f6de4b0e` / `633ceebfe57596b87d0e99b3345ff9d7af0d3343`。main asset `public/videos/pierce-duofon/wecker-signal-switch.mov`、2026-10-05ユーザー指示「じゃああとはサイトに　動画で見るを埋め込むのは任せて平気だな？」。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T08:30:16+09:00` → `2026-10-05 08:30 JST`。
 
+### 2026-10-05 09:27 JST — Pierce Duofon動画2本の内容対応を訂正して入れ替え
+- **変更**：Pierce Duofon動画2本の**ファイル名は意味を表す恒久名のまま維持し、中身のGit blobを交換**する。`public/videos/pierce-duofon/wecker-signal-switch.mov` にはWECKER / SIGNAL鳴らし分け動画を、`public/videos/pierce-duofon/time-alarm-winding.mov` には3時位置リューズによる時計側 / アラーム側の巻き上げ切替動画を対応させる。
+- **理由**：公開後、ユーザーが「動画逆のが登録されてる」と実機内容を確認して訂正した。前回の `IMG_2760` / `IMG_2767` の対応説明自体をユーザーが取り違えて伝えた可能性も示されたため、元番号ではなく**動画内容と恒久ファイル名の意味**を一致させることを正本とする。
+- **旧状態・棄却**：2026-10-05 08:18 JSTの `IMG_2760 → wecker-signal-switch` / `IMG_2767 → time-alarm-winding` という対応付けを撤回する。履歴は削除せず、この訂正記録で上書きする。
+- **影響範囲**：`public/videos/pierce-duofon/wecker-signal-switch.mov` と `public/videos/pierce-duofon/time-alarm-winding.mov` の内容対応のみ。Pierce WATCH本文、DEEP DIVE配置、JA / EN / DEの参照パス、CMS設定、既存静止画は変更しない。
+- **検証状態**：branch `fix/duofon-video-swap` でblob交換を実装済み。PR / CI / main merge / deploy / liveで `動画で見る` が正しいWECKER / SIGNAL動画を指すことを確認するまでVERIFIED / DEPLOYEDとはしない。
+- **関連**：ユーザー訂正「動画逆のが登録されてる　なんなら名前も俺が伝え損ねてるかも交換して」、実装commit `fadf387e43d3ccd23d9e8ec83f3d905a5aec8d36`。訂正前の判断は2026-10-05 08:18 JST / 08:30 JSTのdecision entry。
+- **日時根拠**：ChatGPT time取得値 `2026-10-05T09:27:13+09:00` → `2026-10-05 09:27 JST`。
+
+
+### 2026-10-05 09:48 JST — Manager Control Plane pilotを導入し、multi-agent化前にTask Envelope＋独立Verifierを固定
+- **変更**：別Managerエージェントを常駐させる前に、`.codex/MANAGER_CONTROL_PLANE.md` と `.codex/TASK_ENVELOPE_TEMPLATE.md` を追加する。非自明な作業では CURRENT STATE / CANONICAL SOURCES / SCOPE / MUST / DO NOT / REJECTED-HOLD / SUCCESS CRITERIA / VERIFY PLAN を先に固定し、RECEIVED → SCOPED → READY → EXECUTING → VERIFYING → PASS / FAIL → REPORTで状態管理する。VerifierはBuilderの自己申告ではなく、正本・diff・test / build / gate・render / live・実画像 / 動画 / 音声等の対象実体から再判定する。AGENTS / PROJECT_STATEから正本へルーティングし、既存 `check:project-consistency` でcontrol-plane文書、必須field、状態、介入metric、`multi_agent = false` を機械検査する。
+- **理由**：過去監査では正本未確認、旧仕様復活、実装と検証の混同、Router無視等が反復し、直近でもExecution Briefの欠落やDuofon動画内容の逆登録をユーザーが発見している。一方、既存のProject Router / open PR / decision log / CIは既に存在するため、AI人数を先に増やすより、ユーザーが手動で担っているscope固定・正本誘導・完了監督をcontrol planeへ移す方を先に試す。
+- **旧状態・棄却**：`multi_agent = true` を先に有効化し、Manager / Researcher / Builder / Verifierを常時起動する案はHOLD。新DB、新queue、常駐agent registryも追加しない。小タスクを理由なく分解する運用も採用しない。
+- **影響範囲**：`.codex/MANAGER_CONTROL_PLANE.md`、`.codex/TASK_ENVELOPE_TEMPLATE.md`、`AGENTS.md`、`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`。公開WATCH本文、UI、SNS実測値、Council形式、`.codex/config.toml` の値は変更しない。
+- **検証状態**：branch `ops/manager-control-plane-pilot-20261005` へ実装。GitHub Actionsで `check:project-consistency` を含む既存gateが通るまでVERIFIEDとはしない。pilotの成果は今後の実案件で USER_REINSTRUCTION_COUNT / CANONICAL_SOURCE_REDIRECT_COUNT / VERIFY_PROMPT_COUNT / POST_COMPLETION_DEFECT_COUNT を観測してOBSERVED判定する。
+- **関連**：2026-10-05の過去案件監査、Council 1 + 7裁定「Manager Control Plane＝GO / 独立Verifier＝GO / multi-agent有効化＝HOLD」、PR #173 Execution Brief、PR #174 Duofon動画内容訂正。実装commits `b11180d5` / `e41c4762` / `c42bbfd6` / `5580de7f` / `b6e835f7`。
+- **日時根拠**：developer-provided local time `2026-10-05T09:48+09:00` = `2026-10-05 09:48 JST`。
