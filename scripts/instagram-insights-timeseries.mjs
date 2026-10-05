@@ -118,6 +118,11 @@ function parseCanonical(text) {
       return;
     }
 
+    if (/^## /.test(line) && state.currentWatch) {
+      finishSnapshot(state);
+      return;
+    }
+
     const snapshotMatch = line.match(/^### Snapshot — (.+)$/);
     if (snapshotMatch && state.currentWatch) {
       finishSnapshot(state);
