@@ -1216,6 +1216,6 @@
 - **旧状態・棄却**：CMS管理対象の画像パスにキャッシュバスター `?v=2` を残す運用を棄却する。画像本体・キャプション・altは変更しない。
 - **影響範囲**：Pierce DuofonのJA / EN / DEにあるSIGNAL機構画像の参照文字列のみ。公開本文、画像本体、DEEP DIVE構造、他WATCH、Pages CMS schemaは変更しない。
 - **検証状態**：branch `fix/pagescms-pierce-image-query-current` で3言語の参照を修正済み。PR CI / main merge / deploy後、mainと生成物でクエリ付き参照が消失していることを確認するまでVERIFIED / DEPLOYEDとはしない。
-- **関連**：ユーザー提示Pages CMSスクリーンショット。実装commit `4f07536f561a7a777c4d3f12d025cf7c175d3ec4` / `22da5b507f40b78fb2aa2af06326e9627dfd0683` / `6f5c4c7e3a414803a10450994b852c4cf1e57cef`。同時刻付近にPages CMSから `public/images/IMG_2763.jpeg` のアップロード自体はmainへ作成済み。
+- **関連**：ユーザー提示Pages CMSスクリーンショット。実装commit `6fe48960582f98f0fd4eec1f20b86821683903d1` / `4f07536f561a7a777c4d3f12d025cf7c175d3ec4` / `22da5b507f40b78fb2aa2af06326e9627dfd0683` / `6f5c4c7e3a414803a10450994b852c4cf1e57cef`。同時刻付近にPages CMSから `public/images/IMG_2763.jpeg` のアップロード自体はmainへ作成済み。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T16:51:07+09:00` → `2026-10-05 16:51 JST`。
 
