@@ -134,6 +134,44 @@ Hear more mechanical alarm watches via the link in bio.
 - **最終本文では非採用**: Cal.135の詳細SPEC、21石・18,000A/h・2香箱、個体の整備履歴、実測鳴動秒数など。初回Reelでは二段階音量という固有機構に集中した。
 - **理由の確度**: 二段階音量を主フックにしたことは公開本文と既存social logの投稿コンセプト双方で確認済み。その他の詳細を外した個別理由は推測しない。
 
+### Mechanism follow-up — Published caption — screenshot verified 2026-10-05
+
+```text
+Look at the alarm mechanism in the upper left. 👀
+And listen to how the sound changes. 🔔
+
+This is the Pierce Duofon — an alarm wristwatch with two selectable alarm levels — switching internally between WECKER (loud) and SIGNAL (quiet).
+
+With the alarm running, turning the control at 4 o’clock moves the internal linkage and shifts the striking pin.
+
+In WECKER, the pin moves into the striking position and the hammer strikes the gong.
+
+In SIGNAL, the pin moves away from the striking position, so the hammer no longer strikes the gong and instead vibrates freely.
+
+Just a quarter-turn of the crown changes the way the alarm sounds.
+Entirely mechanical.
+
+This is Pierce Cal.135, developed in the 1950s.
+
+Hear more mechanical alarm watches via the link in bio.
+🔔
+
+#PierceDuofon #PierceWatch #AlarmWatch
+#vintagewatch
+```
+
+### Final creative / asset record
+
+- **Content ID**: `MR-PIE-001`.
+- **形式**: Reel。文字盤は出さず、ムーブメント側のアラーム機構を鳴動中に見せる。
+- **採用**: 冒頭で `Look at the alarm mechanism in the upper left.` と観察位置を明示し、直後に音の変化も同時に聴かせる。
+- **採用**: 4時操作 → internal linkage → striking pin → WECKER / SIGNALの発音挙動、という因果を本文で説明。
+- **既出との差分**: 初回Duofon Reelで使用済みの「2 selectable alarm volumes / 4時操作 / 6時窓」を再紹介だけで終わらせず、今回は内部機構の実演へ深掘り。
+- **素材境界**: 文字盤・6時表示窓・別カットは今回の動画には出さない。
+- **CTA / hashtags**: 初回Duofonと同じ `link in bio` 導線、hashtagsは `#PierceDuofon #PierceWatch #AlarmWatch #vintagewatch`。
+- **公開時刻**: 2026-10-05 08:30頃（ユーザー報告）。2026-10-05 09:22 JSTの投稿画面では「58分前」表示のため、exact publication timeは未確定。
+
+
 ---
 
 ## Basis Alarm (BFG90)

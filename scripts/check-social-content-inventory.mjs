@@ -21,6 +21,7 @@ if (!text.includes("OWNER'S NOTE は分割しない")) errors.push(`${file}: OWN
 if (!text.includes("AIは候補分類まで先行してよい")) errors.push(`${file}: staged candidate review rule missing`);
 if (!text.includes("Content Assignment Registry")) errors.push(`${file}: assignment registry missing`);
 if (!text.includes("Candidate Review Queue")) errors.push(`${file}: candidate review queue missing`);
+if (!text.includes("Execution Brief Registry")) errors.push(file + ": execution brief registry missing");
 for (const section of requiredSections) {
   if (!text.includes(`## ${section}`)) errors.push(`${file}: missing watch section ${section}`);
 }
@@ -130,6 +131,43 @@ for (const row of contentRows) {
   }
 }
 if (!contentRows.length) errors.push(`${file}: no content assignment rows`);
+const requiredBriefFields = ['Status','Media reality','Attention cue','Sensory proof','Causal beat','Published collision','Carry-forward','Constraints','Working copy'];
+const briefRows = new Map();
+const lines = text.split('\n');
+let currentBrief = null;
+for (const line of lines) {
+  const h = line.match(/^#### EB:([A-Z0-9-]+)$/);
+  if (h) {
+    currentBrief = h[1];
+    if (briefRows.has(currentBrief)) errors.push(file + ': duplicate Execution Brief EB:' + currentBrief);
+    else briefRows.set(currentBrief, {});
+    continue;
+  }
+  if (!currentBrief) continue;
+  const f = line.match(/^- ([A-Za-z -]+):\s*(.+)$/);
+  if (!f) continue;
+  if (requiredBriefFields.includes(f[1])) briefRows.get(currentBrief)[f[1]] = f[2].trim();
+}
+for (const [contentId, fields] of briefRows) {
+  for (const field of requiredBriefFields) {
+    if (!fields[field]) errors.push(file + ': missing Execution Brief field ' + field + ' at EB:' + contentId);
+  }
+  if (fields.Status && !['MEDIA_PENDING','MEDIA_VERIFIED'].includes(fields.Status)) {
+    errors.push(file + ': invalid Execution Brief Status ' + fields.Status + ' at EB:' + contentId);
+  }
+}
+for (const row of contentRows) {
+  if (row.platform !== 'INSTAGRAM' || !activeStates.has(row.state)) continue;
+  const fields = briefRows.get(row.contentId);
+  if (!fields) {
+    errors.push(file + ': active Instagram content requires Execution Brief at ' + row.contentId);
+    continue;
+  }
+  if (row.state !== 'PLANNED' && fields.Status !== 'MEDIA_VERIFIED') {
+    errors.push(file + ': ' + row.state + ' Instagram content requires MEDIA_VERIFIED brief at ' + row.contentId);
+  }
+}
+
 
 if (errors.length) {
   console.error(`Social content inventory check failed (${errors.length}):`);
@@ -137,4 +175,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Social content inventory check passed: ${rows.length} asset rows, ${proposalRows.length} staged proposals, ${contentRows.length} assignments.`);
+console.log(`Social content inventory check passed: ${rows.length} asset rows, ${proposalRows.length} staged proposals, ${contentRows.length} assignments, ${briefRows.size} execution briefs.`);

@@ -2043,3 +2043,79 @@ Delta from 2026-10-03 10:18:
 - WATCH guideで双方向設定は確認済み。精度重視時は反時計回り推奨の注記も維持。
 - 『双方向設定は唯一』とは扱わない。資料上ほかにも例はあるが、一方向指定のcaliberも多く、少数派寄りの操作特徴として扱う。
 - 次回投稿予約ではないためPLANNEDにはしない。
+
+## 2026-10-05 07:22 JST — CYMA棚完成 / 次投稿はDuofon機能Reel / 画像→動画ローテーション
+
+### Decision
+- **CYMA review complete**: ユーザーは初期AI_PROPOSEDについて、明示的にNG／制約指定したもの以外を採用と確定。PR-CYM-001〜011は該当する既存assetまたは新規CYM-12/13へUSER_KEEP、双方向設定の補助機構はCYM-09へMERGE、CymaflexはCYM-10、段付きムーブメント構造はCYM-11として棚へ残す。
+- **Constraint retained**: 裏スケ換装後の掲載個体ケース厚・実寸はSNS訴求に使わない。CYM-04は掲載個体観察として鳴動中にリューズが回らないを採用し、一般化しない。
+- **Next content**: 直近のWittnauer静止画の次にPierce Duofonの機能動画を1本挟む。Primary=PIE-07、Secondary=PIE-05/06、content ID=`MR-PIE-001`、State=PLANNED、Approval=USER_CONFIRMED。
+- **Cadence**: 当面は `画像 → 動画 → 画像 → 動画` を基本ローテーションにする。次の画像・動画の時計／assetはrolling shelfから都度選ぶ。
+- **Evidence / purpose**: formatを交互に置き、静止画とmicro-Reel双方を継続観測しつつ、同一formatの連投偏りを避けるため。単一のWittnauer静止画結果から『画像は不利』と一般化しない。
+- **Status**: ACTIVE。Duofon動画のmedia implementation / CMS uploadはPR #166側で進行中。
+
+
+## 2026-10-05 08:23 JST — MR-PIE-001本文訂正 / 過去知見の持ち越しを明文化
+
+### Correction / learning
+- **Origin: USER.** 直前のAI草案は、実動画を確認した後も一般的な短文フックへ寄せ、これまでの実投稿・訂正で得た「映像の注目位置を先に示す」「映像と音を同時に見せる」「Source-backedな機構説明を省きすぎない」という知見を十分に反映しなかったため棄却。
+- **Media reality to carry forward:** 現在のMR-PIE-001用動画は文字盤を出さず、ムーブメントの左上側にあるアラーム機構を見せながら実際に鳴動させ、WECKER / SIGNAL切替に伴う内部機構と音の変化を見せる。存在しない文字盤・6時表示窓・別カットを本文やstoryboardへ勝手に足さない。
+- **Drafting behavior:** 最新のユーザー原稿をworking baseとして、説明順・情報量・CTAを維持したうえで自然な英語へ展開する。Instagram全文を求められた場合は **英語全文 → hashtags → 自然な日本語訳** の順で一括提示する。hashtagsは実投稿正本のprecedentを確認し、AI都合で勝手に増量しない。
+
+### USER_WORKING_DRAFT — Japanese / not yet published
+```text
+左上のアラーム部分に注目👀
+機構の動きを見ながら、音の変化も聴いてみてください。🔔
+2種類の音を奏でられるアラーム腕時計　Pierce Duofonが、内部でWECKER（大音量）とSIGNAL（静音）を切り替えているところです。
+アラームを鳴らしたまま4時位置の操作部を回すと、内部の連動機構が動き、打撃ピンの位置が切り替わります。
+WECKERでは、打撃ピンが打撃位置に入り、ハンマーがゴングを打ちます。
+SIGNALでは、打撃ピンが打撃位置から外れ、ハンマーはゴングを打たずに自由振動します。
+リューズを約1/4回転させるだけで、アラームの鳴り方そのものが変わる。すべて機械仕掛けです。
+これは1950年代に開発されたPierce Cal.135。
+ほかの機械式アラーム腕時計の音も、プロフィールのリンクから聴き比べできます。🔔
+```
+
+### Status
+- **WORKING_DRAFT_USER / NOT PUBLISHED / NOT YET PROMOTED TO instagram-published-copy.md**
+- 次稿ではこの原稿と実動画を起点にし、旧AI草案へ巻き戻さない。
+
+
+## 2026-10-05 08:44 JST — Assignment→Execution Brief→制作の引継ぎ層を追加
+
+### Decision
+- **Origin: USER + Council 1 correction.** ユーザーが「今までの分析の意味は？ 棚卸はその視点でしてなかったの？」と指摘し、2ch Councilで、棚卸し自体ではなく **asset選択後に過去SNS分析を実制作へ渡す層が無い**ことを根本原因と裁定。
+- **Pipeline**: `Content Inventory → Content Assignment → Execution Brief → storyboard / caption → publish → Published Copy / Insights` とする。
+- **No inventory bloat**: 過去に撤回した全assetへのMicro treatment固定化は復活させない。Execution BriefはUSER_CONFIRMEDでactive化したcontentだけに作り、asset棚は「何を持っているか」の軽量索引のまま維持する。
+- **Brief inputs**: 実素材を最優先に、既存Published Copyの既出訴求、Operations / Insightsの関連学習、WATCH / researchの事実、最新ユーザー訂正を今回のcontent IDへ束ねる。
+- **Media gate**: 実素材未確認のPLANNEDはMEDIA_PENDINGを許すがcaption / storyboardをfinal扱いしない。SHOT / EDITED / SCHEDULEDはMEDIA_VERIFIED必須。active Instagram assignmentにbriefがない状態は `check:social-inventory` で失敗させる。
+- **First application**: `MR-PIE-001` を最初のExecution Briefとして登録。左上のalarm mechanism、鳴動しながらのWECKER / SIGNAL切替、視覚＋音の同時変化、初回Duofon Reelとの既出衝突、文字盤無しという実素材境界を一つのbriefへ接続した。
+
+### Why this is different from the rejected 2026-10-03 Micro treatment model
+- 旧案は全assetへAIが見せ方を先回り確定し、棚自体を肥大化させた。
+- 新案はユーザーが選んだ**投稿contentだけ**に、実素材を確認したうえで制作判断を一時的／履歴的に束ねる。
+- KEEP済みassetは今後もpresentationを固定されない。別の物理mediaを選べば別content ID / 別Execution Briefで再評価できる。
+
+### Status
+**IMPLEMENTED ON ACTIVE PR #169 BRANCH / CI PENDING**
+
+
+## 2026-10-05 09:22 JST — MR-PIE-001 initial comparison
+
+- MR-PIE-001 first-hour snapshot is canonicalized in `instagram-insights-timeseries.md`.
+- Current Reel: 194 views, 95.4% non-followers, skip 12.9%.
+- Stored Wittnauer static follow-up: 10 views / 0% non-followers at about 2h48m; 22 views / 0% non-followers at about 12h54m.
+- Operational read: the current mechanism Reel broke out to non-followers immediately, while the stored static carousel did not.
+- Keep this as an account-level observed contrast, not a universal photo-vs-Reel law. Other variables differ.
+
+
+## 2026-10-05 16:06 JST — 観察箇所指定をReelの標準へ
+
+### Decision
+- **Origin: USER.** MR-PIE-001の16:03 Insightsを確認後、「見る箇所指定は今後のスタンダートになる」と確定。
+- **Decision**: 視聴者が追うべき機構・部品・変化点が明確なInstagram Reelでは、冒頭で観察箇所を明示する。音の変化も主題なら、視線誘導と同時に聴覚誘導を置く。
+- **First precedent**: MR-PIE-001の公開hook `Look at the alarm mechanism in the upper left. 👀 / And listen to how the sound changes. 🔔`。
+- **Evidence**: 2026-10-05 16:03 JST時点で 3,264 views / 1,840 viewers / 6s average watch / 51 likes / 10 saves / 10 profile accesses / 3 bio-link clicks / 2 follows。non-followers 98.4%。Meta UIはskip 37.0%を「低」、share 0.6%とsave 0.5%を「高」と表示。
+- **Interpretation boundary**: この1本だけから「観察箇所指定が伸びの単一原因」とは確定しない。動画内容、尺、投稿時刻、配布段階等も異なる。ただし、ユーザーが今後の制作標準として採用したため、因果確定とは分離して運用ルールへ昇格する。
+- **Scope**: 観察対象が一点に定まる機構・操作・変化系Reelが対象。全景・雰囲気・複数要素を同時に見せる素材へ文言だけ機械的に付けない。
+- **Revisit / falsifier**: 複数の適用例で視聴維持・非フォロワー配布・保存／共有・profile遷移が継続的に悪化する、または観察箇所指定が素材理解を妨げる場合は表現と適用範囲を見直す。
+- **Status**: ACTIVE / STANDARD.
