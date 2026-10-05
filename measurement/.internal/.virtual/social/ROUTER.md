@@ -77,6 +77,45 @@ ACTIVEなSNS運用判断は、観測ログと切り離して「方針だけ」�
 - 固定の最適投稿回数は現時点で正本化しない。確認できない具体回数を後付けしない。
 - Wittnauer 10WA等で媒体 / format差が出た場合は、この判断を検証する材料へ加えるが、単一投稿だけで写真 / 動画全体の優劣へ一般化しない。
 - **6個体の既存VA資産を、1 Reel = 1要素へ細分化するmicro-Reel運用をACTIVEに追加する。** 画面文字は最小限、短尺、1本で1操作・1機構・1ディテールだけを見せる。静止画カルーセルは補助扱い。これは2026-10-03のWittnauer静止画1件から「動画が常に優れる」と一般化する判断ではなく、同じcontent inventoryをReel形式で再検証するための運用方針。投稿頻度そのものはこの判断だけでは変更しない。
+- **当面の投稿フォーマット順は「画像 → 動画 → 画像 → 動画」を基本ローテーションにする。** 直近のWittnauer静止画の次はPierce Duofon機能Reel（MR-PIE-001）を挟む。その後の画像／動画の時計・assetはrolling shelfから都度選ぶ。これはアルゴリズム普遍則ではなく、静止画とReelを交互に検証しながら棚を消費する運用判断で、投稿頻度の固定とは別。
+
+### 4.2 INSTAGRAM COPY LEARNING CONTRACT — 過去の訂正・実投稿・実素材を次稿へ必ず持ち越す
+
+Instagram本文を作るときは、毎回ゼロから「それっぽいSNS文」を発明しない。次の順を強制する。
+
+- **目の前の実素材が最優先。** 動画・画像がある場合は、映っている／鳴っている内容を確認してから本文を作る。映っていない文字盤・表示窓・別カット・編集展開を、一般論から勝手に足さない。
+- **最新のユーザー訂正・ユーザー原稿を現行working baseにする。** ユーザーが具体的な導入、説明順、残したい機構説明、CTAを提示した後は、明示的な短縮・再構成指示がない限り、AIの旧草案や一般的な短文フックへ巻き戻さない。
+- **過去の実投稿から得た表現上の知見を引き継ぐ。** 映像内の注目位置が明確なら冒頭で「どこを見るか」を指示し、音が主役なら視覚と聴覚を同時に誘導する。動画が機構説明に耐える場合は、単なる「珍しい／2種類ある」で止めず、何が動き、何が変わるかまでSource-backedに説明する。
+- **Instagram全文を求められた場合の既定出力順は「英語全文 → hashtags → 自然な日本語訳」。** hookだけ、途中稿だけ、英語だけで止めない。
+- **hashtagsは実投稿正本の直近precedentを参照し、根拠なく個数を増減しない。** 新しい方針へ変える場合は別判断として扱う。
+- working draft / correction-derived copyは `instagram-operations.md` に置き、公開確認前に `instagram-published-copy.md` へ昇格させない。
+
+この契約は「毎回同じ文章を書く」規則ではない。**実素材・最新訂正・過去の成功／失敗から得た制作知見を次の草案へ持ち越す**ための再発防止規則である。
+
+### 4.3 EXECUTION BRIEF BRIDGE — Content Inventoryから実制作へ分析を落とさない
+
+Content Inventoryは「何を持っているか」を管理する軽量な棚であり、各assetへcaption案や過去分析全文を詰め込まない。一方、ユーザーがasset＋mediaを次投稿として採用し、Content Assignment Registryへ `USER_CONFIRMED / PLANNED` を作った時点で、**そのcontent ID専用のExecution Briefを同じ変更セットで作る。**
+
+Execution Briefは **棚→実制作の引継ぎ伝票**。最低限次を持つ。
+
+- `Status` — `MEDIA_PENDING` または `MEDIA_VERIFIED`
+- `Media reality` — 実素材で実際に見える／聞こえるもの。未撮影なら未撮影と書く
+- `Attention cue` — 視聴者に最初にどこ／何を見せるか
+- `Sensory proof` — 視覚・音・操作のうち、その素材自体が証明できるもの
+- `Causal beat` — 操作 → 内部変化 → 観察できる結果
+- `Published collision` — 既存投稿ですでに使った訴求と、今回あえて深掘りする差分
+- `Carry-forward` — Published Copy / Insights / Operations / ユーザー訂正から今回へ持ち越す制作知見
+- `Constraints` — 素材に無い画・未確認機構・再利用禁止等
+- `Working copy` — 現行草案またはその正本参照。公開前にPublished Copyへ昇格させない
+
+運用:
+- 実素材がまだ無いPLANNEDは `MEDIA_PENDING` を許容するが、**storyboard / captionをfinal扱いにしない**。
+- 実素材が届いた／撮影済みになったら内容を実見して `MEDIA_VERIFIED` へ更新する。SHOT / EDITED / SCHEDULEDへ進むInstagram assignmentは `MEDIA_VERIFIED` 必須。
+- 実素材と過去分析が食い違う場合は実素材と最新ユーザー訂正を優先し、briefを更新してから制作する。
+- active Instagram assignmentにExecution Briefが無い状態は `check:social-inventory` で失敗させる。
+- 過去分析を全文複製せず、今回の制作判断に効く知見だけを `Carry-forward` へ引く。棚自体を再び巨大なMicro treatment表へ戻さない。
+
+制作順は **Content Inventory → Assignment → Execution Brief → storyboard / caption → publish → Published Copy / Insights** とする。
 
 ## 5. RESOLVED / INTERNAL — 原則として再説明・再審議しない
 
