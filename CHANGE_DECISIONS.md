@@ -1259,7 +1259,7 @@
 - **起点・帰属**：Reality pinは『Alarm am Arm』『The Alarm Wrist Watch』と購入個体のユーザー提供／seller提供画像について研究正本に記録された確認事項。Catch / Lead文案はAI起点。
 - **VA温度比較**：公開6本を `owner-copy:benchmark` で横並び確認。障害・戦傷・リハビリの背景を遊びへ使わず、現行範囲の低温度側で、前蓋・触読針・アラーム時刻read-backという時計固有機能へ直接接続した。
 - **採否・現在状態**：Catch / Leadは `FINAL_PENDING_REALITY_CHECK`。実機到着後に前蓋操作、三針の触り分け、alarm時刻read-backを確認し、ユーザーが最終承認するまで `FINAL` / `published: true` にしない。
-- **検証状態**：実装後にdecision log、OWNER copy provenance、citation / source traceability、localization coverage、Japanese style、quality、build、生成HTMLのnoindexとrouteを検査する。PR CI通過まではIMPLEMENTED、VERIFIEDとはしない。
-- **関連**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、旧branch `feat/arsa-blind-alarm-private-shell`、Project資料『Alarm am Arm』『The Alarm Wrist Watch』。
-- **日時根拠**：developer-provided local date `2026-10-05` と作業環境時計 `2026-10-05 20:47:10 +09:00` → `2026-10-05 20:47 JST`。
+- **検証状態**：VERIFIED。Astro build、internal links、SEO、citation / source traceability、localization sync / coverage / purity、SPEC evidence、Japanese style、image duplicate、OWNER copy provenanceを通過。デスクトップと390pxのブラウザ実寸確認で横スクロール・画像欠落がなく、lab canonicalと `noindex,nofollow,noarchive` を確認した。PR #188のGitHub Actions `build` job `111755217314` はSUCCESS。main未merge・本番未公開のためDEPLOYEDではない。
+- **関連**：PR #188、実装commit `35d6e30784b8f7a1e4292a9c43b0ff191f66c5b6`、GitHub Actions run `37307682050` / job `111755217314`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、旧branch `feat/arsa-blind-alarm-private-shell`、Project資料『Alarm am Arm』『The Alarm Wrist Watch』。
+- **日時根拠**：developer-provided local date `2026-10-05` と作業環境時計 `2026-10-05 20:47:10 +09:00` → `2026-10-05 20:47 JST`。GitHub Actions完了時刻 `2026-10-05T12:12:38Z → 2026-10-05 21:12 JST`。
 
