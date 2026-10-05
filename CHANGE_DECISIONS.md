@@ -1210,3 +1210,12 @@
 - **関連**：ユーザー指示「実装しよう」「動画は君が入れられる」「画像はこっちでやる」、既存動画 `public/videos/pierce-duofon/time-alarm-winding.mov`、Pierce source #1（1955年技術資料）。実装commit `f1ca6a5e02fd81a8649421d9895c8bfb245d1abd` / `f096c859c08e21584d326caabf6b9e2426a4e148` / `6967f5c2205f8a5b1ffc4bf527fab29627fe0232`、監査記録commit `9b5927fc85b18a1eaaac8d90179383132db56eef`。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T16:20:13+09:00` → `2026-10-05 16:20 JST`。
 
+### 2026-10-05 16:51 JST — Pages CMSでPierce機構画像のクエリ付きパスを保存阻害しない形へ修正
+- **変更**：Pierce Duofonの機構画像参照 `/images/pierce-duofon/mechanism/01-signal-hammer.webp?v=2` を、JA / EN / DEすべてで `/images/pierce-duofon/mechanism/01-signal-hammer.webp` へ変更する。
+- **理由**：Pages CMSのimage fieldがクエリ文字列込みの値を `.webp?v=2` という拡張子として判定し、許可拡張子外としてフォーム全体の保存を拒否していることを、ユーザー提示スクリーンショットの `Invalid file extension '.webp?v=2'` と現行mainの実データで確認した。
+- **旧状態・棄却**：CMS管理対象の画像パスにキャッシュバスター `?v=2` を残す運用を棄却する。画像本体・キャプション・altは変更しない。
+- **影響範囲**：Pierce DuofonのJA / EN / DEにあるSIGNAL機構画像の参照文字列のみ。公開本文、画像本体、DEEP DIVE構造、他WATCH、Pages CMS schemaは変更しない。
+- **検証状態**：branch `fix/pagescms-pierce-image-query-current` で3言語の参照を修正済み。PR CI / main merge / deploy後、mainと生成物でクエリ付き参照が消失していることを確認するまでVERIFIED / DEPLOYEDとはしない。
+- **関連**：ユーザー提示Pages CMSスクリーンショット。実装commit `4f07536f561a7a777c4d3f12d025cf7c175d3ec4` / `22da5b507f40b78fb2aa2af06326e9627dfd0683` / `6f5c4c7e3a414803a10450994b852c4cf1e57cef`。同時刻付近にPages CMSから `public/images/IMG_2763.jpeg` のアップロード自体はmainへ作成済み。
+- **日時根拠**：ChatGPT time取得値 `2026-10-05T16:51:07+09:00` → `2026-10-05 16:51 JST`。
+
