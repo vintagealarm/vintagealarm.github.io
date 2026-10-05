@@ -1289,5 +1289,5 @@
 - **影響範囲**：`.codex/MANAGER_CONTROL_PLANE.md`、`.codex/TASK_ENVELOPE_TEMPLATE.md`、`AGENTS.md`、`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`、本判断履歴。公開WATCH本文、SNS正本、Fail-Closedの推論規則、multi-agent設定は変更しない。
 - **検証状態**：branch `ops/chat-audit-report-gate-20261005` へ実装済み。PR CIで `check:project-consistency` と既存quality gateを通し、main merge後に正本再取得で `AUDIT_REPORTED` とCHAT AUDIT REPORT欄を確認するまでVERIFIEDとはしない。
 - **関連**：ユーザー指示「まず監査をチャットで報告必須」→監査報告→「では実行」。実装commits `d2938798` / `a5775513` / `3603e468` / `3242fcff` / `becf98a7`。
-- **日時根拠**：GitHub commit `becf98a7ad3e9b9e1346be7e1c942172c34966db` の `2026-10-05T13:27:17Z` → `2026-10-05 22:27:17 JST`。見出しは分単位 `22:27 JST`。
+- **日時根拠**：GitHub commit `becf98a7ad3e9b9e1346be7e1c942172c34966db` の 2026-10-05T13:27:17Z → 2026-10-05 22:27 JST。
 
