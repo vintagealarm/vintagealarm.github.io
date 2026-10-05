@@ -445,6 +445,21 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
       },
       {
         number: '03',
+        title: 'Winding two barrels with one crown',
+        paragraphs: [
+          'Turning the crown at 3 o’clock transmits its rotation to a changeover crown wheel mounted on a rocking lever. Reversing the direction of the crown shifts the rocker from side to side, changing which ratchet wheel the crown wheel engages: the going-train side or the alarm side. This allows the single crown to wind the two barrels independently.',
+          'Pierce’s 1955 technical description states that the changeover crown wheel is held on the rocker pin by spring friction, maintaining the correct depth of engagement and preventing the teeth from meeting head-on as the drive switches sides.'
+        ],
+        citationRefs: ['1', '1'],
+        video: {
+          src: '/videos/pierce-duofon/time-alarm-winding.mov',
+          title: 'See it in motion',
+          afterParagraph: 2,
+          ariaLabel: 'Pierce Cal. 135 specimen video showing the 3 o’clock crown switching winding between the going-train and alarm barrels'
+        }
+      },
+      {
+        number: '04',
         title: 'Evolution of the Duofon',
         paragraphs: [
           'A watch recorded as a 1952 prototype has a 35 mm gold-coloured case and a press-fit steel caseback. The dial carries no Pierce branding, and the published reference suggests that it may not have been a finished product intended for sale. That prototype is also described as driving both the timekeeping mechanism and the alarm from a single barrel.',
@@ -457,7 +472,7 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
         citationRefs: ['2', '1', '2', '2', '2', '2,4']
       },
       {
-        number: '04',
+        number: '05',
         title: 'Relationship with the Gruen Duo-Tone',
         paragraphs: [
           'Pierce Cal. 135 was also supplied to Gruen.',
