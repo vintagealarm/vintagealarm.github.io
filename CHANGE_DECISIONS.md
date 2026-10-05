@@ -1162,3 +1162,21 @@
 - **検証状態**：branch `ops/manager-control-plane-pilot-20261005` へ実装。GitHub Actionsで `check:project-consistency` を含む既存gateが通るまでVERIFIEDとはしない。pilotの成果は今後の実案件で USER_REINSTRUCTION_COUNT / CANONICAL_SOURCE_REDIRECT_COUNT / VERIFY_PROMPT_COUNT / POST_COMPLETION_DEFECT_COUNT を観測してOBSERVED判定する。
 - **関連**：2026-10-05の過去案件監査、Council 1 + 7裁定「Manager Control Plane＝GO / 独立Verifier＝GO / multi-agent有効化＝HOLD」、PR #173 Execution Brief、PR #174 Duofon動画内容訂正。実装commits `b11180d5` / `e41c4762` / `c42bbfd6` / `5580de7f` / `b6e835f7`。
 - **日時根拠**：developer-provided local time `2026-10-05T09:48+09:00` = `2026-10-05 09:48 JST`。
+
+### 2026-10-05 10:54 JST — Fail-Closed Inference GuardをManager Control Planeへ追加
+- **変更**：推論方向、既存判断の変更、現物確認、一般論の扱い、出力前矛盾確認をfail-closedで管理する正本と回帰テストを追加し、PROJECT / AGENTS / PROJECT_STATE / Social Router / Task Envelope / quality gateへ接続した。
+- **理由**：正本確認後でも、確認済み情報を別方向へ拡張したり一般論で上書きしたりする再発があったため。
+- **旧状態・棄却**：注意喚起だけで防ぐ運用を棄却し、必要根拠が無い場合はHOLD / FAILとする。
+- **影響範囲**：PROJECT、AGENTS、PROJECT_STATE、Manager Control Plane、Task Envelope、Social Router、inference guard正本・fixtures・checker、package scripts。公開WATCH本文・UI・SNS実測値・multi-agent設定は変更しない。
+- **検証状態**：branch `ops/fail-closed-inference-guards-20261005` に実装。CI通過までVERIFIEDとはしない。
+- **関連**：PR #175 / active PR #173。commits `c4ae40d4` / `623fcb1d` / `cbaed804` / `4a9fa87c` / `d2b7322e` / `076d7278` / `04fcef58` / `00b52b1b` / `d38abf3a` / `22a56ac5` / `bc9031c7` / `0f4dfb71` / `85c2ca24` / `0864542f` / `03bc9764`。
+- **日時根拠**：developer-provided local time `2026-10-05T10:54+09:00` = `2026-10-05 10:54 JST`。
+
+### 2026-10-05 11:31 JST — active Social PRへFail-Closed guardを継承
+- **変更**：mainへmerge済みのFail-Closed Inference Guard pointerをactive PR #173のSocial Routerへ継承した。
+- **理由**：active branchが古いmainを基底にしており、後続mergeで新しいguardを落とさないため。
+- **旧状態・棄却**：PR #173だけguard未適用のまま進める状態を棄却。
+- **影響範囲**：PR #173のSocial Routerと本判断履歴のみ。Instagram実測値・Published Copy・Execution Brief内容は変更しない。
+- **検証状態**：Router同期commit `dddfb928` を反映。PR CIとmainとのmergeabilityを再確認する。
+- **関連**：PR #176 / merge commit `8ddab7f3` / sync commit `dddfb928`。
+- **日時根拠**：GitHub commit `dddfb928ac253fe5e33a87dbe2732f3551af8300` `2026-10-05T02:31:49Z → 2026-10-05 11:31 JST`。
