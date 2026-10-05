@@ -1270,6 +1270,27 @@
 - **関連**：実装commit `18160e1de64e88c77bbabec5c6ba40c2ffd92e11` / `82be7526ca576b75ae3b681774e871c20914474c` / `e51880782f267bfe0817b077f48945754bd5bf8b`。ユーザー指定本文および「写真も入れてあるからそれの翻訳と動画の上にくるように調整」。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T17:25:55+09:00` → `2026-10-05 17:26 JST`（分単位丸め）。
 
+### 2026-10-05 20:47 JST — ARSA Blind Alarmを完成本文付き非公開WATCHプレビューとして再実装
+- **変更**：最新mainから `feat/arsa-blind-alarm-watch` を作成し、ARSA Blind Alarmの日本語WATCH正本、`/lab/arsa-blind-alarm/` のnoindexプレビューroute、実機画像未収録を示す非AI placeholderを追加する。公開フラグは `false` のままにし、公開OWNER'S NOTES一覧・推薦・sitemap・EN / DEにはまだ接続しない。旧branch `feat/arsa-blind-alarm-private-shell` は履歴として保持し、現行mainへ直接mergeしない。
+- **理由**：ARSA研究MAP / LEDGERとProject資料から本文・出典は組める一方、掲載個体の実機写真、到着後の操作・触感・ケース刻印、実機音が未確認である。現行6本と同じ公開WATCHとして扱うには、実画像と実機確認を先に揃える必要がある。
+- **旧状態・棄却**：旧branchの `PRIVATE DRAFT / 構成だけ先に組む` だけのCatch / Leadと、109コミット遅れのbranchを直接更新・mergeする案を棄却する。seller claimを実機確認へ昇格すること、1958年JSHの一般ARSA記事・広告をBlind Alarm本人のperiod画像へ代用すること、時計本体をAI生成することも棄却する。
+- **影響範囲**：ARSAの非公開日本語WATCH content、専用lab preview、WatchPageのpreview時robots制御、lab previewのnoindexを検証するSEO gate、placeholder画像。公開6WATCH、OWNER'S NOTES一覧、HISTORY、HOW THEY RING、EN / DE、main、本番liveは変更しない。
+- **対象WATCH**：ARSA Blind Alarm。
+- **起点・帰属**：Reality pinは『Alarm am Arm』『The Alarm Wrist Watch』と購入個体のユーザー提供／seller提供画像について研究正本に記録された確認事項。Catch / Lead文案はAI起点。
+- **VA温度比較**：公開6本を `owner-copy:benchmark` で横並び確認。障害・戦傷・リハビリの背景を遊びへ使わず、現行範囲の低温度側で、前蓋・触読針・アラーム時刻read-backという時計固有機能へ直接接続した。
+- **採否・現在状態**：Catch / Leadは `FINAL_PENDING_REALITY_CHECK`。実機到着後に前蓋操作、三針の触り分け、alarm時刻read-backを確認し、ユーザーが最終承認するまで `FINAL` / `published: true` にしない。
+- **検証状態**：VERIFIED。Astro build、internal links、SEO、citation / source traceability、localization sync / coverage / purity、SPEC evidence、Japanese style、image duplicate、OWNER copy provenanceを通過。デスクトップと390pxのブラウザ実寸確認で横スクロール・画像欠落がなく、lab canonicalと `noindex,nofollow,noarchive` を確認した。PR #188のGitHub Actions `build` job `111755217314` はSUCCESS。main未merge・本番未公開のためDEPLOYEDではない。
+- **関連**：PR #188、実装commit `35d6e30784b8f7a1e4292a9c43b0ff191f66c5b6`、GitHub Actions run `37307682050` / job `111755217314`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、旧branch `feat/arsa-blind-alarm-private-shell`、Project資料『Alarm am Arm』『The Alarm Wrist Watch』。
+- **日時根拠**：developer-provided local date `2026-10-05` と作業環境時計 `2026-10-05 20:47:10 +09:00` → `2026-10-05 20:47 JST`。GitHub Actions完了時刻 `2026-10-05T12:12:38Z → 2026-10-05 21:12 JST`。
+
+### 2026-10-05 21:42 JST — ARSAを公開対象へ変更し全WATCH共通の専用プレビューURLを追加
+- **変更**：ユーザーの明示指示に基づきARSA Blind Alarmを `published: true` へ変更し、日本語・英語・ドイツ語の公開route、OWNER'S NOTES / HISTORY導線、sitemap / llms索引へ接続する。CMSの既存公開スイッチを維持し、公開状態にかかわらず全WATCHを本番と同じ `WatchPage` で確認できる `/preview/watch/<slug>/` を追加する。previewは検索対象外とし、言語切替リンクも公開routeへ誘導しない。
+- **理由**：ユーザーが「公開にしておいてCMSで公開非公開切り替え」「専用URLから非アクティブも公開ビューと同じように見たい」と明示したため。安定した共通preview routeを全WATCHから生成すれば、CMSでOFFにした後も表示確認用URLが消えず、個別時計ごとの一時routeも不要になる。
+- **旧状態・棄却**：前項の「実機到着・実画像まで `published: false`」判断を今回の明示指示で撤回し、ARSAだけに固定された `/lab/arsa-blind-alarm/` を廃止する。preview専用の別テンプレート、公開状態に応じてpreview URL自体を消す設計、previewをsitemapへ載せる設計は採用しない。
+- **影響範囲**：ARSAの公開フラグ、JA / EN / DE WATCH、OWNER'S NOTES / HISTORY、sitemap / llms、共通WatchPageのpreview metadata、SEO gate、全WATCHの `/preview/watch/<slug>/`。時計本文の日本語正本、実機未確認表示、画像placeholder、HOW THEY RINGは変更しない。
+- **検証状態**：VERIFIED。Astro buildでARSAのJA / EN / DE通常routeと全7WATCHのpreview route生成を確認。internal links、analytics route、SEO、citation / source traceability、localization sync / coverage / purity、SPEC evidence、Japanese style、image duplicate、project consistency、inference guard、OWNER copy provenanceを通過した。ブラウザ実寸で通常routeとpreview routeの見出し構造一致、previewの `noindex,nofollow,noarchive` と専用canonical、通常routeのindex canonicalを確認。PC幅と390px幅で横スクロール・画像欠落なし。GitHub Actions初回は公開6本を固定したanalytics assertionと、EN / DE一覧で長い年代fallbackが起こすmobile overflowを検出したため、7本基準と短いARSA多言語年代ラベルへ修正。Windows権限制約によりsymlink作成を伴う `test-quality-gates.mjs` のみローカル未完了で、GitHub Actions再実行を最終判定にする。
+- **関連**：PR #188、先行実装commit `35d6e30784b8f7a1e4292a9c43b0ff191f66c5b6` / `c314c759ef6fa1846f0b6411fcecfc98f8a9ae59`、main同期merge commit `03e0174ce1165898e64db00230847b0895059d1c`。
+- **日時根拠**：developer-provided local date `2026-10-05` と作業環境時計 `2026-10-05 21:42:40 +09:00` → `2026-10-05 21:42 JST`。
 
 ### 2026-10-05 21:57 JST — X海外向け英語運用をManagerのplatform output contractへ固定
 - **変更**：Social RouterへX CURRENT OUTPUT CONTRACTを追加し、X actual post candidateをEnglish only / overseas-facing / profile destination=/en/ / VA editorial cap 140 user-perceived charactersと固定する。Instagram既存投稿の再利用は instagram-published-copy.md → English compression/adaptation → 140-character validation → output の順とし、current repost formatを WATCH NAME → short English description → English hashtags とする。Manager Control Plane / Task Envelopeへ PLATFORM / LANGUAGE / AUDIENCE / CHARACTER LIMIT / SOURCE COPY / TRANSFORMATION / DESTINATION / OUTPUT VALIDATOR をREADY条件として追加し、Fail-Closed Guardへplatform output contract gateを統合する。既存 scripts/check-inference-guards.mjs を拡張し、日本語Script混入・140超過・repost format違反を機械的にFAILできるvalidatorと SOCIAL-X-LANGUAGE-001 回帰fixtureを追加する。新しい独立システム・DB・queueは作らない。

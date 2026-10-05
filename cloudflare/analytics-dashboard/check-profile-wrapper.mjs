@@ -66,10 +66,10 @@ const payload = patchAnalyticsPayload({
   },
 });
 
-assert(Object.keys(WATCH_PAGE_NAMES).length === 6, 'analytics must keep all six published Japanese WATCH pages');
+assert(Object.keys(WATCH_PAGE_NAMES).length === 7, 'analytics must keep all seven published Japanese WATCH pages');
 assert(Object.keys(STATIC_PAGE_NAMES).length === 5, 'analytics must track TOP and Japanese static/research gateway pages');
-assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 9, 'analytics must track English index, OWNER\'S NOTES, SOURCES and all six WATCH gateways');
-assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 9, 'analytics must track German index, OWNER\'S NOTES, SOURCES and all six WATCH gateways');
+assert(Object.keys(ENGLISH_GATEWAY_NAMES).length === 10, 'analytics must track English index, OWNER\'S NOTES, SOURCES and all seven WATCH gateways');
+assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 10, 'analytics must track German index, OWNER\'S NOTES, SOURCES and all seven WATCH gateways');
 assert(Object.keys(HISTORY_GATEWAY_NAMES).length === 3, 'analytics must track Japanese, English and German HISTORY pages');
 assert(ENGLISH_GATEWAY_NAMES['/en/owners-notes/'] === "OWNER'S NOTES (EN)", 'English OWNER\'S NOTES mapping missing');
 assert(GERMAN_GATEWAY_NAMES['/de/owners-notes/'] === "OWNER'S NOTES (DE)", 'German OWNER\'S NOTES mapping missing');
@@ -88,6 +88,9 @@ assert(GERMAN_GATEWAY_NAMES['/de/basis-alarm/'] === 'Basis Alarm (DE)', 'German 
 assert(GERMAN_GATEWAY_NAMES['/de/citizen-alarm/'] === 'Citizen Alarm (DE)', 'German Citizen mapping missing');
 assert(GERMAN_GATEWAY_NAMES['/de/wittnauer-10wa/'] === 'Wittnauer Cal.10WA (DE)', 'German Wittnauer mapping missing');
 assert(WATCH_PAGE_NAMES['/wittnauer-10wa/'] === 'Wittnauer Cal.10WA', 'Wittnauer WATCH mapping missing');
+assert(WATCH_PAGE_NAMES['/arsa-blind-alarm/'] === 'ARSA Blind Alarm', 'ARSA WATCH mapping missing');
+assert(ENGLISH_GATEWAY_NAMES['/en/arsa-blind-alarm/'] === 'ARSA Blind Alarm (EN)', 'ARSA English gateway mapping missing');
+assert(GERMAN_GATEWAY_NAMES['/de/arsa-blind-alarm/'] === 'ARSA Blind Alarm (DE)', 'ARSA German gateway mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/history/'] === 'HISTORY', 'Japanese HISTORY mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/en/history/'] === 'HISTORY (EN)', 'English HISTORY mapping missing');
 assert(HISTORY_GATEWAY_NAMES['/de/history/'] === 'HISTORY (DE)', 'German HISTORY mapping missing');
@@ -109,7 +112,7 @@ assert(payload.current.flows[3].destinationName === 'Basis Alarm (EN)', 'Basis E
 assert(payload.current.flows[4].destinationName === 'HISTORY (EN)', 'English HISTORY flow destination was not mapped');
 
 const snsTotals = Object.fromEntries(payload.current.snsEntries.pages.map((row) => [row.name, row.total]));
-assert(payload.current.snsEntries.pages.length === 40, 'SNS chart must contain all tracked published/static/localized rows, X Profile, plus Other pages');
+assert(payload.current.snsEntries.pages.length === 43, 'SNS chart must contain all tracked published/static/localized rows, X Profile, plus Other pages');
 assert(snsTotals['Citizen Alarm'] === 2, 'Citizen SNS visits mismatch');
 assert(snsTotals['Westclox Watchlarm'] === 3, 'Westclox SNS visits mismatch');
 assert(snsTotals['Basis Alarm (EN)'] === 1, 'Basis English SNS visits mismatch');
@@ -222,7 +225,7 @@ assert(patchedHtml.includes('analyticsQuery'), 'AI URL handler must preserve cur
 assert(patchedHtml.includes('LATEST NONZERO BUCKET'), 'dashboard must label freshness as aggregate bucket, not last event');
 assert(patchedHtml.includes('GAP LOWER BOUND'), 'dashboard must label freshness gap as a lower bound');
 assert(!patchedHtml.includes(' · LAST EVENT '), 'dashboard must not claim bucket boundary is the last event timestamp');
-assert(WATCH_ENTRY_PAGE_NAMES.length === 18, 'WATCH entry share must include all six public WATCH routes in JP / EN / DE');
+assert(WATCH_ENTRY_PAGE_NAMES.length === 21, 'WATCH entry share must include all seven public WATCH routes in JP / EN / DE');
 assert(!WATCH_ENTRY_PAGE_NAMES.includes('German Entry'), 'language gateway must not count as a WATCH entry');
 assert(WATCH_ENTRY_PAGE_NAMES.includes('Wittnauer Cal.10WA (EN)'), 'English Wittnauer must count as a WATCH entry');
 assert(WATCH_ENTRY_PAGE_NAMES.includes('Basis Alarm (DE)'), 'German Basis must count as a WATCH entry');

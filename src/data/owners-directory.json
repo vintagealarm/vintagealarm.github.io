@@ -61,6 +61,18 @@
       "directoryCatch": "0石、1香箱、プッシャー式アラーム。"
     },
     {
+      "historyId": "arsa-blind-alarm",
+      "ownedGroup": "1950s",
+      "ownedEra": "1958年（専門書掲載例）",
+      "ownedSortKey": 1958.5,
+      "historyEra": "1950s",
+      "image": "/images/arsa-blind-alarm/draft-placeholder.svg",
+      "ownersThumbnail": "/images/arsa-blind-alarm/draft-placeholder.svg",
+      "historyThumbnail": "/images/arsa-blind-alarm/draft-placeholder.svg",
+      "fallbackThumbnail": "/images/arsa-blind-alarm/draft-placeholder.svg",
+      "directoryCatch": "現在時刻も、アラーム時刻も指先で読む。"
+    },
+    {
       "historyId": "pierce-duofon",
       "ownedGroup": "1960s",
       "ownedEra": "1960s",
