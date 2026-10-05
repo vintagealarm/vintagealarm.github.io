@@ -619,6 +619,21 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       },
       {
         number: '03',
+        title: 'Zwei Federhäuser mit einer Krone getrennt aufziehen',
+        paragraphs: [
+          'Beim Drehen der Aufzugskrone bei 3 Uhr wird die Drehung auf das Wechsel-Kronrad übertragen, das auf einer schwenkbaren Wippe sitzt. Ändert sich die Drehrichtung der Krone, schwenkt die Wippe von einer Seite auf die andere; dadurch greift das Wechsel-Kronrad entweder in das Sperrad des Gehwerk-Federhauses oder in das Sperrad des Wecker-Federhauses ein. So lassen sich mit einer einzigen Krone die beiden Federhäuser für Gehwerk und Wecker getrennt aufziehen.',
+          'Pierces technische Unterlage von 1955 beschreibt, dass das Wechsel-Kronrad durch eine Feder mit satter Reibung auf dem Wippenstift gehalten wird. Dadurch bleibt die richtige Eingriffstiefe erhalten, und beim Umschalten wird verhindert, dass zwei Zähne frontal aufeinanderstoßen.'
+        ],
+        citationRefs: ['1', '1'],
+        video: {
+          src: '/videos/pierce-duofon/time-alarm-winding.mov',
+          title: 'In Bewegung sehen',
+          afterParagraph: 2,
+          ariaLabel: 'Pierce Cal. 135: Video des gezeigten Exemplars beim Umschalten des Aufzugs zwischen Gehwerk- und Wecker-Federhaus über die Krone bei 3 Uhr'
+        }
+      },
+      {
+        number: '04',
         title: 'Die Entwicklung der Duofon-Modelle',
         paragraphs: [
           'Ein als Prototyp von 1952 dokumentiertes Exemplar besitzt ein 35-mm-goldfarbenes Gehäuse und einen gedrückten Stahlboden. Auf dem Zifferblatt fehlt der Pierce-Schriftzug; die veröffentlichte Quelle deutet darauf hin, dass es möglicherweise kein für den Verkauf bestimmtes fertiges Produkt war. Für dieses Exemplar wird außerdem angegeben, dass Gehwerk und Wecker von nur einem Federhaus angetrieben werden.',
@@ -631,7 +646,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         citationRefs: ['2', '1', '2', '2', '2', '2,4']
       },
       {
-        number: '04',
+        number: '05',
         title: 'Die Verbindung zur Gruen Duo-Tone',
         paragraphs: [
           'Pierce Cal. 135 wurde auch an Gruen geliefert.',
