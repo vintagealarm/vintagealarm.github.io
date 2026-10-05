@@ -17,6 +17,88 @@
 
 ## 2026-10-05
 
+### 2026-10-05 16:47 JST — Instagram Insights parserでsubsection境界をsnapshot終端にする
+
+- **変更**：`scripts/instagram-insights-timeseries.mjs` のcanonical parserで、同一WATCH内の `## ` subsection見出しをsnapshot終端として扱うよう修正した。WATCH自体は維持するため、その後の別content snapshot（例: Pierce Duofon `MR-PIE-001`）は同じWATCHの時系列として引き続き集計される。
+- **理由**：PR #178 CI #591で、Pierce Duofonの旧snapshot後に追加した `## Mechanism follow-up — MR-PIE-001` 配下のPublication evidenceが直前snapshotのfieldとして誤解釈され、`duplicate field source_status` で `check:instagram-insights` が失敗したため。
+- **旧状態・棄却**：新snapshot側の `source_status` を削る、区切り `---` でWATCH contextごと切る、checkerを無効化する回避策は棄却。いずれも正本契約またはMR-PIE-001の時系列集計を壊す。
+- **影響範囲**：Instagram Insights canonical parserのみ。保存済み数値・Published Copy・WATCH本文・UIには変更なし。
+- **検証状態**：commit `ba614dca` で実装。PR #178の再CIで `check:instagram-insights` と後続quality gatesがPASSするまで未VERIFIED。
+- **関連**：PR #178 / failed workflow run #591 / MR-PIE-001 16:03 snapshot。
+- **日時根拠**：GitHub commit `ba614dcac282b86a3ce732d0c470486a0be1cd3d` `2026-10-05T07:47:13Z → 2026-10-05 16:47 JST`。
+
+
+### 2026-10-05 16:43 JST — PR #173有効差分をcurrent mainへ再replay
+
+- **変更**：non-mergeable化したPR #173の有効なSocial差分を、current `main` から新規branch `social-execution-brief-finalize-20261005` へ再適用した。main側で進んだFail-Closed / Manager Control Plane等を保持しつつ、Content Inventory / Insights / Operations / Published Copy / social checkerを再playし、Social RouterとDecision Logはcurrent mainへ差分mergeした。
+- **理由**：PR #173は現行main進行後に `mergeable=false` となり、そのままmergeするとcurrent mainの変更を落とす危険があるため。ユーザー指示「じゃそこまで」に基づき、main反映可能な経路へ救出する。
+- **旧状態・棄却**：PR #173 branchを古いbaseのまま強行mergeする状態、current mainのRouter / Decision Logをbranch版で全置換する状態を棄却。
+- **影響範囲**：Social Router、content inventory、Instagram Insights / Operations / Published Copy、social inventory checker、Decision Log。公開WATCH本文・UI・別PR #177には触れない。
+- **検証状態**：fresh branchへreplay済み。新PR作成後、mergeability / GitHub Actions / diffを確認し、PASS後にmainへmergeして再取得するまで未VERIFIED。
+- **関連**：旧PR #173、replay commits `1da841b5` / `eb29fe6a` / `ac7ba540` / `f6d190d1` / `fc1f865f` / `539afb91` / `231ab06c`。
+- **日時根拠**：GitHub commit `231ab06c4382e35f9bc3a0fb910dcc2dba9c5489` `2026-10-05T07:43:44Z → 2026-10-05 16:43 JST`。
+
+
+### 2026-10-05 16:06 JST — Reelの観察箇所指定を標準化
+
+- **変更**：Instagram Reelで、視聴者が追うべき機構・部品・変化点が明確な素材は、冒頭で観察箇所を指定することを標準化した。音の変化も主題なら聴覚誘導も併記する。MR-PIE-001の16:03 Insights snapshotも時系列正本へ追加した。
+- **理由**：ユーザーがMR-PIE-001の実績確認後に「見る箇所指定は今後のスタンダートになる」と明示確定。今回Reelは16:03 JST時点で3,264 views / 1,840 viewers / non-followers 98.4%、profile accesses 10 / bio-link clicks 3 / follows 2まで到達し、Meta UIはskip 37.0%を「低」、share 0.6%・save 0.5%を「高」と表示した。
+- **旧状態・棄却**：観察箇所指定をMR-PIE-001だけの個別copy知見として留め、次回制作時に会話記憶へ依存する状態を棄却する。一方で「観察箇所指定が伸びの単一原因」「全Reelへ同じ文型を機械適用」という一般化は採用しない。
+- **影響範囲**：Social Router ACTIVE、instagram-operations、instagram-insights-timeseries、今後のExecution Brief / Reel copy。WATCH本文・Published Copyの過去投稿本文・静止画投稿には遡及変更しない。
+- **検証状態**：active PR #173 branchへ実装中。Router commit `f5e32c79`、16:03 Insights commit `078b328b`。正本再取得とPR CI確認後にVERIFIED判定する。
+- **関連**：MR-PIE-001、2026-10-05 08:23 copy learning contract、2026-10-05 08:44 Execution Brief bridge、2026-10-05 09:22 initial snapshot。
+- **日時根拠**：developer-provided local time `2026-10-05T16:06+09:00` = `2026-10-05 16:06 JST`。
+
+### 2026-10-05 09:23 JST — MR-PIE-001初回比較をoperationsへ同期
+
+- **変更**：MR-PIE-001の初回比較要約をinstagram-operationsへ同期。
+- **理由**：Insights正本に保存した観測を運用判断へ接続するため。
+- **旧状態・棄却**：timeseriesだけに数値を置き、比較判断を会話だけに残す状態を棄却。
+- **影響範囲**：instagram-operationsのみ。
+- **検証状態**：active PR #173 branchへ反映。CI再実行待ち。
+- **関連**：commit `88cab14d`、MR-PIE-001。
+- **日時根拠**：ユーザー提供スクリーンショットの端末時刻 2026-10-05 09:22 JST直後。
+
+### 2026-10-05 09:22 JST — MR-PIE-001公開と初回Insightsを正本化
+
+- **変更**：MR-PIE-001をPLANNEDからPUBLISHEDへ移行し、実投稿全文をinstagram-published-copy、09:21–09:22 JSTの初回Insightsをinstagram-insights-timeseriesへ保存。Pierce assetはPIE-05 / PIE-06をUSED、PIE-07は6時窓が今回未表示のためPARTIAL維持。
+- **理由**：ユーザー提供の公開投稿画面とReel Insightsで、公開本文・hashtags・194 views / 33 viewers / 5s average watch / likes 6 / saves 2 / skip 12.9% / non-followers 95.4%等を確認したため。
+- **旧状態・棄却**：MR-PIE-001をPLANNEDのまま残す状態、今回の動画で6時窓まで使用済みと扱う状態を棄却。
+- **影響範囲**：Instagram Published Copy、Insights time series、Social Content Inventory、MR-PIE-001。WATCH本文・既存投稿は変更しない。
+- **検証状態**：active PR #173 branchへ記録。CI再実行後にVERIFIED判定する。
+- **関連**：commits `c5a8705e` / `a011530f` / `21dde07f`、MR-PIE-001、Wittnauer static carousel comparison baseline。
+- **日時根拠**：ユーザー提供スクリーンショットの端末時刻 2026-10-05 09:21–09:22 JST。
+
+### 2026-10-05 08:44 JST — Social棚から実制作へExecution Briefを必須化
+
+- **変更**：Social運用へ `Content Inventory → Content Assignment → Execution Brief → storyboard / caption → publish` の引継ぎ層を追加した。Execution BriefはactiveなInstagram content単位で持ち、Media reality / Attention cue / Sensory proof / Causal beat / Published collision / Carry-forward / Constraints / Working copyを必須項目とする。実素材未確認のPLANNEDのみ `MEDIA_PENDING` を許容し、SHOT / EDITED / SCHEDULEDは `MEDIA_VERIFIED` 必須。 `check:social-inventory` へactive Instagram assignmentとbriefの対応・必須field・media status検査を追加し、MR-PIE-001を最初の実例として登録した。
+- **理由**：ユーザーが「今までの分析の意味は？ 棚卸はその視点でしてなかったの？」と指摘。Council 1で、研究→棚卸し→投稿選択は接続されていた一方、過去Published Copy / Insights / Operationsで得た制作知見と実素材観察を、選択済みassetからcaption / Reelへ渡す層が無く、投稿時に一般論へリセットされることを根本原因と裁定した。
+- **旧状態・棄却**：全assetへMicro fit / Micro treatmentをAI単独で固定して棚を肥大化させる2026-10-03旧案は復活させない。反対に、Assignmentだけ作って「どう見える／何が聞こえる／既出との差分／素材制約」を会話記憶へ任せる運用も棄却する。
+- **影響範囲**：Social Router、content-inventory、instagram-operations、social inventory checker、MR-PIE-001。公開WATCH本文、OWNER'S NOTE、既存Published Copy、Insights実測値は変更しない。
+- **検証状態**：stale化したPR #169で先行実装後、current mainから `social-execution-brief-replay` へ有効差分を再適用。GitHub再取得とCI通過後にVERIFIEDとする。main反映／公開サイト変更は別状態。
+- **関連**：PR #169、replay commits `263667c4` / `dff111dc` / `c774e76a` / `5a52d4b8` / `14031167`、2026-10-03 21:33 asset→content→media予約制、2026-10-03 22:47 AI単独Micro treatment撤回、2026-10-05 08:23 copy learning contract、MR-PIE-001。
+- **日時根拠**：developer-provided local time `2026-10-05T08:44+09:00` = `2026-10-05 08:44 JST`。
+
+### 2026-10-05 08:23 JST — Instagram本文生成で過去知見と最新ユーザー原稿を強制継承
+
+- **変更**：Social Routerへ `INSTAGRAM COPY LEARNING CONTRACT` を追加し、①目の前の実素材を先に確認、②最新ユーザー訂正／原稿をworking baseとして保持、③過去実投稿で得た視覚誘導・音誘導・機構説明の知見を次稿へ持ち越す、④Instagram全文は英語全文→hashtags→自然な日本語訳の順で一括提示、⑤hashtagsは実投稿precedentを根拠なく増減しない、を再発防止規則として固定した。MR-PIE-001についてはユーザー提示の日本語原稿全文を `instagram-operations.md` に `USER_WORKING_DRAFT` として保存し、実動画が文字盤なしの内部アラーム機構映像である境界もassignmentへ追記した。
+- **理由**：直前のAI回答が、実動画と既存 `instagram-published-copy.md` を確認した後にもかかわらず、一般的なSNS短文へ戻り、これまでの訂正・実投稿から得た知見とユーザーが提示した具体的な説明順を次稿へ継承できなかった。ユーザーから「今までの反省や得た知見を活かせ」と明示訂正されたため。
+- **旧状態・棄却**：毎回ゼロから最適化し直す草案生成、実素材にない文字盤／表示窓／別カットを補う構成、ユーザー原稿受領後にAI旧草案へ巻き戻す運用、全文要求に対してhookや途中稿だけ返す運用を棄却する。
+- **影響範囲**：Social Router、instagram-operations、content-inventoryのMR-PIE-001 evidence。本番公開本文・`instagram-published-copy.md`・Insights実測値・WATCH本文は変更しない。
+- **検証状態**：PR #169で先行実装し、current-main replay branchへ救出。USER_WORKING_DRAFTは公開済み扱いにせず、公開確認後にだけPublished Copyへ昇格する。
+- **関連**：PR #169、MR-PIE-001、Pierce Duofon初回Published Copy、2026-10-05ユーザー訂正「今までの反省や得た知見を活かせ」。
+- **日時根拠**：runtime JST clock `2026-10-05T08:23:30+09:00` = `2026-10-05 08:23 JST`。
+
+### 2026-10-05 07:22 JST — CYMA棚完成と画像→動画交互運用、次枠をDuofon機能Reelへ
+
+- **変更**：CYMA Time-O-Voxの初期AI_PROPOSEDを、ユーザーが明示NG／制約指定したもの以外すべて採用としてreview completeへ進めた。次投稿をPierce Duofon機能Reel `MR-PIE-001` としてPLANNED予約し、当面の投稿順を `画像 → 動画 → 画像 → 動画` の交互ローテーションとする。
+- **理由**：ユーザーが「初期候補NGだけさしてるので採用」「Duofon機能の動画一回挟んで、画像→動画→画像→動画」と確定。rolling shelfから時計＋内容を選ぶ運用と両立しつつ、formatも交互に検証できる。
+- **旧状態・棄却**：CYMAの未明示候補をAI_PROPOSEDのまま保留する状態を終了。Reel連投または静止画連投を基本とする運用は採用しない。ただし交互順をInstagram普遍則・固定頻度とはみなさない。
+- **影響範囲**：Social Router ACTIVE、content inventoryのCYMA review / Assignment Registry、instagram operations。公開WATCH本文・OWNER'S NOTE・既存Published Copy / Insightsは変更しない。Duofon機構動画の公開サイト実装は別作業。
+- **検証状態**：PR #169で先行実装し、current-main replay branchへ有効差分を救出。CI通過後にmain反映可否を判定する。
+- **関連**：user decision 2026-10-05 07:22 JST、MR-PIE-001。
+- **日時根拠**：developer-provided local time `2026-10-05T07:22+09:00` = `2026-10-05 07:22 JST`。
+
 ### 2026-10-05 06:55 JST — ARSA残タスクの状態同期とJSH 1958メタデータを確定
 
 - **変更**：ARSA Research Map内で⑤AS1475章の状態が一箇所だけ `ACTIVE / CLOSING CHAPTER` のまま残っていたため、既に確定済みの `PASS 1 COMPLETE / CLOSING FRAME FIXED` へ同期した。同時にThe Watch Libraryの1958年JSH通年記録について、Public Domain・822 pagesをWeb確認済みへ昇格し、1958年A. Reymond 60周年記事本文自体は未取得のままOPENとした。1948 / 1973 Mémoires d'Ici資料も再探索したが、今回も本文ではなくarchive metadataまでに留まることをLEDGERへ追記した。さらに1967年SwisstimeのARSA hunter pocket watchで、winding crown上のbuttonを押してcoverを開く当時記述を確認し、Blind Alarmのcrown-integrated openerを「accessibilityに有効なARSAの構造」としつつ「accessibility専用に発明された機構」とは扱わないよう解釈を更新した。
@@ -1127,4 +1209,14 @@
 - **検証状態**：branch `feat/duofon-winding-deep-dive` にJA / EN / DE本文と動画参照を実装。localization sync / coverage / purity、citation、Japanese style、build、mobile layout、PR CI、main merge、deploy、live publicationを通すまでVERIFIED / DEPLOYEDとはしない。
 - **関連**：ユーザー指示「実装しよう」「動画は君が入れられる」「画像はこっちでやる」、既存動画 `public/videos/pierce-duofon/time-alarm-winding.mov`、Pierce source #1（1955年技術資料）。実装commit `f1ca6a5e02fd81a8649421d9895c8bfb245d1abd` / `f096c859c08e21584d326caabf6b9e2426a4e148` / `6967f5c2205f8a5b1ffc4bf527fab29627fe0232`、監査記録commit `9b5927fc85b18a1eaaac8d90179383132db56eef`。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T16:20:13+09:00` → `2026-10-05 16:20 JST`。
+
+
+### 2026-10-05 16:05 JST — OWNER'S NOTE Slides PNG exporterを正本化
+- **変更**：現行private Google Slidesの6 WATCH × JA/EN/DE = 18枚をmanifestで固定し、Slides APIのLARGE PNGを1600×2233で実ピクセル検査してartifact化するexporter、checker、手動Actions workflow、運用READMEを追加する。
+- **理由**：Slides実体は現存する一方、以前のlocal-only export実装はcurrent GitHub正本に無く、再現可能なremote正本が必要なため。
+- **旧状態・棄却**：旧local実装を推測復元する案、手動スクリーンショットや後処理リサイズを正規exportとみなす案、private deckを公開リンク化する案は採用しない。
+- **影響範囲**：owner-note slide export用tools/scripts/workflow、package.json、.gitignore、PROJECT_STATE.md、本判断履歴。Slides本文・翻訳・レイアウト、公開WATCHは変更しない。
+- **検証状態**：connected Google Slidesで18枚すべてがimage/png・1600×2233で返ることを実測済み。repository側はPR CI通過までVERIFIEDとはしない。Actions実exportは認証設定後の成功実行までruntime未検証。
+- **関連**：2026-10-05ユーザー指示「じゃあそこを作成しようか部長」「GitHubどうぞ」／canonical deck ID 1Lcz0CEZncDw1GncI4RMY6qDmfO4Fknq4NvpGtBZAaLk。
+- **日時根拠**：developer-provided local time 2026-10-05T16:05+09:00 = 2026-10-05 16:05 JST。
 

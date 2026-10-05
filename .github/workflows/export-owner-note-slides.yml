@@ -1,0 +1,47 @@
+name: Export OWNER'S NOTE Slides PNG
+
+on:
+  workflow_dispatch:
+    inputs:
+      slides:
+        description: "Comma-separated manifest keys or slide objectIds; blank = all 18"
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify export contract
+        run: node scripts/check-owner-note-slide-export.mjs
+      - name: Export PNGs from Google Slides
+        shell: bash
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          SLIDES_INPUT: ${{ inputs.slides }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${GOOGLE_SERVICE_ACCOUNT_JSON:-}" ]]; then
+            echo "::error::Missing Actions secret GOOGLE_SERVICE_ACCOUNT_JSON."
+            exit 1
+          fi
+          if [[ -n "${SLIDES_INPUT:-}" ]]; then
+            node scripts/export-owner-note-slides.mjs --slides "$SLIDES_INPUT"
+          else
+            node scripts/export-owner-note-slides.mjs
+          fi
+      - name: Upload PNG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: owner-note-slides-${{ github.run_id }}
+          path: artifacts/owner-note-slides/
+          if-no-files-found: error
+          retention-days: 14

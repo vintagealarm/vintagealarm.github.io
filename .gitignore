@@ -27,3 +27,6 @@ dist/
 # OS / editor noise
 .DS_Store
 Thumbs.db
+
+# Generated OWNER'S NOTE slide exports
+artifacts/owner-note-slides/

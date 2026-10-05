@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "presentationId": "1Lcz0CEZncDw1GncI4RMY6qDmfO4Fknq4NvpGtBZAaLk",
+  "presentationTitle": "VINTAGE ALARM — OWNER'S NOTE SLIDE SYSTEM — CITIZEN SPIKE",
+  "expected": {
+    "mimeType": "image/png",
+    "thumbnailSize": "LARGE",
+    "width": 1600,
+    "height": 2233
+  },
+  "slides": [
+    {
+      "key": "pierce-duofon-ja",
+      "watch": "pierce-duofon",
+      "language": "ja",
+      "objectId": "p",
+      "fileName": "pierce-duofon-ja.png"
+    },
+    {
+      "key": "pierce-duofon-en",
+      "watch": "pierce-duofon",
+      "language": "en",
+      "objectId": "duofon_en_slide",
+      "fileName": "pierce-duofon-en.png"
+    },
+    {
+      "key": "pierce-duofon-de",
+      "watch": "pierce-duofon",
+      "language": "de",
+      "objectId": "duofon_de_slide",
+      "fileName": "pierce-duofon-de.png"
+    },
+    {
+      "key": "basis-alarm-ja",
+      "watch": "basis-alarm",
+      "language": "ja",
+      "objectId": "basis_slide",
+      "fileName": "basis-alarm-ja.png"
+    },
+    {
+      "key": "basis-alarm-en",
+      "watch": "basis-alarm",
+      "language": "en",
+      "objectId": "basis_en_slide",
+      "fileName": "basis-alarm-en.png"
+    },
+    {
+      "key": "basis-alarm-de",
+      "watch": "basis-alarm",
+      "language": "de",
+      "objectId": "basis_de_slide",
+      "fileName": "basis-alarm-de.png"
+    },
+    {
+      "key": "citizen-alarm-ja",
+      "watch": "citizen-alarm",
+      "language": "ja",
+      "objectId": "citizen_slide",
+      "fileName": "citizen-alarm-ja.png"
+    },
+    {
+      "key": "citizen-alarm-en",
+      "watch": "citizen-alarm",
+      "language": "en",
+      "objectId": "citizen_en_slide",
+      "fileName": "citizen-alarm-en.png"
+    },
+    {
+      "key": "citizen-alarm-de",
+      "watch": "citizen-alarm",
+      "language": "de",
+      "objectId": "citizen_de_slide",
+      "fileName": "citizen-alarm-de.png"
+    },
+    {
+      "key": "westclox-watchlarm-ja",
+      "watch": "westclox-watchlarm",
+      "language": "ja",
+      "objectId": "westclox_slide",
+      "fileName": "westclox-watchlarm-ja.png"
+    },
+    {
+      "key": "westclox-watchlarm-en",
+      "watch": "westclox-watchlarm",
+      "language": "en",
+      "objectId": "westclox_en_slide",
+      "fileName": "westclox-watchlarm-en.png"
+    },
+    {
+      "key": "westclox-watchlarm-de",
+      "watch": "westclox-watchlarm",
+      "language": "de",
+      "objectId": "westclox_de_slide",
+      "fileName": "westclox-watchlarm-de.png"
+    },
+    {
+      "key": "cyma-time-o-vox-ja",
+      "watch": "cyma-time-o-vox",
+      "language": "ja",
+      "objectId": "cyma_slide",
+      "fileName": "cyma-time-o-vox-ja.png"
+    },
+    {
+      "key": "cyma-time-o-vox-en",
+      "watch": "cyma-time-o-vox",
+      "language": "en",
+      "objectId": "cyma_en_slide",
+      "fileName": "cyma-time-o-vox-en.png"
+    },
+    {
+      "key": "cyma-time-o-vox-de",
+      "watch": "cyma-time-o-vox",
+      "language": "de",
+      "objectId": "cyma_de_slide",
+      "fileName": "cyma-time-o-vox-de.png"
+    },
+    {
+      "key": "wittnauer-10wa-ja",
+      "watch": "wittnauer-10wa",
+      "language": "ja",
+      "objectId": "wittnauer_ja_slide",
+      "fileName": "wittnauer-10wa-ja.png"
+    },
+    {
+      "key": "wittnauer-10wa-en",
+      "watch": "wittnauer-10wa",
+      "language": "en",
+      "objectId": "wittnauer_en_slide",
+      "fileName": "wittnauer-10wa-en.png"
+    },
+    {
+      "key": "wittnauer-10wa-de",
+      "watch": "wittnauer-10wa",
+      "language": "de",
+      "objectId": "wittnauer_de_slide",
+      "fileName": "wittnauer-10wa-de.png"
+    }
+  ]
+}
