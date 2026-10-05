@@ -17,6 +17,37 @@
 
 ## 2026-10-05
 
+### 2026-10-05 08:44 JST — Social棚から実制作へExecution Briefを必須化
+
+- **変更**：Social運用へ `Content Inventory → Content Assignment → Execution Brief → storyboard / caption → publish` の引継ぎ層を追加した。Execution BriefはactiveなInstagram content単位で持ち、Media reality / Attention cue / Sensory proof / Causal beat / Published collision / Carry-forward / Constraints / Working copyを必須項目とする。実素材未確認のPLANNEDのみ `MEDIA_PENDING` を許容し、SHOT / EDITED / SCHEDULEDは `MEDIA_VERIFIED` 必須。 `check:social-inventory` へactive Instagram assignmentとbriefの対応・必須field・media status検査を追加し、MR-PIE-001を最初の実例として登録した。
+- **理由**：ユーザーが「今までの分析の意味は？ 棚卸はその視点でしてなかったの？」と指摘。Council 1で、研究→棚卸し→投稿選択は接続されていた一方、過去Published Copy / Insights / Operationsで得た制作知見と実素材観察を、選択済みassetからcaption / Reelへ渡す層が無く、投稿時に一般論へリセットされることを根本原因と裁定した。
+- **旧状態・棄却**：全assetへMicro fit / Micro treatmentをAI単独で固定して棚を肥大化させる2026-10-03旧案は復活させない。反対に、Assignmentだけ作って「どう見える／何が聞こえる／既出との差分／素材制約」を会話記憶へ任せる運用も棄却する。
+- **影響範囲**：Social Router、content-inventory、instagram-operations、social inventory checker、MR-PIE-001。公開WATCH本文、OWNER'S NOTE、既存Published Copy、Insights実測値は変更しない。
+- **検証状態**：stale化したPR #169で先行実装後、current mainから `social-execution-brief-replay` へ有効差分を再適用。GitHub再取得とCI通過後にVERIFIEDとする。main反映／公開サイト変更は別状態。
+- **関連**：PR #169、2026-10-03 21:33 asset→content→media予約制、2026-10-03 22:47 AI単独Micro treatment撤回、2026-10-05 08:23 copy learning contract、MR-PIE-001。
+- **日時根拠**：developer-provided local time `2026-10-05T08:44+09:00` = `2026-10-05 08:44 JST`。
+
+### 2026-10-05 08:23 JST — Instagram本文生成で過去知見と最新ユーザー原稿を強制継承
+
+- **変更**：Social Routerへ `INSTAGRAM COPY LEARNING CONTRACT` を追加し、①目の前の実素材を先に確認、②最新ユーザー訂正／原稿をworking baseとして保持、③過去実投稿で得た視覚誘導・音誘導・機構説明の知見を次稿へ持ち越す、④Instagram全文は英語全文→hashtags→自然な日本語訳の順で一括提示、⑤hashtagsは実投稿precedentを根拠なく増減しない、を再発防止規則として固定した。MR-PIE-001についてはユーザー提示の日本語原稿全文を `instagram-operations.md` に `USER_WORKING_DRAFT` として保存し、実動画が文字盤なしの内部アラーム機構映像である境界もassignmentへ追記した。
+- **理由**：直前のAI回答が、実動画と既存 `instagram-published-copy.md` を確認した後にもかかわらず、一般的なSNS短文へ戻り、これまでの訂正・実投稿から得た知見とユーザーが提示した具体的な説明順を次稿へ継承できなかった。ユーザーから「今までの反省や得た知見を活かせ」と明示訂正されたため。
+- **旧状態・棄却**：毎回ゼロから最適化し直す草案生成、実素材にない文字盤／表示窓／別カットを補う構成、ユーザー原稿受領後にAI旧草案へ巻き戻す運用、全文要求に対してhookや途中稿だけ返す運用を棄却する。
+- **影響範囲**：Social Router、instagram-operations、content-inventoryのMR-PIE-001 evidence。本番公開本文・`instagram-published-copy.md`・Insights実測値・WATCH本文は変更しない。
+- **検証状態**：PR #169で先行実装し、current-main replay branchへ救出。USER_WORKING_DRAFTは公開済み扱いにせず、公開確認後にだけPublished Copyへ昇格する。
+- **関連**：PR #169、MR-PIE-001、Pierce Duofon初回Published Copy、2026-10-05ユーザー訂正「今までの反省や得た知見を活かせ」。
+- **日時根拠**：runtime JST clock `2026-10-05T08:23:30+09:00` = `2026-10-05 08:23 JST`。
+
+### 2026-10-05 07:22 JST — CYMA棚完成と画像→動画交互運用、次枠をDuofon機能Reelへ
+
+- **変更**：CYMA Time-O-Voxの初期AI_PROPOSEDを、ユーザーが明示NG／制約指定したもの以外すべて採用としてreview completeへ進めた。次投稿をPierce Duofon機能Reel `MR-PIE-001` としてPLANNED予約し、当面の投稿順を `画像 → 動画 → 画像 → 動画` の交互ローテーションとする。
+- **理由**：ユーザーが「初期候補NGだけさしてるので採用」「Duofon機能の動画一回挟んで、画像→動画→画像→動画」と確定。rolling shelfから時計＋内容を選ぶ運用と両立しつつ、formatも交互に検証できる。
+- **旧状態・棄却**：CYMAの未明示候補をAI_PROPOSEDのまま保留する状態を終了。Reel連投または静止画連投を基本とする運用は採用しない。ただし交互順をInstagram普遍則・固定頻度とはみなさない。
+- **影響範囲**：Social Router ACTIVE、content inventoryのCYMA review / Assignment Registry、instagram operations。公開WATCH本文・OWNER'S NOTE・既存Published Copy / Insightsは変更しない。Duofon機構動画の公開サイト実装は別作業。
+- **検証状態**：PR #169で先行実装し、current-main replay branchへ有効差分を救出。CI通過後にmain反映可否を判定する。
+- **関連**：user decision 2026-10-05 07:22 JST、MR-PIE-001。
+- **日時根拠**：developer-provided local time `2026-10-05T07:22+09:00` = `2026-10-05 07:22 JST`。
+
+
 ### 2026-10-05 06:55 JST — ARSA残タスクの状態同期とJSH 1958メタデータを確定
 
 - **変更**：ARSA Research Map内で⑤AS1475章の状態が一箇所だけ `ACTIVE / CLOSING CHAPTER` のまま残っていたため、既に確定済みの `PASS 1 COMPLETE / CLOSING FRAME FIXED` へ同期した。同時にThe Watch Libraryの1958年JSH通年記録について、Public Domain・822 pagesをWeb確認済みへ昇格し、1958年A. Reymond 60周年記事本文自体は未取得のままOPENとした。1948 / 1973 Mémoires d'Ici資料も再探索したが、今回も本文ではなくarchive metadataまでに留まることをLEDGERへ追記した。さらに1967年SwisstimeのARSA hunter pocket watchで、winding crown上のbuttonを押してcoverを開く当時記述を確認し、Blind Alarmのcrown-integrated openerを「accessibilityに有効なARSAの構造」としつつ「accessibility専用に発明された機構」とは扱わないよう解釈を更新した。
