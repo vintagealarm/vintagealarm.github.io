@@ -44,9 +44,30 @@ for (const field of [
   requireText(taskEnvelope, field, 'Task Envelope field');
   requireText(managerControlPlane, field, 'Manager Control Plane field');
 }
-for (const stateName of ['RECEIVED','SCOPED','READY','EXECUTING','VERIFYING','PASS','FAIL','REPORT']) {
+for (const stateName of ['RECEIVED','SCOPED','AUDIT_REPORTED','READY','EXECUTING','VERIFYING','PASS','FAIL','REPORT']) {
   requireText(managerControlPlane, stateName, 'Manager Control Plane state');
 }
+for (const field of [
+  'CHAT AUDIT REPORT',
+  'Required: YES / NO',
+  'Reported in chat: PENDING / YES / NO',
+  'Current state reported:',
+  'Defect / gap reported:',
+  'Cause reported:',
+  'Change scope reported:',
+  'Out of scope reported:',
+  'Success criteria reported:',
+  'User approval required: YES / NO',
+  'Approval status: N/A / PENDING / APPROVED / REJECTED'
+]) {
+  requireText(taskEnvelope, field, 'Task Envelope chat-audit field');
+}
+requireText(managerControlPlane, 'Pre-implementation CHAT AUDIT REPORT — mandatory', 'Manager chat-audit gate');
+requireText(managerControlPlane, '実装系の書き込み操作より前', 'Manager chat-audit mutation barrier');
+requireText(managerControlPlane, '監査報告は承認要求と同義ではない', 'Manager chat-audit approval semantics');
+requireText(agents, 'RECEIVED → SCOPED → AUDIT_REPORTED → READY', 'AGENTS chat-audit state transition');
+requireText(state, 'RECEIVED → SCOPED → AUDIT_REPORTED → READY', 'PROJECT_STATE chat-audit state transition');
+
 for (const metric of [
   'USER_REINSTRUCTION_COUNT',
   'CANONICAL_SOURCE_REDIRECT_COUNT',
@@ -56,6 +77,31 @@ for (const metric of [
 ]) {
   requireText(taskEnvelope, metric, 'Task Envelope metric');
   requireText(managerControlPlane, metric, 'Manager Control Plane metric');
+}
+for (const field of [
+  'PLATFORM',
+  'LANGUAGE',
+  'AUDIENCE',
+  'CHARACTER LIMIT',
+  'SOURCE COPY',
+  'TRANSFORMATION',
+  'DESTINATION / PROFILE',
+  'OUTPUT VALIDATOR'
+]) {
+  requireText(managerControlPlane, field, 'Manager Control Plane platform-output field');
+}
+for (const field of [
+  'Platform:',
+  'Language:',
+  'Audience:',
+  'Character limit:',
+  'Source copy:',
+  'Transformation:',
+  'Destination / profile:',
+  'Output validator:',
+  'Actual candidate validation:'
+]) {
+  requireText(taskEnvelope, field, 'Task Envelope platform-output field');
 }
 requireText(managerControlPlane, 'Builderの自己申告を証拠にしない', 'Manager Control Plane verifier independence');
 requireText(managerControlPlane, 'single-agent', 'Manager Control Plane default execution mode');

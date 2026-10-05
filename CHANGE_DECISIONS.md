@@ -1292,3 +1292,23 @@
 - **関連**：PR #188、先行実装commit `35d6e30784b8f7a1e4292a9c43b0ff191f66c5b6` / `c314c759ef6fa1846f0b6411fcecfc98f8a9ae59`、main同期merge commit `03e0174ce1165898e64db00230847b0895059d1c`。
 - **日時根拠**：developer-provided local date `2026-10-05` と作業環境時計 `2026-10-05 21:42:40 +09:00` → `2026-10-05 21:42 JST`。
 
+### 2026-10-05 21:57 JST — X海外向け英語運用をManagerのplatform output contractへ固定
+- **変更**：Social RouterへX CURRENT OUTPUT CONTRACTを追加し、X actual post candidateをEnglish only / overseas-facing / profile destination=/en/ / VA editorial cap 140 user-perceived charactersと固定する。Instagram既存投稿の再利用は instagram-published-copy.md → English compression/adaptation → 140-character validation → output の順とし、current repost formatを WATCH NAME → short English description → English hashtags とする。Manager Control Plane / Task Envelopeへ PLATFORM / LANGUAGE / AUDIENCE / CHARACTER LIMIT / SOURCE COPY / TRANSFORMATION / DESTINATION / OUTPUT VALIDATOR をREADY条件として追加し、Fail-Closed Guardへplatform output contract gateを統合する。既存 scripts/check-inference-guards.mjs を拡張し、日本語Script混入・140超過・repost format違反を機械的にFAILできるvalidatorと SOCIAL-X-LANGUAGE-001 回帰fixtureを追加する。新しい独立システム・DB・queueは作らない。
+- **理由**：Social Routerを取得していても、媒体のlanguage / audience / character limit / source transformationをTask Envelopeへ束縛する項目がなく、正本を読んだ工程だけ通ってactual outputへ反映されない事故が発生した。X海外向け英語運用が既決定なのに日本語投稿案を出し、ユーザーが再度訂正する状態になったため、説明規則ではなく生成直前のfail-closed条件へ昇格する。
+- **旧状態・棄却**：「英語アカウントだと覚える」だけの会話依存、Social Routerへ注意書きだけ追記する、X専用の新しい管理システムを増設する、X一般仕様を根拠にVAの140字上限を280へ緩める、を棄却する。既存Social Router + Manager Control Plane + Fail-Closed Guard +既存checkerへ統合する。
+- **Web知見**：2026-10-05確認時点のX公式Help https://help.x.com/en/using-x/how-to-post は通常postを英語で最大280 charactersと案内し、https://help.x.com/en/using-x/x-premium-how-to はPremium longer postsを最大25,000 charactersと案内する。また公開twitter-text v3 config https://github.com/twitter/twitter-text/blob/master/config/v3.json は maxWeightedTweetLength=280 / transformedURLLength=23。よって今回の140はX技術上限ではなく、ユーザー確定のVA編集上限として独立して検査する。current repost formatは本文URLを前提にしないためURL重み付けで140上限を緩めない。
+- **影響範囲**：Social Router、Manager Control Plane、Task Envelope、Fail-Closed Guard、inference regression fixtures/checker、project consistency checker、PROJECT_STATE、本判断履歴。Instagram本文正本・Insights・公開WATCH本文・X実投稿そのものは変更しない。
+- **検証状態**：branch ops/x-output-contract-gate-20261005 へ実装中。既存quality gateと新X regression/self-test、PR CIを通し、diffをcurrent mainと再照合するまでVERIFIEDとはしない。actual X copyの将来生成時は既存checkerの --x-copy / --x-repost validationをPASS条件にできる。
+- **関連**：ユーザー確定「Xは英語で海外勢向け」「プロフィールURLは英語版トップ /en/」「Instagramの単純コピーではなくX向けに再構成」「Instagram既存投稿を時計名→短文説明→hashtagsへ140字以内で圧縮・改変」、今回の再発指摘「部長＝Manager Control Planeを作った目的そのものに反している」。実装commits `9d32f0cf` / `98aa5c83` / `fac0cb01` / `318adc0b` / `aa71b50a` / `fbac76ff` / `a64f7c52` / `dd7fdb12` / `0acca40e`。
+- **日時根拠**：developer-provided local time 2026-10-05T21:57+09:00 = 2026-10-05 21:57 JST。
+
+
+### 2026-10-05 22:27 JST — 非自明な実装前にチャット監査報告を必須化
+- **変更**：Manager Control Planeの状態遷移を `RECEIVED → SCOPED → AUDIT_REPORTED → READY → EXECUTING → VERIFYING → PASS / FAIL → REPORT` へ変更する。非自明なrepository変更・公開変更・研究判断・複数工程では、SCOPED後かつ実装系mutation前に、ユーザーが見えるチャットへ CURRENT STATE / DEFECT-GAP / CAUSE / CHANGE SCOPE / OUT OF SCOPE / SUCCESS CRITERIA を監査報告する。Task EnvelopeへCHAT AUDIT REPORT欄を追加し、`scripts/check-project-consistency.mjs` でManager / Task Envelope / AGENTS / PROJECT_STATEの監査gate接続を検査する。
+- **理由**：内部でTask Envelopeと正本確認を済ませても、ユーザーが監査内容を見る前に実装へ進める欠損が残っていた。直前のX再発防止実装でも、ユーザーから「まず監査をチャットで報告必須」と再指示が必要になったため、監査の可視化をREADY前の状態遷移へ昇格する。
+- **旧状態・棄却**：旧状態 `RECEIVED → SCOPED → READY` のまま内部監査だけで実装開始できる運用を撤回する。一方で、監査報告を常に承認待ちへ変える案は採用しない。ユーザーが明示的に承認待ちを求めた場合だけApprovalを待ち、それ以外は監査報告後にREADYへ進める。
+- **影響範囲**：`.codex/MANAGER_CONTROL_PLANE.md`、`.codex/TASK_ENVELOPE_TEMPLATE.md`、`AGENTS.md`、`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`、本判断履歴。公開WATCH本文、SNS正本、Fail-Closedの推論規則、multi-agent設定は変更しない。
+- **検証状態**：branch `ops/chat-audit-report-gate-20261005` へ実装済み。PR CIで `check:project-consistency` と既存quality gateを通し、main merge後に正本再取得で `AUDIT_REPORTED` とCHAT AUDIT REPORT欄を確認するまでVERIFIEDとはしない。
+- **関連**：ユーザー指示「まず監査をチャットで報告必須」→監査報告→「では実行」。実装commits `d2938798` / `a5775513` / `3603e468` / `3242fcff` / `becf98a7`。
+- **日時根拠**：GitHub commit `becf98a7ad3e9b9e1346be7e1c942172c34966db` の 2026-10-05T13:27:17Z → 2026-10-05 22:27 JST。
+
