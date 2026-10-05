@@ -418,7 +418,7 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
             fullRow: true
           },
           {
-            src: '/images/pierce-duofon/mechanism/01-signal-hammer.webp?v=2',
+            src: '/images/pierce-duofon/mechanism/01-signal-hammer.webp',
             caption: '② SIGNAL — white / discreet side. The blue-marked part is the hammer. The striking pin is moved away from the hammer’s striking position, so the hammer vibrates without striking the gong.',
             alt: 'Pierce Cal. 135 in SIGNAL mode, showing the hammer in blue and the striking pin moved out of position',
             afterParagraph: 2
