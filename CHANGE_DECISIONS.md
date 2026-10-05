@@ -24,7 +24,7 @@
 - **旧状態・棄却**：重複文言を履歴保存と誤認してCURRENT正本へ二重保持する状態、#182または#185をmergeabilityだけで選んでそのままmergeする案、重複PRやbranch自体を削除する案を棄却する。履歴はPR / branch / commit / decision logに残し、CURRENTだけを一意化する。
 - **影響範囲**：PROJECT.md、AGENTS.md、`.codex/MANAGER_CONTROL_PLANE.md`、PROJECT_STATE.md、OWNER'S NOTE slide exporter関連workflow / scripts / manifest / README / package.json / .gitignore、PR #182 / #185 lifecycle。公開WATCH本文・OWNER'S NOTE本文・SNS実測・PR #135 / #186は変更しない。
 - **検証状態**：source PR #182 / #185のexporter主要8ファイルがbyte-for-byte同一であることをGitHub取得で確認。current mainからfresh branchへ差分適用済み。新PRのCI通過・merge・main再取得・旧PR close完了まではVERIFIEDとしない。
-- **関連**：source PR #182 / #185、branch `fix/failclosed-exporter-consolidation-20261005`、先行判断 2026-10-04 21:45 JST「履歴保存と現行作業キューを明示分離」。
+- **関連**：source PR #182 / #185、branch `fix/failclosed-exporter-consolidation-20261005`、commits `22cca726` / `4351d34b` / `6acf9521` / `8b26c037` / `ea6c97d1` / `7f6939cb` / `6bd05cce` / `d1c64233` / `0d520ec6` / `526dacb9` / `ca869112` / `af5c4d19`、先行判断 2026-10-04 21:45 JST「履歴保存と現行作業キューを明示分離」。
 - **日時根拠**：system-provided local time `2026-10-05T20:44:40+09:00` = `2026-10-05 20:44 JST`。
 
 
