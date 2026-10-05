@@ -92,6 +92,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - active queueと履歴の境界: **open PR = 現在の作業候補、closed / superseded PRとPRなしbranch = 原則HISTORY**。例外は会話または正本で明示的に作業中指定されたbranchのみ。これによりbranch数が増えても、履歴保存と現在作業の発見性を両立する。
 - Manager Control Plane pilot: `.codex/MANAGER_CONTROL_PLANE.md` + `.codex/TASK_ENVELOPE_TEMPLATE.md`。既定はsingle-agentで、Task Envelopeに CURRENT STATE / CANONICAL SOURCES / SCOPE / MUST / DO NOT / REJECTED-HOLD / SUCCESS CRITERIA / VERIFY PLAN を固定し、RECEIVED → SCOPED → READY → EXECUTING → VERIFYING → PASS / FAIL → REPORTで管理する。VerifierはBuilder自己申告ではなく正本・diff・test / build・render / live・実物へ戻って判定する。pilotの主指標はユーザー再指示・正本誘導・確認催促・完了後不具合発見の削減
 - Fail-Closed Inference Guard: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` + `.codex/inference-guard-cases.json`。一方向規則の逆推論禁止、既存判断のREVERSAL TARGET + NEW EVIDENCE必須、現物先行、一般論は候補止まり、出力前矛盾検査をManager Control Planeへ接続する
+- Fail-Closed Inference Guard: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` + `.codex/inference-guard-cases.json`。一方向規則の逆推論禁止、既存判断のREVERSAL TARGET + NEW EVIDENCE必須、現物先行、一般論は候補止まり、出力前矛盾検査をManager Control Planeへ接続する
 - `.codex/config.toml` では multi-agent は無効。Manager Control Plane pilotでも明示指示なしに有効化しない
 - Councilはprotocol-driven V3。`焼いて` 単独は即実行せず7形式を毎回明示するランチャー
 - Councilの7形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知） / 宮廷道化師🤡
