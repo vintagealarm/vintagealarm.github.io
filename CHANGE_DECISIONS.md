@@ -1089,3 +1089,12 @@
 - **関連**：PR #166（superseded）、PR #171（動画ファイル名整理）、PR #172。実装commit `142bb4e5241d3c442255e6348c26b94a042aae33` / `52d8f5e8c084bb1539a65a053139cf6bb382f438` / `45f3fd46c6307df9c5fee0d39ddd75257296a620` / `48e1d770a84f31d865c3b380b42e8fd5b40a7ffb` / `4eb1209c895d8028aacd6dc33b32b1e4f6de4b0e` / `633ceebfe57596b87d0e99b3345ff9d7af0d3343`。main asset `public/videos/pierce-duofon/wecker-signal-switch.mov`、2026-10-05ユーザー指示「じゃああとはサイトに　動画で見るを埋め込むのは任せて平気だな？」。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T08:30:16+09:00` → `2026-10-05 08:30 JST`。
 
+### 2026-10-05 09:27 JST — Pierce Duofon動画2本の内容対応を訂正して入れ替え
+- **変更**：Pierce Duofon動画2本の**ファイル名は意味を表す恒久名のまま維持し、中身のGit blobを交換**する。`public/videos/pierce-duofon/wecker-signal-switch.mov` にはWECKER / SIGNAL鳴らし分け動画を、`public/videos/pierce-duofon/time-alarm-winding.mov` には3時位置リューズによる時計側 / アラーム側の巻き上げ切替動画を対応させる。
+- **理由**：公開後、ユーザーが「動画逆のが登録されてる」と実機内容を確認して訂正した。前回の `IMG_2760` / `IMG_2767` の対応説明自体をユーザーが取り違えて伝えた可能性も示されたため、元番号ではなく**動画内容と恒久ファイル名の意味**を一致させることを正本とする。
+- **旧状態・棄却**：2026-10-05 08:18 JSTの `IMG_2760 → wecker-signal-switch` / `IMG_2767 → time-alarm-winding` という対応付けを撤回する。履歴は削除せず、この訂正記録で上書きする。
+- **影響範囲**：`public/videos/pierce-duofon/wecker-signal-switch.mov` と `public/videos/pierce-duofon/time-alarm-winding.mov` の内容対応のみ。Pierce WATCH本文、DEEP DIVE配置、JA / EN / DEの参照パス、CMS設定、既存静止画は変更しない。
+- **検証状態**：branch `fix/duofon-video-swap` でblob交換を実装済み。PR / CI / main merge / deploy / liveで `動画で見る` が正しいWECKER / SIGNAL動画を指すことを確認するまでVERIFIED / DEPLOYEDとはしない。
+- **関連**：ユーザー訂正「動画逆のが登録されてる　なんなら名前も俺が伝え損ねてるかも交換して」、実装commit `fadf387e43d3ccd23d9e8ec83f3d905a5aec8d36`。訂正前の判断は2026-10-05 08:18 JST / 08:30 JSTのdecision entry。
+- **日時根拠**：ChatGPT time取得値 `2026-10-05T09:27:13+09:00` → `2026-10-05 09:27 JST`。
+
