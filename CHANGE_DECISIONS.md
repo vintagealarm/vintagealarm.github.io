@@ -1278,6 +1278,6 @@
 - **Web知見**：2026-10-05確認時点のX公式Help https://help.x.com/en/using-x/how-to-post は通常postを英語で最大280 charactersと案内し、https://help.x.com/en/using-x/x-premium-how-to はPremium longer postsを最大25,000 charactersと案内する。また公開twitter-text v3 config https://github.com/twitter/twitter-text/blob/master/config/v3.json は maxWeightedTweetLength=280 / transformedURLLength=23。よって今回の140はX技術上限ではなく、ユーザー確定のVA編集上限として独立して検査する。current repost formatは本文URLを前提にしないためURL重み付けで140上限を緩めない。
 - **影響範囲**：Social Router、Manager Control Plane、Task Envelope、Fail-Closed Guard、inference regression fixtures/checker、project consistency checker、PROJECT_STATE、本判断履歴。Instagram本文正本・Insights・公開WATCH本文・X実投稿そのものは変更しない。
 - **検証状態**：branch ops/x-output-contract-gate-20261005 へ実装中。既存quality gateと新X regression/self-test、PR CIを通し、diffをcurrent mainと再照合するまでVERIFIEDとはしない。actual X copyの将来生成時は既存checkerの --x-copy / --x-repost validationをPASS条件にできる。
-- **関連**：ユーザー確定「Xは英語で海外勢向け」「プロフィールURLは英語版トップ /en/」「Instagramの単純コピーではなくX向けに再構成」「Instagram既存投稿を時計名→短文説明→hashtagsへ140字以内で圧縮・改変」、今回の再発指摘「部長＝Manager Control Planeを作った目的そのものに反している」。
+- **関連**：ユーザー確定「Xは英語で海外勢向け」「プロフィールURLは英語版トップ /en/」「Instagramの単純コピーではなくX向けに再構成」「Instagram既存投稿を時計名→短文説明→hashtagsへ140字以内で圧縮・改変」、今回の再発指摘「部長＝Manager Control Planeを作った目的そのものに反している」。実装commits `9d32f0cf` / `98aa5c83` / `fac0cb01` / `318adc0b` / `aa71b50a` / `fbac76ff` / `a64f7c52` / `dd7fdb12` / `0acca40e`。
 - **日時根拠**：developer-provided local time 2026-10-05T21:57+09:00 = 2026-10-05 21:57 JST。
 
