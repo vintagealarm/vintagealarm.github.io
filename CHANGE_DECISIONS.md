@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 16:51 JST — Social Execution Brief一式をmain反映・CI検証完了
+
+- **変更**：PR #178をmainへmergeし、MR-PIE-001の公開記録・16:03 Insights snapshot・Execution Brief bridge・観察箇所指定standard・Instagram Insights parser修正を現行mainへ確定した。旧PR #173はsupersededとしてclose済み。
+- **理由**：ユーザー指示「じゃそこまで」に基づき、branch記録だけで止めず、current mainへ安全にreplayし、CIとmain再取得まで完了させるため。
+- **旧状態・棄却**：non-mergeableなPR #173をmerge pathとして残す状態、PR #178のCI成功前にmain反映済みと扱う状態、main再取得なしでVERIFIEDと呼ぶ状態を棄却。
+- **影響範囲**：Social Router、Content Inventory、Instagram Published Copy / Insights / Operations、social inventory checker、Instagram Insights parser、Decision Log。公開WATCH本文・UI・別PR #177には変更なし。
+- **検証状態**：VERIFIED。PR #178 head `c79e80bd2ab9b7130ff333dcde489b317a7e5b9e` でGitHub Actions `Astro foundation check` run #593がSUCCESS。merge commit `3aca9e3877d1326733ce76e9b8eb21c2ae06f2a6` 後、mainから16:03 snapshot・観察箇所指定standard・16:06 operations記録・parser decisionを再取得して反映を確認した。
+- **関連**：PR #178、superseded PR #173、workflow run #593、merge commit `3aca9e3877d1326733ce76e9b8eb21c2ae06f2a6`。
+- **日時根拠**：GitHub PR #178 merged_at `2026-10-05T07:51:14Z → 2026-10-05 16:51 JST`。
+
+
 ### 2026-10-05 16:47 JST — Instagram Insights parserでsubsection境界をsnapshot終端にする
 
 - **変更**：`scripts/instagram-insights-timeseries.mjs` のcanonical parserで、同一WATCH内の `## ` subsection見出しをsnapshot終端として扱うよう修正した。WATCH自体は維持するため、その後の別content snapshot（例: Pierce Duofon `MR-PIE-001`）は同じWATCHの時系列として引き続き集計される。
@@ -1219,4 +1230,3 @@
 - **検証状態**：connected Google Slidesで18枚すべてがimage/png・1600×2233で返ることを実測済み。repository側はPR CI通過までVERIFIEDとはしない。Actions実exportは認証設定後の成功実行までruntime未検証。
 - **関連**：2026-10-05ユーザー指示「じゃあそこを作成しようか部長」「GitHubどうぞ」／canonical deck ID 1Lcz0CEZncDw1GncI4RMY6qDmfO4Fknq4NvpGtBZAaLk。
 - **日時根拠**：developer-provided local time 2026-10-05T16:05+09:00 = 2026-10-05 16:05 JST。
-
