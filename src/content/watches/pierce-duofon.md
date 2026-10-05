@@ -1,163 +1,166 @@
 ---
-slug: "pierce-duofon"
+slug: pierce-duofon
 published: true
 ownerNumber: "01"
-brand: "PIERCE"
-model: "DUOFON"
+brand: PIERCE
+model: DUOFON
 catch:
-  - "マナーモードの祖先!?"
-  - "1950's通知のオーパーツ。"
+  - マナーモードの祖先!?
+  - 1950's通知のオーパーツ。
 ownersNote:
-  image: "/images/pierce-duofon/owners-note.jpg"
+  image: /images/pierce-duofon/owners-note.jpg
   lead:
-    - "マナーモードの祖先!?"
-    - "1950's通知のオーパーツ。"
-    - "リマインドの気遣いまで、ぜんぶ機械仕掛け。"
-  guideTitle: "簡易操作ガイド"
+    - マナーモードの祖先!?
+    - 1950's通知のオーパーツ。
+    - リマインドの気遣いまで、ぜんぶ機械仕掛け。
+  guideTitle: 簡易操作ガイド
   guide:
-    - "① 動力巻き上げ　3時位置リューズ：順回し＝時計側／逆回し＝アラーム側"
-    - "② 時刻設定　3時位置リューズを2段引き：順回し"
-    - "③ アラーム時刻設定　3時位置リューズを1段引き：順回し"
-    - "④ アラームボリューム設定　4時位置リューズを約1/4回転。順回し＝Wecker（赤）／逆回し＝Signal（白）"
-    - "⑤ アラーム ON/OFF　4時位置リューズ：引く＝ON／押し込み＝OFF"
-  noteTitle: "NOTE"
+    - ① 動力巻き上げ　3時位置リューズ：順回し＝時計側／逆回し＝アラーム側
+    - ② 時刻設定　3時位置リューズを2段引き：順回し
+    - ③ アラーム時刻設定　3時位置リューズを1段引き：順回し
+    - ④ アラームボリューム設定　4時位置リューズを約1/4回転。順回し＝Wecker（赤）／逆回し＝Signal（白）
+    - ⑤ アラーム ON/OFF　4時位置リューズ：引く＝ON／押し込み＝OFF
+  noteTitle: NOTE
   note:
-    - "音を出すか、控えめに知らせるかを場面で選ぶ感覚が広く浸透したのは、1980年代後半から1990年代にかけて、ポケベルや携帯電話の機能が普及してからだった。"
-    - "Duofonはその流れとは別に、1950年代の腕時計の中で“通知の距離感”を機械化していた。"
-    - "4時リューズで音を選び、6時下の小窓で声色を見せる。"
-    - "アラーム腕時計なのに、未来の空気を先読みしすぎていた。"
+    - 音を出すか、控えめに知らせるかを場面で選ぶ感覚が広く浸透したのは、1980年代後半から1990年代にかけて、ポケベルや携帯電話の機能が普及してからだった。
+    - Duofonはその流れとは別に、1950年代の腕時計の中で“通知の距離感”を機械化していた。
+    - 4時リューズで音を選び、6時下の小窓で声色を見せる。
+    - アラーム腕時計なのに、未来の空気を先読みしすぎていた。
 spec:
-  era: "1960年代初頭"
-  caseSize: "36mm"
-  caliber: "Pierce Cal.135"
-  jewels: "21石"
-  frequency: "18,000振動／時"
-  barrels: "2香箱"
-  winding: "手巻き"
-  acoustic: "ゴング式"
-  notes: "WECKER / SIGNAL切替、6時位置下 赤／白表示窓"
+  era: 1960年代初頭
+  caseSize: 36mm
+  caliber: Pierce Cal.135
+  jewels: 21石
+  frequency: 18,000振動／時
+  barrels: 2香箱
+  winding: 手巻き
+  acoustic: ゴング式
+  notes: WECKER / SIGNAL切替、6時位置下 赤／白表示窓
 specimenGallery:
-  - image: "/images/pierce-duofon/gallery/pierce-duofon-wrist-front.jpg"
-    label: "正面（リストショット）"
-    alt: "Pierce Duofon 掲載個体 リストショット正面"
-  - image: "/images/pierce-duofon/gallery/pierce-duofon-signal-white.jpg"
-    label: "SIGNAL（白・静音）"
-    alt: "Pierce Duofon SIGNAL 白表示 静音状態"
-  - image: "/images/pierce-duofon/gallery/pierce-duofon-wecker-red.jpg"
-    label: "WECKER（赤・大音量）"
-    alt: "Pierce Duofon WECKER 赤表示 大音量状態"
-  - image: "/images/pierce-duofon/gallery/pierce-duofon-caseback.jpg"
-    label: "裏面"
-    alt: "Pierce Duofon 掲載個体 裏蓋"
-howTheyRing:
-  published: true
-  category: gong
-  image: "/images/pierce-duofon/owners-note.jpg"
-  audio:
-    recordings: []
-
+  - image: /images/pierce-duofon/gallery/pierce-duofon-wrist-front.jpg
+    label: 正面（リストショット）
+    alt: Pierce Duofon 掲載個体 リストショット正面
+  - image: /images/pierce-duofon/gallery/pierce-duofon-signal-white.jpg
+    label: SIGNAL（白・静音）
+    alt: Pierce Duofon SIGNAL 白表示 静音状態
+  - image: /images/pierce-duofon/gallery/pierce-duofon-wecker-red.jpg
+    label: WECKER（赤・大音量）
+    alt: Pierce Duofon WECKER 赤表示 大音量状態
+  - image: /images/pierce-duofon/gallery/pierce-duofon-caseback.jpg
+    label: 裏面
+    alt: Pierce Duofon 掲載個体 裏蓋
 video:
-  youtubeId: "xkecjZqr7BY"
-  xUrl: "https://x.com/rimacroissant/status/2067230444031209527"
+  youtubeId: xkecjZqr7BY
+  xUrl: https://x.com/rimacroissant/status/2067230444031209527
 deepDive:
   - number: "01"
-    title: "Pierceとは"
+    title: Pierceとは
     paragraphs:
-      - "Pierceの前身となるLéon Lévy & Frèreは1883年、Léon LévyとThéodore Lévyによってスイス・ビエンヌで設立された。創業当初は外部からムーブメントを調達していたが、1930年代初頭には自社でムーブメントの開発・製造を行うようになった。"
-      - "自社製ムーブメントには13リーニュのクロノグラフCal.130／134があり、1950年代にはCorrectomaticを投入している。Correctomaticは、ケース側の2つのボタンで緩急針を動かし、時計の進み・遅れを調整する機構だった。"
-      - "Duofonに搭載されたCal.135もPierceが自社開発したムーブメントである。"
+      - Pierceの前身となるLéon Lévy & Frèreは1883年、Léon LévyとThéodore
+        Lévyによってスイス・ビエンヌで設立された。創業当初は外部からムーブメントを調達していたが、1930年代初頭には自社でムーブメントの開発・製造を行うようになった。
+      - 自社製ムーブメントには13リーニュのクロノグラフCal.130／134があり、1950年代にはCorrectomaticを投入している。Correctomaticは、ケース側の2つのボタンで緩急針を動かし、時計の進み・遅れを調整する機構だった。
+      - Duofonに搭載されたCal.135もPierceが自社開発したムーブメントである。
     citationRefs:
       - "10"
       - "4"
       - "4"
   - number: "02"
-    title: "Pierce Cal.135"
-    subtitle: "なぜ赤／白で鳴り方が変わるのか"
+    title: Pierce Cal.135
+    subtitle: なぜ赤／白で鳴り方が変わるのか
     paragraphs:
-      - "Duofonでは、4時位置のリューズ兼プッシャーを操作してWECKERとSIGNALを切り替える。選択された状態は、6時位置下の小窓に赤または白で表示される。"
-      - "WECKERでは、ハンマーがムーブメント外周に配置された音響体（ゴング）を打つことでベル音を発生させる。SIGNALでは打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体を打たずに自由振動する。1955年のPierce技術資料では、この切り替えを4時位置の操作部を4分の1回転させて行うと説明されている。"
-      - "同資料では、アラーム腕時計の用途として「起床」と、決めた時刻を所有者に知らせることの二つを挙げている。会議や社交の場など、大きな音を周囲に聞かせる必要がない場合にはSIGNALを使用することが想定されていた。"
+      - Duofonでは、4時位置のリューズ兼プッシャーを操作してWECKERとSIGNALを切り替える。選択された状態は、6時位置下の小窓に赤または白で表示される。
+      - WECKERでは、ハンマーがムーブメント外周に配置された音響体（ゴング）を打つことでベル音を発生させる。SIGNALでは打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体を打たずに自由振動する。1955年のPierce技術資料では、この切り替えを4時位置の操作部を4分の1回転させて行うと説明されている。
+      - 同資料では、アラーム腕時計の用途として「起床」と、決めた時刻を所有者に知らせることの二つを挙げている。会議や社交の場など、大きな音を周囲に聞かせる必要がない場合にはSIGNALを使用することが想定されていた。
     citationRefs:
       - "1"
       - "1"
       - "1"
-    mediaStyle: "compact-sequence"
+    mediaStyle: compact-sequence
     video:
-      src: "/videos/pierce-duofon/wecker-signal-switch.mov"
-      title: "動画で見る"
+      src: /videos/pierce-duofon/wecker-signal-switch.mov
+      title: 動画で見る
       afterParagraph: 2
-      ariaLabel: "Pierce Cal.135 WECKER / SIGNAL切り替えの実機動画"
+      ariaLabel: Pierce Cal.135 WECKER / SIGNAL切り替えの実機動画
     images:
-      - src: "/images/pierce-duofon/mechanism/05-crown-linkage.webp"
-        caption: "① 4時位置のリューズを回すと、連動するバーと打撃ピンの位置が動く。"
-        alt: "Pierce Cal.135 4時位置リューズ操作に連動するバーと打撃ピン"
+      - src: /images/pierce-duofon/mechanism/05-crown-linkage.webp
+        caption: ① 4時位置のリューズを回すと、連動するバーと打撃ピンの位置が動く。
+        alt: Pierce Cal.135 4時位置リューズ操作に連動するバーと打撃ピン
         afterParagraph: 2
         fullRow: true
-      - src: "/images/pierce-duofon/mechanism/01-signal-hammer.webp"
-        caption: "② SIGNAL（白・静音側）。青で示した部分がハンマー。打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体（ゴング）を打たずに自由振動する。"
-        alt: "Pierce Cal.135 SIGNAL状態 青で示したハンマーと、打撃位置から外れた打撃ピン"
+      - src: /images/pierce-duofon/mechanism/01-signal-hammer.webp
+        caption: ②
+          SIGNAL（白・静音側）。青で示した部分がハンマー。打撃ピンがハンマーの打撃位置から外れ、ハンマーは音響体（ゴング）を打たずに自由振動する。
+        alt: Pierce Cal.135 SIGNAL状態 青で示したハンマーと、打撃位置から外れた打撃ピン
         afterParagraph: 2
-      - src: "/images/pierce-duofon/mechanism/02-wecker-hammer.webp"
-        caption: "③ WECKER（赤・ベル音側）。青で示した部分がハンマー。打撃ピンがハンマーの打撃位置へ入り、ハンマーが音響体（ゴング）を打つ状態になる。"
-        alt: "Pierce Cal.135 WECKER状態 青で示したハンマーと、打撃位置に入った打撃ピン"
+        fullRow: false
+      - src: /images/pierce-duofon/mechanism/02-wecker-hammer.webp
+        caption: ③ WECKER（赤・ベル音側）。青で示した部分がハンマー。打撃ピンがハンマーの打撃位置へ入り、ハンマーが音響体（ゴング）を打つ状態になる。
+        alt: Pierce Cal.135 WECKER状態 青で示したハンマーと、打撃位置に入った打撃ピン
         afterParagraph: 2
-      - src: "/images/pierce-duofon/mechanism/03-signal-indicator.webp"
-        caption: "④ SIGNAL（白）。バーの移動に連動して、6時位置の表示窓が白へ切り替わる。"
-        alt: "Pierce Cal.135 SIGNAL 白表示へ切り替わる可動バー"
+        fullRow: false
+      - src: /images/pierce-duofon/mechanism/03-signal-indicator.webp
+        caption: ④ SIGNAL（白）。バーの移動に連動して、6時位置の表示窓が白へ切り替わる。
+        alt: Pierce Cal.135 SIGNAL 白表示へ切り替わる可動バー
         afterParagraph: 2
-      - src: "/images/pierce-duofon/mechanism/04-wecker-indicator.webp"
-        caption: "⑤ WECKER（赤）。同じバーの移動に連動して、6時位置の表示窓が赤へ切り替わる。"
-        alt: "Pierce Cal.135 WECKER 赤表示へ切り替わる可動バー"
+        fullRow: false
+      - src: /images/pierce-duofon/mechanism/04-wecker-indicator.webp
+        caption: ⑤ WECKER（赤）。同じバーの移動に連動して、6時位置の表示窓が赤へ切り替わる。
+        alt: Pierce Cal.135 WECKER 赤表示へ切り替わる可動バー
         afterParagraph: 2
+        fullRow: false
   - number: "03"
-    title: "1本のリューズで、2つの香箱を巻き分ける"
+    title: 1本のリューズで、2つの香箱を巻き分ける
     paragraphs:
-      - "3時位置のリューズを回すと、その回転は揺動するウィップ上の切替用クラウンホイールへ伝わる。リューズの回転方向が変わるとウィップが左右に移動し、クラウンホイールの噛み合い先が、時計側のラチェットホイールとアラーム側のラチェットホイールの間で切り替わる。これによって、1本のリューズから時計用とアラーム用、2つの香箱を別々に巻き上げられる。"
-      - "1955年のPierce技術資料では、この切替用クラウンホイールはばねの摩擦によってウィップの軸に保持され、適切な噛み合い深さを確保しながら、切り替え時に歯同士が正面から衝突するのを防ぐ構造と説明されている。"
+      - 3時位置のリューズを回すと、その回転は揺動するウィップ上の切替用クラウンホイールへ伝わる。リューズの回転方向が変わるとウィップが左右に移動し、クラウンホイールの噛み合い先が、時計側のラチェットホイールとアラーム側のラチェットホイールの間で切り替わる。これによって、1本のリューズから時計用とアラーム用、2つの香箱を別々に巻き上げられる。
+      - 1955年のPierce技術資料では、この切替用クラウンホイールはばねの摩擦によってウィップの軸に保持され、適切な噛み合い深さを確保しながら、切り替え時に歯同士が正面から衝突するのを防ぐ構造と説明されている。
     citationRefs:
       - "1"
       - "1"
     video:
-      src: "/videos/pierce-duofon/time-alarm-winding.mov"
-      title: "動画で見る"
+      src: /videos/pierce-duofon/time-alarm-winding.mov
+      title: 動画で見る
       afterParagraph: 2
-      ariaLabel: "Pierce Cal.135 3時位置リューズによる時計側／アラーム側の巻き上げ切り替え実機動画"
+      ariaLabel: Pierce Cal.135 3時位置リューズによる時計側／アラーム側の巻き上げ切り替え実機動画
   - number: "04"
-    title: "Duofonのモデル変遷"
+    title: Duofonのモデル変遷
     paragraphs:
-      - "1952年のプロトタイプとして記録されている個体は、35mmの金色ケースと圧入式のスチール裏蓋を備える。文字盤にはPierceのブランド表記がなく、掲載資料では販売を目的とした完成品ではなかった可能性が示されている。また、この個体については時刻機構とアラームを1つの香箱で駆動すると記載されている。"
-      - "一方、1955年のPierce技術資料では、完成型のムーブメントは時刻用とアラーム用に独立した2つの香箱を持つと記載されている。1952年プロトタイプに記録された1香箱仕様とは異なる。"
-      - "1956年の掲載個体は34mmのステンレスケースと圧入式裏蓋を備え、アラーム時刻を読むための専用スケールを持つ。同時期の別個体には、分目盛まで届く長いアラーム針を備えた仕様も記録されている。"
-      - "後期にはケース仕様も変化している。1962年の掲載個体は36mmのステンレスケースとねじ込み式裏蓋を備え、裏蓋は防水仕様とされる。このケースは、それ以前のPierce製アラーム腕時計とは大きく異なるものとして記録されている。また、この個体はCal.135を搭載したPierce最後のモデルとされている。"
-      - "掲載個体は、この後期型に分類される可能性がある。"
-      - "Duofonのケースについては文献間に記述差がある。一方では、各モデルは主に文字盤で区別され、ケースは共通しているように見えるとされる。別の資料では、34mm・圧入式裏蓋の個体と、36mm・ねじ込み式裏蓋の個体が明確に異なる仕様として掲載されている。"
+      - 1952年のプロトタイプとして記録されている個体は、35mmの金色ケースと圧入式のスチール裏蓋を備える。文字盤にはPierceのブランド表記がなく、掲載資料では販売を目的とした完成品ではなかった可能性が示されている。また、この個体については時刻機構とアラームを1つの香箱で駆動すると記載されている。
+      - 一方、1955年のPierce技術資料では、完成型のムーブメントは時刻用とアラーム用に独立した2つの香箱を持つと記載されている。1952年プロトタイプに記録された1香箱仕様とは異なる。
+      - 1956年の掲載個体は34mmのステンレスケースと圧入式裏蓋を備え、アラーム時刻を読むための専用スケールを持つ。同時期の別個体には、分目盛まで届く長いアラーム針を備えた仕様も記録されている。
+      - 後期にはケース仕様も変化している。1962年の掲載個体は36mmのステンレスケースとねじ込み式裏蓋を備え、裏蓋は防水仕様とされる。このケースは、それ以前のPierce製アラーム腕時計とは大きく異なるものとして記録されている。また、この個体はCal.135を搭載したPierce最後のモデルとされている。
+      - 掲載個体は、この後期型に分類される可能性がある。
+      - Duofonのケースについては文献間に記述差がある。一方では、各モデルは主に文字盤で区別され、ケースは共通しているように見えるとされる。別の資料では、34mm・圧入式裏蓋の個体と、36mm・ねじ込み式裏蓋の個体が明確に異なる仕様として掲載されている。
     citationRefs:
       - "2"
       - "1"
       - "2"
       - "2"
       - "2"
-      - "2,4"
+      - 2,4
   - number: "05"
-    title: "Gruen Duotoneとの関係"
+    title: Gruen Duotoneとの関係
     paragraphs:
-      - "Pierce Cal.135はGruenにも供給された。"
-      - "GruenではPierce Cal.135をベースとするムーブメントをCal.920 SSとして採用し、Duo-Tone Precisionに搭載している。記録されている一例は33.1mmの金色ケースと圧入式スチール裏蓋を備え、ムーブメントにはGruenによる追加仕上げと署名が施されている。"
-      - "Duo-Toneでも、4時位置のリューズから二段階のアラームを切り替える構造が使われている。ムーブメントの基礎はPierce Cal.135で、GruenではCal.920 SSとして扱われた。"
+      - Pierce Cal.135はGruenにも供給された。
+      - GruenではPierce Cal.135をベースとするムーブメントをCal.920 SSとして採用し、Duo-Tone
+        Precisionに搭載している。記録されている一例は33.1mmの金色ケースと圧入式スチール裏蓋を備え、ムーブメントにはGruenによる追加仕上げと署名が施されている。
+      - Duo-Toneでも、4時位置のリューズから二段階のアラームを切り替える構造が使われている。ムーブメントの基礎はPierce
+        Cal.135で、GruenではCal.920 SSとして扱われた。
     citationRefs:
-      - "3,4"
-      - "3,4"
-      - "3,4"
-    mediaStyle: "compact-sequence"
+      - 3,4
+      - 3,4
+      - 3,4
+    mediaStyle: compact-sequence
     images:
-      - src: "/images/gruenduotone.png"
-        caption: "Duotone ダイヤル"
-        alt: "Gruen Duo-Tone Precision ダイヤル"
+      - src: /images/gruenduotone.png
+        caption: Duotone ダイヤル
+        alt: Gruen Duo-Tone Precision ダイヤル
         afterParagraph: 2
-      - src: "/images/gruenduotone2.png"
-        caption: "Duotone ムーブメント"
-        alt: "Gruen Duo-Tone Precision Cal.920 SS ムーブメント"
+        fullRow: false
+      - src: /images/gruenduotone2.png
+        caption: Duotone ムーブメント
+        alt: Gruen Duo-Tone Precision Cal.920 SS ムーブメント
         afterParagraph: 2
+        fullRow: false
 sourceMeta:
   - id: "1"
     type: primary
@@ -180,14 +183,25 @@ sourceMeta:
   - id: "10"
     type: reference
 sources:
-  - "Pierce AG, Biel, “Die Wecker-Armbanduhr Duofon mit zwei Lautstärken” (30.8.1955), Leonhard Beitl『Alarm am Arm』(2009) pp.353–355収録"
-  - "Leonhard Beitl, 『Alarm am Arm』(2009), pp.356–358（Pierce Duo Fonのモデル例・Cal.135）"
-  - "Leonhard Beitl, 『Alarm am Arm』(2009), pp.198–199（Gruen Duo-Tone Precision / Cal.920 SS）"
-  - "Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007), pp.20, 130–131, 189–190, 218–221（Duofon / Pierce Cal.135 / 可変アラーム音量。p.131では創業年を1888年と記載）"
-  - "機構画像5点（①〜⑤）およびGruen Duo-Tone画像2点（ダイヤル／ムーブメント）：[森（時計狂）](https://x.com/ad19200610?s=11&t=3m8xXI66ZgB96VPG9PtQgw)さんより画像提供"
-  - "Leonhard Beitl, 『Alarm am Arm』(2009), p.670（メーカー一覧：Pierce / Lévy Frères / 1883）"
-  - "[Grail Watch Wiki — Pierce](https://wiki.grail-watch.com/index.php/Pierce)（1883年5月16日にLéon Lévy & Frère設立と記載）"
-  - "[Ranfft DB — Pierce Calibers](https://ranfft.org/manufacturer/241-Pierce)（1883年創業と記載）"
-  - "[Watch-Wiki — Pierce](https://www.watch-wiki.net/doku.php?id=pierce)（1883年創業と記載）"
-  - "創業年注記：本文では1883年を採用。Horlbeck p.131は1888年、Beitl p.670・Grail Watch Wiki・Ranfft DB・Watch-Wikiは1883年としている。現時点では複数資料が一致する1883年を本文値とし、企業登記等の一次資料による最終確認は継続する。"
+  - Pierce AG, Biel, “Die Wecker-Armbanduhr Duofon mit zwei Lautstärken”
+    (30.8.1955), Leonhard Beitl『Alarm am Arm』(2009) pp.353–355収録
+  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.356–358（Pierce Duo Fonのモデル例・Cal.135）
+  - Leonhard Beitl, 『Alarm am Arm』(2009), pp.198–199（Gruen Duo-Tone Precision /
+    Cal.920 SS）
+  - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007),
+    pp.20, 130–131, 189–190, 218–221（Duofon / Pierce Cal.135 /
+    可変アラーム音量。p.131では創業年を1888年と記載）
+  - 機構画像5点（①〜⑤）およびGruen
+    Duo-Tone画像2点（ダイヤル／ムーブメント）：[森（時計狂）](https://x.com/ad19200610?s=11&t=3m8xXI66ZgB96VPG9PtQgw)さんより画像提供
+  - Leonhard Beitl, 『Alarm am Arm』(2009), p.670（メーカー一覧：Pierce / Lévy Frères /
+    1883）
+  - "[Grail Watch Wiki —
+    Pierce](https://wiki.grail-watch.com/index.php/Pierce)（1883年5月16日にLéon Lévy
+    & Frère設立と記載）"
+  - "[Ranfft DB — Pierce
+    Calibers](https://ranfft.org/manufacturer/241-Pierce)（1883年創業と記載）"
+  - "[Watch-Wiki —
+    Pierce](https://www.watch-wiki.net/doku.php?id=pierce)（1883年創業と記載）"
+  - 創業年注記：本文では1883年を採用。Horlbeck p.131は1888年、Beitl p.670・Grail Watch Wiki・Ranfft
+    DB・Watch-Wikiは1883年としている。現時点では複数資料が一致する1883年を本文値とし、企業登記等の一次資料による最終確認は継続する。
 ---
