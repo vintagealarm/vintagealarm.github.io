@@ -783,6 +783,34 @@
 - source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
 - note: 2026-10-05 16:03 JST user-provided Reel Insights screenshots; share count is UI `--`, not zero; like-timing graph has no exact point labels, so no point values are transcribed.
 
+### Snapshot — 2026-10-05 19:57 JST
+- observed_at_jst: 2026-10-05 19:57
+- elapsed_since_publish: approximately 11h27m by user-reported ~08:30 publication time; exact publication minute remains unresolved
+- views: 3,842
+- viewers: 2,157
+- average_watch_time: 6s
+- follows: 4
+- likes: 72
+- comments: 2
+- reposts: 0
+- share_count: UI `--`
+- saves: 12
+- skip_rate: 37.5%
+- share_rate: 0.5%
+- like_rate: 3.3%
+- save_rate: 0.5%
+- repost_rate: 0.0%
+- comment_rate: 0.1%
+- profile_accesses: 12
+- bio_link_clicks: 3
+- followers: 1.7%
+- non_followers: 98.3%
+- age: 13–17 1.7% / 18–24 27.5% / 25–34 43.0% / 35–44 15.7% / 45–54 6.9% / 55–64 3.1% / 65+ 2.2%
+- age_18_34_combined: 70.5%
+- countries: United States 17.1% / India 14.6% / Brazil 5.2% / South Korea 4.9% / Mexico 4.7%
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+- note: 2026-10-05 19:57 JSTのユーザー提供Instagram Reel Insightsスクリーンショット6枚から確認。共有数はUI上 `--` のため0扱いしない。Meta UI表示は skip rate=低、share rate=高、like rate=低、save rate=高、repost rate=低、comment rate=低。『リール動画が「いいね！」された時』グラフは0:00–0:05の形状のみ確認でき、各点の厳密な数値ラベルがないため数値化しない。
+
 
 ---
 
