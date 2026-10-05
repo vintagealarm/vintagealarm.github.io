@@ -45,21 +45,6 @@
 - 矛盾を新証拠で更新する場合は、先にDECISION REVERSAL GATEを通す。
 - 再発性訂正ならCORRECTION PERSISTENCEを適用する。
 
-## 1.5 Fail-Closed Inference Gate
-
-正本: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`。SCOPED→READYとVERIFYING→PASSの両方で強制する。
-
-READY前:
-- **NO INVERSE INFERENCE**: directional ruleの使用方向を確認。逆・裏・対偶・双方向・一般化には直接根拠が必要。
-- **DECISION REVERSAL GATE**: 既存判断を変える場合はREVERSAL TARGET + NEW EVIDENCE必須。欠ければFAIL / HOLD。
-- **REALITY FIRST**: route / account / page / media / postの既存実体を確認。未確認はUNKNOWN。
-- **GENERAL KNOWLEDGE = CANDIDATE ONLY**: 一般論をCURRENTへ昇格させない。
-
-PASS前:
-- **PRE-OUTPUT CONTRADICTION CHECK** を実施し、直近ユーザー決定・CURRENT / RESOLVED / REJECTED / HOLD・active PR正本・既存実装との矛盾が0件であることを確認する。
-- 新証拠で正当に更新する場合は、先にDECISION REVERSAL GATEを通す。
-- 再発性訂正ならCORRECTION PERSISTENCEを適用する。
-
 ## 2. 状態遷移
 
 ```text
