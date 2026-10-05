@@ -55,6 +55,14 @@
 - General knowledge candidate only:
 - Pre-output contradiction check: PENDING / PASS / FAIL
 
+## INFERENCE GUARD
+
+- Directional rule / source:
+- Reversal target / new evidence:
+- Reality checked:
+- General knowledge candidate only:
+- Pre-output contradiction check: PENDING / PASS / FAIL
+
 ## Delegation Decision
 
 - Decision: SINGLE / SPECIALIST-ASSISTED
