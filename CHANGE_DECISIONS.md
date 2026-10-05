@@ -1105,5 +1105,5 @@
 - **旧状態・棄却**：`multi_agent = true` を先に有効化し、Manager / Researcher / Builder / Verifierを常時起動する案はHOLD。新DB、新queue、常駐agent registryも追加しない。小タスクを理由なく分解する運用も採用しない。
 - **影響範囲**：`.codex/MANAGER_CONTROL_PLANE.md`、`.codex/TASK_ENVELOPE_TEMPLATE.md`、`AGENTS.md`、`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`。公開WATCH本文、UI、SNS実測値、Council形式、`.codex/config.toml` の値は変更しない。
 - **検証状態**：branch `ops/manager-control-plane-pilot-20261005` へ実装。GitHub Actionsで `check:project-consistency` を含む既存gateが通るまでVERIFIEDとはしない。pilotの成果は今後の実案件で USER_REINSTRUCTION_COUNT / CANONICAL_SOURCE_REDIRECT_COUNT / VERIFY_PROMPT_COUNT / POST_COMPLETION_DEFECT_COUNT を観測してOBSERVED判定する。
-- **関連**：2026-10-05の過去案件監査、Council 1 + 7裁定「Manager Control Plane＝GO / 独立Verifier＝GO / multi-agent有効化＝HOLD」、PR #173 Execution Brief、PR #174 Duofon動画内容訂正。
+- **関連**：2026-10-05の過去案件監査、Council 1 + 7裁定「Manager Control Plane＝GO / 独立Verifier＝GO / multi-agent有効化＝HOLD」、PR #173 Execution Brief、PR #174 Duofon動画内容訂正。実装commits `b11180d5` / `e41c4762` / `c42bbfd6` / `5580de7f` / `b6e835f7`。
 - **日時根拠**：developer-provided local time `2026-10-05T09:48+09:00` = `2026-10-05 09:48 JST`。
