@@ -47,6 +47,20 @@
 - Render / live / real media:
 - Verifier decision: PENDING / PASS / FAIL
 
+## PLATFORM OUTPUT CONTRACT
+
+SNS / platform-bound copyのときだけCURRENTから埋める。該当しない場合はN/Aとする。
+
+- Platform:
+- Language:
+- Audience:
+- Character limit:
+- Source copy:
+- Transformation:
+- Destination / profile:
+- Output validator:
+- Actual candidate validation: PENDING / PASS / FAIL
+
 ## INFERENCE GUARD
 
 - Directional rule / source:
