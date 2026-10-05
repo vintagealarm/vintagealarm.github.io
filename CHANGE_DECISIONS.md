@@ -1114,5 +1114,5 @@
 - **旧状態・棄却**：注意喚起だけで防ぐ運用を棄却し、必要根拠が無い場合はHOLD / FAILとする。
 - **影響範囲**：PROJECT、AGENTS、PROJECT_STATE、Manager Control Plane、Task Envelope、Social Router、inference guard正本・fixtures・checker、package scripts。公開WATCH本文・UI・SNS実測値・multi-agent設定は変更しない。
 - **検証状態**：branch `ops/fail-closed-inference-guards-20261005` に実装。CI通過までVERIFIEDとはしない。
-- **関連**：PR #175 / active PR #173。commits `c4ae40d4` / `623fcb1d` / `cbaed804` / `d38abf3a` / `22a56ac5` / `bc9031c7` / `0f4dfb71` / `85c2ca24` / `0864542f` / `03bc9764`。
+- **関連**：PR #175 / active PR #173。commits `c4ae40d4` / `623fcb1d` / `cbaed804` / `4a9fa87c` / `d2b7322e` / `076d7278` / `04fcef58` / `00b52b1b` / `d38abf3a` / `22a56ac5` / `bc9031c7` / `0f4dfb71` / `85c2ca24` / `0864542f` / `03bc9764`。
 - **日時根拠**：developer-provided local time `2026-10-05T10:54+09:00` = `2026-10-05 10:54 JST`。
