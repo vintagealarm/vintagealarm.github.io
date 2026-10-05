@@ -17,6 +17,17 @@
 
 ## 2026-10-05
 
+### 2026-10-05 08:44 JST — Social棚から実制作へExecution Briefを必須化
+
+- **変更**：Social運用へ `Content Inventory → Content Assignment → Execution Brief → storyboard / caption → publish` の引継ぎ層を追加した。Execution BriefはactiveなInstagram content単位で持ち、Media reality / Attention cue / Sensory proof / Causal beat / Published collision / Carry-forward / Constraints / Working copyを必須項目とする。実素材未確認のPLANNEDのみ `MEDIA_PENDING` を許容し、SHOT / EDITED / SCHEDULEDは `MEDIA_VERIFIED` 必須。 `check:social-inventory` へactive Instagram assignmentとbriefの対応検査を追加し、MR-PIE-001を最初の実例として登録した。
+- **理由**：ユーザーが「今までの分析の意味は？ 棚卸はその視点でしてなかったの？」と指摘。Council 1で、研究→棚卸し→投稿選択は接続されていた一方、過去Published Copy / Insights / Operationsで得た制作知見と実素材観察を、選択済みassetからcaption / Reelへ渡す層が無く、投稿時に一般論へリセットされることを根本原因と裁定した。
+- **旧状態・棄却**：全assetへMicro fit / Micro treatmentをAI単独で固定して棚を肥大化させる2026-10-03旧案は復活させない。反対に、Assignmentだけ作って「どう見える／何が聞こえる／既出との差分／素材制約」を会話記憶へ任せる運用も棄却する。
+- **影響範囲**：Social Router、content-inventory、instagram-operations、social inventory checker、MR-PIE-001。公開WATCH本文、OWNER'S NOTE、既存Published Copy、Insights実測値は変更しない。
+- **検証状態**：active PR #169 branch `social-cyma-complete-pierce-alternation` へ実装。GitHub再取得とCIでchecker通過を確認後にVERIFIEDとする。main反映／公開サイト変更は別状態。
+- **関連**：2026-10-03 21:33 asset→content→media予約制、2026-10-03 22:47 AI単独Micro treatment撤回、2026-10-05 08:23 copy learning contract、MR-PIE-001。
+- **日時根拠**：developer-provided local time `2026-10-05T08:44+09:00` = `2026-10-05 08:44 JST`。
+
+
 ### 2026-10-05 08:23 JST — Instagram本文生成で過去知見と最新ユーザー原稿を強制継承
 
 - **変更**：Social Routerへ `INSTAGRAM COPY LEARNING CONTRACT` を追加し、①目の前の実素材を先に確認、②最新ユーザー訂正／原稿をworking baseとして保持、③過去実投稿で得た視覚誘導・音誘導・機構説明の知見を次稿へ持ち越す、④Instagram全文は英語全文→hashtags→自然な日本語訳の順で一括提示、⑤hashtagsは実投稿precedentを根拠なく増減しない、を再発防止規則として固定した。MR-PIE-001についてはユーザー提示の日本語原稿全文を `instagram-operations.md` に `USER_WORKING_DRAFT` として保存し、実動画が文字盤なしの内部アラーム機構映像である境界もassignmentへ追記した。
