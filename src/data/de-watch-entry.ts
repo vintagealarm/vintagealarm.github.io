@@ -592,7 +592,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
             fullRow: true
           },
           {
-            src: '/images/pierce-duofon/mechanism/01-signal-hammer.webp?v=2',
+            src: '/images/pierce-duofon/mechanism/01-signal-hammer.webp',
             caption: '② SIGNAL — weiß / leise. Der blau markierte Teil ist der Hammer. Der Klöppel liegt außerhalb der Schlagposition des Hammers; der Hammer schwingt frei, ohne den Klangkörper (Gong) anzuschlagen.',
             alt: 'Pierce Cal. 135 im SIGNAL-Zustand mit blau markiertem Hammer und Klöppel außerhalb der Schlagposition',
             afterParagraph: 2
