@@ -1270,3 +1270,14 @@
 - **関連**：実装commit `18160e1de64e88c77bbabec5c6ba40c2ffd92e11` / `82be7526ca576b75ae3b681774e871c20914474c` / `e51880782f267bfe0817b077f48945754bd5bf8b`。ユーザー指定本文および「写真も入れてあるからそれの翻訳と動画の上にくるように調整」。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T17:25:55+09:00` → `2026-10-05 17:26 JST`（分単位丸め）。
 
+
+### 2026-10-05 21:57 JST — X海外向け英語運用をManagerのplatform output contractへ固定
+- **変更**：Social RouterへX CURRENT OUTPUT CONTRACTを追加し、X actual post candidateをEnglish only / overseas-facing / profile destination=/en/ / VA editorial cap 140 user-perceived charactersと固定する。Instagram既存投稿の再利用は instagram-published-copy.md → English compression/adaptation → 140-character validation → output の順とし、current repost formatを WATCH NAME → short English description → English hashtags とする。Manager Control Plane / Task Envelopeへ PLATFORM / LANGUAGE / AUDIENCE / CHARACTER LIMIT / SOURCE COPY / TRANSFORMATION / DESTINATION / OUTPUT VALIDATOR をREADY条件として追加し、Fail-Closed Guardへplatform output contract gateを統合する。既存 scripts/check-inference-guards.mjs を拡張し、日本語Script混入・140超過・repost format違反を機械的にFAILできるvalidatorと SOCIAL-X-LANGUAGE-001 回帰fixtureを追加する。新しい独立システム・DB・queueは作らない。
+- **理由**：Social Routerを取得していても、媒体のlanguage / audience / character limit / source transformationをTask Envelopeへ束縛する項目がなく、正本を読んだ工程だけ通ってactual outputへ反映されない事故が発生した。X海外向け英語運用が既決定なのに日本語投稿案を出し、ユーザーが再度訂正する状態になったため、説明規則ではなく生成直前のfail-closed条件へ昇格する。
+- **旧状態・棄却**：「英語アカウントだと覚える」だけの会話依存、Social Routerへ注意書きだけ追記する、X専用の新しい管理システムを増設する、X一般仕様を根拠にVAの140字上限を280へ緩める、を棄却する。既存Social Router + Manager Control Plane + Fail-Closed Guard +既存checkerへ統合する。
+- **Web知見**：2026-10-05確認時点のX公式Help https://help.x.com/en/using-x/how-to-post は通常postを英語で最大280 charactersと案内し、https://help.x.com/en/using-x/x-premium-how-to はPremium longer postsを最大25,000 charactersと案内する。また公開twitter-text v3 config https://github.com/twitter/twitter-text/blob/master/config/v3.json は maxWeightedTweetLength=280 / transformedURLLength=23。よって今回の140はX技術上限ではなく、ユーザー確定のVA編集上限として独立して検査する。current repost formatは本文URLを前提にしないためURL重み付けで140上限を緩めない。
+- **影響範囲**：Social Router、Manager Control Plane、Task Envelope、Fail-Closed Guard、inference regression fixtures/checker、project consistency checker、PROJECT_STATE、本判断履歴。Instagram本文正本・Insights・公開WATCH本文・X実投稿そのものは変更しない。
+- **検証状態**：branch ops/x-output-contract-gate-20261005 へ実装中。既存quality gateと新X regression/self-test、PR CIを通し、diffをcurrent mainと再照合するまでVERIFIEDとはしない。actual X copyの将来生成時は既存checkerの --x-copy / --x-repost validationをPASS条件にできる。
+- **関連**：ユーザー確定「Xは英語で海外勢向け」「プロフィールURLは英語版トップ /en/」「Instagramの単純コピーではなくX向けに再構成」「Instagram既存投稿を時計名→短文説明→hashtagsへ140字以内で圧縮・改変」、今回の再発指摘「部長＝Manager Control Planeを作った目的そのものに反している」。
+- **日時根拠**：developer-provided local time 2026-10-05T21:57+09:00 = 2026-10-05 21:57 JST。
+
