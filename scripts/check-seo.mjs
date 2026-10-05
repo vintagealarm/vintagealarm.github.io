@@ -65,7 +65,9 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
     if (map.has(v)) fail(`duplicate ${label} with ${map.get(v)}`); else map.set(v, page);
   }
   const robots = value('robots').toLowerCase().split(',').map(s => s.trim());
-  if (page === '/history/smartwatch/') {
+  if (page.startsWith('/lab/')) {
+    if (!robots.includes('noindex') || !robots.includes('nofollow') || robots.includes('index')) fail('lab preview must remain noindex,nofollow');
+  } else if (page === '/history/smartwatch/') {
     if (!robots.includes('noindex') || !robots.includes('follow') || robots.includes('nofollow')) fail('smartwatch finale must remain noindex,follow');
   } else if (!['index', 'follow', 'max-image-preview:large'].every(v => robots.includes(v)) || robots.includes('noindex') || robots.includes('nofollow')) {
     fail('robots policy changed');

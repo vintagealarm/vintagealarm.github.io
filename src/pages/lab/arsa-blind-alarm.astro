@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import WatchPage from '../../layouts/WatchPage.astro';
+
+const watches = await getCollection('watches');
+const entry = watches.find((item) => item.data.slug === 'arsa-blind-alarm');
+
+if (!entry) {
+  throw new Error('ARSA Blind Alarm draft content not found');
+}
+
+const watch = entry.data;
+---
+<WatchPage watch={watch} preview={true} />

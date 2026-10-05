@@ -1250,3 +1250,16 @@
 - **関連**：実装commit `18160e1de64e88c77bbabec5c6ba40c2ffd92e11` / `82be7526ca576b75ae3b681774e871c20914474c` / `e51880782f267bfe0817b077f48945754bd5bf8b`。ユーザー指定本文および「写真も入れてあるからそれの翻訳と動画の上にくるように調整」。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T17:25:55+09:00` → `2026-10-05 17:26 JST`（分単位丸め）。
 
+### 2026-10-05 20:47 JST — ARSA Blind Alarmを完成本文付き非公開WATCHプレビューとして再実装
+- **変更**：最新mainから `feat/arsa-blind-alarm-watch` を作成し、ARSA Blind Alarmの日本語WATCH正本、`/lab/arsa-blind-alarm/` のnoindexプレビューroute、実機画像未収録を示す非AI placeholderを追加する。公開フラグは `false` のままにし、公開OWNER'S NOTES一覧・推薦・sitemap・EN / DEにはまだ接続しない。旧branch `feat/arsa-blind-alarm-private-shell` は履歴として保持し、現行mainへ直接mergeしない。
+- **理由**：ARSA研究MAP / LEDGERとProject資料から本文・出典は組める一方、掲載個体の実機写真、到着後の操作・触感・ケース刻印、実機音が未確認である。現行6本と同じ公開WATCHとして扱うには、実画像と実機確認を先に揃える必要がある。
+- **旧状態・棄却**：旧branchの `PRIVATE DRAFT / 構成だけ先に組む` だけのCatch / Leadと、109コミット遅れのbranchを直接更新・mergeする案を棄却する。seller claimを実機確認へ昇格すること、1958年JSHの一般ARSA記事・広告をBlind Alarm本人のperiod画像へ代用すること、時計本体をAI生成することも棄却する。
+- **影響範囲**：ARSAの非公開日本語WATCH content、専用lab preview、WatchPageのpreview時robots制御、lab previewのnoindexを検証するSEO gate、placeholder画像。公開6WATCH、OWNER'S NOTES一覧、HISTORY、HOW THEY RING、EN / DE、main、本番liveは変更しない。
+- **対象WATCH**：ARSA Blind Alarm。
+- **起点・帰属**：Reality pinは『Alarm am Arm』『The Alarm Wrist Watch』と購入個体のユーザー提供／seller提供画像について研究正本に記録された確認事項。Catch / Lead文案はAI起点。
+- **VA温度比較**：公開6本を `owner-copy:benchmark` で横並び確認。障害・戦傷・リハビリの背景を遊びへ使わず、現行範囲の低温度側で、前蓋・触読針・アラーム時刻read-backという時計固有機能へ直接接続した。
+- **採否・現在状態**：Catch / Leadは `FINAL_PENDING_REALITY_CHECK`。実機到着後に前蓋操作、三針の触り分け、alarm時刻read-backを確認し、ユーザーが最終承認するまで `FINAL` / `published: true` にしない。
+- **検証状態**：実装後にdecision log、OWNER copy provenance、citation / source traceability、localization coverage、Japanese style、quality、build、生成HTMLのnoindexとrouteを検査する。PR CI通過まではIMPLEMENTED、VERIFIEDとはしない。
+- **関連**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、旧branch `feat/arsa-blind-alarm-private-shell`、Project資料『Alarm am Arm』『The Alarm Wrist Watch』。
+- **日時根拠**：developer-provided local date `2026-10-05` と作業環境時計 `2026-10-05 20:47:10 +09:00` → `2026-10-05 20:47 JST`。
+
