@@ -723,6 +723,67 @@
 - source_status: CANONICAL_LOG_SCREENSHOT
 - note: 2026-09-30 22:12–22:13 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。
 
+## Mechanism follow-up — MR-PIE-001
+
+### Publication evidence
+- content_id: MR-PIE-001
+- content_type: reel_internal_alarm_mechanism
+- published_at_jst: approximately 2026-10-05 08:30 (user report)
+- ui_age_evidence: 2026-10-05 09:22 JSTの投稿画面で「58分前」表示
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+
+### Snapshot — 2026-10-05 09:21–09:22 JST
+- observed_at_jst: 2026-10-05 09:21–09:22
+- elapsed_since_publish: approximately 52m by user report / UI age 58m
+- views: 194
+- viewers: 33
+- average_watch_time: 5s
+- follows: 0
+- likes: 6
+- comments: 0
+- reposts: 0
+- share_count: UI `--`
+- saves: 2
+- skip_rate: 12.9%
+- share_rate: 1.7%
+- like_rate: 5.2%
+- save_rate: 1.7%
+- repost_rate: 0.0%
+- comment_rate: 0.0%
+- followers: 4.6%
+- non_followers: 95.4%
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+- note: 2026-10-05 09:21–09:22 JSTのユーザー提供Instagram投稿画面／Reel Insights 5枚から確認。共有数はUI上 `--` のため0扱いしない。
+
+### Snapshot — 2026-10-05 16:03 JST
+- observed_at_jst: 2026-10-05 16:03
+- elapsed_since_publish: approximately 7h33m by user-reported ~08:30 publication time; exact publication minute remains unresolved
+- views: 3,264
+- viewers: 1,840
+- average_watch_time: 6s
+- follows: 2
+- likes: 51
+- comments: 2
+- reposts: 0
+- share_count: UI `--`
+- saves: 10
+- skip_rate: 37.0%
+- share_rate: 0.6%
+- like_rate: 2.7%
+- save_rate: 0.5%
+- repost_rate: 0.0%
+- comment_rate: 0.1%
+- profile_accesses: 10
+- bio_link_clicks: 3
+- followers: 1.6%
+- non_followers: 98.4%
+- age: 13–17 1.5% / 18–24 27.4% / 25–34 43.7% / 35–44 15.7% / 45–54 6.7% / 55–64 2.9% / 65+ 2.1%
+- age_18_34_combined: 71.1%
+- countries: United States 19.9% / India 15.5% / Brazil 6.2% / Mexico 5.6% / South Korea 5.4%
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+- note: 2026-10-05 16:03 JST user-provided Reel Insights screenshots; share count is UI `--`, not zero; like-timing graph has no exact point labels, so no point values are transcribed.
+
+
 ---
 
 # Basis Alarm (BFG90)
