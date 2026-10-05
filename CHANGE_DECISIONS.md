@@ -1210,3 +1210,13 @@
 - **関連**：ユーザー指示「実装しよう」「動画は君が入れられる」「画像はこっちでやる」、既存動画 `public/videos/pierce-duofon/time-alarm-winding.mov`、Pierce source #1（1955年技術資料）。実装commit `f1ca6a5e02fd81a8649421d9895c8bfb245d1abd` / `f096c859c08e21584d326caabf6b9e2426a4e148` / `6967f5c2205f8a5b1ffc4bf527fab29627fe0232`、監査記録commit `9b5927fc85b18a1eaaac8d90179383132db56eef`。
 - **日時根拠**：ChatGPT time取得値 `2026-10-05T16:20:13+09:00` → `2026-10-05 16:20 JST`。
 
+
+### 2026-10-05 16:05 JST — OWNER'S NOTE Slides PNG exporterを正本化
+- **変更**：現行private Google Slidesの6 WATCH × JA/EN/DE = 18枚をmanifestで固定し、Slides APIのLARGE PNGを1600×2233で実ピクセル検査してartifact化するexporter、checker、手動Actions workflow、運用READMEを追加する。
+- **理由**：Slides実体は現存する一方、以前のlocal-only export実装はcurrent GitHub正本に無く、再現可能なremote正本が必要なため。
+- **旧状態・棄却**：旧local実装を推測復元する案、手動スクリーンショットや後処理リサイズを正規exportとみなす案、private deckを公開リンク化する案は採用しない。
+- **影響範囲**：owner-note slide export用tools/scripts/workflow、package.json、.gitignore、PROJECT_STATE.md、本判断履歴。Slides本文・翻訳・レイアウト、公開WATCHは変更しない。
+- **検証状態**：connected Google Slidesで18枚すべてがimage/png・1600×2233で返ることを実測済み。repository側はPR CI通過までVERIFIEDとはしない。Actions実exportは認証設定後の成功実行までruntime未検証。
+- **関連**：2026-10-05ユーザー指示「じゃあそこを作成しようか部長」「GitHubどうぞ」／canonical deck ID 1Lcz0CEZncDw1GncI4RMY6qDmfO4Fknq4NvpGtBZAaLk。
+- **日時根拠**：developer-provided local time 2026-10-05T16:05+09:00 = 2026-10-05 16:05 JST。
+
