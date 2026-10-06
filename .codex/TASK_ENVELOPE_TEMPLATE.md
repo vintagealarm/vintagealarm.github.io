@@ -1,6 +1,6 @@
 # Task Envelope Template
 
-> Manager Control Planeの作業単位テンプレート。不要な項目を勝手に推測で埋めない。
+> Manager Control Planeの作業単位テンプレート。正本にない値を推測で埋めない。分野固有の規則・CURRENT値はここへ複製せず、必ず正本への参照を持つ。
 
 ## Identity
 
@@ -62,30 +62,19 @@
 - User approval required: YES / NO
 - Approval status: N/A / PENDING / APPROVED / REJECTED
 
-## PLATFORM OUTPUT CONTRACT
+## DOMAIN CONTRACT
 
-SNS / platform-bound copyのときだけCURRENTから埋める。該当しない場合はN/Aとする。
+媒体・SNS・Analytics・公開・研究等に分野固有CURRENT / write contract / validatorがある場合だけ埋める。詳細値はowner側へ残す。
 
-- Platform:
-- Language:
-- Audience:
-- Character limit:
-- Source copy:
-- Transformation:
-- Destination / profile:
-- Output validator:
-- Actual candidate validation: PENDING / PASS / FAIL
+- Contract source:
+- Required fields resolved: YES / NO / N/A
+- Canonical write contract:
+- Output / update validator:
+- Actual candidate / update validation: PENDING / PASS / FAIL / N/A
 
 ## INFERENCE GUARD
 
-- Directional rule / source:
-- Reversal target / new evidence:
-- Reality checked:
-- General knowledge candidate only:
-- Pre-output contradiction check: PENDING / PASS / FAIL
-
-## INFERENCE GUARD
-
+- Guard source: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`
 - Directional rule / source:
 - Reversal target / new evidence:
 - Reality checked:
