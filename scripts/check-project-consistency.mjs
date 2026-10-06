@@ -131,6 +131,7 @@ requireText(social, 'CANONICAL WRITE CONTRACT', 'Social canonical write contract
 requireText(social, 'Instagram Insights の完了条件', 'Social Insights completion contract');
 requireText(social, 'Screenshot → canonical time series', 'Social screenshot-to-canonical path');
 requireText(social, '分析回答より先に', 'Social write-before-analysis rule');
+requireText(social, 'このcontractは会話単位ではなくrepo単位', 'Social cross-chat write contract');
 
 for (const scriptName of ['check:instagram-insights','instagram:append','instagram:report']) {
   requireText(packageJson, `"${scriptName}"`, `package script ${scriptName}`);
