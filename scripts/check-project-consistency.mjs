@@ -52,6 +52,7 @@ for (const [label, text, needle] of [
 ]) requireText(text, needle, label);
 
 requireText(codexConfig, 'multi_agent = false', 'Codex multi-agent safety');
+requireText(agents, '冒頭にホスト確認済みの `YYYY-MM-DD HH:mm JST` を表示する', 'AGENTS VA chat JST prefix');
 
 requireText(agents, '分野別routeのcanonical ownerは `PROJECT.md` §2', 'AGENTS domain-routing owner pointer');
 for (const path of [

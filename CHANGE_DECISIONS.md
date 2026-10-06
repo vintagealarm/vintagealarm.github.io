@@ -16,6 +16,16 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 21:57 JST — VAチャットの冒頭JST表示を常設guardへ固定
+
+- **変更**：VA案件の進捗・監査・最終報告は、冒頭にホスト確認済みの `YYYY-MM-DD HH:mm JST` を表示する規則を `AGENTS.md` へ追加し、project consistency gateで欠落を拒否する。
+- **理由**：複数作業を並行する際に、各チャットの発言・実装・CI結果がどの時点のものか識別できる必要がある。今回の引継ぎでユーザーが固定運用として明示したが、会話内で実行するだけでは次回起動時に失われるため。
+- **旧状態・棄却**：日時を必要時だけ任意表示する状態、会話の文脈から現在時刻を推測する状態、判断台帳の日時規則だけでユーザー向け応答の冒頭日時も満たしたとみなす状態を棄却する。
+- **影響範囲**：VA案件でのユーザー向け進捗・監査・最終報告、`AGENTS.md`、project consistency gate。本サイトの公開本文・UI・WATCH状態・Council形式は変更しない。
+- **検証状態**：project consistency、decision log、PR CIを通過し、#204 / #205へ最新mainを再同期した時点でVERIFIEDとする。
+- **関連**：ユーザー訂正 2026-10-06 21:12 JST、ARSA公開状態修正PR #206。
+- **日時根拠**：作業ホストのJST時刻 `2026-10-06 21:57:43 +09:00`。
+
 ### 2026-10-06 21:43 JST — ARSA非公開をCURRENTへ戻し公開集合の固定7本依存を廃止
 
 - **変更**：ARSA Blind Alarmの `published: false` をユーザー意図のCURRENTとして `PROJECT_STATE.md` に固定し、再公開には新しい明示指示が必要とした。公開WATCH集合の正本を各WATCH frontmatterへ一本化し、Stateへ本数・一覧を固定しない。`public/llms.txt` から非公開ARSAのJA / EN / DE routeを除外し、project consistency gateは固定7本ではなくfrontmatterから得た動的集合とllms三言語一覧を照合する。公開→非公開・非公開→公開・三言語stale・重複routeを検証する5ケースの回帰テストをquality testへ追加した。
