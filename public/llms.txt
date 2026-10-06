@@ -169,7 +169,6 @@ Published watch pages:
 - https://vintagealarm.github.io/basis-alarm/
 - https://vintagealarm.github.io/citizen-alarm/
 - https://vintagealarm.github.io/westclox-watchlarm/
-- https://vintagealarm.github.io/arsa-blind-alarm/
 
 English entry:
 - https://vintagealarm.github.io/en/
@@ -184,7 +183,6 @@ English entry:
 - https://vintagealarm.github.io/en/citizen-alarm/
 - https://vintagealarm.github.io/en/westclox-watchlarm/
 - https://vintagealarm.github.io/en/wittnauer-10wa/
-- https://vintagealarm.github.io/en/arsa-blind-alarm/
 
 German entry:
 - https://vintagealarm.github.io/de/
@@ -199,7 +197,6 @@ German entry:
 - https://vintagealarm.github.io/de/citizen-alarm/
 - https://vintagealarm.github.io/de/westclox-watchlarm/
 - https://vintagealarm.github.io/de/wittnauer-10wa/
-- https://vintagealarm.github.io/de/arsa-blind-alarm/
 
 Machine-readable index:
 - https://vintagealarm.github.io/sitemap.xml
