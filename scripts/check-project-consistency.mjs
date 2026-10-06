@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { extractLlmsWatchSlugs, publicationSetErrors } from './publication-consistency.mjs';
 
 const read = (path) => readFileSync(path, 'utf8');
 const fail = (message) => {
@@ -202,34 +203,33 @@ if (!jaFigureMatch) {
 }
 
 const watchDir = 'src/content/watches';
-const publishedSlugs = readdirSync(watchDir)
+const watchStates = readdirSync(watchDir)
   .filter((name) => name.endsWith('.md'))
-  .flatMap((name) => {
+  .map((name) => {
     const body = read(join(watchDir, name));
-    if (!/^published:\s*true\s*$/m.test(body)) return [];
     const slug = body.match(/^slug:\s*['"]?([^'"\n]+)['"]?\s*$/m)?.[1]?.trim();
     if (!slug) {
-      fail(`published WATCH has no parseable slug: ${name}`);
-      return [];
+      fail(`WATCH has no parseable slug: ${name}`);
+      return null;
     }
-    return [slug];
+    return { slug, published: /^published:\s*true\s*$/m.test(body) };
   })
+  .filter(Boolean);
+const publishedSlugs = watchStates
+  .filter((watch) => watch.published)
+  .map((watch) => watch.slug)
   .sort();
+const allWatchSlugs = new Set(watchStates.map((watch) => watch.slug));
 
-const publishedSection = llms.match(/Published watch pages:\s*([\s\S]*?)\r?\n\r?\nEnglish entry:/)?.[1] || '';
-const llmsSlugs = [...publishedSection.matchAll(/https:\/\/vintagealarm\.github\.io\/([^/\s]+)\//g)]
-  .map((match) => match[1])
-  .sort();
+const llmsGroups = extractLlmsWatchSlugs(llms, allWatchSlugs);
+for (const mismatch of publicationSetErrors(watchStates, llmsGroups)) fail(`llms published WATCH pages differ from frontmatter: ${mismatch}`);
 
-if (publishedSlugs.length !== 7) {
-  fail(`published WATCH count is ${publishedSlugs.length}, while current PROJECT_STATE baseline requires 7`);
-}
-if (!state.includes('公開中のWATCH routeは **') || !state.includes('の7本**')) {
-  fail('PROJECT_STATE no longer states the current seven published WATCH routes');
-}
-if (publishedSlugs.join('|') !== llmsSlugs.join('|')) {
-  fail(`llms Published watch pages differ from published WATCH files: files=${publishedSlugs.join(',')} llms=${llmsSlugs.join(',')}`);
-}
+requireText(state, '公開中のWATCH routeの正本は `src/content/watches/*.md` の `published: true`', 'PROJECT_STATE dynamic publication owner');
+requireText(state, '公開本数と対象一覧をこのStateへ固定しない', 'PROJECT_STATE dynamic publication rule');
+const arsa = watchStates.find((watch) => watch.slug === 'arsa-blind-alarm');
+if (!arsa) fail('ARSA Blind Alarm WATCH state is missing');
+if (arsa && !arsa.published) requireText(state, 'ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT', 'PROJECT_STATE ARSA unpublished CURRENT');
+if (arsa?.published && state.includes('ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT')) fail('PROJECT_STATE says ARSA is unpublished while frontmatter is published');
 
 requireText(state, 'measurement target 5本', 'PROJECT_STATE measurement target');
 requireText(aio, 'measurement target 5 WATCH', 'AIO measurement target');
