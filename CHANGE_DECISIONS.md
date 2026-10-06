@@ -16,6 +16,16 @@
 ---
 
 ## 2026-10-07
+### 2026-10-07 06:08 JST — 道化師の無礼許可を毎回のcontext完了後だけ発効
+
+- **変更**：明示7へ構造化context manifestを追加し、従来6項目に `currentSessionActions` / `observationBoundary` / `exclusionsWithReasons` を加えた。全9項目が揃わない場合はモデルを呼ばず、`license: NOT_GRANTED` と `文脈不足のため無礼許可は未発効` を返す。充足時だけFool's Licenseとノンデリ口調を発効する。V3正本、README、設計履歴、MCP schema、behavior test、Replay、project consistency gateを同期した。
+- **理由**：2026-10-07の1+7監査で、道化師が直前にAI自身が進めたPR #205 / #208 / #209を観測対象から外し、評価開始点を「これからの5件」へ移した。ユーザーから、毎回の厳密な復元を行うことが無礼許可の前提だったと再訂正された。既存仕様には最大context責任があったが、実装は自由文bodyだけで発効でき、完了検査がなかった。
+- **旧状態・棄却**：ノンデリ口調を恒久的な人格免許として扱う状態、短い要約だけで7を開始する状態、AI自身の直前作業を監査母数から外す状態、`これから` / `次のN件` で既存観測を暗黙に0件へ戻す状態を棄却する。1〜6とsilent Jester hookの意味は変更しない。
+- **影響範囲**：`council-worker/V3.md`、`council-worker/README.md`、`council-worker/src/v3.ts`、`council-worker/test/v3.behavior.test.ts`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、`.codex/inference-guard-cases.json`、`scripts/check-project-consistency.mjs`、本判断履歴。WATCH、Social、ARSA公開状態、CYMA、通常Council 1〜6は変更しない。
+- **検証状態**：branch `feat/jester-license-gate-20261007` へ実装中。Council behavior test、Replay、project consistency、full quality gate、PR CI、main再取得まで通って初めてVERIFIED。外部Worker deploy / liveは別状態で、ユーザーが要求していないため完了条件へ混ぜない。
+- **関連**：Council V3のepistemic duty、2026-10-03人格UIと最大context負担、PR #205 / #208 / #209、2026-10-07ユーザー訂正「道化師はこれを毎回ちゃんとしてるから無礼許可とした」。
+- **日時根拠**：ホスト確認時刻 `2026-10-07 06:08 JST`。
+
 ### 2026-10-07 05:35 JST — X Replayを対象投稿のsection-aware取得へ補正
 
 - **変更**：`SOCIAL-X-LANGUAGE-001` の曖昧な「このInstagram投稿」を、既存のPierce Duofon Mechanism follow-up公開投稿へ具体化し、`instagram-published-copy.md` の該当caption見出し・冒頭・hashtagsをevidence anchorにした。Social RouterのX契約と対象Published Copy節だけを回答時取得範囲として測る。改善候補の閾値も元ファイル全文ではなくsection-aware実読込推定20,000文字以上へ訂正する。
