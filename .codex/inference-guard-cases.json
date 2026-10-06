@@ -372,6 +372,49 @@
           }
         ]
       }
+    },
+    {
+      "id": "RESEARCH-CROSSCHAT-WRITE-001",
+      "title": "New research evidence from another chat must persist to existing Ledger before interpretation",
+      "premise": "別チャットでARSA Blind Alarmの新しい資料・画像・一次資料が投入され、既存Ledger + Research Mapがある",
+      "forbidden_inference": "資料を会話内で説明するだけで正本へ残さない、Mapだけへ詳細証拠を詰める、または新証拠受領だけで公開WATCH本文を自動変更する",
+      "required_action": "詳細証拠・出典・逐次履歴は既存Ledgerへ追記し、その証拠がCURRENT / OPEN / HOLD / next actionを変える場合だけResearch Mapも更新する。公開WATCH本文は別の編集・検証gateを通す",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "cross_chat_write",
+        "prompt": "別チャットにARSA Blind Alarmの新しい一次資料スクショを貼った。内容だけ見て教えて。",
+        "expected_resolution": "回答だけで消費せず、まず既存ARSA Ledgerへ詳細証拠を記録する。新証拠が優先順位・仮説状態・タスク状態を変える場合だけResearch Mapも更新する。公開WATCH本文は新資料を受け取っただけでは変更しない。その後、資料が実際に支える内容を説明する。",
+        "forbidden_resolution": "会話内の説明だけで終える、Ledgerを飛ばしてMapへ詳細を集約する、または公開WATCHを自動で書き換える。",
+        "routing_path": [
+          "AGENTS.md",
+          "research/ARSA_BLIND_ALARM_LEDGER.md",
+          "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md"
+        ],
+        "max_expected_hops": 2,
+        "max_expected_files": 2,
+        "required_sources": [
+          {
+            "path": "AGENTS.md",
+            "contains": [
+              "Research Evidence Ingress",
+              "詳細証拠・出典・逐次履歴をLedgerへ追記"
+            ]
+          },
+          {
+            "path": "research/ARSA_BLIND_ALARM_LEDGER.md",
+            "contains": [
+              "このLEDGERは詳細な証拠・出典・逐次履歴を保持し、MAPは現在状態と次アクションだけを整理する。"
+            ]
+          },
+          {
+            "path": "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
+            "contains": [
+              "新証拠が出たらまずLEDGERへ記録し",
+              "優先順位・仮説状態・タスク状態が変わる場合だけこのMAPを更新する"
+            ]
+          }
+        ]
+      }
     }
   ]
 }

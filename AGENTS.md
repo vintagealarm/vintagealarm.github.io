@@ -63,6 +63,7 @@ WATCH / OWNER'S NOTE用の個体研究は、特別な理由がない限り **Pie
 - 「契約書が見つかるまで完成しない」のように、単一の未発見資料を研究全体のblockerへしない。
 - Council / 焼いてで研究計画を作る場合も、この既存VA frameを先に適用し、その後に時計固有の論点だけ追加する。
 - 既存研究にこの順序から外れた枝がある場合、証拠は捨てずにCONTEXT / APPENDIX / HOLDへ降格して保持する。
+- **Research Evidence Ingress**: 別チャットを含む新しい画像・資料・一次資料・seller回答・ユーザー訂正を受け取った場合、対象WATCHに既存Research Ledgerがあれば**詳細証拠・出典・逐次履歴をLedgerへ追記**する。既存Research Map / Current Task Boardがある場合は、その証拠がCURRENT / OPEN / HOLD / next actionを変える時だけMapも更新する。公開WATCH本文は新証拠の受領だけで自動変更しない。既存Ledger / Mapが無いWATCHへ、AI都合で新しい台帳を作らない。
 
 ## 基本動作
 
