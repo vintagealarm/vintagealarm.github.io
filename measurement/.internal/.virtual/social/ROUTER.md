@@ -55,11 +55,11 @@ X向け本文生成では、一般的なSNS論より先に次を出力契約と�
 - **Audience**: overseas-facing
 - **Profile destination**: `https://vintagealarm.github.io/en/`
 - **Source copy**: Instagram既存投稿を再利用する場合は `instagram-published-copy.md` の公開本文を起点にする。記憶や一般論から再生成しない。
-- **Transformation**: Instagram本文の単純コピー／単純翻訳ではなく、**Published Copy → English compression/adaptation → 140-character validation → output** の順でX向けに再構成する。
+- **Transformation**: Instagram本文の単純コピー／単純翻訳ではなく、**Published Copy → English compression/adaptation → X weighted-length validation（全角140字相当）→ output** の順でX向けに再構成する。
 - **Current repost format**: `WATCH NAME` → short English description → English hashtags。実投稿候補は3つの非空セクションをこの順で持つ。
-- **Editorial character cap**: 実投稿候補全体を **140 user-perceived characters以内** とする。空白・改行・hashtagsも含む。これはVINTAGE ALARMの現行編集上限であり、Xプラットフォーム一般の上限値とは別に扱う。
-- **Pre-output FAIL conditions**: 実投稿候補に日本語Script（Han / Hiragana / Katakana）が含まれる、140文字を超える、上記3セクション順を満たさない、Instagram再利用なのにPublished Copyを確認していない、のいずれか。
-- **Web reality note**: X公式ヘルプでは通常ポストは英語で最大280 characters、Premiumのlonger postsはそれを超えて作成可能。twitter-textの公開設定では通常ポストはweighted length 280、URLは23として扱う。したがって今回の140は「Xの技術上限」としてではなく、ユーザー確定のVA編集契約として検査する。現行repost formatは本文URLを前提にしないため、URL重み付けで140上限を緩めない。
+- **Length cap**: 実投稿候補全体は **全角140字相当 = X weighted length 280以内** とする。空白・改行・hashtagsも含む。英語のASCII文字を一律140文字で切らない。X / twitter-textのweightingに従い、英数字等は通常weight 1、CJK等はweight 2として検査する。
+- **Pre-output FAIL conditions**: 実投稿候補に日本語Script（Han / Hiragana / Katakana）が含まれる、**X weighted lengthが280を超える**、上記3セクション順を満たさない、Instagram再利用なのにPublished Copyを確認していない、のいずれか。
+- **Web reality note**: X公式ヘルプでは通常ポストは英語で最大280 characters、Premiumのlonger postsはそれを超えて作成可能。twitter-textの公開設定では通常ポストはweighted length 280、URLは23として扱う。ユーザー指定の「全角140字」はこのweighted length 280相当として扱い、**140 ASCII charactersという独自の半分上限へ縮めない**。現行repost formatは本文URLを前提にしない。
 
 この契約を変更する場合は、REVERSAL TARGET + NEW EVIDENCE + `CHANGE_DECISIONS.md` 更新を先に行う。
 

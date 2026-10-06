@@ -9,8 +9,17 @@ const requireText = (text, needle, label) => {
   if (!text.includes(needle)) fail(`${label} is missing: ${needle}`);
 };
 
-export const countUserPerceivedCharacters = (text) =>
-  [...new Intl.Segmenter('en', { granularity: 'grapheme' }).segment(text)].length;
+const isXSingleWeightCodePoint = (codePoint) =>
+  codePoint <= 0x10ff ||
+  (codePoint >= 0x2000 && codePoint <= 0x200d) ||
+  (codePoint >= 0x2010 && codePoint <= 0x201f) ||
+  (codePoint >= 0x2032 && codePoint <= 0x2037);
+
+export const countXWeightedLength = (text) =>
+  [...new Intl.Segmenter('en', { granularity: 'grapheme' }).segment(text)].reduce((total, item) => {
+    const codePoints = [...item.segment].map((char) => char.codePointAt(0));
+    return total + (codePoints.every(isXSingleWeightCodePoint) ? 1 : 2);
+  }, 0);
 
 export const containsJapaneseScript = (text) =>
   /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(text);
@@ -24,8 +33,8 @@ export function validateXCurrentCandidate(text, { repost = false } = {}) {
     errors.push('actual X post candidate contains Han/Hiragana/Katakana under English-only CURRENT');
   }
 
-  const length = countUserPerceivedCharacters(normalized);
-  if (length > 140) errors.push(`actual X post candidate is ${length} characters; VA CURRENT cap is 140`);
+  const length = countXWeightedLength(normalized);
+  if (length > 280) errors.push(`actual X post candidate has X weighted length ${length}; CURRENT cap is 280 (full-width 140 equivalent)`);
 
   if (repost) {
     const sections = normalized.split('\n').map((line) => line.trim()).filter(Boolean);
@@ -119,8 +128,8 @@ for (const needle of [
   'X CURRENT OUTPUT CONTRACT',
   'English only',
   'overseas-facing',
-  '140 user-perceived characters',
-  'Published Copy → English compression/adaptation → 140-character validation → output',
+  '全角140字相当 = X weighted length 280以内',
+  'Published Copy → English compression/adaptation → X weighted-length validation（全角140字相当）→ output',
   'WATCH NAME',
   'short English description',
   'English hashtags'
@@ -130,7 +139,7 @@ const requiredCases = new Map([
   ['SOCIAL-DIRECTION-001', ['InstagramをXの単純英訳にしない', '逆向き']],
   ['REALITY-X-ROUTE-001', ['src/pages/x/index.astro', '既存']],
   ['SOCIAL-DUOFON-001', ['Duofon', 'Execution Brief']],
-  ['SOCIAL-X-LANGUAGE-001', ['overseas-facing', '140', 'English compression/adaptation']]
+  ['SOCIAL-X-LANGUAGE-001', ['overseas-facing', 'weighted length 280', 'English compression/adaptation']]
 ]);
 
 let byId = new Map();
@@ -197,7 +206,7 @@ if (xCopyIndex !== -1 || xCopyFileIndex !== -1) {
   if (!result.valid) {
     for (const error of result.errors) fail(`X pre-output gate: ${error}`);
   } else {
-    console.log(`X pre-output gate passed: English-only candidate, ${result.length}/140 user-perceived characters.`);
+    console.log(`X pre-output gate passed: English-only candidate, weighted length ${result.length}/280 (full-width 140 equivalent).`);
   }
 }
 
