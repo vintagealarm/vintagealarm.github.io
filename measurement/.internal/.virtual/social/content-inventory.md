@@ -105,7 +105,7 @@ Canonical WATCH: `src/content/watches/cyma-time-o-vox.md`
 | CYM-09 | アラーム時刻を双方向で設定できる。小さなスパイラルスプリングを含む切替機構が時計回り設定も可能にする。精度重視なら反時計回り推奨 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_SOURCE | OPERATION+MECHANISM | WATCH guide + Horlbeck R.464 discussion + USER_KEEP / USER_MERGE 2026-10-05 |
 | CYM-10 | Cymaflex耐震機構。ムーブメント側からC字形に見える独自の耐震構造 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+MECHANISM | Horlbeck R.464 discussion + USER_KEEP 2026-10-05 |
 | CYM-11 | tone springの空間を確保するための段付きムーブメント構造。裏スケ換装後の掲載個体ケース厚・実寸は訴求に使わない | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+MECHANISM | Horlbeck R.464 discussion + USER_KEEP 2026-10-05 |
-| CYM-12 | 1 crown + 2 pushersで横顔はクロノグラフ風だが、役割はalarm control | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+OPERATION | Beitl p.134 + WATCH side gallery + USER_KEEP 2026-10-05 |
+| CYM-12 | 1 crown + 2 pushersで横顔はクロノグラフ風だが、役割はalarm control | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+OPERATION | Beitl p.134 + WATCH side gallery + USER_KEEP 2026-10-05 + Published IG-CYM-002 2026-10-07 |
 | CYM-13 | 大きなhammerがムーブメントを囲むtone springを叩く発音機構 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | SOUND+MECHANISM | Beitl p.136 + Humbert R.464 + USER_KEEP 2026-10-05 |
 | CYM-ON | OWNER'S NOTE全体 | WHOLE_ONLY | NO_EXPLICIT_USE_FOUND_2026-10-03 | OWNER_NOTE_HERO_ONLY | READY_FROM_WATCH | OWNER_NOTE_WHOLE | WATCH `ownersNote` |
 
@@ -218,7 +218,7 @@ Status:
 | PR-CYM-003 | CYMA Time-O-Vox 18K Chronomètre | 両プッシャー中央でON／どちらかを押すとOFF / OPERATION | SUBSET → CYM-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_WATCH | 実機側面で中央→片側pushの変化だけ見せる | USER_KEEP | WATCH guide + user confirmation 2026-10-05 |
 | PR-CYM-004 | CYMA Time-O-Vox 18K Chronomètre | 2プッシャーが連動し、一方を押すともう一方が同量だけ出る / OPERATION | SUBSET → CYM-02 | IG本文未使用候補 | NEEDS_SHOOT | READY_FROM_SOURCE | 側面固定で上下プッシャーのシーソー動作だけ見せる | USER_KEEP | WATCH Deep 03 + Humbert R.464 + user confirmation 2026-10-05 |
 | PR-CYM-005 | CYMA Time-O-Vox 18K Chronomètre | 1香箱で時計とアラームが動力共有。掲載個体では1回の鳴動で約9時間分を消費 / MECHANISM+SPECIMEN | OVERLAP → CYM-03 | Xでtiming-wheelは使用済み、9時間消費はIG未使用候補 | READY_EXISTING | READY_FROM_WATCH | 実機単独で見せるならbefore/after実測カード向き。micro-Reel化は要工夫 | USER_KEEP | WATCH Deep 04 + owner measurement + user confirmation 2026-10-05 |
-| PR-CYM-006 | CYMA Time-O-Vox 18K Chronomètre | 1 crown + 2 pushersで横顔はクロノグラフ風。ただし役割はalarm control / DETAIL+OPERATION | NEW → CYM-12 | IG本文未使用候補 | READY_EXISTING | READY_FROM_SOURCE | 側面一発で見える。次にpush操作へ繋げてもよい | USER_KEEP | Beitl p.134 + WATCH lead / side gallery + user confirmation 2026-10-05 |
+| PR-CYM-006 | CYMA Time-O-Vox 18K Chronomètre | 1 crown + 2 pushersで横顔はクロノグラフ風。ただし役割はalarm control / DETAIL+OPERATION | NEW → CYM-12 | IG_USED_2026-10-07 | READY_EXISTING | READY_FROM_SOURCE | 静止画素材をEditsでBGM付きReel化して公開。push操作の実演は未使用 | USER_KEEP | Beitl p.134 + WATCH lead / side gallery + user confirmation 2026-10-05 + Published IG-CYM-002 |
 | PR-CYM-007 | CYMA Time-O-Vox 18K Chronomètre | tone springの空間を確保するための段付きムーブメント構造 / DETAIL+MECHANISM | NEW → CYM-11 | IG本文未使用候補 | READY_EXISTING | READY_FROM_SOURCE | ムーブメント構造を主題化。裏スケ換装後の掲載個体ケース厚・実寸は訴求しない | USER_KEEP | Horlbeck R.464 discussion + user confirmation 2026-10-05 |
 | PR-CYM-008 | CYMA Time-O-Vox 18K Chronomètre | 裏蓋内側の18K 0.750 / Weber刻印 / DETAIL | OVERLAP → CYM-06 | 初回IGで18K自体は使用済み、刻印は未使用 | READY_EXISTING | READY_FROM_WATCH | 裏蓋内側macro。新品訴求より証拠・ディテール枠 | USER_KEEP | Gallery `cyma-caseback-inside.jpg` + user confirmation 2026-10-05 |
 | PR-CYM-009 | CYMA Time-O-Vox 18K Chronomètre | Chronomètreなのに1香箱でalarmと動力共有する設計上の緊張 / RESEARCH-COMBINATION | OVERLAP → CYM-08 + CYM-03 | 初回IGでCHRONOMÈTREは使用済み、矛盾自体は未使用 | READY_EXISTING | READY_FROM_WATCH | 3–8秒microより少し説明が必要。research Reel候補 | USER_KEEP | WATCH Deep 02 + Deep 04 + The Alarm Wristwatch chronometer section + user confirmation 2026-10-05 |
@@ -260,6 +260,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | IG-WIT-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | WIT-01 | — | SOCIAL:IG-WIT-FIRST-REEL | published-copy |
 | IG-WIT-002 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | STATIC_CAROUSEL | WIT-02 | — | USER:POCKETSHOT-20261003;WIT:IMG_6609.jpeg | published-copy + Insights |
 | IG-CYM-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | CYM-01 | — | SOCIAL:IG-CYM-FIRST-REEL | published-copy |
+| IG-CYM-002 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | CYM-12 | — | USER:CYMA-EDITS-PHOTO-VIDEO-20261007 | published around 2026-10-07 05:40 JST; still-photo assets edited into a BGM Reel; published-copy + early Insights |
 | IG-PIE-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | PIE-01 | — | SOCIAL:IG-PIE-FIRST-REEL | published-copy |
 | IG-BAS-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | BAS-01 | — | SOCIAL:IG-BAS-FIRST-REEL | published-copy |
 | IG-WES-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | WES-01 | — | SOCIAL:IG-WES-FIRST-REEL | published-copy |
