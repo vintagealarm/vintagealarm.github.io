@@ -24,7 +24,7 @@
 - **旧状態・棄却**：事故ごとに新しいルール本文・別fixture・新CURRENT台帳・外部LLM evaluatorを増やす方式は採用しない。CIだけで自然言語回答の意味正解まで自動判定したと見なすことも棄却し、CIはsource / routing / fixture driftの決定論的検査、実モデル回答は `replay:score` へ別途記録する二層構造とする。
 - **影響範囲**：`.codex/inference-guard-cases.json`、`.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`、`scripts/check-replay-evals.mjs`、`package.json`、本判断履歴。公開WATCH本文、Social CURRENT、Instagram実測値、Manager lifecycle、multi-agent設定は変更しない。
 - **検証状態**：branch `ops/replay-eval-20261006` へ実装済み。Replay fixture / harness単体、既存inference guard、full quality gate、PR CI、merge後main再取得までPASSして初めてVERIFIEDとする。実モデルの独立fresh-context replay baselineは、同チャットでexpected answerを読んだ状態を公平な評価としないため別実行として残す。
-- **関連**：Control Plane再統合 2026-10-06 10:15 JST、commits `26e67fcc` / `a1efc0e7` / `0f62b339` / `cfa486ee`。対象事故: ARSA copy state、X contract / route reality / directional inference、Duofon source priority、active PR routing、cross-chat Instagram write、HOW THEY RING分類、lifecycle state。
+- **関連**：Control Plane再統合 2026-10-06 10:15 JST、commits `26e67fcc` / `a1efc0e7` / `0f62b339` / `cfa486ee` / `43342539`。対象事故: ARSA copy state、X contract / route reality / directional inference、Duofon source priority、active PR routing、cross-chat Instagram write、HOW THEY RING分類、lifecycle state。
 - **日時根拠**：GitHub commit `cfa486ee35d0b0477d7d7ad708ca30aa061c09b7` の `2026-10-06T03:56:09Z → 2026-10-06 12:56 JST`。
 
 
