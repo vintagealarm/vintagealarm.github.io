@@ -22,13 +22,16 @@
 
 ### FAIL-CLOSED推論ゲート
 
-正本を読んだ後も、確認済み情報を勝手に変形しない。詳細正本は `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`。
+詳細正本は `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`。正本確認後も、既存判断の反転・逆推論・未確認実体の新設前提・一般論による上書きをしない。必要根拠が不足する場合はHOLDする。
 
-- **A→BからB→A・裏・対偶・双方向・一般化を導かない。** 逆向きの根拠が無ければHOLD。
-- USER_CONFIRMED / RESOLVED / CURRENTを変える場合は **撤回対象 + 新証拠** を先に確認する。片方でも無ければ変更禁止。
-- URL / route / account / media / postの新設・転用を提案する前に既存実装・実物を確認する。存在確認前の「無い前提」提案は禁止。
-- 正本にない一般論はAI_PROPOSED / CANDIDATEまで。現行方針へ昇格させない。
-- 回答直前に、直近ユーザー決定・正本・既存実装を反転していないか確認し、矛盾が残る場合は回答を続けない。
+### EVIDENCE INGRESS / CANONICAL WRITE
+
+新しいスクリーンショット・実測・資料・ファイル・ユーザー訂正を受け取った場合は、回答だけで消費せず**対象domainのcanonical owner / Routerにwrite contractがあるか確認する**。
+
+- write contractがある → その正本へ更新し、domain validator / diff / 再取得で確認してから分析・回答する。
+- write contractがない → AI都合で新しい保存先・sidecar・CURRENT台帳を作らない。既存ownerを確認し、必要ならHOLD / 提案に留める。
+- **normative ownerは原則1箇所、discovery pointerは複数可。** 別チャットでもPROJECTから更新経路を発見できる状態を維持する。
+- SNS / Instagram Insightsでは `measurement/.internal/.virtual/social/ROUTER.md` の **CANONICAL WRITE CONTRACT** を正とする。
 
 ## 1. 「焼いて」/ Council は絶対に独自解釈しない
 
