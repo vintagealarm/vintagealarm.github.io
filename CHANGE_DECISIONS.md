@@ -17,6 +17,19 @@
 
 ## 2026-10-06
 
+### 2026-10-06 17:30 JST — ARSA working copyのquery-time ownerをResearch Mapへ移し履歴全文読込を外す
+
+- **変更**：ARSA Blind AlarmのCatch / OWNER'S NOTE working stateについて、短いCURRENT確認時のquery-time ownerを `CHANGE_DECISIONS.md` から既存 `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` へ移した。MAPへ `Catch WORKING_MAIN / USER-origin = 開けて、触って、聞く。`、`Public FINAL status = 未実施`、currently published catch、両者を別状態として扱うことを明記した。Replay `STATE-ARSA-COPY-001` もMAP + 公開WATCHを読む経路へ変更した。
+- **理由**：Replay構造baselineで、従来経路は `CHANGE_DECISIONS.md` 160,219文字 + ARSA公開WATCH 7,299文字 = **167,518文字**をtask固有CURRENT確認のために読む構造だった。一方、既存ARSA Research Mapはもともと「Current Task Board」であり、working stateをそこへ同居させればMAP 22,091文字 + 公開WATCH 7,299文字 = **29,390文字**で同じ状態判定が可能。task固有読込を **138,128文字 / 82.5%削減**できる。
+- **REVERSAL TARGET**：ARSAの短いCURRENT copy queryで、採否履歴全体の正本 `CHANGE_DECISIONS.md` を最初の状態解決先として読む運用。
+- **NEW EVIDENCE**：2026-10-06のReplay Eval構造baselineで、ARSA state-resolutionだけが約20万文字級の読込となり、履歴とCURRENTの同居がretrieval costの主要因だと数値で確認できたこと。
+- **旧状態・棄却**：判断履歴を削る案、新CURRENT DB / indexを作る案、公開WATCHへ未公開WORKING_MAINを混ぜる案は棄却。Decision Logは起点・採否・撤回理由の履歴として残し、必要な時だけ読む。公開WATCHはcurrently published copyの正本のまま。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`SITE_RULES.md` のretrieval pointer、`.codex/inference-guard-cases.json` のARSA Replay route、本判断履歴。公開ARSA本文・採用状態・他WATCH本文は変更しない。
+- **検証状態**：branch `ops/arsa-current-locality-20261006` で実装。Replay evidence anchor、quality gate、PR CI、merge後main再取得までPASSして初めてVERIFIEDとする。
+- **関連**：2026-10-03 12:52 JST ARSA working set、2026-10-06 12:56 JST Replay Eval固定、commits `02f2ceb9` / `9e2bf01a` / `eebe9b20`。
+- **日時根拠**：GitHub commit `eebe9b2032f00787b82612dd80c50f4aea541a6a` の `2026-10-06T08:30:10Z → 2026-10-06 17:30 JST`。
+
+
 ### 2026-10-06 12:56 JST — 実事故9件を既存fixtureへReplay Evalとして固定
 
 - **変更**：既存の `.codex/inference-guard-cases.json` を第二の事故DBへ分岐させず、そのままReplay Eval corpusへ拡張した。従来4件に加え、ARSAのWORKING_MAINと公開catchのstate resolution、open PR優先、別チャットInstagram Insightsのcanonical write、HOW THEY RINGの2分類、IMPLEMENTED / VERIFIED / DEPLOYED / OBSERVED分離を追加し、計9件を `LOCKED_REGRESSION` とした。各caseは prompt / expected resolution / forbidden resolution / task-specific routing path / evidence anchor / hop・file budget を持つ。新規 `scripts/check-replay-evals.mjs` はfixture schema・source path・anchor driftを検査し、report / case / score modeで読込文字数・routing hop・再指示回数・false certaintyを集計できる。quality gateへ `check:replay-evals` を接続した。
