@@ -23,8 +23,8 @@
 - **REVERSAL TARGET**：X CURRENT OUTPUT CONTRACTの `140 user-perceived characters` という独自編集上限、および `140-character validation`。
 - **NEW EVIDENCE**：ユーザーの明示訂正「ぜんかくで140字」。既存Router内のX公式 / twitter-text参照もweighted length 280を記録済みで、この訂正と整合する。
 - **旧状態・棄却**：英語でも140文字に圧縮する運用を棄却。English only、overseas-facing、`WATCH NAME → short English description → English hashtags`、Instagram Published Copy起点は維持する。
-- **影響範囲**：`measurement/.internal/.virtual/social/ROUTER.md` のX CURRENT OUTPUT CONTRACTと本判断履歴。Instagram運用、公開WATCH本文、既存X投稿、VA Analyticsは変更しない。
-- **検証状態**：branch `fix/x-fullwidth-140-contract-20261006` で実装。diff / PR / main再取得まで完了してVERIFIEDとする。
+- **影響範囲**：`measurement/.internal/.virtual/social/ROUTER.md` のX CURRENT OUTPUT CONTRACT、`scripts/check-inference-guards.mjs` のpre-output validator、`.codex/inference-guard-cases.json` のX回帰fixture、本判断履歴。Instagram運用、公開WATCH本文、既存X投稿、VA Analyticsは変更しない。
+- **検証状態**：branch `fix/x-fullwidth-140-contract-20261006` で実装。初回CIは旧140文字checkerが残っていたためFAILし、validator / regression fixtureもweighted length 280へ同期した。再CI / diff / main再取得まで完了してVERIFIEDとする。
 - **関連**：Social Router §3.5 X CURRENT OUTPUT CONTRACT、2026-10-06 CYMA海外X第二投稿作成時のユーザー訂正。
 - **日時根拠**：developer-provided local time `2026-10-06T20:05+09:00` = `2026-10-06 20:05 JST`。
 
