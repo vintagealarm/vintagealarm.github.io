@@ -36,6 +36,19 @@
 - **関連**：ユーザー訂正 2026-10-06 21:12 JST、CMS commit `b45eb70`、旧公開実装PR #188、再CI対象PR #204 / #205。
 - **日時根拠**：作業ホストのJST時刻 `2026-10-06 21:43:48 +09:00`。
 
+### 2026-10-06 20:42 JST — PROJECT_STATEのCouncil仕様複製を正本pointerへ戻す
+
+- **変更**：`PROJECT_STATE.md` §3 CURRENT BASELINEに複製されていたCouncil V3の7形式・Jester hook・共通protocol・resident・PRE-MORTEM説明9項目を、§6の `Council現行仕様` pointer + `PROJECT.md` §1 launcherを参照する1項目へ置換した。Council仕様本文は `council-worker/V3.md` / `council-worker/README.md` / `council-worker/src/v3.ts` / `council-worker/src/index.ts` に保持する。`scripts/check-project-consistency.mjs` はSTATEへのCouncil仕様再複製を禁止し、遅延pointerを必須化した。
+- **理由**：section-aware Replay導入後、最適化対象はsource内容量ではなく不要なquery-time読込と明確化した。Councilを使わない全VAタスクでもmandatory bootでCouncil仕様説明を読む一方、同じSTATE §6とAGENTS / PROJECTから既に専用正本へ到達できていたため、この複製はCURRENT値保持ではなく起動時重複だった。
+- **REVERSAL TARGET**：`PROJECT_STATE.md` CURRENT BASELINEにCouncil V3仕様本文を複製して、mandatory bootで常時読む運用。
+- **NEW EVIDENCE**：`replay:section-report` によりtask資料の詳細保持とquery-time read costを分離できたこと、`PROJECT_STATE.md` §6にCouncil正本pointerが既にあり、AGENTSもCouncil本文を専用正本へ遅延済みであること、2026-10-06の1=2ch Council監査で「boot全体削減ではなく、完全重複だけを遅延する」と裁定したこと。
+- **旧状態・棄却**：Council正本・7択・Jester / PRE-MORTEM仕様そのものを削る案、HOW THEY RING / SNS /研究CURRENTまで同時に圧縮する案、30kという数字だけを目標にboot本文を一括削減する案は棄却。Council要求時は従来どおり専用正本を取得する。
+- **影響範囲**：`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`、本判断履歴のみ。Council V3 / README / code / design、WATCH、Research、Social、HOW THEY RINGは変更しない。
+- **実測**：mandatory bootは `30,347 → 29,686 chars`、**661 chars減**。`PROJECT_STATE.md` は `13,323 → 12,662 chars`。削減分はCouncil仕様の重複のみで、専用Council正本の情報量は不変。
+- **検証状態**：branch `ops/state-council-delay-20261006-v2` で実装中。project consistency / Replay / full quality gate / PR CI / merge後main再取得までPASSして初めてVERIFIED。
+- **関連**：2026-10-06 18:20 JST AGENTS Council遅延、20:13 JST section-aware Replay cost、PR #203 X CURRENT訂正。commits `87042932` / `04b7d0de` / `8865dde4`。
+- **日時根拠**：GitHub commit `8865dde4f25896a609260513be9124ea0d6cff13` の `2026-10-06T11:42:51Z → 2026-10-06 20:42 JST`。
+
 ### 2026-10-06 20:05 JST — X投稿上限を「全角140字相当 = weighted length 280」へ訂正
 
 - **変更**：Social RouterのX CURRENT OUTPUT CONTRACTにあった「140 user-perceived characters以内」を撤回し、ユーザー指定どおり **全角140字相当 = X weighted length 280以内**へ訂正した。英語本文を140 ASCII charactersで切らず、X / twitter-textのweighted lengthで検査する。
