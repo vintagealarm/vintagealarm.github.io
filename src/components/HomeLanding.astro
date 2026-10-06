@@ -6,7 +6,7 @@ import howTheyRingSettings from '../data/how-they-ring-settings.json';
 type Locale = 'ja' | 'en' | 'de';
 const { locale = 'ja' } = Astro.props as { locale?: Locale };
 const base = import.meta.env.BASE_URL;
-const researchPublished = researchSettings.published;
+const researchPublished = researchSettings.published && researchSettings.locales.includes(locale);
 const showSoundOnTop = howTheyRingSettings.productionPublished && howTheyRingSettings.showOnTop;
 const contentCount = `01—${String(3 + Number(showSoundOnTop) + Number(researchPublished)).padStart(2, '0')}`;
 const researchIndexNo = showSoundOnTop ? '05' : '04';
