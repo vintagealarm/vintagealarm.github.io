@@ -1,0 +1,32 @@
+name: Replay Auth Surface Probe Once
+
+on:
+  push:
+    branches:
+      - "eval/replay-baseline-20261006"
+    paths:
+      - ".github/workflows/replay-auth-probe-once.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check available model credentials without exposing values
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CODEX_API_KEY: ${{ secrets.CODEX_API_KEY }}
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        shell: bash
+        run: |
+          for name in OPENAI_API_KEY CODEX_API_KEY COPILOT_GITHUB_TOKEN ANTHROPIC_API_KEY GEMINI_API_KEY; do
+            if [ -n "${!name}" ]; then
+              echo "$name=PRESENT"
+            else
+              echo "$name=MISSING"
+            fi
+          done
