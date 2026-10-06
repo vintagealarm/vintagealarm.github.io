@@ -101,6 +101,7 @@ OWNER'S NOTEは、キャッチコピーを置いたあとに同じ内容を薄�
 6. **状態を明示して取捨選択する**
    - 候補は `WORKING_MAIN` / `SUB` / `HOLD` / `REJECTED` / `FINAL_PENDING_REALITY_CHECK` / `FINAL` のいずれかで扱う。
    - ユーザーが最終確定していない案を `FINAL` にしない。到着後の実機操作・音・触感等が意味を左右する場合は `FINAL_PENDING_REALITY_CHECK` に留める。
+   - 既存のper-WATCH Research Map / Current Task Boardがある場合、**短いCURRENT確認はそこを先に読む**。採否・起点・撤回理由の履歴は `CHANGE_DECISIONS.md` に残すが、履歴全文をquery-time CURRENT ownerとして使わない。
 7. **判断履歴へ残す**
    - 採用・降格・棄却・最終確定など後から再構成すると帰属や理由が失われる判断は `CHANGE_DECISIONS.md` へ残す。
    - Catch / Leadの実ファイルを変更するPRでは、判断履歴に少なくとも **`対象WATCH` / `起点・帰属` / `VA温度比較` / `採否・現在状態`** を明記する。CIはこの4項目を検査する。
