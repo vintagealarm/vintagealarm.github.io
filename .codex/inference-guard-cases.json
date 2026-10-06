@@ -78,15 +78,15 @@
     {
       "id": "SOCIAL-DUOFON-001",
       "title": "Verified Duofon media and prior analysis outrank generic SNS advice",
-      "premise": "Duofonの実素材・Execution Brief・過去Published Copy/Operations分析が存在する",
-      "forbidden_inference": "それらを使わず、一般的なSNSフック・短文化・媒体論へリセットして制作判断を作る",
-      "required_action": "実素材→Execution Brief→Published Copy/Operations→WATCH/researchの順で今回のcontentを組み立て、一般論は候補に限定する",
+      "premise": "Duofonの実素材・過去Published Copy/Operations分析・inventoryが存在するが、現在はPierceの共同棚卸しがPENDING_USER_REVIEWで、新規active reservationは0件。MR-PIE-001 / EB:MR-PIE-001はPUBLISHED履歴",
+      "forbidden_inference": "一般的なSNSフックへリセットする、または過去PUBLISHEDのMR-PIE-001 / EB:MR-PIE-001を次投稿のCURRENT assignment / briefとして再利用する",
+      "required_action": "Social Router→Pierce inventory→Published Copyの順でCURRENTと既出衝突を確認する。PierceがPENDING_USER_REVIEWかつactive reservation 0なら、次のassetをユーザーと選ぶ前にfinal Reel文を確定しない。MR-PIE-001のExecution Briefは過去学習として参照できるがCURRENT briefではない",
       "status": "LOCKED_REGRESSION",
       "replay": {
         "failure_class": "source_priority",
         "prompt": "Pierce Duofonの次のReel文を、一般的に伸びる短いSNSフックで作って。",
-        "expected_resolution": "一般論から開始せず、実素材とExecution Brief、既存Published Copy/Operationsを確認して今回のcontentへ継承する。",
-        "forbidden_resolution": "実素材・既存分析を読まず、一般的な短文SNSフックへリセットする。",
+        "expected_resolution": "一般論から書き始めない。Social RouterとPierce inventoryを確認し、現在はPierce=PENDING_USER_REVIEW・新規active reservation 0、MR-PIE-001はPUBLISHED済みと解決する。Published Copyで既出訴求を確認し、次に使うassetをユーザーと選んでUSER_CONFIRMED / PLANNEDになった後に新Execution Briefを作る。旧EB:MR-PIE-001は過去学習であり次投稿のCURRENT briefではない。",
+        "forbidden_resolution": "実素材・既存分析を読まず一般的な短文SNSフックへリセットする、またはPUBLISHED済みMR-PIE-001 / EB:MR-PIE-001を次投稿のactive CURRENTとして扱ってfinal captionを作る。",
         "routing_path": [
           "measurement/.internal/.virtual/social/ROUTER.md",
           "measurement/.internal/.virtual/social/content-inventory.md",
@@ -98,21 +98,25 @@
           {
             "path": "measurement/.internal/.virtual/social/ROUTER.md",
             "contains": [
-              "Execution Brief",
-              "目の前の実素材が最優先"
+              "目の前の実素材が最優先",
+              "Content Inventoryから実制作へ分析を落とさない",
+              "USER_CONFIRMED / PLANNED"
             ]
           },
           {
             "path": "measurement/.internal/.virtual/social/content-inventory.md",
             "contains": [
-              "Execution Brief",
-              "Pierce"
+              "| Pierce Duofon | PENDING_USER_REVIEW |",
+              "現在の新規active reservationは0件",
+              "MR-PIE-001は2026-10-05にPUBLISHEDへ移行",
+              "#### EB:MR-PIE-001"
             ]
           },
           {
             "path": "measurement/.internal/.virtual/social/instagram-published-copy.md",
             "contains": [
-              "Pierce"
+              "## Pierce Duofon",
+              "### Mechanism follow-up — Published caption"
             ]
           }
         ]
