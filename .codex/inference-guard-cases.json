@@ -125,7 +125,7 @@
     {
       "id": "SOCIAL-X-LANGUAGE-001",
       "title": "X overseas-English copy must fail on Japanese body or weighted-length contract drift",
-      "premise": "Xは海外向け英語アカウントで、Instagram既存投稿の再利用はPublished Copy→English compression/adaptation→X weighted-length validation（全角140字相当）→output。current repost formatはWATCH NAME→short English description→English hashtags。",
+      "premise": "Pierce DuofonのMechanism follow-up公開済みInstagram本文をXへ再利用する。Xは海外向け英語アカウントで、Published Copy→English compression/adaptation→X weighted-length validation（全角140字相当）→output。current repost formatはWATCH NAME→short English description→English hashtags。",
       "forbidden_inference": "Social Routerを読んだだけで、actual X post candidateへlanguage / audience / character limit / source / transformationを固定せず、日本語本文・日本語hashtags・X weighted length 280超過・Instagram長文の単純転載をPASSさせる",
       "required_action": "X actual post candidateをEnglish-only・overseas-facing・全角140字相当 = X weighted length 280以内で検査する。Instagram再利用時はinstagram-published-copy.mdを起点にし、current repost modeではWATCH NAME→short English description→English hashtagsの順にする。日本語Script混入またはweighted length上限超過はFAIL。",
       "validation": {
@@ -165,8 +165,8 @@
       "status": "LOCKED_REGRESSION",
       "replay": {
         "failure_class": "domain_contract",
-        "prompt": "このInstagram投稿をXにも出したい。全角140字までなら英語は140文字に縮めるんだよね？",
-        "expected_resolution": "Social RouterのX CURRENT OUTPUT CONTRACTを適用し、actual post candidateはEnglish only / overseas-facing / 全角140字相当 = X weighted length 280以内。Instagram Published CopyからEnglish compression/adaptationする。",
+        "prompt": "Pierce DuofonのMechanism follow-up Instagram投稿をXにも出したい。全角140字までなら英語は140文字に縮めるんだよね？",
+        "expected_resolution": "Social RouterのX CURRENT OUTPUT CONTRACTを適用し、actual post candidateはEnglish only / overseas-facing / 全角140字相当 = X weighted length 280以内。instagram-published-copy.mdのPierce Mechanism follow-up公開本文を起点にEnglish compression/adaptationする。",
         "forbidden_resolution": "日本語本文・日本語hashtags・weighted length 280超過・単純転載をX候補としてPASSさせる。",
         "routing_path": [
           "measurement/.internal/.virtual/social/ROUTER.md",
@@ -185,7 +185,11 @@
           },
           {
             "path": "measurement/.internal/.virtual/social/instagram-published-copy.md",
-            "contains": []
+            "contains": [
+              "### Mechanism follow-up — Published caption — screenshot verified 2026-10-05",
+              "Look at the alarm mechanism in the upper left. 👀",
+              "#PierceDuofon #PierceWatch #AlarmWatch"
+            ]
           }
         ]
       }
