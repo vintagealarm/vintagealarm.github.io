@@ -17,7 +17,7 @@
     "check:images": "node scripts/check-image-duplicates.mjs",
     "check:owner-copy-provenance": "node scripts/check-owner-copy-provenance.mjs",
     "owner-copy:benchmark": "node scripts/owner-copy-benchmark.mjs",
-    "check:quality": "npm run check:decision-log && npm run check:project-consistency && npm run check:inference-guards && npm run check:replay-evals && npm run check:slide-export && npm run check:owner-copy-provenance && npm run check:social-inventory && npm run check:instagram-insights && npm run check:links && npm run check:analytics-routes && npm run check:seo && npm run check:citations && npm run check:source-traceability && npm run check:localization-sync && npm run check:localization-coverage && npm run check:localization-purity && npm run check:spec-evidence && npm run check:japanese-style && npm run check:images",
+    "check:quality": "npm run check:decision-log && npm run check:project-consistency && npm run check:inference-guards && npm run check:replay-evals && npm run check:replay-section-cost && npm run check:slide-export && npm run check:owner-copy-provenance && npm run check:social-inventory && npm run check:instagram-insights && npm run check:links && npm run check:analytics-routes && npm run check:seo && npm run check:citations && npm run check:source-traceability && npm run check:localization-sync && npm run check:localization-coverage && npm run check:localization-purity && npm run check:spec-evidence && npm run check:japanese-style && npm run check:images",
     "test:japanese-style": "node scripts/test-japanese-style.mjs",
     "test:owner-copy-provenance": "node scripts/check-owner-copy-provenance.mjs --self-test",
     "test:quality": "node scripts/test-quality-gates.mjs && npm run test:japanese-style && npm run test:owner-copy-provenance && npm run test:inference-guards",
@@ -38,7 +38,9 @@
     "check:replay-evals": "node scripts/check-replay-evals.mjs check",
     "replay:report": "node scripts/check-replay-evals.mjs report",
     "replay:case": "node scripts/check-replay-evals.mjs case",
-    "replay:score": "node scripts/check-replay-evals.mjs score"
+    "replay:score": "node scripts/check-replay-evals.mjs score",
+    "replay:section-report": "node scripts/report-replay-section-cost.mjs",
+    "check:replay-section-cost": "node scripts/report-replay-section-cost.mjs"
   },
   "dependencies": {
     "astro": "^7.0.0"
