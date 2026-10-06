@@ -2119,3 +2119,17 @@ SIGNALでは、打撃ピンが打撃位置から外れ、ハンマーはゴン�
 - **Scope**: 観察対象が一点に定まる機構・操作・変化系Reelが対象。全景・雰囲気・複数要素を同時に見せる素材へ文言だけ機械的に付けない。
 - **Revisit / falsifier**: 複数の適用例で視聴維持・非フォロワー配布・保存／共有・profile遷移が継続的に悪化する、または観察箇所指定が素材理解を妨げる場合は表現と適用範囲を見直す。
 - **Status**: ACTIVE / STANDARD.
+
+
+## 2026-10-06 09:17 JST — 週3〜4投稿を当面のInstagram試験レンジへ
+
+### Decision
+- **Origin: USER + INSTAGRAM OFFICIAL UI.**
+- **User decision**: 「俺の思想ともかみ合うしね　代替週3-4投稿で様子見」と明示。以後、Instagramは**週3〜4投稿を目安に試験運用**する。
+- **Official UI evidence**: 2026-10-06 07:18 JSTのユーザー提供Instagram画面に「9月は、リール動画5件をシェアしました」「毎週、リール動画2件と投稿1件を作成することで、勢いを保つことができます。」と表示。
+- **Reversal target**: それまでの「初期運用より投稿頻度を落とし、品質優先で固定回数は置かない」方針。
+- **What changes**: 低頻度寄りの既定から、週3〜4件の実験レンジへ引き上げる。
+- **What does not change**: 投稿前の正本確認、Content Inventory → Assignment → Execution Brief、実素材優先、観察箇所指定、画像／動画の個別判断、品質優先は維持する。Instagram UIの「2 Reels + 1 post」は公式側の提案値であり、VAの固定内訳にはまだしない。
+- **Evidence boundary**: 公式UIの提案は一次情報だが、週3件がVAの最適頻度・リーチ保証であることまでは証明しない。
+- **Revisit / falsifier**: 週3〜4運用で、1投稿あたりの非フォロワー配布・skip・保存／共有・フォロー・profile遷移・HOW THEY RING到達が継続的に悪化する、または制作品質／素材選定が崩れる場合は頻度レンジを再検討する。
+- **Status**: ACTIVE / USER_CONFIRMED.
