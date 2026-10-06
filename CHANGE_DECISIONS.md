@@ -24,8 +24,8 @@
 - **NEW EVIDENCE**：ユーザーの明示訂正「ぜんかくで140字」。既存Router内のX公式 / twitter-text参照もweighted length 280を記録済みで、この訂正と整合する。
 - **旧状態・棄却**：英語でも140文字に圧縮する運用を棄却。English only、overseas-facing、`WATCH NAME → short English description → English hashtags`、Instagram Published Copy起点は維持する。
 - **影響範囲**：`measurement/.internal/.virtual/social/ROUTER.md` のX CURRENT OUTPUT CONTRACT、`scripts/check-inference-guards.mjs` のpre-output validator、`.codex/inference-guard-cases.json` のX回帰fixture、本判断履歴。Instagram運用、公開WATCH本文、既存X投稿、VA Analyticsは変更しない。
-- **検証状態**：branch `fix/x-fullwidth-140-contract-20261006` で実装。初回CIは旧140文字checkerが残っていたためFAILし、validator / regression fixtureもweighted length 280へ同期した。再CI / diff / main再取得まで完了してVERIFIEDとする。
-- **関連**：Social Router §3.5 X CURRENT OUTPUT CONTRACT、2026-10-06 CYMA海外X第二投稿作成時のユーザー訂正。decision-bearing commits: `4fe40901` / `e80ac3d7` / `8d6e463a`。
+- **検証状態**：branch `fix/x-fullwidth-140-contract-20261006` で実装。初回CIは旧140文字checkerが残っていたためFAIL。2回目CIでは `SOCIAL-DIRECTION-001` の旧evidence anchorが残っていたためFAILし、validator / X regression fixture / directional replay anchorをweighted length 280へ同期した。再CI / diff / main再取得まで完了してVERIFIEDとする。
+- **関連**：Social Router §3.5 X CURRENT OUTPUT CONTRACT、2026-10-06 CYMA海外X第二投稿作成時のユーザー訂正。decision-bearing commits: `4fe40901` / `e80ac3d7` / `8d6e463a` / `53ffff39`。
 - **日時根拠**：developer-provided local time `2026-10-06T20:05+09:00` = `2026-10-06 20:05 JST`。
 
 ### 2026-10-06 20:13 JST — Replay Evalへsection-aware retrieval costを追加
