@@ -94,7 +94,7 @@ Canonical WATCH: `src/content/watches/cyma-time-o-vox.md`
 
 | ID | Angle / asset | IG state | Other social | Media | Verify | Role | Source |
 |---|---|---|---|---|---|---|---|
-| CYM-01 | holy grail／18K／透かしラグ／CHRONOMÈTRE／R.464／実音 | USED | X_LINK_PRESENT_ANGLE_UNKNOWN | READY_EXISTING | READY_FROM_WATCH | DETAIL | Published copy first Reel + WATCH |
+| CYM-01 | holy grail／18K／透かしラグ／CHRONOMÈTRE／R.464／実音 | USED | X_USED_USER_CONFIRMED_2026-10-06 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Published copy first Reel + WATCH |
 | CYM-02 | 2プッシャーとWippeで、1本のリューズの接続先を切替 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 03 + side / mechanism images |
 | CYM-03 | 1香箱で時計とアラームが動力共有／約8–10秒制限／掲載個体は約9時間消費 | CANDIDATE_NOT_IN_IG_TEXT | X_USED_VERIFIED_TIMING_WHEEL | READY_EXISTING | READY_FROM_WATCH | RESEARCH | WATCH Deep 04 + existing X timing-wheel video |
 | CYM-04 | 掲載個体では鳴動中にリューズが回らない | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_WATCH | MECHANISM | WATCH Deep 05 + USER_OBSERVATION + USER_KEEP 2026-10-05 |
