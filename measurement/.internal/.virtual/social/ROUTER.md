@@ -198,6 +198,8 @@ SNS + Analytics + VAを焼く場合:
 
 ## 9. 更新ルール — CANONICAL WRITE CONTRACT
 
+このcontractは会話単位ではなくrepo単位で適用する。別チャットで新しいスクリーンショット・実測・実投稿証拠を受け取った場合も、`PROJECT.md` → 本ROUTER → 対象正本の順でCURRENTを再取得し、同じwrite pathで統合する。会話履歴だけを更新済み状態の代用にしない。
+
 新しいInstagram Insightsは `instagram-insights-timeseries.md` へ観測snapshotとして保存する。SNS横断の分析・判断・先行実績は `instagram-operations.md`、実投稿本文・hashtags・creative decisionは `instagram-published-copy.md` を正本とする。
 
 Instagramの**実投稿本文・hashtags・最終的に採用された訴求・公開本文から確認できる非採用範囲**は `instagram-published-copy.md` を正本とする。実投稿スクリーンショットを受け取った場合、要約だけで済ませず、確認できる本文を全文保存する。草案時の棄却理由が資料から確認できない場合は推測で補完しない。
@@ -290,4 +292,4 @@ SNS案件でも `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` と `.codex/inference-g
 - SOCIAL-DUOFON-001
 - SOCIAL-X-LANGUAGE-001
 
-この3件は、既存判断・現物・実素材を確認したうえで処理し、一般論だけで現行方針を書き換えない。
+この4件は、既存判断・現物・実素材を確認したうえで処理し、一般論だけで現行方針を書き換えない。
