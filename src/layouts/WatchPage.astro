@@ -21,9 +21,9 @@ import { watchResearchRecords } from '../data/watch-research';
 import { resolveSourceLibraryId } from '../data/source-library';
 import { getGitLastmod, latestDate } from '../lib/git-lastmod';
 
-const { watch, preview = false } = Astro.props;
+const { watch, preview = false, research = false } = Astro.props;
 const siteRoot = 'https://vintagealarm.github.io/';
-const pageTitle = watch.slug === 'pierce-duofon'
+const defaultPageTitle = watch.slug === 'pierce-duofon'
   ? 'Pierce Duofon｜Cal.135・2段階アラーム・実機音｜VINTAGE ALARM'
   : watch.slug === 'cyma-time-o-vox'
     ? 'Cyma Time-O-Vox 18K Chronomètre｜Cal.R.464・1香箱｜VINTAGE ALARM'
@@ -34,6 +34,7 @@ const pageTitle = watch.slug === 'pierce-duofon'
         : watch.slug === 'westclox-watchlarm'
           ? 'Westclox Watchlarm｜W5・0石・プッシャー式アラーム｜VINTAGE ALARM'
           : `${watch.brand} ${watch.model}｜VINTAGE ALARM`;
+const pageTitle = research ? `${watch.brand} ${watch.model}｜RESEARCH｜VINTAGE ALARM` : defaultPageTitle;
 const description = watch.slug === 'cyma-time-o-vox'
   ? 'Cyma Time-O-Vox 18K Chronomètre。Cal.R.464、1香箱、2プッシャー、透かしラグ。OWNER\'S NOTE、SPEC、R.464機構とケース仕様のDEEP DIVEを掲載。'
   : watch.slug === 'basis-alarm'
@@ -43,20 +44,20 @@ const description = watch.slug === 'cyma-time-o-vox'
       : watch.slug === 'westclox-watchlarm'
         ? 'Westclox Watchlarm W5。0石、1香箱、2時位置プッシャー式アラーム設定、9時位置ON/OFF。掲載個体の実測と資料差を含めて構造を追う。'
         : `${watch.brand} ${watch.model}。${watch.spec.caliber}、${watch.spec.barrels}、${watch.spec.acoustic}。OWNER'S NOTE、SPEC、${watch.video ? '実機鳴動、' : ''}資料に基づくDEEP DIVEを掲載。`;
-const pagePath = preview ? `preview/watch/${watch.slug}/` : `${watch.slug}/`;
+const pagePath = preview ? `preview/watch/${watch.slug}/` : research ? `research/${watch.slug}/` : `${watch.slug}/`;
 const pageUrl = new URL(pagePath, siteRoot).href;
 const imageUrl = new URL(watch.ownersNote.image.replace(/^\//, ''), siteRoot).href;
 const englishEntry = englishWatchEntries[watch.slug];
 const germanEntry = germanWatchEntriesWithCyma[watch.slug];
 const englishUrl = englishEntry ? new URL(`en/${watch.slug}/`, siteRoot).href : null;
 const germanUrl = germanEntry ? new URL(`de/${watch.slug}/`, siteRoot).href : null;
-const alternates = preview ? [] : [
+const alternates = preview || research ? [] : [
   { hreflang: 'ja', href: pageUrl },
   ...(englishUrl ? [{ hreflang: 'en', href: englishUrl }] : []),
   ...(germanUrl ? [{ hreflang: 'de', href: germanUrl }] : []),
   { hreflang: 'x-default', href: pageUrl }
 ];
-const languageLinks = preview ? [] : [
+const languageLinks = preview || research ? [] : [
   ...(englishEntry ? [{ href: `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }] : []),
   ...(germanEntry ? [{ href: `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
 ];
@@ -88,7 +89,7 @@ const directoryEntries = ownersDirectory.entries
       historyHref: `/history/#${meta.historyEra}`
     }];
   });
-const currentDirectoryEntry = directoryEntries.find((entry) => entry.historyId === watch.slug) ?? null;
+const currentDirectoryEntry = research ? null : directoryEntries.find((entry) => entry.historyId === watch.slug) ?? null;
 const recommendation = watchRecommendations[watch.slug] ?? null;
 const nextDirectoryEntry = recommendation
   ? directoryEntries.find((entry) => entry.historyId === recommendation.target) ?? null
@@ -172,7 +173,7 @@ const schema = {
   </head>
   <body class="owners-v15">
     <SectionMast
-      rightLabel="OWNER'S NOTE"
+      rightLabel={research ? "RESEARCH" : "OWNER'S NOTE"}
       languageLinks={languageLinks}
     />
     <main>
