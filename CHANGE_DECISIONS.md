@@ -15,7 +15,38 @@
 
 ---
 
+## 2026-10-07
+### 2026-10-07 06:08 JST — 道化師の無礼許可を毎回のcontext完了後だけ発効
+
+- **変更**：明示7へ構造化context manifestを追加し、従来6項目に `currentSessionActions` / `observationBoundary` / `exclusionsWithReasons` を加えた。全9項目が揃わない場合はモデルを呼ばず、`license: NOT_GRANTED` と `文脈不足のため無礼許可は未発効` を返す。充足時だけFool's Licenseとノンデリ口調を発効する。V3正本、README、設計履歴、MCP schema、behavior test、Replay、project consistency gateを同期した。
+- **理由**：2026-10-07の1+7監査で、道化師が直前にAI自身が進めたPR #205 / #208 / #209を観測対象から外し、評価開始点を「これからの5件」へ移した。ユーザーから、毎回の厳密な復元を行うことが無礼許可の前提だったと再訂正された。既存仕様には最大context責任があったが、実装は自由文bodyだけで発効でき、完了検査がなかった。
+- **旧状態・棄却**：ノンデリ口調を恒久的な人格免許として扱う状態、短い要約だけで7を開始する状態、AI自身の直前作業を監査母数から外す状態、`これから` / `次のN件` で既存観測を暗黙に0件へ戻す状態を棄却する。1〜6とsilent Jester hookの意味は変更しない。
+- **影響範囲**：`council-worker/V3.md`、`council-worker/README.md`、`council-worker/src/v3.ts`、`council-worker/test/v3.behavior.test.ts`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、`.codex/inference-guard-cases.json`、`scripts/check-project-consistency.mjs`、本判断履歴。WATCH、Social、ARSA公開状態、CYMA、通常Council 1〜6は変更しない。
+- **検証状態**：branch `feat/jester-license-gate-20261007` へ実装中。Council behavior test、Replay、project consistency、full quality gate、PR CI、main再取得まで通って初めてVERIFIED。外部Worker deploy / liveは別状態で、ユーザーが要求していないため完了条件へ混ぜない。
+- **関連**：Council V3のepistemic duty、2026-10-03人格UIと最大context負担、PR #205 / #208 / #209、2026-10-07ユーザー訂正「道化師はこれを毎回ちゃんとしてるから無礼許可とした」。
+- **日時根拠**：ホスト確認時刻 `2026-10-07 06:08 JST`。
+
+### 2026-10-07 05:35 JST — X Replayを対象投稿のsection-aware取得へ補正
+
+- **変更**：`SOCIAL-X-LANGUAGE-001` の曖昧な「このInstagram投稿」を、既存のPierce Duofon Mechanism follow-up公開投稿へ具体化し、`instagram-published-copy.md` の該当caption見出し・冒頭・hashtagsをevidence anchorにした。Social RouterのX契約と対象Published Copy節だけを回答時取得範囲として測る。改善候補の閾値も元ファイル全文ではなくsection-aware実読込推定20,000文字以上へ訂正する。
+- **理由**：全16 Replayのコスト監査で、同caseだけsection-aware削減率が52.3%に留まった。原因は対象投稿がfixture内で特定されず、Published Copy sourceが `contains: []` のため全時計・全投稿を全文計上していた測定歪みであり、正本内容の量ではなかった。
+- **旧状態・棄却**：Published Copy本文を削る案、時計別ファイルへ分割する案、Social Routerへcaptionを複製する案、対象不明のまま全文読込を正当化する案、最適化後も元ファイルサイズだけで改善候補へ残し続ける判定を棄却する。XのEnglish-only / overseas-facing / weighted length 280契約は変更しない。
+- **影響範囲**：`.codex/inference-guard-cases.json`、`scripts/report-replay-section-cost.mjs`、本判断履歴。Social Router、Instagram Published Copy、X実投稿、公開WATCH、PR #204は変更しない。
+- **検証状態**：branch `ops/x-replay-section-20261007` へ実装中。Replay checker、section report、decision log、full quality gate、PR CI、main再取得まで通って初めてVERIFIED。
+- **関連**：2026-10-06 20:05 JST X weighted-length訂正、20:13 JST section-aware retrieval cost、2026-10-06 22:35 JST priority Replay追加、PR #208。
+- **日時根拠**：ホスト確認時刻 `2026-10-07 05:35 JST`。
+
 ## 2026-10-06
+### 2026-10-06 22:35 JST — 重大事故経路をReplayへ追加しコスト評価を正答回帰から分離
+
+- **変更**：既存Replay fixtureへ `焼いて` router、Council 1、Council 7 deep-context、CYMA lab進捗照会、ARSA publication state、VA報告JST prefixの6回帰を追加した。section-aware reportは全Replayを表示してfull-file chars順に並べる一方、Council/JSTのような正答専用経路を `correctness_only` として改善候補から除外し、`ranked` かつ20,000文字以上だけを候補表示する。
+- **理由**：Council 1+7監査で、既存10件の全件コスト最適化より、今回の重大事故経路そのものがReplayに無いことが先の欠損と判明した。またGit blob bytesと文字数を混同すると、日本語文書のquery-time負担を誤報告するため、reportは実テキスト文字数を継続使用する。
+- **旧状態・棄却**：既存10件へ一律の削減KPIを課す案、CYMA CURRENT例外を測定前に移動する案、Git blob bytesを必読文字量として扱う案、新DB / Router / 台帳 / 重い意味類似度checkerを追加する案を棄却・HOLDする。CYMA詳細は現位置に保持する。
+- **影響範囲**：`.codex/inference-guard-cases.json`、`scripts/check-replay-evals.mjs`、`scripts/report-replay-section-cost.mjs`、本判断履歴。公開WATCH本文、CYMA lab実装、Council正本、ARSA `published: false`、Social正本は変更しない。
+- **検証状態**：最新main基点のbranch `ops/replay-priority-20261006` へ実装中。Replay checker、section report、project consistency、decision log、full quality gate、PR CI、main再取得まで通って初めてVERIFIED。
+- **関連**：PR #205のCouncil state deferral、2026-10-06 20:13 JST section-aware retrieval cost、2026-10-06 21:43 JST ARSA publication-state修正、2026-10-06 21:57 JST VA chat JST guard、同日Council 1+7監査。
+- **日時根拠**：ホスト確認時刻 `2026-10-06 22:35 JST`。
+
 ### 2026-10-06 21:57 JST — VAチャットの冒頭JST表示を常設guardへ固定
 
 - **変更**：VA案件の進捗・監査・最終報告は、冒頭にホスト確認済みの `YYYY-MM-DD HH:mm JST` を表示する規則を `AGENTS.md` へ追加し、project consistency gateで欠落を拒否する。
@@ -35,6 +66,19 @@
 - **検証状態**：ARSA frontmatterが `false` のままproject consistency、decision log、quality/buildを検証し、公開集合を増減させた敵対fixtureで固定本数依存がないことを確認後にVERIFIEDとする。#204 / #205は本変更を取り込んだ後に再CIする。
 - **関連**：ユーザー訂正 2026-10-06 21:12 JST、CMS commit `b45eb70`、旧公開実装PR #188、再CI対象PR #204 / #205。
 - **日時根拠**：作業ホストのJST時刻 `2026-10-06 21:43:48 +09:00`。
+
+### 2026-10-06 20:42 JST — PROJECT_STATEのCouncil仕様複製を正本pointerへ戻す
+
+- **変更**：`PROJECT_STATE.md` §3 CURRENT BASELINEに複製されていたCouncil V3の7形式・Jester hook・共通protocol・resident・PRE-MORTEM説明9項目を、§6の `Council現行仕様` pointer + `PROJECT.md` §1 launcherを参照する1項目へ置換した。Council仕様本文は `council-worker/V3.md` / `council-worker/README.md` / `council-worker/src/v3.ts` / `council-worker/src/index.ts` に保持する。`scripts/check-project-consistency.mjs` はSTATEへのCouncil仕様再複製を禁止し、遅延pointerを必須化した。
+- **理由**：section-aware Replay導入後、最適化対象はsource内容量ではなく不要なquery-time読込と明確化した。Councilを使わない全VAタスクでもmandatory bootでCouncil仕様説明を読む一方、同じSTATE §6とAGENTS / PROJECTから既に専用正本へ到達できていたため、この複製はCURRENT値保持ではなく起動時重複だった。
+- **REVERSAL TARGET**：`PROJECT_STATE.md` CURRENT BASELINEにCouncil V3仕様本文を複製して、mandatory bootで常時読む運用。
+- **NEW EVIDENCE**：`replay:section-report` によりtask資料の詳細保持とquery-time read costを分離できたこと、`PROJECT_STATE.md` §6にCouncil正本pointerが既にあり、AGENTSもCouncil本文を専用正本へ遅延済みであること、2026-10-06の1=2ch Council監査で「boot全体削減ではなく、完全重複だけを遅延する」と裁定したこと。
+- **旧状態・棄却**：Council正本・7択・Jester / PRE-MORTEM仕様そのものを削る案、HOW THEY RING / SNS /研究CURRENTまで同時に圧縮する案、30kという数字だけを目標にboot本文を一括削減する案は棄却。Council要求時は従来どおり専用正本を取得する。
+- **影響範囲**：`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`、本判断履歴のみ。Council V3 / README / code / design、WATCH、Research、Social、HOW THEY RINGは変更しない。
+- **実測**：mandatory bootは `30,347 → 29,686 chars`、**661 chars減**。`PROJECT_STATE.md` は `13,323 → 12,662 chars`。削減分はCouncil仕様の重複のみで、専用Council正本の情報量は不変。
+- **検証状態**：branch `ops/state-council-delay-20261006-v2` で実装中。project consistency / Replay / full quality gate / PR CI / merge後main再取得までPASSして初めてVERIFIED。
+- **関連**：2026-10-06 18:20 JST AGENTS Council遅延、20:13 JST section-aware Replay cost、PR #203 X CURRENT訂正。commits `87042932` / `04b7d0de` / `8865dde4`。
+- **日時根拠**：GitHub commit `8865dde4f25896a609260513be9124ea0d6cff13` の `2026-10-06T11:42:51Z → 2026-10-06 20:42 JST`。
 
 ### 2026-10-06 20:05 JST — X投稿上限を「全角140字相当 = weighted length 280」へ訂正
 

@@ -4,11 +4,7 @@ import { resolve } from 'node:path';
 const root = process.cwd();
 const fixture = JSON.parse(readFileSync(resolve(root, '.codex/inference-guard-cases.json'), 'utf8'));
 const bootPaths = fixture.replay_eval?.boot_paths || [];
-const targetIds = new Set([
-  'RESEARCH-CROSSCHAT-WRITE-001',
-  'SOCIAL-DUOFON-001',
-  'STATE-ARSA-COPY-001',
-]);
+const highSectionCostThreshold = 20_000;
 
 const read = (path) => readFileSync(resolve(root, path), 'utf8');
 
@@ -78,7 +74,7 @@ function scopedChars(source) {
 
 const rows = [];
 for (const item of fixture.cases || []) {
-  if (!targetIds.has(item.id) || !item.replay) continue;
+  if (!item.replay) continue;
 
   const taskSources = (item.replay.required_sources || [])
     .filter((source) => !bootPaths.includes(source.path));
@@ -88,6 +84,7 @@ for (const item of fixture.cases || []) {
 
   rows.push({
     id: item.id,
+    review: item.replay.cost_review || 'ranked',
     task_files: taskSources.length,
     full_file_chars: fullChars,
     section_aware_chars: scoped,
@@ -96,10 +93,16 @@ for (const item of fixture.cases || []) {
   });
 }
 
+rows.sort((a, b) => b.full_file_chars - a.full_file_chars || a.id.localeCompare(b.id));
+
 console.log('# Replay section-aware retrieval baseline');
 console.log('');
-console.log('| Case | Task files | Full-file chars | Section-aware chars | Avoided chars | Avoided % |');
-console.log('|---|---:|---:|---:|---:|---:|');
+console.log('| Case | Review | Task files | Full-file chars | Section-aware chars | Avoided chars | Avoided % |');
+console.log('|---|---|---:|---:|---:|---:|---:|');
 for (const row of rows) {
-  console.log(`| ${row.id} | ${row.task_files} | ${row.full_file_chars} | ${row.section_aware_chars} | ${row.saved_chars} | ${row.saved_pct.toFixed(1)}% |`);
+  console.log(`| ${row.id} | ${row.review} | ${row.task_files} | ${row.full_file_chars} | ${row.section_aware_chars} | ${row.saved_chars} | ${row.saved_pct.toFixed(1)}% |`);
 }
+
+const candidates = rows.filter((row) => row.review === 'ranked' && row.section_aware_chars >= highSectionCostThreshold);
+console.log('');
+console.log(`Improvement candidates (ranked, section-aware chars >= ${highSectionCostThreshold}): ${candidates.map((row) => row.id).join(', ') || 'none'}`);

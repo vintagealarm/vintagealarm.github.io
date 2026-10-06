@@ -33,6 +33,9 @@ const social = read('measurement/.internal/.virtual/social/ROUTER.md');
 const instagramTimeseriesScript = read('scripts/instagram-insights-timeseries.mjs');
 const packageJson = read('package.json');
 const codexConfig = read('.codex/config.toml');
+const councilV3 = read('council-worker/V3.md');
+const councilReadme = read('council-worker/README.md');
+const councilV3Code = read('council-worker/src/v3.ts');
 
 const managerControlPlanePath = '.codex/MANAGER_CONTROL_PLANE.md';
 const taskEnvelopePath = '.codex/TASK_ENVELOPE_TEMPLATE.md';
@@ -64,6 +67,27 @@ for (const path of [
 ]) requireText(agents, path, 'AGENTS deferred Council pointer');
 forbidText(agents, '1. **2ch民で焼いて**', 'AGENTS Council menu');
 forbidText(agents, 'V2共通プロトコル:', 'AGENTS Council protocol');
+
+requireText(state, 'CouncilのCURRENT仕様本文はこのStateへ複製しない', 'PROJECT_STATE delayed Council CURRENT pointer');
+requireText(state, '`PROJECT.md` §1を正とする', 'PROJECT_STATE Council launcher owner pointer');
+forbidText(state, 'Councilはprotocol-driven V3。', 'PROJECT_STATE Council spec copy');
+forbidText(state, 'Councilの7形式は 2chスレ', 'PROJECT_STATE Council menu copy');
+forbidText(state, 'Council共通プロトコルは独立初手', 'PROJECT_STATE Council protocol copy');
+
+for (const [label, text] of [
+  ['Council V3 spec', councilV3],
+  ['Council README', councilReadme]
+]) {
+  requireText(text, 'currentSessionActions', `${label} Jester self-audit gate`);
+  requireText(text, 'observationBoundary', `${label} Jester observation-boundary gate`);
+  requireText(text, 'exclusionsWithReasons', `${label} Jester exclusion-reason gate`);
+}
+requireText(councilV3Code, 'currentSessionActions', 'Council V3 implementation Jester self-audit gate');
+requireText(councilV3Code, 'observationBoundary', 'Council V3 implementation observation-boundary gate');
+requireText(councilV3Code, 'exclusionsWithReasons', 'Council V3 implementation exclusion-reason gate');
+requireText(councilV3, '文脈不足のため無礼許可は未発効', 'Council V3 Fool\'s License fail-closed message');
+requireText(councilReadme, '文脈不足のため無礼許可は未発効', 'Council README Fool\'s License fail-closed message');
+requireText(councilV3Code, 'license: "NOT_GRANTED"', 'Council V3 implementation license hold');
 
 
 for (const field of [

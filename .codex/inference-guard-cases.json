@@ -125,7 +125,7 @@
     {
       "id": "SOCIAL-X-LANGUAGE-001",
       "title": "X overseas-English copy must fail on Japanese body or weighted-length contract drift",
-      "premise": "Xは海外向け英語アカウントで、Instagram既存投稿の再利用はPublished Copy→English compression/adaptation→X weighted-length validation（全角140字相当）→output。current repost formatはWATCH NAME→short English description→English hashtags。",
+      "premise": "Pierce DuofonのMechanism follow-up公開済みInstagram本文をXへ再利用する。Xは海外向け英語アカウントで、Published Copy→English compression/adaptation→X weighted-length validation（全角140字相当）→output。current repost formatはWATCH NAME→short English description→English hashtags。",
       "forbidden_inference": "Social Routerを読んだだけで、actual X post candidateへlanguage / audience / character limit / source / transformationを固定せず、日本語本文・日本語hashtags・X weighted length 280超過・Instagram長文の単純転載をPASSさせる",
       "required_action": "X actual post candidateをEnglish-only・overseas-facing・全角140字相当 = X weighted length 280以内で検査する。Instagram再利用時はinstagram-published-copy.mdを起点にし、current repost modeではWATCH NAME→short English description→English hashtagsの順にする。日本語Script混入またはweighted length上限超過はFAIL。",
       "validation": {
@@ -165,8 +165,8 @@
       "status": "LOCKED_REGRESSION",
       "replay": {
         "failure_class": "domain_contract",
-        "prompt": "このInstagram投稿をXにも出したい。全角140字までなら英語は140文字に縮めるんだよね？",
-        "expected_resolution": "Social RouterのX CURRENT OUTPUT CONTRACTを適用し、actual post candidateはEnglish only / overseas-facing / 全角140字相当 = X weighted length 280以内。Instagram Published CopyからEnglish compression/adaptationする。",
+        "prompt": "Pierce DuofonのMechanism follow-up Instagram投稿をXにも出したい。全角140字までなら英語は140文字に縮めるんだよね？",
+        "expected_resolution": "Social RouterのX CURRENT OUTPUT CONTRACTを適用し、actual post candidateはEnglish only / overseas-facing / 全角140字相当 = X weighted length 280以内。instagram-published-copy.mdのPierce Mechanism follow-up公開本文を起点にEnglish compression/adaptationする。",
         "forbidden_resolution": "日本語本文・日本語hashtags・weighted length 280超過・単純転載をX候補としてPASSさせる。",
         "routing_path": [
           "measurement/.internal/.virtual/social/ROUTER.md",
@@ -185,7 +185,11 @@
           },
           {
             "path": "measurement/.internal/.virtual/social/instagram-published-copy.md",
-            "contains": []
+            "contains": [
+              "### Mechanism follow-up — Published caption — screenshot verified 2026-10-05",
+              "Look at the alarm mechanism in the upper left. 👀",
+              "#PierceDuofon #PierceWatch #AlarmWatch"
+            ]
           }
         ]
       }
@@ -416,6 +420,216 @@
             "contains": [
               "新証拠が出たらまずLEDGERへ記録し",
               "優先順位・仮説状態・タスク状態が変わる場合だけこのMAPを更新する"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COUNCIL-ROUTER-001",
+      "title": "Plain 焼いて must show the seven-format launcher before execution",
+      "premise": "ユーザーが形式や番号を付けずに『焼いて』だけを指定する",
+      "forbidden_inference": "旧V1の意味や直近の会話から形式を推測し、即座に2chスレ等を開始する",
+      "required_action": "PROJECT §1の7択をそのまま提示し、選択を待つ",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "council_routing",
+        "cost_review": "correctness_only",
+        "prompt": "焼いて",
+        "expected_resolution": "Councilをまだ実行せず、PROJECT §1の1〜7を提示して選択を待つ。",
+        "forbidden_resolution": "形式を推測して即実行する、6択へ戻す、独自メニューを作る。",
+        "routing_path": [
+          "PROJECT.md"
+        ],
+        "max_expected_hops": 0,
+        "max_expected_files": 0,
+        "required_sources": [
+          {
+            "path": "PROJECT.md",
+            "contains": [
+              "「焼いて」だけの場合",
+              "次の7択をそのまま出して選択を待つ。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COUNCIL-FORMAT-1-001",
+      "title": "Council selection 1 must execute the 2ch thread format",
+      "premise": "Councilの7択提示後にユーザーが1を選ぶ",
+      "forbidden_inference": "1を監査・優先度・別モードとして再定義する、またはメニューを再表示する",
+      "required_action": "1=2ch民で焼いてとして、既知の会話・資料・GitHubを使い直接実行する",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "council_routing",
+        "cost_review": "correctness_only",
+        "prompt": "1で焼いて",
+        "expected_resolution": "1を2ch民で焼いてとして直接実行する。",
+        "forbidden_resolution": "1の意味を作り直す、別形式を実行する、7択をもう一度尋ねる。",
+        "routing_path": [
+          "PROJECT.md",
+          "council-worker/README.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": "PROJECT.md",
+            "contains": [
+              "`1` は **2ch民で焼いて**。別の意味へ再定義しない。"
+            ]
+          },
+          {
+            "path": "council-worker/README.md",
+            "contains": [
+              "### 1. thread — 2ch民で焼いて",
+              "単なる2ch口調の連投にはしない。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COUNCIL-FORMAT-7-001",
+      "title": "Council selection 7 must restore deep context before challenging shared assumptions",
+      "premise": "ユーザーが宮廷道化師7を明示する",
+      "forbidden_inference": "短い要約や直近会話だけから逆張りし、経緯・訂正・棄却・証拠を読まずに王を批判する",
+      "required_action": "Current state / Decision ancestry / Corrections / Rejected-HOLD / Evidence trail / Adjacent consequencesに加え、直前のAI・Council自身の作業、観測開始点、除外理由を復元する。全項目が揃った場合だけFool's Licenseを発効し、必要なら提示外代案まで比較する",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "council_context",
+        "cost_review": "correctness_only",
+        "prompt": "7、宮廷道化師でこの案を焼いて",
+        "expected_resolution": "7を独立jester formatとして扱い、対象領域に加えてcurrent-session self-audit / observation boundary / exclusions with reasonsを復元する。全項目が揃うまで無礼許可は未発効としてHOLDし、充足後だけ道化師口調を使う。異論が弱ければ今回は異議なしで終えてよい。",
+        "forbidden_resolution": "residentを一人追加するだけ、短い要約だけで逆張りする、自分の直前作業を監査対象から外す、評価開始点を未来へ動かして既存実績を0件扱いする、不足contextのままノンデリ口調を使う、異論を捏造する。",
+        "routing_path": [
+          "PROJECT.md",
+          "council-worker/V3.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": "PROJECT.md",
+            "contains": [
+              "`7` は **宮廷道化師で焼いて 🤡**。resident追加ではなくCouncil V3の独立format / protocolとして実行する。"
+            ]
+          },
+          {
+            "path": "council-worker/V3.md",
+            "contains": [
+              "### Jester pre-flight — Council内で最も重い文脈負担",
+              "Decision ancestry",
+              "Rejected / HOLD",
+              "Adjacent consequences",
+              "Current-session self-audit",
+              "Observation boundary",
+              "Exclusions with reasons",
+              "文脈不足のため無礼許可は未発効"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "STATE-CYMA-LAB-001",
+      "title": "CYMA lab progress query must preserve the deployed URL and no-auth exception",
+      "premise": "CYMA Time-O-Vox Chronomètreのテストページ進捗とアクセス方法を尋ねられる",
+      "forbidden_inference": "CURRENT例外を削減対象として先に移し、URLや認証状態を推測・再質問する",
+      "required_action": "PROJECT_STATEの例外からDEPLOYED、現行URL、認証なし、noindex/nofollowを回答する",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "state_resolution",
+        "prompt": "CYMA Chronomètreのテストページはどこ？ パスワード要る？",
+        "expected_resolution": "DEPLOYEDの https://vintagealarm.github.io/lab/cyma-chronometre/owners-note/ を案内し、公開テストページなので認証不要、noindex/nofollowと答える。",
+        "forbidden_resolution": "URLを再確認できないとして聞き返す、認証が必要と推測する、本番RESEARCHページが変更済みとする。",
+        "routing_path": [
+          "PROJECT_STATE.md"
+        ],
+        "max_expected_hops": 0,
+        "max_expected_files": 0,
+        "required_sources": [
+          {
+            "path": "PROJECT_STATE.md",
+            "contains": [
+              "### CYMA Time-O-Vox Chronomètre — VA準拠テストページ",
+              "https://vintagealarm.github.io/lab/cyma-chronometre/owners-note/",
+              "認証: なし。公開テストページのためID・パスワードは不要",
+              "`noindex,nofollow`"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "PUBLICATION-ARSA-001",
+      "title": "ARSA published false is user-intent CURRENT and publication outputs follow frontmatter dynamically",
+      "premise": "ARSAはユーザー操作で非公開へ戻され、frontmatterはpublished false",
+      "forbidden_inference": "旧固定7本設計へ合わせるためARSAをpublished trueへ戻す、または公開一覧・llmsを固定本数で検査する",
+      "required_action": "ARSA falseを維持し、公開集合・llms JA/EN/DE・checkerを全WATCH frontmatterのpublished true集合へ追従させる",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "publication_state",
+        "prompt": "ARSAが非公開だと公開本数チェックが壊れるからpublished trueへ戻していい？",
+        "expected_resolution": "戻さない。ARSA published falseがユーザー意図のCURRENTで、公開集合側をfrontmatterのpublished true集合へ動的追従させる。",
+        "forbidden_resolution": "固定公開本数を守るためARSAを再公開する。",
+        "routing_path": [
+          "PROJECT_STATE.md",
+          "src/content/watches/arsa-blind-alarm.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": "PROJECT_STATE.md",
+            "contains": [
+              "公開中のWATCH routeの正本は `src/content/watches/*.md` の `published: true`",
+              "ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT"
+            ]
+          },
+          {
+            "path": "src/content/watches/arsa-blind-alarm.md",
+            "contains": [
+              "published: false"
+            ]
+          }
+        ],
+        "verification_sources": [
+          {
+            "path": "scripts/test-publication-consistency.mjs",
+            "contains": [
+              "published true→false dynamically reduces every language",
+              "published false→true dynamically expands every language"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "REPORT-JST-PREFIX-001",
+      "title": "VA progress, audit and final reports start with a host-confirmed JST timestamp",
+      "premise": "VA案件の進捗・監査・最終報告を返す",
+      "forbidden_inference": "会話上の推測時刻を書く、日時を省略する、本文末尾だけに時刻を置く",
+      "required_action": "実行環境でJSTを確認し、回答冒頭をYYYY-MM-DD HH:mm JSTで始める",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "report_contract",
+        "cost_review": "correctness_only",
+        "prompt": "VA作業の監査結果を報告して",
+        "expected_resolution": "ホストでJSTを確認し、回答の冒頭をYYYY-MM-DD HH:mm JSTで始める。",
+        "forbidden_resolution": "日時なし、推測時刻、UTCのまま、または末尾だけに日時を書く。",
+        "routing_path": [
+          "AGENTS.md"
+        ],
+        "max_expected_hops": 0,
+        "max_expected_files": 0,
+        "required_sources": [
+          {
+            "path": "AGENTS.md",
+            "contains": [
+              "冒頭にホスト確認済みの `YYYY-MM-DD HH:mm JST` を表示する",
+              "会話時刻を推測で補わず、実行環境のJSTを確認する"
             ]
           }
         ]

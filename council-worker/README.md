@@ -119,6 +119,8 @@ Claim Boardとして、主張、支持根拠、反証、未確認を分ける。
 
 明示7はCouncil内で**最も重いcontext pre-flight**を行う。直近会話や要約だけから批判せず、Current state / Decision ancestry / Corrections・reversals / Rejected・HOLD / Evidence trail / Adjacent consequences を対象分野の正本から復元する。
 
+加えて、直前までのAI / Council自身の提案・実装・検証・報告を `currentSessionActions`、評価のobservation boundaryを `observationBoundary`、対象から外す実績と除外理由を `exclusionsWithReasons` としてcontext manifestへ含める。自分の仕事を監査母数から外したり、`これから` / `次のN件` で既存観測を暗黙に0件へ戻したりしない。全項目が揃うまでFool's Licenseは発効せず、道化師口調ではなく `文脈不足のため無礼許可は未発効` と不足項目を返す。
+
 広い依頼では代表例の抜粋を「全体」と呼ばない。時計の遍歴・売買・修理・保有意志を含むならVINTAGE ALARM研究正本に加え `orima1995-create/watchdiary-ios` のCURRENT Issue群まで辿る。SNS / AnalyticsならRouterだけでなく時系列、実投稿、Decision→Evidenceまで辿る。必要正本を取得できない場合は「把握済み」と演じず不足を明示する。
 
 ## 住民設計

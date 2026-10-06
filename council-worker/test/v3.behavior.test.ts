@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { hookContext, render } from "../src/v3";
+import { hookContext, jesterPreflight, render } from "../src/v3";
 
 const board = {
   items: [
@@ -88,4 +88,41 @@ test("an intervention is followed by a visible re-adjudication", () => {
   const text = render(result);
   assert.ok(text.indexOf("🤡") < text.indexOf("Jester hook後の再裁定"));
   assert.match(text, /再裁定後/);
+});
+
+const completeJesterContext = {
+  currentState: "mainと公開状態を確認",
+  decisionAncestry: "ユーザー起点から現判断まで復元",
+  correctionsReversals: "ユーザー訂正とAI自己訂正を復元",
+  rejectedHold: "棄却・HOLDと再検討条件を復元",
+  evidenceTrail: "PR・commit・CI・liveを確認",
+  adjacentConsequences: "サイト・運用・他ルールへの影響を確認",
+  currentSessionActions: "直前のAI提案とPR実装を監査対象へ含めた",
+  observationBoundary: "今回の連続作業の開始点から現在まで",
+  exclusionsWithReasons: "除外なし",
+};
+
+test("Fool's License stays inactive when current-session self-audit is missing", () => {
+  const { currentSessionActions: _omitted, ...context } = completeJesterContext;
+  const preflight = jesterPreflight({ jesterContext: context });
+  assert.equal(preflight.eligible, false);
+  assert.deepEqual(preflight.missing, ["currentSessionActions"]);
+});
+
+test("Fool's License requires an observation boundary and justified exclusions", () => {
+  const preflight = jesterPreflight({
+    jesterContext: {
+      ...completeJesterContext,
+      observationBoundary: " ",
+      exclusionsWithReasons: "",
+    },
+  });
+  assert.equal(preflight.eligible, false);
+  assert.deepEqual(preflight.missing, ["observationBoundary", "exclusionsWithReasons"]);
+});
+
+test("Fool's License activates only after the complete context manifest", () => {
+  const preflight = jesterPreflight({ jesterContext: completeJesterContext });
+  assert.equal(preflight.eligible, true);
+  assert.deepEqual(preflight.missing, []);
 });
