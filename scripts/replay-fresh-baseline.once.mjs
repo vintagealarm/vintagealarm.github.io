@@ -437,6 +437,12 @@ for (const item of cases) {
   }
 }
 
+const fatalCount = results.filter((result) => result.fatal).length;
+if (fatalCount) {
+  console.error(`REPLAY_INFRA_BLOCKED ${fatalCount}/${results.length} cases did not reach a model answer.`);
+  process.exitCode = 2;
+}
+
 console.log('REPLAY_BASELINE_JSON ' + JSON.stringify({
   schema: 'vintage-alarm-replay-fresh-baseline-v1',
   model: RUNNER_MODE === 'github-models-with-repo-tools'
