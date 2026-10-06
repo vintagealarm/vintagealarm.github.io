@@ -17,6 +17,12 @@ const requiredReplayIds = [
   'HOW-RING-CLASSIFICATION-001',
   'STATE-LIFECYCLE-001',
   'RESEARCH-CROSSCHAT-WRITE-001',
+  'COUNCIL-ROUTER-001',
+  'COUNCIL-FORMAT-1-001',
+  'COUNCIL-FORMAT-7-001',
+  'STATE-CYMA-LAB-001',
+  'PUBLICATION-ARSA-001',
+  'REPORT-JST-PREFIX-001',
 ];
 
 const errors = [];
@@ -63,6 +69,10 @@ for (const id of requiredReplayIds) {
   if (!replay || typeof replay !== 'object') {
     fail(`${id} missing replay block`);
     continue;
+  }
+
+  if (replay.cost_review && !['ranked', 'correctness_only'].includes(replay.cost_review)) {
+    fail(`${id} replay.cost_review must be ranked or correctness_only`);
   }
 
   for (const field of [
