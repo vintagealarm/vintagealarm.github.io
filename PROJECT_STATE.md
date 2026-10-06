@@ -73,7 +73,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - OWNER'S NOTEの新規 `catch` / `ownersNote.lead` 開発・大幅改稿は `SITE_RULES.md` の**全WATCH共通Catch / Lead開発プロトコル**を必須とする。比較母集団は固定の代表数本ではなく、作業時点で `published: true` の日本語WATCHすべて。候補ごとに発案者 / 派生元、VA温度比較、採否・現在状態を保持し、Catch / Leadの実ファイル変更時はCIのcopy provenance gateを通す。
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
-- RESEARCH表示は `src/data/research-settings.json` の `published` で制御する
+- RESEARCH表示は `src/data/research-settings.json` の `published` で公開可否、`locales` で公開言語を制御する
 - **RESEARCHは現在、日本語で公開中。** 第一号はARSA Blind Alarmで、`/research/arsa-blind-alarm/` が `src/content/watches/arsa-blind-alarm.md` を同一正本として表示する。ARSA通常WATCHの `published: false` は維持し、OWNER'S NOTES / HISTORYの所有個体レールへは出さない。画像は現行placeholderを使用し、COMING SOON等の制作メタは視聴者画面へ出さない。EN / DEのRESEARCH入口は未公開。
 - 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
