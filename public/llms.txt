@@ -148,6 +148,8 @@ It is:
 The same information may exist elsewhere without providing the same understanding experience.
 
 Distinctive research and primary routes:
+- ARSA Blind Alarm research — the current source-backed ARSA draft is publicly readable here while its normal OWNER'S NOTE route remains unpublished:
+  https://vintagealarm.github.io/research/arsa-blind-alarm/
 - HOW THEY RING — six owned alarm wristwatches compared by actual recordings and broad ringing mechanism (GONG / CASEBACK); Pierce Duofon includes separate WECKER / SIGNAL recordings:
   https://vintagealarm.github.io/how-they-ring/
 - CYMA Time-O-Vox Chronomètre research — 17 surviving examples compared by dial marking, adjustment marking, movement-number band, case/ref and source, plus archive inquiries:
