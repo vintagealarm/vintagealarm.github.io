@@ -39,6 +39,18 @@
 - **関連**：PR #192、2026-10-06 Instagram公式UIスクリーンショット、2026-10-05の低頻度品質優先方針、MR-PIE-001運用実績。
 - **日時根拠**：developer-provided local time `2026-10-06T09:17+09:00` = `2026-10-06 09:17 JST`。
 
+### 2026-10-06 10:15 JST — Control Planeをcanonical owner + discovery pointer構造へ再統合
+
+- **変更**：PROJECT / AGENTS / PROJECT_STATE / Manager / Fail-Closed Guard / Task Envelope / checkerの役割を再整理し、**normative rule / CURRENTはcanonical ownerを原則1箇所、discovery pointerは複数可**とした。Managerはlifecycle / Chat Audit / Verifier、Fail-Closed Guardは推論gate、Task Envelopeは作業フォーム、domain Routerはdomain固有CURRENT / Canonical Write Contractを所有する。checkerは同一内容の複製を要求する方式から、owner存在・pointer接続・validator接続・重複禁止を検査する方式へ変更する。SocialのScreenshot → canonical time seriesは別チャットでもPROJECTから発見できるwrite pathとして維持する。
+- **理由**：統合前の主要6 control文書だけで **1,114行 / 46,015文字**あり、Task Envelopeには `## INFERENCE GUARD` が重複していた。さらに `check-project-consistency.mjs` / `check-inference-guards.mjs` がManager / Task Envelope / AGENTS / PROJECT_STATEへ同内容のfieldやstate / platform ruleを複製することを要求しており、事故→再発防止追記→読込量増加→別の取りこぼし、という肥大化を構造的に起こし得ることを確認した。ユーザーからも、既存ルールがあるのにCURRENT取得・統合に失敗し、追加管理が逆に負担化しているとの継続指摘があった。
+- **REVERSAL TARGET**：Fail-Closedの旧 `CORRECTION PERSISTENCE` にある「再発性訂正はguard / domain Routerへ必要範囲で昇格」という、事故から説明規則を増やす方向を既定にする運用。また、CIが同じnormative内容を複数control文書へ存在させる旧整合性検査。
+- **NEW EVIDENCE**：①46,015文字のcontrol-plane実測、②Task Envelopeの同一heading重複、③CIが複製を必須化していた実装確認、④既存のSocial Canonical Write ContractとInstagram append/check/reportが、別チャット更新能力を新規台帳なしで既に実現していること、⑤ユーザーによる直近のCURRENT取りこぼし・管理負担の再指摘。
+- **旧状態・棄却**：同じ意味の規則をPROJECT / AGENTS / PROJECT_STATE / Manager / Guardへ再掲して安全性を上げる方式、事故ごとに新しい管理ファイル・CURRENT台帳・sidecarを増やす方式を棄却する。discovery pointerまで1箇所に減らす案も、別チャットからwrite pathを発見できなくなるため棄却する。
+- **影響範囲**：`PROJECT.md`、`AGENTS.md`、`PROJECT_STATE.md`、`.codex/MANAGER_CONTROL_PLANE.md`、`.codex/TASK_ENVELOPE_TEMPLATE.md`、`.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`、`scripts/check-project-consistency.mjs`、`scripts/check-inference-guards.mjs`、Social Routerのcross-chat write contract。公開WATCH本文・UI・個別SNS実測値・multi-agent設定は変更しない。
+- **検証状態**：integration branch `ops/control-plane-consolidation-20261006` へ実装中。既存quality gates、inference regressions、Instagram canonical checker、Social write path、diff、PR CI、main再取得までPASSして初めてVERIFIEDとする。
+- **関連**：PR #186をcurrent mainへ先行mergeし19:57 / 06:16 Insights snapshotを保全。PR #192のUSER_CONFIRMED「Instagram週3〜4件」判断はmerge conflictのため本integration branchへ救出。元PR #192は履歴として保持し、統合完了後にsuperseded扱いとする。
+- **日時根拠**：GitHub commit `5aef6fa13924925e8fb8d4083265ac17e173c0cf` の `2026-10-06T01:15:25Z → 2026-10-06 10:15 JST`。
+
 ## 2026-10-05
 
 ### 2026-10-05 20:44 JST — Fail-Closed重複driftを解消し、Slides exporter重複PRをcurrent mainへ一本化
