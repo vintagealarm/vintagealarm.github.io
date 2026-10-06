@@ -25,7 +25,7 @@ const germanUrl = new URL('de/history/', root).href;
 const socialImage = '/images/history-motifs/1950s-train-watercolor.png';
 const watches = await getCollection('watches');
 const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
-const researchPublished = researchSettings.published;
+const researchPublished = researchSettings.published && researchSettings.locales.includes(lang);
 
 const ui = isGerman
   ? {
