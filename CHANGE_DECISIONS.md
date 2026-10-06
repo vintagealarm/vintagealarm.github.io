@@ -16,6 +16,16 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 17:57 JST — Replay Evalのretrieval costとVerifier costを分離
+
+- **変更**：Replay Evalのcontext-cost計測を、mandatory boot / answer-time incremental retrieval / verifier-only sourceへ分離した。`routing_path` は回答判断用、`verification_sources` は実装安全性の検査用として扱う。Instagram Insightsのcross-chat caseでは `scripts/instagram-insights-timeseries.mjs` をVerifier-onlyへ移した。
+- **理由**：#195後の再計測で、mandatory bootとvalidator sourceまで同じrouting costへ混在しており、不要読込と詳細資料そのものを区別できていなかったため。
+- **旧状態・棄却**：file size自体を最適化目標にする方式、研究・運用詳細を要約・削除してcontext costを下げる方式、Verifier sourceをanswer-time costへ含める旧集計を棄却する。
+- **影響範囲**：`.codex/inference-guard-cases.json`、`scripts/check-replay-evals.mjs`、本判断履歴のみ。研究Ledger / Research Map / Social Router / Content Inventory / Published Copy / 実測値 / 公開本文は変更しない。
+- **検証状態**：branch `ops/replay-cost-separation-20261006-v2` で実装中。Replay checker / full quality gate / PR CI / merge後main再取得までPASSして初めてVERIFIED。
+- **関連**：2026-10-06 12:56 JST Replay Eval固定、2026-10-06 17:30 JST ARSA current-state locality ablation、commits `66338522` / `6d9e0ea1`。
+- **日時根拠**：GitHub commit `6d9e0ea145a8610d29ba2c2afbbf5ed5c0c3f904` の `2026-10-06T08:57:29Z → 2026-10-06 17:57 JST`。
+
 
 ### 2026-10-06 17:30 JST — ARSA working copyのquery-time ownerをResearch Mapへ移し履歴全文読込を外す
 
