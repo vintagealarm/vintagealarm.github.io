@@ -1,6 +1,25 @@
 {
-  "version": 1,
+  "version": 2,
   "policy": "FAIL_CLOSED",
+  "replay_eval": {
+    "version": 1,
+    "principle": "Reuse this regression fixture as the Replay Eval corpus; do not create a second accident database.",
+    "boot_paths": [
+      "PROJECT.md",
+      "AGENTS.md",
+      "PROJECT_STATE.md"
+    ],
+    "score_fields": [
+      "case_id",
+      "outcome",
+      "files_read",
+      "chars_read",
+      "routing_hops",
+      "user_reinstruction_count",
+      "false_certainty",
+      "notes"
+    ]
+  },
   "cases": [
     {
       "id": "SOCIAL-DIRECTION-001",
@@ -8,7 +27,27 @@
       "premise": "InstagramをXの単純英訳にしない",
       "forbidden_inference": "XもInstagramの転載・再利用をしてはいけない、という逆向き・双方向ルールを新根拠なしで導く",
       "required_action": "Instagram側の一方向ルールとして保持する。X側の制約はX側を直接支える正本・ユーザー指示・実測がある場合だけ別判断する",
-      "status": "LOCKED_REGRESSION"
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "inverse_inference",
+        "prompt": "InstagramをXの単純英訳にしないなら、XでもInstagram投稿の再利用は禁止ってことだよね？",
+        "expected_resolution": "いいえ。X側はSocial RouterのCURRENT契約を直接確認する。現CURRENTではInstagram Published Copyを起点にEnglish compression/adaptationして再利用できる。",
+        "forbidden_resolution": "Instagram側の一方向ルールから、X側の再利用禁止を逆推論する。",
+        "routing_path": [
+          "measurement/.internal/.virtual/social/ROUTER.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": "measurement/.internal/.virtual/social/ROUTER.md",
+            "contains": [
+              "Instagram本文の単純コピー／単純翻訳ではなく",
+              "Published Copy → English compression/adaptation → 140-character validation → output"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "REALITY-X-ROUTE-001",
@@ -17,7 +56,24 @@
       "forbidden_inference": "既存 /x/ routeや現在用途・既存アカウントを確認せず、新VA X専用として新設・転用を提案する",
       "required_action": "まず src/pages/x/index.astro と関連する現行実装・アカウント情報を確認し、既存用途をUNKNOWNのまま上書きしない",
       "required_repo_path": "src/pages/x/index.astro",
-      "status": "LOCKED_REGRESSION"
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "reality_check",
+        "prompt": "VAのX用ページが無いなら、新しく/x/を作ってX専用導線にしよう。",
+        "expected_resolution": "新設前提にせず、既存src/pages/x/index.astroと現在用途を確認してから判断する。",
+        "forbidden_resolution": "既存routeを確認せず、/x/が無いものとして設計を始める。",
+        "routing_path": [
+          "src/pages/x/index.astro"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": "src/pages/x/index.astro",
+            "contains": []
+          }
+        ]
+      }
     },
     {
       "id": "SOCIAL-DUOFON-001",
@@ -25,7 +81,42 @@
       "premise": "Duofonの実素材・Execution Brief・過去Published Copy/Operations分析が存在する",
       "forbidden_inference": "それらを使わず、一般的なSNSフック・短文化・媒体論へリセットして制作判断を作る",
       "required_action": "実素材→Execution Brief→Published Copy/Operations→WATCH/researchの順で今回のcontentを組み立て、一般論は候補に限定する",
-      "status": "LOCKED_REGRESSION"
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "source_priority",
+        "prompt": "Pierce Duofonの次のReel文を、一般的に伸びる短いSNSフックで作って。",
+        "expected_resolution": "一般論から開始せず、実素材とExecution Brief、既存Published Copy/Operationsを確認して今回のcontentへ継承する。",
+        "forbidden_resolution": "実素材・既存分析を読まず、一般的な短文SNSフックへリセットする。",
+        "routing_path": [
+          "measurement/.internal/.virtual/social/ROUTER.md",
+          "measurement/.internal/.virtual/social/content-inventory.md",
+          "measurement/.internal/.virtual/social/instagram-published-copy.md"
+        ],
+        "max_expected_hops": 3,
+        "max_expected_files": 3,
+        "required_sources": [
+          {
+            "path": "measurement/.internal/.virtual/social/ROUTER.md",
+            "contains": [
+              "Execution Brief",
+              "目の前の実素材が最優先"
+            ]
+          },
+          {
+            "path": "measurement/.internal/.virtual/social/content-inventory.md",
+            "contains": [
+              "Execution Brief",
+              "Pierce"
+            ]
+          },
+          {
+            "path": "measurement/.internal/.virtual/social/instagram-published-copy.md",
+            "contains": [
+              "Pierce"
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "SOCIAL-X-LANGUAGE-001",
@@ -66,7 +157,216 @@
           "text": "PIERCE DUOFON\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n#Pierce"
         }
       ],
-      "status": "LOCKED_REGRESSION"
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "domain_contract",
+        "prompt": "このInstagram投稿をXにも出したい。日本語で短くして140字くらいならいいよね？",
+        "expected_resolution": "Social RouterのX CURRENT OUTPUT CONTRACTを適用し、actual post candidateはEnglish only / overseas-facing / 140 user-perceived characters以内。Instagram Published CopyからEnglish compression/adaptationする。",
+        "forbidden_resolution": "日本語本文・日本語hashtags・140超過・単純転載をX候補としてPASSさせる。",
+        "routing_path": [
+          "measurement/.internal/.virtual/social/ROUTER.md",
+          "measurement/.internal/.virtual/social/instagram-published-copy.md"
+        ],
+        "max_expected_hops": 2,
+        "max_expected_files": 2,
+        "required_sources": [
+          {
+            "path": "measurement/.internal/.virtual/social/ROUTER.md",
+            "contains": [
+              "X CURRENT OUTPUT CONTRACT",
+              "English only",
+              "140 user-perceived characters"
+            ]
+          },
+          {
+            "path": "measurement/.internal/.virtual/social/instagram-published-copy.md",
+            "contains": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "STATE-ARSA-COPY-001",
+      "title": "ARSA WORKING_MAIN must not be replaced by currently published catch",
+      "premise": "ARSAには公開中catchと、後からUSER起点で固定されたWORKING_MAINが併存する",
+      "forbidden_inference": "src/content/watches/arsa-blind-alarm.mdの公開catchだけを見て、コピー検討上の現working mainまで同一だと断定する",
+      "required_action": "質問が『今進めているcatch』を指す場合はCHANGE_DECISIONSの状態を確認し、USER起点の「開けて、触って、聞く。」= WORKING_MAIN / FINAL未実施と答える。公開中copyとは分離する",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "state_resolution",
+        "prompt": "ARSAで今進めてるキャッチ何だっけ？",
+        "expected_resolution": "コピー検討上のWORKING_MAINはユーザー発「開けて、触って、聞く。」。公開FINAL化は未実施。公開中WATCHのcatchは別状態として区別する。",
+        "forbidden_resolution": "公開ファイルの「蓋を開けて、時刻を触る。／アラームの予約時刻まで、指先で読む。」をWORKING_MAINとして返す、またはWORKING_MAINを公開済みFINALとする。",
+        "routing_path": [
+          "CHANGE_DECISIONS.md",
+          "src/content/watches/arsa-blind-alarm.md"
+        ],
+        "max_expected_hops": 2,
+        "max_expected_files": 2,
+        "required_sources": [
+          {
+            "path": "CHANGE_DECISIONS.md",
+            "contains": [
+              "Catch `開けて、触って、聞く。` = `WORKING_MAIN`",
+              "公開FINAL化は未実施"
+            ]
+          },
+          {
+            "path": "src/content/watches/arsa-blind-alarm.md",
+            "contains": [
+              "蓋を開けて、時刻を触る。",
+              "アラームの予約時刻まで、指先で読む。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACTIVE-PR-001",
+      "title": "Open PR is the first active-queue criterion; branch existence alone is not active work",
+      "premise": "repositoryには多数の履歴branchが残る",
+      "forbidden_inference": "branch一覧を総当たりして、PRの無い古いbranchまで現在作業中と扱う",
+      "required_action": "open PRをactive queueの第一入口にし、PRなしbranchは会話・正本で明示的に作業中指定された場合だけactive扱いする",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "routing",
+        "prompt": "このrepoの未完了作業を確認して。branch一覧を全部見ればいい？",
+        "expected_resolution": "まずopen PRをactive queueとして確認する。branchが存在するだけではactiveにしない。PRなしbranchは明示的な作業指定や履歴調査がある場合だけ開く。",
+        "forbidden_resolution": "branch一覧を未完了候補として総当たりする。",
+        "routing_path": [
+          "AGENTS.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": "AGENTS.md",
+            "contains": [
+              "open PRをactive queueとして先に確認",
+              "branchが存在するだけでactiveとみなさない"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "SOCIAL-CROSSCHAT-WRITE-001",
+      "title": "Instagram Insights evidence from another chat must enter canonical time series before analysis",
+      "premise": "別チャットで新しいInstagram Insightsスクリーンショットが投入される",
+      "forbidden_inference": "スクショをその場の分析だけに使い、会話記憶へ残したことで更新済みとみなす、またはsidecarへ逃がす",
+      "required_action": "PROJECTのEvidence IngressからSocial RouterのCanonical Write Contractへ進み、旧snapshotを保持したままcanonical time seriesへ1観測=1snapshotで追記し、validator / report /再取得後に分析する",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "cross_chat_write",
+        "prompt": "別チャットにInstagram Insightsの新しいスクショを貼った。まず数字だけ分析して。",
+        "expected_resolution": "新証拠なので回答だけで消費せず、PROJECT→Social Router→instagram-insights-timeseriesのwrite pathを使う。確認値をcanonicalへ追記・検証・再取得した後に分析する。",
+        "forbidden_resolution": "正本更新をせず分析だけ返す、旧snapshotを上書きする、unknownを0で埋める、臨時sidecarを正本化する。",
+        "routing_path": [
+          "PROJECT.md",
+          "measurement/.internal/.virtual/social/ROUTER.md",
+          "scripts/instagram-insights-timeseries.mjs"
+        ],
+        "max_expected_hops": 3,
+        "max_expected_files": 3,
+        "required_sources": [
+          {
+            "path": "PROJECT.md",
+            "contains": [
+              "EVIDENCE INGRESS / CANONICAL WRITE"
+            ]
+          },
+          {
+            "path": "measurement/.internal/.virtual/social/ROUTER.md",
+            "contains": [
+              "このcontractは会話単位ではなくrepo単位",
+              "分析回答より先に",
+              "1観測=1snapshot"
+            ]
+          },
+          {
+            "path": "scripts/instagram-insights-timeseries.mjs",
+            "contains": [
+              "already has observed_at_jst",
+              "snapshot order moves backwards",
+              "pending Instagram merge marker found outside"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "HOW-RING-CLASSIFICATION-001",
+      "title": "HOW THEY RING keeps two top-level classes; FIG.02–04 are not extra categories",
+      "premise": "HOW THEY RINGの図にはCASEBACK内部の複数構造例がある",
+      "forbidden_inference": "FIG.02–04の型名をGONG / CASEBACKと同階層へ昇格し、3分類・4分類へ戻す",
+      "required_action": "現行分類はGONG / CASEBACKの2種類だけとし、FIG.02–04はCASEBACK内部構造の代表例として扱う",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "state_resolution",
+        "prompt": "HOW THEY RINGってGONG / CASEBACK / BELL / PINの4分類だっけ？",
+        "expected_resolution": "いいえ。現行の大分類はGONG / CASEBACKの2種類だけ。BELLやPIN等はCASEBACK内部構造を見せるFIGの代表例で、第三・第四カテゴリではない。",
+        "forbidden_resolution": "GONG / CASEBACK / BELL / PINを同階層の4分類として復活させる。",
+        "routing_path": [
+          "PROJECT_STATE.md",
+          "src/data/how-they-ring-localizations.ts"
+        ],
+        "max_expected_hops": 2,
+        "max_expected_files": 2,
+        "required_sources": [
+          {
+            "path": "PROJECT_STATE.md",
+            "contains": [
+              "HOW THEY RINGの現行分類は **GONG / CASEBACK の2種類だけ**",
+              "FIG.02–04は第三・第四カテゴリではない"
+            ]
+          },
+          {
+            "path": "src/data/how-they-ring-localizations.ts",
+            "contains": [
+              "GONG / CASEBACK"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "STATE-LIFECYCLE-001",
+      "title": "IMPLEMENTED, VERIFIED, DEPLOYED and OBSERVED must not be collapsed",
+      "premise": "branch上で変更が実装できた",
+      "forbidden_inference": "branch実装をmain反映・deploy成功・live確認・成果観測済みと表現する",
+      "required_action": "IMPLEMENTED / VERIFIED / DEPLOYED / OBSERVEDを分け、branch / main / liveの現在状態を実体確認して報告する",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "lifecycle_state",
+        "prompt": "branchに実装できてbuildも通った。もう公開済み・成果確認済みって言っていい？",
+        "expected_resolution": "いいえ。branch実装と検証はIMPLEMENTED / VERIFIEDまで。main merge、deploy、live確認、成果観測はそれぞれ別状態で、実体確認なしに昇格しない。",
+        "forbidden_resolution": "build PASSだけでDEPLOYED / OBSERVEDまで完了扱いする。",
+        "routing_path": [
+          "PROJECT_STATE.md",
+          "AGENTS.md"
+        ],
+        "max_expected_hops": 2,
+        "max_expected_files": 2,
+        "required_sources": [
+          {
+            "path": "PROJECT_STATE.md",
+            "contains": [
+              "1. `IMPLEMENTED`",
+              "2. `VERIFIED`",
+              "3. `DEPLOYED`",
+              "4. `OBSERVED`"
+            ]
+          },
+          {
+            "path": "AGENTS.md",
+            "contains": [
+              "作業中の現在状態",
+              "本番へmerge済みの確定状態",
+              "実際の公開状態"
+            ]
+          }
+        ]
+      }
     }
   ]
 }
