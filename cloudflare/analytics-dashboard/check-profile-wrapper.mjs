@@ -73,6 +73,7 @@ assert(Object.keys(GERMAN_GATEWAY_NAMES).length === 10, 'analytics must track Ge
 assert(Object.keys(HISTORY_GATEWAY_NAMES).length === 3, 'analytics must track Japanese, English and German HISTORY pages');
 assert(ENGLISH_GATEWAY_NAMES['/en/owners-notes/'] === "OWNER'S NOTES (EN)", 'English OWNER\'S NOTES mapping missing');
 assert(GERMAN_GATEWAY_NAMES['/de/owners-notes/'] === "OWNER'S NOTES (DE)", 'German OWNER\'S NOTES mapping missing');
+assert(RESEARCH_PAGE_NAMES['/research/arsa-blind-alarm/'] === 'ARSA Blind Alarm Research', 'ARSA RESEARCH analytics mapping missing');
 assert(RESEARCH_PAGE_NAMES['/how-they-ring/'] === 'How They Ring', 'How They Ring research mapping missing');
 assert(RESEARCH_PAGE_NAMES['/en/how-they-ring/'] === 'How They Ring (EN)', 'English How They Ring mapping missing');
 assert(RESEARCH_PAGE_NAMES['/de/how-they-ring/'] === 'How They Ring (DE)', 'German How They Ring mapping missing');
@@ -112,7 +113,14 @@ assert(payload.current.flows[3].destinationName === 'Basis Alarm (EN)', 'Basis E
 assert(payload.current.flows[4].destinationName === 'HISTORY (EN)', 'English HISTORY flow destination was not mapped');
 
 const snsTotals = Object.fromEntries(payload.current.snsEntries.pages.map((row) => [row.name, row.total]));
-assert(payload.current.snsEntries.pages.length === 43, 'SNS chart must contain all tracked published/static/localized rows, X Profile, plus Other pages');
+const expectedSnsRows = Object.keys(STATIC_PAGE_NAMES).length
+  + Object.keys(WATCH_PAGE_NAMES).length
+  + Object.keys(ENGLISH_GATEWAY_NAMES).length
+  + Object.keys(GERMAN_GATEWAY_NAMES).length
+  + Object.keys(HISTORY_GATEWAY_NAMES).length
+  + Object.keys(RESEARCH_PAGE_NAMES).length
+  + 2; // X Profile + Other pages
+assert(payload.current.snsEntries.pages.length === expectedSnsRows, 'SNS chart must contain all tracked published/static/localized rows, X Profile, plus Other pages');
 assert(snsTotals['Citizen Alarm'] === 2, 'Citizen SNS visits mismatch');
 assert(snsTotals['Westclox Watchlarm'] === 3, 'Westclox SNS visits mismatch');
 assert(snsTotals['Basis Alarm (EN)'] === 1, 'Basis English SNS visits mismatch');
@@ -121,6 +129,7 @@ assert(snsTotals['HISTORY (EN)'] === 1, 'English HISTORY SNS visits mismatch');
 assert(snsTotals['HISTORY (DE)'] === 0, 'German HISTORY SNS row missing');
 assert(snsTotals["OWNER'S NOTES (EN)"] === 0, 'English OWNER\'S NOTES SNS row missing');
 assert(snsTotals["OWNER'S NOTES (DE)"] === 0, 'German OWNER\'S NOTES SNS row missing');
+assert(snsTotals['ARSA Blind Alarm Research'] === 0, 'ARSA RESEARCH SNS row missing');
 assert(snsTotals['How They Ring'] === 0, 'How They Ring SNS row missing');
 assert(snsTotals['How They Ring (EN)'] === 0, 'English How They Ring SNS row missing');
 assert(snsTotals['How They Ring (DE)'] === 0, 'German How They Ring SNS row missing');
