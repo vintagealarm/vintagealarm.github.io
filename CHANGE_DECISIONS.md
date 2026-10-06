@@ -16,6 +16,17 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 20:13 JST — Replay Evalへsection-aware retrieval costを追加
+
+- **変更**：既存Replay corpusの上位3ケース（`RESEARCH-CROSSCHAT-WRITE-001` / `SOCIAL-DUOFON-001` / `STATE-ARSA-COPY-001`）について、source file全文サイズとは別に、既存`required_sources.contains` anchorから実際に読むべきsection / 周辺行だけを推定する `scripts/report-replay-section-cost.mjs` を追加した。`replay:section-report` / `check:replay-section-cost` を追加し、`check:quality`へ接続した。
+- **理由**：従来のReplay context costは「source fileを参照する＝全文を読む」と数えており、詳細研究を厚く保持しているLedgerやSocial正本ほど不当に高コストに見えた。ユーザー確認どおり、最適化対象は研究内容の量ではなく**不要なquery-time読込**なので、full-file costとsection-aware costを分離する必要があるため。
+- **実測**：Research cross-chatは `206,625 → 426 chars`、Duofon Socialは `56,463 → 6,142 chars`、ARSA copy stateは `29,390 → 820 chars`。これはsource削除量ではなく、既存anchorを使った回答時retrievalの推定値。元ファイル・研究詳細・履歴は変更していない。
+- **旧状態・棄却**：大きいsource fileそのものを削る／要約する／分割することでReplay値を下げる方式を棄却。section-aware reportは既存正本を保持したままread範囲だけを測る。
+- **影響範囲**：`scripts/report-replay-section-cost.mjs`、`package.json`、本判断履歴のみ。Ledger / Research Map / Social Router / Content Inventory / Published Copy / WATCH本文は変更しない。
+- **検証状態**：branch `ops/section-cost-report-20261006b` へ実装済み。full quality gate、PR CI、merge後main再取得までPASSして初めてVERIFIED。
+- **関連**：2026-10-06 12:56 JST Replay Eval固定、17:57 JST retrieval / verifier cost分離、17:30 JST ARSA current locality改善。commits `74482c2a` / `df56c6df`。
+- **日時根拠**：GitHub commit `df56c6df277a84ad48f7fdbe4382eba3cdace1c2` の `2026-10-06T11:13:05Z → 2026-10-06 20:13 JST`。
+
 ### 2026-10-06 19:49 JST — READMEからllms.txtのEditorial purpose / Duofon原体験へ意味付きpointerを追加
 
 - **変更**：`README.md` のCanonical website直後に、VINTAGE ALARMのEditorial purposeとsite originの正本が `public/llms.txt` にあることを明示し、特に `Editorial purpose — making alarm wristwatches understandable` と `Why direct experience matters — Pierce Duofon` を読むよう意味付きpointerを追加した。原体験本文そのものはREADMEへ複製しない。
