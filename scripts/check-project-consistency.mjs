@@ -63,6 +63,12 @@ for (const path of [
 forbidText(agents, '1. **2ch民で焼いて**', 'AGENTS Council menu');
 forbidText(agents, 'V2共通プロトコル:', 'AGENTS Council protocol');
 
+requireText(state, 'CouncilのCURRENT仕様本文はこのStateへ複製しない', 'PROJECT_STATE delayed Council CURRENT pointer');
+requireText(state, '`PROJECT.md` §1を正とする', 'PROJECT_STATE Council launcher owner pointer');
+forbidText(state, 'Councilはprotocol-driven V3。', 'PROJECT_STATE Council spec copy');
+forbidText(state, 'Councilの7形式は 2chスレ', 'PROJECT_STATE Council menu copy');
+forbidText(state, 'Council共通プロトコルは独立初手', 'PROJECT_STATE Council protocol copy');
+
 
 for (const field of [
   'CURRENT STATE',
