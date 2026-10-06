@@ -72,7 +72,7 @@ for (const [label, text] of [
 ]) {
   requireText(text, guardPath, `${label} guard pointer`);
 }
-requireText(agents, casePath, 'AGENTS regression-case pointer');
+requireText(guard, casePath, 'Fail-Closed Guard regression-case pointer');
 requireText(social, casePath, 'Social Router regression-case pointer');
 
 for (const heading of [
@@ -81,7 +81,7 @@ for (const heading of [
   'REALITY FIRST',
   'GENERAL KNOWLEDGE = CANDIDATE ONLY',
   'PRE-OUTPUT CONTRADICTION CHECK',
-  'PLATFORM OUTPUT CONTRACT GATE',
+  'DOMAIN CONTRACT GATE',
   'CORRECTION PERSISTENCE'
 ]) requireText(guard, heading, 'guard policy');
 
@@ -94,27 +94,26 @@ for (const field of [
 ]) requireText(envelope, field, 'Task Envelope inference field');
 
 for (const field of [
-  'Platform:',
-  'Language:',
-  'Audience:',
-  'Character limit:',
-  'Source copy:',
-  'Transformation:',
-  'Destination / profile:',
-  'Output validator:',
-  'Actual candidate validation:'
-]) requireText(envelope, field, 'Task Envelope platform-output field');
+  'DOMAIN CONTRACT',
+  'Contract source:',
+  'Required fields resolved:',
+  'Canonical write contract:',
+  'Output / update validator:',
+  'Actual candidate / update validation:'
+]) requireText(envelope, field, 'Task Envelope domain-contract field');
 
-for (const field of [
-  'PLATFORM',
-  'LANGUAGE',
-  'AUDIENCE',
-  'CHARACTER LIMIT',
-  'SOURCE COPY',
-  'TRANSFORMATION',
-  'DESTINATION / PROFILE',
-  'OUTPUT VALIDATOR'
-]) requireText(manager, field, 'Manager platform-output field');
+requireText(manager, 'Domain contract resolution', 'Manager domain-contract routing');
+requireText(manager, guardPath, 'Manager fail-closed pointer');
+
+for (const [label, text] of [
+  ['Manager Control Plane', manager],
+  ['Task Envelope', envelope],
+  ['Fail-Closed Guard', guard]
+]) {
+  if (text.includes('X CURRENT OUTPUT CONTRACT')) {
+    fail(`${label} must not duplicate the Social Router X CURRENT contract`);
+  }
+}
 
 for (const needle of [
   'X CURRENT OUTPUT CONTRACT',
@@ -174,10 +173,11 @@ if (xCase) {
   }
 }
 
-requireText(project, 'FAIL-CLOSED', 'PROJECT fail-closed gate');
-requireText(agents, 'NO INVERSE INFERENCE', 'AGENTS inverse-inference gate');
-requireText(manager, 'DECISION REVERSAL GATE', 'Manager reversal gate');
-requireText(manager, 'PRE-OUTPUT CONTRADICTION CHECK', 'Manager pre-output gate');
+requireText(project, 'FAIL-CLOSED', 'PROJECT fail-closed discovery pointer');
+requireText(agents, guardPath, 'AGENTS inference-guard discovery pointer');
+requireText(manager, guardPath, 'Manager inference-guard discovery pointer');
+requireText(guard, 'DECISION REVERSAL GATE', 'Guard reversal gate');
+requireText(guard, 'PRE-OUTPUT CONTRADICTION CHECK', 'Guard pre-output gate');
 
 const xCopyIndex = process.argv.indexOf('--x-copy');
 const xCopyFileIndex = process.argv.indexOf('--x-copy-file');
@@ -202,5 +202,5 @@ if (xCopyIndex !== -1 || xCopyFileIndex !== -1) {
 }
 
 if (!process.exitCode) {
-  console.log('Inference guard check passed: fail-closed policy, platform output contract, four locked regressions, X copy self-tests, and existing /x/ route reality are connected.');
+  console.log('Inference guard check passed: canonical fail-closed policy, domain-contract routing, four locked regressions, X copy self-tests, and existing /x/ route reality are connected.');
 }

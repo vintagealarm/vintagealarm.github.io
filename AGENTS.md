@@ -15,40 +15,29 @@
 
 ## Manager Control Plane — pilot
 
-通常作業は `.codex/MANAGER_CONTROL_PLANE.md` を管理プロトコルとして使う。これは別のManager人格を常駐させる規則ではなく、**single-agentを既定にしたまま、依頼受領 → scope固定 → 実行 → 独立検証 → 報告を崩さないためのcontrol plane**である。
+通常作業は `.codex/MANAGER_CONTROL_PLANE.md` を管理プロトコルとして使う。Task Envelopeのfield正本は `.codex/TASK_ENVELOPE_TEMPLATE.md`、推論gate正本は `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`。
 
-- 非自明なrepository変更・公開変更・研究判断・複数工程では、実行前に `.codex/TASK_ENVELOPE_TEMPLATE.md` の **CURRENT STATE / CANONICAL SOURCES / SCOPE / MUST / DO NOT / REJECTED-HOLD / SUCCESS CRITERIA / VERIFY PLAN** を固定する。軽微な単発作業は内部短縮版でよい。
-- 状態は **RECEIVED → SCOPED → AUDIT_REPORTED → READY → EXECUTING → VERIFYING → PASS / FAIL → REPORT**。非自明なrepository変更・公開変更・研究判断・複数工程では、SCOPED後・実装系mutation前に、CURRENT STATE / DEFECT-GAP / CAUSE / CHANGE SCOPE / OUT OF SCOPE / SUCCESS CRITERIAをユーザーが見えるチャットへ監査報告する。報告済みでなければREADYへ進めない。承認待ちはユーザーが明示した場合だけ追加する。FAILは原因を保持してEXECUTINGへ戻し、未確認のままPASSへ進めない。
-- 既定はsingle-agent。specialistは分野固有判断・長い探索・文脈衝突・並列化の明確な利得・権限分離がある場合だけ検討する。
-- VerifierはBuilderの説明を最終証拠にしない。正本、diff、test / build / gate、render / live、実画像・動画・音声等の**対象実体から再判定**する。
-- pilotの評価はAI人数ではなく、ユーザーの再指示・正本誘導・確認催促・完了後不具合発見が減ったかで見る。
-- `.codex/config.toml` の `multi_agent = false` は維持し、明示指示なしに変更しない。
-
-### Fail-Closed Inference Guard
-
-`.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` をManager Control Planeの強制gateとして使う。回帰例は `.codex/inference-guard-cases.json`。
-
-- **NO INVERSE INFERENCE**: 一方向規則を逆・裏・対偶・双方向・一般則へ変形しない。必要ならその向きを直接支える証拠を取り直す。
-- **DECISION REVERSAL GATE**: USER_CONFIRMED / RESOLVED / CURRENTを変更する前に、REVERSAL TARGETとNEW EVIDENCEを固定する。欠ければFAIL / HOLD。
-- **REALITY FIRST**: route / URL / account / page / media / postの提案前に既存実装・実物・active PRを確認する。未確認はUNKNOWNで止める。
-- **GENERAL KNOWLEDGE = CANDIDATE ONLY**: 一般論は候補。正本・実測・ユーザー確定を上書きしない。
-- **PRE-OUTPUT CONTRADICTION CHECK**: REPORT前に直近ユーザー決定・正本・既存実装との反転を検査する。矛盾があればPASS禁止。
-- 再発性のある訂正は会話だけで終わらせず、guard / domain Router / regression case / decision logへ必要範囲で昇格する。
+- 既定はsingle-agent。非自明な変更・研究判断・複数工程では、SCOPED後・mutation前にユーザーが見えるCHAT AUDIT REPORTを出す。
+- VerifierはBuilderの自己申告ではなく、正本・diff・test / build / render / live / 実物から再判定する。
+- **normative rule / CURRENTはcanonical ownerを原則1箇所に置く。** PROJECT / AGENTS / PROJECT_STATE等には発見用pointerを複数置いてよいが、domain固有値を再定義しない。
+- 新しいスクリーンショット・実測・資料・ユーザー訂正を受け取った場合は、対象domain Router / canonical sourceのwrite contractを確認する。既存contractが無い場合に新保存先を勝手に作らない。
+- `.codex/config.toml` の `multi_agent = false` は維持する。
 
 分野別ルーティング:
 
 - 本文 / WATCH / HISTORY / OWNER'S NOTES / 翻訳 → `SITE_RULES.md`
-- 日本語本文の新規執筆 / 大幅な書き直し → `SITE_RULES.md` + `strategy/japanese-writing.md`。必要な場合だけ `references/voice-samples.md`
-- デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md` + 関係する `SITE_RULES.md`
+- 日本語本文の新規執筆 / 大幅改稿 → `SITE_RULES.md` + `strategy/japanese-writing.md`
+- デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md`
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
 - Analytics / 計測 → `measurement/metrics.md` + 対象実装
-- SNS / 布教 / Instagram / X / YouTube / SNSとVA Analyticsの突合 → `measurement/.internal/.virtual/social/ROUTER.md` を最初に読む
-- SNS投稿案 / 既出・未使用角度 / 再利用素材 / 要追加撮影の棚卸し → Social `ROUTER.md` の後に `measurement/.internal/.virtual/social/content-inventory.md`
+- SNS / Instagram / X / YouTube / SNSとVA Analytics → `measurement/.internal/.virtual/social/ROUTER.md`
+- SNS投稿案 / 再利用素材 → Social Routerの後に `measurement/.internal/.virtual/social/content-inventory.md`
 - 英語入口 → `strategy/english-entry.md`
 - ドイツ語入口 → `strategy/german-entry.md`
-- Council / 焼いて → `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts` + `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`
+- Council / 焼いて → `council-worker/V3.md` + `council-worker/README.md` + 実装正本
+- 個人時計台帳 → cross-repo `orima1995-create/watchdiary-ios` のCURRENT Issue群
 
-対象が絞れている場合に、全ルールやリポジトリ全体を理由なく読み直さない。
+対象が絞れている場合、全ルールやリポジトリ全体を理由なく読み直さない。
 
 ## 時計研究の標準フレーム
 

@@ -13,6 +13,9 @@ const requireSingleOccurrence = (text, needle, label) => {
   const count = text.split(needle).length - 1;
   if (count !== 1) fail(`${label} must appear exactly once; found ${count}: ${needle}`);
 };
+const forbidText = (text, needle, label) => {
+  if (text.includes(needle)) fail(`${label} must not duplicate canonical content: ${needle}`);
+};
 
 const project = read('PROJECT.md');
 const agents = read('AGENTS.md');
@@ -22,15 +25,31 @@ const aio = read('measurement/aio-observation-log.md');
 const ring = read('src/data/how-they-ring-localizations.ts');
 const managerControlPlane = read('.codex/MANAGER_CONTROL_PLANE.md');
 const taskEnvelope = read('.codex/TASK_ENVELOPE_TEMPLATE.md');
+const inferenceGuard = read('.codex/FAIL_CLOSED_INFERENCE_GUARDS.md');
+const social = read('measurement/.internal/.virtual/social/ROUTER.md');
+const instagramTimeseriesScript = read('scripts/instagram-insights-timeseries.mjs');
+const packageJson = read('package.json');
 const codexConfig = read('.codex/config.toml');
 
 const managerControlPlanePath = '.codex/MANAGER_CONTROL_PLANE.md';
 const taskEnvelopePath = '.codex/TASK_ENVELOPE_TEMPLATE.md';
-requireText(agents, managerControlPlanePath, 'AGENTS manager control plane pointer');
-requireText(agents, taskEnvelopePath, 'AGENTS task envelope pointer');
-requireText(state, managerControlPlanePath, 'PROJECT_STATE manager control plane pointer');
-requireText(state, taskEnvelopePath, 'PROJECT_STATE task envelope pointer');
+const inferenceGuardPath = '.codex/FAIL_CLOSED_INFERENCE_GUARDS.md';
+const socialRouter = 'measurement/.internal/.virtual/social/ROUTER.md';
+
+for (const [label, text, needle] of [
+  ['AGENTS manager pointer', agents, managerControlPlanePath],
+  ['AGENTS task-envelope pointer', agents, taskEnvelopePath],
+  ['AGENTS inference-guard pointer', agents, inferenceGuardPath],
+  ['PROJECT_STATE manager pointer', state, managerControlPlanePath],
+  ['PROJECT_STATE task-envelope pointer', state, taskEnvelopePath],
+  ['PROJECT_STATE inference-guard pointer', state, inferenceGuardPath],
+  ['PROJECT social pointer', project, socialRouter],
+  ['AGENTS social pointer', agents, socialRouter],
+  ['PROJECT_STATE social pointer', state, socialRouter]
+]) requireText(text, needle, label);
+
 requireText(codexConfig, 'multi_agent = false', 'Codex multi-agent safety');
+
 for (const field of [
   'CURRENT STATE',
   'CANONICAL SOURCES',
@@ -40,13 +59,12 @@ for (const field of [
   'REJECTED / HOLD',
   'SUCCESS CRITERIA',
   'VERIFY PLAN'
-]) {
-  requireText(taskEnvelope, field, 'Task Envelope field');
-  requireText(managerControlPlane, field, 'Manager Control Plane field');
-}
+]) requireText(taskEnvelope, field, 'Task Envelope field');
+
 for (const stateName of ['RECEIVED','SCOPED','AUDIT_REPORTED','READY','EXECUTING','VERIFYING','PASS','FAIL','REPORT']) {
   requireText(managerControlPlane, stateName, 'Manager Control Plane state');
 }
+
 for (const field of [
   'CHAT AUDIT REPORT',
   'Required: YES / NO',
@@ -59,14 +77,11 @@ for (const field of [
   'Success criteria reported:',
   'User approval required: YES / NO',
   'Approval status: N/A / PENDING / APPROVED / REJECTED'
-]) {
-  requireText(taskEnvelope, field, 'Task Envelope chat-audit field');
-}
+]) requireText(taskEnvelope, field, 'Task Envelope chat-audit field');
+
 requireText(managerControlPlane, 'Pre-implementation CHAT AUDIT REPORT — mandatory', 'Manager chat-audit gate');
 requireText(managerControlPlane, '実装系の書き込み操作より前', 'Manager chat-audit mutation barrier');
 requireText(managerControlPlane, '監査報告は承認要求と同義ではない', 'Manager chat-audit approval semantics');
-requireText(agents, 'RECEIVED → SCOPED → AUDIT_REPORTED → READY', 'AGENTS chat-audit state transition');
-requireText(state, 'RECEIVED → SCOPED → AUDIT_REPORTED → READY', 'PROJECT_STATE chat-audit state transition');
 
 for (const metric of [
   'USER_REINSTRUCTION_COUNT',
@@ -78,52 +93,61 @@ for (const metric of [
   requireText(taskEnvelope, metric, 'Task Envelope metric');
   requireText(managerControlPlane, metric, 'Manager Control Plane metric');
 }
+
 for (const field of [
-  'PLATFORM',
-  'LANGUAGE',
-  'AUDIENCE',
-  'CHARACTER LIMIT',
-  'SOURCE COPY',
-  'TRANSFORMATION',
-  'DESTINATION / PROFILE',
-  'OUTPUT VALIDATOR'
-]) {
-  requireText(managerControlPlane, field, 'Manager Control Plane platform-output field');
-}
-for (const field of [
-  'Platform:',
-  'Language:',
-  'Audience:',
-  'Character limit:',
-  'Source copy:',
-  'Transformation:',
-  'Destination / profile:',
-  'Output validator:',
-  'Actual candidate validation:'
-]) {
-  requireText(taskEnvelope, field, 'Task Envelope platform-output field');
-}
-requireText(managerControlPlane, 'Builderの自己申告を証拠にしない', 'Manager Control Plane verifier independence');
-requireText(managerControlPlane, 'single-agent', 'Manager Control Plane default execution mode');
+  'DOMAIN CONTRACT',
+  'Contract source:',
+  'Required fields resolved:',
+  'Canonical write contract:',
+  'Output / update validator:',
+  'Actual candidate / update validation:'
+]) requireText(taskEnvelope, field, 'Task Envelope domain-contract field');
+
+requireText(managerControlPlane, 'Domain contract resolution', 'Manager domain-contract routing');
+requireText(managerControlPlane, 'domain固有値はdomain Router / canonical sourceが所有する', 'Manager canonical-owner rule');
+requireText(managerControlPlane, 'Builderの自己申告を証拠にせず', 'Manager verifier independence');
+requireText(managerControlPlane, 'single-agent', 'Manager default execution mode');
 
 requireSingleOccurrence(project, '### FAIL-CLOSED推論ゲート', 'PROJECT fail-closed heading');
-requireSingleOccurrence(agents, '### Fail-Closed Inference Guard', 'AGENTS fail-closed heading');
-requireSingleOccurrence(managerControlPlane, '## 1.5 Fail-Closed Inference Gate', 'Manager Control Plane fail-closed heading');
-requireSingleOccurrence(
-  state,
-  '- Fail-Closed Inference Guard: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` + `.codex/inference-guard-cases.json`。',
-  'PROJECT_STATE fail-closed baseline'
-);
-requireSingleOccurrence(project, '- directional ruleを逆向き・対偶・双方向へ変形していないか。', 'PROJECT pre-output fail-closed checklist');
+requireSingleOccurrence(project, '### EVIDENCE INGRESS / CANONICAL WRITE', 'PROJECT evidence-ingress heading');
+requireSingleOccurrence(managerControlPlane, '## 1.5 Fail-Closed Inference Gate', 'Manager fail-closed pointer heading');
+requireSingleOccurrence(taskEnvelope, '## INFERENCE GUARD', 'Task Envelope inference-guard heading');
+requireSingleOccurrence(inferenceGuard, '## 5.5 DOMAIN CONTRACT GATE', 'Inference Guard domain-contract heading');
+
+for (const [label, text] of [
+  ['Manager Control Plane', managerControlPlane],
+  ['Task Envelope', taskEnvelope],
+  ['Fail-Closed Guard', inferenceGuard]
+]) {
+  forbidText(text, 'X CURRENT OUTPUT CONTRACT', label);
+  forbidText(text, '140 user-perceived characters', label);
+  forbidText(text, 'English only', label);
+}
+
+requireText(state, '- Fail-Closed Inference Guard: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` + `.codex/inference-guard-cases.json`。', 'PROJECT_STATE fail-closed pointer');
+requireText(project, 'normative ownerは原則1箇所、discovery pointerは複数可', 'PROJECT owner/pointer contract');
+requireText(project, 'CANONICAL WRITE CONTRACT', 'PROJECT evidence-ingress discovery pointer');
+requireText(social, 'CANONICAL WRITE CONTRACT', 'Social canonical write contract');
+requireText(social, 'Instagram Insights の完了条件', 'Social Insights completion contract');
+requireText(social, 'Screenshot → canonical time series', 'Social screenshot-to-canonical path');
+requireText(social, '分析回答より先に', 'Social write-before-analysis rule');
+requireText(social, 'このcontractは会話単位ではなくrepo単位', 'Social cross-chat write contract');
+
+for (const scriptName of ['check:instagram-insights','instagram:append','instagram:report']) {
+  requireText(packageJson, `"${scriptName}"`, `package script ${scriptName}`);
+}
+for (const needle of [
+  'observed_at_jst is required',
+  'source_status is required',
+  'already has observed_at_jst',
+  'snapshot order moves backwards',
+  'pending Instagram merge marker found outside'
+]) requireText(instagramTimeseriesScript, needle, 'Instagram cross-chat ingestion guard');
 
 const canonical = 'https://vintagealarm.github.io/';
 requireText(state, `正規公開ホスト: \`${canonical}\``, 'PROJECT_STATE canonical host');
 requireText(llms, `Canonical URL: ${canonical}`, 'llms canonical host');
 
-const socialRouter = 'measurement/.internal/.virtual/social/ROUTER.md';
-requireText(project, socialRouter, 'PROJECT social routing');
-requireText(agents, socialRouter, 'AGENTS social routing');
-requireText(state, socialRouter, 'PROJECT_STATE social routing');
 
 const councilPointer = state.split('\n').find((line) => line.startsWith('- Council現行仕様:')) || '';
 for (const path of [
@@ -185,5 +209,5 @@ if (aio.includes('公開済み5 WATCH')) {
 }
 
 if (!process.exitCode) {
-  console.log(`Project consistency check passed: canonical host, routing pointers, HOW THEY RING labels, ${publishedSlugs.length} published WATCH routes, and five-watch measurement semantics are aligned.`);
+  console.log(`Project consistency check passed: canonical ownership/pointers, cross-chat evidence ingress, canonical host, HOW THEY RING labels, ${publishedSlugs.length} published WATCH routes, and five-watch measurement semantics are aligned.`);
 }
