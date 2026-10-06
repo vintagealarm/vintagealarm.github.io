@@ -81,6 +81,7 @@ export const HISTORY_GATEWAY_NAMES = Object.freeze({
 });
 
 export const RESEARCH_PAGE_NAMES = Object.freeze({
+  "/research/arsa-blind-alarm/": "ARSA Blind Alarm Research",
   "/how-they-ring/": "How They Ring",
   "/en/how-they-ring/": "How They Ring (EN)",
   "/de/how-they-ring/": "How They Ring (DE)",
