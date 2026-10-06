@@ -65,7 +65,7 @@ SNS / platform-bound copy / Analytics / canonical write等、domain固有CURRENT
 - **既存規則の欠落**: 既存canonical ownerを最小差分で修正し、必要ならdecision log / regressionを更新する。
 - **retrieval / routing失敗**: 新しい規則を増やす前にpointer・owner・checker接続を修正する。
 - **state resolution失敗**: competing CURRENT / WORKING / HOLD等の出典を確認し、曖昧ならHOLDする。
-- **再現可能な事故**: 既存 `.codex/inference-guard-cases.json` または該当domain checkerで回帰化する。
+- **再現可能な事故**: 既存 `.codex/inference-guard-cases.json` または該当domain checkerで回帰化する。Replay Evalも同じfixtureを使い、第二の事故DBを作らない。`npm run check:replay-evals` でrouting path / evidence anchorを検査し、`npm run replay:score -- <result.json>` で実行結果の読込量・hop数・再指示・false certaintyを集計できる。
 
 同じ意味の規則をPROJECT / AGENTS / STATE / Manager / Guardへ複製して「再発防止」としない。
 
