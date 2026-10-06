@@ -190,7 +190,7 @@
       "title": "ARSA WORKING_MAIN must not be replaced by currently published catch",
       "premise": "ARSAには公開中catchと、後からUSER起点で固定されたWORKING_MAINが併存する",
       "forbidden_inference": "src/content/watches/arsa-blind-alarm.mdの公開catchだけを見て、コピー検討上の現working mainまで同一だと断定する",
-      "required_action": "質問が『今進めているcatch』を指す場合はCHANGE_DECISIONSの状態を確認し、USER起点の「開けて、触って、聞く。」= WORKING_MAIN / FINAL未実施と答える。公開中copyとは分離する",
+      "required_action": "質問が『今進めているcatch』を指す場合はper-WATCH current boardを先に確認し、USER起点の「開けて、触って、聞く。」= WORKING_MAIN / FINAL未実施と答える。公開中copyとは分離する。CHANGE_DECISIONSは起点・採否・撤回理由の履歴として必要時だけ開く",
       "status": "LOCKED_REGRESSION",
       "replay": {
         "failure_class": "state_resolution",
@@ -198,17 +198,21 @@
         "expected_resolution": "コピー検討上のWORKING_MAINはユーザー発「開けて、触って、聞く。」。公開FINAL化は未実施。公開中WATCHのcatchは別状態として区別する。",
         "forbidden_resolution": "公開ファイルの「蓋を開けて、時刻を触る。／アラームの予約時刻まで、指先で読む。」をWORKING_MAINとして返す、またはWORKING_MAINを公開済みFINALとする。",
         "routing_path": [
-          "CHANGE_DECISIONS.md",
+          "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
           "src/content/watches/arsa-blind-alarm.md"
         ],
         "max_expected_hops": 2,
         "max_expected_files": 2,
         "required_sources": [
           {
-            "path": "CHANGE_DECISIONS.md",
+            "path": "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
             "contains": [
-              "Catch `開けて、触って、聞く。` = `WORKING_MAIN`",
-              "公開FINAL化は未実施"
+              "OWNER'S NOTE copy working state — query-time CURRENT",
+              "Catch WORKING_MAIN / USER-origin",
+              "`開けて、触って、聞く。`",
+              "Public FINAL status",
+              "未実施",
+              "Currently published catch"
             ]
           },
           {
