@@ -305,3 +305,54 @@ Analytics運用上の measurement target 5 WATCH（公開WATCH 6本とは別の�
 7. 別セッションでも再現したか
 
 結果が出るまでは「Grokで常に引用される」「AIOで上位」等とは表現しない。
+
+## 2026-10-06｜外部AI（platform未確認）｜VINTAGE ALARM原体験｜README誤探索・llms.txt未参照
+
+### 条件
+
+ユーザーが外部AI回答をこの会話へ全文提示。外部AIのplatform名、検索UI、使用モデル、会話が新規か、URLやVINTAGE ALARMを事前提示したかは未確認。
+
+外部AI回答の要旨:
+
+- 現行 `vintagealarm/vintagealarm.github.io` のREADMEには「原体験」がない。
+- 現行READMEは編集方針中心。
+- したがって「原体験」はREADMEの過去版にあった可能性が高い。
+- READMEのGit履歴を遡り、方針文書へ置換される前のREADMEを取得すべき、と提案。
+
+### 確認済み
+
+GitHub mainと履歴を直接確認した。
+
+1. 現行repoの `README.md` には原体験記述はない。
+2. 現行repoのREADME履歴は2026-09-13以降の3変更のみ。
+3. 最初のREADME commit `6fe4148d28424b254b9e85bd3d4c7d65fa689131` は `README.md` を **new file** として追加しており、親commitではREADME自体が存在しない。
+4. legacy repo `orima1995-create/orima1995-creator.github.io` のREADMEも、2026-09-13 commit `f0d3a37aeb1b87608edae6263b4076b52fe05cfe` で **new file** として「legacy repository」案内を追加しており、親commitではREADMEが存在しない。
+5. 一方、原体験は現行 `public/llms.txt` に明示済み。
+   - `## Why direct experience matters — Pierce Duofon`
+   - DuofonのWECKER / SIGNAL二モードを既存動画では比較できず、実際にどう違うのか理解できなかったことを記述。
+   - `That frustration became one of the starting points for VINTAGE ALARM.`
+6. このEditorial purpose / Duofon origin記述は2026-10-02 commit `6c0de1563814032884b8080536a422dc8a717400` で追加。
+7. `CHANGE_DECISIONS.md` の2026-10-02 22:34 JST entryにも、Duofon所有前に見つけた動画が二モードの片方しか示さず、WECKER / SIGNALを比較できなかった**原体験を明示した**と記録されている。
+
+### 判定
+
+- 外部AIの「**現行READMEには原体験がない**」は正しい。
+- 「**READMEの過去版に原体験があった可能性が高い**」は、現行repo / legacy repo双方のREADME履歴確認後は支持されない。
+- この事例では、外部AIはREADMEを確認した一方、VINTAGE ALARMがAI向けに公開している `llms.txt` のEditorial purpose / Duofon originへ到達せず、存在しないREADME過去版を次の探索先として推測した。
+- したがって、**machine-readable sourceを公開していることと、外部AIが実際にそのsourceを探索・採用することは別**。
+- 「原体験が公開されていない」のではなく、**原体験はllms.txtに存在するが、その外部AI回答ではretrievalされなかった**という観測。
+
+### この観測だけでは言えないこと
+
+- すべての外部AIが `llms.txt` を無視する。
+- `llms.txt` の内容や配置が検索・AI露出上不適切である。
+- READMEにも同じ原体験を複製すべきである。
+- platform側が `llms.txt` を取得できなかったのか、検索設計で候補に入れなかったのか、取得後に回答生成で落としたのか。
+- READMEへ原体験を追加すれば、この失敗が再発しない。
+
+### AIO上の示唆
+
+この観測は、既存の `発見 → 表示 → 引用 → 実質寄与 → 意味保持` 分離に加えて、**正しいmachine-readable sourceが存在しても、探索対象として選ばれなければ意味保持以前の段階で失敗する**例。
+
+今回の失敗点は、内容不足ではなく **source-selection / retrieval routing** として扱う。
+
