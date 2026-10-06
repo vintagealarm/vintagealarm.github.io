@@ -122,9 +122,18 @@ for (const id of requiredReplayIds) {
       fail(`${id} source.contains must be an array for ${source.path}`);
       continue;
     }
+    let scopedBody = body;
+    try {
+      scopedBody = textForScopes(body, source.read_scopes || []);
+    } catch (error) {
+      fail(`${id} invalid read scope in ${source.path}: ${error instanceof Error ? error.message : String(error)}`);
+      continue;
+    }
     for (const anchor of source.contains) {
       if (!body.includes(anchor)) {
         fail(`${id} lost evidence anchor in ${source.path}: ${anchor}`);
+      } else if (Array.isArray(source.read_scopes) && source.read_scopes.length > 0 && !scopedBody.includes(anchor)) {
+        fail(`${id} evidence anchor fell outside read scope in ${source.path}: ${anchor}`);
       }
     }
   }
@@ -132,6 +141,73 @@ for (const id of requiredReplayIds) {
 
 function unique(values) {
   return [...new Set(values)];
+}
+
+function mergeRanges(ranges) {
+  const sorted = ranges
+    .filter((range) => Number.isInteger(range?.start) && Number.isInteger(range?.end) && range.end >= range.start)
+    .sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const range of sorted) {
+    const last = merged.at(-1);
+    if (!last || range.start > last.end) merged.push({ ...range });
+    else last.end = Math.max(last.end, range.end);
+  }
+  return merged;
+}
+
+function lineStarts(text) {
+  const starts = [0];
+  for (let i = 0; i < text.length; i += 1) {
+    if (text[i] === '\n') starts.push(i + 1);
+  }
+  return starts;
+}
+
+function resolveReadScopes(text, scopes = []) {
+  if (!Array.isArray(scopes) || scopes.length === 0) {
+    return [{ start: 0, end: text.length }];
+  }
+  const starts = lineStarts(text);
+  const lines = text.split('\n');
+  const ranges = [];
+
+  for (const scope of scopes) {
+    if (scope?.mode === 'line_window') {
+      const lineIndex = lines.findIndex((line) => line.includes(scope.anchor));
+      if (lineIndex < 0) throw new Error(`scope anchor not found: ${scope.anchor}`);
+      const before = Number.isInteger(scope.before_lines) ? scope.before_lines : 0;
+      const after = Number.isInteger(scope.after_lines) ? scope.after_lines : 0;
+      const startLine = Math.max(0, lineIndex - before);
+      const endLineExclusive = Math.min(lines.length, lineIndex + after + 1);
+      const start = starts[startLine] ?? 0;
+      const end = endLineExclusive >= starts.length ? text.length : starts[endLineExclusive];
+      ranges.push({ start, end });
+      continue;
+    }
+    if (scope?.mode === 'section') {
+      const start = text.indexOf(scope.start);
+      if (start < 0) throw new Error(`section start not found: ${scope.start}`);
+      const end = scope.end_before
+        ? text.indexOf(scope.end_before, start + scope.start.length)
+        : text.length;
+      if (end < 0) throw new Error(`section end not found: ${scope.end_before}`);
+      ranges.push({ start, end });
+      continue;
+    }
+    throw new Error(`unsupported read scope mode: ${scope?.mode || '(missing)'}`);
+  }
+  return mergeRanges(ranges);
+}
+
+function textForScopes(text, scopes = []) {
+  return resolveReadScopes(text, scopes).map((range) => text.slice(range.start, range.end)).join('\n');
+}
+
+function scopedChars(source) {
+  const body = read(source.path);
+  return resolveReadScopes(body, source.read_scopes || [])
+    .reduce((sum, range) => sum + (range.end - range.start), 0);
 }
 
 function charsFor(paths) {
@@ -152,13 +228,18 @@ function reportRows() {
         .map((source) => source.path),
     ).filter((path) => !bootPaths.includes(path) && !route.includes(path));
     const fullRuntime = unique([...bootPaths, ...incrementalRoute]);
+    const taskSources = replay.required_sources.filter((source) => incrementalRoute.includes(source.path));
+    const verificationSourceRows = (Array.isArray(replay.verification_sources) ? replay.verification_sources : [])
+      .filter((source) => verification.includes(source.path));
     return [{
       id,
       failureClass: replay.failure_class,
       incrementalTaskFiles: incrementalRoute.length,
       incrementalTaskChars: charsFor(incrementalRoute),
+      incrementalScopedTaskChars: taskSources.reduce((sum, source) => sum + scopedChars(source), 0),
       verificationFiles: verification.length,
       verificationChars: charsFor(verification),
+      verificationScopedChars: verificationSourceRows.reduce((sum, source) => sum + scopedChars(source), 0),
       runtimeFiles: fullRuntime.length,
       runtimeChars: charsFor(fullRuntime),
       maxHops: replay.max_expected_hops,
@@ -174,27 +255,29 @@ function printReport() {
   console.log('');
   console.log(`Mandatory boot: ${bootPaths.length} files / ${bootChars.toLocaleString('en-US')} chars`);
   console.log('');
-  console.log('| Case | Class | Incremental task files | Incremental task chars | Verifier-only files | Verifier-only chars | Boot + task chars | Hop budget | Task-file budget |');
+  console.log('| Case | Class | Task files | Full-file task chars | Section-aware task chars | Verifier files | Full verifier chars | Scoped verifier chars | Boot + full task chars |');
   console.log('|---|---|---:|---:|---:|---:|---:|---:|---:|');
   for (const row of rows) {
     console.log(
-      `| ${row.id} | ${row.failureClass} | ${row.incrementalTaskFiles} | ${row.incrementalTaskChars} | ${row.verificationFiles} | ${row.verificationChars} | ${row.runtimeChars} | ${row.maxHops} | ${row.maxFiles} |`,
+      `| ${row.id} | ${row.failureClass} | ${row.incrementalTaskFiles} | ${row.incrementalTaskChars} | ${row.incrementalScopedTaskChars} | ${row.verificationFiles} | ${row.verificationChars} | ${row.verificationScopedChars} | ${row.runtimeChars} |`,
     );
   }
   const totals = rows.reduce(
     (acc, row) => {
       acc.incrementalTaskChars += row.incrementalTaskChars;
+      acc.incrementalScopedTaskChars += row.incrementalScopedTaskChars;
       acc.verificationChars += row.verificationChars;
+      acc.verificationScopedChars += row.verificationScopedChars;
       acc.incrementalTaskFiles += row.incrementalTaskFiles;
       return acc;
     },
-    { incrementalTaskChars: 0, verificationChars: 0, incrementalTaskFiles: 0 },
+    { incrementalTaskChars: 0, incrementalScopedTaskChars: 0, verificationChars: 0, verificationScopedChars: 0, incrementalTaskFiles: 0 },
   );
   console.log('');
   console.log(
-    `Cases: ${rows.length}; mean incremental task files: ${(totals.incrementalTaskFiles / rows.length).toFixed(2)}; mean incremental task chars: ${Math.round(totals.incrementalTaskChars / rows.length).toLocaleString('en-US')}; mean verifier-only chars: ${Math.round(totals.verificationChars / rows.length).toLocaleString('en-US')}.`,
+    `Cases: ${rows.length}; mean task files: ${(totals.incrementalTaskFiles / rows.length).toFixed(2)}; mean full-file task chars: ${Math.round(totals.incrementalTaskChars / rows.length).toLocaleString('en-US')}; mean section-aware task chars: ${Math.round(totals.incrementalScopedTaskChars / rows.length).toLocaleString('en-US')}; mean scoped verifier chars: ${Math.round(totals.verificationScopedChars / rows.length).toLocaleString('en-US')}.`,
   );
-  console.log('Incremental task cost excludes the mandatory PROJECT → AGENTS → PROJECT_STATE boot. Verifier-only sources are checked for implementation safety but are not counted as answer-time retrieval.');
+  console.log('Section-aware cost preserves complete source files in the repository and counts only the configured answer-time slices. Mandatory PROJECT → AGENTS → PROJECT_STATE boot remains separate.');
 }
 
 function printCase(id) {
@@ -212,6 +295,7 @@ function printCase(id) {
     routing_path: item.replay.routing_path,
     required_sources: item.replay.required_sources,
     verification_sources: item.replay.verification_sources || [],
+    section_aware: true,
     score_fields: replayConfig.score_fields,
   }, null, 2));
 }
