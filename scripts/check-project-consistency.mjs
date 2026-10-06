@@ -52,6 +52,10 @@ for (const [label, text, needle] of [
 
 requireText(codexConfig, 'multi_agent = false', 'Codex multi-agent safety');
 
+requireText(state, 'CouncilのCURRENT仕様本文はこのStateへ複製しない', 'PROJECT_STATE delayed Council pointer');
+forbidText(state, '- Councilはprotocol-driven V3。', 'PROJECT_STATE Council spec copy');
+
+
 requireText(agents, '分野別routeのcanonical ownerは `PROJECT.md` §2', 'AGENTS domain-routing owner pointer');
 for (const path of [
   'council-worker/V3.md',
