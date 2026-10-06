@@ -16,6 +16,16 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 22:35 JST — 重大事故経路をReplayへ追加しコスト評価を正答回帰から分離
+
+- **変更**：既存Replay fixtureへ `焼いて` router、Council 1、Council 7 deep-context、CYMA lab進捗照会、ARSA publication state、VA報告JST prefixの6回帰を追加した。section-aware reportは全Replayを表示してfull-file chars順に並べる一方、Council/JSTのような正答専用経路を `correctness_only` として改善候補から除外し、`ranked` かつ20,000文字以上だけを候補表示する。
+- **理由**：Council 1+7監査で、既存10件の全件コスト最適化より、今回の重大事故経路そのものがReplayに無いことが先の欠損と判明した。またGit blob bytesと文字数を混同すると、日本語文書のquery-time負担を誤報告するため、reportは実テキスト文字数を継続使用する。
+- **旧状態・棄却**：既存10件へ一律の削減KPIを課す案、CYMA CURRENT例外を測定前に移動する案、Git blob bytesを必読文字量として扱う案、新DB / Router / 台帳 / 重い意味類似度checkerを追加する案を棄却・HOLDする。CYMA詳細は現位置に保持する。
+- **影響範囲**：`.codex/inference-guard-cases.json`、`scripts/check-replay-evals.mjs`、`scripts/report-replay-section-cost.mjs`、本判断履歴。公開WATCH本文、CYMA lab実装、Council正本、ARSA `published: false`、Social正本は変更しない。
+- **検証状態**：最新main基点のbranch `ops/replay-priority-20261006` へ実装中。Replay checker、section report、project consistency、decision log、full quality gate、PR CI、main再取得まで通って初めてVERIFIED。
+- **関連**：PR #205のCouncil state deferral、2026-10-06 20:13 JST section-aware retrieval cost、2026-10-06 21:43 JST ARSA publication-state修正、2026-10-06 21:57 JST VA chat JST guard、同日Council 1+7監査。
+- **日時根拠**：ホスト確認時刻 `2026-10-06 22:35 JST`。
+
 ### 2026-10-06 21:57 JST — VAチャットの冒頭JST表示を常設guardへ固定
 
 - **変更**：VA案件の進捗・監査・最終報告は、冒頭にホスト確認済みの `YYYY-MM-DD HH:mm JST` を表示する規則を `AGENTS.md` へ追加し、project consistency gateで欠落を拒否する。
