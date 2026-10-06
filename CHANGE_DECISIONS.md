@@ -27,6 +27,18 @@
 - **関連**：ARSA Blind Alarm公開WATCH、2026-10-04 19:13 JSTのARSA working copy救出、2026-10-06ユーザー確定稿、実装commit `a82de8e0`。
 - **日時根拠**：developer-provided local time `2026-10-06T09:16+09:00` = `2026-10-06 09:16 JST`。
 
+## 2026-10-06
+
+### 2026-10-06 09:17 JST — Instagram投稿頻度を週3〜4件の試験運用へ引き上げ
+
+- **変更**：Instagramの当面の投稿頻度を、従来の低頻度寄り方針から**週3〜4件を目安にする試験運用**へ変更した。Instagram公式UIの「毎週、リール動画2件と投稿1件」提案はplatform-side evidenceとして記録するが、VAの固定内訳・最適値・リーチ保証とは扱わない。
+- **理由**：2026-10-06 07:18 JSTのユーザー提供Instagram画面で、9月のReel 5件共有実績に対し「毎週、リール動画2件と投稿1件を作成することで、勢いを保つことができます」と表示。ユーザーが09:17 JSTに「俺の思想ともかみ合うしね　代替週3-4投稿で様子見」と明示確定したため。
+- **旧状態・棄却**：旧CURRENTの「初期運用より頻度を落とし、固定回数を置かない」をそのまま維持する状態を撤回。一方で、公式UI提案をそのままアルゴリズム必勝則・週3固定ノルマへ昇格する案、品質を落として本数を埋める案は棄却。
+- **影響範囲**：Social Router ACTIVE、instagram-operationsの運用判断。Content Inventory / Assignment / Execution Brief、観察箇所指定、公開WATCH本文、既存Published Copyは変更しない。
+- **検証状態**：元PR #192のUSER_CONFIRMED判断を、current main起点の統合branch `ops/control-plane-consolidation-20261006` へ救出。統合PRのdiff / CI / main再取得まで未VERIFIED。
+- **関連**：PR #192、2026-10-06 Instagram公式UIスクリーンショット、2026-10-05の低頻度品質優先方針、MR-PIE-001運用実績。
+- **日時根拠**：developer-provided local time `2026-10-06T09:17+09:00` = `2026-10-06 09:17 JST`。
+
 ## 2026-10-05
 
 ### 2026-10-05 20:44 JST — Fail-Closed重複driftを解消し、Slides exporter重複PRをcurrent mainへ一本化
