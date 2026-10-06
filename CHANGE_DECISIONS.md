@@ -16,6 +16,17 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 18:20 JST — Council詳細をmandatory bootから遅延読込へ戻す
+
+- **変更**：AGENTSに複製されていたCouncilの7択・Jester・PRE-MORTEM・共通protocol本文を削り、`PROJECT.md` launcher + `council-worker/V3.md` + `council-worker/README.md` + 実装 + Jester設計正本へのdiscovery pointerへ置換した。AGENTSの分野別route一覧もPROJECT §2所有へ戻し、Social / Council / 個人時計台帳の重要入口pointerだけ残した。checkerはCouncil仕様本文のAGENTS再複製を禁止し、正本pointerの存在を検査する。
+- **理由**：mandatory boot 3文書は32,803文字あり、Councilを使わない通常VA作業でもAGENTSの約2.6k文字Council仕様本文を毎回読む構造だった。Council仕様・研究・実装は既に専用正本へ完全保持されており、AGENTS側の全文コピーは情報保持ではなく不要な起動時重複だったため。
+- **旧状態・棄却**：Council詳細そのものを削る案、7択やJester/PRE-MORTEM仕様を要約して失う案、Council入口pointerまで消す案は棄却。詳細は専用正本にそのまま残し、Council要求時だけ取得する。
+- **影響範囲**：`AGENTS.md`、`scripts/check-project-consistency.mjs`、本判断履歴。Councilの `PROJECT.md` launcher、V3/README/design/code/testsは変更しない。
+- **実測**：mandatory bootは 32,803 → 30,347文字、**2,456文字減**。AGENTSは 11,638 → 9,182文字。repoのCouncil詳細正本は変更なし。
+- **検証状態**：branch `ops/boot-delayed-council-20261006` で実装中。quality gate / Council関連既存検査 / PR CI / merge後main再取得までPASSして初めてVERIFIED。
+- **関連**：2026-10-06 10:15 JST Control Plane再統合、17:57 JST Replay cost-layer分離。commits `667412e5` / `9084d0d8`。
+- **日時根拠**：GitHub commit `9084d0d8b51e7c373c766e4030eeec5f3f9e491e` の `2026-10-06T09:20:18Z → 2026-10-06 18:20 JST`。
+
 ### 2026-10-06 18:13 JST — Duofon Replayを現行assignment stateへ補正
 
 - **変更**：Replay `SOCIAL-DUOFON-001` を現行Social stateへ補正した。Pierce Duofonは `PENDING_USER_REVIEW`、新規active reservationは0件、`MR-PIE-001` / `EB:MR-PIE-001` はPUBLISHED履歴として扱う。次のReelは一般SNS論や旧Execution Briefからfinal化せず、Social Router → Pierce inventory → Published CopyでCURRENT / 既出衝突を確認し、次assetをユーザーが選択してUSER_CONFIRMED / PLANNEDになった後に新Execution Briefを作る。
