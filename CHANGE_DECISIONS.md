@@ -16,6 +16,28 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 21:43 JST — ARSA非公開をCURRENTへ戻し公開集合の固定7本依存を廃止
+
+- **変更**：ARSA Blind Alarmの `published: false` をユーザー意図のCURRENTとして `PROJECT_STATE.md` に固定し、再公開には新しい明示指示が必要とした。公開WATCH集合の正本を各WATCH frontmatterへ一本化し、Stateへ本数・一覧を固定しない。`public/llms.txt` から非公開ARSAのJA / EN / DE routeを除外し、project consistency gateは固定7本ではなくfrontmatterから得た動的集合とllms三言語一覧を照合する。公開→非公開・非公開→公開・三言語stale・重複routeを検証する5ケースの回帰テストをquality testへ追加した。
+- **理由**：旧実装ではユーザーの「非公開」指定に反してAIがARSAを `published: true` にし、その後ユーザーがCMSから正しく `false` へ戻した。しかしState・llms・checkerが7本公開を固定していたため、正しい非公開変更でCIが壊れる構造が残った。
+- **旧状態・棄却**：ARSAをCIに合わせて `true` へ戻す案、固定値を7本から6本へ置き換えるだけの案、JA一覧だけを照合してEN / DEの非公開route残存を許す案を棄却する。Analyticsのmeasurement target 5本は公開集合とは別の運用groupingとして維持する。
+- **影響範囲**：`PROJECT_STATE.md`、`public/llms.txt`、`scripts/check-project-consistency.mjs`、判断履歴。ARSA本文・OWNER'S NOTE・研究資料、他WATCHの公開flag、measurement targetは変更しない。
+- **検証状態**：ARSA frontmatterが `false` のままproject consistency、decision log、quality/buildを検証し、公開集合を増減させた敵対fixtureで固定本数依存がないことを確認後にVERIFIEDとする。#204 / #205は本変更を取り込んだ後に再CIする。
+- **関連**：ユーザー訂正 2026-10-06 21:12 JST、CMS commit `b45eb70`、旧公開実装PR #188、再CI対象PR #204 / #205。
+- **日時根拠**：作業ホストのJST時刻 `2026-10-06 21:43:48 +09:00`。
+
+### 2026-10-06 20:05 JST — X投稿上限を「全角140字相当 = weighted length 280」へ訂正
+
+- **変更**：Social RouterのX CURRENT OUTPUT CONTRACTにあった「140 user-perceived characters以内」を撤回し、ユーザー指定どおり **全角140字相当 = X weighted length 280以内**へ訂正した。英語本文を140 ASCII charactersで切らず、X / twitter-textのweighted lengthで検査する。
+- **理由**：2026-10-06 20:05 JST、ユーザーが「ぜんかくで140字」と明示訂正。直前のAIは139文字の英語案を「139/140」として提示し、全角140字相当を英語140文字と誤読していた。
+- **REVERSAL TARGET**：X CURRENT OUTPUT CONTRACTの `140 user-perceived characters` という独自編集上限、および `140-character validation`。
+- **NEW EVIDENCE**：ユーザーの明示訂正「ぜんかくで140字」。既存Router内のX公式 / twitter-text参照もweighted length 280を記録済みで、この訂正と整合する。
+- **旧状態・棄却**：英語でも140文字に圧縮する運用を棄却。English only、overseas-facing、`WATCH NAME → short English description → English hashtags`、Instagram Published Copy起点は維持する。
+- **影響範囲**：`measurement/.internal/.virtual/social/ROUTER.md` のX CURRENT OUTPUT CONTRACT、`scripts/check-inference-guards.mjs` のpre-output validator、`.codex/inference-guard-cases.json` のX回帰fixture、本判断履歴。Instagram運用、公開WATCH本文、既存X投稿、VA Analyticsは変更しない。
+- **検証状態**：branch `fix/x-fullwidth-140-contract-20261006` で実装。初回CIは旧140文字checkerが残っていたためFAIL。2回目CIでは `SOCIAL-DIRECTION-001` の旧evidence anchorが残っていたためFAILし、validator / X regression fixture / directional replay anchorをweighted length 280へ同期した。再CI / diff / main再取得まで完了してVERIFIEDとする。
+- **関連**：Social Router §3.5 X CURRENT OUTPUT CONTRACT、2026-10-06 CYMA海外X第二投稿作成時のユーザー訂正。decision-bearing commits: `4fe40901` / `e80ac3d7` / `8d6e463a` / `53ffff39`。
+- **日時根拠**：developer-provided local time `2026-10-06T20:05+09:00` = `2026-10-06 20:05 JST`。
+
 ### 2026-10-06 20:13 JST — Replay Evalへsection-aware retrieval costを追加
 
 - **変更**：既存Replay corpusの上位3ケース（`RESEARCH-CROSSCHAT-WRITE-001` / `SOCIAL-DUOFON-001` / `STATE-ARSA-COPY-001`）について、source file全文サイズとは別に、既存`required_sources.contains` anchorから実際に読むべきsection / 周辺行だけを推定する `scripts/report-replay-section-cost.mjs` を追加した。`replay:section-report` / `check:replay-section-cost` を追加し、`check:quality`へ接続した。
