@@ -17,6 +17,17 @@
 
 ## 2026-10-06
 
+### 2026-10-06 12:56 JST — 実事故9件を既存fixtureへReplay Evalとして固定
+
+- **変更**：既存の `.codex/inference-guard-cases.json` を第二の事故DBへ分岐させず、そのままReplay Eval corpusへ拡張した。従来4件に加え、ARSAのWORKING_MAINと公開catchのstate resolution、open PR優先、別チャットInstagram Insightsのcanonical write、HOW THEY RINGの2分類、IMPLEMENTED / VERIFIED / DEPLOYED / OBSERVED分離を追加し、計9件を `LOCKED_REGRESSION` とした。各caseは prompt / expected resolution / forbidden resolution / task-specific routing path / evidence anchor / hop・file budget を持つ。新規 `scripts/check-replay-evals.mjs` はfixture schema・source path・anchor driftを検査し、report / case / score modeで読込文字数・routing hop・再指示回数・false certaintyを集計できる。quality gateへ `check:replay-evals` を接続した。
+- **理由**：Control Plane再統合後も、既存checkerは「規則・sourceが存在する」ことを主に検査しており、過去に実際に起きたretrieval / routing / state-resolution / cross-chat-write事故を同じ問いで再現可能な形には固定していなかった。今後のAblationで規則やpointerを削る際、正答能力を落としたかを同じケースで比較できる基準が必要なため。
+- **旧状態・棄却**：事故ごとに新しいルール本文・別fixture・新CURRENT台帳・外部LLM evaluatorを増やす方式は採用しない。CIだけで自然言語回答の意味正解まで自動判定したと見なすことも棄却し、CIはsource / routing / fixture driftの決定論的検査、実モデル回答は `replay:score` へ別途記録する二層構造とする。
+- **影響範囲**：`.codex/inference-guard-cases.json`、`.codex/FAIL_CLOSED_INFERENCE_GUARDS.md`、`scripts/check-replay-evals.mjs`、`package.json`、本判断履歴。公開WATCH本文、Social CURRENT、Instagram実測値、Manager lifecycle、multi-agent設定は変更しない。
+- **検証状態**：branch `ops/replay-eval-20261006` へ実装済み。Replay fixture / harness単体、既存inference guard、full quality gate、PR CI、merge後main再取得までPASSして初めてVERIFIEDとする。実モデルの独立fresh-context replay baselineは、同チャットでexpected answerを読んだ状態を公平な評価としないため別実行として残す。
+- **関連**：Control Plane再統合 2026-10-06 10:15 JST、commits `26e67fcc` / `a1efc0e7` / `0f62b339` / `cfa486ee`。対象事故: ARSA copy state、X contract / route reality / directional inference、Duofon source priority、active PR routing、cross-chat Instagram write、HOW THEY RING分類、lifecycle state。
+- **日時根拠**：GitHub commit `cfa486ee35d0b0477d7d7ad708ca30aa061c09b7` の `2026-10-06T03:56:09Z → 2026-10-06 12:56 JST`。
+
+
 ### 2026-10-06 09:16 JST — ARSA OWNER'S NOTEをユーザー確定稿へ更新
 
 - **変更**：ARSA Blind AlarmのOWNER'S NOTEを、ユーザーが最終確定した7行へ差し替える。内容は、盛り上がった時刻目盛、直接触れることを前提に頑丈に作られた時針・分針、秒針がないことと触読上の理由、4時位置リューズ中央の前蓋プッシャー、末尾の「ちなみに、麻酔針は出ない。」で構成する。
