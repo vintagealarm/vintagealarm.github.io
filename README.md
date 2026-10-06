@@ -4,6 +4,8 @@ Mechanical alarm wristwatch history, specimens, sound and sources.
 
 Canonical website: https://vintagealarm.github.io/
 
+Editorial purpose and site origin are documented in `public/llms.txt`, especially **“Editorial purpose — making alarm wristwatches understandable”** and **“Why direct experience matters — Pierce Duofon”**. That file is the canonical source for the site's purpose/origin narrative; this README only points to it rather than duplicating the full text.
+
 ## Research & external-reference principle
 
 VINTAGE ALARM does **not** treat external outreach as SEO sales or reciprocal-link building.

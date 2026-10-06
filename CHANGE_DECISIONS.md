@@ -16,6 +16,16 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 19:49 JST — READMEからllms.txtのEditorial purpose / Duofon原体験へ意味付きpointerを追加
+
+- **変更**：`README.md` のCanonical website直後に、VINTAGE ALARMのEditorial purposeとsite originの正本が `public/llms.txt` にあることを明示し、特に `Editorial purpose — making alarm wristwatches understandable` と `Why direct experience matters — Pierce Duofon` を読むよう意味付きpointerを追加した。原体験本文そのものはREADMEへ複製しない。
+- **理由**：2026-10-06の外部AI観測で、現行READMEに原体験がないことは正しく認識した一方、`llms.txt` へ到達せず、存在しない旧READMEを探索先として推測するsource-selection / retrieval-routing failureを確認した。READMEには従来から `llms.txt` URLはあったが、そこにEditorial purpose / originがあることを示す意味pointerがなかったため。
+- **旧状態・棄却**：原体験全文をREADMEへ重複コピーする案、`llms.txt` の正本性をREADMEへ移す案、外部AIの1失敗例だけを理由にWATCH / HISTORY / OWNER'S NOTE本文を改稿する案は採用しない。READMEはdiscovery pointer、`public/llms.txt` はpurpose / origin narrativeのcanonical sourceとして分離する。
+- **影響範囲**：`README.md` と本判断履歴のみ。`public/llms.txt` 本文、WATCH / HISTORY / OWNER'S NOTE、SEO/AIO実装、sitemap / robots、Analyticsは変更しない。
+- **検証状態**：branch `docs/readme-llms-origin-pointer-20261006` へREADME変更を実装。PR CI、merge、main再取得でpointerと正本非重複を確認してVERIFIEDとする。
+- **関連**：PR #200の外部AI README-origin retrieval miss観測、`public/llms.txt` の2026-10-02 Editorial purpose / Duofon origin記述、実装commit `6c679c71049adccda4511548e79ad1b44193cac0`。
+- **日時根拠**：GitHub implementation commit `6c679c71049adccda4511548e79ad1b44193cac0` の `2026-10-06T10:49:52Z → 2026-10-06 19:49 JST`。
+
 ### 2026-10-06 18:20 JST — Council詳細をmandatory bootから遅延読込へ戻す
 
 - **変更**：AGENTSに複製されていたCouncilの7択・Jester・PRE-MORTEM・共通protocol本文を削り、`PROJECT.md` launcher + `council-worker/V3.md` + `council-worker/README.md` + 実装 + Jester設計正本へのdiscovery pointerへ置換した。AGENTSの分野別route一覧もPROJECT §2所有へ戻し、Social / Council / 個人時計台帳の重要入口pointerだけ残した。checkerはCouncil仕様本文のAGENTS再複製を禁止し、正本pointerの存在を検査する。
