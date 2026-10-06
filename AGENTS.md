@@ -25,19 +25,11 @@
 
 分野別ルーティング:
 
-- 本文 / WATCH / HISTORY / OWNER'S NOTES / 翻訳 → `SITE_RULES.md`
-- 日本語本文の新規執筆 / 大幅改稿 → `SITE_RULES.md` + `strategy/japanese-writing.md`
-- デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md`
-- SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
-- Analytics / 計測 → `measurement/metrics.md` + 対象実装
-- SNS / Instagram / X / YouTube / SNSとVA Analytics → `measurement/.internal/.virtual/social/ROUTER.md`
-- SNS投稿案 / 再利用素材 → Social Routerの後に `measurement/.internal/.virtual/social/content-inventory.md`
-- 英語入口 → `strategy/english-entry.md`
-- ドイツ語入口 → `strategy/german-entry.md`
-- Council / 焼いて → `council-worker/V3.md` + `council-worker/README.md` + 実装正本
-- 個人時計台帳 → cross-repo `orima1995-create/watchdiary-ios` のCURRENT Issue群
-
-対象が絞れている場合、全ルールやリポジトリ全体を理由なく読み直さない。
+- 分野別routeのcanonical ownerは `PROJECT.md` §2。AGENTSへ一覧を複製しない。
+- SNS / Instagram / X / YouTube → `measurement/.internal/.virtual/social/ROUTER.md`。投稿案はその後 `measurement/.internal/.virtual/social/content-inventory.md`。
+- Council / 焼いて → `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`。
+- 個人時計台帳 → cross-repo `orima1995-create/watchdiary-ios` のCURRENT Issue群。
+- 対象が絞れている場合、全ルールやリポジトリ全体を理由なく読み直さない。
 
 ## 時計研究の標準フレーム
 
@@ -134,60 +126,15 @@ WATCH / OWNER'S NOTE用の個体研究は、特別な理由がない限り **Pie
 
 ## Council / 焼いて V3
 
-`焼いて` はCouncilの即実行命令ではなく、**Council形式を選ぶランチャー**として扱う。
+Councilのlauncher / 7形式 / 共通protocol / Jester / PRE-MORTEMの仕様本文はAGENTSへ複製しない。必要時だけ次を正本として取得する。
 
-ユーザーが「焼いて」だけと言った場合は、毎回必ず次の7択をそのまま明示し、選択を待つ。
+- launcher / 番号意味: `PROJECT.md` §1
+- 現行仕様: `council-worker/V3.md`
+- 7形式・共通protocol・PRE-MORTEM・MCP: `council-worker/README.md`
+- 実装: `council-worker/src/v3.ts` + `council-worker/src/index.ts`
+- 7の設計経緯・根拠: `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`
 
-1. **2ch民で焼いて** → スレ表示。煽り・反論・レスバ込みで論点を削る
-2. **みんなで議論して** → ひな壇。複数視点をテンポよくぶつける
-3. **冷静に決めて** → 評議会。選択肢を比較して最終判断まで出す
-4. **監査して** → Claim Board。主張・根拠・反証・未確認を分解する
-5. **案出して** → Brainstorming Board。独立発想→整理→発展→絞り込み
-6. **事前に地雷探知して** → PRE-MORTEM。実装前に失敗原因を先回りし、作り込む前に撤退・検証・GOを決める
-7. **宮廷道化師で焼いて 🤡** → 王＝ユーザー＋AI＋Councilの前提をノンデリに疑い、必要なら提示外の案・削除・撤退・保留・何もしないまで戻して比較。異論がなければ「今回は異議なし🤡」で帰る
-
-ユーザーが番号または形式を選んだ後:
-
-- 現在の会話、画像、ファイル、Project資料、GitHub、既存成果物、確定判断から必要情報を先に拾う。
-- 既に把握できる内容を質問し直さない。
-- 精度を実質的に上げる不足情報がある時だけ質問する。
-- 質問が必要でも、原則は最重要の一点だけ聞く。
-- 情報が十分なら質問せず即実行する。
-
-`2ch民で焼いて` / `5ch民で焼いて` / `スレ民で焼いて` のように形式が明示済みなら、7択を再表示せず1を直接実行してよい。
-
-`7` / `宮廷道化師で焼いて` はV3の独立format / protocolとして直接実行する。Fool's Licenseのノンデリ口調は、罵倒ではなく強い異論・提示外代案をネタのフレームで通す心理的緩衝UIとして扱う。異論が弱ければ `今回は異議なし🤡` で終える。
-
-7 / 宮廷道化師は通常Councilより広い前提回収を先に行う。直近会話やPROJECT_STATEだけで全体像を代用せず、Current state、判断の起点と採用理由、訂正・撤回、REJECTED・HOLD、実測・資料・売買・修理等の証拠、隣接領域への影響を正本から復元する。広い歴史・遍歴を扱う場合は代表例だけで圧縮せず、対象時系列を一度網羅してから出力を圧縮する。時計の所有・購入・売却・OH・financeを含む場合はwatchdiary-ios CURRENT Issue群、SNSならSocial Routerに加えて実測時系列・実投稿・Decision→Evidenceまで確認する。宮廷道化師はCouncil内で最も文脈負担が重い役として扱う。
-
-1〜6では、共有された未検証前提または不当に閉じた選択肢があり、それを反転すると結論・実装・コストが実質的に変わり得て、かつCouncil内で未攻撃の場合だけsilent Jester hookが一度乱入できる。通常は完全に黙り、乱入回数を品質指標にしない。
-
-通常の依頼としての「監査して」「案出して」「地雷探知して」まで自動でCouncilへ変換しない。直前に「焼いて」で形式選択中の場合、またはCouncil形式として明示された場合に4 / 5 / 6として扱う。
-
-6のPRE-MORTEMは実装後レビューではない。設計が失敗した未来を先に仮定し、次の2段階で焼く。
-
-1. **コード0行** — 前提、データモデル、状態、責務境界、ライフサイクル、より単純な代替を独立に破壊する
-2. **最小SPIKE後** — DB / schema / interface / 状態遷移 / 最難所だけの使い捨て実装を証拠として、初期予測と新しい地雷を再評価する
-
-指摘は **致命傷 / 高確率地雷 / 設計上の負債 / 好み / 未検証** に分類する。最初から改善案を褒め足すのではなく、**「この設計が作り込み後に失敗した」と仮定して原因を探す**。最後は **GO / SPIKEしてからGO / 作り直せ** のいずれかを裁定し、`SPIKEしてからGO` では次に検証する最小範囲を明記する。
-
-今回の複数プログラム管理機能について、DB / データモデルが失敗原因だった可能性は**未確認仮説**として扱う。作成者への評価や印象を原因認定の根拠にせず、schema、関係、制約、CRUD、削除・複製・切替・復元等の観察可能な証拠で検証する。
-
-`run_council` が利用可能なら、形式決定後に使ってよい。ただし**通常のChatGPT内Councilの正本はGitHub `main`**であり、MCP / Cloudflare Worker / 外部OpenAI APIは必須ではない。未接続でも停止せず、最新 `council-worker/V3.md`、`council-worker/README.md`、`src/v3.ts`、`src/index.ts` を取得してこのチャット内で同じプロトコルを実行する。ユーザーが外部runtimeのdeploy / live検証を明示していない限り、secret、API credits、Worker healthの調査へ作業範囲を拡張しない。
-
-V2共通プロトコル:
-
-1. 独立初手（他住民を見ない）
-2. Claim / Idea Boardへ論点整理
-3. 人ではなくBoard項目へ反証・補強・統合
-4. 情報利得が残る場合だけadaptive hot-seat
-5. 他人の投票を見ない再評価
-6. 強い少数意見をMinority Reportとして保持
-7. 議長が根拠・反証・未確認を比較して裁定
-
-固定ラウンド数や人数の多さ自体を品質とみなさない。住民は架空の年齢・家族構成等ではなく、目的、証拠方針、失敗傾向、修正条件、棄権条件で差別化する。必要な属性はstakeholder lensとして扱う。
-
-時計案件ではProject資料・PDF・画像・既存実装を一般論より先に確認し、確認済み事実・資料記載・Web確認・推論・未確認を混ぜない。
+Councilを実行する時だけ上記を取得し、現在の会話・画像・Project資料・GitHub・確定判断を先に使う。既知事項を聞き直さない。通常のChatGPT内Councilに外部Worker / MCP / API課金を必須化しない。
 
 ## コンテキスト節約
 
