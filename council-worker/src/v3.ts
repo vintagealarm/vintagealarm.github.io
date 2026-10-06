@@ -12,6 +12,17 @@ interface Env {
   DB?: any;
 }
 type Evidence = "none" | "project" | "web" | "project-web" | "deep-web";
+type JesterContext = {
+  currentState?: string;
+  decisionAncestry?: string;
+  correctionsReversals?: string;
+  rejectedHold?: string;
+  evidenceTrail?: string;
+  adjacentConsequences?: string;
+  currentSessionActions?: string;
+  observationBoundary?: string;
+  exclusionsWithReasons?: string;
+};
 type Req = {
   title: string;
   body: string;
@@ -25,6 +36,7 @@ type Req = {
   mode?: string;
   engine?: string;
   useWeb?: boolean;
+  jesterContext?: JesterContext;
 };
 
 export const FORMAT_MENU = [
@@ -110,11 +122,52 @@ const LICENSE = `あなたはVINTAGE ALARM Council V3の宮廷道化師🤡。�
 - 出力件数を埋めるために論点を捏造しない。0件も正常。
 - 長い監査帳票にしない。刺す価値があるものだけ。`;
 
+const JESTER_CONTEXT_FIELDS: Array<keyof JesterContext> = [
+  "currentState",
+  "decisionAncestry",
+  "correctionsReversals",
+  "rejectedHold",
+  "evidenceTrail",
+  "adjacentConsequences",
+  "currentSessionActions",
+  "observationBoundary",
+  "exclusionsWithReasons",
+];
+
+export function jesterPreflight(a: Pick<Req, "jesterContext">) {
+  const context = a.jesterContext || {};
+  const missing = JESTER_CONTEXT_FIELDS.filter(
+    (field) => !String(context[field] || "").trim(),
+  );
+  return {
+    eligible: missing.length === 0,
+    missing,
+    context,
+  };
+}
+
 async function explicitJester(a: Req, e: Env) {
   if (!a.title || !a.body) throw Error("title and body are required");
+  const preflight = jesterPreflight(a);
+  if (!preflight.eligible) {
+    return {
+      version: "council-v3",
+      format: "jester",
+      formatLabel: "宮廷道化師 🤡",
+      title: a.title,
+      body: a.body,
+      jester: {
+        mode: "context-hold",
+        license: "NOT_GRANTED",
+        missing: preflight.missing,
+        text: `文脈不足のため無礼許可は未発効。復元不足: ${preflight.missing.join(", ")}`,
+      },
+      createdAt: new Date().toISOString(),
+    };
+  }
   const y = await call(
     e,
-    `${LICENSE}\n\nこれは明示召喚「7で焼いて」。背景を徹底的に見る。\n議題:${a.title}\n背景:${a.body}\n\n内部では Crown Claim→Privilege Check→Fool's License→Reality Pin→Blind Spot→必要ならCouncil Mockery の順で検討してよいが、ユーザーへ内部チェックリストを全部見せない。\n有意な異論が0なら「今回は異議なし🤡」だけを核に短く終了。異論がある場合は、自然な文章で ①一番刺す価値のある前提 ②ノンデリな一言 ③確認済み根拠/未確認 ④必要なら提示外の代案 ⑤現案との比較 ⑥道化師自身の意見 の順に必要な部分だけ出す。`,
+    `${LICENSE}\n\nこれは明示召喚「7で焼いて」。Fool's Licenseの発効条件を満たしたcontext manifestを最優先する。\n議題:${a.title}\n背景:${a.body}\ncontext manifest:${JSON.stringify(preflight.context)}\n\ncurrentSessionActionsには、直前までにAI / Council自身が提案・実装・検証・報告した作業が含まれる。自分の作業を監査対象外へ逃がさない。observationBoundaryより前に今回と同じ評価対象が存在する場合、除外はexclusionsWithReasonsに根拠があるものだけ許す。「これから」「次のN件」等で既存観測を暗黙に0件へ戻さない。ユーザー訂正、AI自己訂正、新要求を混同しない。\n\n内部では Crown Claim→Privilege Check→Fool's License→Reality Pin→Blind Spot→必要ならCouncil Mockery の順で検討してよいが、ユーザーへ内部チェックリストを全部見せない。\n有意な異論が0なら「今回は異議なし🤡」だけを核に短く終了。異論がある場合は、自然な文章で ①一番刺す価値のある前提 ②ノンデリな一言 ③確認済み根拠/未確認 ④必要なら提示外の代案 ⑤現案との比較 ⑥道化師自身の意見 の順に必要な部分だけ出す。`,
     a,
     true,
   );
@@ -124,7 +177,7 @@ async function explicitJester(a: Req, e: Env) {
     formatLabel: "宮廷道化師 🤡",
     title: a.title,
     body: a.body,
-    jester: { mode: "explicit", text: out(y) },
+    jester: { mode: "explicit", license: "GRANTED", text: out(y) },
     createdAt: new Date().toISOString(),
   };
 }
@@ -249,6 +302,16 @@ const MCP = {
       },
       panelSize: { type: "integer", minimum: 4, maximum: 10 },
       premortemStage: { type: "string", enum: ["zero-code", "post-spike"] },
+      jesterContext: {
+        type: "object",
+        description:
+          "Explicit jester only. Fool's License stays inactive until every context field is restored.",
+        properties: Object.fromEntries(
+          JESTER_CONTEXT_FIELDS.map((field) => [field, { type: "string", minLength: 1 }]),
+        ),
+        required: JESTER_CONTEXT_FIELDS,
+        additionalProperties: false,
+      },
     },
     required: ["title", "body", "format"],
     additionalProperties: false,
