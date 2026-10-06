@@ -16,6 +16,16 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 18:13 JST — Duofon Replayを現行assignment stateへ補正
+
+- **変更**：Replay `SOCIAL-DUOFON-001` を現行Social stateへ補正した。Pierce Duofonは `PENDING_USER_REVIEW`、新規active reservationは0件、`MR-PIE-001` / `EB:MR-PIE-001` はPUBLISHED履歴として扱う。次のReelは一般SNS論や旧Execution Briefからfinal化せず、Social Router → Pierce inventory → Published CopyでCURRENT / 既出衝突を確認し、次assetをユーザーが選択してUSER_CONFIRMED / PLANNEDになった後に新Execution Briefを作る。
+- **理由**：Replayの旧expected resolutionはsource-priority事故を防ぐことに寄り、過去PUBLISHEDのExecution Briefを「次投稿のCURRENT brief」と誤認できる余地があった。Context costを削る前にEval自身のCURRENT解決を正しくする必要があるため。
+- **旧状態・棄却**：`MR-PIE-001` の過去briefを次投稿へそのまま再利用する解釈、一般的に伸びるSNSフックから先にfinal captionを作る解釈を棄却する。過去brief自体は削除せず学習履歴として保持する。
+- **影響範囲**：`.codex/inference-guard-cases.json` と本判断履歴のみ。Social Router / Content Inventory / Published Copy / Operations / Insights / WATCH本文の内容は変更しない。
+- **検証状態**：branch `ops/duofon-replay-current-20261006` で実装中。Replay checker / quality gate / PR CI / merge後main再取得までPASSして初めてVERIFIED。
+- **関連**：`SOCIAL-DUOFON-001`、`MR-PIE-001`、Content Assignment Registry、Execution Brief Registry。commit `6106bdc3`。
+- **日時根拠**：GitHub commit `6106bdc306b2de6070dde078932efa79193ac57f` の `2026-10-06T09:13:39Z → 2026-10-06 18:13 JST`。
+
 ### 2026-10-06 18:07 JST — Social以外のEvidence Ingressを既存正本へ接続
 
 - **変更**：新しい保存系を作らず、既存domain ownerへEvidence Ingressを接続した。Researchは既存Ledgerへ詳細証拠・出典・逐次履歴を追記し、既存Research Map / Current Task BoardはCURRENT / OPEN / HOLD / next actionが変わる時だけ更新する。`measurement/metrics.md` は定義正本であり観測保存先ではないと明示。`measurement/experiment-log.md` は実験・比較に意味がある時点観測だけappendし、任意のdashboard screenshotをraw snapshot化しない。`measurement/aio-observation-log.md` は別チャットの新しいAI観測も既存観測を上書きせず日時付きappendとした。Replayへ `RESEARCH-CROSSCHAT-WRITE-001` を追加した。
