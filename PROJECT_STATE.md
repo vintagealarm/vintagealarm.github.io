@@ -95,15 +95,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - Fail-Closed Inference Guard: `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` + `.codex/inference-guard-cases.json`。推論規則本文はGuardを正とし、このStateはpointerのみ
 - OWNER'S NOTE Slides PNG exporter: `tools/owner-note-slides/README.md` + `tools/owner-note-slides/manifest.json` + `scripts/export-owner-note-slides.mjs`。制作正本はprivate Google Slides `1Lcz0CEZncDw1GncI4RMY6qDmfO4Fknq4NvpGtBZAaLk`、現行6 WATCH × JA / EN / DE = 18 slideをmanifestで固定し、派生PNGは1600×2233を実ピクセル検査してartifact化する。GitHub Actions自動書き出しは `GOOGLE_SERVICE_ACCOUNT_JSON` secretと当該deckへのViewer共有が必要で、公開リンク化はしない
 - `.codex/config.toml` では multi-agent は無効。Manager Control Plane pilotでも明示指示なしに有効化しない
-- Councilはprotocol-driven V3。`焼いて` 単独は即実行せず7形式を毎回明示するランチャー
-- Councilの7形式は 2chスレ / ひな壇 / 評議会 / Claim Board / Brainstorming Board / PRE-MORTEM（地雷探知） / 宮廷道化師🤡
-- 7はユーザー＋AI＋Councilの共有前提をFool's Licenseの下でノンデリに自己批評し、必要なら提示外代案まで現案と比較する。有意な異論がなければ `今回は異議なし🤡` が正常終了
-- 1〜6には高閾値silent Jester hookがあり、重大な共有未検証前提が結論・実装・コストを変え得て、Council内で未攻撃の場合だけ一度乱入する。判定にはBoard、Cross Exam、hot-seat、匿名再評価、元裁定を渡し、発火時はその異論を含めて議長が再裁定する。通常は黙る
-- Councilの通常利用はGitHub `main` のCouncil正本を取得してChatGPT内で実行できる。MCP / Cloudflare Worker / 外部OpenAI APIは任意の外部実行surfaceであり、ユーザーが明示しない限りdeploy・secret・billing・live healthをCouncil完了条件へ持ち込まない
-- Councilはformat / domain / budget / evidence / panelSizeを分離し、人数や固定ラウンド数を品質の代理指標にしない
-- Council共通プロトコルは独立初手 → Board整理 → Cross Exam → 必要時のみadaptive hot-seat → 匿名再評価 → Minority Report → 議長裁定
-- Council住民は架空の家族構成・年齢等ではなく、目的・証拠方針・失敗傾向・修正条件・棄権条件で差別化する
-- PRE-MORTEMはコード0行での前提破壊と最小SPIKE後の再評価を分け、致命傷 / 高確率地雷 / 設計上の負債 / 好み / 未検証を分類して、GO / SPIKEしてからGO / 作り直せを裁定する
+- CouncilのCURRENT仕様本文はこのStateへ複製しない。`## 6. ACTIVE WORK / CURRENT OBSERVATION POINTERS` の **Council現行仕様** pointerから `council-worker/V3.md` / `council-worker/README.md` / `council-worker/src/v3.ts` / `council-worker/src/index.ts` を必要時だけ取得する。`焼いて` / 番号のlauncherは `PROJECT.md` §1を正とする。
 
 この一覧だけで対象ページの実装状態を断定しない。編集前に必ず対象ファイルと、作業中branch / PRがある場合はそのdiffを確認する。
 
