@@ -16,6 +16,16 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 18:07 JST — Social以外のEvidence Ingressを既存正本へ接続
+
+- **変更**：新しい保存系を作らず、既存domain ownerへEvidence Ingressを接続した。Researchは既存Ledgerへ詳細証拠・出典・逐次履歴を追記し、既存Research Map / Current Task BoardはCURRENT / OPEN / HOLD / next actionが変わる時だけ更新する。`measurement/metrics.md` は定義正本であり観測保存先ではないと明示。`measurement/experiment-log.md` は実験・比較に意味がある時点観測だけappendし、任意のdashboard screenshotをraw snapshot化しない。`measurement/aio-observation-log.md` は別チャットの新しいAI観測も既存観測を上書きせず日時付きappendとした。Replayへ `RESEARCH-CROSSCHAT-WRITE-001` を追加した。
+- **理由**：PROJECTのEvidence Ingressは「domain write contractがあれば正本更新、無ければ保存先を発明しない」としている。Social以外では既存保存先の役割は明確でも、fresh chatからの入力時にどこまでwriteしてよいかが明示されておらず、会話だけで消費するか不必要にHOLDする余地があったため。
+- **旧状態・棄却**：全スクリーンショットを一律Git保存する案、新Evidence DB / CURRENT indexを作る案、新資料受領だけで公開WATCHを自動改稿する案、研究詳細をMapだけへ集約する案を棄却する。
+- **影響範囲**：`AGENTS.md`、`measurement/metrics.md`、`measurement/experiment-log.md`、`measurement/aio-observation-log.md`、`.codex/inference-guard-cases.json`、`scripts/check-replay-evals.mjs`、`scripts/check-project-consistency.mjs`、本判断履歴。既存研究本文・過去観測・Social write path・公開WATCH本文は削除／変更しない。
+- **検証状態**：branch `ops/domain-ingress-20261006-v2` へ実装。full quality gate / Replay / PR CI / merge後main再取得までPASSして初めてVERIFIED。
+- **関連**：2026-10-06 10:15 JST Control Plane再統合、12:56 JST Replay Eval、17:57 JST Replay retrieval / verifier cost分離。commits `4030d6ba` / `c1415a97` / `ed9ce631` / `442f01f6` / `735e6d51` / `1d1e5a05` / `479b3ab8`。
+- **日時根拠**：GitHub commit `479b3ab8520dcc55e05b06bb25fcbb7dee2ac795` の `2026-10-06T09:07:58Z → 2026-10-06 18:07 JST`。
+
 ### 2026-10-06 17:57 JST — Replay Evalのretrieval costとVerifier costを分離
 
 - **変更**：Replay Evalのcontext-cost計測を、mandatory boot / answer-time incremental retrieval / verifier-only sourceへ分離した。`routing_path` は回答判断用、`verification_sources` は実装安全性の検査用として扱う。Instagram Insightsのcross-chat caseでは `scripts/instagram-insights-timeseries.mjs` をVerifier-onlyへ移した。
