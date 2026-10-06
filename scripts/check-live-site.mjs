@@ -115,13 +115,37 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     }
   }
 
-  if (researchSettings.published) {
+  const researchLocales = new Set(researchSettings.locales ?? []);
+  const researchEntries = Array.isArray(researchSettings.entries) ? researchSettings.entries : [];
+  const researchJaPublished = researchSettings.published && researchLocales.has('ja');
+  if (researchJaPublished) {
     if (home.ok && !home.text.includes('history/#research')) failures.push('home: published RESEARCH link missing');
     if (history.ok && !history.text.includes('id="research"')) failures.push('history: published RESEARCH section missing');
+    for (const slug of researchEntries) {
+      const research = await get(`research/${slug}/`);
+      const researchUrl = `https://vintagealarm.github.io/research/${slug}/`;
+      if (!research.ok) {
+        failures.push(`research/${slug}: HTTP ${research.status}`);
+        continue;
+      }
+      for (const marker of ['RESEARCH', 'ARSA BLIND ALARM', 'ちなみに、麻酔針は出ない。', '/images/arsa-blind-alarm/draft-placeholder.svg']) {
+        if (!research.text.includes(marker)) failures.push(`research/${slug}: copied source marker missing: ${marker}`);
+      }
+      if (!research.text.includes(researchUrl)) failures.push(`research/${slug}: canonical URL missing`);
+      if (sitemap.ok && !sitemap.text.includes(researchUrl)) failures.push(`research/${slug}: missing from sitemap`);
+    }
   } else {
     if (home.ok && home.text.includes('history/#research')) failures.push('home: unpublished RESEARCH link leaked');
     if (history.ok && (history.text.includes('history/#research') || history.text.includes('id="research"'))) failures.push('history: unpublished RESEARCH leaked');
     if (owners.ok && owners.text.includes('history/#research')) failures.push('owners-notes: unpublished RESEARCH menu link leaked');
+  }
+  if (!researchLocales.has('en')) {
+    if (englishHome.ok && englishHome.text.includes('history/#research')) failures.push('en: untranslated RESEARCH link leaked');
+    if (englishHistory.ok && englishHistory.text.includes('id="research"')) failures.push('en/history: untranslated RESEARCH section leaked');
+  }
+  if (!researchLocales.has('de')) {
+    if (germanHome.ok && germanHome.text.includes('history/#research')) failures.push('de: untranslated RESEARCH link leaked');
+    if (germanHistory.ok && germanHistory.text.includes('id="research"')) failures.push('de/history: untranslated RESEARCH section leaked');
   }
 
   if (history.ok && history.text.includes('WITTNAUER ALARM')) failures.push('history: unpublished Wittnauer leaked into OWNER\'S NOTE rail');
