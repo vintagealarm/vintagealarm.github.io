@@ -52,6 +52,18 @@ for (const [label, text, needle] of [
 
 requireText(codexConfig, 'multi_agent = false', 'Codex multi-agent safety');
 
+requireText(agents, '分野別routeのcanonical ownerは `PROJECT.md` §2', 'AGENTS domain-routing owner pointer');
+for (const path of [
+  'council-worker/V3.md',
+  'council-worker/README.md',
+  'council-worker/src/v3.ts',
+  'council-worker/src/index.ts',
+  'research/COUNCIL_V3_COURT_JESTER_DESIGN.md'
+]) requireText(agents, path, 'AGENTS deferred Council pointer');
+forbidText(agents, '1. **2ch民で焼いて**', 'AGENTS Council menu');
+forbidText(agents, 'V2共通プロトコル:', 'AGENTS Council protocol');
+
+
 for (const field of [
   'CURRENT STATE',
   'CANONICAL SOURCES',
