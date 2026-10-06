@@ -15,10 +15,8 @@ const DENY = new Set([
   '.github/workflows/replay-baseline-once.yml',
 ]);
 
-if (!API_KEY) {
-  console.error('OPENAI_API_KEY is required for fresh-context Replay Eval.');
-  process.exit(2);
-}
+const WORKER_BASE = process.env.REPLAY_WORKER_BASE || 'https://council-api.orima1995.workers.dev';
+const RUNNER_MODE = API_KEY ? 'direct-responses-with-repo-tools' : 'live-worker-web-proxy';
 
 const cases = FIXTURE.cases.filter((item) => item.replay);
 if (cases.length !== 9) {
@@ -206,11 +204,63 @@ async function runCase(item) {
   };
 }
 
+
+async function runCaseViaWorker(item) {
+  const body = [
+    'Fresh-context VINTAGE ALARM regression check. Do not use prior conversation or memory.',
+    'Start from the current GitHub main PROJECT.md and follow its required boot/routing before answering.',
+    'Repository: https://github.com/vintagealarm/vintagealarm.github.io',
+    'PROJECT: https://github.com/vintagealarm/vintagealarm.github.io/blob/main/PROJECT.md',
+    'Use web search to inspect current GitHub sources. Do not use the Replay Eval fixture or answer-key files.',
+    'Answer the user query itself, not this instruction. Keep the answer concise and explicit about CURRENT / WORKING / published / unknown state where relevant.',
+    '',
+    'USER QUERY:',
+    item.replay.prompt,
+  ].join('\\n');
+
+  const res = await fetch(WORKER_BASE + '/api/council', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({
+      title: 'Fresh-context Replay Eval ' + item.id,
+      body,
+      format: 'jester',
+      domain: 'general',
+      evidence: 'web',
+      budget: 'quick',
+    }),
+  });
+  const raw = await res.text();
+  if (!res.ok) throw new Error(`Council Worker ${res.status}: ${raw.slice(0, 2000)}`);
+  const payload = JSON.parse(raw);
+  const answer = String(payload?.jester?.text || '').trim();
+  if (!answer) throw new Error('Council Worker returned no jester.text');
+
+  return {
+    case_id: item.id,
+    model: 'live-council-worker:gpt-5.6-terra',
+    runner_mode: 'live-worker-web-proxy',
+    prompt: item.replay.prompt,
+    answer,
+    files_read: [],
+    read_calls: [],
+    chars_read: 0,
+    routing_hops: 0,
+    tool_calls_total: null,
+    list_open_prs_calls: null,
+    boot_complete: null,
+    retrieval_metrics_observable: false,
+    tool_errors: [],
+  };
+}
+
 const results = [];
 for (const item of cases) {
   console.log(`REPLAY_START ${item.id}`);
   try {
-    const result = await runCase(item);
+    const result = RUNNER_MODE === 'direct-responses-with-repo-tools'
+      ? await runCase(item)
+      : await runCaseViaWorker(item);
     results.push(result);
     console.log('REPLAY_RESULT ' + JSON.stringify(result));
   } catch (error) {
@@ -236,7 +286,8 @@ for (const item of cases) {
 
 console.log('REPLAY_BASELINE_JSON ' + JSON.stringify({
   schema: 'vintage-alarm-replay-fresh-baseline-v1',
-  model: MODEL,
+  model: RUNNER_MODE === 'direct-responses-with-repo-tools' ? MODEL : 'live-council-worker:gpt-5.6-terra',
+  runner_mode: RUNNER_MODE,
   generated_at: new Date().toISOString(),
   cases: results,
 }));
