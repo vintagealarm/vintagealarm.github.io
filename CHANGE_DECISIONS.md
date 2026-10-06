@@ -16,6 +16,18 @@
 ---
 
 ## 2026-10-07
+### 2026-10-07 08:03 JST — ARSA完成稿を同一正本のRESEARCH routeとして先行公開
+
+- **変更**：全体RESEARCHを日本語で公開し、第一号として `/research/arsa-blind-alarm/` を追加する。専用routeは `src/content/watches/arsa-blind-alarm.md` を直接読み、現行のCatch / OWNER'S NOTE / SPEC / DEEP DIVE / SOURCESを別コピーせず同一内容で表示する。HISTORYのRESEARCH欄から同routeへ導線を追加し、sitemap / llms / build・layout・live gateへ接続する。ARSA通常WATCHは `published: false` のまま維持し、OWNER'S NOTES一覧・HISTORY所有個体レールには出さない。RESEARCH画像は現行placeholderを使用し、COMING SOON等の制作メタは表示しない。現時点のRESEARCH公開言語は日本語のみ。
+- **理由**：ARSA本文は、資料に基づくOWNER'S NOTE、SPEC、5章のDEEP DIVE、出典まで公開可能な形で実装済みであり、残る未完了は掲載個体の実物写真・内部確認など個体到着後の検証に限られる。ユーザーが「同じ内容を別で公開し、RESEARCHを公開まで進める」と明示したため、未完了の実機画像を理由に研究本文全体を非公開にし続ける必要がなくなった。一方、通常OWNER'S NOTE routeの公開判断とは分離する。
+- **REVERSAL TARGET**：`src/data/research-settings.json` の `published: false` と、ARSAを公開RESEARCH routeへ持たない従来状態。
+- **NEW EVIDENCE**：ARSA現行稿が同一正本上で公開可能な内容まで完成したこと、および2026-10-07のユーザー明示指示「それで公開まで含めて」「まんまコピーして別で公開しておく」により、RESEARCHのみ先行公開する判断が確定したこと。
+- **旧状態・棄却**：ARSA通常WATCHを再び `published: true` にしてRESEARCH公開の代替とする案、本文を別ファイルへコピペして二重正本化する案、画像欄へ「COMING SOON」「準備中」等の制作進行メタを出す案、未翻訳のEN / DEへ空のRESEARCH入口を出す案を棄却する。
+- **影響範囲**：RESEARCH公開設定、JA TOP / HISTORY / section menu、ARSA RESEARCH route、共通WatchPageのresearch表示モード、sitemap、llms、Pages CMS設定、Analytics route mapping、build / project consistency / layout / live gate、PROJECT_STATE、本判断履歴。ARSA本文そのもの、ARSA通常WATCHの `published: false`、OWNER'S NOTES一覧、他WATCH本文、EN / DE本文は変更しない。
+- **検証状態**：branch `feat/arsa-research-public-20261007` へ実装済み。PR CIでbuild / quality / internal links / SEO / mobile layoutを通し、main merge後にPages deploy・live artifact parity・live publication stateで `/research/arsa-blind-alarm/` の本文・placeholder・canonical・sitemapと、通常 `/arsa-blind-alarm/` の非公開継続を確認して初めてDEPLOYED / VERIFIEDとする。
+- **関連**：実装branch `feat/arsa-research-public-20261007`、commits `7c95a6d7` / `b45220f6` / `b22e532f` / `e9d011ed` / `22208e49` / `4cb45a1f` / `97804222` / `f7c49069` / `60f735c0` / `f657434e` / `d9250dc2` / `f765d596` / `e2c9013b` / `4a66b216` / `9a7d9d15` / `a6716cfe` / `4fbf4a83` / `953f61ef` / `37370846` / `3ec3ede5`。先行判断 2026-10-06 21:43 JST「ARSA非公開をCURRENTへ戻す」。
+- **日時根拠**：ホスト確認時刻 `2026-10-07 08:03 JST`。
+
 ### 2026-10-07 06:08 JST — 道化師の無礼許可を毎回のcontext完了後だけ発効
 
 - **変更**：明示7へ構造化context manifestを追加し、従来6項目に `currentSessionActions` / `observationBoundary` / `exclusionsWithReasons` を加えた。全9項目が揃わない場合はモデルを呼ばず、`license: NOT_GRANTED` と `文脈不足のため無礼許可は未発効` を返す。充足時だけFool's Licenseとノンデリ口調を発効する。V3正本、README、設計履歴、MCP schema、behavior test、Replay、project consistency gateを同期した。

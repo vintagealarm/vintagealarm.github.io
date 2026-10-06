@@ -16,7 +16,20 @@ import '../../styles/history-v19.css';
 const base=import.meta.env.BASE_URL;
 const watches=await getCollection('watches');
 const watchBySlug=new Map(watches.map(item=>[item.data.slug,item]));
-const researchPublished=researchSettings.published;
+const researchEntries=researchSettings.published&&researchSettings.locales.includes('ja')
+ ? researchSettings.entries.flatMap((slug:string)=>{
+    const watch=watchBySlug.get(slug);
+    if(!watch)return [];
+    return [{
+      slug,
+      brand:watch.data.brand,
+      model:watch.data.model,
+      catchLine:watch.data.catch?.[0]??'',
+      href:`${base}research/${slug}/`
+    }];
+   })
+ : [];
+const researchPublished=researchEntries.length>0;
 const milestones=(era:string)=>historyCatalogByGroup.milestones.filter(entry=>entry.era===era&&entry.featured);
 const ownersForEra=(era:string)=>ownersDirectory.entries
  .filter(note=>note.historyEra===era)
@@ -100,7 +113,18 @@ const schema={'@context':'https://schema.org','@graph':[
   </details>
  })}
  <section class="history-current-v13 shell" id="current" aria-labelledby="current-title"><div class="chapter-date"><strong>CURRENT</strong><span>CHAPTER 06</span></div><div><h2 id="current-title">{current.title}</h2><a class="current-link" href={`${base}${current.href}`}><span>{current.name}</span><span aria-hidden="true">↗</span></a></div></section>
- {researchPublished&&<aside class="history-research-v13 shell" id="research" aria-label="次のリサーチ"><h2>{researchSettings.title}</h2><p>{researchSettings.lead}</p></aside>}
+ {researchPublished&&<aside class="history-research-v13 shell" id="research" aria-label="次のリサーチ">
+  <h2>{researchSettings.title}</h2>
+  <div class="history-research-body">
+   <p>{researchSettings.lead}</p>
+   <div class="history-research-links">
+    {researchEntries.map(entry=><a class="history-research-link" href={entry.href}>
+     <span><small>{entry.brand}</small><strong>{entry.model}</strong><em>{entry.catchLine}</em></span>
+     <span aria-hidden="true">↗</span>
+    </a>)}
+   </div>
+  </div>
+ </aside>}
  <section class="history-sources-v13 shell"><details><summary>{sources.summary}</summary><ol class="history-source-list">{sources.items.map(item=><li id={`history-source-${item.id}`} data-source-library-id={resolveSourceLibraryId(item.text)||undefined}><span class="history-source-no" aria-hidden="true">{item.id}</span><span>{item.text}</span></li>)}</ol></details></section>
  </main>
  <script>

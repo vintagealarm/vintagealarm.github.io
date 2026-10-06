@@ -4,6 +4,7 @@ import { readWatchPublicationState } from './watch-publication.mjs';
 
 const root = process.env.LAYOUT_BASE_URL || 'http://127.0.0.1:4321/';
 const watchStates = readWatchPublicationState();
+const researchSettings = JSON.parse(readFileSync(new URL('../src/data/research-settings.json', import.meta.url), 'utf8'));
 const englishEntrySource = readFileSync(new URL('../src/data/en-watch-entry.ts', import.meta.url), 'utf8');
 const englishWatchSlugs = new Set([...englishEntrySource.matchAll(/^  '([^']+)': \\{/gm)].map((match) => match[1]));
 const publishedWatchRoutes = watchStates
@@ -15,6 +16,9 @@ const englishWatchRoutes = watchStates
 const germanWatchRoutes = watchStates
   .filter((watch) => watch.published)
   .map((watch) => `de/${watch.slug}/`);
+const researchRoutes = researchSettings.published && researchSettings.locales.includes('ja')
+  ? researchSettings.entries.map((slug) => `research/${slug}/`)
+  : [];
 const routes = [
   '',
   'history/',
@@ -22,6 +26,7 @@ const routes = [
   'how-they-ring/',
   'sources/',
   'cyma-time-o-vox/chronometre/',
+  ...researchRoutes,
   ...publishedWatchRoutes,
   'en/',
   'en/history/',
@@ -82,6 +87,17 @@ try {
       }
       if (result.brokenImages.length) {
         failures.push(`${width}px ${route || '/'}: broken images: ${result.brokenImages.join(', ')}`);
+      }
+
+      if (researchRoutes.includes(route) && width <= 390) {
+        const researchState = await page.evaluate(() => ({
+          lang: document.documentElement.lang,
+          mast: document.querySelector('.section-mast-right > span:last-child')?.textContent?.trim() || '',
+          canonical: document.querySelector('link[rel="canonical"]')?.getAttribute('href') || ''
+        }));
+        if (researchState.lang !== 'ja') failures.push(`${width}px ${route}: RESEARCH html lang is not ja`);
+        if (researchState.mast !== 'RESEARCH') failures.push(`${width}px ${route}: RESEARCH mast label missing`);
+        if (!researchState.canonical.includes(`/${route}`)) failures.push(`${width}px ${route}: RESEARCH canonical mismatch`);
       }
 
       if (publishedWatchRoutes.includes(route) && width <= 390) {

@@ -153,15 +153,42 @@ for (const stale of ['鐘から現在まで。アラーム腕時計の歴史を�
 }
 if (!xHtml.includes('noindex,follow')) failures.push('X: profile entry route lost noindex,follow');
 
-if (researchSettings.published) {
+const researchLocales = new Set(researchSettings.locales ?? []);
+const researchEntries = Array.isArray(researchSettings.entries) ? researchSettings.entries : [];
+const researchJaPublished = researchSettings.published && researchLocales.has('ja');
+
+if (researchJaPublished) {
   if (!homeHtml.includes('history/#research')) failures.push('RESEARCH published but TOP link is missing');
   if (!xHtml.includes('history/#research')) failures.push('RESEARCH published but X entry link is missing');
   if (!historyHtml.includes('id="research"')) failures.push('RESEARCH published but HISTORY section is missing');
+  for (const slug of researchEntries) {
+    const researchPath = path.join(dist, 'research', slug, 'index.html');
+    const researchUrl = `https://vintagealarm.github.io/research/${slug}/`;
+    if (!fs.existsSync(researchPath)) {
+      failures.push(`RESEARCH ${slug}: public route missing`);
+      continue;
+    }
+    const researchHtml = fs.readFileSync(researchPath, 'utf8');
+    for (const marker of ['RESEARCH', 'ARSA BLIND ALARM', 'ちなみに、麻酔針は出ない。', '/images/arsa-blind-alarm/draft-placeholder.svg']) {
+      if (!researchHtml.includes(marker)) failures.push(`RESEARCH ${slug}: copied source marker missing: ${marker}`);
+    }
+    if (!researchHtml.includes(researchUrl)) failures.push(`RESEARCH ${slug}: canonical URL missing`);
+    if (!sitemap.includes(researchUrl)) failures.push(`RESEARCH ${slug}: sitemap entry missing`);
+  }
 } else {
   for (const [name, html] of [['TOP', homeHtml], ['X', xHtml], ['HISTORY', historyHtml], ["OWNER'S NOTES", ownersHtml]]) {
     if (html.includes('history/#research') || html.includes('id="research"')) {
       failures.push(`${name}: unpublished RESEARCH leaked into generated HTML`);
     }
+  }
+}
+
+for (const [locale, topHtml, localizedHistoryHtml] of [
+  ['en', englishHomeHtml, fs.existsSync(path.join(dist, 'en/history/index.html')) ? fs.readFileSync(path.join(dist, 'en/history/index.html'), 'utf8') : ''],
+  ['de', germanHomeHtml, fs.existsSync(path.join(dist, 'de/history/index.html')) ? fs.readFileSync(path.join(dist, 'de/history/index.html'), 'utf8') : '']
+]) {
+  if (!researchLocales.has(locale) && (topHtml.includes('history/#research') || localizedHistoryHtml.includes('id="research"'))) {
+    failures.push(`${locale}: untranslated RESEARCH entry leaked while locale is not published`);
   }
 }
 

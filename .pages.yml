@@ -489,6 +489,16 @@ content:
         label: RESEARCHを公開
         type: boolean
         default: false
+      - name: locales
+        label: 公開言語（固定）
+        type: string
+        list: true
+        readonly: true
+      - name: entries
+        label: RESEARCH対象（固定）
+        type: string
+        list: true
+        readonly: true
       - name: title
         label: 見出し
         type: string

@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import WatchPage from '../../../layouts/WatchPage.astro';
+import researchSettings from '../../../data/research-settings.json';
+
+export async function getStaticPaths() {
+  if (!researchSettings.published || !researchSettings.locales.includes('ja')) return [];
+  const watches = await getCollection('watches');
+  const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
+  return researchSettings.entries.flatMap((slug) => {
+    const item = watchBySlug.get(slug);
+    if (!item) return [];
+    return [{
+      params: { slug },
+      props: { watch: item.data }
+    }];
+  });
+}
+
+const { watch } = Astro.props;
+---
+<WatchPage watch={watch} research={true} />

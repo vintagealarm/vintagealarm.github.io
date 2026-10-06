@@ -22,6 +22,7 @@ const project = read('PROJECT.md');
 const agents = read('AGENTS.md');
 const state = read('PROJECT_STATE.md');
 const llms = read('public/llms.txt');
+const researchSettings = JSON.parse(read('src/data/research-settings.json'));
 const aio = read('measurement/aio-observation-log.md');
 const metrics = read('measurement/metrics.md');
 const experimentLog = read('measurement/experiment-log.md');
@@ -249,6 +250,21 @@ const arsa = watchStates.find((watch) => watch.slug === 'arsa-blind-alarm');
 if (!arsa) fail('ARSA Blind Alarm WATCH state is missing');
 if (arsa && !arsa.published) requireText(state, 'ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT', 'PROJECT_STATE ARSA unpublished CURRENT');
 if (arsa?.published && state.includes('ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT')) fail('PROJECT_STATE says ARSA is unpublished while frontmatter is published');
+
+const researchLocales = new Set(researchSettings.locales ?? []);
+const researchEntries = Array.isArray(researchSettings.entries) ? researchSettings.entries : [];
+if (researchSettings.published) {
+  if (!researchLocales.has('ja')) fail('published RESEARCH must declare the Japanese locale');
+  if (!researchEntries.length) fail('published RESEARCH has no entries');
+  for (const slug of researchEntries) {
+    if (!allWatchSlugs.has(slug)) fail(`RESEARCH references unknown WATCH slug: ${slug}`);
+    requireText(llms, `https://vintagealarm.github.io/research/${slug}/`, `llms RESEARCH route ${slug}`);
+  }
+  requireText(state, '**RESEARCHは現在、日本語で公開中。**', 'PROJECT_STATE RESEARCH published CURRENT');
+}
+if (researchSettings.published && researchEntries.includes('arsa-blind-alarm') && arsa?.published) {
+  fail('ARSA RESEARCH release must not silently republish the normal ARSA WATCH route');
+}
 
 requireText(state, 'measurement target 5本', 'PROJECT_STATE measurement target');
 requireText(aio, 'measurement target 5 WATCH', 'AIO measurement target');

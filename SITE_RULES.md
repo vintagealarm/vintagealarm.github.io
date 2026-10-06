@@ -23,7 +23,7 @@
 - `OWNER'S NOTES / WATCH`：実機・個体から読む。
 - `DEEP DIVE`：個別時計の機構、変遷、文献差、供給関係などを掘る。
 - HISTORY本文で個別時計のDEEP DIVEまで説明しない。必要ならWATCHページへ送る。
-- `RESEARCH`は`src/data/research-settings.json`の`published`でTOP・セクションメニュー・HISTORY上の表示を同時に制御する。中身がない間は非公開にする。
+- `RESEARCH`は`src/data/research-settings.json`の`published`で公開可否を制御し、`locales`で公開言語を限定する。公開対象言語ではTOP・セクションメニュー・HISTORY上の表示を同時に切り替える。中身がない間は非公開にする。
 - `RESEARCH`が非公開のときはCSSで隠すのではなく、生成HTML自体へ出力しない。
 
 ## HISTORY

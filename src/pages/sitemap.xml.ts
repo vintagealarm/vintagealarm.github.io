@@ -4,6 +4,7 @@ import { englishWatchEntries } from '../data/en-watch-entry';
 import { germanWatchEntriesWithCyma } from '../data/cyma-localizations';
 import cymaChronometreResearch from '../data/cyma-chronometre-research.json';
 import howTheyRingRelease from '../data/how-they-ring-settings.json';
+import researchSettings from '../data/research-settings.json';
 
 function getGitLastmod(filePath: string) {
   try {
@@ -42,6 +43,10 @@ export async function GET() {
       { loc: `${root}en/how-they-ring/` },
       { loc: `${root}de/how-they-ring/` }
     ] : []),
+    ...(researchSettings.published && researchSettings.locales.includes('ja') ? researchSettings.entries.map((slug) => ({
+      loc: `${root}research/${slug}/`,
+      lastmod: getGitLastmod(`src/content/watches/${slug}.md`)
+    })) : []),
     ...(cymaChronometreResearch.published ? [
       {
         loc: `${root}cyma-time-o-vox/chronometre/`,
