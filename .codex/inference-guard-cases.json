@@ -240,8 +240,8 @@
         "routing_path": [
           "AGENTS.md"
         ],
-        "max_expected_hops": 1,
-        "max_expected_files": 1,
+        "max_expected_hops": 0,
+        "max_expected_files": 0,
         "required_sources": [
           {
             "path": "AGENTS.md",
@@ -267,11 +267,10 @@
         "forbidden_resolution": "正本更新をせず分析だけ返す、旧snapshotを上書きする、unknownを0で埋める、臨時sidecarを正本化する。",
         "routing_path": [
           "PROJECT.md",
-          "measurement/.internal/.virtual/social/ROUTER.md",
-          "scripts/instagram-insights-timeseries.mjs"
+          "measurement/.internal/.virtual/social/ROUTER.md"
         ],
-        "max_expected_hops": 3,
-        "max_expected_files": 3,
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
         "required_sources": [
           {
             "path": "PROJECT.md",
@@ -286,7 +285,9 @@
               "分析回答より先に",
               "1観測=1snapshot"
             ]
-          },
+          }
+        ],
+        "verification_sources": [
           {
             "path": "scripts/instagram-insights-timeseries.mjs",
             "contains": [
@@ -314,8 +315,8 @@
           "PROJECT_STATE.md",
           "src/data/how-they-ring-localizations.ts"
         ],
-        "max_expected_hops": 2,
-        "max_expected_files": 2,
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
         "required_sources": [
           {
             "path": "PROJECT_STATE.md",
@@ -349,8 +350,8 @@
           "PROJECT_STATE.md",
           "AGENTS.md"
         ],
-        "max_expected_hops": 2,
-        "max_expected_files": 2,
+        "max_expected_hops": 0,
+        "max_expected_files": 0,
         "required_sources": [
           {
             "path": "PROJECT_STATE.md",
