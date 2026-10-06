@@ -142,6 +142,20 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 
 1972年の企業統合後についてDIJUは、主市場を **ARSA = Europe / Damas = UK・中近東 / Hoga = USA・極東・Italy** と記録する。このため「AFBが米国組織だから、1970年代のAFB時計もARSA製だろう」という地理的ショートカットは採用しない。HogaをafB De Luxeのメーカー候補へ昇格する根拠にもまだならない。
 
+
+### 3.4 OWNER'S NOTE copy working state — query-time CURRENT
+
+このWATCHの**現在進行中コピー状態**は、このMAPをquery-time ownerとして扱う。採否・起点・撤回理由の履歴は `CHANGE_DECISIONS.md` に残すが、短いCURRENT確認のたびに巨大な履歴全文を先に読む必要はない。
+
+- **Catch WORKING_MAIN / USER-origin**: `開けて、触って、聞く。`
+- **Public FINAL status**: 未実施
+- **Currently published catch**:
+  - `蓋を開けて、時刻を触る。`
+  - `アラームの予約時刻まで、指先で読む。`
+- **State rule**: WORKING_MAIN と currently published copy は別状態。公開ファイルにある文面だけを見て、WORKING_MAINまで同一とみなさない。
+- **Ancestry**: 2026-10-03 12:52 JSTの判断履歴で、Catch `開けて、触って、聞く。` = `WORKING_MAIN`、公開FINAL化は未実施と固定。起点はユーザー。
+- **Next reality gate**: published FINALへ昇格するのは、ユーザー明示採用 + 実装 + 検証後。会話記憶や後発AI案だけで反転しない。
+
 ---
 
 ## 4. 一度切った / 降格した線
