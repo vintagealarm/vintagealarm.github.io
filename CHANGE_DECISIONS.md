@@ -24,7 +24,7 @@
 - **旧状態・棄却**：旧NOTE「文字盤にあるのは、盛り上がった時刻目盛と三本の針。」以下4行を置換する。AIが後から提案した「触読では、秒針は…」への修正案はユーザー判断で不採用とし、復活させない。
 - **影響範囲**：`src/content/watches/arsa-blind-alarm.md` の `ownersNote.note` と本判断履歴のみ。Catch / ownersNote.lead / guide / Deep Dive / 他WATCH / UI / 多言語本文は変更しない。
 - **検証状態**：branch上で指定文面のexact match、対象外差分、decision-log gate、該当quality/buildを確認してからmainへmergeする。main反映後は対象ファイルを再取得し、可能ならlive表示も確認する。
-- **関連**：ARSA Blind Alarm公開WATCH、2026-10-04 19:13 JSTのARSA working copy救出、2026-10-06ユーザー確定稿。
+- **関連**：ARSA Blind Alarm公開WATCH、2026-10-04 19:13 JSTのARSA working copy救出、2026-10-06ユーザー確定稿、実装commit `a82de8e0`。
 - **日時根拠**：developer-provided local time `2026-10-06T09:16+09:00` = `2026-10-06 09:16 JST`。
 
 ## 2026-10-05
