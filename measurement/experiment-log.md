@@ -1,5 +1,12 @@
 # VINTAGE ALARM — 実験ログ
 
+## Canonical write contract
+
+- このファイルは、施策・実験・比較に意味がある**時点観測と判断履歴**をappendする正本。過去entryを新しい値で上書きしない。
+- 別チャットで新しいスクリーンショットや実測を受け取っても、任意のダッシュボード画面をraw snapshotとして機械的に保存しない。既存実験の観測点になる、または新しい実験判断を構成する場合だけここへ追記する。
+- Instagram InsightsはSocialの `instagram-insights-timeseries.md`、外部AI参照観測は `aio-observation-log.md` 等、より具体的なdomain正本がある場合はそちらを優先し、本ログへ重複保存しない。
+- 追記時は観測日時・対象・確認済み事実・未確認／推論・比較条件を落とさない。
+
 ## 2026-09-09｜CYMA関連X投稿 → サイト導線
 
 ### X側 初動
