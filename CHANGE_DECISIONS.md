@@ -16,6 +16,17 @@
 ---
 
 ## 2026-10-06
+### 2026-10-06 18:25 JST — PROJECT_STATEのCouncil仕様複製を正本pointerへ縮退
+
+- **変更**：`PROJECT_STATE.md` CURRENT BASELINEに複製されていたCouncil V3 / 7形式 / Jester hook / 共通protocol / resident / PRE-MORTEMの仕様説明群を、同ファイル§6のCouncil pointerから専用正本を必要時取得する1行へ置換した。Council正本・実装・設計履歴は変更しない。
+- **理由**：#199でAGENTSのCouncil本文を遅延読込へ戻した後も、mandatory bootのPROJECT_STATEにCouncil仕様説明が二重保持され、Council非利用タスクでも毎回読まれていたため。
+- **旧状態・棄却**：Council仕様自体の要約削除、7/Jester/PRE-MORTEM詳細の消失、Council入口pointerの削除は棄却。専用正本は完全保持する。
+- **影響範囲**：`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`、本判断履歴のみ。HOW THEY RING / SNS / WATCH / research current detailには触れない。
+- **実測**：mandatory bootは 30,347 → 29,565文字、**782文字減**。PROJECT_STATEは 13,323 → 12,541文字。Council専用正本は変更なし。
+- **検証状態**：branch `ops/state-delayed-council-20261006` で実装中。quality gate / PR CI / merge後main再取得までPASSして初めてVERIFIED。
+- **関連**：2026-10-06 18:20 JST Council delayed boot ablation。commits `ee862c97` / `b8e7225b`。
+- **日時根拠**：GitHub commit `b8e7225b09ec86814bf70413769e61237776aa35` の `2026-10-06T09:25:20Z → 2026-10-06 18:25 JST`。
+
 ### 2026-10-06 18:20 JST — Council詳細をmandatory bootから遅延読込へ戻す
 
 - **変更**：AGENTSに複製されていたCouncilの7択・Jester・PRE-MORTEM・共通protocol本文を削り、`PROJECT.md` launcher + `council-worker/V3.md` + `council-worker/README.md` + 実装 + Jester設計正本へのdiscovery pointerへ置換した。AGENTSの分野別route一覧もPROJECT §2所有へ戻し、Social / Council / 個人時計台帳の重要入口pointerだけ残した。checkerはCouncil仕様本文のAGENTS再複製を禁止し、正本pointerの存在を検査する。
