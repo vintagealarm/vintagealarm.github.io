@@ -15,6 +15,18 @@
 
 ---
 
+## 2026-10-06
+
+### 2026-10-06 09:16 JST — ARSA OWNER'S NOTEをユーザー確定稿へ更新
+
+- **変更**：ARSA Blind AlarmのOWNER'S NOTEを、ユーザーが最終確定した7行へ差し替える。内容は、盛り上がった時刻目盛、直接触れることを前提に頑丈に作られた時針・分針、秒針がないことと触読上の理由、4時位置リューズ中央の前蓋プッシャー、末尾の「ちなみに、麻酔針は出ない。」で構成する。
+- **理由**：従来NOTEと新しいSUBの役割重複を避けつつ、NOTEでは触読のために時計の物理構成がどう作られているかへ進めるため。最終文面はユーザー自身がAI案の言い回しを削り、これを採用すると明示した。
+- **旧状態・棄却**：旧NOTE「文字盤にあるのは、盛り上がった時刻目盛と三本の針。」以下4行を置換する。AIが後から提案した「触読では、秒針は…」への修正案はユーザー判断で不採用とし、復活させない。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` の `ownersNote.note` と本判断履歴のみ。Catch / ownersNote.lead / guide / Deep Dive / 他WATCH / UI / 多言語本文は変更しない。
+- **検証状態**：branch上で指定文面のexact match、対象外差分、decision-log gate、該当quality/buildを確認してからmainへmergeする。main反映後は対象ファイルを再取得し、可能ならlive表示も確認する。
+- **関連**：ARSA Blind Alarm公開WATCH、2026-10-04 19:13 JSTのARSA working copy救出、2026-10-06ユーザー確定稿、実装commit `a82de8e0`。
+- **日時根拠**：developer-provided local time `2026-10-06T09:16+09:00` = `2026-10-06 09:16 JST`。
+
 ## 2026-10-05
 
 ### 2026-10-05 20:44 JST — Fail-Closed重複driftを解消し、Slides exporter重複PRをcurrent mainへ一本化
