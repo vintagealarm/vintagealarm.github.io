@@ -43,7 +43,7 @@
             "path": "measurement/.internal/.virtual/social/ROUTER.md",
             "contains": [
               "Instagram本文の単純コピー／単純翻訳ではなく",
-              "Published Copy → English compression/adaptation → 140-character validation → output"
+              "Published Copy → English compression/adaptation → X weighted-length validation（全角140字相当）→ output"
             ]
           }
         ]
