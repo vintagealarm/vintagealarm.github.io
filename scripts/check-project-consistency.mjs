@@ -22,6 +22,8 @@ const agents = read('AGENTS.md');
 const state = read('PROJECT_STATE.md');
 const llms = read('public/llms.txt');
 const aio = read('measurement/aio-observation-log.md');
+const metrics = read('measurement/metrics.md');
+const experimentLog = read('measurement/experiment-log.md');
 const ring = read('src/data/how-they-ring-localizations.ts');
 const managerControlPlane = read('.codex/MANAGER_CONTROL_PLANE.md');
 const taskEnvelope = read('.codex/TASK_ENVELOPE_TEMPLATE.md');
@@ -132,6 +134,15 @@ requireText(social, 'Instagram Insights の完了条件', 'Social Insights compl
 requireText(social, 'Screenshot → canonical time series', 'Social screenshot-to-canonical path');
 requireText(social, '分析回答より先に', 'Social write-before-analysis rule');
 requireText(social, 'このcontractは会話単位ではなくrepo単位', 'Social cross-chat write contract');
+
+requireText(agents, 'Research Evidence Ingress', 'Research evidence-ingress routing');
+requireText(agents, '詳細証拠・出典・逐次履歴をLedgerへ追記', 'Research Ledger write contract');
+requireText(metrics, '個別スクリーンショットや時点観測の保存先ではない', 'Metrics definition-only boundary');
+requireText(experimentLog, '## Canonical write contract', 'Experiment log write contract');
+requireText(experimentLog, '任意のダッシュボード画面をraw snapshotとして機械的に保存しない', 'Experiment raw-snapshot boundary');
+requireText(aio, '## Canonical write contract', 'AIO write contract');
+requireText(aio, 'このcontractは会話単位ではなくrepo単位', 'AIO cross-chat write contract');
+requireText(aio, '既存観測を上書きせず', 'AIO append-only observation rule');
 
 for (const scriptName of ['check:instagram-insights','instagram:append','instagram:report']) {
   requireText(packageJson, `"${scriptName}"`, `package script ${scriptName}`);
