@@ -244,10 +244,13 @@ function scoreResults(resultPath) {
     }
 
     const replay = item.replay;
+    const bootOnlyCount = bootPaths.filter((path) => !replay.routing_path.includes(path)).length;
+    const totalFileBudget = replay.max_expected_files + bootOnlyCount;
     scored.push({
       ...result,
       route_budget_exceeded: result.routing_hops > replay.max_expected_hops,
-      task_file_budget_exceeded: result.files_read.length > replay.max_expected_files,
+      file_budget_exceeded: result.files_read.length > totalFileBudget,
+      total_file_budget: totalFileBudget,
     });
   }
 
@@ -257,7 +260,7 @@ function scoreResults(resultPath) {
   const sum = (field) => scored.reduce((total, row) => total + row[field], 0);
   const falseCertainty = scored.filter((r) => r.false_certainty).length;
   const routeBudget = scored.filter((r) => r.route_budget_exceeded).length;
-  const fileBudget = scored.filter((r) => r.task_file_budget_exceeded).length;
+  const fileBudget = scored.filter((r) => r.file_budget_exceeded).length;
 
   console.log('# Replay Eval score');
   console.log(`Cases scored: ${scored.length}/${requiredReplayIds.length}`);
@@ -266,7 +269,7 @@ function scoreResults(resultPath) {
   console.log(`Mean routing hops: ${(sum('routing_hops') / scored.length).toFixed(2)}`);
   console.log(`User reinstructions: ${sum('user_reinstruction_count')}`);
   console.log(`False-certainty cases: ${falseCertainty}`);
-  console.log(`Route-budget overruns: ${routeBudget}; task-file-budget overruns: ${fileBudget}`);
+  console.log(`Route-budget overruns: ${routeBudget}; total-file-budget overruns: ${fileBudget}`);
 }
 
 if (errors.length) {
