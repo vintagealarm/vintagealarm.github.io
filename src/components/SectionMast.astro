@@ -10,7 +10,7 @@ const {
   languageLinks = []
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const researchPublished = researchSettings.published;
+const researchPublished = researchSettings.published && researchSettings.locales.includes('ja');
 const howTheyRingPublished = howTheyRingSettings.productionPublished;
 const isEnglish = lang === 'en';
 const isGerman = lang === 'de';
