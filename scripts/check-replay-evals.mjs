@@ -16,6 +16,7 @@ const requiredReplayIds = [
   'SOCIAL-CROSSCHAT-WRITE-001',
   'HOW-RING-CLASSIFICATION-001',
   'STATE-LIFECYCLE-001',
+  'RESEARCH-CROSSCHAT-WRITE-001',
 ];
 
 const errors = [];
