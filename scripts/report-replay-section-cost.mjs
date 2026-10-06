@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 const root = process.cwd();
 const fixture = JSON.parse(readFileSync(resolve(root, '.codex/inference-guard-cases.json'), 'utf8'));
 const bootPaths = fixture.replay_eval?.boot_paths || [];
-const highCostThreshold = 20_000;
+const highSectionCostThreshold = 20_000;
 
 const read = (path) => readFileSync(resolve(root, path), 'utf8');
 
@@ -103,6 +103,6 @@ for (const row of rows) {
   console.log(`| ${row.id} | ${row.review} | ${row.task_files} | ${row.full_file_chars} | ${row.section_aware_chars} | ${row.saved_chars} | ${row.saved_pct.toFixed(1)}% |`);
 }
 
-const candidates = rows.filter((row) => row.review === 'ranked' && row.full_file_chars >= highCostThreshold);
+const candidates = rows.filter((row) => row.review === 'ranked' && row.section_aware_chars >= highSectionCostThreshold);
 console.log('');
-console.log(`Improvement candidates (ranked, full-file chars >= ${highCostThreshold}): ${candidates.map((row) => row.id).join(', ') || 'none'}`);
+console.log(`Improvement candidates (ranked, section-aware chars >= ${highSectionCostThreshold}): ${candidates.map((row) => row.id).join(', ') || 'none'}`);

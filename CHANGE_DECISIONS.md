@@ -15,6 +15,17 @@
 
 ---
 
+## 2026-10-07
+### 2026-10-07 05:35 JST — X Replayを対象投稿のsection-aware取得へ補正
+
+- **変更**：`SOCIAL-X-LANGUAGE-001` の曖昧な「このInstagram投稿」を、既存のPierce Duofon Mechanism follow-up公開投稿へ具体化し、`instagram-published-copy.md` の該当caption見出し・冒頭・hashtagsをevidence anchorにした。Social RouterのX契約と対象Published Copy節だけを回答時取得範囲として測る。改善候補の閾値も元ファイル全文ではなくsection-aware実読込推定20,000文字以上へ訂正する。
+- **理由**：全16 Replayのコスト監査で、同caseだけsection-aware削減率が52.3%に留まった。原因は対象投稿がfixture内で特定されず、Published Copy sourceが `contains: []` のため全時計・全投稿を全文計上していた測定歪みであり、正本内容の量ではなかった。
+- **旧状態・棄却**：Published Copy本文を削る案、時計別ファイルへ分割する案、Social Routerへcaptionを複製する案、対象不明のまま全文読込を正当化する案、最適化後も元ファイルサイズだけで改善候補へ残し続ける判定を棄却する。XのEnglish-only / overseas-facing / weighted length 280契約は変更しない。
+- **影響範囲**：`.codex/inference-guard-cases.json`、`scripts/report-replay-section-cost.mjs`、本判断履歴。Social Router、Instagram Published Copy、X実投稿、公開WATCH、PR #204は変更しない。
+- **検証状態**：branch `ops/x-replay-section-20261007` へ実装中。Replay checker、section report、decision log、full quality gate、PR CI、main再取得まで通って初めてVERIFIED。
+- **関連**：2026-10-06 20:05 JST X weighted-length訂正、20:13 JST section-aware retrieval cost、2026-10-06 22:35 JST priority Replay追加、PR #208。
+- **日時根拠**：ホスト確認時刻 `2026-10-07 05:35 JST`。
+
 ## 2026-10-06
 ### 2026-10-06 22:35 JST — 重大事故経路をReplayへ追加しコスト評価を正答回帰から分離
 
