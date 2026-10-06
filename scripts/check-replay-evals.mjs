@@ -84,11 +84,12 @@ for (const id of requiredReplayIds) {
     }
   }
 
-  if (!Number.isInteger(replay.max_expected_hops) || replay.max_expected_hops < replay.routing_path.length) {
-    fail(`${id} max_expected_hops must be an integer >= routing_path length`);
+  const incrementalRoute = replay.routing_path.filter((path) => !bootPaths.includes(path));
+  if (!Number.isInteger(replay.max_expected_hops) || replay.max_expected_hops < incrementalRoute.length) {
+    fail(`${id} max_expected_hops must be an integer >= incremental task-route length`);
   }
-  if (!Number.isInteger(replay.max_expected_files) || replay.max_expected_files < 1) {
-    fail(`${id} max_expected_files must be a positive integer`);
+  if (!Number.isInteger(replay.max_expected_files) || replay.max_expected_files < incrementalRoute.length) {
+    fail(`${id} max_expected_files must be an integer >= incremental task-file count`);
   }
 
   if (!Array.isArray(replay.required_sources) || replay.required_sources.length === 0) {
@@ -101,7 +102,16 @@ for (const id of requiredReplayIds) {
     fail(`${id} required_sources contains duplicate paths`);
   }
 
-  for (const source of replay.required_sources) {
+  const verificationSources = Array.isArray(replay.verification_sources)
+    ? replay.verification_sources
+    : [];
+  const allEvidenceSources = [...replay.required_sources, ...verificationSources];
+  const allEvidencePaths = allEvidenceSources.map((source) => source.path);
+  if (new Set(allEvidencePaths).size !== allEvidencePaths.length) {
+    fail(`${id} required_sources / verification_sources contain duplicate paths`);
+  }
+
+  for (const source of allEvidenceSources) {
     if (!source?.path || !existsSync(resolve(root, source.path))) {
       fail(`${id} source path does not exist: ${source?.path || '(missing)'}`);
       continue;
@@ -135,14 +145,21 @@ function reportRows() {
     if (!item?.replay) return [];
     const replay = item.replay;
     const route = unique(replay.routing_path);
-    const full = unique([...bootPaths, ...route]);
+    const incrementalRoute = route.filter((path) => !bootPaths.includes(path));
+    const verification = unique(
+      (Array.isArray(replay.verification_sources) ? replay.verification_sources : [])
+        .map((source) => source.path),
+    ).filter((path) => !bootPaths.includes(path) && !route.includes(path));
+    const fullRuntime = unique([...bootPaths, ...incrementalRoute]);
     return [{
       id,
       failureClass: replay.failure_class,
-      routeFiles: route.length,
-      routeChars: charsFor(route),
-      fullFiles: full.length,
-      fullChars: charsFor(full),
+      incrementalTaskFiles: incrementalRoute.length,
+      incrementalTaskChars: charsFor(incrementalRoute),
+      verificationFiles: verification.length,
+      verificationChars: charsFor(verification),
+      runtimeFiles: fullRuntime.length,
+      runtimeChars: charsFor(fullRuntime),
       maxHops: replay.max_expected_hops,
       maxFiles: replay.max_expected_files,
     }];
@@ -151,30 +168,32 @@ function reportRows() {
 
 function printReport() {
   const rows = reportRows();
+  const bootChars = charsFor(bootPaths);
   console.log('# VINTAGE ALARM — Replay Eval corpus');
   console.log('');
-  console.log('| Case | Class | Task route files | Task route chars | Boot + route files | Boot + route chars | Hop budget | Task-file budget |');
-  console.log('|---|---|---:|---:|---:|---:|---:|---:|');
+  console.log(`Mandatory boot: ${bootPaths.length} files / ${bootChars.toLocaleString('en-US')} chars`);
+  console.log('');
+  console.log('| Case | Class | Incremental task files | Incremental task chars | Verifier-only files | Verifier-only chars | Boot + task chars | Hop budget | Task-file budget |');
+  console.log('|---|---|---:|---:|---:|---:|---:|---:|---:|');
   for (const row of rows) {
     console.log(
-      `| ${row.id} | ${row.failureClass} | ${row.routeFiles} | ${row.routeChars} | ${row.fullFiles} | ${row.fullChars} | ${row.maxHops} | ${row.maxFiles} |`,
+      `| ${row.id} | ${row.failureClass} | ${row.incrementalTaskFiles} | ${row.incrementalTaskChars} | ${row.verificationFiles} | ${row.verificationChars} | ${row.runtimeChars} | ${row.maxHops} | ${row.maxFiles} |`,
     );
   }
   const totals = rows.reduce(
     (acc, row) => {
-      acc.routeChars += row.routeChars;
-      acc.fullChars += row.fullChars;
-      acc.routeFiles += row.routeFiles;
-      acc.fullFiles += row.fullFiles;
+      acc.incrementalTaskChars += row.incrementalTaskChars;
+      acc.verificationChars += row.verificationChars;
+      acc.incrementalTaskFiles += row.incrementalTaskFiles;
       return acc;
     },
-    { routeChars: 0, fullChars: 0, routeFiles: 0, fullFiles: 0 },
+    { incrementalTaskChars: 0, verificationChars: 0, incrementalTaskFiles: 0 },
   );
   console.log('');
   console.log(
-    `Cases: ${rows.length}; mean task-route files: ${(totals.routeFiles / rows.length).toFixed(2)}; mean task-route chars: ${Math.round(totals.routeChars / rows.length).toLocaleString('en-US')}; mean boot+route chars: ${Math.round(totals.fullChars / rows.length).toLocaleString('en-US')}.`,
+    `Cases: ${rows.length}; mean incremental task files: ${(totals.incrementalTaskFiles / rows.length).toFixed(2)}; mean incremental task chars: ${Math.round(totals.incrementalTaskChars / rows.length).toLocaleString('en-US')}; mean verifier-only chars: ${Math.round(totals.verificationChars / rows.length).toLocaleString('en-US')}.`,
   );
-  console.log('Task-route cost excludes the mandatory PROJECT → AGENTS → PROJECT_STATE boot unless one of those files is also the case-specific owner.');
+  console.log('Incremental task cost excludes the mandatory PROJECT → AGENTS → PROJECT_STATE boot. Verifier-only sources are checked for implementation safety but are not counted as answer-time retrieval.');
 }
 
 function printCase(id) {
@@ -191,6 +210,7 @@ function printCase(id) {
     forbidden_resolution: item.replay.forbidden_resolution,
     routing_path: item.replay.routing_path,
     required_sources: item.replay.required_sources,
+    verification_sources: item.replay.verification_sources || [],
     score_fields: replayConfig.score_fields,
   }, null, 2));
 }
@@ -244,8 +264,7 @@ function scoreResults(resultPath) {
     }
 
     const replay = item.replay;
-    const bootOnlyCount = bootPaths.filter((path) => !replay.routing_path.includes(path)).length;
-    const totalFileBudget = replay.max_expected_files + bootOnlyCount;
+    const totalFileBudget = replay.max_expected_files + bootPaths.length;
     scored.push({
       ...result,
       route_budget_exceeded: result.routing_hops > replay.max_expected_hops,
