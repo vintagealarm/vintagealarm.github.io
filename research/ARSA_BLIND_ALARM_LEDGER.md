@@ -3440,3 +3440,46 @@ This changes the safest interpretation:
 - that all ARSA covered watches used crown-button release
 
 **Site-use consequence:** describe the Blind Alarm's integrated opener as an accessibility-useful ARSA solution, while keeping its exact origin / design lineage OPEN.
+
+
+### 2026-10-07 — JSH 1958 p.120 ARSA 60th-anniversary advertisement visually confirmed
+
+**ORIGIN:** user-supplied screenshot from The Watch Library, page display `120 of 822 • Page 120`.
+
+**Evidence class:** PERIOD-PRIMARY / USER-SUPPLIED VISUAL CONFIRMATION.
+
+Source record:
+- *Journal Suisse d'Horlogerie | 1958*, The Watch Library / Musée international d'horlogerie
+- https://watchlibrary.org/details/MIH-JSH_1958_423
+- visually confirmed page: **120**
+
+The page is a full-page A. Reymond S.A., Tramelan advertisement headed:
+
+- `Vivre avec son temps`
+- `porter une ARSA AUTOMATIQUE`
+- `1898—1958`
+
+It explicitly frames A. Reymond S.A.'s 60 years of experience and lists a five-point manufacturing program:
+
+1. improved rate regulation through application of the **spiral Michel** to men's wristwatches;
+2. intensified chronometer production, stating that **300 pieces were submitted in 1957** and that **more than 90%** received the mention `Résultats de marche particulièrement bons`;
+3. development of **automatic-winding watches**, including thin men's models and small-format women's models;
+4. introduction of new calibers, notably a **flat 13-ligne caliber**, also intended for calendar models with a 3-o'clock window, small seconds and direct central seconds;
+5. special attention to presentation / finishing, technical quality and pricing.
+
+#### Negative result — page-scoped only
+
+On the visible text of p.120, there is **no identified mention** of:
+- Blind Alarm / Blindenwecker
+- blind / tactile watches / `montres pour aveugles`
+- alarm wristwatches / `réveil`
+- A. Schild **AS 1475**
+
+This is a **page-level negative result only**. It does **not** establish that the separate A. Reymond 60th-anniversary article, neighboring pages, or the rest of the 1958 annual volume omit the Blind Alarm.
+
+#### Research consequence
+
+- p.120 is now **CONTENT-READ / PRIMARY**, not metadata-only.
+- It is useful as a 1958 company-self-description of A. Reymond's then-emphasized production program.
+- It **does not fill** the ARSA Blind Alarm period-primary gap and must not be substituted for a period Blind Alarm advertisement/catalog record.
+- The status of the separately referenced A. Reymond 60th-anniversary article remains **OPEN until its actual article pages are identified and read**.
