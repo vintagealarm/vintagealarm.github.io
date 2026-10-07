@@ -28,9 +28,9 @@
 - **起点・帰属**：Catch `開けて、触って、聞く。` とLead / Sub 4行はUSER-origin。NOTE現行7行稿もUSER-originで維持。DEEP DIVE 04のscope defectは2026-10-07再監査でAIが検出し、ユーザーが「全採用」で修正を採用した。
 - **VA温度比較**：作業時点で `published: true` の日本語WATCH 6本（Basis / Citizen / Cyma / Pierce / Westclox / Wittnauer）の現行Catch / Leadを全件横並び確認。ARSA Catchは日常動作語3つで機能順を圧縮する中温度、Leadは蓋→現在時刻・アラーム時刻の触読→音という時計固有動作へ即座に戻る。Pierce / Westcloxのような外部文化フレームへ依存せず、障害・戦傷・リハビリの背景を笑いの材料にもしていないためSensitive-context collisionなし。
 - **採否・現在状態**：Catch / Lead / NOTE = `FINAL`。ARSA通常WATCHの `published: false` は維持し、日本語RESEARCH routeが同一canonical sourceからFINAL稿を表示する。到着後実測は個体事実の補完であり、このcopy FINALを自動で撤回しない。
-- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` のCatch / Lead / DEEP DIVE 04第1段落、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` のcopy CURRENT、本判断履歴。NOTE、guide、SPEC、DEEP DIVE 01–03 / 05、画像placeholder、通常WATCH公開flag、RESEARCH公開設定、EN / DE、他WATCH、UIは変更しない。
-- **検証状態**：branch `feat/arsa-final-copy-audit-20261007` で実装。exact text、OWNER copy provenance、Japanese style、citation / source traceability、decision log、build / publication output、PR CIを確認し、main merge後にPages deployとlive `/research/arsa-blind-alarm/` のFINAL稿を確認してDEPLOYED / VERIFIEDとする。
-- **関連**：PR #213、実装commits `7ca466e8` / `0721227f` / `4bd59825`。2026-10-03 12:52 JST「ARSAの現SUB / NOTEをユーザー原文で復元」、2026-10-06 09:16 JST「ARSA OWNER'S NOTEをユーザー確定稿へ更新」、2026-10-07 08:03 JST「ARSA完成稿を同一正本のRESEARCH routeとして先行公開」。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` のCatch / Lead / DEEP DIVE 04第1段落、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` のcopy CURRENT、`.codex/inference-guard-cases.json` のARSA copy-state回帰fixture、本判断履歴。NOTE、guide、SPEC、DEEP DIVE 01–03 / 05、画像placeholder、通常WATCH公開flag、RESEARCH公開設定、EN / DE、他WATCH、UIは変更しない。
+- **検証状態**：branch `feat/arsa-final-copy-audit-20261007` で実装。PR #213初回CIでは、旧WORKING_MAIN状態を固定していた `STATE-ARSA-COPY-001` Replay anchorが正しくFAILし、今回のFINAL状態へfixtureを更新した。exact text、OWNER copy provenance、Japanese style、citation / source traceability、decision log、build / publication output、再CIを確認し、main merge後にPages deployとlive `/research/arsa-blind-alarm/` のFINAL稿を確認してDEPLOYED / VERIFIEDとする。
+- **関連**：PR #213、実装commits `7ca466e8` / `0721227f` / `4bd59825` / `c71c3127`。2026-10-03 12:52 JST「ARSAの現SUB / NOTEをユーザー原文で復元」、2026-10-06 09:16 JST「ARSA OWNER'S NOTEをユーザー確定稿へ更新」、2026-10-07 08:03 JST「ARSA完成稿を同一正本のRESEARCH routeとして先行公開」。
 - **日時根拠**：ChatGPT time取得値 `2026-10-07T09:08:05+09:00` → `2026-10-07 09:08 JST`。
 
 ### 2026-10-07 08:03 JST — ARSA完成稿を同一正本のRESEARCH routeとして先行公開
