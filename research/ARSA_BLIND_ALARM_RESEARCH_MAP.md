@@ -143,18 +143,20 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
 1972年の企業統合後についてDIJUは、主市場を **ARSA = Europe / Damas = UK・中近東 / Hoga = USA・極東・Italy** と記録する。このため「AFBが米国組織だから、1970年代のAFB時計もARSA製だろう」という地理的ショートカットは採用しない。HogaをafB De Luxeのメーカー候補へ昇格する根拠にもまだならない。
 
 
-### 3.4 OWNER'S NOTE copy working state — query-time CURRENT
+### 3.4 OWNER'S NOTE copy state — query-time CURRENT
 
-このWATCHの**現在進行中コピー状態**は、このMAPをquery-time ownerとして扱う。採否・起点・撤回理由の履歴は `CHANGE_DECISIONS.md` に残すが、短いCURRENT確認のたびに巨大な履歴全文を先に読む必要はない。
+このWATCHの**現在コピー状態**は、このMAPをquery-time ownerとして扱う。採否・起点・撤回理由の履歴は `CHANGE_DECISIONS.md` に残すが、短いCURRENT確認のたびに巨大な履歴全文を先に読む必要はない。
 
-- **Catch WORKING_MAIN / USER-origin**: `開けて、触って、聞く。`
-- **Public FINAL status**: 未実施
-- **Currently published catch**:
-  - `蓋を開けて、時刻を触る。`
-  - `アラームの予約時刻まで、指先で読む。`
-- **State rule**: WORKING_MAIN と currently published copy は別状態。公開ファイルにある文面だけを見て、WORKING_MAINまで同一とみなさない。
-- **Ancestry**: 2026-10-03 12:52 JSTの判断履歴で、Catch `開けて、触って、聞く。` = `WORKING_MAIN`、公開FINAL化は未実施と固定。起点はユーザー。
-- **Next reality gate**: published FINALへ昇格するのは、ユーザー明示採用 + 実装 + 検証後。会話記憶や後発AI案だけで反転しない。
+- **Catch FINAL / USER-origin**: `開けて、触って、聞く。`
+- **Lead / Sub FINAL / USER-origin**:
+  - `文字盤を覆う蓋が開く。`
+  - `現在時刻も、アラーム時刻も、指先で読む。`
+  - `設定した時刻になれば、`
+  - `今度は耳の出番。`
+- **NOTE FINAL / USER-origin**: 現行 `src/content/watches/arsa-blind-alarm.md` の7行稿を維持する。
+- **Public FINAL status**: 上記Catch / Lead / NOTEをcanonical sourceへ反映する。日本語RESEARCH routeは同じsourceを読む。ARSA通常WATCHの `published: false` は維持する。
+- **Ancestry**: Catch / Leadは2026-10-03 12:52 JSTにユーザー原文としてWORKINGへ固定。NOTEは2026-10-06 09:16 JSTにユーザー確定稿へ更新。2026-10-07 09:08 JST、ユーザーが監査結果を「全採用」とし、Catch / Subの公開反映を明示したためFINALへ昇格。
+- **Reality rule**: 到着後の触覚操作・音・ケース確認は個体事実の追加検証として継続するが、今回のCatch / Lead / NOTEのFINAL化を再び自動で保留へ戻す条件にはしない。新証拠で本文事実が変わる場合だけ通常のreversal gateを通す。
 
 ---
 
