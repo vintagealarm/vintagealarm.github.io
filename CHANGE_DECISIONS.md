@@ -17,6 +17,19 @@
 
 ## 2026-10-07
 
+### 2026-10-07 15:13 JST — JSH 1958の「別60周年記事」前提を撤回しp.120広告へ一本化
+
+- **変更**：ARSA研究で保持していた「1958年JSHにA. Reymond 60周年の別記事が存在し、本文未取得」というOPEN状態を撤回する。確認済みの資料はThe Watch Library 1958年通巻p.120のA. Reymond S.A. 60周年全面広告とし、別記事を今後の探索targetから外す。
+- **理由**：ユーザーが実際にJSH 1958を確認し、p.120広告とは別のA. Reymond 60周年記事は「ない」と報告したため。従来は書誌／contents上の60周年項目を独立記事と解釈しており、実ページ未確認のまま探索target化していた。
+- **REVERSAL TARGET**：Research Map / Ledgerの「A. Reymond 60周年記事の存在確認」「記事本文未取得／OPEN」という状態。
+- **NEW EVIDENCE**：2026-10-07のユーザーによるThe Watch Library 1958年巻の直接確認。直前にp.120全面広告の実ページもスクリーンショットで確認済み。
+- **旧状態・棄却**：p.120広告とは別に60周年記事があるという解釈を棄却する。ただしp.120にBlind Alarm記載がないことを1958年全822ページの不存在証明へ拡張しない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、PR #214の説明、本判断履歴。公開ARSA本文、Catch / Lead / NOTE、Research公開状態、他WATCHは変更しない。
+- **検証状態**：PR #214 branchで、別記事OPEN表現を除去し、p.120広告実見済み／別記事target撤回／全巻不存在までは未証明、の3点が両research正本で一致することを再取得確認する。
+- **関連**：PR #214、p.120 user-supplied screenshot、The Watch Library `MIH-JSH_1958_423`。
+- **日時根拠**：ChatGPT time取得値 `2026-10-07T15:13:18+09:00` → `2026-10-07 15:13 JST`。
+
+
 ### 2026-10-07 09:08 JST — ARSAのユーザーCatch / SubをFINAL化し比較記述のA. Schild過剰一般化を修正
 
 - **変更**：ARSA Blind AlarmのCatchを `開けて、触って、聞く。`、Lead / Subを `文字盤を覆う蓋が開く。／現在時刻も、アラーム時刻も、指先で読む。／設定した時刻になれば、／今度は耳の出番。` へ変更し、ユーザー原文をFINALとしてcanonical sourceへ反映する。現行NOTE 7行稿は変更しない。DEEP DIVE 04冒頭は、蓋を開けて直接触読する構成をARSA / Enicar / BEATに限定し、UI詳細未確認のA. Schild prototypeまで「いずれも」と一般化しない。
