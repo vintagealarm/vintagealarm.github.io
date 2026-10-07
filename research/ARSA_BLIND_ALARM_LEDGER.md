@@ -3352,7 +3352,7 @@ The planned research sequence ①→⑤ is now complete at PASS 1 level. Remaini
 **ORIGIN:** user research pass and placement decision.
 
 - **Current negative result:** no 1956–1960 advertisement, catalog or price list has yet been recovered that explicitly names or illustrates the **ARSA Blind Alarm itself**. This is a search result, not proof that no such document existed.
-- **1958 JSH:** *Journal suisse d'horlogerie et de bijouterie*, No.2, March–April 1958 is bibliographically confirmed, and its contents include an item on A. Reymond's **60th anniversary**. The article text/pages themselves have not been recovered here, so Blind Alarm content must remain OPEN.
+- **1958 JSH:** *Journal suisse d'horlogerie et de bijouterie*, No.2, March–April 1958 is bibliographically confirmed. Earlier research interpreted its A. Reymond **60th anniversary** index/contents reference as a separate article. User inspection on 2026-10-07 found no separate A. Reymond 60th-anniversary article; the confirmed in-volume item is the full-page A. Reymond S.A. 60th-anniversary advertisement on p.120. That page contains no identified Blind Alarm / blind-watch / réveil / AS1475 reference.
   - https://www.abebooks.fr/magazines-periodiques/Journal-suisse-dhorlogerie-bijouterie-mars-avril-1958/32517065717/bd
 - **The Watch Library:** its collection includes *Journal Suisse d'Horlogerie* for 1876–1978. The exact annual scan page count reported by the user was not independently re-verified in this pass.
   - https://watchlibrary.org/en/page/collections-journal-and-magazine
@@ -3384,7 +3384,7 @@ Source:
 
 This upgrades the earlier user-reported “1958 full-year / 822 pages” point from user-supplied search result to **WEB-CONFIRMED metadata**.
 
-**Boundary unchanged:** the A. Reymond 60th-anniversary article pages themselves have still not been extracted/read in this pass. Therefore no Blind Alarm content is inferred from the annual scan metadata.
+**Boundary updated 2026-10-07:** user inspection found no separate A. Reymond 60th-anniversary article. The confirmed relevant item is p.120, a full-page 60th-anniversary ARSA advertisement. Do not preserve a phantom “article text still OPEN” task.
 
 #### Mémoires d'Ici — 1948 / 1973 document bundle remains metadata-confirmed only
 
@@ -3408,7 +3408,7 @@ Sources:
 #### Consequence
 
 - 1958 JSH annual volume availability / page count = **resolved at metadata level**
-- 1958 A. Reymond article content = **OPEN**
+- 1958 A. Reymond separate 60th-anniversary article = **RETRACTED AS A SEARCH TARGET** after user inspection found no separate article; p.120 advertisement is the confirmed relevant item
 - 1948 / 1973 Mémoires d'Ici document content = **OPEN**
 - broad Web repetition is still not justified; next gain requires document-level access rather than another generic search pass
 
@@ -3475,11 +3475,30 @@ On the visible text of p.120, there is **no identified mention** of:
 - alarm wristwatches / `réveil`
 - A. Schild **AS 1475**
 
-This is a **page-level negative result only**. It does **not** establish that the separate A. Reymond 60th-anniversary article, neighboring pages, or the rest of the 1958 annual volume omit the Blind Alarm.
+This is a **page-level negative result only**. User inspection found no separate A. Reymond 60th-anniversary article, so that previously assumed article is no longer an OPEN target. This still does **not** establish that neighboring pages or the rest of the 1958 annual volume omit the Blind Alarm.
 
 #### Research consequence
 
 - p.120 is now **CONTENT-READ / PRIMARY**, not metadata-only.
 - It is useful as a 1958 company-self-description of A. Reymond's then-emphasized production program.
 - It **does not fill** the ARSA Blind Alarm period-primary gap and must not be substituted for a period Blind Alarm advertisement/catalog record.
-- The status of the separately referenced A. Reymond 60th-anniversary article remains **OPEN until its actual article pages are identified and read**.
+- The previously assumed separate A. Reymond 60th-anniversary article is **RETRACTED AS A SEARCH TARGET**; user inspection found no such separate article.
+
+
+### 2026-10-07 — correction: no separate JSH 1958 A. Reymond 60th-anniversary article
+
+**ORIGIN:** user inspection of The Watch Library 1958 volume after p.120 was identified.
+
+**Classification:** USER-REPORT / SEARCH-TARGET CORRECTION.
+
+The user reports that there is **no separate A. Reymond 60th-anniversary article** corresponding to the previously assumed article target. The earlier research state had treated the bibliographic / contents reference as if it denoted a distinct article, while the confirmed material is the p.120 full-page A. Reymond S.A. 60th-anniversary advertisement.
+
+**Reversal target:** “A. Reymond 60th-anniversary article exists; article pages/content remain OPEN.”
+
+**New evidence:** direct user inspection of the 1958 Watch Library volume after the p.120 advertisement was located.
+
+**Current handling:**
+- p.120 advertisement = PERIOD-PRIMARY / CONTENT-READ
+- separate A. Reymond 60th-anniversary article = **not retained as an OPEN search target**
+- p.120 contains no identified Blind Alarm / blind-watch / réveil / AS1475 reference
+- absence on p.120 does not prove absence across all 822 pages
