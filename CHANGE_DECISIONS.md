@@ -30,7 +30,7 @@
 - **採否・現在状態**：Catch / Lead / NOTE = `FINAL`。ARSA通常WATCHの `published: false` は維持し、日本語RESEARCH routeが同一canonical sourceからFINAL稿を表示する。到着後実測は個体事実の補完であり、このcopy FINALを自動で撤回しない。
 - **影響範囲**：`src/content/watches/arsa-blind-alarm.md` のCatch / Lead / DEEP DIVE 04第1段落、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` のcopy CURRENT、本判断履歴。NOTE、guide、SPEC、DEEP DIVE 01–03 / 05、画像placeholder、通常WATCH公開flag、RESEARCH公開設定、EN / DE、他WATCH、UIは変更しない。
 - **検証状態**：branch `feat/arsa-final-copy-audit-20261007` で実装。exact text、OWNER copy provenance、Japanese style、citation / source traceability、decision log、build / publication output、PR CIを確認し、main merge後にPages deployとlive `/research/arsa-blind-alarm/` のFINAL稿を確認してDEPLOYED / VERIFIEDとする。
-- **関連**：2026-10-03 12:52 JST「ARSAの現SUB / NOTEをユーザー原文で復元」、2026-10-06 09:16 JST「ARSA OWNER'S NOTEをユーザー確定稿へ更新」、2026-10-07 08:03 JST「ARSA完成稿を同一正本のRESEARCH routeとして先行公開」。
+- **関連**：PR #213、実装commits `7ca466e8` / `0721227f` / `4bd59825`。2026-10-03 12:52 JST「ARSAの現SUB / NOTEをユーザー原文で復元」、2026-10-06 09:16 JST「ARSA OWNER'S NOTEをユーザー確定稿へ更新」、2026-10-07 08:03 JST「ARSA完成稿を同一正本のRESEARCH routeとして先行公開」。
 - **日時根拠**：ChatGPT time取得値 `2026-10-07T09:08:05+09:00` → `2026-10-07 09:08 JST`。
 
 ### 2026-10-07 08:03 JST — ARSA完成稿を同一正本のRESEARCH routeとして先行公開
