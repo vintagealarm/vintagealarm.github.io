@@ -16,6 +16,23 @@
 ---
 
 ## 2026-10-07
+
+### 2026-10-07 09:08 JST — ARSAのユーザーCatch / SubをFINAL化し比較記述のA. Schild過剰一般化を修正
+
+- **変更**：ARSA Blind AlarmのCatchを `開けて、触って、聞く。`、Lead / Subを `文字盤を覆う蓋が開く。／現在時刻も、アラーム時刻も、指先で読む。／設定した時刻になれば、／今度は耳の出番。` へ変更し、ユーザー原文をFINALとしてcanonical sourceへ反映する。現行NOTE 7行稿は変更しない。DEEP DIVE 04冒頭は、蓋を開けて直接触読する構成をARSA / Enicar / BEATに限定し、UI詳細未確認のA. Schild prototypeまで「いずれも」と一般化しない。
+- **理由**：2026-10-07の再監査で、RESEARCH公開面が旧Catch / Leadと新NOTEの混在状態であること、DEEP DIVE 04冒頭がA. Schild prototypeの蓋構造を未確認とする同章後段と内部矛盾することを確認した。ユーザーが監査内容を「全採用で俺のキャッチサブを反映」と明示したため、10月3日から保持していたUSER-origin Catch / Subを公開正本へ昇格する。
+- **REVERSAL TARGET**：Research Mapの `Catch WORKING_MAIN / Public FINAL status: 未実施 / 到着後Reality gate待ち` と、公開canonical sourceに残っていた旧Catch / Lead。
+- **NEW EVIDENCE**：2026-10-07 09:08 JSTのユーザー明示採用「全採用で俺のキャッチサブを反映」。加えて再監査で、A. Schild prototypeは『Alarm am Arm』から存在・AS1475・ステンレスケースまでは固定できる一方、蓋構造・触覚符号は固定できず、現行04後段も同じ未確認境界を明記していることを再確認した。
+- **旧状態・棄却**：旧Catch `蓋を開けて、時刻を触る。／アラームの予約時刻まで、指先で読む。` と旧Lead 3行を公開正本へ残す状態を終了する。Catch / Subを到着後まで自動保留へ戻す運用も今回のユーザー明示採用により終了する。AIが以前提案しユーザーが棄却したNOTEの `触読では、秒針は…` 修正案は復活させない。A. Schild prototypeへ未確認の蓋・触覚UIを付与する解釈も棄却する。
+- **対象WATCH**：ARSA Blind Alarm。
+- **起点・帰属**：Catch `開けて、触って、聞く。` とLead / Sub 4行はUSER-origin。NOTE現行7行稿もUSER-originで維持。DEEP DIVE 04のscope defectは2026-10-07再監査でAIが検出し、ユーザーが「全採用」で修正を採用した。
+- **VA温度比較**：作業時点で `published: true` の日本語WATCH 6本（Basis / Citizen / Cyma / Pierce / Westclox / Wittnauer）の現行Catch / Leadを全件横並び確認。ARSA Catchは日常動作語3つで機能順を圧縮する中温度、Leadは蓋→現在時刻・アラーム時刻の触読→音という時計固有動作へ即座に戻る。Pierce / Westcloxのような外部文化フレームへ依存せず、障害・戦傷・リハビリの背景を笑いの材料にもしていないためSensitive-context collisionなし。
+- **採否・現在状態**：Catch / Lead / NOTE = `FINAL`。ARSA通常WATCHの `published: false` は維持し、日本語RESEARCH routeが同一canonical sourceからFINAL稿を表示する。到着後実測は個体事実の補完であり、このcopy FINALを自動で撤回しない。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` のCatch / Lead / DEEP DIVE 04第1段落、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` のcopy CURRENT、`.codex/inference-guard-cases.json` のARSA copy-state回帰fixture、本判断履歴。NOTE、guide、SPEC、DEEP DIVE 01–03 / 05、画像placeholder、通常WATCH公開flag、RESEARCH公開設定、EN / DE、他WATCH、UIは変更しない。
+- **検証状態**：branch `feat/arsa-final-copy-audit-20261007` で実装。PR #213初回CIでは、旧WORKING_MAIN状態を固定していた `STATE-ARSA-COPY-001` Replay anchorが正しくFAILし、今回のFINAL状態へfixtureを更新した。exact text、OWNER copy provenance、Japanese style、citation / source traceability、decision log、build / publication output、再CIを確認し、main merge後にPages deployとlive `/research/arsa-blind-alarm/` のFINAL稿を確認してDEPLOYED / VERIFIEDとする。
+- **関連**：PR #213、実装commits `7ca466e8` / `0721227f` / `4bd59825` / `c71c3127`。2026-10-03 12:52 JST「ARSAの現SUB / NOTEをユーザー原文で復元」、2026-10-06 09:16 JST「ARSA OWNER'S NOTEをユーザー確定稿へ更新」、2026-10-07 08:03 JST「ARSA完成稿を同一正本のRESEARCH routeとして先行公開」。
+- **日時根拠**：ChatGPT time取得値 `2026-10-07T09:08:05+09:00` → `2026-10-07 09:08 JST`。
+
 ### 2026-10-07 08:03 JST — ARSA完成稿を同一正本のRESEARCH routeとして先行公開
 
 - **変更**：全体RESEARCHを日本語で公開し、第一号として `/research/arsa-blind-alarm/` を追加する。専用routeは `src/content/watches/arsa-blind-alarm.md` を直接読み、現行のCatch / OWNER'S NOTE / SPEC / DEEP DIVE / SOURCESを別コピーせず同一内容で表示する。HISTORYのRESEARCH欄から同routeへ導線を追加し、sitemap / llms / build・layout・live gateへ接続する。ARSA通常WATCHは `published: false` のまま維持し、OWNER'S NOTES一覧・HISTORY所有個体レールには出さない。RESEARCH画像は現行placeholderを使用し、COMING SOON等の制作メタは表示しない。現時点のRESEARCH公開言語は日本語のみ。
