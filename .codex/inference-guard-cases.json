@@ -196,16 +196,16 @@
     },
     {
       "id": "STATE-ARSA-COPY-001",
-      "title": "ARSA WORKING_MAIN must not be replaced by currently published catch",
-      "premise": "ARSAには公開中catchと、後からUSER起点で固定されたWORKING_MAINが併存する",
-      "forbidden_inference": "src/content/watches/arsa-blind-alarm.mdの公開catchだけを見て、コピー検討上の現working mainまで同一だと断定する",
-      "required_action": "質問が『今進めているcatch』を指す場合はper-WATCH current boardを先に確認し、USER起点の「開けて、触って、聞く。」= WORKING_MAIN / FINAL未実施と答える。公開中copyとは分離する。CHANGE_DECISIONSは起点・採否・撤回理由の履歴として必要時だけ開く",
+      "title": "ARSA USER-origin FINAL copy must not regress to superseded catch or WORKING state",
+      "premise": "ARSAのUSER起点Catch / Leadは2026-10-07に明示採用され、Research Mapとcanonical sourceの双方でFINALへ昇格した",
+      "forbidden_inference": "旧公開catchや過去のWORKING_MAIN / FINAL未実施状態をCURRENTとして復活させる、または到着後Reality checkを理由にFINALを自動で保留へ戻す",
+      "required_action": "質問が『今のARSAキャッチ／サブ』を指す場合はper-WATCH current boardとcanonical sourceを確認し、Catch「開けて、触って、聞く。」と4行Lead / SubをUSER-origin FINALとして答える。通常WATCHのpublished=falseと日本語RESEARCH公開は別のpublication stateとして扱う",
       "status": "LOCKED_REGRESSION",
       "replay": {
         "failure_class": "state_resolution",
-        "prompt": "ARSAで今進めてるキャッチ何だっけ？",
-        "expected_resolution": "コピー検討上のWORKING_MAINはユーザー発「開けて、触って、聞く。」。公開FINAL化は未実施。公開中WATCHのcatchは別状態として区別する。",
-        "forbidden_resolution": "公開ファイルの「蓋を開けて、時刻を触る。／アラームの予約時刻まで、指先で読む。」をWORKING_MAINとして返す、またはWORKING_MAINを公開済みFINALとする。",
+        "prompt": "ARSAで今のキャッチとサブ何だっけ？",
+        "expected_resolution": "Catchはユーザー発「開けて、触って、聞く。」でFINAL。Lead / Subは「文字盤を覆う蓋が開く。／現在時刻も、アラーム時刻も、指先で読む。／設定した時刻になれば、／今度は耳の出番。」でFINAL。旧catchやWORKING未確定状態へ戻さない。",
+        "forbidden_resolution": "旧catch「蓋を開けて、時刻を触る。／アラームの予約時刻まで、指先で読む。」をCURRENTとして返す、またはCatchをWORKING_MAIN / FINAL未実施と答える。",
         "routing_path": [
           "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
           "src/content/watches/arsa-blind-alarm.md"
@@ -216,19 +216,22 @@
           {
             "path": "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
             "contains": [
-              "OWNER'S NOTE copy working state — query-time CURRENT",
-              "Catch WORKING_MAIN / USER-origin",
+              "OWNER'S NOTE copy state — query-time CURRENT",
+              "Catch FINAL / USER-origin",
               "`開けて、触って、聞く。`",
-              "Public FINAL status",
-              "未実施",
-              "Currently published catch"
+              "Lead / Sub FINAL / USER-origin",
+              "`文字盤を覆う蓋が開く。`",
+              "`今度は耳の出番。`",
+              "Reality rule"
             ]
           },
           {
             "path": "src/content/watches/arsa-blind-alarm.md",
             "contains": [
-              "蓋を開けて、時刻を触る。",
-              "アラームの予約時刻まで、指先で読む。"
+              "開けて、触って、聞く。",
+              "文字盤を覆う蓋が開く。",
+              "現在時刻も、アラーム時刻も、指先で読む。",
+              "今度は耳の出番。"
             ]
           }
         ]
