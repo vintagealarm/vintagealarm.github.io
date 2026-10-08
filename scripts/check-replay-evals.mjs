@@ -23,6 +23,7 @@ const requiredReplayIds = [
   'STATE-CYMA-LAB-001',
   'PUBLICATION-ARSA-001',
   'REPORT-JST-PREFIX-001',
+  'VA-BOOT-HARD-GATE-001',
 ];
 
 const errors = [];
@@ -51,7 +52,11 @@ assert(
   String(replayConfig.principle || '').includes('do not create a second accident database'),
   'replay_eval principle must preserve the single-fixture design',
 );
-assert(bootPaths.length >= 3, 'replay_eval.boot_paths must contain the mandatory VA boot path');
+const expectedBootPaths = ['PROJECT.md', 'AGENTS.md', 'PROJECT_STATE.md'];
+assert(
+  JSON.stringify(bootPaths) === JSON.stringify(expectedBootPaths),
+  'replay_eval.boot_paths must exactly equal PROJECT.md → AGENTS.md → PROJECT_STATE.md in that order',
+);
 
 for (const path of bootPaths) {
   if (!existsSync(resolve(root, path))) fail(`boot path does not exist: ${path}`);
