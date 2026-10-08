@@ -1,5 +1,7 @@
 # VINTAGE ALARM — 作業エージェント案内
 
+VA案件の各ユーザーメッセージに対するfresh boot契約の正本は `PROJECT.md` §0。ここに同じ規則を複製しない。下記の起動順序はfresh `PROJECT.md` 取得後のrepo内手順であり、後段のcontext節約にある再取得抑制はmandatory bootを妨げない。
+
 このリポジトリで作業する前に、まず `PROJECT_STATE.md` を読む。
 
 `PROJECT_STATE.md` は現在位置と正本へのルーターであり、実装そのものの正本ではない。本番・確定状態はGitHub `main` と対象ファイルで確認する。作業中のbranch / PRがある場合は、そのbranch / PRと対象ファイルを先に確認し、`main`との差分だけを理由に未実装・旧仕様と判断しない。

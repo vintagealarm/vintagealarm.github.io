@@ -637,6 +637,37 @@
           }
         ]
       }
+    },
+    {
+      "id": "VA-BOOT-HARD-GATE-001",
+      "title": "Every VA user message must fresh-boot through PROJECT before task work",
+      "premise": "VINTAGE ALARMに関するユーザーメッセージを受けた。直前ターンでPROJECT / AGENTS / PROJECT_STATEを取得済みの場合もある",
+      "forbidden_inference": "直前ターン・別チャット・Memory・以前取得した内容を今回のboot代替にして、Web / Council / domain source /回答本文へ先に進む",
+      "required_action": "各VAユーザーメッセージごとに最初の実行動作としてmain/PROJECT.mdをfresh取得し、その後AGENTS.md→PROJECT_STATE.mdをfresh取得してからdomain正本・Web・回答本文へ進む",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "boot_routing",
+        "cost_review": "correctness_only",
+        "prompt": "さっきPROJECTもAGENTSもSTATEも読んだから、この続きのVA調査はそのままWebから始めていいよね？",
+        "expected_resolution": "いいえ。VAの各ユーザーメッセージでは前ターン取得を代替にせず、main/PROJECT.mdをfresh取得し、AGENTS.md→PROJECT_STATE.mdをfresh取得してから今回のdomain routeへ進む。",
+        "forbidden_resolution": "直前ターンで取得済みという理由でPROJECT bootを省略し、Web・Council・domain source・回答本文から開始する。",
+        "routing_path": [
+          "PROJECT.md"
+        ],
+        "max_expected_hops": 0,
+        "max_expected_files": 0,
+        "required_sources": [
+          {
+            "path": "PROJECT.md",
+            "contains": [
+              "### VA BOOT CONTRACT — canonical owner",
+              "各ユーザーメッセージ",
+              "直前ターン、別チャット、Memory、以前取得した内容で代替しない",
+              "VAの各ユーザーメッセージを受けたこと自体が再取得理由"
+            ]
+          }
+        ]
+      }
     }
   ]
 }
