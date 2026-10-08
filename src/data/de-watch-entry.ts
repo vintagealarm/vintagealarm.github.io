@@ -64,28 +64,27 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
     title: 'ARSA Blind Alarm — taktile Wecker-Armbanduhr mit AS 1475 | VINTAGE ALARM',
     description: 'ARSA Blind Alarm mit AS 1475: aufklappbarer Vorderdeckel, erhabene Tastmarken und Zeiger sowie ein Alarmzeiger, dessen eingestellte Zeit ertastet werden kann.',
     indexBlurb: 'Den Vorderdeckel öffnen und sowohl die Uhrzeit als auch die Alarmzeit mit der Fingerspitze lesen.',
-    catch: ['Deckel öffnen und die Zeit ertasten.', 'Sogar die vorgemerkte Alarmzeit lässt sich mit der Fingerspitze lesen.'],
+    catch: ['Öffnen. Fühlen. Hören.'],
     ownersNote: {
       lead: [
-        'Ein Druck auf die Mitte der Krone bei 4 Uhr öffnet den Vorderdeckel.',
-        'Die aktuelle Zeit wird an den erhabenen Marken und breiten Zeigern ertastet,',
-        'die eingestellte Weckzeit am mittleren Alarmzeiger.'
+        'Der Deckel über dem Zifferblatt lässt sich öffnen.',
+        'Sowohl die aktuelle Uhrzeit als auch die Alarmzeit liest man mit den Fingerspitzen.',
+        'Wenn die eingestellte Zeit erreicht ist,',
+        'sind die Ohren dran.'
       ],
       guideTitle: 'Kurzanleitung',
       guide: [
-        'Die folgenden Angaben beruhen auf der Literatur. Bedienung und Zustand des gezeigten Exemplars werden nach seiner Ankunft geprüft.',
-        '1. Vorderdeckel öffnen — den Drücker in der Mitte der Aufzugskrone bei 4 Uhr betätigen',
-        '2. Uhrzeit lesen — die erhabenen Marken sowie Stunden- und Minutenzeiger ertasten',
-        '3. Alarmzeit lesen — am mittleren Alarmzeiger die eingestellte Zeit prüfen',
-        '4. Alarmzeit einstellen — die Alarmkrone bei 2 Uhr verwenden',
-        '5. Aufziehen — Uhrwerk und Alarmwerk mit den jeweiligen Kronen aufziehen'
+        '① Vorderdeckel öffnen — Drücker in der Mitte der 4-Uhr-Krone drücken.',
+        '② Gehwerk aufziehen / Uhrzeit stellen — 4-Uhr-Krone: Normalposition zum Aufziehen; eine Rastung ziehen, um die Uhrzeit zu stellen.',
+        '③ Wecker aufziehen / Alarmzeit stellen — 2-Uhr-Krone: Normalposition zum Aufziehen; eine Rastung ziehen, um die Alarmzeit zu stellen.',
+        '④ Hinweis / Alarm EIN–AUS — Angaben laut Literatur, am Exemplar ungeprüft. EIN/AUS unterscheidet sich bei frühen und späten Versionen; für dieses Exemplar noch unbestätigt.'
       ],
       noteTitle: 'NOTE',
       note: [
-        'Auf dem Zifferblatt liegen erhabene Stundenmarken und drei Zeiger.',
-        'Stunden- und Minutenzeiger sind so breit ausgeführt, dass sie direkt berührt werden können; ein Sekundenzeiger fehlt.',
-        'Der Öffner des Vorderdeckels sitzt in der Mitte der Aufzugskrone bei 4 Uhr.',
-        'Die Uhr übersetzt ihre Zustände in Formunterschiede und gibt unsichtbare Information an die Fingerspitze weiter.'
+        'Auf dem Zifferblatt der ARSA Blind Alarm stehen erhabene Stundenmarkierungen, die sich mit dem Finger ertasten lassen.',
+        'Auch Stunden- und Minutenzeiger sind robust genug ausgeführt, um direkt berührt zu werden. Einen Sekundenzeiger gibt es nicht.',
+        'Ein Sekundenzeiger würde das Ablesen mit den Fingerspitzen stören; bei Berührung könnte die Uhr stehen bleiben.',
+        'Der Drücker zum Öffnen des Deckels sitzt in der Mitte der Gehwerkkrone bei 4 Uhr. Und übrigens: Eine Narkosenadel fährt dabei nicht heraus.'
       ]
     },
     spec: {
@@ -189,7 +188,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ],
       guideTitle: 'Kurzanleitung',
       guide: [
-        '① Aufziehen — Krone in Normalposition: zieht die Zugfedern von Gehwerk und Alarm in derselben Drehrichtung auf',
+        '① Aufziehen — Krone in Normalposition: im Uhrzeigersinn drehen, um die Zugfedern von Gehwerk und Alarm aufzuziehen',
         '② Uhrzeit einstellen — Krone herausziehen und die Zeiger stellen',
         '③ Alarmzeit einstellen — Lünette gegen den Uhrzeigersinn drehen',
         '④ Alarm EIN/AUS — Schieber bei 9 Uhr: oben = AUS / unten = EIN',
@@ -197,9 +196,10 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'Die Basis Alarm verwendet das Baumgartner BFG 90, ein frühes Werk für Wecker-Armbanduhren, das auch unter Namen wie Lantex, Sheffield, Simplon und Tior zu finden ist.',
-        'Anders als bei hochpreisigen Modellen wie Memovox oder Cricket liegen beim BFG 90 viele Funktionen offen sichtbar an der Uhr: Drehlünette, Schieber und zwei Aufzugskontrollfenster.',
-        'Gerade diese direkte Mechanik macht die Uhr heute so angenehm sichtbar und fühlbar.'
+        'Die Basis Alarm ist eine frühe Wecker-Armbanduhr mit dem Baumgartner BFG 90.',
+        'Abseits hochwertiger Uhren wie Memovox und Cricket war das BFG 90 ein praktisches Werk, das unter Namen wie Basis, Lantex, Sheffield, Simplon und Tior Verbreitung fand.',
+        'Kein raffiniertes Spitzenmodell, sondern eine Gebrauchsuhr, die ihre Funktionen offen zeigt.',
+        'Gerade deshalb bleibt die Freude am Anschauen, Anfassen und Klingelnlassen.'
       ]
     },
     spec: {
@@ -443,7 +443,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'Eigenwillige Ziffernindizes.',
+        'Eigenwillige dreieckige Indizes.',
         'Ein wellenförmig gebogener Alarmzeiger.',
         'Eine weit vorstehende Drehlünette und eine kleine Krone, die halb im Gehäuse verschwindet.',
         'Durch den Sichtboden ist nur die Gehwerkseite zu sehen.',
@@ -631,10 +631,10 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'Das Prinzip, je nach Situation zwischen einem hörbaren Ton und einer diskreten Benachrichtigung zu wählen, verbreitete sich erst von den späten 1980er- bis in die 1990er-Jahre, als Pager- und Mobiltelefonfunktionen allgemein üblich wurden.',
-        'Unabhängig von dieser späteren Entwicklung hatte die Duofon bereits in den 1950er-Jahren mechanisch umgesetzt, wie laut oder zurückhaltend eine Benachrichtigung ausfallen sollte.',
-        'Mit der Krone bei 4 Uhr wählt man den Alarmmodus; das kleine Fenster unter 6 Uhr zeigt den gewählten „Tonfall“ in Rot oder Weiß.',
-        'Für eine Wecker-Armbanduhr nahm sie die Zukunft erstaunlich früh vorweg.'
+        'Je nach Situation hörbar oder diskret zu benachrichtigen, wurde erst Ende der 1980er- bis in die 1990er-Jahre üblich, als sich Pager- und Mobiltelefonfunktionen verbreiteten.',
+        'Unabhängig davon hatte die Duofon schon in einer Armbanduhr der 1950er-Jahre die „Distanz“ einer Benachrichtigung mechanisiert.',
+        'Die 4-Uhr-Krone wählt den Klang; das kleine Fenster unter 6 Uhr zeigt den „Tonfall“.',
+        'Für eine Wecker-Armbanduhr nahm sie die Zukunft viel zu früh vorweg.'
       ]
     },
     spec: {

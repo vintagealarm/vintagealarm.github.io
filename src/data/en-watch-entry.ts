@@ -30,28 +30,27 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
     title: 'ARSA Blind Alarm — Tactile Mechanical Alarm Watch | VINTAGE ALARM',
     description: 'ARSA Blind Alarm with AS 1475: an opening front cover, raised tactile markers and hands, and an alarm hand whose set time can be read by touch.',
     indexBlurb: 'Open the front cover and read both the current time and the alarm time with a fingertip.',
-    catch: ['Open the cover and touch the time.', 'Read even the scheduled alarm time with a fingertip.'],
+    catch: ['Open it. Touch it. Listen.'],
     ownersNote: {
       lead: [
-        'Press the centre of the crown at 4 o’clock and the front cover opens.',
-        'Read the current time from the raised markers and broad hands,',
-        'then touch the central alarm hand to check the time at which it is set to ring.'
+        'The cover over the dial opens.',
+        'Both the current time and the alarm time are read with your fingertips.',
+        'When the set time arrives,',
+        'it’s your ears’ turn.'
       ],
       guideTitle: 'Quick operating guide',
       guide: [
-        'The following is based on the literature. Operation and condition of the shown specimen remain to be checked after arrival.',
-        '1. Open the front cover — press the pusher in the centre of the time-setting crown at 4 o’clock',
-        '2. Read the time — touch the raised markers and the hour and minute hands',
-        '3. Read the alarm time — touch the central alarm hand to check its set time',
-        '4. Set the alarm — use the alarm crown at 2 o’clock',
-        '5. Wind the watch — wind the timekeeping and alarm sides with their respective crowns'
+        '① Open the front cover — Press the center pusher on the 4 o’clock crown.',
+        '② Wind and set the time — 4 o’clock crown: normal position to wind; pull out one step to set the time.',
+        '③ Wind and set the alarm — 2 o’clock crown: normal position to wind; pull out one step to set the alarm time.',
+        '④ Verification / alarm ON–OFF — These are documented, not specimen-tested steps. ON/OFF differs between early and later versions; this specimen’s operation remains unconfirmed.'
       ],
       noteTitle: 'NOTE',
       note: [
-        'The dial carries raised hour markers and three hands.',
-        'The hour and minute hands are made broad enough to touch directly; a seconds hand is omitted.',
-        'The control that opens the front cover is housed in the centre of the time-setting crown at 4 o’clock.',
-        'The watch turns its states into differences of shape and passes otherwise invisible information to the fingertip.'
+        'The dial of the ARSA Blind Alarm has raised hour markers that can be read by touch.',
+        'The hour and minute hands are also built sturdy enough to be touched directly. There is no seconds hand.',
+        'A seconds hand would interfere with reading by touch, and touching it could stop the watch.',
+        'The pusher that opens the cover sits in the center of the timekeeping crown at 4 o’clock. And no, there’s no anesthetic needle.'
       ]
     },
     spec: {
@@ -89,7 +88,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'Distinctive numeral indices.',
+        'Distinctive triangular indices.',
         'A wavering alarm hand.',
         'A projecting rotating bezel and a small crown half-hidden by the case.',
         'Through the display back, only the timekeeping side is visible.',
@@ -123,7 +122,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ],
       guideTitle: 'Quick operating guide',
       guide: [
-        '① Winding — crown in normal position: winds both the timekeeping and alarm mainsprings in the same direction',
+        '① Winding — crown in normal position: turn clockwise to wind both the timekeeping and alarm mainsprings',
         '② Time setting — pull the crown and set the hands',
         '③ Alarm setting — rotate the bezel counter-clockwise to set the alarm time',
         '④ Alarm ON / OFF — 9 o’clock slider: up = OFF / down = ON',
@@ -131,9 +130,10 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'The Basis Alarm uses the Baumgartner BFG 90, an early alarm-wristwatch movement also found under names such as Lantex, Sheffield, Simplon and Tior.',
-        'Rather than hiding its functions, the BFG 90 lets its mechanism show through the rotating bezel, slider and two winding-indicator windows.',
-        'That directness is what makes the watch unusually tactile and visual today.'
+        'The Basis Alarm is an early alarm wristwatch powered by the Baumgartner BFG 90.',
+        'Apart from high-end watches such as the Memovox and Cricket, the BFG 90 was a practical movement used under names including Basis, Lantex, Sheffield, Simplon and Tior.',
+        'A utilitarian watch with its functions out in the open, rather than the refinement of a high-end model.',
+        'That is precisely why the pleasure of looking, touching and sounding it remains.'
       ]
     },
     spec: {
@@ -158,8 +158,11 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       lead: [
         'A gold chronometer that rings.',
         'From the front, a dress watch.',
-        'From the side, almost a chronograph.',
-        'Thin despite the complication — and marked Chronomètre.'
+        'From the side, a chronograph.',
+        'Thin despite the complication.',
+        'And an alarm with a chronometer.',
+        'Packed with contradictions.',
+        'One extreme of the alarm wristwatch.'
       ],
       guideTitle: 'Quick operating guide',
       guide: [
@@ -167,13 +170,14 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
         '② Time setting — press the upper pusher, pull the crown and turn',
         '③ Alarm setting — press the lower pusher and turn the crown',
         '④ ON / OFF — both pushers centered = ON; press either pusher = OFF',
-        'The alarm time can be set in either direction; the Japanese research note recommends counter-clockwise setting when prioritizing precision.'
+        'The alarm time can be set in either direction; counter-clockwise setting is recommended when prioritizing precision.'
       ],
       noteTitle: 'NOTE',
       note: [
         'Alarm wristwatches carrying a Chronomètre designation were rare in period documentation.',
         'The Time-O-Vox drives both timekeeping and alarm from a single barrel, so sounding the alarm also consumes the energy used for timekeeping.',
-        'This specimen combines that mechanism with an 18K gold case and distinctive open-worked lugs.'
+        'Even so, the dial says Chronomètre.',
+        'There was even a specially designed solid-gold case with open-worked lugs.'
       ]
     },
     spec: {

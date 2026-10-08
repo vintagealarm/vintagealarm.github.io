@@ -15,6 +15,23 @@
 
 ---
 
+## 2026-10-09
+
+### 2026-10-09 06:21 JST — OWNER'S NOTE全21枚の旧PASS撤回・差分修復・根拠別HOLD
+
+- **変更**：Google Slides 21枚を原本保全後に全数再監査し、操作見出し／方法の分離、段落間隔、折り返し、翻訳脱落を差分修復。GitHubはWittnauerの数字→三角インデックスをJA / EN / DEへ反映し、BasisのNOTE脱落と巻き上げ方向の訳、Pierce DEの「距離」比喩、Cyma EN / DEのLead脱落・追加語、ARSAの確定日本語稿に対する旧翻訳と操作ガイドを修復する。ARSAの操作ガイドは全言語4項目とし、文献記載と掲載個体未確認を明示する。
+- **理由**：ユーザーが提示した画像の階層・行間不良は、文字列取得やPNG生成成功だけでは検出できない。実レンダリングを再確認し、NOTEの意味単位と掲載写真も照合した結果、旧全21枚PASSを維持できなかった。
+- **REVERSAL TARGET**：旧監査報告の全21枚PASS／完成判定、Wittnauerの数字インデックス記述、Basisの音・高級機対比が脱落した訳、ARSAに残る旧Catch / Lead訳。
+- **NEW EVIDENCE**：最新deckの要素・実レンダリング、Wittnauer掲載写真、現行日本語WATCH、Horlbeckの各機種操作記述、Beitl所収Pierceメーカー説明（1955-08-30、pp.354–355）、Beitl p.134とCitizen pp.122–125の再照合。
+- **旧状態・棄却**：旧PNG／旧報告は履歴として保存し合格判定を撤回。写真・罫線・背景・フッターの再デザイン、ARSA公開化、manifestの無断21枚化、文献値15分／48回をWestclox掲載個体の約12分／60回へ混同する案、HorlbeckだけでPierceの方向を反転する案、未確認のCyma精度影響断定を公開EN / DEへ追加する案を棄却・保留する。
+- **起点・帰属**：監査要求と組版欠陥の提示はUSER。既存日本語Catch / LeadおよびARSA NOTEはユーザー確定稿。今回の機械的差分検出と翻訳修復はAI。ARSA EN / DEのコピーは2026-10-07にFINAL化された日本語を翻訳同期するもので、新規コピーの発案・再選別ではない。
+- **影響範囲**：Google Slides revision `fRWrO_gExoUKVg` → `3isWfJZnMwozog`、対象19枚（Citizen EN / DEは無変更）。GitHubのWATCH 2ファイル、翻訳3ファイル、localization-fact-sync、既存Wittnauer / Cyma Ledger、本履歴。公開flag、manifest、画像素材、共通UI、他open PRの変更は触らない。
+- **検証状態**：最終native構造checkerは0件、21 PNGは全数目視・1600×2233実ピクセル・decode・固有SHA確認済み。GitHub差分はbuild／quality gateで別途検証する。全件合格ではない。Pierceの操作方向の文献差、ARSA掲載個体ON/OFFと蓋閉じ、CitizenのSlides「タイガー型」対WATCH「ダイバー型」、Cymaの精度影響文はHOLD。完成PNGとHOLD現状保存PNGは別ZIPに分離する。merge／deploy／live確認は本変更時点で未実施。
+- **関連**：制作正本 `https://docs.google.com/presentation/d/1Lcz0CEZncDw1GncI4RMY6qDmfO4Fknq4NvpGtBZAaLk/edit`、変更前backup `1D0ML55oeYXZzhdQm4iPpHFMms8py60PET-1eWMk5SEU`。base `2279112cb8da7493e214b3583894a0a76bbe4bdb`。open #214のARSA JSH広告記録、#211のSNS観測、#135の別研究とは変更ファイルが競合しない。
+- **HOLD再開条件**：Pierceは方向の視点・モードを同定できる個体操作証拠、ARSAは個体ON/OFFと開閉確認、Citizenは「タイガー型」の採用根拠または訂正判断、Cymaは該当する直接資料／実測または原文確度を変更する判断。未確認を不存在・誤り確定に変換しない。
+- **手順逸脱**：再開時の最初の実行動作をPROJECT fresh取得にできなかった。後からmainをfresh取得してPROJECT→AGENTS→PROJECT_STATEを確認したが、最初から契約どおりだったとは扱わない（G0 FAIL）。スライド品質ゲートとは分離する。
+- **日時根拠**：作業ホストのJST `2026-10-09 06:21:33 +09:00`。前日に開始した再監査の継続記録。
+
 ## 2026-10-08
 
 ### 2026-10-08 14:02 JST — VA各メッセージのfresh bootをPROJECT単一ownerへ固定
