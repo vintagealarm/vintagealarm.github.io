@@ -15,6 +15,20 @@
 
 ---
 
+## 2026-10-08
+
+### 2026-10-08 14:02 JST — VA各メッセージのfresh bootをPROJECT単一ownerへ固定
+
+- **変更**：VINTAGE ALARMに関する各ユーザーメッセージで、最初の実行動作をGitHub `main/PROJECT.md` のfresh取得とし、直前ターン・別チャット・Memory・以前取得した内容では代替しないboot contractを `PROJECT.md` §0 の単一canonical ownerとして追加した。PROJECT取得後は `AGENTS.md` → `PROJECT_STATE.md` をfresh取得してからdomain正本へ進む。AGENTS側は同規則を複製せずpointerだけを持ち、context節約の「既取得を理由なく再取得しない」はmandatory bootには適用しない。既存Replay fixtureへ `VA-BOOT-HARD-GATE-001` を追加し、Replay checkerは `PROJECT.md → AGENTS.md → PROJECT_STATE.md` のexact順序を要求する。project consistencyはPROJECTのboot ownerとAGENTS pointerを検査する。
+- **理由**：2026-10-08の実チャット監査で、VA follow-upにおいてfresh PROJECT取得を省略してWeb調査へ進む、条件追加ターンで前ターンの取得を流用する、Council要求でPROJECTより先にCouncil正本へ進む、というboot routing失敗が再発した。GitHub側にはmandatory boot pathsが存在したが、Replay checkerは3 path以上の存在確認に留まり、各ユーザーメッセージ単位のfreshness・順序をcanonicalに固定していなかった。
+- **REVERSAL TARGET**：VA bootを「新しい作業を始めるとき」のrepo内起動順と、一般的な再取得抑制だけで解釈し、follow-upユーザーメッセージでは直前取得を再利用できる余地がある状態。
+- **NEW EVIDENCE**：2026-10-08の同一会話で、①Web調査開始時のfresh boot省略、②購入条件追加時のfresh boot省略、③Council 5→1要求時にPROJECTより先にCouncil正本を取得、の複数再発を確認。さらに `scripts/check-replay-evals.mjs` がboot pathの存在は検査するがexact順序・fresh runtime取得を検査しないこと、`scripts/check-project-consistency.mjs` がPROJECTの起動契約本文をguardしていないことをmain実装で確認した。
+- **旧状態・棄却**：同じboot規則をPROJECT / AGENTS / PROJECT_STATE / Manager / Guardへ複製して安全性を上げる案、新DB / 新queue / 新runtimeを追加する案、静的Replayだけで実チャットのfirst tool actionまで保証したと扱う案を棄却する。runtime実行順の実観測はGitHub静的CIとは別層として保持する。
+- **影響範囲**：`PROJECT.md`、`AGENTS.md`、`.codex/inference-guard-cases.json`、`scripts/check-replay-evals.mjs`、`scripts/check-project-consistency.mjs`、本判断履歴。Manager / Fail-Closed / Council / Social / WATCH本文 / 公開UI / multi-agent設定は変更しない。
+- **検証状態**：branch `ops/va-boot-hard-gate-20261008` へ実装。Replay checker、project consistency、decision log、full quality gate、PR diff、PR CI、main反映後の再取得を確認して初めてVERIFIEDとする。GitHub静的検査はruntime first-tool-call保証とは分離する。
+- **関連**：2026-10-06 10:15 JST Control Plane再統合、12:56 JST Replay Eval導入、22:35 JST priority Replay追加、2026-10-07 06:08 JST Jester context gate、2026-10-08 1+7 boot監査。
+- **日時根拠**：developer-provided local time `2026-10-08T14:02+09:00` → `2026-10-08 14:02 JST`。
+
 ## 2026-10-07
 
 ### 2026-10-07 09:08 JST — ARSAのユーザーCatch / SubをFINAL化し比較記述のA. Schild過剰一般化を修正
