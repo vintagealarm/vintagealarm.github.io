@@ -6,7 +6,17 @@
 
 このリポジトリでVINTAGE ALARM案件を扱うとき、会話の流れ・記憶・一般論から現行仕様を補完しない。
 
-**必ず最初に `AGENTS.md` → `PROJECT_STATE.md` を確認し、対象分野の正本へ進む。**
+### VA BOOT CONTRACT — canonical owner
+
+VINTAGE ALARMに関する**各ユーザーメッセージ**を処理するとき、最初の実行動作は GitHub `main/PROJECT.md` のfresh取得とする。直前ターン、別チャット、Memory、以前取得した内容で代替しない。
+
+`PROJECT.md` fresh取得後に `AGENTS.md` → `PROJECT_STATE.md` をfresh取得し、対象分野の正本へ進む。必要正本未取得の状態ではタスク本文の回答・提案・分析・文章生成・実装を開始しない。
+
+このmandatory bootは、`AGENTS.md` のcontext節約にある「既に取得したファイル・検索結果・決定事項を理由なく再取得しない」の明示的な例外である。**VAの各ユーザーメッセージを受けたこと自体が再取得理由**になる。
+
+このboot契約のnormative ownerは `PROJECT.md` §0 のみ。AGENTS / PROJECT_STATE / Manager / Guard等には発見用pointerだけを置き、同じ本文を複製しない。
+
+**fresh `PROJECT.md` 取得後は、必ず `AGENTS.md` → `PROJECT_STATE.md` を確認し、対象分野の正本へ進む。**
 
 上位の情報源を確認できるのに下位情報で埋めない。
 
