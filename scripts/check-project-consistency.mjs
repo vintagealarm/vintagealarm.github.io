@@ -55,6 +55,13 @@ for (const [label, text, needle] of [
   ['PROJECT_STATE social pointer', state, socialRouter]
 ]) requireText(text, needle, label);
 
+requireText(project, '### VA BOOT CONTRACT — canonical owner', 'PROJECT VA boot canonical owner');
+requireText(project, 'VINTAGE ALARMに関する**各ユーザーメッセージ**', 'PROJECT per-message VA boot scope');
+requireText(project, '直前ターン、別チャット、Memory、以前取得した内容で代替しない', 'PROJECT fresh boot no-reuse rule');
+requireText(project, 'VAの各ユーザーメッセージを受けたこと自体が再取得理由', 'PROJECT boot refetch exception');
+requireText(agents, 'fresh boot契約の正本は `PROJECT.md` §0', 'AGENTS boot owner pointer');
+forbidText(agents, '### VA BOOT CONTRACT — canonical owner', 'AGENTS duplicated boot contract');
+
 requireText(codexConfig, 'multi_agent = false', 'Codex multi-agent safety');
 requireText(agents, '冒頭にホスト確認済みの `YYYY-MM-DD HH:mm JST` を表示する', 'AGENTS VA chat JST prefix');
 
