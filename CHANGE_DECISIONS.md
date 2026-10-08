@@ -26,7 +26,7 @@
 - **旧状態・棄却**：同じboot規則をPROJECT / AGENTS / PROJECT_STATE / Manager / Guardへ複製して安全性を上げる案、新DB / 新queue / 新runtimeを追加する案、静的Replayだけで実チャットのfirst tool actionまで保証したと扱う案を棄却する。runtime実行順の実観測はGitHub静的CIとは別層として保持する。
 - **影響範囲**：`PROJECT.md`、`AGENTS.md`、`.codex/inference-guard-cases.json`、`scripts/check-replay-evals.mjs`、`scripts/check-project-consistency.mjs`、本判断履歴。Manager / Fail-Closed / Council / Social / WATCH本文 / 公開UI / multi-agent設定は変更しない。
 - **検証状態**：branch `ops/va-boot-hard-gate-20261008` へ実装。Replay checker、project consistency、decision log、full quality gate、PR diff、PR CI、main反映後の再取得を確認して初めてVERIFIEDとする。GitHub静的検査はruntime first-tool-call保証とは分離する。
-- **関連**：2026-10-06 10:15 JST Control Plane再統合、12:56 JST Replay Eval導入、22:35 JST priority Replay追加、2026-10-07 06:08 JST Jester context gate、2026-10-08 1+7 boot監査。
+- **関連**：2026-10-06 10:15 JST Control Plane再統合、12:56 JST Replay Eval導入、22:35 JST priority Replay追加、2026-10-07 06:08 JST Jester context gate、2026-10-08 1+7 boot監査。実装commits `09f252e7` / `0b58d104` / `7f0d1810` / `f1d22287` / `c88b8640`。
 - **日時根拠**：developer-provided local time `2026-10-08T14:02+09:00` → `2026-10-08 14:02 JST`。
 
 ## 2026-10-07
