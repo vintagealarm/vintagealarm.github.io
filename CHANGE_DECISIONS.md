@@ -22,7 +22,7 @@
 - **旧状態・棄却**：03の無制限の1列表示を廃止する。全WATCH共通の`.deep-media`を狭くすること、元画像をリサイズすること、03を`compact-sequence`にして画像拡大の操作仕様まで変えること、動画幅や既存02の比較画像構成を変更することは採用しない。
 - **影響範囲**：`src/components/DeepDive.astro`の新しい限定クラス、`src/content.config.ts`の`mediaStyle`列挙への追加、およびPierce JA / EN / DEのDEEP DIVE 03の`mediaStyle`のみ。OWNER'S NOTE画像、本文・翻訳、動画、他の時計、既存Draft PR #216は不変更。
 - **検証状態**：実装後に差分・3言語の生成HTML・390pxおよびdesktop表示・他時計への非波及・CI / deploy / liveを段階的に確認する。未実施の検査はPASS扱いしない。
-- **関連**：2026-10-09ユーザースクリーンショット、Council 1（2ch民で焼く）の合意。
+- **関連**：2026-10-09ユーザースクリーンショット、Council 1（2ch民で焼く）の合意。関連実装commit `77531ecd` / `e6daf2c8` / `3e00ab27` / `81300c6b` / `49e82f21` / `8b5a5154`（JA / EN / DE、DeepDive、layout回帰、schema）。
 - **日時根拠**：ChatGPT time取得値 `2026-10-09T22:52:08+09:00` → `2026-10-09 22:52 JST`。
 
 ### 2026-10-09 19:57 JST — Pierce Duofon画像3言語版の差し替え
