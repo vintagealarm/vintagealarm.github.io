@@ -269,6 +269,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | YT-WES-20260914 | YOUTUBE | UNVERIFIED_PAST | LEGACY_VERIFIED | SHORT | WES-03 | WES-01 | YT:GWkY7hPO89E | experiment-log |
 
 | MR-PIE-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | PIE-07 | PIE-05,PIE-06 | PIE:WECKER-SIGNAL-SWITCH-VIDEO | published 2026-10-05 around 08:30 JST; exact copy in instagram-published-copy; first-hour Insights in instagram-insights-timeseries |
+| IG-WIT-CYM-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | WIT-01 | CYM-01 | IG:WIT-CYM-GONG-SOUND-COMPARISON-20261009 | 2026-10-09 11:53 Instagram Insights + Reel thumbnail; cross-watch audio comparison / CYMA starts at 0:18 by user description; exact posted caption and hashtags not yet screenshot-verified; insights-timeseries + published-copy status entry |
 
 現在の新規active reservationは0件。MR-PIE-001は2026-10-05にPUBLISHEDへ移行。
 
