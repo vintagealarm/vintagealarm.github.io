@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-10 08:06 JST — Citizen Alarm OWNER'S NOTEを添付原本PNG3言語に差し替え
+
+- **変更**：2026-10-10ユーザー添付のCitizen Alarm完成PNG（JA / EN / DE）を原本のまま `public/images/citizen-alarm/owners-note-{ja,en,de}-20261010.png` に登録。日本語WATCHとEN / DEの該当画像参照を切り替え、`scripts/check-build-output.mjs`に3言語の生成HTML参照・原本SHA-256の回帰検査を追加。
+- **理由**：ユーザーの明示的な3言語差し替え依頼。初回はAIがGoogle認証Secretの欠落を全体作業の阻害要因と誤判断したが、対応するGoogle Slidesの短期有効な画像取得結果を利用してGitHub Actions #38002565991で画像転送を成功させ、各ファイルのサイズ・寸法・SHA-256をユーザー添付と照合した。
+- **旧状態・棄却**：JA旧 `/images/citizen-alarm/owners-note.jpg` をEN / DEにも流用する状態を終了。原本の再生成、画像の再圧縮、本文・翻訳・他時計の変更はしない。旧JPEGは削除しない。認証Secret欠落を理由に全GitHub作業ができないと断定する判断も棄却。
+- **影響範囲**：Citizenの3枚の新規PNG、日本語 `src/content/watches/citizen-alarm.md`、英語・ドイツ語の画像参照のみ、ビルド回帰ゲート、判断履歴。一時転送workflowはbranch内で削除し最終差分に残さない。他の時計・動画・本文・デザイン・SEO設定は変更なし。
+- **検証状態**：JA `bf3dcacb73c1daeec3bbe03dc54e11d839463d7d72bb1a1576f9f476b325a444` 993728 bytes、EN `95f28ea000801f97aa36a36a15d2ac8850aaa2afe99e49603d1abf7aa3eee22a` 990879 bytes、DE `a6bd0511ff37df71109881c52c5c3333f2654a1d038d7707d0987a95f87c2853` 1021593 bytes。全1146×1600px。PR CI / main / deploy / liveは各工程で個別に判定し、未実施を成功扱いしない。
+- **関連**：ユーザー提示 `CITIZEN SPIKE_10.png`（JA）、`_11.png`（EN）、`_12.png`（DE）。画像移管GitHub Actions #38002565991。関連branch実装commit `34ea9bfb` / `dc7133cb` / `92a03f7d` / `b0121fd7` / `de1c4e76` / `72107f9a` / `94a80a1b` / `18cd1741` / `97d3401b`（一時workflowの生成・削除と本差分）。
+- **日時根拠**：ホスト確認 `2026-10-10T08:06:05+09:00` → `2026-10-10 08:06 JST`。
+
 ### 2026-10-10 00:09 JST — チャット内実行の無断Work移管・GitHub実行不可誤断定・途中沈黙の再発防止
 
 - **変更**：`.codex/MANAGER_CONTROL_PLANE.md` §2.5を、同一チャット内実行指定の遵守（Execution Surface Lock）、GitHub能力断定前の実接続・安全な書込確認（Capability Evidence Gate）、約20秒を目安とする事実ベースの途中更新（Progress / No Silent Stall）の単一規則正本として追加する。`AGENTS.md`には所在pointerのみ、`.codex/TASK_ENVELOPE_TEMPLATE.md`には案件単位の観測フィールドのみ追加。既存`.codex/inference-guard-cases.json`に `SURFACE-INCHAT-001` / `CAPABILITY-GITHUB-001` / `PROGRESS-NOSILENCE-001` をLOCKED_REGRESSIONとして追加し、`scripts/check-replay-evals.mjs`と`scripts/check-project-consistency.mjs`のCIゲートに接続。
