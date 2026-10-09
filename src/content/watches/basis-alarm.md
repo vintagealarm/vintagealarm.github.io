@@ -7,7 +7,7 @@ model: ALARM
 catch:
   - 触って、見て、聴いて楽しむおもちゃ箱。
 ownersNote:
-  image: /images/Basis Alarm(BFG90).png
+  image: /images/basis-alarm/owners-note-ja-20261009.png
   lead:
     - 触って、見て、聴いて楽しむおもちゃ箱。
     - ベゼルでアラームを合わせて、
