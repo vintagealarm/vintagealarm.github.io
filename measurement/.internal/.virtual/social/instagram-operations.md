@@ -2133,3 +2133,35 @@ SIGNALでは、打撃ピンが打撃位置から外れ、ハンマーはゴン�
 - **Revisit / falsifier**: 週3〜4運用で、1投稿あたりの非フォロワー配布・skip・保存／共有・フォロー・profile遷移・HOW THEY RING到達が継続的に悪化する、または制作品質／素材選定が崩れる場合は頻度レンジを再検討する。
 - **Status**: ACTIVE / USER_CONFIRMED.
 
+
+
+## 2026-10-10 00:31 JST — Instagram 10投稿プロフィールとグリッド観測
+
+### Evidence / scope
+- **Origin: USER_SCREENSHOT** — 2026-10-10 00:31 JSTのInstagramプロフィール画面2枚。公式Instagram UIをユーザーが撮影したもので、APIによる直接取得ではない。
+- Account: `vintagealarm` / display name `VintageAlarm` / **10 posts / 96 followers / 71 following**.
+- Professional dashboard summary: **過去30日間に3.4万回閲覧**。丸めた表示（約34,000 views）であり、ユニーク閲覧者・サイト流入・10投稿の累計とは異なる。
+- Bio: `I have a thing for mechanical alarm watches. 🔔 / Vintage watches that buzz, ring & rattle. / Photos, sounds and way too much digging.`
+- Link displayed (truncated): `vintagealarm.github.io/en/how-they-rin...`; existing canonical profile destination is `/en/how-they-ring/`.
+
+### Grid at 00:31 — latest to oldest, displayed views
+| Grid position | Assigned post / creative | Format from displayed icon or existing inventory | Views (displayed) |
+| --- | --- | --- | ---: |
+| R1C1 | `IG-WIT-CYM-001` Wittnauer 10WA vs CYMA gong comparison | Reel | 2,477 |
+| R1C2 | CYMA side-view still edited with music in Edits (user-described experiment) | Reel | 161 |
+| R1C3 | `MR-PIE-001` Pierce Duofon mechanism switching | Reel | 6,782 |
+| R2C1 | `IG-WIT-002` Wittnauer wrist/static follow-up | Static carousel (stack icon) | 67 |
+| R2C2 | `IG-CIT-001` Citizen Alarm | Reel | 1,533 |
+| R2C3 | `IG-WES-001` Westclox Watchlarm | Reel | 2,323 |
+| R3C1 | `IG-BAS-001` Basis BFG90 | Reel | `1.3万` (approx 13,000; not exact) |
+| R3C2 | `IG-PIE-001` first Pierce Duofon | Reel | 3,066 |
+| R3C3 | `IG-CYM-001` first CYMA Time-O-Vox | Reel | 1,887 |
+| R4C1 | `IG-WIT-001` first Wittnauer 10WA | Reel | 3,786 |
+
+### Interpretation boundary / next audit
+- These are **as-displayed lifetime post-grid views at one instant** and have unequal ages; do not rank performance by views/hour, skip, saves, follows or profile CTR from this screen.
+- Grid top-left comparison 2,477 is newer than Insights snapshot 2026-10-09 22:45 views 2,154; difference +323 display views, not a new full Insights snapshot.
+- The count `1.3万` is rounded, and the 30-day dashboard `3.4万` covers a different aggregation window/surface. Do not force them to sum.
+- Photo vs Reel contrast includes post age, subject, hook, audio, audience and distribution differences. No controlled A/B causal claim.
+- **Canonical entry** remains `Instagram Reel → Instagram profile → /en/how-they-ring/ → WATCH / OWNER'S NOTE → research`. The screenshot verifies visible profile link text, not actual user clickthrough.
+- Next validation: compare equivalent elapsed-hour snapshots with individual Insights, use views/viewers/skip/saves/shares/follows/profile/bio funnel, and inspect VA Analytics separately before claiming website conversion.
