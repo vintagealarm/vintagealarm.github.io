@@ -348,6 +348,21 @@
 - shares: public post 7; Reel Insights UI --
 - saves: 19
 - source_status: CANONICAL_LOG_SCREENSHOT
+- share_count: public post 7 / Reel Insights UI `--`
+- skip_rate: 39.7%
+- share_rate: 0.4%
+- like_rate: 5.7%
+- save_rate: 1.0%
+- repost_rate: 0.1%
+- comment_rate: 0.0%
+- profile_accesses: 17
+- bio_link_clicks: 1
+- followers: 2.0%
+- non_followers: 98.0%
+- age: 13–17 0.8% / 18–24 30.4% / 25–34 42.2% / 35–44 14.1% / 45–54 6.8% / 55–64 3.5% / 65+ 2.2%
+- age_18_34_combined: 72.6%
+- countries: India 28.7% / United States 9.0% / Turkey 5.0% / Iran 4.9% / France 3.7%
+- note: Instagram public post and Insights screenshot set of 7 at 2026-10-09 22:45 JST. Public UI shows 15 hours ago without precise publication time. Public paper-plane share count is 7; Insights share count UI is unavailable. UI labels: skip LOW; share, like, save, repost HIGH; comment LOW. Like-timing chart 0:00–0:31 is not audience retention or 18s reach. Published caption opening is visible but full caption and hashtags are not screenshot-verified.
 
 ---
 
