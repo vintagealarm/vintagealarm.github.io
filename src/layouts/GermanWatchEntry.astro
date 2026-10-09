@@ -9,6 +9,7 @@ import DeepDive from '../components/DeepDive.astro';
 import SpecimenGallery from '../components/SpecimenGallery.astro';
 import Sources from '../components/Sources.astro';
 import OwnerFonts from '../components/OwnerFonts.astro';
+import { getLocalizedOwnerNoteImage } from '../data/owner-note-images';
 import { applyPierceGermanEntryCorrection } from '../lib/pierce-factual-correction';
 import '../styles/site.css';
 import '../styles/owners-v15.css';
@@ -25,7 +26,7 @@ const englishUrl = new URL(englishPath, siteRoot).href;
 const socialImage = entry.specimenGallery?.[0]?.image ?? watch.ownersNote.image;
 const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
 const translatedOwnersNote = {
-  image: watch.ownersNote.image,
+  image: getLocalizedOwnerNoteImage(watch.slug, 'de', watch.ownersNote.image),
   ...entry.ownersNote
 };
 const schema = {

@@ -15,6 +15,18 @@
 
 ---
 
+## 2026-10-09
+
+### 2026-10-09 11:04 JST — Pierce Duofon OWNER'S NOTEの3言語画像をユーザー提供PNGへ切替
+
+- **変更**：ユーザー提供の確定PNG3枚（1146×1600 px、JA / EN / DE）を画像加工・再生成せず public/images/pierce-duofon/owners-note-{ja,en,de}.png に登録。日本語WATCHの ownersNote.image をJA版へ変更し、英語・ドイツ語の OwnersNote 表示は各言語専用ファイルを参照する。ほかのWATCHでは既存日本語画像をfallbackとして維持する。
+- **理由**：英語・ドイツ語WATCHも日本語版 watch.ownersNote.image を表示していたため、翻訳ページのOWNER'S NOTE画像だけが日本語だった。ユーザーがPierce DuofonのJA / EN / DE最終版画像を提供し、「全差し替え」「元の画像寸法のまま」を明示した。
+- **旧状態・棄却**：既存の owners-note.jpg を3言語で共用する表示をDuofonについて廃止。ほかの時計へ適用する一括置換、原文・時計実機写真の改変、画像の強制拡大は行わない。既存JPGは履歴と参照保護のため削除しない。
+- **影響範囲**：Pierce Duofon日本語WATCHのOWNER'S NOTE画像、英語・ドイツ語WATCHの画像解決、画像3ファイル、同言語の画像拡大リンク、当記録。Google Slides・ほかのWATCH・公開状態は変更しない。
+- **検証状態**：3枚の原本PNGを1146×1600 pxで受領しバイナリをGitHub blob化した。branch実装後、diff、build / CI、main反映、live表示を個別に検証するまでDEPLOYED / VERIFIEDと呼ばない。
+- **関連**：2026-10-09ユーザー提供Pierce Duofon OWNER'S NOTE JA / EN / DE 3画像、および全差し替え指示。
+- **日時根拠**：ホスト環境 TZ=Asia/Tokyo date により 2026-10-09 11:04 JST を確認。
+
 ## 2026-10-08
 
 ### 2026-10-08 14:02 JST — VA各メッセージのfresh bootをPROJECT単一ownerへ固定

@@ -8,7 +8,7 @@ catch:
   - マナーモードの祖先!?
   - 1950's通知のオーパーツ。
 ownersNote:
-  image: /images/pierce-duofon/owners-note.jpg
+  image: /images/pierce-duofon/owners-note-ja.png
   lead:
     - マナーモードの祖先!?
     - 1950's通知のオーパーツ。
