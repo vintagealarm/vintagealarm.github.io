@@ -612,6 +612,17 @@
 - shares: unknown
 - saves: 0
 - source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+- reel_duration: approximately 9s (like-timing graph 0:00–0:09)
+- share_count: UI `--`
+- skip_rate: 75.0%
+- share_rate: 0.0%
+- like_rate: 2.1%
+- save_rate: 0.0%
+- repost_rate: 0.0%
+- comment_rate: 0.0%
+- followers: 4.7%
+- non_followers: 95.3%
+- note: 2026-10-07 06:34 JST user-supplied public caption and Insights screenshots. The user converted a CYMA side-profile still image to a Reel with BGM using Edits. A post screen shortly before the Insights displayed 101 views; Insights showed 107. Instagram rated skip HIGH and all displayed interaction rates LOW. Profile actions and demographics were unavailable rather than zero. The 2026-10-10 00:31 profile grid later showed 161 views; see instagram-operations.md.
 
 ---
 
