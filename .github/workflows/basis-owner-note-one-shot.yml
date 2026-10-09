@@ -21,7 +21,7 @@ jobs:
           cat > /tmp/import_basis_owner.py <<'PY'
           from pathlib import Path
           from PIL import Image
-          import urllib.request, io, struct, sys
+          import urllib.request, io, struct, sys, hashlib
           files={
               'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d5D9Z9oAesDGEKjFbIfkk9nCRoXWF4wYsWYNMYLr3UmC1zIYw7Owna7X43dhF9DjACvjRZ-DZ9Sek9hlxjuHrY_S16vop67N45X-qymScxMbbhk3MILmJGiLuTpt9Rbu45oCUFUL2SKFkCnDeOlGdkJwGcX0Gwvhf7n0MFSqyNTEx7Q=s1600", "0x81a79e9ab0b28c98"),
               'en': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d7WdjKNzxQtDFoof9bf0HQ7oIUTQcn4t2-VE42SoqtSJHMwQIcsvy-StA1-jFnyM1KrVFeY1NeoipFysv1PXruSGp7JCq5p8nZ5MzwZuDf3COB67xQeVOKpfl55nZFdrAKxcgd7pRscZMJwYDy1-44xvs5voswSiKpzSO3Pv7vs6m0z=s1600", "0x81878e9a30b28c88"),
@@ -36,9 +36,10 @@ jobs:
               if data[:4] != bytes([137,80,78,71]):
                   raise RuntimeError(f"{lang}: not a PNG")
               w,h=struct.unpack(">II",data[16:24])
-              if (w,h)!=(1600,2233):
+              if (w,h)!=(1146,1600):
                   raise RuntimeError(f"{lang}: unexpected dimensions {w}x{h}")
-              im=Image.open(io.BytesIO(data)).convert('L').resize((9,8),Image.Resampling.LANCZOS)
+              print(f'{lang}: {len(data)} bytes; sha256={hashlib.sha256(data).hexdigest()}')
+    im=Image.open(io.BytesIO(data)).convert('L').resize((9,8),Image.Resampling.LANCZOS)
               px=list(im.getdata())
               dhash=sum((1 if px[y*9+x]>px[y*9+x+1] else 0)<<(63-y*8-x) for y in range(8) for x in range(8))
               distance=(dhash ^ int(reference,16)).bit_count()
