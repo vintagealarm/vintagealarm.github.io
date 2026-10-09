@@ -1623,3 +1623,13 @@
 - **検証状態**：branch更新済み、diff・正本再取得・PR品質ゲートを確認後にmain反映。結果が出るまでは完了と呼ばない。
 - **関連**：ユーザー提供`IMG_2865.jpeg` / `IMG_2866.jpeg` のスクリーンショット、Instagramアカウント`vintagealarm`。
 - **日時根拠**：ホストUTC`2026-10-09T15:37:23.773Z` → Asia/Tokyo `2026-10-10 00:37 JST`。00:31の観測時刻は画像内の端末時計と2026-10-10 00:32 JSTのユーザー環境時刻に基づく。
+
+
+### 2026-10-10 00:47 JST — CYMA Edits静画Reelの公開記録欠落を遡及補填
+- **変更**：過去に提供された2026-10-07 CYMA側面Edits/BGM Reelの実投稿英文全文・hashtagsを`instagram-published-copy.md`へ復元。10/7 06:34 Insightsを同一CYMA節へ追記し、`IG-CYM-002`として`content-inventory.md`のPUBLISHED assignmentを作成、CYM-12をUSEDへ更新した。
+- **理由**：10/10プロフィールグリッドでは10投稿を確認したが、Content Assignment Registryには9投稿しかなかったため。後から投稿を検証可能にする。
+- **旧状態・棄却**：投稿が存在しない扱い、画像を実機の動く動画とみなす扱い、公開本文をAI草案へ差し替える扱いは棄却。写真＋BGMのReelであるというuser説明と公開スクショを保持する。
+- **影響範囲**：SNSのInventory / Published Copy / Insights / Decision Logのみ。現在のユーザー確定SNS運用、サイト本文は変更しない。
+- **検証状態**：branch更新、再取得・差分・CIの`check:instagram-insights`と`check:social-inventory`を検査後にmain反映する。
+- **関連**：`IG-CYM-002`、`CYM-12`、2026-10-07 06:34 screenshot、2026-10-10 00:31 grid、`IG-CYM-001`との区別。
+- **日時根拠**：UTC `2026-10-09T15:47:13.197Z` → JST `2026-10-10 00:47`。投稿時刻05:40頃はユーザー報告、観測時刻06:34はスクリーンショット表示。
