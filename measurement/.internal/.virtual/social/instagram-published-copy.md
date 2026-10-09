@@ -299,3 +299,13 @@ And yes — it still rings. 🔔
 - Caption text: 公開済み6投稿すべての全文を画面から確認して登録。Citizenは承認稿と公開hashtagsの差分も保持した。
 - Creative selection: 公開済み6投稿について、最終公開本文に実際に入った／入らなかった要素を確認できる範囲で記録した。
 - この登録は、過去の「Insightsは残っているが実投稿全文が正本化されていない」欠落を補填し、投稿前確定本文も公開済み本文と区別して保持する。
+
+---
+
+## 2026-10-09 — Wittnauer and CYMA gong-sound comparison
+
+- Content ID: `IG-WIT-CYM-001`.
+- Post existence: user-provided Reel Insights and thumbnail captured 2026-10-09 11:53 JST.
+- Published caption and hashtags: unverified. The supplied screenshots do not contain them; earlier assistant draft must not be represented as published text.
+- Visual preview: `Cyma Time-O-Vox VS Wittnauer 10WA`. Audio comparison between Wittnauer 10WA and CYMA Time-O-Vox 18K Chronomètre. CYMA sound begins at 0:18 per user report.
+- Status: PUBLISHED_REEL_VERIFIED / CAPTION_PENDING_SCREENSHOT. See `instagram-insights-timeseries.md` and `content-inventory.md` using the same content ID.
