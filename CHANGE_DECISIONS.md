@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-09 22:52 JST — Pierce Duofon DEEP DIVE 03の画像幅を3言語で統一
+
+- **変更**：Pierce DuofonのDEEP DIVE 03（3時リューズの巻き上げ切替）にのみ `compact-single` を指定し、静止画2枚を単独画像と同じ最大幅360px・小画面では280pxに制限して中央配置する。JA / EN / DEの同じ章へ同期する。
+- **理由**：ユーザーが2026-10-09に提示したスクリーンショットで、03の単独画像2枚が02の機構比較画像に比べて極端に大きいと指摘した。現行`DeepDive.astro`では02に`compact-sequence`があるが03には幅制約がなく、`fullRow`も非compact時には表示制限になっていなかった。
+- **旧状態・棄却**：03の無制限の1列表示を廃止する。全WATCH共通の`.deep-media`を狭くすること、元画像をリサイズすること、03を`compact-sequence`にして画像拡大の操作仕様まで変えること、動画幅や既存02の比較画像構成を変更することは採用しない。
+- **影響範囲**：`src/components/DeepDive.astro`の新しい限定クラス、`src/content.config.ts`の`mediaStyle`列挙への追加、およびPierce JA / EN / DEのDEEP DIVE 03の`mediaStyle`のみ。OWNER'S NOTE画像、本文・翻訳、動画、他の時計、既存Draft PR #216は不変更。
+- **検証状態**：実装後に差分・3言語の生成HTML・390pxおよびdesktop表示・他時計への非波及・CI / deploy / liveを段階的に確認する。未実施の検査はPASS扱いしない。
+- **関連**：2026-10-09ユーザースクリーンショット、Council 1（2ch民で焼く）の合意。関連実装commit `77531ecd` / `e6daf2c8` / `3e00ab27` / `81300c6b` / `49e82f21` / `8b5a5154`（JA / EN / DE、DeepDive、layout回帰、schema）。
+- **日時根拠**：ChatGPT time取得値 `2026-10-09T22:52:08+09:00` → `2026-10-09 22:52 JST`。
+
 ### 2026-10-09 19:57 JST — Pierce Duofon画像3言語版の差し替え
 
 - **変更**：ユーザー提供のPierce Duofon完成PNG 3枚を画素寸法・内容を変更せず、専用のJA/EN/DE画像資産へ登録する。日本語WATCHの画像参照、英語・ドイツ語WATCHのPierce限定画像選択を更新する。旧JPEGは保管する。
