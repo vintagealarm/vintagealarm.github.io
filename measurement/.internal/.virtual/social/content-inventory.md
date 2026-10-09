@@ -105,7 +105,7 @@ Canonical WATCH: `src/content/watches/cyma-time-o-vox.md`
 | CYM-09 | アラーム時刻を双方向で設定できる。小さなスパイラルスプリングを含む切替機構が時計回り設定も可能にする。精度重視なら反時計回り推奨 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_SOURCE | OPERATION+MECHANISM | WATCH guide + Horlbeck R.464 discussion + USER_KEEP / USER_MERGE 2026-10-05 |
 | CYM-10 | Cymaflex耐震機構。ムーブメント側からC字形に見える独自の耐震構造 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+MECHANISM | Horlbeck R.464 discussion + USER_KEEP 2026-10-05 |
 | CYM-11 | tone springの空間を確保するための段付きムーブメント構造。裏スケ換装後の掲載個体ケース厚・実寸は訴求に使わない | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+MECHANISM | Horlbeck R.464 discussion + USER_KEEP 2026-10-05 |
-| CYM-12 | 1 crown + 2 pushersで横顔はクロノグラフ風だが、役割はalarm control | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+OPERATION | Beitl p.134 + WATCH side gallery + USER_KEEP 2026-10-05 |
+| CYM-12 | 1 crown + 2 pushersで横顔はクロノグラフ風だが、役割はalarm control | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+OPERATION | Beitl p.134 + WATCH side gallery + USER_KEEP 2026-10-05; Instagram Edits side-profile Reel 2026-10-07 IG-CYM-002, verified public caption |
 | CYM-13 | 大きなhammerがムーブメントを囲むtone springを叩く発音機構 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | SOUND+MECHANISM | Beitl p.136 + Humbert R.464 + USER_KEEP 2026-10-05 |
 | CYM-ON | OWNER'S NOTE全体 | WHOLE_ONLY | NO_EXPLICIT_USE_FOUND_2026-10-03 | OWNER_NOTE_HERO_ONLY | READY_FROM_WATCH | OWNER_NOTE_WHOLE | WATCH `ownersNote` |
 
@@ -260,6 +260,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | IG-WIT-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | WIT-01 | — | SOCIAL:IG-WIT-FIRST-REEL | published-copy |
 | IG-WIT-002 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | STATIC_CAROUSEL | WIT-02 | — | USER:POCKETSHOT-20261003;WIT:IMG_6609.jpeg | published-copy + Insights |
 | IG-CYM-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | CYM-01 | — | SOCIAL:IG-CYM-FIRST-REEL | published-copy |
+| IG-CYM-002 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | CYM-12 | — | USER:CYMA-SIDE-STILL-EDITS-BGM-20261007 | published 2026-10-07 ~05:40 JST user report; photo-to-Reel via Edits with BGM; published-caption screenshot 06:34; Insights baseline 06:34; profile grid view 161 at 2026-10-10 00:31 |
 | IG-PIE-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | PIE-01 | — | SOCIAL:IG-PIE-FIRST-REEL | published-copy |
 | IG-BAS-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | BAS-01 | — | SOCIAL:IG-BAS-FIRST-REEL | published-copy |
 | IG-WES-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | WES-01 | — | SOCIAL:IG-WES-FIRST-REEL | published-copy |

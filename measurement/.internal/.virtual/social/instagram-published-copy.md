@@ -99,6 +99,24 @@ Now listen to it ring.
 
 ---
 
+### CYMA side view — Edits still-image Reel — published 2026-10-07
+
+- Content ID: `IG-CYM-002`. Publication time approx. 2026-10-07 05:40 JST (user reported); caption screenshot observed 06:34 JST.
+- Media: user shot a still photograph of CYMA side profile and converted it to a Reel with BGM using Edits. It is **a still-image-based Reel**, not mechanical motion footage.
+- Public caption (screenshot verified 2026-10-07 06:34 JST):
+
+```text
+From the side, it looks like a chronograph — but on the Cyma Time-O-Vox, those two pushers are for the alarm, not a stopwatch. 🔔
+
+#Cyma #CymaTimeOVox #AlarmWatch #VintageWatch
+```
+
+- Published creative: the two side pushers' alarm purpose vs chronograph appearance, i.e. CYM-12. No claim of a stopwatch.
+- Baseline and next grid observation: `instagram-insights-timeseries.md`; assignment state `content-inventory.md`.
+- Evidence: user-provided public caption / Reel screenshots dated 2026-10-07 and user-written Edits/BGM format note. No effect or reach guarantee is inferred from use of Edits.
+
+---
+
 ## Pierce Duofon
 
 ### Published caption — screenshot verified 2026-09-30
