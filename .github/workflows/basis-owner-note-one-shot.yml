@@ -39,7 +39,7 @@ jobs:
               if (w,h)!=(1146,1600):
                   raise RuntimeError(f"{lang}: unexpected dimensions {w}x{h}")
               print(f'{lang}: {len(data)} bytes; sha256={hashlib.sha256(data).hexdigest()}')
-    im=Image.open(io.BytesIO(data)).convert('L').resize((9,8),Image.Resampling.LANCZOS)
+              im=Image.open(io.BytesIO(data)).convert('L').resize((9,8),Image.Resampling.LANCZOS)
               px=list(im.getdata())
               dhash=sum((1 if px[y*9+x]>px[y*9+x+1] else 0)<<(63-y*8-x) for y in range(8) for x in range(8))
               distance=(dhash ^ int(reference,16)).bit_count()
