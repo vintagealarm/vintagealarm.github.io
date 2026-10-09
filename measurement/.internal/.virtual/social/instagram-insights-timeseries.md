@@ -298,6 +298,38 @@
 - source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
 - note: 2026-10-03 20:24 JSTのユーザー提供Instagram Post Insightsスクリーンショット4枚から確認。全体likesは3だが画像別UIは1枚目4 / 2枚目0と表示され不一致のため別指標として保存する。non-follower推移グラフは0のまま。共有数とプロフィールアクセスは `--` のため0扱いしない。
 
+### Snapshot — 2026-10-09 11:53 JST — Wittnauer × CYMA sound comparison
+- observed_at_jst: 2026-10-09 11:53
+- content_id: IG-WIT-CYM-001
+- content_type: reel_cross_watch_gong_sound_comparison
+- published_at_jst: unknown
+- elapsed_since_publish: unknown
+- reel_duration: approximately 31s, from 0:00–0:31 like-timing graph; exact file duration not verified
+- views: 1,231
+- viewers: 1,229
+- average_watch_time: UI `--`
+- follows: 1
+- likes: 50
+- comments: 0
+- reposts: 0
+- shares: UI `--`
+- share_count: UI `--`
+- saves: 9
+- skip_rate: 35.4%
+- share_rate: 0.3%
+- like_rate: 4.5%
+- save_rate: 0.8%
+- repost_rate: 0.0%
+- comment_rate: 0.0%
+- profile_accesses: 6
+- bio_link_clicks: 1
+- followers: 1.6%
+- non_followers: 98.4%
+- age: 13–17 1.1% / 18–24 35.2% / 25–34 45.2% / 35–44 11.3% / 45–54 4.1% / 55–64 1.2% / 65+ 1.9%
+- age_18_34_combined: 80.4%
+- countries: India 33.4% / United States 12.5% / Turkey 5.7% / Brazil 4.3% / Iran 4.1%
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_MEDIA_TIMING
+- note: 2026-10-09 11:53 JSTのユーザー提供Instagram Reel Insightsスクリーンショット6枚に基づく。対象はWittnauer 10WAとCYMA Time-O-Vox 18K Chronomètreのゴング式アラーム音比較Reel（比較投稿のためWittnauer欄に1つだけ記録し、CYMAにも重複して追加しない）。映像プレビューには両機の名称が表示。ユーザー説明によればCYMAの鳴動は動画18秒から。Instagram UI評価はskip率「低」、share率・like率・save率「高」、repost率・comment率「低」。いいねされた時の0:00–0:31グラフは無ラベルの山形のため各秒の値は確定しない。正確な投稿日時・公開キャプション全文・平均再生時間・公開画面の共有件数は未確認。
 ---
 
 # CYMA Time-O-Vox 18K Chronomètre
