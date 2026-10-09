@@ -330,6 +330,25 @@
 - countries: India 33.4% / United States 12.5% / Turkey 5.7% / Brazil 4.3% / Iran 4.1%
 - source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_MEDIA_TIMING
 - note: 2026-10-09 11:53 JSTのユーザー提供Instagram Reel Insightsスクリーンショット6枚に基づく。対象はWittnauer 10WAとCYMA Time-O-Vox 18K Chronomètreのゴング式アラーム音比較Reel（比較投稿のためWittnauer欄に1つだけ記録し、CYMAにも重複して追加しない）。映像プレビューには両機の名称が表示。ユーザー説明によればCYMAの鳴動は動画18秒から。Instagram UI評価はskip率「低」、share率・like率・save率「高」、repost率・comment率「低」。いいねされた時の0:00–0:31グラフは無ラベルの山形のため各秒の値は確定しない。正確な投稿日時・公開キャプション全文・平均再生時間・公開画面の共有件数は未確認。
+
+### Snapshot — 2026-10-09 22:45 JST — Wittnauer × CYMA sound comparison
+- observed_at_jst: 2026-10-09 22:45
+- content_id: IG-WIT-CYM-001
+- content_type: reel_cross_watch_gong_sound_comparison
+- published_at_jst: unknown
+- age_of_post: UI 15時間前 (not exact)
+- elapsed_since_publish: unknown
+- views: 2,154
+- viewers: 1,845
+- average_watch_time: 8s
+- follows: 7
+- likes: 107
+- comments: 0
+- reposts: 1
+- shares: public post 7; Reel Insights UI --
+- saves: 19
+- source_status: CANONICAL_LOG_SCREENSHOT
+
 ---
 
 # CYMA Time-O-Vox 18K Chronomètre
