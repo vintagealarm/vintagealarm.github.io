@@ -128,6 +128,18 @@ for (const field of [
 ]) requireText(taskEnvelope, field, 'Task Envelope chat-audit field');
 
 requireText(managerControlPlane, 'Pre-implementation CHAT AUDIT REPORT — mandatory', 'Manager chat-audit gate');
+requireSingleOccurrence(managerControlPlane, '## 2.5 Execution Surface / Capability Truth / Progress — mandatory', 'Manager execution surface canonical owner');
+for (const anchor of [
+  '### A. Execution Surface Lock（実行場所の拘束）',
+  '### B. Capability Evidence Gate（できない断言の禁止）',
+  '### C. Progress / No Silent Stall（進捗の途絶を防ぐ）',
+  'IN_CHAT / NO_HANDOFF',
+  'read成功 / write未試行',
+  '約20秒以上の無言を避け',
+  '実チャットの達成保証とは別'
+]) requireText(managerControlPlane, anchor, 'Manager in-chat execution regression guard');
+requireText(agents, '.codex/MANAGER_CONTROL_PLANE.md` §2.5', 'AGENTS execution-surface pointer');
+requireSingleOccurrence(taskEnvelope, '## EXECUTION SURFACE / CAPABILITY / PROGRESS', 'Task Envelope execution surface tracking');
 requireText(managerControlPlane, '実装系の書き込み操作より前', 'Manager chat-audit mutation barrier');
 requireText(managerControlPlane, '監査報告は承認要求と同義ではない', 'Manager chat-audit approval semantics');
 
