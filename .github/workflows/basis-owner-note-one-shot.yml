@@ -6,7 +6,7 @@ permissions:
   contents: write
 jobs:
   import:
-    if: ${{ github.event.head_commit.message == 'chore: stage Basis source slide image import' }}
+    if: "${{ github.event.head_commit.message == 'chore: stage Basis source slide image import' }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
