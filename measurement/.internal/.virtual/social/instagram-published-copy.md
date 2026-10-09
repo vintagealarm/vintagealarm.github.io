@@ -306,6 +306,6 @@ And yes — it still rings. 🔔
 
 - Content ID: `IG-WIT-CYM-001`.
 - Post existence: user-provided Reel Insights and thumbnail captured 2026-10-09 11:53 JST.
-- Published caption and hashtags: unverified. The supplied screenshots do not contain them; earlier assistant draft must not be represented as published text.
+- Published caption opening: screenshot-verified at 2026-10-09 22:45 JST: `Not all mechanical alarm watches sound alike. 🔔` (the image then shows an ellipsis and Read more). The exact full caption and hashtags remain unverified; earlier assistant draft must not be represented as published text.
 - Visual preview: `Cyma Time-O-Vox VS Wittnauer 10WA`. Audio comparison between Wittnauer 10WA and CYMA Time-O-Vox 18K Chronomètre. CYMA sound begins at 0:18 per user report.
-- Status: PUBLISHED_REEL_VERIFIED / CAPTION_PENDING_SCREENSHOT. See `instagram-insights-timeseries.md` and `content-inventory.md` using the same content ID.
+- Status: PUBLISHED_REEL_VERIFIED / CAPTION_OPENING_SCREENSHOT_VERIFIED / FULL_CAPTION_PENDING_SCREENSHOT. See `instagram-insights-timeseries.md` and `content-inventory.md` using the same content ID.
