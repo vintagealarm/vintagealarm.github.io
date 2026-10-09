@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { readWatchPublicationState } from './watch-publication.mjs';
 
@@ -6,6 +7,25 @@ const root = process.cwd();
 const dist = path.join(root, 'dist');
 const watches = readWatchPublicationState();
 const failures = [];
+// The user-supplied Basis OWNER'S NOTE PNGs are byte-for-byte preserved.
+for (const [lang, route, expectedSha] of [
+  ['ja', 'basis-alarm/index.html', '83af7468829b34f2b965b558eede6a6b01342038069fdeb3fdf42fbabe5c69be'],
+  ['en', 'en/basis-alarm/index.html', 'f075b424a32bbf4d79e32c6dbca29330e3fa17081f7c83a91ec6e92bd66c0277'],
+  ['de', 'de/basis-alarm/index.html', '4167ce8b82398a8a35088c842de143f331f4c67af94161bcb74077da124f7aad']
+]) {
+  const assetPath = `images/basis-alarm/owners-note-${lang}-20261009.png`;
+  const image = path.join(dist, assetPath);
+  if (!fs.existsSync(image)) {
+    failures.push(`Basis ${lang}: OWNER'S NOTE PNG missing from build output`);
+  } else {
+    const hash = createHash('sha256').update(fs.readFileSync(image)).digest('hex');
+    if (hash !== expectedSha) failures.push(`Basis ${lang}: OWNER'S NOTE PNG bytes differ from uploaded original`);
+  }
+  const html = path.join(dist, route);
+  if (!fs.existsSync(html) || !fs.readFileSync(html, 'utf8').includes(`/${assetPath}`)) {
+    failures.push(`Basis ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
+  }
+}
 const mustExist = [
   'index.html',
   'x/index.html',

@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-09 23:48 JST — Basis Alarm OWNER'S NOTE完成PNGのJA / EN / DE差し替え
+
+- **変更**：2026-10-09にユーザーが添付したBasis Alarm日本語・英語・ドイツ語の完成PNG3枚を、バイト単位で一致する画像として `public/images/basis-alarm/owners-note-{ja,en,de}-20261009.png` に登録し、各言語WATCHのOWNER'S NOTE画像参照を更新。生成HTMLとPNGのSHA-256を検査するbuild gateを追加。
+- **理由**：ユーザーがBasis Alarmの3枚を提示し、このチャット内で3言語すべての画像差し替えを明示。添付画像のバイトはGoogle Slidesの対応するsource slide（`basis_slide` / `basis_en_slide` / `basis_de_slide`）の画像URLから取得したPNGと完全一致。GitHub Actions #37946517457の実ダウンロードSHA-256で照合した。
+- **旧状態・棄却**：JA旧 `/images/Basis Alarm(BFG90).png` のEN / DEへの流用をやめる。ユーザーPNGの再生成・リサイズ・再圧縮、manifestの1600×2233値に合わせた機械的拡大、他時計や本文・翻訳の修正は行わない。旧PNGは削除せず保管。
+- **影響範囲**：Basis Alarm専用の3画像、`src/content/watches/basis-alarm.md`のOWNER'S NOTE画像参照、`src/layouts/EnglishWatchEntry.astro` / `GermanWatchEntry.astro` のBasis限定画像選択、`scripts/check-build-output.mjs`の回帰検査。本番には一時転送workflowを残さない。Pierceその他のWATCH、動画、公開状態は不変更。
+- **検証状態**：ユーザー添付PNGとgitへ登録するPNGのバイト長・寸法（JA 859727 byte / EN 904734 byte / DE 933730 byte、すべて1146×1600）とSHA-256が一致。JA `83af7468829b34f2b965b558eede6a6b01342038069fdeb3fdf42fbabe5c69be`、EN `f075b424a32bbf4d79e32c6dbca29330e3fa17081f7c83a91ec6e92bd66c0277`、DE `4167ce8b82398a8a35088c842de143f331f4c67af94161bcb74077da124f7aad`。PR CI / main / deploy / liveは各工程で別途確認し、未検証ならPASS扱いしない。
+- **関連**：ユーザー添付 `CITIZEN SPIKE_04.png`（Basis JA）、`_05.png`（Basis EN）、`_06.png`（Basis DE）、Google Slides現行source、実際の画像転送成功workflow #37946517457。関連decision-bearing commit `703ab56b` / `a933e5f2` / `97257dcc` / `3f5ebd2b` / `bce2f138` / `b6395052` / `3c08c6a4` / `367d739b` / `5fb3b3c6` / `70ebd6db`（一時workflow作成・修正・撤去、3言語参照、build gate）。 
+- **日時根拠**：時刻取得 `2026-10-09T23:48:22+09:00` → `2026-10-09 23:48 JST`（UTC+09:00）。
+
 ### 2026-10-09 22:52 JST — Pierce Duofon DEEP DIVE 03の画像幅を3言語で統一
 
 - **変更**：Pierce DuofonのDEEP DIVE 03（3時リューズの巻き上げ切替）にのみ `compact-single` を指定し、静止画2枚を単独画像と同じ最大幅360px・小画面では280pxに制限して中央配置する。JA / EN / DEの同じ章へ同期する。

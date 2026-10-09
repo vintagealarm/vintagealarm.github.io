@@ -28,7 +28,9 @@ const translatedOwnersNote = {
   ...entry.ownersNote,
   image: watch.slug === 'pierce-duofon'
     ? '/images/pierce-duofon/owners-note-de-20261009.png'
-    : watch.ownersNote.image
+    : watch.slug === 'basis-alarm'
+      ? '/images/basis-alarm/owners-note-de-20261009.png'
+      : watch.ownersNote.image
 };
 const schema = {
   '@context': 'https://schema.org',
