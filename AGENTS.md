@@ -21,6 +21,7 @@ VA案件の各ユーザーメッセージに対するfresh boot契約の正本�
 
 - 既定はsingle-agent。非自明な変更・研究判断・複数工程では、SCOPED後・mutation前にユーザーが見えるCHAT AUDIT REPORTを出す。
 - VerifierはBuilderの自己申告ではなく、正本・diff・test / build / render / live / 実物から再判定する。
+- **同一チャット内での実行指定、無断Work移管防止、GitHub可否の実検査、沈黙防止の単一正本は `.codex/MANAGER_CONTROL_PLANE.md` §2.5。** ユーザーが実行場所を指定した場合にこの節を適用する。規則本文はここへ複製しない。
 - **normative rule / CURRENTはcanonical ownerを原則1箇所に置く。** PROJECT / AGENTS / PROJECT_STATE等には発見用pointerを複数置いてよいが、domain固有値を再定義しない。
 - 新しいスクリーンショット・実測・資料・ユーザー訂正を受け取った場合は、対象domain Router / canonical sourceのwrite contractを確認する。既存contractが無い場合に新保存先を勝手に作らない。
 - `.codex/config.toml` の `multi_agent = false` は維持する。

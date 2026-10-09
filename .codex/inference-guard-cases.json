@@ -668,6 +668,136 @@
           }
         ]
       }
+    },
+    {
+      "id": "SURFACE-INCHAT-001",
+      "title": "Explicit in-chat execution prevents unwanted Work handoff",
+      "premise": "ユーザーがGitHubをメンションして『このチャット内で実装』『Workへ勝手に飛ばすな』と繰り返し明示している",
+      "forbidden_inference": "ツール確認を飛ばしてWorkへ切替える、ユーザーが拒否した移管を再提案する、別環境に進むと決め付けてこのチャットでの作業を止める",
+      "required_action": "IN_CHAT / NO_HANDOFFに固定し、GitHub connectorをこのチャットで使って実装する。上位の強制要件が実在する場合だけ実際の制約を説明し、勝手に移管成功扱いしない",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "execution_surface",
+        "prompt": "[@GitHub] このchat内で修正からmain反映まで。Workは呼ばずにここでやって。",
+        "expected_resolution": "同じチャットのツールを使い、IN_CHAT / NO_HANDOFFを保持して対象GitHub操作を実行する。Workへの任意の移管や拒否済み再提案は行わない。",
+        "forbidden_resolution": "『GitHub作業だからWorkが必要』と無検証で外へ送る、拒否済み移管を再提案する。",
+        "routing_path": [
+          ".codex/MANAGER_CONTROL_PLANE.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": ".codex/MANAGER_CONTROL_PLANE.md",
+            "contains": [
+              "### A. Execution Surface Lock（実行場所の拘束）",
+              "IN_CHAT / NO_HANDOFF",
+              "Work/Computer Useへの無断切替"
+            ]
+          }
+        ],
+        "verification_sources": [
+          {
+            "path": "AGENTS.md",
+            "contains": [
+              ".codex/MANAGER_CONTROL_PLANE.md` §2.5"
+            ]
+          },
+          {
+            "path": ".codex/TASK_ENVELOPE_TEMPLATE.md",
+            "contains": [
+              "## EXECUTION SURFACE / CAPABILITY / PROGRESS"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAPABILITY-GITHUB-001",
+      "title": "Never assert GitHub is unwritable without current tool evidence",
+      "premise": "前の応答が『このチャットではGitHub書込ができない』と断定したが、同じチャットでGitHubのファイル更新・PR・mainマージを後に実行できた",
+      "forbidden_inference": "過去の制約や読取成功だけで書込可否を断定する、GitHub connectorを試さず『書き込めない』と言い切る",
+      "required_action": "現在のconnectorを発見・read probeし、書込については許されたbranch上の実操作結果で確認する。未試行・一時的失敗・権限エラーを区別し、誤断定は明示訂正する",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "capability_false_negative",
+        "prompt": "さっきGitHubに書き込めないと言ったけど、[@GitHub]が見えてる。ここで実装できる？",
+        "expected_resolution": "現時点のツールを確認し、PROJECT.md読取に続きGitHubの安全な書込操作で権限を確認してから正確に報告する。read成功だけではwrite可否は未確認。",
+        "forbidden_resolution": "何の呼出しもせず『このチャットではGitHub書込不可』と断定する。またはread成功だけでmain書込権限まで証明済みとする。",
+        "routing_path": [
+          ".codex/MANAGER_CONTROL_PLANE.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": ".codex/MANAGER_CONTROL_PLANE.md",
+            "contains": [
+              "### B. Capability Evidence Gate（できない断言の禁止）",
+              "write未試行",
+              "read成功 / write未試行"
+            ]
+          }
+        ],
+        "verification_sources": [
+          {
+            "path": "AGENTS.md",
+            "contains": [
+              ".codex/MANAGER_CONTROL_PLANE.md` §2.5"
+            ]
+          },
+          {
+            "path": ".codex/TASK_ENVELOPE_TEMPLATE.md",
+            "contains": [
+              "## EXECUTION SURFACE / CAPABILITY / PROGRESS"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "PROGRESS-NOSILENCE-001",
+      "title": "Sustained repo work must provide grounded progress rather than silent stalls",
+      "premise": "複数段階の画像登録・PR・CI・deployに時間がかかり、ユーザーが何度も応答催促した",
+      "forbidden_inference": "長いツール実行やCI待ちで無言のまま放置する、推測で成功を告げる、空疎な進捗を連投する",
+      "required_action": "最初に方針と終了条件、途中は約20秒以上黙らないように確認済みの結果・原因・次の処理を簡潔に更新し、完了状態を分離する",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "silent_progress",
+        "prompt": "このチャットで実装から公開まで。時間がかかっても何をやっているか知らせて。",
+        "expected_resolution": "チャットに最初の実行計画を出し、正本取得・PR作成・CIエラー・マージ・deployの確認可能な節目で約20秒を目安に具体的な進捗を通知する。未検証は未検証と扱う。",
+        "forbidden_resolution": "無言のまま進める、CI実行中を公開成功と呼ぶ、実際の進捗を伴わない実況で埋める。",
+        "routing_path": [
+          ".codex/MANAGER_CONTROL_PLANE.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": ".codex/MANAGER_CONTROL_PLANE.md",
+            "contains": [
+              "### C. Progress / No Silent Stall（進捗の途絶を防ぐ）",
+              "約20秒以上の無言を避け",
+              "GitHub CIでは保証できない",
+              "実チャットの達成保証とは別"
+            ]
+          }
+        ],
+        "verification_sources": [
+          {
+            "path": "AGENTS.md",
+            "contains": [
+              ".codex/MANAGER_CONTROL_PLANE.md` §2.5"
+            ]
+          },
+          {
+            "path": ".codex/TASK_ENVELOPE_TEMPLATE.md",
+            "contains": [
+              "## EXECUTION SURFACE / CAPABILITY / PROGRESS"
+            ]
+          }
+        ]
+      }
     }
   ]
 }

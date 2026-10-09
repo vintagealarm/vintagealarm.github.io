@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-10 00:09 JST — チャット内実行の無断Work移管・GitHub実行不可誤断定・途中沈黙の再発防止
+
+- **変更**：`.codex/MANAGER_CONTROL_PLANE.md` §2.5を、同一チャット内実行指定の遵守（Execution Surface Lock）、GitHub能力断定前の実接続・安全な書込確認（Capability Evidence Gate）、約20秒を目安とする事実ベースの途中更新（Progress / No Silent Stall）の単一規則正本として追加する。`AGENTS.md`には所在pointerのみ、`.codex/TASK_ENVELOPE_TEMPLATE.md`には案件単位の観測フィールドのみ追加。既存`.codex/inference-guard-cases.json`に `SURFACE-INCHAT-001` / `CAPABILITY-GITHUB-001` / `PROGRESS-NOSILENCE-001` をLOCKED_REGRESSIONとして追加し、`scripts/check-replay-evals.mjs`と`scripts/check-project-consistency.mjs`のCIゲートに接続。
+- **理由**：同一会話でユーザーが「このchatでやれ」「このchatないで実施」と繰り返したにもかかわらず、AIがユーザーの意図に反する外部Work誘導をしたとの申告を受け、その後「このチャット環境ではGitHubへの書き込み実行ができない」と未検証の否定を断定した。実際には同一会話の後続でGitHubファイル更新、PR #221のmainマージ、PagesデプロイをGitHub connectorで実行できており、不能断定が事実に反した。作業途中の無言もユーザーから再発防止要求が出ている。
+- **旧状態・棄却**：GitHubへの実行権限を未確認のまま「不可」と言う状態、ユーザーのIN_CHAT/NO_HANDOFF指定を無視して任意に外部Workへ逃がす状態、長時間無言でCIやdeployを待つ状態を廃止。GitHubでread成功だけならwrite成功扱いしない。外部UI/上位実行環境による強制挙動までrepoの文書・静的CIが無条件に抑止できるという虚偽の保証も棄却。
+- **影響範囲**：Manager / Task Envelope / AGENTS pointer / 既存Replay fixture / Replay checker / project consistency checker / 本判断ログのみ。VAのWATCH本文、OWNER'S NOTE、画像、公開route、サイトUI、他open PR、`.codex/config.toml`のmulti-agent設定、PROJECT boot正本は不変更。
+- **検証状態**：CIでは3件の必須ケース登録、各ケースの正本アンカー、Manager単一正本、AGENTS pointerとTask Envelopeフィールドを静的に検査する。PR CI / main反映 / 再取得は各工程で判定し、実際の会話でhandoffや沈黙が二度と発生しないことまで静的テストで証明したとは扱わない。
+- **関連**：2026-10-09のBasis Alarm3言語画像差し替えチャットと「[@GitHub]」を伴う再指示・不能断定の誤り・後続PR #221 / deploy成功という実行証拠。ユーザーの報告する無断Work移管と沈黙の厳密なプラットフォーム側発生ログは未取得。実装commits `36de100e` / `e6149219` / `7fac15af` / `418aa53b` / `3b312fac` / `9b54032b`。
+- **日時根拠**：ホスト時刻 `2026-10-10T00:09:25+09:00` → `2026-10-10 00:09 JST`。
+
 ### 2026-10-09 23:48 JST — Basis Alarm OWNER'S NOTE完成PNGのJA / EN / DE差し替え
 
 - **変更**：2026-10-09にユーザーが添付したBasis Alarm日本語・英語・ドイツ語の完成PNG3枚を、バイト単位で一致する画像として `public/images/basis-alarm/owners-note-{ja,en,de}-20261009.png` に登録し、各言語WATCHのOWNER'S NOTE画像参照を更新。生成HTMLとPNGのSHA-256を検査するbuild gateを追加。

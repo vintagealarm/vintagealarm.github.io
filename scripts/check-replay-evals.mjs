@@ -24,6 +24,9 @@ const requiredReplayIds = [
   'PUBLICATION-ARSA-001',
   'REPORT-JST-PREFIX-001',
   'VA-BOOT-HARD-GATE-001',
+  'SURFACE-INCHAT-001',
+  'CAPABILITY-GITHUB-001',
+  'PROGRESS-NOSILENCE-001',
 ];
 
 const errors = [];

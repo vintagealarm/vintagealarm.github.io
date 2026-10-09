@@ -81,6 +81,19 @@
 - General knowledge candidate only:
 - Pre-output contradiction check: PENDING / PASS / FAIL
 
+## EXECUTION SURFACE / CAPABILITY / PROGRESS
+
+規則正本は `.codex/MANAGER_CONTROL_PLANE.md` §2.5。ここでは今回の観測値・判断だけを記録する。
+
+- User-selected execution surface: IN_CHAT / OTHER / UNSPECIFIED
+- No-handoff / prior refusal: YES / NO / UNKNOWN
+- GitHub connector discovery / read test: NOT_TESTED / PASS / FAIL / UNAVAILABLE
+- GitHub write test, if needed: NOT_TESTED / PASS / FAIL / UNAVAILABLE
+- Evidence for capability / blocker:
+- First in-chat plan / audit reported: YES / NO
+- Last substantive progress update / next step:
+- Surface and claim consistency before REPORT: PENDING / PASS / FAIL
+
 ## Delegation Decision
 
 - Decision: SINGLE / SPECIALIST-ASSISTED
