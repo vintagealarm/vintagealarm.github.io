@@ -595,6 +595,24 @@
 - source_status: CANONICAL_LOG_SCREENSHOT
 - note: 2026-09-30 22:12 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。
 
+
+### Snapshot — 2026-10-07 06:34 JST — CYMA Edits still-image Reel
+- observed_at_jst: 2026-10-07 06:34
+- content_id: IG-CYM-002
+- content_type: reel_still_image_with_bgm_edits
+- published_at_jst: approximately 2026-10-07 05:40 (user report)
+- elapsed_since_publish: approximately 54m
+- views: 107
+- viewers: 86
+- average_watch_time: 2s
+- follows: 0
+- likes: 2
+- comments: 0
+- reposts: 0
+- shares: unknown
+- saves: 0
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+
 ---
 
 # Pierce Duofon
