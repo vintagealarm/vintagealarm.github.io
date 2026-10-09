@@ -1553,3 +1553,13 @@
 - **関連**：ユーザー指示「まず監査をチャットで報告必須」→監査報告→「では実行」。実装commits `d2938798` / `a5775513` / `3603e468` / `3242fcff` / `becf98a7`。
 - **日時根拠**：GitHub commit `becf98a7ad3e9b9e1346be7e1c942172c34966db` の 2026-10-05T13:27:17Z → 2026-10-05 22:27 JST。
 
+
+
+### 2026-10-09 12:52 JST — 音比較Reelの公開証拠と11:53 Insightsを正本連携
+- **変更**：ユーザー提供の2026-10-09 11:53 JST Instagram Insightsスクリーンショット6枚から、Wittnauer 10WA × CYMA Time-O-Vox 18K Chronomètreの音比較Reel `IG-WIT-CYM-001` を新しい投稿として識別。定量観測を既存 `instagram-insights-timeseries.md` のWittnauer節へ1 snapshotとして追記し、同一 `content_id` のPUBLISHED assignmentを `content-inventory.md` に登録した。実投稿の存在を `instagram-published-copy.md` に記録し、公開キャプション・hashtagsの未確認状態を明記した。
+- **理由**：公開後の実測・投稿種別・動画の聴き比べ意図を別チャットでも追跡可能にする。音比較は2個体にまたがる1本の投稿であり、Insightsを二重計上しないためWittnauer側へ1件のみ配置する。
+- **旧状態・棄却**：新しいReelを未登録のまま会話内で分析する状態、GitHub書込み失敗だけを理由に記録を断念する状態を棄却。確認できない公開時刻／キャプション／hashtags／平均再生時間／共有実数を推測で埋めることも棄却。
+- **影響範囲**：Social Insights時系列・Content Assignment Registry・Published Copyの検証状態のみ。既存snapshot、既存公開copy、WATCH本文、HOW THEY RING、投稿頻度方針は変更しない。
+- **検証状態**：GitHub branch上の更新を再取得・差分監査し、CIで `check:instagram-insights` / `instagram:report` / `check:social-inventory` を確認する。main反映・Published caption全文の確認は別ゲートとする。
+- **関連**：`IG-WIT-CYM-001`、2026-10-09 11:53 JSTユーザー提供Instagramスクリーンショット6枚、Wittnauer 10WA、CYMA Time-O-Vox 18K Chronomètre。
+- **日時根拠**：ユーザー環境の時刻確認 `2026-10-09 12:52:11 +09:00 (Asia/Tokyo)` → `2026-10-09 12:52 JST`。Insights観測時刻は別にスクリーンショット上の `11:53` と当日の会話時刻から記録。
