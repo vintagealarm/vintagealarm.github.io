@@ -26,6 +26,25 @@ for (const [lang, route, expectedSha] of [
     failures.push(`Basis ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
   }
 }
+// Citizen OWNER'S NOTE replacement: verify the three user-uploaded original PNGs byte-for-byte.
+for (const [lang, route, expectedSha] of [
+  ['ja', 'citizen-alarm/index.html', 'bf3dcacb73c1daeec3bbe03dc54e11d839463d7d72bb1a1576f9f476b325a444'],
+  ['en', 'en/citizen-alarm/index.html', '95f28ea000801f97aa36a36a15d2ac8850aaa2afe99e49603d1abf7aa3eee22a'],
+  ['de', 'de/citizen-alarm/index.html', 'a6bd0511ff37df71109881c52c5c3333f2654a1d038d7707d0987a95f87c2853']
+]) {
+  const assetPath = `images/citizen-alarm/owners-note-${lang}-20261010.png`;
+  const file = path.join(dist, assetPath);
+  if (!fs.existsSync(file)) {
+    failures.push(`Citizen ${lang}: original PNG missing from build output`);
+  } else {
+    const sha = createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+    if (sha !== expectedSha) failures.push(`Citizen ${lang}: PNG differs from user-uploaded original`);
+  }
+  const html = path.join(dist, route);
+  if (!fs.existsSync(html) || !fs.readFileSync(html, 'utf8').includes(`/${assetPath}`)) {
+    failures.push(`Citizen ${lang}: page does not reference the correct PNG`);
+  }
+}
 const mustExist = [
   'index.html',
   'x/index.html',
