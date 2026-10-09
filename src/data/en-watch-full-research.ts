@@ -524,6 +524,7 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
       {
         number: '03',
         title: 'Winding two barrels with one crown',
+        mediaStyle: 'compact-single',
         paragraphs: [
           'With the crown at 3 o’clock, the direction of rotation determines which barrel is wound.',
           'Turning the crown moves a rocking lever that carries the changeover crown wheel, switching which ratchet wheel it engages. In the images, engagement on the upper side winds the timekeeping barrel, while engagement on the lower side winds the alarm barrel.',
