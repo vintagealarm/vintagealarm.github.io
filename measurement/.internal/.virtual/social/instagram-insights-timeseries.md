@@ -345,7 +345,7 @@
 - likes: 107
 - comments: 0
 - reposts: 1
-- shares: public post 7; Reel Insights UI --
+- shares: 7
 - saves: 19
 - source_status: CANONICAL_LOG_SCREENSHOT
 - share_count: public post 7 / Reel Insights UI `--`
