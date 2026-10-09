@@ -1,0 +1,60 @@
+name: One-time Basis owner-note asset import
+on:
+  push:
+    branches: [fix/basis-alarm-owner-note-ja-en-de-20261009]
+permissions:
+  contents: write
+jobs:
+  import:
+    if: ${{ github.event.head_commit.message == 'chore: stage Basis source slide image import' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/basis-alarm-owner-note-ja-en-de-20261009
+      - name: Export current canonical Basis slide PNGs and compare with supplied visual
+        env:
+          BASIS_SOURCES_JSON: >
+            {}
+        run: |
+          python -m pip install --quiet Pillow
+          cat > /tmp/import_basis_owner.py <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import urllib.request, io, struct, sys
+          files={
+    'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d5D9Z9oAesDGEKjFbIfkk9nCRoXWF4wYsWYNMYLr3UmC1zIYw7Owna7X43dhF9DjACvjRZ-DZ9Sek9hlxjuHrY_S16vop67N45X-qymScxMbbhk3MILmJGiLuTpt9Rbu45oCUFUL2SKFkCnDeOlGdkJwGcX0Gwvhf7n0MFSqyNTEx7Q=s1600", "0x81a79e9ab0b28c98"),
+    'en': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d7WdjKNzxQtDFoof9bf0HQ7oIUTQcn4t2-VE42SoqtSJHMwQIcsvy-StA1-jFnyM1KrVFeY1NeoipFysv1PXruSGp7JCq5p8nZ5MzwZuDf3COB67xQeVOKpfl55nZFdrAKxcgd7pRscZMJwYDy1-44xvs5voswSiKpzSO3Pv7vs6m0z=s1600", "0x81878e9a30b28c88"),
+    'de': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d64zmXSXfjEdszCusna2x7X50-H-9TUnGfP9TJONr3s3RaDOvsw-y6u53D5O9XiBAwC1KZx2wjbIvnBgIhqPfdNJIhOJSuaKc2qVBRp0Z9dPwkLJyHzCyneegsLXvJfmPDIdCL4b58duD6I3XvATCFwyjMP5aaxXmGaMZhYTanpWXFi=s1600", "0x81a7869a30b28c88")
+          }
+          for lang,(url,reference) in files.items():
+              req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
+              try:
+                  with urllib.request.urlopen(req,timeout=90) as response: data=response.read()
+              except Exception as exc:
+                  raise RuntimeError(f"Cannot fetch {lang} canonical slide: {exc}")
+              if not data.startswith(b"\\x89PNG\\r\\n\\x1a\\n"):
+                  raise RuntimeError(f"{lang}: not a PNG")
+              w,h=struct.unpack(">II",data[16:24])
+              if (w,h)!=(1600,2233):
+                  raise RuntimeError(f"{lang}: unexpected dimensions {w}x{h}")
+              im=Image.open(io.BytesIO(data)).convert('L').resize((9,8),Image.Resampling.LANCZOS)
+              px=list(im.getdata())
+              dhash=sum((1 if px[y*9+x]>px[y*9+x+1] else 0)<<(63-y*8-x) for y in range(8) for x in range(8))
+              distance=(dhash ^ int(reference,16)).bit_count()
+              print(f"{lang}: {len(data)} bytes; {w}x{h}; dHash={dhash:016x}; reference visual distance={distance}")
+              if distance > 13:
+                  raise RuntimeError(f"{lang}: canonical slide image differs from provided image; stop")
+              p=Path(f"public/images/basis-alarm/owners-note-{lang}-20261009.png")
+              p.parent.mkdir(parents=True,exist_ok=True)
+              p.write_bytes(data)
+          PY
+          python /tmp/import_basis_owner.py
+      - name: Commit verified PNG assets to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/basis-alarm/owners-note-*.png
+          git diff --staged --quiet && { echo "No assets changed" ; exit 1; }
+          git commit -m "assets: stage verified Basis owner note PNGs [skip basis import]"
+          git push origin HEAD:fix/basis-alarm-owner-note-ja-en-de-20261009
