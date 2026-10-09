@@ -35,7 +35,9 @@ const translatedOwnersNote = {
     ? '/images/pierce-duofon/owners-note-en-20261009.png'
     : watch.slug === 'basis-alarm'
       ? '/images/basis-alarm/owners-note-en-20261009.png'
-      : watch.ownersNote.image
+      : watch.slug === 'citizen-alarm'
+        ? '/images/citizen-alarm/owners-note-en-20261010.png'
+        : watch.ownersNote.image
 };
 const languageLinks = [
   { href: `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
