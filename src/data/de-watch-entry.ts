@@ -735,6 +735,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       {
         number: '03',
         title: 'Zwei Federhäuser mit einer Krone getrennt aufziehen',
+        mediaStyle: 'compact-single',
         paragraphs: [
           'Bei der Krone bei 3 Uhr bestimmt die Drehrichtung, welches Federhaus aufgezogen wird.',
           'Beim Drehen der Krone bewegt sich ein schwenkbarer Hebel mit dem Wechsel-Kronrad und schaltet den Eingriff auf das jeweils andere Sperrad um. In den Bildern wird beim Eingriff auf der oberen Seite das Gehwerk-Federhaus aufgezogen, beim Eingriff auf der unteren Seite das Wecker-Federhaus.',
