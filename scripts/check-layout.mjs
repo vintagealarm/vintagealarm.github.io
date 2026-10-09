@@ -89,6 +89,37 @@ try {
         failures.push(`${width}px ${route || '/'}: broken images: ${result.brokenImages.join(', ')}`);
       }
 
+      if (['pierce-duofon/', 'en/pierce-duofon/', 'de/pierce-duofon/'].includes(route)) {
+        const mediaState = await page.evaluate(() => {
+          const deepSection = document.getElementById('deep')?.closest('section');
+          const sections = [...(deepSection?.querySelectorAll('.deep-list > details') ?? [])];
+          const chapter = sections.find((section) =>
+            section.querySelector('summary .number')?.textContent?.trim() === '03'
+          );
+          if (!chapter) return { found: false, images: [], width: 0 };
+          chapter.open = true;
+          const grid = chapter.querySelector('.deep-media--single');
+          const images = [...(grid?.querySelectorAll('figure img') ?? [])];
+          return {
+            found: !!grid,
+            images: images.map((image) => ({
+              src: image.getAttribute('src') || '',
+              width: image.getBoundingClientRect().width
+            })),
+            width: grid?.getBoundingClientRect().width || 0
+          };
+        });
+        const expectedWidth = width <= 480 ? 280 : 360;
+        if (!mediaState.found || mediaState.images.length !== 2 ||
+            !mediaState.images.some((image) => image.src.includes('IMG_2762-1.jpeg')) ||
+            !mediaState.images.some((image) => image.src.includes('IMG_2763-1.jpeg'))) {
+          failures.push(`${width}px ${route}: Duofon 03 compact-single gallery/images missing`);
+        } else if (Math.abs(mediaState.width - expectedWidth) > 2 ||
+                   mediaState.images.some((image) => image.width > expectedWidth + 2)) {
+          failures.push(`${width}px ${route}: Duofon 03 media width ${mediaState.width}px (expected ${expectedWidth}px)`);
+        }
+      }
+
       if (researchRoutes.includes(route) && width <= 390) {
         const researchState = await page.evaluate(() => ({
           lang: document.documentElement.lang,
