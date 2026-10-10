@@ -17,7 +17,7 @@ jobs:
       - name: Validate attached originals and import exact PNG bytes
         run: |
           cat > /tmp/westclox-import.py <<'PY'
-          import urllib.request, struct, hashlib, pathlib, io
+          import urllib.request, struct, hashlib, pathlib, io, base64, zlib
           from PIL import Image
           sources={
             'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d42SbHZnGPEP-I1DJTZu70L5VWlYMqpJLiHH0sTzYt-OA_0DHi3RlzQFDls2ivtDgNK0BidvTkKJR6JGYcbyQDLa4zxVkC1PI4-j5j4XJdZjW-Z05nqqfg25Nvaz8Do2sx87NsFsYu-sD0ubzNFlr4b7nFzfzSUTpcjnShr46v7-MSR=s1600", '813ec4e5b94e86c2924ad8c0fe07f20d4d843d0157284320d07e119a7880870c', 950123),
@@ -34,6 +34,17 @@ jobs:
               dims=struct.unpack(">II",b[16:24]) if b[:8]==bytes([137,80,78,71,13,10,26,10]) else None
               pixels=hashlib.sha256(Image.open(io.BytesIO(b)).convert("RGBA").tobytes()).hexdigest()
               print(lang,"bytes",len(b),"dimensions",dims,"sha",sha,"pixel_sha",pixels,"pixel_match",pixels==expected_pixels[lang])
+              if lang=="ja":
+                  reference=base64.b64decode("SrfqdxgX/mxu7lmbYzJqoOyc4c/snOHPrk4ZDMKhF01qpuOPHA6mdUDnA2hLZv/qRzvxgvXFLIOGHSWWOjBNnc+VrIS/k+x37Jzhz+yc4c/snOHP7Jzhz76Im/t7yFKYB+6L9JGRdXSb5GYVTNIo5Z3ieTbQgGdi70GjD901jpTahDVHy31IduuCu3Bo01MODEOQ7mWZ1CYYtfCKt5aVZucOCnzNIY/ksw0zk+c7HNfKwmS3+/ToDjDbBnzbVw6sviw2aQncDe1Ac4XjJBNvYkfoMfYYeS61sZyXcSKkTsG74ZSDpZfWzSKMCRlUb9zTJgCiTiQpKtAkP4Bmha3vpexNNYJBq4iM+iTlr2lP2FaCkIcdnp/butx/feDSFDPyJFSh5EsFhQe/F33kqcA7g27a2dztdW4n32pNJ+1GE6RCUFtVB+Dl6DzkYbSyzr4syyTmZYZs+H99V3ZOUOJIQFKi8WKtxl7oURSgrMkb7lq7Y3gun5GvELCycRXnDWH1dQg5xgmIrLHrr7wPA3q1J5kaixU3dV+FdastOyztDxlNPugjuzfWJHAsn9UHEMcSZ9Qs0nOOmXDFHpitZfONunYRyV3Ys81Gg1w4mXOOmXCE44HX")
+                  image=Image.open(io.BytesIO(b)).convert("RGBA")
+                  n=0; mismatches=[]
+                  for yy in range(0,image.height,128):
+                      for xx in range(0,image.width,128):
+                          expected=struct.unpack(">I",reference[n*4:n*4+4])[0]
+                          actual=zlib.crc32(image.crop((xx,yy,min(xx+128,image.width),min(yy+128,image.height))).tobytes())
+                          if expected!=actual:mismatches.append((xx,yy))
+                          n+=1
+                  print("ja_tile_mismatch_count",len(mismatches),"tiles",mismatches)
               if (len(b),dims,sha)!=(expected_bytes,(1146,1600),expected_sha):
                   failures.append(lang)
               data[lang]=b
