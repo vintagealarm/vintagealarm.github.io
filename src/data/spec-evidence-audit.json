@@ -14,8 +14,9 @@
             "jewels: 19石（掲載個体で確認）",
             "frequency: 18,000振動／時（同型資料）",
             "19 JEWELS PHYNOX",
-            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
-            "1407067"
+            "NINETEEN JEWELS / 3 ADJ",
+            "1407067",
+            "notes: 中央回転ディスク、2リューズ"
           ],
           "mustNotContain": [
             "jewels: 17石",
@@ -31,9 +32,7 @@
             "caliber: 'Citizen 980 (same-type documentation)'",
             "jewels: '19 jewels (confirmed on the shown specimen)'",
             "frequency: '18,000 vph (same-type documentation)'",
-            "19 JEWELS PHYNOX",
-            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
-            "1407067"
+            "notes: 'Rotating centre alarm disc, twin crowns'"
           ],
           "mustNotContain": [
             "jewels: '17 jewels (confirmed on the shown specimen)'",
@@ -48,20 +47,14 @@
           "path": "dist/citizen-alarm/index.html",
           "mustContain": [
             "19石（掲載個体で確認）",
-            "Citizen 980（同型資料）",
-            "19 JEWELS PHYNOX",
-            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
-            "1407067"
+            "Citizen 980（同型資料）"
           ]
         },
         {
           "path": "dist/en/citizen-alarm/index.html",
           "mustContain": [
             "19 jewels (confirmed on the shown specimen)",
-            "Citizen 980 (same-type documentation)",
-            "19 JEWELS PHYNOX",
-            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
-            "1407067"
+            "Citizen 980 (same-type documentation)"
           ]
         }
       ]

@@ -222,7 +222,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       barrels: '2 barrels',
       winding: 'Manual winding',
       acoustic: 'Double-caseback sound system',
-      notes: 'Rotating centre alarm disc, twin crowns; dial marked “19 JEWELS PHYNOX”, movement marked “CITIZEN / NINETEEN JEWELS / 3 ADJ”, and inside caseback marked “1407067”'
+      notes: 'Rotating centre alarm disc, twin crowns'
     }
   },
   'westclox-watchlarm': {
