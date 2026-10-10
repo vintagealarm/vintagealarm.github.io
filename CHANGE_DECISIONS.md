@@ -1669,5 +1669,8 @@
 - **変更**：Citizen Alarmの量産章に混入していた「従来の17石表記は写真の読み違いとして訂正した」「従来の37mmから改めた」という編集履歴をJA / EN / DEから削除し、文字盤・ムーブメント・ケース番号・同一番号資料で確認できる現行事実だけを残した。訂正理由と旧値は本Decision Logに限定する。
 - **理由**：公開本文は時計そのものと資料から得られる知見を読ませる場所であり、サイト編集者の修正作業を読者へ説明する場所ではない。2026-10-11、ユーザーから再度「こういうメタ記載やめろ」と明示訂正されたため。
 - **再発防止**：`scripts/check-public-copy-meta.mjs` と `check:public-copy-meta` を品質列へ追加し、JA / EN / DEの公開WATCH正本に訂正・置換の編集履歴文が戻った場合はCIを失敗させる。
+- **旧状態・棄却**：公開本文の中で旧値・誤読・修正作業を説明する構成を棄却する。訂正前後の経緯はDecision Logに保持し、公開WATCHへは戻さない。
 - **影響範囲**：Citizen Alarm DEEP DIVEの該当2段落、日英独同期、公開コピー品質ゲート。本体仕様、出典番号、OWNER'S NOTE、掲載画像・動画、他の研究内容は変更しない。
+- **検証状態**：ローカルでAstro build、citation、source traceability、localization、SPEC evidence、日本語文体、project consistency、owner-copy provenance、内部リンク、SEO、新規public-copy meta gateを通過。日英独のローカル表示で対象事実が残り、編集履歴句が消え、console error 0件を確認。PR #228 CIは本項目の必須欄不足で初回失敗したため、補完後に再検証する。
+- **関連**：PR #226、PR #228、直前の `2026-10-11 07:28 JST — Citizen Alarm掲載個体の仕様訂正と173部品・2香箱DEEP DIVE増補`。
 - **日時根拠**：作業環境時計 `2026-10-11 07:54:29 +09:00` → `2026-10-11 07:54 JST`。
