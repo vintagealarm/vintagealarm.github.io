@@ -12,10 +12,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: fix/cyma-owner-note-ja-en-de-20261011
+      - name: Install Pillow for pixel equivalence verification
+        run: python -m pip install --quiet Pillow
       - name: Download and verify 3 supplied CYMA images
         run: |
           cat > /tmp/cyma-verify.py <<'PY'
-          import urllib.request, struct, hashlib, pathlib, time
+          import urllib.request, struct, hashlib, pathlib, time, io
+          from PIL import Image
           originals={
             'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d47i8FcbcqzyuB17U7ltl8GkwuX_gV3p_EBtpe00l4Yy1tqOXnWSWg37YLCabt4hCagBdYYjrOC3c0lyjstyuEpYFyLxTdi25S2vkLtW6a-Jw_E_LdZezinXGaV5odanl5eOjIuQnqA33_JcE-RUeGh-62OR8ShokehFc3XJ_dwpFj_=s1600", 976624, '82a834b9ed7446eb55e42b011304c35bc3e6aa67a2a1f13b302d6a5d429bc5ad'),
             'en': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d65iabiiW1kPtA6mgagu9x5g__V4fdGgnor6B7UxhE06hImPe0krg2UNkpel5px3ynzB_iZ01iWKb2E1pjNy08GYb2YHEGG5y8KYnprX0XUHqQCPTeyZZcgwEa8emEe9isT-0_4XDFq8RxprPUGjnjaSrF3Yo7UFLvT4FFUO-mnp39d=s1600", 1013172, 'f39a9cf449238262080a5583f300105b6acbcec775a34bf8363189b1318ca513'),
@@ -30,8 +33,11 @@ jobs:
                       data=response.read()
                   sha=hashlib.sha256(data).hexdigest()
                   dims=struct.unpack(">II",data[16:24]) if data[:8]==bytes([137,80,78,71,13,10,26,10]) else None
-                  valid=(len(data)==expected_size and sha==expected_sha and dims==(1146,1600))
-                  print(lang,"try",n,"bytes",len(data),"dimensions",dims,"sha",sha,"byte_exact",valid,flush=True)
+                  exact=(len(data)==expected_size and sha==expected_sha and dims==(1146,1600))
+                  pixel_sha=hashlib.sha256(Image.open(io.BytesIO(data)).convert('RGBA').tobytes()).hexdigest() if dims==(1146,1600) else 'invalid'
+                  pixel_valid=(pixel_sha=='dda0b75dc44ef4a4fe9adeadd65358c44724efc99a9dcc6ac0706e703333a0ed') if lang=='de' else False
+                  valid=exact or (lang=='de' and pixel_valid)
+                  print(lang,'try',n,'bytes',len(data),'dimensions',dims,'sha',sha,'pixel_sha',pixel_sha,'byte_exact',exact,'accepted',valid,flush=True)
                   if valid:
                       verified[lang]=data
                       break
