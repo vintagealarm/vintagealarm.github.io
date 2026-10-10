@@ -7,7 +7,7 @@ model: TIME-O-VOX
 catch:
   - 鳴る黄金のクロノメーター
 ownersNote:
-  image: /images/cyma-time-o-vox/Cyma timeovox .png
+  image: /images/cyma-time-o-vox/owners-note-ja-20261011.png
   lead:
     - 鳴る黄金のクロノメーター
     - 正面はドレスウォッチ
