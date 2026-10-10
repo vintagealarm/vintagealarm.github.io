@@ -1664,3 +1664,10 @@
 - **検証状態**：ローカルVERIFIED。Astro build、citation integrity、source traceability、localization sync / coverage / purity、SPEC evidence、internal links、SEO、owner-copy provenance、project consistency等を通過。ブラウザで日本語PC幅1440×900、日英独スマホ幅390×844を確認し、章番号01〜04、統合章の開閉、横overflowなし、console error 0件を確認した。全体品質列では今回と無関係なInstagram Insights virtual時系列データ欠落のみ既存6個体に対して失敗。PR #226のGitHub Actions run `38092066006` はbuild、quality gates、mobile layoutを含めSUCCESS。main、deploy、liveは未確認。
 - **関連**：`src/content/watches/citizen-alarm.md`、`src/data/en-watch-entry.ts`、`src/data/en-watch-full-research.ts`、`src/data/de-watch-entry.ts`、`src/data/localization-fact-sync.json`、`src/data/spec-evidence-audit.json`。
 - **日時根拠**：作業環境時計 `2026-10-11 07:28:30 +09:00` → `2026-10-11 07:28 JST`。独立章を量産章へ統合する構成訂正は同日07:32 JST以降のユーザー指示に基づく。
+
+### 2026-10-11 07:54 JST — 公開本文からCitizen Alarmの編集履歴メタを除外
+- **変更**：Citizen Alarmの量産章に混入していた「従来の17石表記は写真の読み違いとして訂正した」「従来の37mmから改めた」という編集履歴をJA / EN / DEから削除し、文字盤・ムーブメント・ケース番号・同一番号資料で確認できる現行事実だけを残した。訂正理由と旧値は本Decision Logに限定する。
+- **理由**：公開本文は時計そのものと資料から得られる知見を読ませる場所であり、サイト編集者の修正作業を読者へ説明する場所ではない。2026-10-11、ユーザーから再度「こういうメタ記載やめろ」と明示訂正されたため。
+- **再発防止**：`scripts/check-public-copy-meta.mjs` と `check:public-copy-meta` を品質列へ追加し、JA / EN / DEの公開WATCH正本に訂正・置換の編集履歴文が戻った場合はCIを失敗させる。
+- **影響範囲**：Citizen Alarm DEEP DIVEの該当2段落、日英独同期、公開コピー品質ゲート。本体仕様、出典番号、OWNER'S NOTE、掲載画像・動画、他の研究内容は変更しない。
+- **日時根拠**：作業環境時計 `2026-10-11 07:54:29 +09:00` → `2026-10-11 07:54 JST`。
