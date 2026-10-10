@@ -22,7 +22,7 @@
 - **旧状態・棄却**：DEEP DIVE 02の9段落構成と、SPECでの刻印・ケース番号の全文掲載を廃止。特に「単にベルを追加しただけの機械ではない」をAI的修辞として削除する提案はユーザーが棄却。既存出典・写真・ムーブメントの19石確認等の根拠情報は削除せず、SOURCESに残す。
 - **影響範囲**：CitizenのJA WATCH、EN ENTRY + EN RESEARCH、DE ENTRY、対応するlocalization fact-sync / SPEC evidence gate、本決定履歴。OWNER'S NOTE Catch / Lead / NOTE / 画像・他章・他WATCH・動画・公開条件は不変。
 - **検証状態**：実装時点では未検証。差分・CI・main merge・公開liveを工程ごとに独立確認する。
-- **関連**：Citizen /citizen-alarm/#owners-note、2026-10-11のユーザー校正（9段落から3段落）と特記事項の刻印削除の明示指示。
+- **関連**：Citizen /citizen-alarm/#owners-note、2026-10-11のユーザー校正（9段落から3段落）と特記事項の刻印削除の明示指示。CIで指摘された検査条件と出典表現の不一致を修復したcommit 6d4ad7d4。
 - **日時根拠**：作業ツールUTC 2026-10-10T23:52:05.956Z → JST 2026-10-11 08:52 JST。
 
 ### 2026-10-11 08:00 JST — CYMA TIME-O-VOX 18K ChronomètreのOWNER'S NOTE画像だけ3言語差し替え
