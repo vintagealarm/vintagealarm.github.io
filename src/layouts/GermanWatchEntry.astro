@@ -34,7 +34,9 @@ const translatedOwnersNote = {
         ? '/images/citizen-alarm/owners-note-de-20261010.png'
         : watch.slug === 'westclox-watchlarm'
           ? '/images/westclox-watchlarm/owners-note-de-20261011.png'
-          : watch.ownersNote.image
+          : watch.slug === 'cyma-time-o-vox'
+            ? '/images/cyma-time-o-vox/owners-note-de-20261011.png'
+            : watch.ownersNote.image
 };
 const schema = {
   '@context': 'https://schema.org',
