@@ -15,6 +15,17 @@
 
 ---
 
+### 2026-10-11 08:00 JST — CYMA TIME-O-VOX 18K ChronomètreのOWNER'S NOTE画像だけ3言語差し替え
+
+- **変更**：ユーザーが2026-10-11に添付したCYMA Time-O-Vox OWNER'S NOTEの完成画像（`CITIZEN SPIKE_16.png` JA、`_17.png` EN、`_18.png` DE）を各言語専用 `public/images/cyma-time-o-vox/owners-note-{ja,en,de}-20261011.png` へ登録。日本語WATCHの`ownersNote.image`およびEN/DE WatchEntryのCYMA限定画像参照を変更し、`scripts/check-build-output.mjs`に3言語の生成HTML画像参照・登録ファイルSHA-256検査を追加した。
+- **理由**：旧日本語画像 `/images/cyma-time-o-vox/Cyma timeovox .png` を3言語で流用しており、ユーザーが新しい3言語完成版への画像のみ差し替えを指示した。
+- **原本照合**：JA 976,624 bytes／SHA-256 `82a834b9ed7446eb55e42b011304c35bc3e6aa67a2a1f13b302d6a5d429bc5ad`、EN 1,013,172 bytes／SHA-256 `f39a9cf449238262080a5583f300105b6acbcec775a34bf8363189b1318ca513` は、ユーザー添付PNGとファイル全体で一致。DEは添付PNG 1,478,627 bytes／SHA-256 `3535e500dadfcb9013928baca404150c4ebb9873662672a0597933d3cd2c3ab3` に対し、登録PNG 1,048,731 bytes／SHA-256 `6fbcbe632a288907e46154bf0ad5931607c5cd582f19430d07e9280d18abe24b` でバイト列は異なる。ただしRGBA全ピクセルSHA-256 `dda0b75dc44ef4a4fe9adeadd65358c44724efc99a9dcc6ac0706e703333a0ed` が添付画像と一致したので、見た目を変えないピクセル等価画像として採用（GitHub Actions #38093456775）。いずれも1146×1600px。
+- **旧状態・棄却**：旧画像の全言語流用を廃止。原本と一致しないドイツ語の初期取得候補（ピクセルSHA `f941d37286d5f83b59fac92a797f85ec2dc315ef3badb11c78c5f31d5083f0ae`）を棄却。DEを「バイト単位の原本そのまま」とは表示しない。旧画像自体の削除、他のWATCH、HOW THEY RING画像、本文・翻訳・Catch/Lead、動画・SPEC・SEOの変更は行わない。
+- **影響範囲**：CYMA新規PNG3枚、`src/content/watches/cyma-time-o-vox.md`のOWNER'S NOTE画像参照のみ、EN/DE layoutsのCYMA専用分岐、`scripts/check-build-output.mjs`の画像と参照検査、本履歴。一時転送workflowは完全撤去し最終PR差分に残さない。
+- **検証状態**：ユーザー添付とのJA/ENバイト一致、DE RGBA全ピクセル一致、3画像のbranch登録をGitHub Actions #38093456775で確認。PR CI / main反映 / Pages deploy / liveは工程ごとに別途確認し、未実施を合格扱いしない。
+- **関連**：画像登録workflow #38093456775、登録commit `2913d25`、画像参照commits `65f9efda` / `3fb03e69` / `5e6abe38`、build検査 `9655eda6`、転送workflow撤去 `7e57896c`。一時workflow履歴 `c8f5eeaf` / `d23fd2e3` / `67ee93d0` は削除せずbranch historyで追跡する。
+- **日時根拠**：時刻ウィジェット `2026-10-11T08:00:54+09:00` → `2026-10-11 08:00 JST`。
+
 ### 2026-10-11 07:47 JST — Westclox Watchlarm OWNER'S NOTE 3言語画像差し替え
 
 - **変更**：ユーザーが2026-10-11に提示したWestclox Watchlarm OWNER'S NOTEの日本語・英語・ドイツ語3枚を、各言語専用の `public/images/westclox-watchlarm/owners-note-{ja,en,de}-20261011.png` に登録し、JA WATCHおよびEN / DE WatchEntryのWestclox限定画像参照を更新。`scripts/check-build-output.mjs`に3言語の生成HTML参照先・公開用画像のSHA-256検査を追加した。
