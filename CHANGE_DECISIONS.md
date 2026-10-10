@@ -1624,7 +1624,6 @@
 - **関連**：投稿`IG-WIT-CYM-001`、2026-10-09 22:45 JSTのスクリーンショット7枚、2026-10-09 11:53旧snapshot。
 - **日時根拠**：ホストUTC`2026-10-09T14:14:45.289Z` → JST`2026-10-09 23:14`。22:45はスクリーンショット端末表示。
 
-
 ### 2026-10-10 00:37 JST — Instagram 10投稿グリッド・プロフィール初回総覧を記録
 - **変更**：2026-10-10 00:31 JSTのプロフィールと10投稿一覧のユーザー提供スクリーンショット2枚を、既存`instagram-operations.md`のアカウント横断観測として追記。96 followers / 10 posts / 71 following / 過去30日約3.4万views / 10件のグリッド表示回数を元表示単位ごと保持した。
 - **理由**：単独投稿のInsights時系列とは別の「アカウント全体・全投稿の現在地」を残し、既存IDとの横断比較を可能にする。
@@ -1643,3 +1642,13 @@
 - **検証状態**：branch更新、再取得・差分・CIの`check:instagram-insights`と`check:social-inventory`を検査後にmain反映する。
 - **関連**：`IG-CYM-002`、`CYM-12`、2026-10-07 06:34 screenshot、2026-10-10 00:31 grid、`IG-CYM-001`との区別。
 - **日時根拠**：UTC `2026-10-09T15:47:13.197Z` → JST `2026-10-10 00:47`。投稿時刻05:40頃はユーザー報告、観測時刻06:34はスクリーンショット表示。
+
+### 2026-10-11 07:28 JST — Citizen Alarm掲載個体の仕様訂正と173部品・2香箱DEEP DIVE増補
+- **変更**：Citizen Alarm掲載個体の写真を再読し、SPECを17石から19石へ、ケース径を37mmから同一ケース番号資料に基づく約34mm（リューズ除く）へ訂正。文字盤「19 JEWELS PHYNOX」、ムーブメント「CITIZEN / NINETEEN JEWELS / 3 ADJ」、裏蓋内面のケース番号「1407067」をJA / EN / DEへ同期した。Cal.980と18,000振動／時は掲載写真に直接刻印が見えないため、引き続き同型資料による値として区別する。
+- **DEEP DIVE**：1958年資料の133種・173個という部品構成を分解し、時計機構85種・120個に対してアラーム機構48種・53個を追加する量産上の負荷、2香箱の役割分担、アラーム香箱からハンマー・共鳴裏蓋までの動力経路、生産技術との関係を新しい中核章として追加。掲載個体1407067と「19 JEWELS PHYNOX」は独立章にせず、資料上の初期仕様を実物で裏付ける証拠として同じ量産章へ統合した。中央ディスクの視認性・薄型化・整備性、981系と310系の区別も一次・技術資料に合わせて更新した。
+- **理由**：従来の変更履歴と監査gateは、掲載写真を `17 JEWELS` と誤読していた。実際には文字盤の19石表示、ムーブメントの `NINETEEN JEWELS`、内蓋の1407067が確認でき、同一番号の公開個体記録も19石・約34mm・3姿勢調整で一致する。また「製造が難しい」という一般論を、部品点数と機構の具体的負荷まで掘り下げる必要があった。
+- **旧状態・棄却**：掲載個体を17石・37mm・Parashock付きとするSPEC、`CITIZEN / 17 JEWELS / 3 ADJ` という誤読、Cal.981を「Alarm Date表記だが日付窓なし」の過渡型として扱う本文を棄却する。AS1475ライセンス説とJLC抗議説も確定事実へ昇格せず、後者は未確認の伝承として維持する。
+- **影響範囲**：Citizen AlarmのJA / EN / DE SPEC、DEEP DIVE、出典、localization fact sync、SPEC evidence audit、本判断履歴。2026-10-10に確定・反映されたOWNER'S NOTEのCatch / Leadと3言語PNG、掲載画像・動画、他WATCH、公開状態は変更しない。
+- **検証状態**：ローカルVERIFIED。Astro build、citation integrity、source traceability、localization sync / coverage / purity、SPEC evidence、internal links、SEO、owner-copy provenance、project consistency等を通過。ブラウザで日本語PC幅1440×900、日英独スマホ幅390×844を確認し、章番号01〜04、統合章の開閉、横overflowなし、console error 0件を確認した。全体品質列では今回と無関係なInstagram Insights virtual時系列データ欠落のみ既存6個体に対して失敗。PR #226のGitHub Actions run `38092066006` はbuild、quality gates、mobile layoutを含めSUCCESS。main、deploy、liveは未確認。
+- **関連**：`src/content/watches/citizen-alarm.md`、`src/data/en-watch-entry.ts`、`src/data/en-watch-full-research.ts`、`src/data/de-watch-entry.ts`、`src/data/localization-fact-sync.json`、`src/data/spec-evidence-audit.json`。
+- **日時根拠**：作業環境時計 `2026-10-11 07:28:30 +09:00` → `2026-10-11 07:28 JST`。独立章を量産章へ統合する構成訂正は同日07:32 JST以降のユーザー指示に基づく。

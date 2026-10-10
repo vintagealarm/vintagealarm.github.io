@@ -4,34 +4,41 @@
   "checks": [
     {
       "id": "citizen-alarm-same-type-spec",
-      "note": "The shown Citizen specimen now directly confirms the 17-jewel count through its visible 17 JEWELS movement marking. Keep case size, Cal.980 attribution and 18,000 vph qualified as same-type documentation; the visible movement photos do not show a 980 caliber stamp. Do not reintroduce the former 19-jewel contradiction.",
+      "note": "The shown Citizen specimen directly confirms 19 jewels through the visible 19 JEWELS PHYNOX dial and NINETEEN JEWELS movement marking; the inside caseback confirms reference 1407067. Keep the approximately 34 mm case size qualified as same-reference documentation, and keep Cal.980 attribution and 18,000 vph qualified as same-type documentation because the visible movement photos do not show a 980 caliber stamp.",
       "sourceChecks": [
         {
           "path": "src/content/watches/citizen-alarm.md",
           "mustContain": [
-            "caseSize: 37mm（同型資料）",
+            "caseSize: 約34mm（同一ケース番号資料、リューズ除く）",
             "caliber: Citizen 980（同型資料）",
-            "jewels: 17石（掲載個体で確認）",
+            "jewels: 19石（掲載個体で確認）",
             "frequency: 18,000振動／時（同型資料）",
-            "CITIZEN / 17 JEWELS / 3 ADJ",
-            "初期の980には17石、Parashock付きの仕様が確認できる"
+            "19 JEWELS PHYNOX",
+            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
+            "1407067"
           ],
           "mustNotContain": [
-            "jewels: 19石",
+            "jewels: 17石",
+            "caseSize: 37mm",
+            "CITIZEN / 17 JEWELS / 3 ADJ",
             "caliber: Citizen 980（掲載個体で確認）"
           ]
         },
         {
           "path": "src/data/en-watch-entry.ts",
           "mustContain": [
-            "caseSize: '37 mm (same-type documentation)'",
+            "caseSize: 'Approx. 34 mm (same case-reference documentation, excluding crowns)'",
             "caliber: 'Citizen 980 (same-type documentation)'",
-            "jewels: '17 jewels (confirmed on the shown specimen)'",
+            "jewels: '19 jewels (confirmed on the shown specimen)'",
             "frequency: '18,000 vph (same-type documentation)'",
-            "CITIZEN / 17 JEWELS / 3 ADJ"
+            "19 JEWELS PHYNOX",
+            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
+            "1407067"
           ],
           "mustNotContain": [
-            "jewels: '19 jewels",
+            "jewels: '17 jewels (confirmed on the shown specimen)'",
+            "caseSize: '37 mm",
+            "CITIZEN / 17 JEWELS / 3 ADJ",
             "caliber: 'Citizen 980 (confirmed on the shown specimen)'"
           ]
         }
@@ -40,17 +47,21 @@
         {
           "path": "dist/citizen-alarm/index.html",
           "mustContain": [
-            "17石（掲載個体で確認）",
+            "19石（掲載個体で確認）",
             "Citizen 980（同型資料）",
-            "CITIZEN / 17 JEWELS / 3 ADJ"
+            "19 JEWELS PHYNOX",
+            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
+            "1407067"
           ]
         },
         {
           "path": "dist/en/citizen-alarm/index.html",
           "mustContain": [
-            "17 jewels (confirmed on the shown specimen)",
+            "19 jewels (confirmed on the shown specimen)",
             "Citizen 980 (same-type documentation)",
-            "CITIZEN / 17 JEWELS / 3 ADJ"
+            "19 JEWELS PHYNOX",
+            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
+            "1407067"
           ]
         }
       ]

@@ -214,15 +214,15 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ]
     },
     spec: {
-      era: 'c. 1958 (early type)',
-      caseSize: '37 mm (same-type documentation)',
+      era: '1958 or later (early centre-disc type)',
+      caseSize: 'Approx. 34 mm (same case-reference documentation, excluding crowns)',
       caliber: 'Citizen 980 (same-type documentation)',
-      jewels: '17 jewels (confirmed on the shown specimen)',
+      jewels: '19 jewels (confirmed on the shown specimen)',
       frequency: '18,000 vph (same-type documentation)',
       barrels: '2 barrels',
       winding: 'Manual winding',
       acoustic: 'Double-caseback sound system',
-      notes: 'Rotating center alarm disc, twin crowns, Parashock; shown specimen movement marked “CITIZEN / 17 JEWELS / 3 ADJ”'
+      notes: 'Rotating centre alarm disc, twin crowns; dial marked “19 JEWELS PHYNOX”, movement marked “CITIZEN / NINETEEN JEWELS / 3 ADJ”, and inside caseback marked “1407067”'
     }
   },
   'westclox-watchlarm': {

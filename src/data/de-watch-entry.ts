@@ -332,15 +332,15 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ]
     },
     spec: {
-      era: 'um 1958 (frühe Ausführung)',
-      caseSize: '37 mm (Dokumentation eines vergleichbaren Typs)',
+      era: 'ab 1958 (frühe Ausführung mit zentraler Scheibe)',
+      caseSize: 'ca. 34 mm (Dokumentation derselben Gehäusereferenz, ohne Kronen)',
       caliber: 'Citizen 980 (Dokumentation eines vergleichbaren Typs)',
-      jewels: '17 Steine (am gezeigten Exemplar bestätigt)',
+      jewels: '19 Steine (am gezeigten Exemplar bestätigt)',
       frequency: '18.000 A/h (Dokumentation eines vergleichbaren Typs)',
       barrels: '2 Federhäuser',
       winding: 'Handaufzug',
       acoustic: 'Doppelter Gehäuseboden',
-      notes: 'Zentrale drehbare Weckscheibe, zwei Kronen, Parashock; Werk des gezeigten Exemplars mit „CITIZEN / 17 JEWELS / 3 ADJ“ gekennzeichnet'
+      notes: 'Zentrale drehbare Weckscheibe, zwei Kronen; Zifferblatt mit „19 JEWELS PHYNOX“, Werk mit „CITIZEN / NINETEEN JEWELS / 3 ADJ“ und Innenseite des Gehäusebodens mit „1407067“ gekennzeichnet'
     },
     specimenGallery: [
       { image: '/images/IMG_1695.jpeg', label: 'Vorderseite — am Handgelenk', alt: 'Citizen Alarm Cal. 980, gezeigtes Exemplar, Vorderseite am Handgelenk' },
@@ -357,43 +357,49 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
           'In den Nachkriegsjahren erweiterte Citizen seine technische Basis und brachte zugleich neue Funktionen wie Kalender und Stoßsicherungen in seine Uhren. 1957 entwickelte das Unternehmen außerdem eigene Drehautomaten und Messgeräte für die Fertigung von Uhrenteilen.',
           '1958 folgten mehrere wichtige Neuheiten in kurzem Abstand: Im Mai erschien die Herren-Automatikuhr „Auto“, im Juni die „Alarm“, im August die flache hochwertige „Super Deluxe“.',
           'Die Citizen Alarm war Japans erste Armbanduhr mit hörbarem Weckalarm. Sie besitzt getrennte Federhäuser für Gehwerk und Alarm; zur eingestellten Zeit schlägt ein Hammer gegen den Gehäuseboden. Der Alarm läuft ungefähr zehn Sekunden. Auf das frühe Cal. A folgte Cal. 980.',
-          'In der Schweiz waren Zusatzfunktionen wie Wasserdichtigkeit, Kalender, Chronograph und Alarm zu dieser Zeit zu wichtigen Verkaufsmerkmalen geworden. Auch Citizen brachte den Alarm als Uhr mit besonderer Zusatzfunktion auf den Markt.',
-          '1958 war damit eine Phase erreicht, in der japanische Uhren nicht mehr nur über die Zeitanzeige, sondern auch über ihre Funktionen konkurrieren konnten.'
+          'Ein Branchenbericht vom Juni 1958 nennt als endgültigen Verkaufspreis 9.200 Yen. Citizens heutige Modellhistorie nennt dagegen eine Spanne von 6.200 bis 11.500 Yen; der einzelne überlieferte Preis und die Preisspanne der Modellfamilie sind daher getrennt zu behandeln.',
+          '1958 war damit eine Phase erreicht, in der japanische Uhren nicht mehr nur über die Zeitanzeige, sondern über komplexe Zusatzfunktionen als eigenständige Produkte konkurrierten.'
         ],
-        citationRefs: ['3', '3', '1', '2', '2,3']
+        citationRefs: ['3', '3', '1', '1,6', '2,3']
       },
       {
         number: '02',
-        title: 'Citizen Cal. 980',
+        title: '173 Teile und zwei Federhäuser in Serienfertigung',
         paragraphs: [
-          'Cal. 980 in den frühen Citizen-Alarm-Uhren besitzt getrennte Federhäuser für Gehwerk und Alarm. Die beiden Systeme werden über Kronen bei 2 und 4 Uhr bedient.',
-          'Der Aufbau ähnelt dem Schweizer A. Schild AS 1475 deutlich. Beitl nennt die Möglichkeit einer Lizenzfertigung auf Grundlage des AS 1475 und geht davon aus, dass Citizen das Werk anschließend veränderte und weiterentwickelte. Frühe 980-Ausführungen mit 17 Steinen und Parashock sind dokumentiert.',
-          'Die Alarmkonstruktion prägt auch das Erscheinungsbild der frühen Uhren. In der Zifferblattmitte sitzt eine drehbare Weckscheibe, rechts am Gehäuse zwei große Kronen. Frühe Ausführungen besitzen außerdem einen doppelten Gehäuseboden: Der innen erzeugte Klang kann durch Öffnungen im äußeren Boden nach außen treten.',
-          'Die zentrale Scheibe war für Cal. 980 selbst allerdings nicht zwingend. Später erschienen Uhren mit demselben Kaliber, bei denen ein vierter Zeiger die Alarmzeit anzeigt.'
+          'Der Bericht zur Markteinführung von 1958 beschreibt das frühe Citizen-Alarm-Werk mit 27 mm Durchmesser, 5,7 mm Höhe und 19 Steinen. Es besteht aus 133 Teilearten und 173 Einzelteilen: Es handelte sich nicht nur um ein gewöhnliches Armbanduhrwerk mit zusätzlich eingebauter Glocke.',
+          'Davon entfallen 85 Arten und 120 Teile auf das Gehwerk sowie 48 Arten und 53 Teile auf den Alarm. Gegenüber dem Gehwerk allein erhöhte der Alarm damit die Stückzahl um rund 44 Prozent und die Zahl der Teilearten um rund 56 Prozent.',
+          'Die beiden Federhäuser teilen die Aufgaben. Über die Krone bei 4 Uhr wird das Gehwerk aufgezogen, über die Krone bei 2 Uhr das Alarmwerk. Die Energie für den Alarm wird getrennt von der Energie gespeichert, die die Uhr laufen lässt.',
+          'Zur eingestellten Zeit gelangt die Kraft des Alarmfederhauses über das Alarm-Hemmungsrad zum Hammer, der gegen den Gehäuseboden schlägt. Am gezeigten Exemplar sind die Resonanzfläche in der Mitte des Bodens und die umlaufenden Öffnungen direkt erkennbar. Werk, Gehäuse und Klangkörper bilden erst gemeinsam das Alarmsystem.',
+          'Mehr Teile erschweren nicht nur die Bearbeitung, sondern auch Montage, Regulierung, Versorgung und Ausschusskontrolle. Citizen Design bezeichnet die hohe Teilezahl ebenfalls als Herausforderung für die Produktivität und führt die mögliche Serienfertigung auf das Können der Fachkräfte zurück.',
+          'Bereits 1957 hatte Citizen eigene Drehautomaten und Messgeräte für die Fertigung von Uhrenteilen entwickelt. Die Citizen Alarm ist daher nicht nur als komplizierte Konstruktion zu lesen, sondern ebenso als Ergebnis der Produktionstechnik, mit der sie dauerhaft gefertigt werden konnte.',
+          'Das gezeigte Exemplar liefert erhaltene Sachbelege für diese frühe Spezifikation. Auf dem Zifferblatt steht „19 JEWELS PHYNOX“, auf dem Werk „CITIZEN / NINETEEN JEWELS / 3 ADJ“; beide nennen 19 Steine. Die frühere Angabe von 17 Steinen wird als Fehlablesung der Fotos berichtigt.',
+          'Auf der Innenseite des Gehäusebodens stehen „CENTER SECOND“, eine sternförmige Marke, „STAINLESS STEEL“ und die Gehäusereferenz „1407067“. Ein separat veröffentlichtes Exemplar derselben Referenz ist ebenfalls mit 19 Steinen und einer Regulierung in drei Lagen dokumentiert; sein Durchmesser wird ohne Kronen mit etwa 34 mm angegeben. Die früheren 37 mm waren keine Messung dieses Exemplars und wurden durch den Wert derselben Referenz ersetzt.',
+          '„PHYNOX“ ist nicht der Modellname, sondern eine technische Werbeaufschrift neben der Steinzahl. Die dokumentierte Spezifikation mit 173 Teilen und die Kennzeichnungen des gezeigten Exemplars ermöglichen es, die frühe Citizen Alarm zugleich anhand zeitgenössischer Zahlen und einer erhaltenen Uhr zu prüfen.'
         ],
-        citationRefs: ['1,4', '4,5', '2', '4']
+        citationRefs: ['6', '6', '1,7', '2,7,9', '2', '2,3', '9', '8,9', '6,9']
       },
       {
         number: '03',
         title: 'Von der zentralen Scheibe zur Four Hands',
         paragraphs: [
-          'Das prägende Merkmal der ersten Citizen Alarm ist die zentrale Scheibe zur Alarmzeiteinstellung. Die gesamte Scheibe wird gedreht, um die Alarmzeit anzuzeigen; Citizen selbst beschreibt die Gestaltung als auf gute Ablesbarkeit und einfache Bedienung ausgelegt.',
+          'Das prägende Merkmal der ersten Citizen Alarm ist die zentrale Scheibe zur Alarmzeiteinstellung. Der Bericht von 1958 nennt neben der Ablesbarkeit auch eine geringere Bauhöhe und die Möglichkeit, das Zifferblatt abzunehmen, ohne die Scheibe auszubauen. Anzeige, Höhe und Wartungsfreundlichkeit wurden zusammen gedacht.',
           'Um 1960 erscheinen „Four Hands“-Modelle, bei denen ein vierter Zeiger die Alarmzeit zeigt. Auch sie verwenden Cal. 980. Gleichzeitig blieben Ausführungen mit Scheibe und Cal. 980 im Umlauf; die zentrale Scheibe verschwand also nicht in dem Moment, in dem Four Hands auftauchte.',
           'In Japan wird die Geschichte erzählt, die erste Ausführung habe der Memovox zu ähnlich gesehen, Jaeger-LeCoultre habe sich beschwert und Citizen sei deshalb auf Four Hands umgestiegen. In den für diese Seite verwendeten Unterlagen von Citizen, Beitl und Horlbeck findet sich dafür jedoch kein Beleg.',
+          'Die sichtbare Ähnlichkeit mit der früheren Memovox lässt sich feststellen. Citizen hinterließ jedoch zugleich konkrete konstruktive Gründe für die Wahl der zentralen Scheibe. Die Beobachtung einer Ähnlichkeit und die Behauptung, eine Beschwerde habe die Umgestaltung ausgelöst, sind getrennte Fragen.',
           'Was zwischen der ersten Ausführung und Four Hands tatsächlich geschah, bleibt in den hier verwendeten Quellen offen. Die Erzählung über eine Beschwerde von LeCoultre ist damit weiterhin eine Legende und kein bestätigter Vorgang.'
         ],
-        citationRefs: ['2', '4', '1,2,4,5', '1,2,4,5']
+        citationRefs: ['2,6', '4', '1,2,4,5', '2,5,6', '1,2,4,5']
       },
       {
         number: '04',
         title: 'Die weitere Entwicklung der Citizen Alarm',
         paragraphs: [
-          'Die Citizen Alarm endete nicht mit Four Hands. Von Cal. 981 sind Übergangsausführungen bekannt, deren Zifferblatt „Alarm Date“ trägt, obwohl kein Datumsfenster vorhanden ist. Beim späteren Cal. 3100 kam dann eine Datumsanzeige bei 3 Uhr hinzu.',
+          'Die Citizen Alarm endete nicht mit Four Hands. Citizens technische Unterlagen von 1971 ordnen die Familie 981 als Alarmwerk ohne Datum und die Familie 310 als Alarmwerk mit Datum ein. Beide messen 27 mm und laufen mit 18.000 A/h; die 310-Familie ist wegen des Datumsmechanismus höher.',
           'Die Reihe wurde weiter auf Parawater- und andere wassergeschützte Modelle, Sportuhren, Taucherstil-Ausführungen sowie Alarm und Lady Alarm für Damen ausgeweitet. Der Weckmechanismus wanderte damit in sehr unterschiedliche Uhrentypen.',
           'Citizens eigene historische Darstellung führt die Reihe bis in die frühen 1970er-Jahre. Das letzte dort genannte Modell war keine Armbanduhr mehr, sondern eine Taschenuhr mit Alarm.',
           'Was 1958 als Japans erste „Armbanduhr mit klingelndem Alarm“ begann, endete schließlich damit, dass der Alarm das Handgelenk verließ und in die Taschenuhr wanderte.'
         ],
-        citationRefs: ['4', '2,4', '2', '2']
+        citationRefs: ['7', '2,4', '2', '2']
       }
     ],
     sourceMeta: [
@@ -401,14 +407,22 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       { id: '2', type: 'primary' },
       { id: '3', type: 'primary' },
       { id: '4', type: 'reference' },
-      { id: '5', type: 'reference' }
+      { id: '5', type: 'reference' },
+      { id: '6', type: 'primary' },
+      { id: '7', type: 'primary' },
+      { id: '8', type: 'reference' },
+      { id: '9', type: 'provenance' }
     ],
     sources: [
       'Citizen Watch, historisches Modell „Alarm“ (1958) — Erscheinungszeitraum, Cal. A → 980, zwei Federhäuser und ca. zehn Sekunden Alarmdauer.',
       'CITIZEN DESIGN, „The Beauty of Utility / CITIZEN ALARM“ (2024) — zentrale Scheibe, zwei Kronen, doppelter Gehäuseboden und Modellentwicklung.',
       'Citizen Watch, Produkt- und Technikgeschichte — Produktentwicklung der 1950er-Jahre, Drehautomaten und Messtechnik.',
       'Leonhard Beitl, Alarm am Arm (2009), S. 122–125 und Werk-Tabelle — Cal. 980, Four Hands, Alarm Date und spätere Modelle.',
-      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 26, 80–83, 95–96 — Beziehung zu AS 1475 und Citizen-Alarmkaliber.'
+      'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 26, 80–83, 95–96 — Beziehung zu AS 1475 und Citizen-Alarmkaliber.',
+      'Seimitsu Kogyo Shimbunsha, Tokei, Juni 1958, nachgedruckter Artikel „Citizen Alarm“ — 19 Steine, Werk 27 × 5,7 mm, 133 Arten / 173 Teile, Gründe für die zentrale Scheibe und Preis.',
+      'Citizen Watch, Citizen Technical Information (1971) — Maße, Frequenz, Datumsfunktion und Alarmkraftübertragung der Familien 981 und 310.',
+      'Second Vintage, Datensatz Citizen Alarm Ref. 1407067 — dieselbe Gehäusereferenz, ca. 34 mm, 19 Steine und Kennzeichnung für Regulierung in drei Lagen.',
+      'OWNER OBSERVATION — Zifferblatt „19 JEWELS PHYNOX“, Werk „NINETEEN JEWELS / 3 ADJ“, Innenseite des Gehäusebodens „1407067“ und Resonanzboden des gezeigten Exemplars.'
     ],
     related: {
       href: '/de/cyma-time-o-vox/',
