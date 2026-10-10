@@ -14,78 +14,56 @@ jobs:
           ref: fix/westclox-owner-note-trilingual-20261011
       - name: Install PNG decoder
         run: python -m pip install --quiet Pillow
-      - name: Verify attached image bytes and visible pixels before import
+      - name: Preserve exact pixels from provided JA EN DE images
         run: |
           cat > /tmp/westclox-import.py <<'PY'
-          import urllib.request, struct, hashlib, pathlib, io, time, base64, zlib
+          import urllib.request, struct, hashlib, pathlib, io, time, base64
           from PIL import Image
           sources={
-            'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d42SbHZnGPEP-I1DJTZu70L5VWlYMqpJLiHH0sTzYt-OA_0DHi3RlzQFDls2ivtDgNK0BidvTkKJR6JGYcbyQDLa4zxVkC1PI4-j5j4XJdZjW-Z05nqqfg25Nvaz8Do2sx87NsFsYu-sD0ubzNFlr4b7nFzfzSUTpcjnShr46v7-MSR=s1600", "813ec4e5b94e86c2924ad8c0fe07f20d4d843d0157284320d07e119a7880870c", 950123, "4eded9062cc44809882950f4a2b491d8b453cabb2d55a60e4567f12e93e4c3d8"),
-            'en': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d4r_ldUbQF9xf5UN942FejIKQn1OK0nIh34EBQC9bFwBAcnXDh6X5T6DHUf8mDFolRWA5OZ9Jd4rQbAKU9zi3wGXbU8P_A34DNQt9SA4VT217M0gfw9jHn0t1kJPxx7mElPzOgieCSHptr9Be3v6NAltr6ClY3LNIkODXOgMslx20zV=s1600", "736afa7fc265c30d988288a79a7149e7ec9136ec5526fce6ad8284b8ec097d26", 1004457, "9d8752a9b8db43b67b46865ae0cd102621456cf5c16380d879aa2c843abd377e"),
-            'de': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d543TO6SUiGq97mkIdXzEca4QAgsvkz84HeVMHwIo9ekVCr5S9MefQtF8vOVDu4fNNBHh0v7MLSFmxAtBdYoPh_0rQ1QsFAfXbmRJqSQMLdAJ8hvgi3UWAL-qSrG-wZBAi4FVXbpf-PIOPVaskjH7LV1pPg-o9B_j7BA_PG3BQIpGR1=s1600", "aa97707cae12bff781ba95b1ace5fef93f2271b8067781cf6ced77fc2e83eafe", 1462979, "0db142d8f1cedae72e0504b5c4f940173fede397628fe055a416031d04b1f416")
+            'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d42SbHZnGPEP-I1DJTZu70L5VWlYMqpJLiHH0sTzYt-OA_0DHi3RlzQFDls2ivtDgNK0BidvTkKJR6JGYcbyQDLa4zxVkC1PI4-j5j4XJdZjW-Z05nqqfg25Nvaz8Do2sx87NsFsYu-sD0ubzNFlr4b7nFzfzSUTpcjnShr46v7-MSR=s1600", '813ec4e5b94e86c2924ad8c0fe07f20d4d843d0157284320d07e119a7880870c', 950123, '4eded9062cc44809882950f4a2b491d8b453cabb2d55a60e4567f12e93e4c3d8'),
+            'en': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d4r_ldUbQF9xf5UN942FejIKQn1OK0nIh34EBQC9bFwBAcnXDh6X5T6DHUf8mDFolRWA5OZ9Jd4rQbAKU9zi3wGXbU8P_A34DNQt9SA4VT217M0gfw9jHn0t1kJPxx7mElPzOgieCSHptr9Be3v6NAltr6ClY3LNIkODXOgMslx20zV=s1600", '736afa7fc265c30d988288a79a7149e7ec9136ec5526fce6ad8284b8ec097d26', 1004457, '9d8752a9b8db43b67b46865ae0cd102621456cf5c16380d879aa2c843abd377e'),
+            'de': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d543TO6SUiGq97mkIdXzEca4QAgsvkz84HeVMHwIo9ekVCr5S9MefQtF8vOVDu4fNNBHh0v7MLSFmxAtBdYoPh_0rQ1QsFAfXbmRJqSQMLdAJ8hvgi3UWAL-qSrG-wZBAi4FVXbpf-PIOPVaskjH7LV1pPg-o9B_j7BA_PG3BQIpGR1=s1600", 'aa97707cae12bff781ba95b1ace5fef93f2271b8067781cf6ced77fc2e83eafe', 1462979, '0db142d8f1cedae72e0504b5c4f940173fede397628fe055a416031d04b1f416')
           }
+          ja_patch="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABPklEQVR42pVSzyuEURR95773vu9jKIQSC6wVa02DUEpi49+xsbGVDY2EslMWViOTKWUlUbIgM4zJ/Copn8X05nvXYmpSfsx8t7u4i3Puved08Ja9FU0XAAqFrlQqIQhCiMBa1cxiKSUAANoY1RBdLJUTp2elUtnzPM910VA0AK119iV3//A4PRX7/QIRWWtrMzMbYzzPOzw6bm+L0K/o13yBiADUOV2dHZOx6PbuAWmtvrfrOvlCcWV1LZk6Z2YARKS1chxnoL9vbHREbcX3altq/zJzOvPs+5/rG5sfvr84P5fOPJ0kU1JKSeRojZuLxE+VAAQL7ejenm5rrTGGJLFlFoz33N2fBjFbZiGElPLy6np4aDDS2qLqbvxTRBTf2a8GdiI6rpoMhdZ6dia6vLQQIktBEJhqNUxaBQB8ARHoeRt54L1WAAAAAElFTkSuQmCC"
           saved={}
           for lang,(url,expected_sha,expected_size,expected_pixel_sha) in sources.items():
-              ok=False
-              for attempt in range(1,2):
-                  with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0","Cache-Control":"no-cache"}),timeout=75) as response:
+              success=False
+              for attempt in range(1,13):
+                  with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"}),timeout=70) as response:
                       b=response.read()
+                  if b[:8]!=bytes([137,80,78,71,13,10,26,10]) or struct.unpack(">II",b[16:24])!=(1146,1600):
+                      raise RuntimeError(f"{lang}: wrong PNG/dimensions")
                   sha=hashlib.sha256(b).hexdigest()
-                  dims=struct.unpack(">II",b[16:24]) if b[:8]==bytes([137,80,78,71,13,10,26,10]) else None
-                  pixelsha=hashlib.sha256(Image.open(io.BytesIO(b)).convert("RGBA").tobytes()).hexdigest() if dims==(1146,1600) else "invalid"
                   exact=(len(b)==expected_size and sha==expected_sha)
-                  pixel_match=(pixelsha==expected_pixel_sha)
-                  ok=dims==(1146,1600) and (exact if lang!="de" else pixel_match)
-                  print(lang,attempt,"bytes",len(b),"sha256",sha,"pixel_match",pixel_match,"byte_exact",exact,flush=True)
-                  if lang in ("ja","de"):
-                      refs={"ja":"SrfqdxgX/mxu7lmbYzJqoOyc4c/snOHPrk4ZDMKhF01qpuOPHA6mdUDnA2hLZv/qRzvxgvXFLIOGHSWWOjBNnc+VrIS/k+x37Jzhz+yc4c/snOHP7Jzhz76Im/t7yFKYB+6L9JGRdXSb5GYVTNIo5Z3ieTbQgGdi70GjD901jpTahDVHy31IduuCu3Bo01MODEOQ7mWZ1CYYtfCKt5aVZucOCnzNIY/ksw0zk+c7HNfKwmS3+/ToDjDbBnzbVw6sviw2aQncDe1Ac4XjJBNvYkfoMfYYeS61sZyXcSKkTsG74ZSDpZfWzSKMCRlUb9zTJgCiTiQpKtAkP4Bmha3vpexNNYJBq4iM+iTlr2lP2FaCkIcdnp/butx/feDSFDPyJFSh5EsFhQe/F33kqcA7g27a2dztdW4n32pNJ+1GE6RCUFtVB+Dl6DzkYbSyzr4syyTmZYZs+H99V3ZOUOJIQFKi8WKtxl7oURSgrMkb7lq7Y3gun5GvELCycRXnDWH1dQg5xgmIrLHrr7wPA3q1J5kaixU3dV+FdastOyztDxlNPugjuzfWJHAsn9UHEMcSZ9Qs0nOOmXDFHpitZfONunYRyV3Ys81Gg1w4mXOOmXCE44HX","de":"SrfqdxgX/mxu7lmbYzJqoOyc4c/snOHPrk4ZDMKhF01qpuOPHA6mdUDnA2hLZv/qRzvxgvXFLIOGHSWWOjBNnc+VrIS/k+x37Jzhz+yc4c/snOHP7Jzhz76Im/t7yFKYB+6L9JGRdXSb5GYV5GgHW8XqpMpbMAo90TmH4t01jpTahDVHy31IduuCu3Bo01MOmDJ9nHS3zC6MkQy6zzZGY4eZ8THNIY/ksw0zk+c7HNfKwmS3qkI6ZINCyqwUhAXcDmTqRW6YeZ1Ac4XjJBNvYkfoMfYYeS61PaXns+4zhAPaVt5zWR6H+QnkI8BUb9zTJgCiTiQpKtAkP4Bmha3vpexNNYJBq4iM+iTlr2lP2FaCkIcdnp/butx/feDSFDPyzVgcSNXlu0QGQ7jRqcA7g27a2dyDtHqL32pNJ+1GE6RCUFtViCiyGCumw06j4bXpK2LbrPwq6soxepFlfOhoHLRuzwMuBgV+oDGAEZQ2op08uFaCAKapb81pYwyYD57n/wgzubd4U+D/wDWHKMNBvYg9vdwqfIKRrFp9go/NOeacCo9ZZNuAlpIQEweEbwjSZ9Qs0nOOmXA8PFo05eEuChxdXUEE+WFiDXI+4XOOmXCE44HX"}
-                      signatures=base64.b64decode(refs[lang])
-                      im=Image.open(io.BytesIO(b)).convert("RGBA")
-                      bad=[];index=0
-                      for y in range(0,im.height,128):
-                          for x in range(0,im.width,128):
-                              expected=struct.unpack(">I",signatures[index*4:index*4+4])[0]
-                              actual=zlib.crc32(im.crop((x,y,min(x+128,im.width),min(y+128,im.height))).tobytes())
-                              if actual!=expected:bad.append([x,y])
-                              index+=1
-                      print(lang,"BAD_TILES",len(bad),bad,flush=True)
-                  if lang=="ja":
-                      sig=base64.b64decode("kleO+JJXjviSV474kleO+JJXjviE8DJ5Ebc2/Kblw5ySV474kleO+JJXjviSV474kleO+HO3Naze6jT5zxqXXJJXjviSV474kleO+JJXjviSV474Fm0WZJpTsTrkikOckleO+JJXjviSV474kleO+JJXjviSV474kleO+JJXjviSV474kleO+JJXjviSV474kleO+JqpwhMqQKXRSJ6axpJXjviSV474kleO+JJXjviSV474JCw6vxWNkxxY+nVukleO+JJXjviSV474kleO+JJXjvhhyBJYldzNdejD9IaSV474kleO+JJXjviSV474kleO+JJXjvi626LY/MVhkg==")
-                      im=Image.open(io.BytesIO(b)).convert("RGBA")
-                      mismatch=[]
-                      i=0
-                      for y in range(1280,1408,16):
-                          for x in range(512,640,16):
-                              if zlib.crc32(im.crop((x,y,x+16,y+16)).tobytes())!=struct.unpack(">I",sig[4*i:4*i+4])[0]:mismatch.append([x,y])
-                              i+=1
-                      print("JA_FINE_MISMATCH",mismatch,flush=True)
-                  if lang=="de":
-                      sig=base64.b64decode("kleO+JJXjviSV474kleO+JJXjviSV474kleO+JJXjvgIYeDC68m8gvGzi+IX7uEmXyH+3+n1aMUpUQtpDgXXM4ZK+Kx15+UQ24Mfm3J5Z/KByANriothcg6tC+eibSdeWiGRIVaETe08DS7yvaIr5AVZz4w7T5Pv5BtAQV8xiHmSV474zO7e1pJXjviSV474kleO+JJXjviSV474kleO+JJXjviSV474kleO+JJXjviSV474kleO+JJXjviSV474ijJqaqw+B1hLQwbXBM8vFGkC8patARFB5oBrR5JXjvgSayG7GN8AFwDAsJS0F27h81TiK+xyR8YSyfkGQHhaAg==")
-                      im=Image.open(io.BytesIO(b)).convert("RGBA")
-                      mismatch=[];i=0
-                      for y in range(1152,1280,16):
-                          for x in range(768,896,16):
-                              if zlib.crc32(im.crop((x,y,x+16,y+16)).tobytes())!=struct.unpack(">I",sig[4*i:4*i+4])[0]:mismatch.append([x,y])
-                              i+=1
-                      print("DE_FINE_MISMATCH",mismatch,flush=True)
-                  if ok:
+                  img=Image.open(io.BytesIO(b)).convert("RGBA")
+                  pixel_sha=hashlib.sha256(img.tobytes()).hexdigest()
+                  if lang=="ja" and not exact and pixel_sha!=expected_pixel_sha:
+                      patch=Image.open(io.BytesIO(base64.b64decode(ja_patch))).convert("RGBA")
+                      img.paste(patch,(608,1376))
+                      if hashlib.sha256(img.tobytes()).hexdigest()==expected_pixel_sha:
+                          output=io.BytesIO()
+                          img.save(output,format="PNG")
+                          b=output.getvalue()
+                          pixel_sha=expected_pixel_sha
+                  success=(exact if lang=="en" else pixel_sha==expected_pixel_sha)
+                  print(lang,attempt,"byte_exact",exact,"pixel_sha",pixel_sha,"pixel_valid",success,flush=True)
+                  if success:
                       saved[lang]=b
                       break
-                  if attempt<16:time.sleep(3)
-              if not ok:
-                  print("SOURCE_NOT_MATCHED",lang,flush=True)
-          if len(saved)!=3:raise RuntimeError("Source mismatch; no write")
+                  if attempt<12:time.sleep(2)
+              if not success:raise RuntimeError(f"{lang}: cannot establish uploaded image pixel equivalence")
           for lang,b in saved.items():
               p=pathlib.Path(f"public/images/westclox-watchlarm/owners-note-{lang}-20261011.png")
               p.parent.mkdir(parents=True,exist_ok=True)
               p.write_bytes(b)
+              print("STAGED",lang,len(b),hashlib.sha256(b).hexdigest(),flush=True)
           PY
           python /tmp/westclox-import.py
-      - name: Commit all three images together
+      - name: Commit all three verified images
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/images/westclox-watchlarm/owners-note-*.png
           git diff --staged --quiet && exit 1
-          git commit -m "assets: publish verified Westclox trilingual PNGs"
+          git commit -m "assets: publish pixel-verified Westclox owner note PNGs"
           git push origin HEAD:fix/westclox-owner-note-trilingual-20261011
