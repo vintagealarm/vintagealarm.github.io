@@ -329,3 +329,47 @@ CYMA判定は、
 同snapshotのcurrent bucket 9/22–9/28は `PARTIAL / UNSAMPLED` / sampleInterval=1。さらに `integrity=PASS`、coverage complete、`externalCoverage=18/18/143/143/1` のため、少なくともVA2 compact truncation、current bucket sampling、Wittnauerの単純Direct誤分類では3→1を説明できない。
 
 詳細監査・公式仕様突合・残る仮説・次の診断SPIKEは `measurement/audits/2026-09-25-x-rum-capture-gap.md` を正本とする。
+
+## 2026-10-10｜VA Analytics｜ALL / AUTO→7D とInstagram英語入口のRelay観測
+
+### 証拠状態と取得条件
+
+- **Source:** ユーザーが2026-10-10 09:01 JST付近に共有した「VINTAGE ALARM 統合戦略レビュー」全文のVA2 Relay値。元URL直接取得は未成功で、以下は **USER_PROVIDED_RELAY_TEXT**。AIによるCloudflare直接再取得値ではない。
+- Generated: **2026-10-10 08:57:15 JST**（ユーザー提供文）。
+- Range: **ALL** / grouping **AUTO→7D** / **SAMPLED / ESTIMATE** / max sampleInterval **20**。Visitsをユニーク人数とみなさない。
+- integrity=PASSはユーザー提供レビューにおける報告。元Relay payload・coverageは本作業で独立検証していない。
+
+### 全期間、入口、内部PV
+
+- **236 Visits / 293 Page views**（サンプリング推定）。
+- **X 75 / Instagram 13 / Direct or Unknown 111 Visits**（ユーザー提供のreferrer分類）。
+- Instagram → 英語HOW THEY RING (/en/how-they-ring/) **13 Visits**。プロフィール上のクリック操作13件・13人の読了を意味しない。
+- TOP **74 entry Visits**。Pierce Duofon **67 entry Visits**（X 34、Direct / Unknown 32、旧ホスト移行1）。
+- 英語HOW THEY RING **13 PV / 13 Visits**、日本語版 **31 PV / 11 Visits**。日本語PVをInstagram由来と合算しない。
+- 内部PV **57**。Instagram由来であることは証明されていない。
+
+### Instagram分類の週別内訳
+
+- 2026-09-29〜09-30: **10 Visits** — 短縮期間・サンプリング推定。
+- 2026-10-01〜10-07: **2 Visits** — サンプリング推定。
+- 2026-10-08〜10-14: **1 Visit** — 2026-10-10時点の進行中bucket・未サンプリング。
+- 異条件の合算を継続的な定着、流入停止、ユーザー数の確定証拠としない。
+
+### SITE FLOW（同一ホスト内PV）
+
+- /x/ → /how-they-ring/ （日本語） **20 PV**
+- /x/ → /x/ **20 PV**
+- / → /history/ **10 PV**
+- /history/ → /history/ **3 PV**
+- その他 **4 PV**。合計 **57 PV**。
+- 現回一覧には英語HOW THEY RING → 個別WATCHの行がない。しかし「遷移ゼロ」とは確定できない。/x/関連40 PVはそのまま深い閲覧を意味しない。
+- **過去実績との注意:** measurement/.internal/.virtual/social/instagram-operations.md の **2026-09-29 07:03 JST 7d snapshot（UNSAMPLED / sampleInterval 1 / integrity PASS）** には、 **/en/how-they-ring/ → /en/wittnauer-10wa/ 1 internal Page view** が記録されている。「英語入口からWATCHへの遷移が一度も観測されていない」は誤り。ただし同PVの**Instagram起点は未確認**。
+
+### Probe、SNS比較、次の判定
+
+- Early Arrival Probe: **全162 events / Instagram分類→英語HOW THEY RING 16 events**（ユーザー提供）。RUMの13 Visitsと単位や窓が異なる可能性があり、差3を取りこぼしとは扱わない。
+- ユーザー提供レビューのInstagram側要約は **10投稿 / 約3.4万閲覧 / 96フォロワー**。本追記では投稿別元Insights・時刻を独立再取得していない。
+- Wittnauer × CYMA音比較Reel **31秒、CYMA鳴動18秒、平均再生8秒**（ユーザー提供レビュー）。18秒地点までの離脱率は未確認。
+- **判断:** 現行Social Routerの週3〜4投稿試験、画像／動画の基本交互運用、micro-Reel検証を維持。サイト大改修・新規予約は本観測だけで実施しない。
+- **再測定:** 同時点で24h・7d・ALLを比較しサンプリングの有無を分離。英語入口→WATCHを再観測する場合も、referrer・内部PVが同期間にあるだけでは**同一訪問でのInstagram→WATCH連続行動**の証明にならない。
+
