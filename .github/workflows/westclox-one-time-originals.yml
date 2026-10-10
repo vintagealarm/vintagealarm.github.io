@@ -20,9 +20,9 @@ jobs:
           import urllib.request, struct, hashlib, pathlib, io, time
           from PIL import Image
           sources={
-            'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d4z82IiNaFuq2dgYcoYMjYysCbYabcSZRi_T6ZJ6y02PEtWH1M4UnzB_TLMljJYkvBodl85wEQvUOMGnI5O0D7qnAiKturMV70oq4TELyojnOi7W67wLjr5SNu_nmNNax7CZ9LsmEnQJalPDYsuWfuJLnfg44amSmFrBW0k90ym59bA=s1600", "813ec4e5b94e86c2924ad8c0fe07f20d4d843d0157284320d07e119a7880870c", 950123, "4eded9062cc44809882950f4a2b491d8b453cabb2d55a60e4567f12e93e4c3d8"),
+            'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d42SbHZnGPEP-I1DJTZu70L5VWlYMqpJLiHH0sTzYt-OA_0DHi3RlzQFDls2ivtDgNK0BidvTkKJR6JGYcbyQDLa4zxVkC1PI4-j5j4XJdZjW-Z05nqqfg25Nvaz8Do2sx87NsFsYu-sD0ubzNFlr4b7nFzfzSUTpcjnShr46v7-MSR=s1600", "813ec4e5b94e86c2924ad8c0fe07f20d4d843d0157284320d07e119a7880870c", 950123, "4eded9062cc44809882950f4a2b491d8b453cabb2d55a60e4567f12e93e4c3d8"),
             'en': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d4r_ldUbQF9xf5UN942FejIKQn1OK0nIh34EBQC9bFwBAcnXDh6X5T6DHUf8mDFolRWA5OZ9Jd4rQbAKU9zi3wGXbU8P_A34DNQt9SA4VT217M0gfw9jHn0t1kJPxx7mElPzOgieCSHptr9Be3v6NAltr6ClY3LNIkODXOgMslx20zV=s1600", "736afa7fc265c30d988288a79a7149e7ec9136ec5526fce6ad8284b8ec097d26", 1004457, "9d8752a9b8db43b67b46865ae0cd102621456cf5c16380d879aa2c843abd377e"),
-            'de': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d6tAuux5GMoFUY0k0SE80na_rSYNddX-Gpp2PQzWrfNkGvrXDrMlw5YkVIFCFHdKSgUMi6blBiwnhHPD3QBYWhszB_04NR3_wPEsZWhXbec-Oy-idWFk-XQmqrLZheIcYJge9Z_Vb-Zt7_j8896-_EXjL4-efrAGeUQRoya6kTETZgI=s1600", "aa97707cae12bff781ba95b1ace5fef93f2271b8067781cf6ced77fc2e83eafe", 1462979, "0db142d8f1cedae72e0504b5c4f940173fede397628fe055a416031d04b1f416")
+            'de': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d543TO6SUiGq97mkIdXzEca4QAgsvkz84HeVMHwIo9ekVCr5S9MefQtF8vOVDu4fNNBHh0v7MLSFmxAtBdYoPh_0rQ1QsFAfXbmRJqSQMLdAJ8hvgi3UWAL-qSrG-wZBAi4FVXbpf-PIOPVaskjH7LV1pPg-o9B_j7BA_PG3BQIpGR1=s1600", "aa97707cae12bff781ba95b1ace5fef93f2271b8067781cf6ced77fc2e83eafe", 1462979, "0db142d8f1cedae72e0504b5c4f940173fede397628fe055a416031d04b1f416")
           }
           saved={}
           for lang,(url,expected_sha,expected_size,expected_pixel_sha) in sources.items():
