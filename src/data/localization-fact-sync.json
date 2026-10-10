@@ -587,7 +587,7 @@
       "id": "citizen-specimen-movement-evidence",
       "slug": "citizen-alarm",
       "canonicalValue": "shown specimen confirms 19 jewels, PHYNOX dial marking, movement marking CITIZEN / NINETEEN JEWELS / 3 ADJ, and case reference 1407067; same-reference documentation gives approximately 34 mm excluding crowns",
-      "note": "Keep JA / EN / DE aligned to the corrected reading of the specimen photographs. Do not promote Cal.980 itself to specimen-confirmed because the visible movement photos do not show a 980 caliber stamp; keep the approximately 34 mm diameter qualified as same-reference documentation.",
+      "note": "Keep JA / EN / DE aligned to the corrected reading of the specimen photographs. Do not promote Cal.980 itself to specimen-confirmed because the visible movement photos do not show a 980 caliber stamp; keep the approximately 34 mm diameter qualified as same-reference documentation. Public SPEC notes remain limited to the rotating disc and two crowns; detailed markings are retained as provenance, not repeated in SPEC or DEEP DIVE 02.",
       "sourceChecks": [
         {
           "path": "src/content/watches/citizen-alarm.md",
@@ -597,16 +597,15 @@
             "CITIZEN / NINETEEN JEWELS / 3 ADJ",
             "1407067",
             "/images/IMG_2476.jpeg",
-            "/images/IMG_2477.jpeg"
+            "/images/IMG_2477.jpeg",
+            "notes: 中央回転ディスク、2リューズ"
           ]
         },
         {
           "path": "src/data/en-watch-entry.ts",
           "mustContain": [
             "19 jewels (confirmed on the shown specimen)",
-            "19 JEWELS PHYNOX",
-            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
-            "1407067"
+            "notes: 'Rotating centre alarm disc, twin crowns'"
           ]
         },
         {
@@ -622,9 +621,7 @@
           "path": "src/data/de-watch-entry.ts",
           "mustContain": [
             "19 Steine (am gezeigten Exemplar bestätigt)",
-            "19 JEWELS PHYNOX",
-            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
-            "1407067",
+            "notes: 'Zentrale drehbare Weckscheibe, zwei Kronen'",
             "/images/IMG_2476.jpeg",
             "/images/IMG_2477.jpeg"
           ]
@@ -634,19 +631,13 @@
         {
           "path": "dist/citizen-alarm/index.html",
           "mustContain": [
-            "19石（掲載個体で確認）",
-            "19 JEWELS PHYNOX",
-            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
-            "1407067"
+            "19石（掲載個体で確認）"
           ]
         },
         {
           "path": "dist/en/citizen-alarm/index.html",
           "mustContain": [
             "19 jewels (confirmed on the shown specimen)",
-            "19 JEWELS PHYNOX",
-            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
-            "1407067",
             "Inside caseback"
           ]
         },
@@ -654,9 +645,6 @@
           "path": "dist/de/citizen-alarm/index.html",
           "mustContain": [
             "19 Steine (am gezeigten Exemplar bestätigt)",
-            "19 JEWELS PHYNOX",
-            "CITIZEN / NINETEEN JEWELS / 3 ADJ",
-            "1407067",
             "Innenseite des Gehäusebodens"
           ]
         }

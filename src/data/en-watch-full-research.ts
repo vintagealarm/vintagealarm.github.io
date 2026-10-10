@@ -239,15 +239,9 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
         paragraphs: [
           'The 1958 launch report describes the early Citizen Alarm movement as 27 mm in diameter, 5.7 mm thick and fitted with 19 jewels. It contains 133 types and 173 individual parts: this was not simply an ordinary wristwatch movement with a bell added.',
           'The report divides those parts into 85 types and 120 pieces for timekeeping, plus 48 types and 53 pieces for the alarm. Adding the alarm therefore increased the piece count by about 44 per cent and the number of part types by about 56 per cent over the timekeeping mechanism alone.',
-          'The two barrels divide the work. The 4 o’clock crown winds the timekeeping spring and the 2 o’clock crown winds the alarm spring, storing the energy needed to sound the alarm separately from the energy that keeps the watch running.',
-          'At the set time, power from the alarm barrel passes through the alarm escape wheel to the hammer, which strikes the caseback. On the shown specimen, the resonating centre of the back and the openings around it can be seen directly. Movement, case and acoustic structure have to work as one system.',
-          'More parts mean greater difficulty not only in machining but also in assembly, adjustment, supply and yield control. Citizen Design likewise describes the high parts count as a production challenge and credits skilled craftspeople with making mass production possible.',
-          'One year earlier, in 1957, Citizen had developed its own automatic lathes and measuring equipment for watch-part manufacture. The Citizen Alarm should therefore be read not only as a complicated design, but as a product of the manufacturing technology required to keep building it.',
-          'The shown specimen provides surviving physical evidence for that early specification. Its dial reads “19 JEWELS PHYNOX” and its movement “CITIZEN / NINETEEN JEWELS / 3 ADJ”; both identify 19 jewels.',
-          'Inside the caseback are “CENTER SECOND”, a star-shaped mark, “STAINLESS STEEL” and case reference “1407067”. A separately published watch with the same reference is likewise recorded as 19 jewels and adjusted to three positions, with a diameter of approximately 34 mm excluding the crowns.',
-          '“PHYNOX” is not the model name but a technical selling inscription placed beside the jewel count. Bringing the documented 173-part specification together with the markings on the shown watch allows the early Citizen Alarm to be checked through both period figures and a surviving specimen.'
+          'More parts mean greater difficulty not only in machining but also in assembly, adjustment, supply and yield control. Citizen Design likewise describes the high parts count as a production challenge and credits skilled craftspeople with making mass production possible.'
         ],
-        citationRefs: ['6', '6', '1,7', '2,7,9', '2', '2,3', '9', '8,9', '6,9']
+        citationRefs: ['6', '6', '2']
       },
       {
         number: '03',

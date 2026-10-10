@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-11 08:52 JST — Citizen Alarm 特記事項の簡素化とDEEP DIVE 02の確定3段落化
+
+- **変更**：ユーザー校正に従い、Citizen AlarmのSPEC「特記事項」を「中央回転ディスク、2リューズ」のみに短縮。DEEP DIVE 02「173部品・2香箱を量産する」は、①1958年資料の27mm／5.7mm／19石・133種173個、②時計機構とアラーム機構の部品内訳と増加率、③量産上の負荷とCitizen Designの説明、の3段落だけを採用。日本語正本と英語・ドイツ語版の対応文・出典対応を同期。
+- **理由**：刻印の羅列、操作・音響機構の重複、1957年の生産設備の重複、PHYNOXの話題転換、掲載個体の説明的な総括を公開本文から外す。一方、単純なベル追加ではないという第一段落の判断は、複雑機構の商品化の意味を読者に伝える重要な文としてユーザーが明示的に残す判断をした。
+- **旧状態・棄却**：DEEP DIVE 02の9段落構成と、SPECでの刻印・ケース番号の全文掲載を廃止。特に「単にベルを追加しただけの機械ではない」をAI的修辞として削除する提案はユーザーが棄却。既存出典・写真・ムーブメントの19石確認等の根拠情報は削除せず、SOURCESに残す。
+- **影響範囲**：CitizenのJA WATCH、EN ENTRY + EN RESEARCH、DE ENTRY、対応するlocalization fact-sync / SPEC evidence gate、本決定履歴。OWNER'S NOTE Catch / Lead / NOTE / 画像・他章・他WATCH・動画・公開条件は不変。
+- **検証状態**：実装時点では未検証。差分・CI・main merge・公開liveを工程ごとに独立確認する。
+- **関連**：Citizen /citizen-alarm/#owners-note、2026-10-11のユーザー校正（9段落から3段落）と特記事項の刻印削除の明示指示。
+- **日時根拠**：作業ツールUTC 2026-10-10T23:52:05.956Z → JST 2026-10-11 08:52 JST。
+
 ### 2026-10-11 08:00 JST — CYMA TIME-O-VOX 18K ChronomètreのOWNER'S NOTE画像だけ3言語差し替え
 
 - **変更**：ユーザーが2026-10-11に添付したCYMA Time-O-Vox OWNER'S NOTEの完成画像（`CITIZEN SPIKE_16.png` JA、`_17.png` EN、`_18.png` DE）を各言語専用 `public/images/cyma-time-o-vox/owners-note-{ja,en,de}-20261011.png` へ登録。日本語WATCHの`ownersNote.image`およびEN/DE WatchEntryのCYMA限定画像参照を変更し、`scripts/check-build-output.mjs`に3言語の生成HTML画像参照・登録ファイルSHA-256検査を追加した。

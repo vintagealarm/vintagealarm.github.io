@@ -340,7 +340,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       barrels: '2 Federhäuser',
       winding: 'Handaufzug',
       acoustic: 'Doppelter Gehäuseboden',
-      notes: 'Zentrale drehbare Weckscheibe, zwei Kronen; Zifferblatt mit „19 JEWELS PHYNOX“, Werk mit „CITIZEN / NINETEEN JEWELS / 3 ADJ“ und Innenseite des Gehäusebodens mit „1407067“ gekennzeichnet'
+      notes: 'Zentrale drehbare Weckscheibe, zwei Kronen'
     },
     specimenGallery: [
       { image: '/images/IMG_1695.jpeg', label: 'Vorderseite — am Handgelenk', alt: 'Citizen Alarm Cal. 980, gezeigtes Exemplar, Vorderseite am Handgelenk' },
@@ -368,15 +368,9 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         paragraphs: [
           'Der Bericht zur Markteinführung von 1958 beschreibt das frühe Citizen-Alarm-Werk mit 27 mm Durchmesser, 5,7 mm Höhe und 19 Steinen. Es besteht aus 133 Teilearten und 173 Einzelteilen: Es handelte sich nicht nur um ein gewöhnliches Armbanduhrwerk mit zusätzlich eingebauter Glocke.',
           'Davon entfallen 85 Arten und 120 Teile auf das Gehwerk sowie 48 Arten und 53 Teile auf den Alarm. Gegenüber dem Gehwerk allein erhöhte der Alarm damit die Stückzahl um rund 44 Prozent und die Zahl der Teilearten um rund 56 Prozent.',
-          'Die beiden Federhäuser teilen die Aufgaben. Über die Krone bei 4 Uhr wird das Gehwerk aufgezogen, über die Krone bei 2 Uhr das Alarmwerk. Die Energie für den Alarm wird getrennt von der Energie gespeichert, die die Uhr laufen lässt.',
-          'Zur eingestellten Zeit gelangt die Kraft des Alarmfederhauses über das Alarm-Hemmungsrad zum Hammer, der gegen den Gehäuseboden schlägt. Am gezeigten Exemplar sind die Resonanzfläche in der Mitte des Bodens und die umlaufenden Öffnungen direkt erkennbar. Werk, Gehäuse und Klangkörper bilden erst gemeinsam das Alarmsystem.',
-          'Mehr Teile erschweren nicht nur die Bearbeitung, sondern auch Montage, Regulierung, Versorgung und Ausschusskontrolle. Citizen Design bezeichnet die hohe Teilezahl ebenfalls als Herausforderung für die Produktivität und führt die mögliche Serienfertigung auf das Können der Fachkräfte zurück.',
-          'Bereits 1957 hatte Citizen eigene Drehautomaten und Messgeräte für die Fertigung von Uhrenteilen entwickelt. Die Citizen Alarm ist daher nicht nur als komplizierte Konstruktion zu lesen, sondern ebenso als Ergebnis der Produktionstechnik, mit der sie dauerhaft gefertigt werden konnte.',
-          'Das gezeigte Exemplar liefert erhaltene Sachbelege für diese frühe Spezifikation. Auf dem Zifferblatt steht „19 JEWELS PHYNOX“, auf dem Werk „CITIZEN / NINETEEN JEWELS / 3 ADJ“; beide nennen 19 Steine.',
-          'Auf der Innenseite des Gehäusebodens stehen „CENTER SECOND“, eine sternförmige Marke, „STAINLESS STEEL“ und die Gehäusereferenz „1407067“. Ein separat veröffentlichtes Exemplar derselben Referenz ist ebenfalls mit 19 Steinen und einer Regulierung in drei Lagen dokumentiert; sein Durchmesser wird ohne Kronen mit etwa 34 mm angegeben.',
-          '„PHYNOX“ ist nicht der Modellname, sondern eine technische Werbeaufschrift neben der Steinzahl. Die dokumentierte Spezifikation mit 173 Teilen und die Kennzeichnungen des gezeigten Exemplars ermöglichen es, die frühe Citizen Alarm zugleich anhand zeitgenössischer Zahlen und einer erhaltenen Uhr zu prüfen.'
+          'Mehr Teile erschweren nicht nur die Bearbeitung, sondern auch Montage, Regulierung, Versorgung und Ausschusskontrolle. Citizen Design bezeichnet die hohe Teilezahl ebenfalls als Herausforderung für die Produktivität und führt die mögliche Serienfertigung auf das Können der Fachkräfte zurück.'
         ],
-        citationRefs: ['6', '6', '1,7', '2,7,9', '2', '2,3', '9', '8,9', '6,9']
+        citationRefs: ['6', '6', '2']
       },
       {
         number: '03',
