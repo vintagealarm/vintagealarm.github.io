@@ -45,6 +45,26 @@ for (const [lang, route, expectedSha] of [
     failures.push(`Citizen ${lang}: page does not reference the correct PNG`);
   }
 }
+// Westclox Watchlarm OWNER'S NOTE: verify exact staged PNG output bytes and language-specific routes.
+// JA and DE sources were pixel-hash verified against the user uploads before staging; EN is byte-identical.
+for (const [lang, route, expectedSha] of [
+  ['ja', 'westclox-watchlarm/index.html', '1823351c4d10273ddbf7504bcf95a6ef3d0dc0995ffd72bb9c1835b69e952b74'],
+  ['en', 'en/westclox-watchlarm/index.html', '736afa7fc265c30d988288a79a7149e7ec9136ec5526fce6ad8284b8ec097d26'],
+  ['de', 'de/westclox-watchlarm/index.html', '27cc3d48ca2794e9982ccc3ac472c119c5077ec219ee0155f134eebefcb419b3']
+]) {
+  const assetPath = `images/westclox-watchlarm/owners-note-${lang}-20261011.png`;
+  const file = path.join(dist, assetPath);
+  if (!fs.existsSync(file)) {
+    failures.push(`Westclox ${lang}: OWNER'S NOTE PNG missing from built site`);
+  } else {
+    const sha = createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+    if (sha !== expectedSha) failures.push(`Westclox ${lang}: OWNER'S NOTE asset differs from verified PNG`);
+  }
+  const html = path.join(dist, route);
+  if (!fs.existsSync(html) || !fs.readFileSync(html, 'utf8').includes(`/${assetPath}`)) {
+    failures.push(`Westclox ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
+  }
+}
 const mustExist = [
   'index.html',
   'x/index.html',
