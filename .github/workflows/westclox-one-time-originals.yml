@@ -49,12 +49,23 @@ jobs:
                               if actual!=expected:bad.append([x,y])
                               index+=1
                       print(lang,"BAD_TILES",len(bad),bad,flush=True)
+                  if lang=="ja":
+                      sig=base64.b64decode("kleO+JJXjviSV474kleO+JJXjviE8DJ5Ebc2/Kblw5ySV474kleO+JJXjviSV474kleO+HO3Naze6jT5zxqXXJJXjviSV474kleO+JJXjviSV474Fm0WZJpTsTrkikOckleO+JJXjviSV474kleO+JJXjviSV474kleO+JJXjviSV474kleO+JJXjviSV474kleO+JqpwhMqQKXRSJ6axpJXjviSV474kleO+JJXjviSV474JCw6vxWNkxxY+nVukleO+JJXjviSV474kleO+JJXjvhhyBJYldzNdejD9IaSV474kleO+JJXjviSV474kleO+JJXjvi626LY/MVhkg==")
+                      im=Image.open(io.BytesIO(b)).convert("RGBA")
+                      mismatch=[]
+                      i=0
+                      for y in range(1280,1408,16):
+                          for x in range(512,640,16):
+                              if zlib.crc32(im.crop((x,y,x+16,y+16)).tobytes())!=struct.unpack(">I",sig[4*i:4*i+4])[0]:mismatch.append([x,y])
+                              i+=1
+                      print("JA_FINE_MISMATCH",mismatch,flush=True)
                   if ok:
                       saved[lang]=b
                       break
                   if attempt<16:time.sleep(3)
               if not ok:
-                  raise RuntimeError(f"{lang}: source not equivalent to uploaded image; abort")
+                  print("SOURCE_NOT_MATCHED",lang,flush=True)
+          if len(saved)!=3:raise RuntimeError("Source mismatch; no write")
           for lang,b in saved.items():
               p=pathlib.Path(f"public/images/westclox-watchlarm/owners-note-{lang}-20261011.png")
               p.parent.mkdir(parents=True,exist_ok=True)
