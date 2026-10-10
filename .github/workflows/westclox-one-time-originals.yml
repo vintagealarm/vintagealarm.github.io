@@ -1,0 +1,47 @@
+name: One-time Westclox original image import
+on:
+  push:
+    branches: [fix/westclox-owner-note-trilingual-20261011]
+permissions:
+  contents: write
+jobs:
+  import:
+    if: "${{ github.event.head_commit.message == 'chore: import Westclox original images' }}"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/westclox-owner-note-trilingual-20261011
+      - name: Validate attached originals and import exact PNG bytes
+        run: |
+          cat > /tmp/westclox-import.py <<'PY'
+          import urllib.request, struct, hashlib, pathlib
+          sources={
+            'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d42SbHZnGPEP-I1DJTZu70L5VWlYMqpJLiHH0sTzYt-OA_0DHi3RlzQFDls2ivtDgNK0BidvTkKJR6JGYcbyQDLa4zxVkC1PI4-j5j4XJdZjW-Z05nqqfg25Nvaz8Do2sx87NsFsYu-sD0ubzNFlr4b7nFzfzSUTpcjnShr46v7-MSR=s1600", '813ec4e5b94e86c2924ad8c0fe07f20d4d843d0157284320d07e119a7880870c', 950123),
+            'en': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d4SZ0zkYz1EJ3LPxHDM5uRsPoynkwhhFzhEGrT63e-Fxm_JFgTde9BQA_rLYIyKwE9l-IK0YtTbElByN6c_4eIxf8O68ifATr2N3S2phwZF8wS0S1riEGbWVHK-GIp4l5hH5Kwb1-0pTjNgNd8xXy9I0svDH7QGnDq_sifQExRpA9zz=s1600", '736afa7fc265c30d988288a79a7149e7ec9136ec5526fce6ad8284b8ec097d26', 1004457),
+            'de': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d543TO6SUiGq97mkIdXzEca4QAgsvkz84HeVMHwIo9ekVCr5S9MefQtF8vOVDu4fNNBHh0v7MLSFmxAtBdYoPh_0rQ1QsFAfXbmRJqSQMLdAJ8hvgi3UWAL-qSrG-wZBAi4FVXbpf-PIOPVaskjH7LV1pPg-o9B_j7BA_PG3BQIpGR1=s1600", 'aa97707cae12bff781ba95b1ace5fef93f2271b8067781cf6ced77fc2e83eafe', 1462979)
+          }
+          data={}
+          for lang,(url,expected_sha,expected_bytes) in sources.items():
+              with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"}),timeout=70) as response:
+                  b=response.read()
+              sha=hashlib.sha256(b).hexdigest()
+              dims=struct.unpack(">II",b[16:24]) if b[:8]==bytes([137,80,78,71,13,10,26,10]) else None
+              print(lang,len(b),dims,sha)
+              if (len(b),dims,sha)!=(expected_bytes,(1146,1600),expected_sha):
+                  raise RuntimeError("Source mismatch, abort entire import")
+              data[lang]=b
+          for lang,b in data.items():
+              p=pathlib.Path(f"public/images/westclox-watchlarm/owners-note-{lang}-20261011.png")
+              p.parent.mkdir(parents=True,exist_ok=True)
+              p.write_bytes(b)
+          PY
+          python /tmp/westclox-import.py
+      - name: Commit three validated originals
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/westclox-watchlarm/owners-note-*.png
+          git diff --staged --quiet && exit 1
+          git commit -m "assets: publish verified Westclox original PNGs"
+          git push origin HEAD:fix/westclox-owner-note-trilingual-20261011
