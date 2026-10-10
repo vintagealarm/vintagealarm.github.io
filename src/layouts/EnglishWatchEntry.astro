@@ -37,7 +37,9 @@ const translatedOwnersNote = {
       ? '/images/basis-alarm/owners-note-en-20261009.png'
       : watch.slug === 'citizen-alarm'
         ? '/images/citizen-alarm/owners-note-en-20261010.png'
-        : watch.ownersNote.image
+        : watch.slug === 'westclox-watchlarm'
+          ? '/images/westclox-watchlarm/owners-note-en-20261011.png'
+          : watch.ownersNote.image
 };
 const languageLinks = [
   { href: `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },

@@ -15,6 +15,18 @@
 
 ---
 
+### 2026-10-11 07:47 JST — Westclox Watchlarm OWNER'S NOTE 3言語画像差し替え
+
+- **変更**：ユーザーが2026-10-11に提示したWestclox Watchlarm OWNER'S NOTEの日本語・英語・ドイツ語3枚を、各言語専用の `public/images/westclox-watchlarm/owners-note-{ja,en,de}-20261011.png` に登録し、JA WATCHおよびEN / DE WatchEntryのWestclox限定画像参照を更新。`scripts/check-build-output.mjs`に3言語の生成HTML参照先・公開用画像のSHA-256検査を追加した。
+- **理由**：旧版はJAの `/images/C38ECDB0-90CE-432E-AF6A-BC05FF52296F.png` をEN / DEにも流用していた。新しい3言語完成スライドは別文面のため各ページの画像を対応させる必要がある。
+- **原本照合**：ユーザー添付 `CITIZEN SPIKE_13.png` / `_14.png` / `_15.png` はいずれも1146×1600px。英語は添付原本と完全にバイト一致（SHA-256 `736afa7fc265c30d988288a79a7149e7ec9136ec5526fce6ad8284b8ec097d26`）。日本語・ドイツ語はGoogle Slidesから取得したPNGのバイト列が原本と異なるため、原本側RGBA全ピクセルのSHA-256で一致する画像を登録した（JA `4eded9062cc44809882950f4a2b491d8b453cabb2d55a60e4567f12e93e4c3d8`、DE `0db142d8f1cedae72e0504b5c4f940173fede397628fe055a416031d04b1f416`）。日本語は相違した16×16px領域のみ、添付原本由来のピクセルで補正した。よって**JA / DEの登録PNGファイルは原本とバイト一致ではなく、全ピクセル一致**。これを「原本ファイルそのまま登録」と表現しない。根拠: GitHub Actions #38092622763。
+- **登録画像SHA-256**：JA `1823351c4d10273ddbf7504bcf95a6ef3d0dc0995ffd72bb9c1835b69e952b74`（1,047,875 bytes）、EN `736afa7fc265c30d988288a79a7149e7ec9136ec5526fce6ad8284b8ec097d26`（1,004,457 bytes）、DE `27cc3d48ca2794e9982ccc3ac472c119c5077ec219ee0155f134eebefcb419b3`（1,060,741 bytes）。
+- **旧状態・棄却**：旧画像を全言語へ流用する状態を終了。Slidesの未一致データをそのまま「提供原本」として誤登録することを棄却。元画像の削除・他時計・HOW THEY RING画像・本文・翻訳・動画・SEO・共通デザインの変更は行わず、一時転送workflowも最終diffに残さない。
+- **影響範囲**：Westclox専用の新規PNG3枚、日本語WATCH画像参照、EN/DE各1条件分岐、build gate、本判断ログのみ。他open PRのbranchを更新しない。
+- **検証状態**：添付画像SHA / ピクセル照合・3画像登録はGitHub Actions #38092622763で実施。PR CI / main merge / Pages deploy / liveはそれぞれ実結果で分けて判定し、未実施を成功扱いしない。
+- **関連**：ユーザー添付 `VINTAGE ALARM — OWNER'S NOTE SLIDE SYSTEM — CITIZEN SPIKE_13.png`（JA）/ `_14.png`（EN）/ `_15.png`（DE）。一時取得・診断・登録履歴のcommit `6425141e` / `347cdb4d` / `97c2572f` / `7a668b66` / `e8e03c35` / `1999738a` / `2c200081` / `790d64c1` / `bb60c521` / `70736eb1` / `86e4363`。表示・検証・転送workflow撤去 `43274a6c` / `c476a3f4` / `1e12833d` / `e523fddd` / `b03e9680`。
+- **日時根拠**：ローカル時刻ウィジェット `2026-10-11T07:47:18+09:00` → `2026-10-11 07:47 JST`。
+
 ### 2026-10-10 08:06 JST — Citizen Alarm OWNER'S NOTEを添付原本PNG3言語に差し替え
 
 - **変更**：2026-10-10ユーザー添付のCitizen Alarm完成PNG（JA / EN / DE）を原本のまま `public/images/citizen-alarm/owners-note-{ja,en,de}-20261010.png` に登録。日本語WATCHとEN / DEの該当画像参照を切り替え、`scripts/check-build-output.mjs`に3言語の生成HTML参照・原本SHA-256の回帰検査を追加。

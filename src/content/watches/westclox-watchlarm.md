@@ -7,7 +7,7 @@ model: WATCHLARM
 catch:
   - 0石腕時計の劇的ビフォーアフター。
 ownersNote:
-  image: /images/C38ECDB0-90CE-432E-AF6A-BC05FF52296F.png
+  image: /images/westclox-watchlarm/owners-note-ja-20261011.png
   lead:
     - 0石腕時計の劇的ビフォーアフター。
     - 石はいらない。
