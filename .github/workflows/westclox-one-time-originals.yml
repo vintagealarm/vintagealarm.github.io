@@ -17,7 +17,7 @@ jobs:
       - name: Verify attached image bytes and visible pixels before import
         run: |
           cat > /tmp/westclox-import.py <<'PY'
-          import urllib.request, struct, hashlib, pathlib, io, time
+          import urllib.request, struct, hashlib, pathlib, io, time, base64, zlib
           from PIL import Image
           sources={
             'ja': ("https://lh7-us.googleusercontent.com/docsdf/AFQj2d42SbHZnGPEP-I1DJTZu70L5VWlYMqpJLiHH0sTzYt-OA_0DHi3RlzQFDls2ivtDgNK0BidvTkKJR6JGYcbyQDLa4zxVkC1PI4-j5j4XJdZjW-Z05nqqfg25Nvaz8Do2sx87NsFsYu-sD0ubzNFlr4b7nFzfzSUTpcjnShr46v7-MSR=s1600", "813ec4e5b94e86c2924ad8c0fe07f20d4d843d0157284320d07e119a7880870c", 950123, "4eded9062cc44809882950f4a2b491d8b453cabb2d55a60e4567f12e93e4c3d8"),
@@ -27,7 +27,7 @@ jobs:
           saved={}
           for lang,(url,expected_sha,expected_size,expected_pixel_sha) in sources.items():
               ok=False
-              for attempt in range(1,17):
+              for attempt in range(1,2):
                   with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0","Cache-Control":"no-cache"}),timeout=75) as response:
                       b=response.read()
                   sha=hashlib.sha256(b).hexdigest()
@@ -37,6 +37,18 @@ jobs:
                   pixel_match=(pixelsha==expected_pixel_sha)
                   ok=dims==(1146,1600) and (exact if lang!="de" else pixel_match)
                   print(lang,attempt,"bytes",len(b),"sha256",sha,"pixel_match",pixel_match,"byte_exact",exact,flush=True)
+                  if lang in ("ja","de"):
+                      refs={"ja":"SrfqdxgX/mxu7lmbYzJqoOyc4c/snOHPrk4ZDMKhF01qpuOPHA6mdUDnA2hLZv/qRzvxgvXFLIOGHSWWOjBNnc+VrIS/k+x37Jzhz+yc4c/snOHP7Jzhz76Im/t7yFKYB+6L9JGRdXSb5GYVTNIo5Z3ieTbQgGdi70GjD901jpTahDVHy31IduuCu3Bo01MODEOQ7mWZ1CYYtfCKt5aVZucOCnzNIY/ksw0zk+c7HNfKwmS3+/ToDjDbBnzbVw6sviw2aQncDe1Ac4XjJBNvYkfoMfYYeS61sZyXcSKkTsG74ZSDpZfWzSKMCRlUb9zTJgCiTiQpKtAkP4Bmha3vpexNNYJBq4iM+iTlr2lP2FaCkIcdnp/butx/feDSFDPyJFSh5EsFhQe/F33kqcA7g27a2dztdW4n32pNJ+1GE6RCUFtVB+Dl6DzkYbSyzr4syyTmZYZs+H99V3ZOUOJIQFKi8WKtxl7oURSgrMkb7lq7Y3gun5GvELCycRXnDWH1dQg5xgmIrLHrr7wPA3q1J5kaixU3dV+FdastOyztDxlNPugjuzfWJHAsn9UHEMcSZ9Qs0nOOmXDFHpitZfONunYRyV3Ys81Gg1w4mXOOmXCE44HX","de":"SrfqdxgX/mxu7lmbYzJqoOyc4c/snOHPrk4ZDMKhF01qpuOPHA6mdUDnA2hLZv/qRzvxgvXFLIOGHSWWOjBNnc+VrIS/k+x37Jzhz+yc4c/snOHP7Jzhz76Im/t7yFKYB+6L9JGRdXSb5GYV5GgHW8XqpMpbMAo90TmH4t01jpTahDVHy31IduuCu3Bo01MOmDJ9nHS3zC6MkQy6zzZGY4eZ8THNIY/ksw0zk+c7HNfKwmS3qkI6ZINCyqwUhAXcDmTqRW6YeZ1Ac4XjJBNvYkfoMfYYeS61PaXns+4zhAPaVt5zWR6H+QnkI8BUb9zTJgCiTiQpKtAkP4Bmha3vpexNNYJBq4iM+iTlr2lP2FaCkIcdnp/butx/feDSFDPyzVgcSNXlu0QGQ7jRqcA7g27a2dyDtHqL32pNJ+1GE6RCUFtViCiyGCumw06j4bXpK2LbrPwq6soxepFlfOhoHLRuzwMuBgV+oDGAEZQ2op08uFaCAKapb81pYwyYD57n/wgzubd4U+D/wDWHKMNBvYg9vdwqfIKRrFp9go/NOeacCo9ZZNuAlpIQEweEbwjSZ9Qs0nOOmXA8PFo05eEuChxdXUEE+WFiDXI+4XOOmXCE44HX"}
+                      signatures=base64.b64decode(refs[lang])
+                      im=Image.open(io.BytesIO(b)).convert("RGBA")
+                      bad=[];index=0
+                      for y in range(0,im.height,128):
+                          for x in range(0,im.width,128):
+                              expected=struct.unpack(">I",signatures[index*4:index*4+4])[0]
+                              actual=zlib.crc32(im.crop((x,y,min(x+128,im.width),min(y+128,im.height))).tobytes())
+                              if actual!=expected:bad.append([x,y])
+                              index+=1
+                      print(lang,"BAD_TILES",len(bad),bad,flush=True)
                   if ok:
                       saved[lang]=b
                       break
