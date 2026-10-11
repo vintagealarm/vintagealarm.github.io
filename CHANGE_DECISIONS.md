@@ -1702,5 +1702,5 @@
 - **旧状態・棄却**：TOPにクレジットなし。開発着手日・旧ホスト初回GitHub Pagesデプロイ日（2026-08-31）を一般公開日とする扱いは棄却。日付の意味を技術的な初回デプロイと混同しない。
 - **影響範囲**：`src/components/HomeLanding.astro`、`src/styles/home-v2.css`、本Decision Log。TOPのJA / EN / DEだけ。個別WATCH、HISTORY、HOW THEY RING、外部AIが作成した別LP、既存の本文・導線は変更しない。
 - **検証状態**：作業ブランチ上で実装。PR差分・CI、公開表示は後続検証予定。検証済み／本番反映済みとは扱わない。
-- **関連**：`MIGRATION.md`（Migration date: 2026-09-10）、ユーザーによる2026-10-10〜11の一般公開日・クレジット表示指定。
+- **関連**：実装commit `a2877b3e`（HomeLanding）・`9215f051`（home-v2.css）、`MIGRATION.md`（Migration date: 2026-09-10）、ユーザーによる2026-10-10〜11の一般公開日・クレジット表示指定。
 - **日時根拠**：作業環境時計 `2026-10-11 18:34:36 +09:00` → `2026-10-11 18:34 JST`。
