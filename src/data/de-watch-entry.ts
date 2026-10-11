@@ -872,7 +872,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ]
     },
     spec: {
-      era: 'Ende der 1950er bis Anfang der 1960er-Jahre',
+      era: 'Markteinführung am 15. Juli 1958; bis 1962 katalogisiert',
       caseSize: '34 mm',
       caliber: 'Westclox W5',
       jewels: '0 Steine',
@@ -913,13 +913,13 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       {
         number: '01',
         title: 'Eine Firma, die Wecker in zweistelliger Millionenstückzahl baute',
-        subtitle: 'Produktionsmaßstab von Westclox und die Armbanduhrenfertigung',
+        subtitle: 'Produktionsmaßstab von Westclox und die Markteinführung der Watchlarm 1958',
         paragraphs: [
           'In den 1950er-Jahren war Westclox ein Hersteller, der Wecker wie Big Ben und Baby Ben in großem Maßstab produzierte. Für das LaSalle-Werk werden um 1956 mehr als 4.000 Beschäftigte und eine Tagesproduktion von etwa 40.000 Uhren genannt. Bis zu dieser Zeit sollen mehr als 40 Millionen Big Ben und mehr als 28 Millionen Baby Ben hergestellt worden sein.',
           'Das Unternehmen fertigte zugleich preisgünstige Armbanduhren mit 0 Steinen wie die W4. Die Watchlarm W5 verwendet ein 0-Steine-Werk mit Stiftankerhemmung und integriertem Alarmmechanismus. Der frühere Westclox-Mitarbeiter Ellworth Danz hielt es für möglich, dass in der W5 einige Teile der W4 verwendet wurden.',
-          'Beim Fertigungszeitraum unterscheiden sich die Quellen. Beitl behandelt die Uhr als Produkt der 1950er-Jahre, Horlbeck setzt sie dagegen ab 1960 an, und ClockHistory weist Katalogaufnahmen für 1960 und 1961 nach. Da für das auf dieser Seite gezeigte Exemplar keine Quelle vorliegt, die das Herstellungsjahr eindeutig festlegt, verwendet VINTAGE ALARM die Einordnung „Ende der 1950er bis Anfang der 1960er-Jahre“.'
+          'Ein Westclox-Katalog vom 1. Juli 1958 nennt den 15. Juli als Liefertermin der Watchlarm. Die Ausführung mit Lederband trug die Verkaufsnummer 790 und kostete 16,95 Dollar, die Ausführung mit Metallband die Nummer 791 und 19,95 Dollar. Letztere wurde 1959 auf 17,95 Dollar gesenkt; beide Ausführungen sind bis zum Katalog von 1962 belegt. Das Herstellungsjahr des hier gezeigten Exemplars ist nicht bestimmt.'
         ],
-        citationRefs: ['4', '2,3', '1,2,3']
+        citationRefs: ['4', '2,3', '7']
       },
       {
         number: '02',
@@ -927,9 +927,10 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         paragraphs: [
           'Die W5 besitzt ein 0-Steine-Werk mit Stiftankerhemmung und keine separaten Metalllager. Die Zapfen laufen direkt in Bohrungen von Platine und Deckplatte. Die Unruh ist gestanzt, die Spirale flach, und auch die Stoßsicherung ist einfach ausgeführt.',
           'Das Werk ist in Vollplatinenbauweise aufgebaut und verwendet übereinanderliegende kreisförmige Platten anstelle herkömmlicher Brücken und eines separaten Unruhklobens. Die Literatur beschreibt eine Konstruktion, bei der selbst unnötige Aussparungen möglichst vermieden wurden, um die Kosten niedrig zu halten.',
-          'Trotzdem treibt ein einziges Federhaus sowohl die Zeitanzeige als auch den Alarm an und ermöglicht etwa 38 Stunden Laufzeit sowie rund 10 Sekunden Alarmdauer.'
+          'Gehwerk und Alarm teilen sich ein Federhaus. Indirekt angetriebene Minuten- und Zentralsekunde schaffen Platz für ein großes Federhaus, das bis über die Werkmitte reicht. Eine Vorrichtung stellt dem Alarm 2,5 Umdrehungen des Federkerns zur Verfügung; das Kupplungsrad des Alarms dient zugleich als Sperrrad.',
+          'Diese Anordnung ermöglicht etwa 38 Stunden Laufzeit sowie rund 10 Sekunden Alarmdauer.'
         ],
-        citationRefs: ['1,2', '1', '1']
+        citationRefs: ['1,2', '1', '5', '1']
       },
       {
         number: '03',
@@ -943,23 +944,26 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       },
       {
         number: '04',
-        title: 'Einfach zu fertigen war sie nicht',
+        title: 'Für die Massenfertigung gebaut, schwierig zu montieren',
         paragraphs: [
-          'Der frühere Westclox-Mitarbeiter Ellworth Danz hielt es für möglich, dass in der W5 einige Teile der W4 verwendet wurden.',
-          'Gleichzeitig erinnerte Danz sich daran, dass die Watchlarm schwierig herzustellen war und dass er nicht glaubte, Westclox habe mit dieser Uhr Gewinn erzielt.'
+          'Der frühere Westclox-Mitarbeiter Ellworth Danz hielt es für möglich, dass in der W5 einige Teile der W4 verwendet wurden. Zugleich erinnerte er sich daran, dass die Watchlarm schwierig herzustellen war und Westclox seiner Einschätzung nach keinen Gewinn damit erzielte. Art und Anzahl der zwischen W4 und W5 geteilten Teile sind nicht belegt.',
+          'Bei der W4 müssen vier lange Räderzapfen, Anker, Unruh und Spirale gleichzeitig in eine einzige Deckplatte eingesetzt werden, was den Wiederzusammenbau erschwert. Auch bei der W5 sind acht Zapfen und zwei Teile des Aufzugwellenlagers zugleich in die Vollplatine einzupassen; die Servicehinweise bezeichnen den Zusammenbau als mühsam.',
+          'Die W5 besitzt ein offenes Federhaus, und viele Bauteile sind durch konische Stifte oder Presssitze befestigt. Der Führungspfosten der Alarmzeiteinstellung kann sich bei wiederholter Bedienung lockern; das Zentralsekundenrad ist nur auf seine Welle gepresst und kann beim Abziehen des Sekundenzeigers mit herausgezogen werden.',
+          '0 Steine und mehrfach genutzte Bauteile sparten Material und Bearbeitung, vereinfachten aber die Montage der Vollplatine nicht. Konstruktion und Danz’ Erinnerung zeigen beide, wie schwierig es war, einen Alarmmechanismus zu Einführungspreisen von 16,95 bis 19,95 Dollar in Serie zu fertigen.'
         ],
-        citationRefs: ['3', '3']
+        citationRefs: ['3', '5,8', '5', '3,5,7']
       },
       {
         number: '05',
-        title: 'Deutsches Gehäuse und Klangaufbau',
+        title: 'Deutsches Gehäuse, ein Zifferblattbeleg aus Pforzheim',
         paragraphs: [
           'Beitl verzeichnet Gehäuse und Zifferblatt des Westclox Alarm als in Deutschland hergestellt und beschreibt das abgebildete Beispiel mit verchromtem Messinggehäuse, gedrücktem Boden und 32,88 mm Durchmesser.',
-          'Das auf dieser Seite gezeigte Exemplar ist mit 34 mm Gehäusedurchmesser dokumentiert. Da dies nicht mit den 32,88 mm des bei Beitl gezeigten Beispiels übereinstimmt, wird nicht behauptet, dass beide dieselbe Gehäusespezifikation besitzen.',
+          'Ein Dokument des Pforzheimer Zifferblattherstellers Bock & Schupp aus dem Jahr 1958 nennt „Westclox Cal.5“, „Ref. Nr. W5“ und eine Serie von 20 Zifferblättern. Alle 20 erhaltenen Zifferblätter tragen rückseitig die Markierung „GERMANY“; damit ist Bock & Schupp mindestens für diesen Auftrag als Lieferant belegt.',
+          'Das gezeigte Exemplar misst 34 mm, Beitls Beispiel dagegen 32,88 mm; ihre Gehäusespezifikationen stimmen nicht überein.',
           'Horlbeck weist auf Ähnlichkeiten mit dem Bodenaufbau der Junghans Minivox hin, darunter einen leicht gewölbten Gehäuseboden, einen zentralen Niet und eine kleine Brücke auf der Innenseite.',
-          'Es liegt jedoch keine für diese Seite bestätigte Quelle vor, die belegt, dass Junghans das W5-Gehäuse direkt hergestellt oder die W5 entworfen hat. Auch Horlbeck beschreibt dies nur als mögliche enge Beziehung durch Zusammenarbeit oder Zulieferung.'
+          'Der Zifferblattlieferant von 1958 ist belegt, der Gehäusehersteller bleibt dagegen unbekannt. Keine gefundene Quelle weist nach, dass Junghans das W5-Gehäuse fertigte oder die W5 konstruierte; gesichert ist derzeit nur die strukturelle Ähnlichkeit mit der Minivox.'
         ],
-        citationRefs: ['2', '6', '1', '1']
+        citationRefs: ['2', '9', '6', '1,9', '1,9']
       }
     ],
     sourceMeta: [
@@ -968,15 +972,21 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       { id: '3', type: 'reference' },
       { id: '4', type: 'reference' },
       { id: '5', type: 'reference' },
-      { id: '6', type: 'owner' }
+      { id: '6', type: 'owner' },
+      { id: '7', type: 'primary' },
+      { id: '8', type: 'reference' },
+      { id: '9', type: 'reference' }
     ],
     sources: [
       'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 150, 198–199, 220–221 — Spezifikation und Bedienung der Westclox W5, kostenreduzierte Konstruktion, Gehäuse- und Klangaufbau.',
       'Leonhard Beitl, Alarm am Arm (2009), S. 497–498, 628 — Westclox Alarm / W5, 0 Steine, Gehäusedurchmesser, Bedienung, deutsches Gehäuse und Zifferblatt.',
-      'Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/) — Beziehung zwischen W5- und W4-Teilen, Fertigungsschwierigkeit, Rentabilität sowie Katalogaufnahmen 1960/1961.',
+      'Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/) — Beziehung zwischen W5- und W4-Teilen, Fertigungsschwierigkeit, Rentabilität und Fertigung im Werk LaSalle.',
       'ClockHistory, [Western Clock Company Chronology](https://clockhistory.com/westclox/company/dates/index.html) — Beschäftigtenzahl und Produktionsmaßstab 1956 sowie kumulierte Stückzahlen von Big Ben / Baby Ben.',
-      'Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5) — Angabe einer Alarmzeiteinstellung in 12-Minuten-Schritten.',
-      'OWNER OBSERVATION — Dokumentation des gezeigten Exemplars: 34 mm Gehäusedurchmesser; 60 Betätigungen des Drückers bei 2 Uhr bewegen den Alarmzeiger einmal vollständig über 12 Stunden.'
+      'Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5) — Alarmzeiteinstellung in 12-Minuten-Schritten, gemeinsames Federhaus und Alarmantrieb sowie Montage- und Servicehinweise.',
+      'OWNER OBSERVATION — Dokumentation des gezeigten Exemplars: 34 mm Gehäusedurchmesser; 60 Betätigungen des Drückers bei 2 Uhr bewegen den Alarmzeiger einmal vollständig über 12 Stunden.',
+      'Westclox, [1958 Full Line Gift Catalog, S. 9](https://clockhistory.com/0/document-354-1.html); ClockHistory, [Watchlarm mit Lederband](https://clockhistory.com/0/westclox/model-names/watchlarm/model-2446-1.html) und [mit Metallband](https://clockhistory.com/0/westclox/model-2447-1.html?page=79&sort=model_number_list) — Liefertermin 15. Juli 1958, Verkaufsnummern und Preise beider Ausführungen sowie Katalogbelege bis 1962.',
+      '17jewels.info, [Westclox W4](https://17jewels.info/movements/w/westclox/westclox-w4/) — 0-Steine-Vollplatinenkonstruktion der W4 und Schwierigkeit des Wiederzusammenbaus.',
+      'Junghans Vintage, [Das Westclox-Rätsel](https://junghans-vintage.de/en/diverses/die-x-akte-junghans/das-westclox-raetsel.html) — Bock-&-Schupp-Dokument von 1958 zu W5-Zifferblättern und Vergleich der Bodenaufbauten von W5 und Junghans J89 Minivox.'
     ],
     related: {
       href: '/de/basis-alarm/',
