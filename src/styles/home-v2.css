@@ -208,3 +208,37 @@
 @media(prefers-reduced-motion:reduce){
   .home-index-arrow{transition:none}
 }
+
+/* Public launch credit: deliberately confined to the home page. */
+.home-credit{
+  background:#10141c;
+  color:#f3f3f3;
+  text-align:center;
+}
+.home-credit-content{
+  padding:28px 0 32px;
+}
+.home-credit-content::before{
+  content:"";
+  display:block;
+  border-top:1px solid #444b55;
+  margin-bottom:22px;
+}
+.home-credit-brand{
+  margin:0;
+  font:500 12px/1.5 var(--sans);
+  letter-spacing:.08em;
+}
+.home-credit-launch{
+  margin:8px 0 0;
+  color:#b9c0c9;
+  font:400 11px/1.5 var(--sans);
+  letter-spacing:.06em;
+}
+.home-credit-owner{
+  display:block;
+  margin-top:8px;
+  color:#8d96a2;
+  font:400 11px/1.5 var(--sans);
+  letter-spacing:.02em;
+}
