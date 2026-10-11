@@ -3440,3 +3440,42 @@ This changes the safest interpretation:
 - that all ARSA covered watches used crown-button release
 
 **Site-use consequence:** describe the Blind Alarm's integrated opener as an accessibility-useful ARSA solution, while keeping its exact origin / design lineage OPEN.
+
+### 2026-10-11 — user-perspective evidence: WHO 2021, observed tactile-watch use (2009), and deafblind alarm research (CSUN 1999)
+
+**Ingress / provenance:** User supplied a 2026-10-11 external-AI comparison of VINTAGE ALARM's ARSA article with watch websites, collectors and assistive-technology research, emphasizing the WHO lead. The external AI's rankings and summaries are **leads, not independent source verification**. This note records only the specific outside sources rechecked below. The WATCH/RESEARCH published text, OWNER'S NOTE final copy and specimen claims remain unchanged.
+
+#### A. WHO (2021) — contemporary procurement specification, not ARSA historical evidence
+
+- **Publication:** World Health Organization, *Assistive product specifications and how to use them* (2021), pp. **95–97**, section **Talking/touching watches**, ISBN **978-92-4-002028-3**.
+- **Publisher record:** https://www.who.int/publications/i/item/9789240020283
+- **Original WHO repository PDF:** https://iris.who.int/bitstream/handle/10665/339851/9789240020283-eng.pdf
+- **Text consulted:** verified textual rendering of the same-title/same-ISBN 2021 WHO PDF, https://giftabled.org/wp-content/uploads/2024/03/Assistive-devices-WHO.pdf (the WHO IRIS direct PDF fetch returned 403 from the web reader; WHO's publication metadata independently identifies the document).
+- WHO classifies talking/touching watches as assistive products for people who are blind, deaf-blind or have low vision. For **touching watches**, the standard configuration includes tactile/Braille or raised markings and may include alarm/vibration features; general requirements call for **durable construction and sturdy hour/minute hands resisting repeated touch**. The document requests disclosure of **tactile dot/number height**, case dimensions and other practical specifications (printed p.97).
+- **Boundary:** WHO is setting **2021 procurement/design evaluation criteria**, predominantly discussing contemporary battery-powered quartz/atomic devices. It did **not** test, certify, endorse or document the design rationale of 1950s ARSA Blind Alarm. A present-day specification cannot be retrojected as ARSA's original 1950s engineering brief. In particular, listing vibration as a requirement for contemporary touching watches does **not** establish vibration in the historical ARSA audible mechanical alarm.
+
+#### B. Shinohara and Tenenberg (2009) — one user, observed use / social meaning
+
+- **Primary scholarly work:** Kristen Shinohara and Josh Tenenberg, *A Blind Person's Interactions with Technology*, *Communications of the ACM* **52(8)** (August 2009), pp. **58–66**, DOI **10.1145/1536616.1536636**.
+- **Author/university-hosted PDF:** https://faculty.washington.edu/jtenenbg/publications/blindPersonInteraction-cacm2009.pdf
+- **Relevant:** printed pp. **60** (limitations/workarounds table), **62–63** (tactile watch and participant Sara), with method/cautions elsewhere in the article.
+- A single participant, Sara, used a tactile watch with a **hinged/protective cover and raised dial/accessible hands**. She valued **quiet, discreet, efficient time-reading**, the watch's comfort and appearance compared with talking watches; she was reluctant to draw attention through a speaking watch. Her tactile watch **did not have an alarm**, so she relied on other electronic equipment for morning reminders. She also reported cover cracking and battery replacement burdens.
+- **Research significance (interpretation, NOT evidence about ARSA users):** independent reading of **current time** and independent notification of a **future event** are distinct user tasks. A mechanical tactile alarm with tactile **alarm-time read-back** addresses a combination of functions that Sara's own tactile watch lacked. Yet a **ringing audible alarm** could conflict with discretion or would not address all deafblind users' needs; the 2009 paper does not compare it to ARSA.
+- **Boundary:** n=1 qualitative case study, not a survey of all people with visual impairment, not an ARSA field trial, not evidence that ARSA owners preferred audible notification or that ARSA was commercially successful for that use. Sara's reported watch was battery-powered; do not label it a 1950s mechanical ARSA.
+
+#### C. Gilden and Magatani — CSUN '99 design report, deafblind medication-reminder use case
+
+- **Original conference-related report:** Deborah Gilden and Kazushige Magatani, *The Touching Solution to Medication Independence for Deaf-Blind Individuals: A Vibro-Tactile, Multi-Alarm, Wearable Medication Reminder*.
+- **Public archive:** https://www.dinf.ne.jp/doc/english/Us_Eu/conf/csun_99/session0135.html (page states **Web Posted on December 4, 1998**, associated with the CSUN '99 conference archive; do not silently state the Web publication date was in 1999).
+- An informal assistive-technology needs questionnaire yielded **61 completed questionnaires from seven states**. The authors identified a paired design problem: visual-only **alarm setting** and sound-only **alarm signaling** can fail for deaf-blind users. The proposed wearable device combines a touch-readable analogue watch face with tactile alarm-time setting and **vibration**; the described design uses an electronic microcontroller and supports multiple reminder times (up to **32 per 24 hours** in the proposal).
+- **Boundary:** This is an assistive-device design/research account, **not a documented field trial proving deployed usability/effectiveness** and not an ARSA successor/development-lineage record. A vibrating medication reminder is not interchangeable with ARSA's **audible** mechanical alarm; compare **different user requirements and output modalities**, not equivalence.
+
+#### Focused synthesis / public-article gate
+
+- **Historical product evidence already in VA:** Beitl/Horlbeck and inspected seller images establish the ARSA / AS1475 tactile hour/minute/alarm-hand system and lid-opening architecture; the 1950s manufacturer's design rationale and current owner's actual tactile ease-of-use remain separate OPEN questions.
+- **New external context:** 2009 lived-use testimony identifies discretion, comfort, access and lack of alarm as concrete user concerns; WHO 2021 makes robust hands / tactile marking legibility explicit as later evaluative criteria; CSUN '99 provides a complementary **deafblind/vibration** model in which an audible signal is insufficient.
+- **Do not overclaim:** (i) WHO approved ARSA, (ii) historical ARSA achieved present WHO specs, (iii) 2009 participant used ARSA, (iv) one user's preference applies universally, (v) historic ARSA meets deafblind notification needs, (vi) the 1999 concept was proven by a field trial, (vii) VA is globally the most comprehensive research.
+- **Possible minimal public use (proposal only, not approved/published):** one brief paragraph in **DEEP DIVE ② (demand/user perspective)** connecting *time-reading versus reminder* to the contemporary single-user case, plus a compact source citation. WHO's 2021 criteria may serve as a separate source-labeled design comparison in ③, but no retroactive endorsement claim. The wearable vibrating design can remain LEDGER CONTEXT instead of lengthening the ARSA page.
+- **Next evidence that changes historical claims:** 1950s–1970s ARSA/AFB user manual or direct user testimony, original manufacturing specification or tests, and hands-on read-back of current vs alarm time on **the subject specimen**. Keep these distinct from a sighted owner's functionality demonstration.
+
+**State:** WEB/ORIGINAL-TEXT CONFIRMED for the cited 2021/2009/conference texts within the reading limits above; historic ARSA-user causality and specimen usability **NOT PROVEN**. Research-only evidence ingress; **no publication change**.
