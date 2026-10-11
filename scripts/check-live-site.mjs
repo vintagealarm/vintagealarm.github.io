@@ -255,21 +255,6 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     }
   }
 
-  for (const [route, markers] of [
-    ['westclox-watchlarm/', ['1958年7月15日発売／1962年カタログ掲載', 'フルプレートへ8本の軸と巻真受け2点を同時に合わせる必要があり', '少なくともこの発注分の文字盤供給元を同社まで特定できる']],
-    ['en/westclox-watchlarm/', ['Launched 15 July 1958; catalogued through 1962', 'eight pivots and two stem-bearing parts', 'supplier for at least this order']],
-    ['de/westclox-watchlarm/', ['Markteinführung am 15. Juli 1958; bis 1962 katalogisiert', 'acht Zapfen und zwei Teile des Aufzugwellenlagers', 'mindestens für diesen Auftrag als Lieferant belegt']]
-  ]) {
-    const result = await get(route);
-    if (!result.ok) {
-      failures.push(`${route}: HTTP ${result.status}`);
-      continue;
-    }
-    for (const marker of markers) {
-      if (!result.text.includes(marker)) failures.push(`${route}: Westclox research marker missing: ${marker}`);
-    }
-  }
-
   if (chronometreResearch.published) {
     const chronometreCases = [
       ['en/cyma-time-o-vox/chronometre/', 'en',

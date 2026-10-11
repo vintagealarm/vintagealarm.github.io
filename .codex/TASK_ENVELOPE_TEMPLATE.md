@@ -23,6 +23,16 @@
 - Change / investigate:
 - Out of scope:
 
+## AUTHORITY GATE
+
+規則正本は `.codex/MANAGER_CONTROL_PLANE.md` §2.5 D。過去タスクの許可を持ち越さず、現在のユーザー依頼だけで判定する。
+
+- RESEARCH_AUTH: YES / NO
+- IMPLEMENT_AUTH: YES / NO
+- PUBLISH_AUTH: YES / NO
+- Evidence from current request:
+- Required stop point:
+
 ## MUST
 
 -

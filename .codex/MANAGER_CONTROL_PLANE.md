@@ -98,9 +98,17 @@ VERIFYING
 3. 実行が失敗・待機中でも、**最後に確認した具体的な状態・障害点・次の安全な処理**を伝えたうえで続ける。ユーザーに再指示を要求して作業を止めない（権限承認や必須入力が本当に必要な場合を除く）。
 4. ツール応答前の進捗送信可否やバックエンドの沈黙自体はGitHub CIでは保証できない。CIで検査するのはこの作業規範とReplay fixtureの存在・整合性であり、**実チャットの達成保証とは別**に記録する。
 
-### D. Final Self-Check
+### D. Research / Mutation / Publish Authority Gate（調査許可を実装許可へ拡張しない）
 
-REPORT直前に `EXECUTION_SURFACE` の遵守、不能主張の根拠、途中更新、GitHubの **branch / PR / main / deploy / live** の実際のステータスを別々に照合する。未実行は成功扱いせず、ユーザーが同じ制約を繰り返し言う必要を作らない。
+1. 「調べる」「深掘りする」「徹底的にやる」「やりましょう」「進めて」は、対象の閲覧・検索・分析・報告だけを許可する。repository編集、commit、push、PR、merge、公開は許可しない。
+2. 過去の「実装して」「公開まで」等は、その時に指定された対象だけの許可であり、後続の別調査へ持ち越さない。ユーザーの訂正・不満・研究上の指摘も、それだけでは実装許可に変換しない。
+3. mutation前に `RESEARCH_AUTH` / `IMPLEMENT_AUTH` / `PUBLISH_AUTH` を別々に判定する。現在の依頼に明示的な実装語が無ければ `IMPLEMENT_AUTH=NO`、merge・公開の明示が無ければ `PUBLISH_AUTH=NO` とし、該当操作を行わない。
+4. CHAT AUDIT REPORT、作業計画、対象ファイルの提示、AI自身の「実装まで行う」という宣言はユーザー承認ではない。必要な許可が無ければ、調査結果を報告して止める。
+5. 「差し戻せ」「元へ戻せ」は、指定された変更を復旧するmutationの明示許可として扱うが、無関係な本文改稿や新規公開の許可には拡張しない。
+
+### E. Final Self-Check
+
+REPORT直前に `EXECUTION_SURFACE` の遵守、`RESEARCH_AUTH` / `IMPLEMENT_AUTH` / `PUBLISH_AUTH`、不能主張の根拠、途中更新、GitHubの **branch / PR / main / deploy / live** の実際のステータスを別々に照合する。未実行は成功扱いせず、ユーザーが同じ制約を繰り返し言う必要を作らない。
 
 ## 3. Delegation Decision
 

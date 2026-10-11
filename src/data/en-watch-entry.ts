@@ -256,7 +256,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ]
     },
     spec: {
-      era: 'Launched 15 July 1958; catalogued through 1962',
+      era: 'Late 1950s to early 1960s',
       caseSize: '34 mm',
       caliber: 'Westclox W5',
       jewels: '0 jewels',
