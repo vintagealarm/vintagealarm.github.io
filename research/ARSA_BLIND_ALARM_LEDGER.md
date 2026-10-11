@@ -3479,3 +3479,43 @@ This changes the safest interpretation:
 - **Next evidence that changes historical claims:** 1950s–1970s ARSA/AFB user manual or direct user testimony, original manufacturing specification or tests, and hands-on read-back of current vs alarm time on **the subject specimen**. Keep these distinct from a sighted owner's functionality demonstration.
 
 **State:** WEB/ORIGINAL-TEXT CONFIRMED for the cited 2021/2009/conference texts within the reading limits above; historic ARSA-user causality and specimen usability **NOT PROVEN**. Research-only evidence ingress; **no publication change**.
+
+### 2026-10-11 — second source pass: Seiko wearer interview and WHO version control
+
+**Origin / scope:** The user's 2026-10-11 request to take the initial WHO-centered external-AI leads through Socratic decomposition and V3 Council format 1, with a deeper external source pass. This is research evidence, not a manufacturer/owner observation of the 1950s ARSA specimen. It extends the existing 2026-10-11 source ingress rather than replacing it.
+
+#### D. Seiko first-party Japanese user + designer interview (2021-02-26) — critical supplementary evidence
+
+- **Original Japanese source:** Seiko Design, 「Vol.26【対談】気持ちに寄り添う、バリアフリーウオッチのグッドなデザインとは。」, published **2021-02-26**: https://by.seiko-design.com/stories/barrierfree/
+- **Respondents:** Seiko's designers (tactile watch and speaking watch), and Chiaki Takada, a visually impaired athlete who tried current Seiko products. The designers report interviewing multiple visually impaired people for a redesign; the article does **not** give a quantified representative sample.
+- **Direct evidence:** Interviewees requested models that look and feel like watches sighted wearers use, and appealing straps/colors; Takada describes the choice of clothes, quiet/discreet time checking during a meeting, and the fact that she **usually uses smartphone audio** rather than the tactile watch. Both tactile time reading and personal style have context-dependent value.
+- **Contact reliability:** The designer identifies a user-reported failure mode in which touching the hands can move them and spoil the displayed time. Takada says practice matters and she would value hands that stay in place. These are user/designer statements, **not mechanical tests of ARSA**.
+- **Output/sound trade-off:** The interview treats audible pitch/volume, social appropriateness of sound and ease of operation as separate choices; the manufacturer explains a present-day design tradeoff between more functions and ease/maintenance. **Do not presume an audible historical ARSA alert was always preferable to silence.**
+- **Boundary:** **2021 product-development and interview evidence**, not 1950s ARSA user testimony, not an evaluation of an ARSA AS1475, not a controlled comparison showing that all visually impaired wearers prioritize the same features. Despite strong design relevance, historical causality is OPEN.
+
+#### E. WHO version-control audit: use final publication, not indexed draft
+
+- **Final publication metadata:** WHO, *Assistive product specifications and how to use them* (**2021-03-01**, **156 pages**, ISBN 9789240020283); primary landing page https://www.who.int/publications/i/item/9789240020283 and publicly available mirrored text of the titled final publication https://giftabled.org/wp-content/uploads/2024/03/Assistive-devices-WHO.pdf, section printed pp. **95–97**, "Talking/touching watches".
+- **Potential pitfall:** A *separate*, apparently WHO-hosted **seven-page standalone draft** appears in indexed search under https://www.who.int/docs/default-source/assistive-technology-2/aps/vision/aps18-talking-touching-watches-oc-use.pdf; the pages visibly say **"DRAFT — DO NOT CIRCULATE FOR USE"**. Do **not** cite this draft as the issued 2021 specification or silently conflate differing wording.
+- **Source status:** Final WHO document's official bibliographic identity and the relevant published section can be verified, but the final WHO IRIS download returned **403** from the web reader; text was independently examined in the public copy that matches the final title and ISBN. Track official-file direct-fetch separately rather than implying it succeeded.
+- **Published-vs-draft boundary:** final material is a procurement specification for *contemporary* talking/touching watches. Sturdy hands and tactile marking heights are comparison lenses, **not a formal historical test criterion retroactively imposed on ARSA**.
+
+#### F. Socratic issue map / evidence classification
+
+| User task or design question | ARSA evidence | Outside user evidence | Status and inference guard |
+|---|---|---|---|
+| Read **current time** without sight | Beitl/Horlbeck describes raised markers, robust H/M hands, opening cover | Seiko 2021 / Shinohara 2009 document users' tactile time reading | Historical ARSA **construction** confirmed, **user efficacy** not field-tested |
+| Identify and **set a future alarm time** | Separate alarm hand and alarm crown; tactile read-back described by specialist texts | 2009 participant's own tactile watch had **no built-in alarm** | ARSA capability confirmed as documentary design; comparative benefit **hypothesis**, not a user-tested fact |
+| **Notice** the selected moment | AS1475 mechanical audible alarm | 1998/CSUN '99 deafblind design chose **vibration** | Distinguish output modes and hearing-related user needs; no universal suitability claim |
+| Touch without moving/damaging hands | ARSA sturdy hands, seconds omitted, raised markings; actual resistance unmeasured | 2021 Seiko wearer/designer concerns; WHO 2021 durable tactile equipment criteria | **Evaluation question**; do not certify historical ARSA against present standards |
+| Keep use **discreet**, comfortable, socially appropriate | No demonstrated ARSA-owner interview in this record | 2009 Sara, 2021 Takada, Seiko product designers' interviews | Multiple qualitative leads; no population-level conclusion or ARSA historical attribution |
+| Open/operate/read back with overlapping hands | 4-o'clock crown-integrated pusher, three tactile hands; specimen not hands-on measured yet | 2021 says skill acquisition matters | Post-arrival **sighted observer's mechanical check** is not a blind wearer's usability trial |
+| Connect company intent, disability policy, war experience to ARSA model | Period trade company-level overlap; no maker brief showing original development intent | WHO 2021, Seiko 2021, CSUN '99 cannot prove older product's design decision | **HOLD** absent period ARSA document or historically relevant testimony |
+
+**Council-prepared constraints:**
+1. Keep existing VA standard frame **company → need → ARSA mechanism → comparable tactile alarm designs → AS1475 platform**; user needs extend **②** and, where technically justified, **③**, not a freestanding social-policy chapter.
+2. Distinguish **RECORD** (period/specimen), **USER VOICE** (later testimony), **DESIGN SPEC** (WHO final 2021), **TECHNICAL COMPARISON** (1998/99 vibrotactile device), and **INFERENCE**. Do not credit contemporary works with proving ARSA's original intent.
+3. Preserve both virtues *and* tensions of tactile watches: discreet **reading** can coexist with conspicuous audible **alarming**. Distinguish tactile input/read-back from auditory/vibratory notification.
+4. Do not invent usability experiments with a blindfolded sighted wearer; if performed, describe only limited mechanical/handling observations. Do not place unprotected hands/markers under force or change a fragile watch merely to generate a research metric.
+5. A minimal public addition is **eligible for drafting**, **not approved**. Source-bearing content and any change to citations require separate review. The 1998/99 device stays internal context unless a specific ARSA comparison is needed.
+6. Evidence necessary for upgrading ARSA-specific statements: historical user testimony, trade manual / contemporary advertising explicitly identifying the Blind Alarm and its purpose, or direct controlled documented tests of that historical model. No arbitrary requirement to recover these before an appropriately scoped research page can be complete.
