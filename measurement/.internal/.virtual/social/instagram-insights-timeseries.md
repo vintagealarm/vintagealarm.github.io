@@ -934,6 +934,34 @@
 - source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
 - note: 2026-10-06 06:16 JSTのユーザー提供Instagram Reel Insightsスクリーンショット6枚から確認。共有数はUI上 `--` のため0扱いしない。Meta UI表示は skip rate=低、share rate=高、like rate=低、save rate=高、repost rate=低、comment rate=高。『リール動画が「いいね！」された時』グラフは0:00–0:05の形状のみ確認でき、各点の厳密な数値ラベルがないため数値化しない。06:17の投稿画面には別タイミングの公開カウンタが見えるが、このsnapshotは06:16 Insights値を正本とする。
 
+### Snapshot — 2026-10-07 07:06–07:07 JST
+- observed_at_jst: 2026-10-07 07:06–07:07
+- elapsed_since_publish: approximately 46h36m–46h37m by user-reported ~08:30 publication time; exact publication minute remains unresolved
+- views: 6,143
+- viewers: 3,402
+- average_watch_time: 6s
+- follows: 8
+- likes: 127
+- comments: 5
+- reposts: 1
+- share_count: detailed Insights UI `--` / public post UI 15
+- saves: 23
+- skip_rate: 38.4%
+- share_rate: 0.4%
+- like_rate: 3.7%
+- save_rate: 0.7%
+- repost_rate: 0.0%
+- comment_rate: 0.1%
+- profile_accesses: 16
+- bio_link_clicks: 3
+- followers: 2.2%
+- non_followers: 97.8%
+- age: 13–17 2.0% / 18–24 27.7% / 25–34 41.5% / 35–44 15.4% / 45–54 6.8% / 55–64 3.8% / 65+ 2.8%
+- age_18_34_combined: 69.2%
+- countries: United States 13.2% / India 11.4% / France 8.5% / Italy 4.9% / Turkey 4.2%
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
+- note: 2026-10-07 07:06–07:07 JSTのユーザー提供Instagram公開投稿画面＋Reel Insightsスクリーンショット7枚から確認。公開投稿画面の紙飛行機アイコン横に共有数15を確認できるため、詳細Insights側の `--` と併記する。Meta UI表示は skip rate=低、share rate=高、like rate=低、save rate=高、repost rate=低、comment rate=低。『リール動画が「いいね！」された時』グラフは0:00–0:05の形状のみ確認でき、各点の厳密な数値ラベルがないため数値化しない。
+
 
 ---
 
