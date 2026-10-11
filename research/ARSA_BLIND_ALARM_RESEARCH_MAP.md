@@ -196,7 +196,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - 1960sにはTramelan最大級の雇用主、1972 merger後も1973にblind watchesを製造品目として確認
    - **サイト用の主眼:** ARSAは「盲人用時計だけの会社」ではなく、finished watchesを広く作る大規模メーカーの中に tactile watch と alarm watch の両系統があった
    - **残る一次資料穴:** 1948 company brochure本文、1973 75周年資料本文、1954–55 alarm introductionのperiod primary
-   - **1958 JSH No.2:** A. Reymond 60周年記事の存在は確認。本文未取得のためBlind Alarm掲載有無はOPEN。現時点では01/03のblockerにしない
+   - **1958 JSH No.2:** p.120のA. Reymond S.A. 60周年全面広告を実見済み。Blind Alarm / blind-watch / réveil / AS1475記載は確認できない。以前「別の60周年記事がある」としていた解釈は、2026-10-07のユーザー実見で別記事なしと訂正し、探索対象から外した。p.120以外の全822ページ不掲載までは証明しない
 2. **需要背景 — DEEP DIVE ② PASS 1 COMPLETE 2026-10-03**
    - 触読時計の発想は少なくとも1887年のtouch-readable watch特許まで遡り、第一次大戦より前から存在
    - WWIではSt Dunstan's / 現Blind Veterans UKが、失明軍人のrehabilitationと自立の象徴として触読時計を利用
