@@ -1695,3 +1695,12 @@
 - **検証状態**：ローカルでAstro build、citation、source traceability、localization、SPEC evidence、日本語文体、project consistency、owner-copy provenance、内部リンク、SEO、新規public-copy meta gateを通過。日英独のローカル表示で対象事実が残り、編集履歴句が消え、console error 0件を確認。PR #228 CIは本項目の必須欄不足で初回失敗したため、補完後に再検証する。
 - **関連**：PR #226、PR #228、直前の `2026-10-11 07:28 JST — Citizen Alarm掲載個体の仕様訂正と173部品・2香箱DEEP DIVE増補`。
 - **日時根拠**：作業環境時計 `2026-10-11 07:54:29 +09:00` → `2026-10-11 07:54 JST`。
+
+### 2026-10-11 18:34 JST — TOP最下部へ一般公開日と運営者クレジットを追加
+- **変更**：`HomeLanding.astro` の `</main>` 直後に小さな共通フッターを追加。文言は `VINTAGE ALARM` / `PUBLIC LAUNCH · 10 SEP 2026` / `© 2026 ORIMA1995 CREATE`。ホーム専用CSSで承認済みの暗色・控えめな3行表示とする。日英独のTOPで共通使用。
+- **理由**：ユーザーが、現行ドメインへ移転した2026-09-10をVINTAGE ALARMの対外的な一般公開日として指定し、ページ下部への表示と上記3行の意匠を採用したため。
+- **旧状態・棄却**：TOPにクレジットなし。開発着手日・旧ホスト初回GitHub Pagesデプロイ日（2026-08-31）を一般公開日とする扱いは棄却。日付の意味を技術的な初回デプロイと混同しない。
+- **影響範囲**：`src/components/HomeLanding.astro`、`src/styles/home-v2.css`、本Decision Log。TOPのJA / EN / DEだけ。個別WATCH、HISTORY、HOW THEY RING、外部AIが作成した別LP、既存の本文・導線は変更しない。
+- **検証状態**：作業ブランチ上で実装。PR差分・CI、公開表示は後続検証予定。検証済み／本番反映済みとは扱わない。
+- **関連**：実装commit `a2877b3e`（HomeLanding）・`9215f051`（home-v2.css）、`MIGRATION.md`（Migration date: 2026-09-10）、ユーザーによる2026-10-10〜11の一般公開日・クレジット表示指定。
+- **日時根拠**：作業環境時計 `2026-10-11 18:34:36 +09:00` → `2026-10-11 18:34 JST`。
