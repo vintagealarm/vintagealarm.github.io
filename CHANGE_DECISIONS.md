@@ -1695,3 +1695,13 @@
 - **検証状態**：ローカルでAstro build、citation、source traceability、localization、SPEC evidence、日本語文体、project consistency、owner-copy provenance、内部リンク、SEO、新規public-copy meta gateを通過。日英独のローカル表示で対象事実が残り、編集履歴句が消え、console error 0件を確認。PR #228 CIは本項目の必須欄不足で初回失敗したため、補完後に再検証する。
 - **関連**：PR #226、PR #228、直前の `2026-10-11 07:28 JST — Citizen Alarm掲載個体の仕様訂正と173部品・2香箱DEEP DIVE増補`。
 - **日時根拠**：作業環境時計 `2026-10-11 07:54:29 +09:00` → `2026-10-11 07:54 JST`。
+
+### 2026-10-11 18:36 JST — ARSA Blind Alarm調査へ利用者視点の補助資料を限定追加
+- **変更**：ユーザー提供の外部AI比較を調査候補として受領し、WHO『Assistive product specifications and how to use them』（2021、pp.95–97）、Shinohara / Tenenbergの触読時計利用者ケーススタディ（2009）、Gilden / MagataniのCSUN '99関連・触覚式複数アラーム設計報告（Web公開1998-12-04）を原文照合。出典・確度・ARSAへの適用限界を既存ARSA研究LEDGERへ追記し、Research Mapの需要背景②と実機確認③に必要な最小pointerを追加。
+- **理由**：時計メーカー・機構・流通史とは別に、時刻を触って読むこと、将来の通知、周囲に目立たない操作、針の耐久性という**利用者側の設計課題**を考察できる具体的資料が得られたため。単一利用者がアラームなし触読時計を別機器で補っていた点と、現代のWHO基準、盲ろう者向け振動通知とを資料種別を分けて記録する。
+- **旧状態・棄却**：従来の会社史→需要背景→ARSA本人→比較→AS1475 platformの章立ては維持。WHO 2021を1950年代ARSAの設計基準へ遡及、利用者1名の選好を一般化、CSUN '99研究をARSAの後継系列・実用試験成功とみなすこと、VAの世界的な研究順位を確定することは採用しない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本判断履歴だけ。`src/content/watches/arsa-blind-alarm.md`、OWNER'S NOTE確定稿、`published: false`、日本語RESEARCH live、EN/DE、画像・動画、他WATCHを変更しない。
+- **検証状態**：独立出典のWeb原文／同一ISBNのWHO PDF本文を照合済み。branch上の差分、既存段落の保持、branch再取得を検査する。PR CI等は結果取得後に別判定し、main反映・live公開は別状態とする。
+- **関連**：ユーザー提供「ARSA Blind Alarm — 他サイトと比べて、VINTAGE ALARMはどこまで進んでいる？」（2026-10-11）、WHO 2021、Shinohara & Tenenberg 2009、Gilden & Magatani CSUN '99、既存ARSA正本。既存のARSA JSH調査PR #214は変更しない。
+- **日時根拠**：作業環境の `2026-10-11 18:36:39 +09:00` → `2026-10-11 18:36 JST`。
+
