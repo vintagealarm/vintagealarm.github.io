@@ -222,6 +222,37 @@ There’s already plenty to play with before it even starts ringing.
 - **最終本文では非採用**: 単純な「珍しいアラーム時計」「音が鳴る時計」だけを主役にする構成。公開本文は鳴る前の操作体験を主役にした。
 - **理由の確度**: fidget/toyがYouTube先行コンセプトであることは既存social logで確認済み。Instagramでの個々の文言選択理由を後付けで因果化しない。
 
+
+### Second post — static carousel — published caption verified 2026-10-12
+
+- **Content ID**: `IG-BAS-002`.
+- **公開証拠**: ユーザー提供Instagram投稿画面 `IMG_3014.jpeg`。スクリーンショット画面時刻は2026-10-12 08:25 JST、表示は「40秒前」。公開は08:24頃の可能性があるが、正確な公開時刻は未確認。
+- **形式／画像**: STATIC_CAROUSEL／4枚。装着正面 → ベゼルを外した時計正面 → アラーム針とベゼルの接続部拡大 → ベゼル側の構造拡大。今回ユーザー提供の画像 `IMG_8890.jpeg` / `IMG_9196.jpeg` / `IMG_9197.jpeg` / `IMG_9199.jpeg`。
+- **公開URL**: 投稿画面からは未取得。
+
+```text
+Every time I handle this Basis Alarm, it feels like a little toy box. 🔔
+
+A mechanical alarm watch with just one crown.
+
+And here’s the fun part: the alarm hand is actually attached directly to the rotating bezel.
+
+Turn the bezel, and the hand moves with it.
+
+Take a look at the second and third photos. It’s such a simple, wonderfully hands-on mechanism.
+
+#vintagewatch #alarmwatch #mechanicalwatch
+#basisalarm
+```
+
+### Final creative selection — second post
+
+- **採用**: 既出の「触って楽しいおもちゃ箱」を導入で継承し、今回はアラーム針が回転ベゼルに直接つながる構造を主題とした。
+- **採用**: 「one crown」→「alarm hand directly attached to the rotating bezel」→「ベゼルを回すと針も動く」という順で説明。2・3枚目へ視線誘導。
+- **既出との差分**: 初回Basis Reelは巻上げ窓／二香箱／fidget toyが中心。今回の4枚カルーセルは `BAS-05` の直結ディテールを具体的に示す。
+- **CTA / hashtags**: 本文にリンク・link in bio等の明示CTAなし。公開hashtagsは `#vintagewatch #alarmwatch #mechanicalwatch #basisalarm` の4件。
+- **未確認**: 投稿の正確な公開時刻、公開投稿固有URL、Insights数値。未取得値を0にしない。
+
 ---
 
 ## Westclox Watchlarm W5
