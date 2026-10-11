@@ -206,6 +206,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - **サイト用の主眼:** 戦争が触読時計を発明したのではなく、既存技術をrehabilitation / procurement / training / repairの制度へ押し上げた
    - 1950年代のBlind Alarmは、その既存触読時計文化へmechanical alarm wristwatch機能を加えた第二段階として扱う
    - **禁止:** veteran demand → ARSA開発、AFB gift program → ARSA受注を直接因果として書かない
+   - **利用者側の資料（2026-10-11追加、補助CONTEXT）:** WHO 2021の触読時計調達仕様（丈夫な針・触覚点・耐久性）、2009年の単一利用者による「触読時計は静かで快適だがアラームがなく別機器で通知」、CSUN '99関連の盲ろう者向け振動式複数リマインダー設計を原典照合。**1950年代ARSAの設計動機・使いやすさの実証ではない**。詳細・URL・限界はLEDGER 2026-10-11。需要背景②に短く接続できるか検討し、WHO承認や実機ユーザー評価として本文化しない。
 3. **ARSA Blind Alarm本人 — DEEP DIVE ③ PASS 1 COMPLETE 2026-10-03 / ARRIVAL SUPPLEMENT PENDING**
    - around 1956にARSA Blind Alarm / AS1475、1958掲載個体を専門書で確認
    - **AS1475 core:** 25.94 mm / 5.8 mm / 17J / 18,000 A/h / 2 barrels / hand-wound clock + alarm / ca.40 h / alarm 10–15 s / 1954–1970
@@ -219,6 +220,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - model variationはAS1475系を確定本線とし、Venus230 Blind Alarmはforum survivor lead / HOLD。non-alarm ARSA tactile watchesと現行ARSA blind watchesではopen positionが4 / 6 / 3等に分かれ、ARSA共通の単一case architectureとはしない
    - **arrival test:** alarm ON/OFF crown state（early AS1475はcrown down、ca.1960以降のlater typeはpulled up）を確認。movement revisionの年代手掛かりにはなるがwatch assembly date確定には使わない
    - 到着後の触覚操作実測を重視
+   - **利用者視点の到着後確認:** 時分針とアラーム針の重なり時の識別、アラーム設定時刻の触覚read-back、蓋・プッシャーの指先での把握を記録。時計所有者による構造・操作確認と、視覚障害のある利用者の使用感調査とは区別する。
 
 ### P0.5 — 設計思想 / 設計資料
 **状態:** PASS 2 COMPLETE / ARCHIVE BONUS ONLY
@@ -427,7 +429,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 ## 8. 次の実行順
 
 1. **①作った会社 — PASS 1 COMPLETE** — 会社史・製造能力・blind / alarm両系統の同時存在まで整理済み。残る一次資料穴だけHOLD
-2. **②需要背景 — PASS 1 COMPLETE** — 前史 / WWI / AFB 1926 / WWII / 日本例まで必要十分に圧縮。戦争は発明起源ではなく制度化・普及の背景として固定
+2. **②需要背景 — PASS 1 COMPLETE** — 前史 / WWI / AFB 1926 / WWII / 日本例まで必要十分に圧縮。戦争は発明起源ではなく制度化・普及の背景として固定。2026-10-11に利用者研究・WHO現代仕様の限定的な補助CONTEXTを追加。**新しい独立章・年代の直接根拠にはしない**
 3. **③時計本人 — PASS 1 COMPLETE / ARRIVAL SUPPLEMENT PENDING** — mechanism / controls / tactile UI / failure map / model variation / purchased specimenまで整理。到着後にhands / read-back / opener / early-late alarm-stateを実測追記
 4. **③b 設計思想 / 設計資料 — PASS 2 COMPLETE / ARCHIVE BONUS ONLY** — factory design documentは未回収。source-labeled requirement reconstructionを採用し、archive本文取得時のみ再開
 5. **④触読alarm比較 — PASS 1 COMPLETE** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBをhand coding / opener / read-back / source tierで比較済み
