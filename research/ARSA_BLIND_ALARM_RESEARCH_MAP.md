@@ -498,3 +498,35 @@ Current classification after the 2026-10-03 VA research scope correction:
 - keep the probable 57426 issue as a **specimen-condition record only**
 - do not spend further VA research time on it unless arrival inspection produces evidence that changes the historical / structural interpretation
 - simple absence vs broken remnant remains unresolved, but this is not an active OWNER'S NOTE research priority
+
+## 13. 2026-10-11 — Council 1 / ソクラテス式研究要件
+
+**Purpose:** User-requested requirements scoping, not automatic authorization to rewrite the published ARSA RESEARCH page. V3 format **1 = 2ch民で焼いて**. Sources and detailed methodological limits are in the research LEDGER, **2026-10-11 second source pass**.
+
+### Answerable primary question
+
+**1950s ARSA Blind Alarm's documented mechanisms allow which parts of the sequence (1) read current time by touch → (2) set and tactually verify intended alarm time → (3) receive an audible alert, and what is *still unknown* about historical users' ability, preferences and satisfaction?**
+
+Do not rephrase this as "WHO approved ARSA" or "blind users found ARSA excellent."
+
+### Five independent research dimensions / evidence types
+
+1. **Product history and intended provision:** 1950s ARSA/AFB advertising, catalogs, manuals, specialty sources. The actual product-to-user link is mostly OPEN. Do not fill with later interviews.
+2. **Interface mechanics / touch:** raised index geometry, distinguished H/M/alarm hands, seconds omission, front cover/opener, AS1475 controls, alarm-time read-back, contact-induced pointer movement. Specialist books and verified specimen photos first.
+3. **Feedback modality and context:** tactile input versus auditory alarm output, vibration as later *alternative*, daytime privacy versus audible time-of-event notice. A single "accessible" score is meaningless without the user and context.
+4. **Lived-use testimony and values:** Shinohara/Tenenberg (2009, n=1), SEIKO Japanese first-party user/designer interview (2021, no representative sample), WHO final procurement specification (2021, technical standards perspective), and Gilden/Magatani (1998 web release / CSUN 99, design concept). Distinguish testimony, procurement criterion and prototype.
+5. **Owner specimen and observation limits:** arriving watch: crown opener, hands, overlapping-hand recognition, dial tactile code, watch/alarm setting, audible operation and risks. Sighted owner checking mechanical operation ≠ user study with a blind participant; no destructive force or unnecessary touching.
+
+### Priority and publishing gates
+
+- **P0 / retained:** company → user demand (②) → ARSA construction (③) → alternate tactile alarm designs → AS1475 platform. Do not open a generic disability-history or WHO-policy chapter.
+- **P1 / now in focus:** Seiko 2021 Japanese first-party interview: quiet time-checking, socially discreet use, style/comfort, tactile hand shift, the learning curve and individual differences. This source provides **design questions, not historical ARSA results**.
+- **P1 / now in focus:** Shinohara/Tenenberg 2009: tactile watch comfort and discreet use but lack of built-in alarm for the single participant. This illustrates time reading vs planned-time notification, not tested suitability of ARSA.
+- **P1 / methodological comparator:** WHO issued 2021 specification (156-page edition). Note that a separate WHO-hosted indexed PDF visibly says **DRAFT — DO NOT CIRCULATE FOR USE**; do not cite that draft as the final publication. Official final PDF direct text is not verified through WHO's IRIS in this pass; final section text was compared using a public mirror and official final metadata.
+- **CONTEXT only:** 1998/CSUN '99 deafblind/vibration multi-alarm proposal: audible ARSA is not universal for deafblind needs; no ARSA genealogy implied.
+- **P2 / historical gain only if genuinely new source:** ARSA/AFB contemporaneous instructions, wearer accounts, period ARSA catalog describing Blind Alarm target users, design/service documentation. No renewed undirected web-spam searches for previously HOLD AFB contracts.
+- **Draft candidate:** only a **short source-labeled addition to existing DEEP DIVE ②**, if a concrete comparison survives accuracy/style review. Add a distinct sentence to ③ only if it explains a **mechanical affordance**; avoid duplicating ②. Update citationRefs/sourceMeta consistently. Do not silently modify existing final owner's note/catch/lead, media, route, publication flags.
+- **Stop conditions:** no evidence of actual ARSA-user behavior; research becomes generic accessibility history; post-1950 statements are turned into manufacturer's original rationale; one user is used as representative sample; WHO procurement criteria falsely become approval; present-day vibration inferred for 1950s mechanical model; fragile hands subjected to unsafe demonstration.
+- **Success criteria:** a reader can distinguish the 3 operations (**read**, **set/read back**, **notice**), 3 evidence horizons (**1950s object**, **later user experiences**, **2021 procurement requirements**), and exact ARSA-specific unknowns. Existing five-section narrative remains coherent. Public text remains unchanged until separate editorial adoption and checks.
+
+**State:** Research requirements scoped for Council review. **Not a command to merge PR #232 or publish new copy.** Prior ARSA JSH PR #214 remains separate.
