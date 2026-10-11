@@ -1705,3 +1705,12 @@
 - **関連**：ユーザー提供「ARSA Blind Alarm — 他サイトと比べて、VINTAGE ALARMはどこまで進んでいる？」（2026-10-11）、WHO 2021、Shinohara & Tenenberg 2009、Gilden & Magatani CSUN '99、既存ARSA正本。既存のARSA JSH調査PR #214は変更しない。
 - **日時根拠**：作業環境の `2026-10-11 18:36:39 +09:00` → `2026-10-11 18:36 JST`。
 
+### 2026-10-11 18:43 JST — ARSA利用者視点をソクラテス式に再分解し研究要件へ固定
+- **変更**：既存ARSA調査、ユーザー提供外部AI比較、および新規の日本語メーカー一次インタビューを突合し、利用者視点の要件を「触読で現在時刻を読む／未来の時刻を設定・触読確認／通知を知覚する／接触で設定が乱れない／使用場面と音・外観・習熟」の独立軸へ分解。Council V3の1「2ch民で焼いて」による反証対象としてResearch Map §13へ境界・採否・研究合格条件を登録。Seiko 2021日本語当事者＋設計者対談、WHOの最終版対DRAFT、出典と適用限界を既存ARSA Ledgerへ追記。
+- **理由**：WHOなど後年の支援機器基準や少数の利用者の証言を、1950年代ARSAの設計理由・利用者評価へ誤って遡及させず、VAの既存の機構史に利用者の実生活での評価軸を接続するため。
+- **旧状態・棄却**：外部AI初回のWHO・2009論文・1998/CSUN99のみで比較する状態を拡張。WHOの公開検索結果にあるDRAFT PDFを正式刊行物として扱わない。仮説「ARSAはすべての視覚障害者に便利」「静かな触読とベル音は常に相性がよい」「単一利用者の発言が一般的傾向」「盲ろう者への通知は音だけで十分」等を採用しない。資料数を増やすための別章増殖も棄却。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本Decision Log。既存WATCH原文、OWNER'S NOTE確定稿、画像、`published:false`、独立RESEARCH公開、EN/DE、他個体、PR #214に変更なし。
+- **検証状態**：日本語Seiko一次対談、著者公開2009論文、DINF 1998/CSUN99資料、WHO正式刊行書誌と公開ミラー本文、WHO別DRAFT PDF表示をそれぞれ確認。branch差分・正本再取得・PRのCIは別途検査。正式WHO原PDFはWeb取得403のため直接本文比較成功とはしない。**公開本文の変更提案は研究要件の合意後に別ゲート**、main・deploy・liveも別判定。
+- **関連**：<https://by.seiko-design.com/stories/barrierfree/>、<https://faculty.washington.edu/jtenenbg/publications/blindPersonInteraction-cacm2009.pdf>、<https://www.who.int/publications/i/item/9789240020283>、<https://www.dinf.ne.jp/doc/english/Us_Eu/conf/csun_99/session0135.html>、ARSA先行ユーザー資料、PR #232。
+- **日時根拠**：作業ホストで `2026-10-11T09:43:38Z` → `2026-10-11 18:43:38 JST` と確認。
+
