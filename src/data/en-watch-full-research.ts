@@ -663,13 +663,13 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
       {
         number: '01',
         title: 'A company that made tens of millions of alarm clocks',
-        subtitle: 'Westclox production scale and wristwatch manufacturing',
+        subtitle: 'Westclox production scale and the 1958 Watchlarm launch',
         paragraphs: [
           'In the 1950s, Westclox was a manufacturer producing alarm clocks such as the Big Ben and Baby Ben on a massive scale. Around 1956, the LaSalle factory is reported to have employed more than 4,000 people and produced about 40,000 timepieces per day. By that period, more than 40 million Big Bens and more than 28 million Baby Bens are said to have been made.',
           'The company also manufactured inexpensive zero-jewel wristwatches such as the W4. The Watchlarm W5 uses a zero-jewel pin-lever movement with an integrated alarm mechanism. Former Westclox employee Ellworth Danz suggested that some W4 parts may have been used in the W5.',
-          'The sources differ on its production period. Beitl treats it as a product of the 1950s, while Horlbeck places it from 1960 onward, and ClockHistory confirms catalogue appearances in 1960 and 1961. Because no source available for this page establishes the production year of the specimen shown here, VINTAGE ALARM describes it as “late 1950s to early 1960s.”'
+          'A Westclox catalogue dated 1 July 1958 states that the Watchlarm would be available on 15 July. The leather-strap version was sales number 790 at $16.95, while the metal-band version was number 791 at $19.95. The latter fell to $17.95 in 1959, and both versions remained in catalogues through 1962. The production year of the specimen shown here has not been identified.'
         ],
-        citationRefs: ['4', '2,3', '1,2,3']
+        citationRefs: ['4', '2,3', '7']
       },
       {
         number: '02',
@@ -677,9 +677,10 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
         paragraphs: [
           'The W5 is a zero-jewel pin-lever movement and has no separate metal bearings. Its pivots rotate directly in holes in the plate and supporting plate. The balance is stamped, the hairspring is flat, and the shock protection is also simple.',
           'The movement uses a full-plate construction, stacking circular plates instead of conventional bridges and a separate balance cock. The references describe a design that avoids even unnecessary cut-outs wherever possible in order to reduce cost.',
-          'Even so, one barrel powers both timekeeping and the alarm, while delivering about 38 hours of running time and about 10 seconds of alarm operation.'
+          'Timekeeping and the alarm share one barrel. Indirectly driven minute and centre seconds leave room for a large barrel extending across the movement centre. A device makes 2.5 turns of the mainspring arbor available to the alarm, and the alarm clutch wheel also serves as the ratchet.',
+          'This arrangement delivers about 38 hours of running time and about 10 seconds of alarm operation.'
         ],
-        citationRefs: ['1,2', '1', '1']
+        citationRefs: ['1,2', '1', '5', '1']
       },
       {
         number: '03',
@@ -693,23 +694,26 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
       },
       {
         number: '04',
-        title: 'It was not easy to manufacture',
+        title: 'Built for mass production, difficult to assemble',
         paragraphs: [
-          'Former Westclox employee Ellworth Danz suggested that some W4 parts may have been used in the W5.',
-          'At the same time, Danz recalled that the Watchlarm was difficult to manufacture and that he did not think Westclox made a profit on the watch.'
+          'Former Westclox employee Ellworth Danz suggested that some W4 parts may have been used in the W5. He also recalled that the Watchlarm was difficult to manufacture and that he did not think Westclox made a profit on the watch. The types and number of parts shared by the W4 and W5 have not been established.',
+          'On the W4, four long wheel arbors, the pallet, the balance and hairspring must all be seated in a single upper plate, making reassembly difficult. The W5 likewise requires eight pivots and two stem-bearing parts to be aligned with the full plate; its service notes describe reassembly as troublesome.',
+          'The W5 has an open barrel and many components secured by tapered pins or press fits. The guide post for the alarm-time setting can loosen through repeated use, while the centre-seconds wheel is pressed onto its arbor and may be pulled free with the seconds hand.',
+          'Zero jewels and shared-function components reduced material and machining, but did not make full-plate assembly simple. The structure and Danz’s recollection both show the challenge of mass-producing an alarm mechanism at launch prices of $16.95 to $19.95.'
         ],
-        citationRefs: ['3', '3']
+        citationRefs: ['3', '5,8', '5', '3,5,7']
       },
       {
         number: '05',
-        title: 'German-made case and the sound structure',
+        title: 'German-made case, a Pforzheim dial record',
         paragraphs: [
           'Beitl records the Westclox Alarm case and dial as German-made and describes his illustrated example as having a chrome-finished brass case, a press-fit caseback and a diameter of 32.88 mm.',
-          'The specimen shown on this page is recorded at 34 mm. Because that does not match the 32.88 mm example in Beitl, this page does not claim that the two use the same case specification.',
+          'A 1958 document from Pforzheim dial maker Bock & Schupp records “Westclox Cal.5”, “Ref. Nr. W5” and a batch of 20 dials. All 20 surviving dials are marked “GERMANY” on the back, identifying Bock & Schupp as the supplier for at least this order.',
+          'The specimen shown here measures 34 mm, while Beitl’s example is 32.88 mm; their case specifications do not match.',
           'Horlbeck points out similarities to the bottom construction of the Junghans Minivox, including a slightly domed caseback, a central rivet and a small bridge on the inside.',
-          'However, no source confirmed for this page establishes that Junghans directly manufactured the W5 case or designed the W5. Horlbeck likewise presents it only as a possible close relationship through cooperation or supply.'
+          'The 1958 dial supplier is documented, but the case maker remains unidentified. No source found establishes that Junghans manufactured the W5 case or designed the W5; the evidence currently extends only to the structural similarity with the Minivox.'
         ],
-        citationRefs: ['2', '6', '1', '1']
+        citationRefs: ['2', '9', '6', '1,9', '1,9']
       }
     ],
     sourceMeta: [
@@ -718,15 +722,21 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
       { id: '3', type: 'reference' },
       { id: '4', type: 'reference' },
       { id: '5', type: 'reference' },
-      { id: '6', type: 'owner' }
+      { id: '6', type: 'owner' },
+      { id: '7', type: 'primary' },
+      { id: '8', type: 'reference' },
+      { id: '9', type: 'reference' }
     ],
     sources: [
       'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), pp. 150, 198–199, 220–221 — Westclox W5 specifications, operation, cost-reduction construction, case and acoustic structure.',
       'Leonhard Beitl, Alarm am Arm (2009), pp. 497–498, 628 — Westclox Alarm / W5, zero jewels, case diameter, operation, German-made case and dial.',
-      'Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/) — relationship between W5 and W4 parts, manufacturing difficulty, profitability, and 1960/1961 catalogue appearances.',
+      'Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/) — relationship between W5 and W4 parts, manufacturing difficulty, profitability, and manufacture at the LaSalle plant.',
       'ClockHistory, [Western Clock Company Chronology](https://clockhistory.com/westclox/company/dates/index.html) — 1956 employee count and production scale, cumulative Big Ben / Baby Ben production figures.',
-      'Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5) — description of 12-minute alarm-setting increments.',
-      'OWNER OBSERVATION — specimen record: 34 mm case diameter; 60 presses of the 2 o’clock pusher move the alarm hand through one full 12-hour circuit.'
+      'Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5) — 12-minute alarm-setting increments, shared barrel and alarm drive, assembly and service notes.',
+      'OWNER OBSERVATION — specimen record: 34 mm case diameter; 60 presses of the 2 o’clock pusher move the alarm hand through one full 12-hour circuit.',
+      'Westclox, [1958 Full Line Gift Catalog, p. 9](https://clockhistory.com/0/document-354-1.html); ClockHistory, [Watchlarm leather-strap model](https://clockhistory.com/0/westclox/model-names/watchlarm/model-2446-1.html) and [metal-band model](https://clockhistory.com/0/westclox/model-2447-1.html?page=79&sort=model_number_list) — 15 July 1958 availability date, sales numbers and prices for both versions, and catalogue appearances through 1962.',
+      '17jewels.info, [Westclox W4](https://17jewels.info/movements/w/westclox/westclox-w4/) — W4 zero-jewel full-plate construction and reassembly difficulty.',
+      'Junghans Vintage, [The Westclox Mystery](https://junghans-vintage.de/en/diverses/die-x-akte-junghans/das-westclox-raetsel.html) — 1958 Bock & Schupp W5 dial document and comparison of the W5 and Junghans J89 Minivox caseback structures.'
     ],
     related: {
       href: '/en/basis-alarm/',
