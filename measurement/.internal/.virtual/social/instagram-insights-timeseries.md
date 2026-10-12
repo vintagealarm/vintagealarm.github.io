@@ -1127,6 +1127,33 @@
 - source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_PUBLICATION_TIME
 - note: 2026-10-04 08:24–08:25 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。Meta UI評価は skip rate「低」、share rate「低」、like rate「低」、save rate「高」、repost rate「低」、comment rate「低」。
 
+
+### Snapshot — 2026-10-13 08:33 JST — Basis second static carousel
+- observed_at_jst: 2026-10-13 08:33
+- content_id: IG-BAS-002
+- content_type: static_carousel_4_images
+- published_at_jst: approximately 2026-10-12 08:24 (2026-10-12 08:25投稿画面の「40秒前」からの概算。exact未確認)
+- age_of_post_display: 1日前 (2026-10-13 08:33投稿画面)
+- elapsed_since_publish: approximately 24h09m (概算時刻を使用、exact elapsed未確認)
+- views: 63
+- viewers: 28
+- likes: 6
+- comments: 0
+- reposts: 0
+- share_count: UI `--`
+- saves: 0
+- follows: 0
+- profile_accesses: UI `--`
+- followers: 98.4%
+- non_followers: 1.6%
+- image_like_counts: image 1 UI 6 / image 2 UI 0 / image 3 UI 0 / image 4 UI 0
+- carousel_post_view_display: 62 (post page) / detailed Insights views 63 (same observed minute; preserve both, not reconciled)
+- non_follower_views_trend: chart rises from 0 to approximately 1 at 24h (graph; exact timeline within chart not available)
+- audience_demographics: UI unavailable (fewer than 100 eligible audience actions in selected period)
+- view_sources: heading visible but values outside the provided screenshots; unknown
+- source_status: CANONICAL_LOG_SCREENSHOT
+- note: ユーザー提供2026-10-13 08:33 JSTの投稿画面・Post Insightsスクリーンショット計5枚。Audience follower 98.4% / non-follower 1.6%はUI表示値。画像別いいね数はカルーセル画像のUI帰属表示であり、閲覧・スワイプ人数の証拠ではない。共有とプロフィールアクセスは `--` のため0にしない。
+
 ---
 
 # Westclox Watchlarm W5
