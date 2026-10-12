@@ -131,6 +131,38 @@ try {
         if (!researchState.canonical.includes(`/${route}`)) failures.push(`${width}px ${route}: RESEARCH canonical mismatch`);
       }
 
+      if (route === 'research/arsa-blind-alarm/' && width <= 390) {
+        const figure = await page.evaluate(() => {
+          const deep = document.getElementById('deep')?.closest('section');
+          const chapters = [...(deep?.querySelectorAll('.deep-list > details') ?? [])];
+          const chapter = chapters.find((item) =>
+            item.querySelector('summary .number')?.textContent?.trim() === '04'
+          );
+          if (!chapter) return { found: false, src: '', width: 0, loaded: false };
+          chapter.open = true;
+          const button = chapter.querySelector('.deep-media--wide .deep-zoom');
+          const img = button?.querySelector('img');
+          return {
+            found: Boolean(button && img),
+            src: img?.getAttribute('src') || '',
+            width: button?.getBoundingClientRect().width || 0,
+            loaded: Boolean(img?.complete && img?.naturalWidth)
+          };
+        });
+        if (!figure.found || !figure.src.includes('tactile-alarm-comparison-v1.svg') || !figure.loaded ||
+            figure.width > width + 1 || figure.width < width * .5) {
+          failures.push(`${width}px ${route}: ARSA comparison figure missing, broken, or improperly sized`);
+        } else {
+          const zoomButton = page.locator('.deep-list > details:nth-child(4) .deep-media--wide .deep-zoom');
+          await zoomButton.click();
+          const isOpen = await page.locator('.deep-list > details:nth-child(4) .deep-lightbox').evaluate((dialog) => dialog.open);
+          if (!isOpen) failures.push(`${width}px ${route}: ARSA figure lightbox did not open`);
+          await page.keyboard.press('Escape');
+          const stillOpen = await page.locator('.deep-list > details:nth-child(4) .deep-lightbox').evaluate((dialog) => dialog.open);
+          if (stillOpen) failures.push(`${width}px ${route}: ARSA figure lightbox did not close on Escape`);
+        }
+      }
+
       if (publishedWatchRoutes.includes(route) && width <= 390) {
         const japaneseState = await page.evaluate(() => ({
           lang: document.documentElement.lang,
