@@ -207,5 +207,5 @@ sources:
   - "[Grail Watch Wiki — Parking
     watch](https://wiki.grail-watch.com/index.php/Parking_watch)（Benedict
     Park-O-Phonのparking-time表示）"
-  - "掲載個体の販売者提供写真5点（2026-10-12にユーザーより受領。前蓋の開閉状態、触覚目盛の点数、針形状を画像で確認。写真原本の公開許諾は未確認）"
+  - "掲載個体の販売者提供写真（2026年10月確認。文字盤の立体目盛、前蓋の開閉状態、針とリューズの形状）"
 ---
