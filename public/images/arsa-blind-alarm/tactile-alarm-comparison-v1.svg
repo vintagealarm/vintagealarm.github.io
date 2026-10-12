@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="1580" viewBox="0 0 1040 1580" role="img" aria-labelledby="ttl desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="1625" viewBox="0 0 1040 1625" role="img" aria-labelledby="ttl desc">
 <title id="ttl">触読式機械式アラーム比較線図 — ARSA、Enicar、BEAT</title>
 <desc id="desc">ARSA掲載個体の触覚目盛、1964年Enicar特別個体の針幅と先端4隆起、BEATの6時側にある独立開閉装置を比較した線図。未記録の針加工は再現しない。</desc>
 <rect width="1040" height="1580" fill="#f7f8f4"/>
@@ -66,5 +66,6 @@
 <text x="520" y="1427" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" font-size="22" font-weight="400" fill="#687062">針の細部は模式的に表示</text>
 <path d="M60 1500H980" stroke="#8e9889" stroke-width="2"/>
 <text x="60" y="1529" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" font-size="22" font-weight="400" fill="#535d50">線図は比較用。実物の寸法比・材質・触感を保証するものではありません。</text>
-<text x="60" y="1563" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" font-size="19" font-weight="400" fill="#535d50">典拠：Beitl『Alarm am Arm』p.74 / p.91、Horlbeck『The Alarm Wrist Watch』pp.222–223</text>
+<text x="60" y="1563" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" font-size="19" font-weight="400" fill="#535d50">典拠：Beitl『Alarm am Arm』p.74／p.91</text>
+<text x="60" y="1598" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" font-size="19" font-weight="400" fill="#535d50">Horlbeck『The Alarm Wrist Watch』pp.222–223</text>
 </svg>
