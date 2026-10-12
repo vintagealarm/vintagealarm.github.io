@@ -112,12 +112,6 @@ deepDive:
       - "3"
       - "13"
       - 3,10,13
-    mediaStyle: wide-zoom
-    images:
-      - src: /images/arsa-blind-alarm/tactile-alarm-comparison-v1.svg
-        alt: ARSA・Enicar・BEATの触覚文字盤と蓋開閉方式を比較した線図。ARSAは12時3点・9時2点、Enicar特別個体は針幅とアラーム針先端4隆起、BEATは6時側オープナーを示す。
-        caption: '比較線図。ARSAは掲載個体の販売者提供写真を参照。Enicarは1964年ローザンヌ向け特別個体に限定。BEATの針の細部は未復元。資料：Beitl『Alarm am Arm』p.74・91、Horlbeck『The Alarm Wrist Watch』pp.222–223。'
-        afterParagraph: 3
   - number: "05"
     title: 普通のAS1475が、別の時計へ変わる
     paragraphs:
