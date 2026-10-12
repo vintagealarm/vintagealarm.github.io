@@ -2194,7 +2194,7 @@ Visible on the purchased specimen:
 - **SWISS MADE** at 6
 - raised tactile hour markers around the perimeter
 - the 12 o'clock landmark is differentiated by a vertical **three-dot** cluster
-- the 6 o'clock landmark is visibly differentiated by vertically grouped tactile dots
+- the earlier reading of the 6 o'clock mark as a vertically grouped set is **superseded by the 2026-10-12 near-frontal seller photographs**; see the dated correction at the end of this ledger
 - additional raised-dot differentiation is visible around the quarter-hour areas, though some exact positions are partly obscured by the hands in the available images
 - broad / robust hour and minute hands
 - a separate, much narrower central pointer with a strongly textured / crosshatched surface, visually consistent with the alarm-setting hand
@@ -3440,3 +3440,22 @@ This changes the safest interpretation:
 - that all ARSA covered watches used crown-button release
 
 **Site-use consequence:** describe the Blind Alarm's integrated opener as an accessibility-useful ARSA solution, while keeping its exact origin / design lineage OPEN.
+
+### 2026-10-12 — Seller-supplied open-lid photographs: dial marker correction and v1 evidence scope
+
+**Ingress:** User supplied five screenshots showing the same seller-provided ARSA Blind Alarm with the hinged front cover open, plus one listing screenshot. Image evidence is from seller/gallery photographs provided through the user, **not** a hands-on test or a new independently dated period specimen. Do not commit or republish the seller's imagery without establishing publication permission.
+
+**IMAGE-CONFIRMED from the near-frontal dial image (user-uploaded `IMG_2684(1).jpeg`) and angled open-cover views (`IMG_2676(1).jpeg`–`IMG_2680(2).jpeg`):**
+- Raised orientation landmark at **12 o'clock: three vertically grouped dots**.
+- Landmark at **9 o'clock: two horizontally grouped dots**.
+- **3 and 6 o'clock: one visible raised dot each** in the best near-frontal image, not the previously recorded 6 o'clock multi-dot arrangement.
+- Remaining hours use visible raised points; some are partially hidden by the pointers in angled views.
+- The hour/minute pointers are visibly different in width and tip/length; a third narrower alarm-setting pointer carries a crosshatched / patterned visual finish. **Relief and touch distinguishability remain untested.**
+- The front hinged cover is open toward the watch's left side, hinge around 9; two crowns appear on the right side, and the lower one has a projecting central push-piece. A photograph alone does not verify the exact force or reliability of the opener.
+- Dial wording **ARSA**, **ALARM / 17 JEWELS**, **SWISS MADE** is visible. No movement interior or caseback image was newly provided in this six-image set.
+
+**Correction / reversal target:** The 2026-10-02 image-based note above described a vertically grouped 6 o'clock landmark. The new clean near-frontal view directly contradicts that count: the 6 o'clock mark is single. Earlier assistant descriptions of three dots at 9 and two at 3 are likewise **rejected**. Updated observation: **12=3, 9=2, 3=1, 6=1** based on the visible seller photo. This is a photo-level count for the shown specimen, not a universal factory coding scheme.
+
+**Public-page boundary:** The images can guide DEEP DIVE ③ observations and an evidence-grounded DEEP DIVE ④ ARSA reference drawing. Do not change the OWNER'S NOTE, WATCH publication flag, or RESEARCH front-end automatically. The photos do not establish the specimen's date, tactile efficacy, operation success, case metal, seller's servicing extent, or permission to re-publish image files. The seller's prior operation/hinge answers remain seller statements, not user testing. The currently published research route remains independent of the hidden WATCH route.
+
+**Next admissible evidence:** permission-cleared original photo files for public media; actual hands-on check after arrival; movement/case images if newly obtained. Avoid repeat cataloguing existing seller images as new technical discoveries.
