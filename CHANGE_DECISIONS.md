@@ -1729,6 +1729,6 @@
 - **理由**：ユーザー提供写真により目盛・前蓋・リューズ・針形状の実写根拠が増えたため。専門書の既存比較研究を読者が対照できる図へ変換する。メーカーの未回答をv1の必須条件とはしない。
 - **旧状態・棄却**：前回の生成モックによる未確認BEAT針細部、Enicar特別仕様の一般化、販売者写真の無許諾公開、販売者説明を所有者の実測扱いする案を棄却。本文01/02/05、OWNER'S NOTE、WATCHのpublished:falseとRESEARCH公開設定を維持。
 - **影響範囲**：`src/content/watches/arsa-blind-alarm.md` 第03/04章のみ、`src/components/DeepDive.astro`の拡大画像表示モード、`src/content.config.ts`の対応スキーマ、`scripts/check-layout.mjs`のモバイル拡大表示テスト、`public/images/arsa-blind-alarm/tactile-alarm-comparison-v1.svg`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本履歴。別WATCHと多言語ページは変更しない。
-- **検証状態**：初回CI buildでnew mediaStyleに対応するAstro schema enum不足を検出して修正済み。最新版CI再実行・citation/図版表示の検証待ち。seller画像公開許諾、実機動画・音声、owner触読試験は未取得でありv1を完了・DEPLOYEDと呼ばない。
-- **関連**：PR #235、研究PR #214 / #232（独立に維持）、Beitl『Alarm am Arm』p.74 / p.91、Horlbeck『The Alarm Wrist Watch』pp.222–223、2026-10-12販売者画像。 decision-bearing commits: `582d5fcf`（記事と図接続）、`4a36a7db`（DeepDive UI）、`0ca7c954`（画像出典）、`c7305b8c`（公開本文メタ抑制）、`99eede9f`（content schema）、`2ae0be8a`（mobile layout test）。
+- **検証状態**：初回CI buildで新mediaStyleのschema enum不足を検出して修正。次のCIではlayout gateが章展開直後の遅延画像を未読込と判定したため、画像のスクロール・load待機へ修正。最新版CIの再検証待ち。seller画像公開許諾、実機動画・音声、owner触読試験は未取得でありv1を完了・DEPLOYEDと呼ばない。
+- **関連**：PR #235、研究PR #214 / #232（独立に維持）、Beitl『Alarm am Arm』p.74 / p.91、Horlbeck『The Alarm Wrist Watch』pp.222–223、2026-10-12販売者画像。 decision-bearing commits: `582d5fcf`（記事と図接続）、`4a36a7db`（DeepDive UI）、`0ca7c954`（画像出典）、`c7305b8c`（公開本文メタ抑制）、`99eede9f`（content schema）、`2ae0be8a`（mobile layout test）、`e41cd8fe`（lazy image decode待機）。
 - **日時根拠**：2026-10-12 20:55:36 JST（作業環境のAsia/Tokyo時計）。
