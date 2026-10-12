@@ -496,3 +496,20 @@ Current classification after the 2026-10-03 VA research scope correction:
 - keep the probable 57426 issue as a **specimen-condition record only**
 - do not spend further VA research time on it unless arrival inspection produces evidence that changes the historical / structural interpretation
 - simple absence vs broken remnant remains unresolved, but this is not an active OWNER'S NOTE research priority
+
+## 13. ARSA RESEARCH v1 — comparison design gate (2026-10-12)
+
+**CURRENT:** Keep five DEEP DIVE chapters. Vendor photo evidence supports **12=3 / 9=2 / 3=1 / 6=1** tactile marks in the pictured individual specimen. The specimen-only DEEP DIVE 03 paragraph and source/provenance row are retained in draft PR #235.
+
+**REJECTED, NOT TO BE USED:** The earlier SVG triptych `tactile-alarm-comparison-v1.svg` showed an invented line-art ARSA in spite of the explicit user requirement for an **actual ARSA specimen photo** and schematized undocumented portions of other watches. It was deleted from the draft PR, its DEEP DIVE 04 image attachment removed, and the `wide-zoom` changes to shared DeepDive UI/schema/layout checks reverted. Do not resurrect the deleted SVG or call passing CI proof of design acceptance.
+
+**NEW DESIGN AUTHORITY / review gate:**
+1. **ARSA:** use the actual user-provided seller photograph of the covered-open specimen. Keep real pointer and dot pattern; do not recreate ARSA as a cartoon/vector/watch illustration.
+2. **Enicar:** 1964 Lausanne special documented in Horlbeck pp.222–223. Use source-derived comparison evidence (specific hand widths and four alarm-hand ridges), not a generic fictional Enicar dial.
+3. **BEAT:** Beitl `Alarm am Arm` p.91 figure 1: raised points, white tactile hands, **6 o'clock independent opener**. Do not invent tactile micro-coding.
+4. **Layout:** three genuinely different mobile-first comparison prototypes (photo-led vertical / evidence matrix / archival spread) were prepared **outside the public repository** on 2026-10-12 using user's screenshots and privately supplied book page photographs. They are not approved designs or publication media. Select one by visual review before production HTML/CSS, and inspect at 320px, 390px and desktop.
+5. **Rights:** seller photo originals and source-book photos are for private mock/review at present. No public image assets until reuse rights and originals are confirmed; book scans cannot automatically be republished because a reference is cited.
+
+**Other v1 gates:** hands-on operation, sound and touch checks after arrival; media permissions; source-to-visual mapping; visual mobile/desktop check; citation/build/layout validation; explicit publication authority and live parity. Manufacturer reply and further archive discovery are useful but not mandatory for a documented first release.
+
+**Scope:** PR #235 stays draft. Do not merge unapproved visuals; do not change existing RESEARCH public status or the separate WATCH `published: false`. Keep #214 / #232 intact.
