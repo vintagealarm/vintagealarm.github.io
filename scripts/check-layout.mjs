@@ -149,11 +149,23 @@ try {
             loaded: Boolean(img?.complete && img?.naturalWidth)
           };
         });
-        if (!figure.found || !figure.src.includes('tactile-alarm-comparison-v1.svg') || !figure.loaded ||
+        if (!figure.found || !figure.src.includes('tactile-alarm-comparison-v1.svg') ||
             figure.width > width + 1 || figure.width < width * .5) {
-          failures.push(`${width}px ${route}: ARSA comparison figure missing, broken, or improperly sized`);
+          failures.push(`${width}px ${route}: ARSA figure unavailable or wrong size (${JSON.stringify(figure)})`);
         } else {
           const zoomButton = page.locator('.deep-list > details:nth-child(4) .deep-media--wide .deep-zoom');
+          const zoomImage = zoomButton.locator('img');
+          await zoomImage.scrollIntoViewIfNeeded();
+          const imageLoaded = await zoomImage.evaluate(async (img) => {
+            if (img.complete) return img.naturalWidth > 0;
+            await new Promise((resolve) => {
+              img.addEventListener('load', resolve, { once: true });
+              img.addEventListener('error', resolve, { once: true });
+              setTimeout(resolve, 5000);
+            });
+            return img.naturalWidth > 0;
+          });
+          if (!imageLoaded) failures.push(`${width}px ${route}: ARSA SVG did not decode after expansion`);
           await zoomButton.click();
           const isOpen = await page.locator('.deep-list > details:nth-child(4) .deep-lightbox').evaluate((dialog) => dialog.open);
           if (!isOpen) failures.push(`${width}px ${route}: ARSA figure lightbox did not open`);
