@@ -496,3 +496,21 @@ Current classification after the 2026-10-03 VA research scope correction:
 - keep the probable 57426 issue as a **specimen-condition record only**
 - do not spend further VA research time on it unless arrival inspection produces evidence that changes the historical / structural interpretation
 - simple absence vs broken remnant remains unresolved, but this is not an active OWNER'S NOTE research priority
+
+## 13. ARSA RESEARCH v1 — media / figure release gate (2026-10-12)
+
+**Decision scope:** Keep the existing five DEEP DIVE chapters (01 company / 02 demand / 03 specimen / 04 maker comparison / 05 AS1475 platform). A reply from ARSA, period design drawings, AFB transaction records, and a formal user study are bonus evidence, **not** blockers for a documented research v1.
+
+**Implemented in draft PR #235 (not deployed):**
+- Reconcile the 2026-10-12 seller-supplied open-cover photos with the Ledger: specimen's visible landmark pattern **12=3 / 9=2 / 3=1 / 6=1**. Do not generalize to all ARSA dials.
+- Add a short specimen-only observation in DEEP DIVE 03.
+- Add a zoomable original schematic SVG to DEEP DIVE 04, contrasting ARSA's visible markers / pointers / opener, the **1964 Lausanne Enicar special only**, and the independently located **6 o'clock** BEAT opener. Unconfirmed BEAT hand-detail coding is intentionally omitted. Text labels distinguish source-proven description from a schematic.
+
+**Explicitly still missing before v1 media completion:**
+1. **Media rights & originals:** confirmation that seller's photographic originals may be republished, plus clean originals without marketplace/phone UI; do not commit the user-supplied seller screenshots to the public repository while status is unresolved.
+2. **Hands-on specimen / sound:** actual owner-controlled inspection after arrival for alarm operation, tactile hand discrimination, cover release, alarm-setting read-back, movement / case detail if available; audio or one standard VA ringing video. No recorded seller statement should be presented as owner test.
+3. **Site acceptance:** file provenance + captions + source check, mobile and desktop visual inspection, media open/close/lightbox behaviour, accessibility labels, responsive zoom, Astro build, citation integrity, and main/deploy/live parity if publication is explicitly approved.
+
+**Release split:** Research/text + diagram can be proposed on a draft PR now; **do not label v1 publicly complete** or merge/deploy unsupported seller assets and absent actual test media. Existing independent RESEARCH route stays published; the ordinary WATCH route stays `published: false`. PR #214 / #232 retain their own review boundaries.
+
+**Non-goals:** do not reopen the already saturated AFB/1958-JSH broad search, expand the article beyond five chapters for volume, assert specific tactile relief or user success, or create an artificial design lineage between the three makers.
