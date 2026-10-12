@@ -90,7 +90,7 @@ deepDive:
       - "3"
       - "10"
       - 3,10
-      - ""
+      - "15"
       - "11"
       - "12"
   - number: "04"
@@ -166,6 +166,8 @@ sourceMeta:
     type: provenance
   - id: "14"
     type: reference
+  - id: "15"
+    type: provenance
 sources:
   - "[Auguste Reymond —
     History](https://augustereymond.ch/about-ar/history/)（1898年創業、1903年工場開設、192\
@@ -205,4 +207,5 @@ sources:
   - "[Grail Watch Wiki — Parking
     watch](https://wiki.grail-watch.com/index.php/Parking_watch)（Benedict
     Park-O-Phonのparking-time表示）"
+  - "掲載個体の販売者提供写真5点（2026-10-12にユーザーより受領。前蓋の開閉状態、触覚目盛の点数、針形状を画像で確認。写真原本の公開許諾は未確認）"
 ---
