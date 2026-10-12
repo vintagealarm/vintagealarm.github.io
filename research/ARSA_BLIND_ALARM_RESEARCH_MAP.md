@@ -497,20 +497,19 @@ Current classification after the 2026-10-03 VA research scope correction:
 - do not spend further VA research time on it unless arrival inspection produces evidence that changes the historical / structural interpretation
 - simple absence vs broken remnant remains unresolved, but this is not an active OWNER'S NOTE research priority
 
-## 13. ARSA RESEARCH v1 — media / figure release gate (2026-10-12)
+## 13. ARSA RESEARCH v1 — comparison design gate (2026-10-12)
 
-**Decision scope:** Keep the existing five DEEP DIVE chapters (01 company / 02 demand / 03 specimen / 04 maker comparison / 05 AS1475 platform). A reply from ARSA, period design drawings, AFB transaction records, and a formal user study are bonus evidence, **not** blockers for a documented research v1.
+**CURRENT:** Keep five DEEP DIVE chapters. Vendor photo evidence supports **12=3 / 9=2 / 3=1 / 6=1** tactile marks in the pictured individual specimen. The specimen-only DEEP DIVE 03 paragraph and source/provenance row are retained in draft PR #235.
 
-**Implemented in draft PR #235 (not deployed):**
-- Reconcile the 2026-10-12 seller-supplied open-cover photos with the Ledger: specimen's visible landmark pattern **12=3 / 9=2 / 3=1 / 6=1**. Do not generalize to all ARSA dials.
-- Add a short specimen-only observation in DEEP DIVE 03.
-- Add a zoomable original schematic SVG to DEEP DIVE 04, contrasting ARSA's visible markers / pointers / opener, the **1964 Lausanne Enicar special only**, and the independently located **6 o'clock** BEAT opener. Unconfirmed BEAT hand-detail coding is intentionally omitted. Text labels distinguish source-proven description from a schematic.
+**REJECTED, NOT TO BE USED:** The earlier SVG triptych `tactile-alarm-comparison-v1.svg` showed an invented line-art ARSA in spite of the explicit user requirement for an **actual ARSA specimen photo** and schematized undocumented portions of other watches. It was deleted from the draft PR, its DEEP DIVE 04 image attachment removed, and the `wide-zoom` changes to shared DeepDive UI/schema/layout checks reverted. Do not resurrect the deleted SVG or call passing CI proof of design acceptance.
 
-**Explicitly still missing before v1 media completion:**
-1. **Media rights & originals:** confirmation that seller's photographic originals may be republished, plus clean originals without marketplace/phone UI; do not commit the user-supplied seller screenshots to the public repository while status is unresolved.
-2. **Hands-on specimen / sound:** actual owner-controlled inspection after arrival for alarm operation, tactile hand discrimination, cover release, alarm-setting read-back, movement / case detail if available; audio or one standard VA ringing video. No recorded seller statement should be presented as owner test.
-3. **Site acceptance:** file provenance + captions + source check, mobile and desktop visual inspection, media open/close/lightbox behaviour, accessibility labels, responsive zoom, Astro build, citation integrity, and main/deploy/live parity if publication is explicitly approved.
+**NEW DESIGN AUTHORITY / review gate:**
+1. **ARSA:** use the actual user-provided seller photograph of the covered-open specimen. Keep real pointer and dot pattern; do not recreate ARSA as a cartoon/vector/watch illustration.
+2. **Enicar:** 1964 Lausanne special documented in Horlbeck pp.222–223. Use source-derived comparison evidence (specific hand widths and four alarm-hand ridges), not a generic fictional Enicar dial.
+3. **BEAT:** Beitl `Alarm am Arm` p.91 figure 1: raised points, white tactile hands, **6 o'clock independent opener**. Do not invent tactile micro-coding.
+4. **Layout:** three genuinely different mobile-first comparison prototypes (photo-led vertical / evidence matrix / archival spread) were prepared **outside the public repository** on 2026-10-12 using user's screenshots and privately supplied book page photographs. They are not approved designs or publication media. Select one by visual review before production HTML/CSS, and inspect at 320px, 390px and desktop.
+5. **Rights:** seller photo originals and source-book photos are for private mock/review at present. No public image assets until reuse rights and originals are confirmed; book scans cannot automatically be republished because a reference is cited.
 
-**Release split:** Research/text + diagram can be proposed on a draft PR now; **do not label v1 publicly complete** or merge/deploy unsupported seller assets and absent actual test media. Existing independent RESEARCH route stays published; the ordinary WATCH route stays `published: false`. PR #214 / #232 retain their own review boundaries.
+**Other v1 gates:** hands-on operation, sound and touch checks after arrival; media permissions; source-to-visual mapping; visual mobile/desktop check; citation/build/layout validation; explicit publication authority and live parity. Manufacturer reply and further archive discovery are useful but not mandatory for a documented first release.
 
-**Non-goals:** do not reopen the already saturated AFB/1958-JSH broad search, expand the article beyond five chapters for volume, assert specific tactile relief or user success, or create an artificial design lineage between the three makers.
+**Scope:** PR #235 stays draft. Do not merge unapproved visuals; do not change existing RESEARCH public status or the separate WATCH `published: false`. Keep #214 / #232 intact.
