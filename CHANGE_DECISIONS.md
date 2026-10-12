@@ -1732,3 +1732,12 @@
 - **検証状態**：初回CI buildで新mediaStyleのschema enum不足を検出して修正。次のCIではlayout gateが章展開直後の遅延画像を未読込と判定したため、画像のスクロール・load待機へ修正。最新版CIの再検証待ち。seller画像公開許諾、実機動画・音声、owner触読試験は未取得でありv1を完了・DEPLOYEDと呼ばない。
 - **関連**：PR #235、研究PR #214 / #232（独立に維持）、Beitl『Alarm am Arm』p.74 / p.91、Horlbeck『The Alarm Wrist Watch』pp.222–223、2026-10-12販売者画像。 decision-bearing commits: `582d5fcf`（記事と図接続）、`4a36a7db`（DeepDive UI）、`0ca7c954`（画像出典）、`c7305b8c`（公開本文メタ抑制）、`99eede9f`（content schema）、`2ae0be8a`（mobile layout test）、`e41cd8fe`（lazy image decode待機）。
 - **日時根拠**：2026-10-12 20:55:36 JST（作業環境のAsia/Tokyo時計）。
+
+### 2026-10-12 22:41 JST — ARSA比較線図の仕様違反を撤回し実写主体の3方向デザイン審査へ差戻し
+- **変更**：Draft PR #235に誤って実装したARSA線画SVG `tactile-alarm-comparison-v1.svg` を撤去。DEEP DIVE 04への画像参照を外し、共通のDeepDive表示・content schema・layout checkをmain相当に戻す。ARSA掲載個体写真で確認したDEEP DIVE 03の個体観察段落と出典15は維持。研究Mapに比較図HOLD条件と写真主体の3方向プロトタイプ審査を明記。
+- **理由**：ユーザーはARSAを実機写真で比較することを既に指定しており、線画置換と出典にない時計造形は仕様違反。CIでビルド・クリックが通っても資料的忠実性やデザイン承認の証明にはならない。
+- **旧状態・棄却**：前回SVGを「実装予定画像／完成候補」として扱った判断を明示的に棄却。原典裏付けのないBEAT針の詳細再現や同精度の3社模式復元は不可。先に共通UIへ昇格させた作業は撤回。
+- **影響範囲**：`src/components/DeepDive.astro`、`src/content.config.ts`、`scripts/check-layout.mjs`、`src/content/watches/arsa-blind-alarm.md`の04画像参照、`public/images/arsa-blind-alarm/tactile-alarm-comparison-v1.svg`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本履歴。通常ARSA WATCHは非公開、ARSA RESEARCH既存公開状態・OWNER'S NOTE本文・他WATCHは不変更。
+- **検証状態**：GitHub作業branch上で撤回を実施。差分・最新CIを検査し、写真実物を使った390px中心の3方向プレビューをユーザーへ提出して採否判断待ち。seller写真の公開許可・専門書図版の転載許諾は未取得でありプレビューの画像はpublic repositoryへcommitしない。
+- **関連**：既存 Draft PR #235、直近の撤回commit `4e36910b`・`92bbc7b3`・`27ba7ca9`・`2ce78fd2`・`4e596a03`、Research Map更新commit `68b2c89c`。2026-10-12ユーザー訂正「ARSAは実機写真」。
+- **日時根拠**：2026-10-12 22:41 JST（作業環境のAsia/Tokyo時計）。
