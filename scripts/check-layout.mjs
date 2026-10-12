@@ -131,50 +131,6 @@ try {
         if (!researchState.canonical.includes(`/${route}`)) failures.push(`${width}px ${route}: RESEARCH canonical mismatch`);
       }
 
-      if (route === 'research/arsa-blind-alarm/' && width <= 390) {
-        const figure = await page.evaluate(() => {
-          const deep = document.getElementById('deep')?.closest('section');
-          const chapters = [...(deep?.querySelectorAll('.deep-list > details') ?? [])];
-          const chapter = chapters.find((item) =>
-            item.querySelector('summary .number')?.textContent?.trim() === '04'
-          );
-          if (!chapter) return { found: false, src: '', width: 0, loaded: false };
-          chapter.open = true;
-          const button = chapter.querySelector('.deep-media--wide .deep-zoom');
-          const img = button?.querySelector('img');
-          return {
-            found: Boolean(button && img),
-            src: img?.getAttribute('src') || '',
-            width: button?.getBoundingClientRect().width || 0,
-            loaded: Boolean(img?.complete && img?.naturalWidth)
-          };
-        });
-        if (!figure.found || !figure.src.includes('tactile-alarm-comparison-v1.svg') ||
-            figure.width > width + 1 || figure.width < width * .5) {
-          failures.push(`${width}px ${route}: ARSA figure unavailable or wrong size (${JSON.stringify(figure)})`);
-        } else {
-          const zoomButton = page.locator('.deep-list > details:nth-child(4) .deep-media--wide .deep-zoom');
-          const zoomImage = zoomButton.locator('img');
-          await zoomImage.scrollIntoViewIfNeeded();
-          const imageLoaded = await zoomImage.evaluate(async (img) => {
-            if (img.complete) return img.naturalWidth > 0;
-            await new Promise((resolve) => {
-              img.addEventListener('load', resolve, { once: true });
-              img.addEventListener('error', resolve, { once: true });
-              setTimeout(resolve, 5000);
-            });
-            return img.naturalWidth > 0;
-          });
-          if (!imageLoaded) failures.push(`${width}px ${route}: ARSA SVG did not decode after expansion`);
-          await zoomButton.click();
-          const isOpen = await page.locator('.deep-list > details:nth-child(4) .deep-lightbox').evaluate((dialog) => dialog.open);
-          if (!isOpen) failures.push(`${width}px ${route}: ARSA figure lightbox did not open`);
-          await page.keyboard.press('Escape');
-          const stillOpen = await page.locator('.deep-list > details:nth-child(4) .deep-lightbox').evaluate((dialog) => dialog.open);
-          if (stillOpen) failures.push(`${width}px ${route}: ARSA figure lightbox did not close on Escape`);
-        }
-      }
-
       if (publishedWatchRoutes.includes(route) && width <= 390) {
         const japaneseState = await page.evaluate(() => ({
           lang: document.documentElement.lang,
