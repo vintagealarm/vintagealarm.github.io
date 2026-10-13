@@ -138,6 +138,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - 外部AI発見性 / 意味保持: `measurement/aio-observation-log.md`
 - 検索・AIO全体方針: `strategy/seo-aio.md`
 - Council現行仕様: `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`
+- Modern De Luxe研究: **研究証拠のCURRENT owner**は `research/MODERN_DE_LUXE_LEDGER.md`、採用済みG0研究方針は `research/MODERN_DE_LUXE_STRATEGY_RESET_20261003_JESTER.md`。旧Draft PR #135のその他39ファイルは出典・履歴・未採用草稿として同PRに保持し、時計とライターの同一事業者／ムーブメントの未解決を解決済みにしない。公開WATCHへの自動転記はしない
 - 個人時計台帳: `orima1995-create/watchdiary-ios` #21を主入口に、#60 / #23 / #25および個体別CURRENT Issueへroute
 
 ### CYMA Time-O-Vox Chronomètre — VA準拠テストページ
