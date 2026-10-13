@@ -1750,3 +1750,12 @@
 - **検証状態**：旧PR原本からの本文一致（先頭のCURRENT/HOLD pointerのみ付加）を確認。PR CIとmain/deployは未判定。残存旧PRファイルはPR本文で処理区分を維持し、未確認証拠を採用済みへ昇格しない。
 - **関連**：PR #135、ユーザー承認の2026-10-03 G0 strategy reset、救出commit `533cf530`・`16c50b6f`。
 - **日時根拠**：作業ホスト時計 `2026-10-13 15:20:12 +09:00` → `2026-10-13 15:20 JST`。
+
+### 2026-10-13 15:28 JST — 古いPRの証拠救出とCURRENT入口の再接続を監査
+- **変更**：open PR起点の整理で#211（Pierce時系列）・#214（JSH）・#232（ARSA利用者研究）・#216（多言語OWNER NOTE / 研究HOLD）・#135（Modern研究正本とG0）を分野別canonical ownerへ救出、PR差分を監査したうえで旧PRを履歴としてclose。ARSAの未承認公開文・販売者画像利用・比較デザインは#235 Draft/HOLDで維持。Modern De Luxe研究の現行入口を`PROJECT_STATE.md`から既存Ledgerと2026-10-03採用戦略へ接続し、`check-project-consistency`で実体の有無を検証する。
+- **理由**：正本に新証拠が未収録のまま古いPRへ散在し、次のチャットや別作業で旧状態の再発・遺失が生じていた。新しいDBや規則文書を増やさず、既存ownerへ救出し、履歴とCURRENTを分別するため。
+- **旧状態・棄却**：古いPRの全文一括マージ、証拠を回収しないclose／削除、G0未解決のままModern De Luxe時計を広田製とする案、ARSAの未許諾画像・未承認の本文化、CI成功と実チャットの完全な越権防止を同一視する案を棄却。
+- **影響範囲**：`PROJECT_STATE.md`と`scripts/check-project-consistency.mjs`および本Decision Log。既にマージ済みの#237（SNS+ARSA）、#238（言語修正と失敗注入）、#239（Modern正本救出）は各PRと元PRに証拠保持。新規公開本文改稿、画像、`published:false`、追加DBは対象外。
+- **検証状態**：#237/#238/#239は各PRの全CI SUCCESSおよびmainの正本再取得確認済み。#237/#238のmain Pages workflow成功、#239は本記録時点で本番CIの結果待ち。startup pointerと存在ゲートは本PRのCI結果で最終判定する。実際の別チャットからの実行成功は未検証、Managerへの行動制御はCIのみでは完全保証しない。
+- **関連**：PR #237、#238、#239、close履歴PR #211/#214/#232/#216/#135、継続HOLD PR #235。実装commit `3dd00d5c`（pointer）、`88e3dbf0`（実体チェック）。
+- **日時根拠**：作業ホスト時計 `2026-10-13 15:28:25 +09:00` → `2026-10-13 15:28 JST`。
