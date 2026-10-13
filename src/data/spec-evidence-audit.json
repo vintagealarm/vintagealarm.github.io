@@ -22,7 +22,8 @@
             "jewels: 17石",
             "caseSize: 37mm",
             "CITIZEN / 17 JEWELS / 3 ADJ",
-            "caliber: Citizen 980（掲載個体で確認）"
+            "caliber: Citizen 980（掲載個体で確認）",
+            "初期の980には17石、Parashock付きの仕様が確認できる。"
           ]
         },
         {
@@ -40,6 +41,33 @@
             "CITIZEN / 17 JEWELS / 3 ADJ",
             "caliber: 'Citizen 980 (confirmed on the shown specimen)'"
           ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "The 1958 launch report describes the early Citizen Alarm movement as 27 mm in diameter, 5.7 mm thick and fitted with 19 jewels.",
+            "shown specimen dial “19 JEWELS PHYNOX”"
+          ],
+          "mustNotContain": [
+            "Early 980 examples are documented with 17 jewels and Parashock.",
+            "CITIZEN / 17 JEWELS / 3 ADJ"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "caseSize: 'ca. 34 mm (Dokumentation derselben Gehäusereferenz, ohne Kronen)'",
+            "jewels: '19 Steine (am gezeigten Exemplar bestätigt)'",
+            "caliber: 'Citizen 980 (Dokumentation eines vergleichbaren Typs)'",
+            "Zifferblatt „19 JEWELS PHYNOX“",
+            "Werk „NINETEEN JEWELS / 3 ADJ“"
+          ],
+          "mustNotContain": [
+            "jewels: '17 Steine (am gezeigten Exemplar bestätigt)'",
+            "caseSize: '37 mm",
+            "CITIZEN / 17 JEWELS / 3 ADJ",
+            "Frühe 980-Ausführungen mit 17 Steinen und Parashock sind dokumentiert."
+          ]
         }
       ],
       "renderedChecks": [
@@ -55,6 +83,17 @@
           "mustContain": [
             "19 jewels (confirmed on the shown specimen)",
             "Citizen 980 (same-type documentation)"
+          ]
+        },
+        {
+          "path": "dist/de/citizen-alarm/index.html",
+          "mustContain": [
+            "19 Steine (am gezeigten Exemplar bestätigt)",
+            "Citizen 980 (Dokumentation eines vergleichbaren Typs)"
+          ],
+          "mustNotContain": [
+            "17 Steine (am gezeigten Exemplar bestätigt)",
+            "CITIZEN / 17 JEWELS / 3 ADJ"
           ]
         }
       ]
