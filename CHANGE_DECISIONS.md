@@ -1723,3 +1723,12 @@
 - **検証状態**：実装時点。CIによるsource/rendered audit、PR diff、mainマージ、deploy、live確認は後続検証予定。
 - **関連**：PR #216、PR #226、PR #228、Citizen監査強化commit `a2845109`。
 - **日時根拠**：作業環境時計 `2026-10-13 10:20:25 +09:00` → `2026-10-13 10:20 JST`。
+
+### 2026-10-13 15:03 JST — PR #211/#214/#232/#235の未統合証拠を既存正本へ救出
+- **変更**：PR #211のPierce Instagram snapshot（2026-10-07 07:06–07:07 JST）を時系列正本へ追記。ARSA PR #214のJSH 1958 p.120実見・架空の別60周年記事撤回、PR #232のWHO 2021/Seiko 2021/単一利用者論文/CSUN関連資料、PR #235の販売者写真から確認した文字盤触覚点（12=3,9=2,3=1,6=1）と比較図・権利HOLDを既存Ledger/Mapへ出典・確度付きで統合。重複Map §13を§13/§14に分離。JSH別記事本文OPENの旧CURRENTを撤回。
+- **理由**：確定・観測済み証拠が長期open PRだけに残っており、別チャットがmainのみを読むと旧状態や欠落を復活させる。領域ごとの正本へ戻し、研究履歴と現在値を分別するため。
+- **旧状態・棄却**：旧PRの全文を無検査マージする案、JSH 1958の別60周年記事が存在する前提、ARSAの6時複数点誤読、2021年WHOを1950年代のARSA設計根拠とみなす案、無許諾の販売者写真公開、棄却されたSVG比較図を棄却。PR/branchは削除せず履歴として保全する。
+- **影響範囲**：`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本Decision Logのみ。公開WATCH/RESEARCH本文、ARSA `published:false`、OWNER'S NOTE、画像、他機種SPEC、翻訳、共通UIには変更なし。
+- **検証状態**：救出branchでデータの見出し／旧ACTIVE文言／差分を検証済み。現段階ではCI／main／deploy／liveは未検証として分離する。次段階でPR CI、SNS時系列validator、正本再取得、main反映を確認する。
+- **関連**：証拠源PR #211/#214/#232/#235（元の調査日・書誌・ユーザー提供スクショ経緯は各PRに保持）。実装commit `2f0c6225`（snapshot）、`5179d0ac`（Ledger）、`93b86d2e`・`dcf2c946`（Map）。
+- **日時根拠**：作業ホスト時計 `2026-10-13 15:03:21 +09:00` → `2026-10-13 15:03 JST`。
