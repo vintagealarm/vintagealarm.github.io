@@ -1741,3 +1741,12 @@
 - **検証状態**：GitHubで対象hunkが現行mainの旧文言に一意一致することを確認して差分適用。今後、source/rendered同期、失敗注入テスト、PR CI、mainマージ、公開後のlive照合を独立確認する。ここで検証済み・本番公開済みとは扱わない。
 - **関連**：元証拠PR #216（branch保全）、実装commit `6d170414`、`07904b81`、`30248f86`、`97d03d84`、`dd58d612`、`a2d49031`、`103e0308`、`dd213bd8`、`36288f26`。移管後もARSA独立差分は#216へ保留。
 - **日時根拠**：作業ホスト時計 `2026-10-13 15:14:29 +09:00` → `2026-10-13 15:14 JST`。
+
+### 2026-10-13 15:20 JST — Modern De Luxeの研究正本とG0研究方針を長期Draft PR #135から救出
+- **変更**：旧PR #135だけに存在した既存の`MODERN_DE_LUXE_LEDGER.md`とユーザー採用済みの`MODERN_DE_LUXE_STRATEGY_RESET_20261003_JESTER.md`を同じパスでmainに救出。既存内容は非改稿で保全し、ファイル冒頭にCURRENT/OPEN/HOLDおよび元PRへ戻るpointerのみ付加する。残る実験・探索runログ、未採用草稿、completion memoは旧PR/branchで履歴保持し、AI都合の新台帳は作成しない。
+- **理由**：長期間競合中のDraft PR #135に研究正本が隔離され、別チャットがmainへ到達してもModern De Luxeの根拠・戦略・未解決G0を発見できなかった。mainへ最小限の既存canonical ownerを復元し、詳細logとCURRENTを分別するため。
+- **旧状態・棄却**：H.M.C./広田／Modern Royalと時計の同一事業者を既証明とする逆推論、単なる商品名一致からの時計メーカー帰属、Modern De Luxe関連40件前後の調査ログ丸ごとmain移植、仮説・旧草稿の公開WATCH化を棄却。G0（時計と別カテゴリで同一ブランド／事業者か）と機械platform帰属はOPENで固定。
+- **影響範囲**：`research/MODERN_DE_LUXE_LEDGER.md`、`research/MODERN_DE_LUXE_STRATEGY_RESET_20261003_JESTER.md`、本Decision Log。サイト公開本文、時計画像、所有個体データ、PR #135 original branchは変更しない。
+- **検証状態**：旧PR原本からの本文一致（先頭のCURRENT/HOLD pointerのみ付加）を確認。PR CIとmain/deployは未判定。残存旧PRファイルはPR本文で処理区分を維持し、未確認証拠を採用済みへ昇格しない。
+- **関連**：PR #135、ユーザー承認の2026-10-03 G0 strategy reset、救出commit `533cf530`・`16c50b6f`。
+- **日時根拠**：作業ホスト時計 `2026-10-13 15:20:12 +09:00` → `2026-10-13 15:20 JST`。
