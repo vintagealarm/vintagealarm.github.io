@@ -169,8 +169,8 @@ export const germanCymaEntry: LinkedGermanWatchEntry = {
     lead: [
       'Ein goldener Chronomètre, der klingelt.',
       'Von vorn eine Dresswatch.',
-      'Von der Seite fast ein Chronograph.',
-      'Trotz Komplikation erstaunlich flach.',
+      'Von der Seite ein Chronograph.',
+      'Trotz Komplikation flach.',
       'Und dazu: Wecker und Chronomètre.',
       'Voller Widersprüche.',
       'Ein Extrempunkt der Wecker-Armbanduhr.'

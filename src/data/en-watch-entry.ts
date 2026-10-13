@@ -89,7 +89,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'Distinctive numeral indices.',
+        'Distinctive triangular indices.',
         'A wavering alarm hand.',
         'A projecting rotating bezel and a small crown half-hidden by the case.',
         'Through the display back, only the timekeeping side is visible.',
@@ -123,7 +123,7 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ],
       guideTitle: 'Quick operating guide',
       guide: [
-        '① Winding — crown in normal position: winds both the timekeeping and alarm mainsprings in the same direction',
+        '① Winding — crown in normal position: turn clockwise to wind both the timekeeping and alarm mainsprings',
         '② Time setting — pull the crown and set the hands',
         '③ Alarm setting — rotate the bezel counter-clockwise to set the alarm time',
         '④ Alarm ON / OFF — 9 o’clock slider: up = OFF / down = ON',
@@ -131,9 +131,10 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'The Basis Alarm uses the Baumgartner BFG 90, an early alarm-wristwatch movement also found under names such as Lantex, Sheffield, Simplon and Tior.',
-        'Rather than hiding its functions, the BFG 90 lets its mechanism show through the rotating bezel, slider and two winding-indicator windows.',
-        'That directness is what makes the watch unusually tactile and visual today.'
+        'The Basis Alarm is an early alarm wristwatch powered by the Baumgartner BFG 90.',
+        'Apart from high-end watches such as the Memovox and Cricket, the BFG 90 was a practical movement used under names including Basis, Lantex, Sheffield, Simplon and Tior.',
+        'A utilitarian watch with its functions out in the open, rather than the refinement of a high-end model.',
+        'That is precisely why the pleasure of looking, touching and sounding it remains.'
       ]
     },
     spec: {
@@ -158,8 +159,11 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
       lead: [
         'A gold chronometer that rings.',
         'From the front, a dress watch.',
-        'From the side, almost a chronograph.',
-        'Thin despite the complication — and marked Chronomètre.'
+        'From the side, a chronograph.',
+        'Thin despite the complication.',
+        'And an alarm with a chronometer.',
+        'Packed with contradictions.',
+        'One extreme of the alarm wristwatch.'
       ],
       guideTitle: 'Quick operating guide',
       guide: [
@@ -167,13 +171,14 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
         '② Time setting — press the upper pusher, pull the crown and turn',
         '③ Alarm setting — press the lower pusher and turn the crown',
         '④ ON / OFF — both pushers centered = ON; press either pusher = OFF',
-        'The alarm time can be set in either direction; the Japanese research note recommends counter-clockwise setting when prioritizing precision.'
+        'The alarm time can be set in either direction; counter-clockwise setting is recommended when prioritizing precision.'
       ],
       noteTitle: 'NOTE',
       note: [
         'Alarm wristwatches carrying a Chronomètre designation were rare in period documentation.',
         'The Time-O-Vox drives both timekeeping and alarm from a single barrel, so sounding the alarm also consumes the energy used for timekeeping.',
-        'This specimen combines that mechanism with an 18K gold case and distinctive open-worked lugs.'
+        'Even so, the dial says Chronomètre.',
+        'There was even a specially designed solid-gold case with open-worked lugs.'
       ]
     },
     spec: {
