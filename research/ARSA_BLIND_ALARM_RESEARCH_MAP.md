@@ -349,7 +349,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 ### P3 — BONUS / CONTEXT archive
 **状態:** NON-BLOCKING
 
-- **JSH No.2, mars-avril 1958 — A. Reymond 60周年記事本文**。1958年通年スキャンはThe Watch LibraryでPublic Domain / 822 pagesまで確認済み。記事本文は未取得。Blind Alarmを名指し／図示する場合のみ03へ昇格
+- **JSH 1958 p.120 広告 — CONTENT-READ**。A. Reymond 60周年全面広告は実見済みでBlind Alarmへの直接言及なし。別の60周年記事の探索は撤回。将来、同号の別ページでBlind Alarmを直接名指し／図示する新資料が見つかった場合のみ③へ昇格
 - AFB↔ARSA supplier / purchase order / invoice / correspondence
 - Mémoires d'Ici 1948 / 1973全文
 - Smithsonian MG.306619.07
@@ -435,7 +435,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 5. **④触読alarm比較 — PASS 1 COMPLETE** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBをhand coding / opener / read-back / source tierで比較済み
 6. **⑤AS1475と変貌種 — PASS 1 COMPLETE / CLOSING FRAME FIXED** — AS1475を「特殊時計用caliber」ではなく、1954–1970に約78万個作られた普及platformとして起点化。通常alarm → Benedict Park-O-Phonのparking UI → ARSA / Enicar / BEAT等のtactile UI → date派生AS1568 → 高振動後継AS1930 / 1931 → Citizen / Poljot等のdirectly based descendantsまで、同じ機構骨格が別用途・別地域へ展開した流れを固定
 7. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
-8. **03のperiod-ad探索はHOLD。** ARSA Blind Alarm本人を名指し／図示する1950年代広告・catalog・price list、または1958 JSH本文が取れた時だけ再開する
+8. **03のperiod-ad探索はHOLD。** ARSA Blind Alarm本人を名指し／図示する未確認の1950年代広告・catalog・price list等、新しい直接証拠が得られた時だけ再開する。既読のJSH 1958 p.120広告や撤回済み別記事を再探索条件にしない
 9. AFB契約書、Smithsonian、WPB等は、上記1〜6の未解決を直接埋める場合だけ再開する
 
 ---
