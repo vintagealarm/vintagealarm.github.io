@@ -2194,7 +2194,7 @@ Visible on the purchased specimen:
 - **SWISS MADE** at 6
 - raised tactile hour markers around the perimeter
 - the 12 o'clock landmark is differentiated by a vertical **three-dot** cluster
-- the 6 o'clock landmark is visibly differentiated by vertically grouped tactile dots
+- the earlier reading of the 6 o'clock mark as a vertically grouped set is **superseded by the 2026-10-12 near-frontal seller photographs**; see the dated correction at the end of this ledger
 - additional raised-dot differentiation is visible around the quarter-hour areas, though some exact positions are partly obscured by the hands in the available images
 - broad / robust hour and minute hands
 - a separate, much narrower central pointer with a strongly textured / crosshatched surface, visually consistent with the alarm-setting hand
@@ -3352,7 +3352,7 @@ The planned research sequence ①→⑤ is now complete at PASS 1 level. Remaini
 **ORIGIN:** user research pass and placement decision.
 
 - **Current negative result:** no 1956–1960 advertisement, catalog or price list has yet been recovered that explicitly names or illustrates the **ARSA Blind Alarm itself**. This is a search result, not proof that no such document existed.
-- **1958 JSH:** *Journal suisse d'horlogerie et de bijouterie*, No.2, March–April 1958 is bibliographically confirmed, and its contents include an item on A. Reymond's **60th anniversary**. The article text/pages themselves have not been recovered here, so Blind Alarm content must remain OPEN.
+- **1958 JSH:** *Journal suisse d'horlogerie et de bijouterie*, No.2, March–April 1958 is bibliographically confirmed. Earlier research interpreted its A. Reymond **60th anniversary** index/contents reference as a separate article. User inspection on 2026-10-07 found no separate A. Reymond 60th-anniversary article; the confirmed in-volume item is the full-page A. Reymond S.A. 60th-anniversary advertisement on p.120. That page contains no identified Blind Alarm / blind-watch / réveil / AS1475 reference.
   - https://www.abebooks.fr/magazines-periodiques/Journal-suisse-dhorlogerie-bijouterie-mars-avril-1958/32517065717/bd
 - **The Watch Library:** its collection includes *Journal Suisse d'Horlogerie* for 1876–1978. The exact annual scan page count reported by the user was not independently re-verified in this pass.
   - https://watchlibrary.org/en/page/collections-journal-and-magazine
@@ -3384,7 +3384,7 @@ Source:
 
 This upgrades the earlier user-reported “1958 full-year / 822 pages” point from user-supplied search result to **WEB-CONFIRMED metadata**.
 
-**Boundary unchanged:** the A. Reymond 60th-anniversary article pages themselves have still not been extracted/read in this pass. Therefore no Blind Alarm content is inferred from the annual scan metadata.
+**Boundary updated 2026-10-07:** user inspection found no separate A. Reymond 60th-anniversary article. The confirmed relevant item is p.120, a full-page 60th-anniversary ARSA advertisement. Do not preserve a phantom “article text still OPEN” task.
 
 #### Mémoires d'Ici — 1948 / 1973 document bundle remains metadata-confirmed only
 
@@ -3408,7 +3408,7 @@ Sources:
 #### Consequence
 
 - 1958 JSH annual volume availability / page count = **resolved at metadata level**
-- 1958 A. Reymond article content = **OPEN**
+- 1958 A. Reymond separate 60th-anniversary article = **RETRACTED AS A SEARCH TARGET** after user inspection found no separate article; p.120 advertisement is the confirmed relevant item
 - 1948 / 1973 Mémoires d'Ici document content = **OPEN**
 - broad Web repetition is still not justified; next gain requires document-level access rather than another generic search pass
 
@@ -3440,3 +3440,162 @@ This changes the safest interpretation:
 - that all ARSA covered watches used crown-button release
 
 **Site-use consequence:** describe the Blind Alarm's integrated opener as an accessibility-useful ARSA solution, while keeping its exact origin / design lineage OPEN.
+
+### 2026-10-07 — JSH 1958 p.120 ARSA 60th-anniversary advertisement visually confirmed
+
+**ORIGIN:** user-supplied screenshot from The Watch Library, page display `120 of 822 • Page 120`.
+
+**Evidence class:** PERIOD-PRIMARY / USER-SUPPLIED VISUAL CONFIRMATION.
+
+Source record:
+- *Journal Suisse d'Horlogerie | 1958*, The Watch Library / Musée international d'horlogerie
+- https://watchlibrary.org/details/MIH-JSH_1958_423
+- visually confirmed page: **120**
+
+The page is a full-page A. Reymond S.A., Tramelan advertisement headed:
+
+- `Vivre avec son temps`
+- `porter une ARSA AUTOMATIQUE`
+- `1898—1958`
+
+It explicitly frames A. Reymond S.A.'s 60 years of experience and lists a five-point manufacturing program:
+
+1. improved rate regulation through application of the **spiral Michel** to men's wristwatches;
+2. intensified chronometer production, stating that **300 pieces were submitted in 1957** and that **more than 90%** received the mention `Résultats de marche particulièrement bons`;
+3. development of **automatic-winding watches**, including thin men's models and small-format women's models;
+4. introduction of new calibers, notably a **flat 13-ligne caliber**, also intended for calendar models with a 3-o'clock window, small seconds and direct central seconds;
+5. special attention to presentation / finishing, technical quality and pricing.
+
+#### Negative result — page-scoped only
+
+On the visible text of p.120, there is **no identified mention** of:
+- Blind Alarm / Blindenwecker
+- blind / tactile watches / `montres pour aveugles`
+- alarm wristwatches / `réveil`
+- A. Schild **AS 1475**
+
+This is a **page-level negative result only**. User inspection found no separate A. Reymond 60th-anniversary article, so that previously assumed article is no longer an OPEN target. This still does **not** establish that neighboring pages or the rest of the 1958 annual volume omit the Blind Alarm.
+
+#### Research consequence
+
+- p.120 is now **CONTENT-READ / PRIMARY**, not metadata-only.
+- It is useful as a 1958 company-self-description of A. Reymond's then-emphasized production program.
+- It **does not fill** the ARSA Blind Alarm period-primary gap and must not be substituted for a period Blind Alarm advertisement/catalog record.
+- The previously assumed separate A. Reymond 60th-anniversary article is **RETRACTED AS A SEARCH TARGET**; user inspection found no such separate article.
+
+
+### 2026-10-07 — correction: no separate JSH 1958 A. Reymond 60th-anniversary article
+
+**ORIGIN:** user inspection of The Watch Library 1958 volume after p.120 was identified.
+
+**Classification:** USER-REPORT / SEARCH-TARGET CORRECTION.
+
+The user reports that there is **no separate A. Reymond 60th-anniversary article** corresponding to the previously assumed article target. The earlier research state had treated the bibliographic / contents reference as if it denoted a distinct article, while the confirmed material is the p.120 full-page A. Reymond S.A. 60th-anniversary advertisement.
+
+**Reversal target:** “A. Reymond 60th-anniversary article exists; article pages/content remain OPEN.”
+
+**New evidence:** direct user inspection of the 1958 Watch Library volume after the p.120 advertisement was located.
+
+**Current handling:**
+- p.120 advertisement = PERIOD-PRIMARY / CONTENT-READ
+- separate A. Reymond 60th-anniversary article = **not retained as an OPEN search target**
+- p.120 contains no identified Blind Alarm / blind-watch / réveil / AS1475 reference
+- absence on p.120 does not prove absence across all 822 pages
+
+### 2026-10-11 — user-perspective evidence: WHO 2021, observed tactile-watch use (2009), and deafblind alarm research (CSUN 1999)
+
+**Ingress / provenance:** User supplied a 2026-10-11 external-AI comparison of VINTAGE ALARM's ARSA article with watch websites, collectors and assistive-technology research, emphasizing the WHO lead. The external AI's rankings and summaries are **leads, not independent source verification**. This note records only the specific outside sources rechecked below. The WATCH/RESEARCH published text, OWNER'S NOTE final copy and specimen claims remain unchanged.
+
+#### A. WHO (2021) — contemporary procurement specification, not ARSA historical evidence
+
+- **Publication:** World Health Organization, *Assistive product specifications and how to use them* (2021), pp. **95–97**, section **Talking/touching watches**, ISBN **978-92-4-002028-3**.
+- **Publisher record:** https://www.who.int/publications/i/item/9789240020283
+- **Original WHO repository PDF:** https://iris.who.int/bitstream/handle/10665/339851/9789240020283-eng.pdf
+- **Text consulted:** verified textual rendering of the same-title/same-ISBN 2021 WHO PDF, https://giftabled.org/wp-content/uploads/2024/03/Assistive-devices-WHO.pdf (the WHO IRIS direct PDF fetch returned 403 from the web reader; WHO's publication metadata independently identifies the document).
+- WHO classifies talking/touching watches as assistive products for people who are blind, deaf-blind or have low vision. For **touching watches**, the standard configuration includes tactile/Braille or raised markings and may include alarm/vibration features; general requirements call for **durable construction and sturdy hour/minute hands resisting repeated touch**. The document requests disclosure of **tactile dot/number height**, case dimensions and other practical specifications (printed p.97).
+- **Boundary:** WHO is setting **2021 procurement/design evaluation criteria**, predominantly discussing contemporary battery-powered quartz/atomic devices. It did **not** test, certify, endorse or document the design rationale of 1950s ARSA Blind Alarm. A present-day specification cannot be retrojected as ARSA's original 1950s engineering brief. In particular, listing vibration as a requirement for contemporary touching watches does **not** establish vibration in the historical ARSA audible mechanical alarm.
+
+#### B. Shinohara and Tenenberg (2009) — one user, observed use / social meaning
+
+- **Primary scholarly work:** Kristen Shinohara and Josh Tenenberg, *A Blind Person's Interactions with Technology*, *Communications of the ACM* **52(8)** (August 2009), pp. **58–66**, DOI **10.1145/1536616.1536636**.
+- **Author/university-hosted PDF:** https://faculty.washington.edu/jtenenbg/publications/blindPersonInteraction-cacm2009.pdf
+- **Relevant:** printed pp. **60** (limitations/workarounds table), **62–63** (tactile watch and participant Sara), with method/cautions elsewhere in the article.
+- A single participant, Sara, used a tactile watch with a **hinged/protective cover and raised dial/accessible hands**. She valued **quiet, discreet, efficient time-reading**, the watch's comfort and appearance compared with talking watches; she was reluctant to draw attention through a speaking watch. Her tactile watch **did not have an alarm**, so she relied on other electronic equipment for morning reminders. She also reported cover cracking and battery replacement burdens.
+- **Research significance (interpretation, NOT evidence about ARSA users):** independent reading of **current time** and independent notification of a **future event** are distinct user tasks. A mechanical tactile alarm with tactile **alarm-time read-back** addresses a combination of functions that Sara's own tactile watch lacked. Yet a **ringing audible alarm** could conflict with discretion or would not address all deafblind users' needs; the 2009 paper does not compare it to ARSA.
+- **Boundary:** n=1 qualitative case study, not a survey of all people with visual impairment, not an ARSA field trial, not evidence that ARSA owners preferred audible notification or that ARSA was commercially successful for that use. Sara's reported watch was battery-powered; do not label it a 1950s mechanical ARSA.
+
+#### C. Gilden and Magatani — CSUN '99 design report, deafblind medication-reminder use case
+
+- **Original conference-related report:** Deborah Gilden and Kazushige Magatani, *The Touching Solution to Medication Independence for Deaf-Blind Individuals: A Vibro-Tactile, Multi-Alarm, Wearable Medication Reminder*.
+- **Public archive:** https://www.dinf.ne.jp/doc/english/Us_Eu/conf/csun_99/session0135.html (page states **Web Posted on December 4, 1998**, associated with the CSUN '99 conference archive; do not silently state the Web publication date was in 1999).
+- An informal assistive-technology needs questionnaire yielded **61 completed questionnaires from seven states**. The authors identified a paired design problem: visual-only **alarm setting** and sound-only **alarm signaling** can fail for deaf-blind users. The proposed wearable device combines a touch-readable analogue watch face with tactile alarm-time setting and **vibration**; the described design uses an electronic microcontroller and supports multiple reminder times (up to **32 per 24 hours** in the proposal).
+- **Boundary:** This is an assistive-device design/research account, **not a documented field trial proving deployed usability/effectiveness** and not an ARSA successor/development-lineage record. A vibrating medication reminder is not interchangeable with ARSA's **audible** mechanical alarm; compare **different user requirements and output modalities**, not equivalence.
+
+#### Focused synthesis / public-article gate
+
+- **Historical product evidence already in VA:** Beitl/Horlbeck and inspected seller images establish the ARSA / AS1475 tactile hour/minute/alarm-hand system and lid-opening architecture; the 1950s manufacturer's design rationale and current owner's actual tactile ease-of-use remain separate OPEN questions.
+- **New external context:** 2009 lived-use testimony identifies discretion, comfort, access and lack of alarm as concrete user concerns; WHO 2021 makes robust hands / tactile marking legibility explicit as later evaluative criteria; CSUN '99 provides a complementary **deafblind/vibration** model in which an audible signal is insufficient.
+- **Do not overclaim:** (i) WHO approved ARSA, (ii) historical ARSA achieved present WHO specs, (iii) 2009 participant used ARSA, (iv) one user's preference applies universally, (v) historic ARSA meets deafblind notification needs, (vi) the 1999 concept was proven by a field trial, (vii) VA is globally the most comprehensive research.
+- **Possible minimal public use (proposal only, not approved/published):** one brief paragraph in **DEEP DIVE ② (demand/user perspective)** connecting *time-reading versus reminder* to the contemporary single-user case, plus a compact source citation. WHO's 2021 criteria may serve as a separate source-labeled design comparison in ③, but no retroactive endorsement claim. The wearable vibrating design can remain LEDGER CONTEXT instead of lengthening the ARSA page.
+- **Next evidence that changes historical claims:** 1950s–1970s ARSA/AFB user manual or direct user testimony, original manufacturing specification or tests, and hands-on read-back of current vs alarm time on **the subject specimen**. Keep these distinct from a sighted owner's functionality demonstration.
+
+**State:** WEB/ORIGINAL-TEXT CONFIRMED for the cited 2021/2009/conference texts within the reading limits above; historic ARSA-user causality and specimen usability **NOT PROVEN**. Research-only evidence ingress; **no publication change**.
+
+### 2026-10-11 — second source pass: Seiko wearer interview and WHO version control
+
+**Origin / scope:** The user's 2026-10-11 request to take the initial WHO-centered external-AI leads through Socratic decomposition and V3 Council format 1, with a deeper external source pass. This is research evidence, not a manufacturer/owner observation of the 1950s ARSA specimen. It extends the existing 2026-10-11 source ingress rather than replacing it.
+
+#### D. Seiko first-party Japanese user + designer interview (2021-02-26) — critical supplementary evidence
+
+- **Original Japanese source:** Seiko Design, 「Vol.26【対談】気持ちに寄り添う、バリアフリーウオッチのグッドなデザインとは。」, published **2021-02-26**: https://by.seiko-design.com/stories/barrierfree/
+- **Respondents:** Seiko's designers (tactile watch and speaking watch), and Chiaki Takada, a visually impaired athlete who tried current Seiko products. The designers report interviewing multiple visually impaired people for a redesign; the article does **not** give a quantified representative sample.
+- **Direct evidence:** Interviewees requested models that look and feel like watches sighted wearers use, and appealing straps/colors; Takada describes the choice of clothes, quiet/discreet time checking during a meeting, and the fact that she **usually uses smartphone audio** rather than the tactile watch. Both tactile time reading and personal style have context-dependent value.
+- **Contact reliability:** The designer identifies a user-reported failure mode in which touching the hands can move them and spoil the displayed time. Takada says practice matters and she would value hands that stay in place. These are user/designer statements, **not mechanical tests of ARSA**.
+- **Output/sound trade-off:** The interview treats audible pitch/volume, social appropriateness of sound and ease of operation as separate choices; the manufacturer explains a present-day design tradeoff between more functions and ease/maintenance. **Do not presume an audible historical ARSA alert was always preferable to silence.**
+- **Boundary:** **2021 product-development and interview evidence**, not 1950s ARSA user testimony, not an evaluation of an ARSA AS1475, not a controlled comparison showing that all visually impaired wearers prioritize the same features. Despite strong design relevance, historical causality is OPEN.
+
+#### E. WHO version-control audit: use final publication, not indexed draft
+
+- **Final publication metadata:** WHO, *Assistive product specifications and how to use them* (**2021-03-01**, **156 pages**, ISBN 9789240020283); primary landing page https://www.who.int/publications/i/item/9789240020283 and publicly available mirrored text of the titled final publication https://giftabled.org/wp-content/uploads/2024/03/Assistive-devices-WHO.pdf, section printed pp. **95–97**, "Talking/touching watches".
+- **Potential pitfall:** A *separate*, apparently WHO-hosted **seven-page standalone draft** appears in indexed search under https://www.who.int/docs/default-source/assistive-technology-2/aps/vision/aps18-talking-touching-watches-oc-use.pdf; the pages visibly say **"DRAFT — DO NOT CIRCULATE FOR USE"**. Do **not** cite this draft as the issued 2021 specification or silently conflate differing wording.
+- **Source status:** Final WHO document's official bibliographic identity and the relevant published section can be verified, but the final WHO IRIS download returned **403** from the web reader; text was independently examined in the public copy that matches the final title and ISBN. Track official-file direct-fetch separately rather than implying it succeeded.
+- **Published-vs-draft boundary:** final material is a procurement specification for *contemporary* talking/touching watches. Sturdy hands and tactile marking heights are comparison lenses, **not a formal historical test criterion retroactively imposed on ARSA**.
+
+#### F. Socratic issue map / evidence classification
+
+| User task or design question | ARSA evidence | Outside user evidence | Status and inference guard |
+|---|---|---|---|
+| Read **current time** without sight | Beitl/Horlbeck describes raised markers, robust H/M hands, opening cover | Seiko 2021 / Shinohara 2009 document users' tactile time reading | Historical ARSA **construction** confirmed, **user efficacy** not field-tested |
+| Identify and **set a future alarm time** | Separate alarm hand and alarm crown; tactile read-back described by specialist texts | 2009 participant's own tactile watch had **no built-in alarm** | ARSA capability confirmed as documentary design; comparative benefit **hypothesis**, not a user-tested fact |
+| **Notice** the selected moment | AS1475 mechanical audible alarm | 1998/CSUN '99 deafblind design chose **vibration** | Distinguish output modes and hearing-related user needs; no universal suitability claim |
+| Touch without moving/damaging hands | ARSA sturdy hands, seconds omitted, raised markings; actual resistance unmeasured | 2021 Seiko wearer/designer concerns; WHO 2021 durable tactile equipment criteria | **Evaluation question**; do not certify historical ARSA against present standards |
+| Keep use **discreet**, comfortable, socially appropriate | No demonstrated ARSA-owner interview in this record | 2009 Sara, 2021 Takada, Seiko product designers' interviews | Multiple qualitative leads; no population-level conclusion or ARSA historical attribution |
+| Open/operate/read back with overlapping hands | 4-o'clock crown-integrated pusher, three tactile hands; specimen not hands-on measured yet | 2021 says skill acquisition matters | Post-arrival **sighted observer's mechanical check** is not a blind wearer's usability trial |
+| Connect company intent, disability policy, war experience to ARSA model | Period trade company-level overlap; no maker brief showing original development intent | WHO 2021, Seiko 2021, CSUN '99 cannot prove older product's design decision | **HOLD** absent period ARSA document or historically relevant testimony |
+
+**Council-prepared constraints:**
+1. Keep existing VA standard frame **company → need → ARSA mechanism → comparable tactile alarm designs → AS1475 platform**; user needs extend **②** and, where technically justified, **③**, not a freestanding social-policy chapter.
+2. Distinguish **RECORD** (period/specimen), **USER VOICE** (later testimony), **DESIGN SPEC** (WHO final 2021), **TECHNICAL COMPARISON** (1998/99 vibrotactile device), and **INFERENCE**. Do not credit contemporary works with proving ARSA's original intent.
+3. Preserve both virtues *and* tensions of tactile watches: discreet **reading** can coexist with conspicuous audible **alarming**. Distinguish tactile input/read-back from auditory/vibratory notification.
+4. Do not invent usability experiments with a blindfolded sighted wearer; if performed, describe only limited mechanical/handling observations. Do not place unprotected hands/markers under force or change a fragile watch merely to generate a research metric.
+5. A minimal public addition is **eligible for drafting**, **not approved**. Source-bearing content and any change to citations require separate review. The 1998/99 device stays internal context unless a specific ARSA comparison is needed.
+6. Evidence necessary for upgrading ARSA-specific statements: historical user testimony, trade manual / contemporary advertising explicitly identifying the Blind Alarm and its purpose, or direct controlled documented tests of that historical model. No arbitrary requirement to recover these before an appropriately scoped research page can be complete.
+
+### 2026-10-12 — Seller-supplied open-lid photographs: dial marker correction and v1 evidence scope
+
+**Ingress:** User supplied five screenshots showing the same seller-provided ARSA Blind Alarm with the hinged front cover open, plus one listing screenshot. Image evidence is from seller/gallery photographs provided through the user, **not** a hands-on test or a new independently dated period specimen. Do not commit or republish the seller's imagery without establishing publication permission.
+
+**IMAGE-CONFIRMED from the near-frontal dial image (user-uploaded `IMG_2684(1).jpeg`) and angled open-cover views (`IMG_2676(1).jpeg`–`IMG_2680(2).jpeg`):**
+- Raised orientation landmark at **12 o'clock: three vertically grouped dots**.
+- Landmark at **9 o'clock: two horizontally grouped dots**.
+- **3 and 6 o'clock: one visible raised dot each** in the best near-frontal image, not the previously recorded 6 o'clock multi-dot arrangement.
+- Remaining hours use visible raised points; some are partially hidden by the pointers in angled views.
+- The hour/minute pointers are visibly different in width and tip/length; a third narrower alarm-setting pointer carries a crosshatched / patterned visual finish. **Relief and touch distinguishability remain untested.**
+- The front hinged cover is open toward the watch's left side, hinge around 9; two crowns appear on the right side, and the lower one has a projecting central push-piece. A photograph alone does not verify the exact force or reliability of the opener.
+- Dial wording **ARSA**, **ALARM / 17 JEWELS**, **SWISS MADE** is visible. No movement interior or caseback image was newly provided in this six-image set.
+
+**Correction / reversal target:** The 2026-10-02 image-based note above described a vertically grouped 6 o'clock landmark. The new clean near-frontal view directly contradicts that count: the 6 o'clock mark is single. Earlier assistant descriptions of three dots at 9 and two at 3 are likewise **rejected**. Updated observation: **12=3, 9=2, 3=1, 6=1** based on the visible seller photo. This is a photo-level count for the shown specimen, not a universal factory coding scheme.
+
+**Public-page boundary:** The images can guide DEEP DIVE ③ observations and an evidence-grounded DEEP DIVE ④ ARSA reference drawing. Do not change the OWNER'S NOTE, WATCH publication flag, or RESEARCH front-end automatically. The photos do not establish the specimen's date, tactile efficacy, operation success, case metal, seller's servicing extent, or permission to re-publish image files. The seller's prior operation/hinge answers remain seller statements, not user testing. The currently published research route remains independent of the hidden WATCH route.
+
+**Next admissible evidence:** permission-cleared original photo files for public media; actual hands-on check after arrival; movement/case images if newly obtained. Avoid repeat cataloguing existing seller images as new technical discoveries.
