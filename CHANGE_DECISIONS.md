@@ -1570,3 +1570,11 @@
 - **関連**：ユーザー指示「まず監査をチャットで報告必須」→監査報告→「では実行」。実装commits `d2938798` / `a5775513` / `3603e468` / `3242fcff` / `becf98a7`。
 - **日時根拠**：GitHub commit `becf98a7ad3e9b9e1346be7e1c942172c34966db` の 2026-10-05T13:27:17Z → 2026-10-05 22:27 JST。
 
+### 2026-10-13 10:19 JST — PR #216に残るCitizen Alarm旧17石判定を現行19石正本へ同期
+- **変更**：PR #216の旧Citizen Alarm表示・根拠・検査値を現行mainの19石／約34mm／PHYNOX／NINETEEN JEWELS／Ref.1407067へ同期。日本語WATCH・英語研究・英独SPEC・SPEC evidence監査・localization fact syncの6ファイル。翻訳と同期ファイルはCitizen項目だけ置換し、他時計・既存未統合差分を保持する。
+- **理由**：2026-10-11にmainで確定した掲載個体19石の訂正が、以前からopenのPR #216には伝播していなかった。旧監査データが17石を正しい値として拘束しており、将来のマージで誤情報復活の危険があった。
+- **旧状態・棄却**：掲載個体17石、ケース径37mm、Parashockを掲載個体SPECとする旧読み、`CITIZEN / 17 JEWELS / 3 ADJ`刻印を棄却する。過去の採否と時系列ログは削除しない。旧文言の`mustNotContain`は再発検知用として保持する。
+- **影響範囲**：open PR #216のCitizen関連6ファイルと本変更記録。Wittnauer／Basis／Cyma／Pierce／ARSAのPR独自変更、他PR、OWNER'S NOTEは変更しない。mainと本番サイトへの反映は別途。
+- **検証状態**：対象6ファイルの修正後のGitHub再取得でCitizenの旧肯定表記が消えたことを確認。PR #216は既存の他差分を含むため現時点でmergeable=false、CI成功・main反映とは扱わない。main側再発防止チェックは別変更セットで実施する。
+- **関連**：PR #216、mainへマージ済みPR #226・#228。Citizen同期commit `d3a014f2`, `3ad1b8d4`, `6c3f7ece`, `8a5de321`, `6bc90ae6`, `afbccd15`。
+- **日時根拠**：作業環境時計 `2026-10-13 10:19:24 +09:00` → `2026-10-13 10:19 JST`。
