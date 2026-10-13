@@ -4,6 +4,99 @@
   "purpose": "Block factual revision drift between the Japanese source text and published EN/DE versions. Add or update a rule whenever a factual correction changes content that exists in more than one language.",
   "facts": [
     {
+      "id": "basis-owners-note-meaning-completeness",
+      "slug": "basis-alarm",
+      "canonicalValue": "Practical BFG90, five names, luxury contrast, looking/touching/sounding",
+      "note": "Prevent restoration of the shortened EN/DE summary; no change to Japanese FINAL.",
+      "sourceChecks": [
+        {
+          "path": "src/data/en-watch-entry.ts",
+          "mustContain": [
+            "Basis, Lantex, Sheffield, Simplon and Tior",
+            "looking, touching and sounding it",
+            "turn clockwise to wind both"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "Basis, Lantex, Sheffield, Simplon und Tior",
+            "Anschauen, Anfassen und Klingelnlassen",
+            "im Uhrzeigersinn drehen, um die Zugfedern"
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/en/basis-alarm/index.html",
+          "mustContain": [
+            "looking, touching and sounding it"
+          ]
+        },
+        {
+          "path": "dist/de/basis-alarm/index.html",
+          "mustContain": [
+            "Anschauen, Anfassen und Klingelnlassen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wittnauer-specimen-triangular-indices",
+      "slug": "wittnauer-10wa",
+      "canonicalValue": "Triangular hour indices on the shown specimen",
+      "note": "2026-10-09 native slide photo inspection; do not generalize to every 10WA dial.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/wittnauer-10wa.md",
+          "mustContain": [
+            "クセのある三角インデックス。"
+          ],
+          "mustNotContain": [
+            "クセのある数字インデックス。"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-entry.ts",
+          "mustContain": [
+            "Distinctive triangular indices."
+          ],
+          "mustNotContain": [
+            "Distinctive numeral indices."
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "Eigenwillige dreieckige Indizes."
+          ],
+          "mustNotContain": [
+            "Eigenwillige Ziffernindizes."
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/wittnauer-10wa/index.html",
+          "mustContain": [
+            "クセのある三角インデックス。"
+          ]
+        },
+        {
+          "path": "dist/en/wittnauer-10wa/index.html",
+          "mustContain": [
+            "Distinctive triangular indices."
+          ]
+        },
+        {
+          "path": "dist/de/wittnauer-10wa/index.html",
+          "mustContain": [
+            "Eigenwillige dreieckige Indizes."
+          ]
+        }
+      ]
+    },
+    {
       "id": "pierce-founding-year",
       "slug": "pierce-duofon",
       "canonicalValue": "1883",
