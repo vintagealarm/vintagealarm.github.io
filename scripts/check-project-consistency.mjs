@@ -55,6 +55,14 @@ for (const [label, text, needle] of [
   ['PROJECT_STATE social pointer', state, socialRouter]
 ]) requireText(text, needle, label);
 
+for (const canonical of [
+  'research/MODERN_DE_LUXE_LEDGER.md',
+  'research/MODERN_DE_LUXE_STRATEGY_RESET_20261003_JESTER.md'
+]) {
+  requireText(state, canonical, 'Modern De Luxe canonical research startup pointer');
+  read(canonical); // A discoverable pointer must resolve to an actual canonical file.
+}
+
 requireText(project, '### VA BOOT CONTRACT — canonical owner', 'PROJECT VA boot canonical owner');
 requireText(project, 'VINTAGE ALARMに関する**各ユーザーメッセージ**', 'PROJECT per-message VA boot scope');
 requireText(project, '直前ターン、別チャット、Memory、以前取得した内容で代替しない', 'PROJECT fresh boot no-reuse rule');
