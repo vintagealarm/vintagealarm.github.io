@@ -189,7 +189,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ],
       guideTitle: 'Kurzanleitung',
       guide: [
-        '① Aufziehen — Krone in Normalposition: zieht die Zugfedern von Gehwerk und Alarm in derselben Drehrichtung auf',
+        '① Aufziehen — Krone in Normalposition: im Uhrzeigersinn drehen, um die Zugfedern von Gehwerk und Alarm aufzuziehen',
         '② Uhrzeit einstellen — Krone herausziehen und die Zeiger stellen',
         '③ Alarmzeit einstellen — Lünette gegen den Uhrzeigersinn drehen',
         '④ Alarm EIN/AUS — Schieber bei 9 Uhr: oben = AUS / unten = EIN',
@@ -197,9 +197,10 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'Die Basis Alarm verwendet das Baumgartner BFG 90, ein frühes Werk für Wecker-Armbanduhren, das auch unter Namen wie Lantex, Sheffield, Simplon und Tior zu finden ist.',
-        'Anders als bei hochpreisigen Modellen wie Memovox oder Cricket liegen beim BFG 90 viele Funktionen offen sichtbar an der Uhr: Drehlünette, Schieber und zwei Aufzugskontrollfenster.',
-        'Gerade diese direkte Mechanik macht die Uhr heute so angenehm sichtbar und fühlbar.'
+        'Die Basis Alarm ist eine frühe Wecker-Armbanduhr mit dem Baumgartner BFG 90.',
+        'Abseits hochwertiger Uhren wie Memovox und Cricket war das BFG 90 ein praktisches Werk, das unter Namen wie Basis, Lantex, Sheffield, Simplon und Tior Verbreitung fand.',
+        'Kein raffiniertes Spitzenmodell, sondern eine Gebrauchsuhr, die ihre Funktionen offen zeigt.',
+        'Gerade deshalb bleibt die Freude am Anschauen, Anfassen und Klingelnlassen.'
       ]
     },
     spec: {
@@ -451,7 +452,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'Eigenwillige Ziffernindizes.',
+        'Eigenwillige dreieckige Indizes.',
         'Ein wellenförmig gebogener Alarmzeiger.',
         'Eine weit vorstehende Drehlünette und eine kleine Krone, die halb im Gehäuse verschwindet.',
         'Durch den Sichtboden ist nur die Gehwerkseite zu sehen.',
@@ -639,10 +640,10 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       ],
       noteTitle: 'NOTE',
       note: [
-        'Das Prinzip, je nach Situation zwischen einem hörbaren Ton und einer diskreten Benachrichtigung zu wählen, verbreitete sich erst von den späten 1980er- bis in die 1990er-Jahre, als Pager- und Mobiltelefonfunktionen allgemein üblich wurden.',
-        'Unabhängig von dieser späteren Entwicklung hatte die Duofon bereits in den 1950er-Jahren mechanisch umgesetzt, wie laut oder zurückhaltend eine Benachrichtigung ausfallen sollte.',
-        'Mit der Krone bei 4 Uhr wählt man den Alarmmodus; das kleine Fenster unter 6 Uhr zeigt den gewählten „Tonfall“ in Rot oder Weiß.',
-        'Für eine Wecker-Armbanduhr nahm sie die Zukunft erstaunlich früh vorweg.'
+        'Je nach Situation hörbar oder diskret zu benachrichtigen, wurde erst Ende der 1980er- bis in die 1990er-Jahre üblich, als sich Pager- und Mobiltelefonfunktionen verbreiteten.',
+        'Unabhängig davon hatte die Duofon schon in einer Armbanduhr der 1950er-Jahre die „Distanz“ einer Benachrichtigung mechanisiert.',
+        'Die 4-Uhr-Krone wählt den Klang; das kleine Fenster unter 6 Uhr zeigt den „Tonfall“.',
+        'Für eine Wecker-Armbanduhr nahm sie die Zukunft viel zu früh vorweg.'
       ]
     },
     spec: {
