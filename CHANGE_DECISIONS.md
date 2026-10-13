@@ -1759,3 +1759,12 @@
 - **検証状態**：#237/#238/#239は各PRの全CI SUCCESSおよびmainの正本再取得確認済み。#237/#238のmain Pages workflow成功、#239は本記録時点で本番CIの結果待ち。startup pointerと存在ゲートは本PRのCI結果で最終判定する。実際の別チャットからの実行成功は未検証、Managerへの行動制御はCIのみでは完全保証しない。
 - **関連**：PR #237、#238、#239、close履歴PR #211/#214/#232/#216/#135、継続HOLD PR #235。実装commit `3dd00d5c`（pointer）、`88e3dbf0`（実体チェック）。
 - **日時根拠**：作業ホスト時計 `2026-10-13 15:28:25 +09:00` → `2026-10-13 15:28 JST`。
+
+### 2026-10-13 16:05 JST — Modern De Luxe研究正本への再開導線をProject Stateへ接続
+- **変更**：`PROJECT_STATE.md`のACTIVE WORK導線に、PR #239でmainへ救出済みの既存Modern De Luxe研究LedgerとG0研究方針の正本pointerを追加。`scripts/check-project-consistency.mjs`でpointerの存在と対象2ファイルの実在を検査し、別チャットからの通常起動時の到達経路を固定。
+- **理由**：長期Draft PR #135を履歴へ退避した後、現行mainの研究正本がPROJECT_STATEの目次へ未接続であり、次の作業者が古いPRや会話をCURRENTと誤認する恐れがある。
+- **旧状態・棄却**：旧PRの39研究・探索ファイルをmainへ一括移植する案、別のCURRENT台帳新設、ライターと時計の同一事業者・ムーブメント帰属の未証明仮説を採用済み扱いする案を棄却。既存PROJECT/AGENTSの起動契約を重複定義しない。
+- **影響範囲**：`PROJECT_STATE.md`、`scripts/check-project-consistency.mjs`、本Decision Logのみ。公開WATCH、翻訳、画像、SNS実測、OWNER'S NOTE、ARSAの公開状態を変更しない。
+- **検証状態**：GitHubブランチの実体を再取得し、2つのpointerとファイル存在チェックの実装を確認。CI・main・deployの成功はPR作成後に独立確認する。
+- **関連**：PR #135（歴史資料）、PR #239（研究正本の救出）、pointer実装commit `3dd00d5c`、checker実装commit `b643ca95`。
+- **日時根拠**：ホスト実行時刻UTC `2026-10-13T07:05:38.893Z` → JST `2026-10-13 16:05:38`。
