@@ -196,7 +196,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - 1960sにはTramelan最大級の雇用主、1972 merger後も1973にblind watchesを製造品目として確認
    - **サイト用の主眼:** ARSAは「盲人用時計だけの会社」ではなく、finished watchesを広く作る大規模メーカーの中に tactile watch と alarm watch の両系統があった
    - **残る一次資料穴:** 1948 company brochure本文、1973 75周年資料本文、1954–55 alarm introductionのperiod primary
-   - **1958 JSH No.2:** A. Reymond 60周年記事の存在は確認。本文未取得のためBlind Alarm掲載有無はOPEN。現時点では01/03のblockerにしない
+   - **1958 JSH No.2:** p.120のA. Reymond S.A. 60周年全面広告を実見済み。Blind Alarm / blind-watch / réveil / AS1475記載は確認できない。以前「別の60周年記事がある」としていた解釈は、2026-10-07のユーザー実見で別記事なしと訂正し、探索対象から外した。p.120以外の全822ページ不掲載までは証明しない
 2. **需要背景 — DEEP DIVE ② PASS 1 COMPLETE 2026-10-03**
    - 触読時計の発想は少なくとも1887年のtouch-readable watch特許まで遡り、第一次大戦より前から存在
    - WWIではSt Dunstan's / 現Blind Veterans UKが、失明軍人のrehabilitationと自立の象徴として触読時計を利用
@@ -206,6 +206,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - **サイト用の主眼:** 戦争が触読時計を発明したのではなく、既存技術をrehabilitation / procurement / training / repairの制度へ押し上げた
    - 1950年代のBlind Alarmは、その既存触読時計文化へmechanical alarm wristwatch機能を加えた第二段階として扱う
    - **禁止:** veteran demand → ARSA開発、AFB gift program → ARSA受注を直接因果として書かない
+   - **利用者側の資料（2026-10-11追加、補助CONTEXT）:** WHO 2021の触読時計調達仕様（丈夫な針・触覚点・耐久性）、2009年の単一利用者による「触読時計は静かで快適だがアラームがなく別機器で通知」、CSUN '99関連の盲ろう者向け振動式複数リマインダー設計を原典照合。**1950年代ARSAの設計動機・使いやすさの実証ではない**。詳細・URL・限界はLEDGER 2026-10-11。需要背景②に短く接続できるか検討し、WHO承認や実機ユーザー評価として本文化しない。
 3. **ARSA Blind Alarm本人 — DEEP DIVE ③ PASS 1 COMPLETE 2026-10-03 / ARRIVAL SUPPLEMENT PENDING**
    - around 1956にARSA Blind Alarm / AS1475、1958掲載個体を専門書で確認
    - **AS1475 core:** 25.94 mm / 5.8 mm / 17J / 18,000 A/h / 2 barrels / hand-wound clock + alarm / ca.40 h / alarm 10–15 s / 1954–1970
@@ -219,6 +220,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - model variationはAS1475系を確定本線とし、Venus230 Blind Alarmはforum survivor lead / HOLD。non-alarm ARSA tactile watchesと現行ARSA blind watchesではopen positionが4 / 6 / 3等に分かれ、ARSA共通の単一case architectureとはしない
    - **arrival test:** alarm ON/OFF crown state（early AS1475はcrown down、ca.1960以降のlater typeはpulled up）を確認。movement revisionの年代手掛かりにはなるがwatch assembly date確定には使わない
    - 到着後の触覚操作実測を重視
+   - **利用者視点の到着後確認:** 時分針とアラーム針の重なり時の識別、アラーム設定時刻の触覚read-back、蓋・プッシャーの指先での把握を記録。時計所有者による構造・操作確認と、視覚障害のある利用者の使用感調査とは区別する。
 
 ### P0.5 — 設計思想 / 設計資料
 **状態:** PASS 2 COMPLETE / ARCHIVE BONUS ONLY
@@ -427,7 +429,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 ## 8. 次の実行順
 
 1. **①作った会社 — PASS 1 COMPLETE** — 会社史・製造能力・blind / alarm両系統の同時存在まで整理済み。残る一次資料穴だけHOLD
-2. **②需要背景 — PASS 1 COMPLETE** — 前史 / WWI / AFB 1926 / WWII / 日本例まで必要十分に圧縮。戦争は発明起源ではなく制度化・普及の背景として固定
+2. **②需要背景 — PASS 1 COMPLETE** — 前史 / WWI / AFB 1926 / WWII / 日本例まで必要十分に圧縮。戦争は発明起源ではなく制度化・普及の背景として固定。2026-10-11に利用者研究・WHO現代仕様の限定的な補助CONTEXTを追加。**新しい独立章・年代の直接根拠にはしない**
 3. **③時計本人 — PASS 1 COMPLETE / ARRIVAL SUPPLEMENT PENDING** — mechanism / controls / tactile UI / failure map / model variation / purchased specimenまで整理。到着後にhands / read-back / opener / early-late alarm-stateを実測追記
 4. **③b 設計思想 / 設計資料 — PASS 2 COMPLETE / ARCHIVE BONUS ONLY** — factory design documentは未回収。source-labeled requirement reconstructionを採用し、archive本文取得時のみ再開
 5. **④触読alarm比較 — PASS 1 COMPLETE** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBをhand coding / opener / read-back / source tierで比較済み
@@ -496,3 +498,52 @@ Current classification after the 2026-10-03 VA research scope correction:
 - keep the probable 57426 issue as a **specimen-condition record only**
 - do not spend further VA research time on it unless arrival inspection produces evidence that changes the historical / structural interpretation
 - simple absence vs broken remnant remains unresolved, but this is not an active OWNER'S NOTE research priority
+
+## 13. 2026-10-11 — Council 1 / ソクラテス式研究要件
+
+**Purpose:** User-requested requirements scoping, not automatic authorization to rewrite the published ARSA RESEARCH page. V3 format **1 = 2ch民で焼いて**. Sources and detailed methodological limits are in the research LEDGER, **2026-10-11 second source pass**.
+
+### Answerable primary question
+
+**1950s ARSA Blind Alarm's documented mechanisms allow which parts of the sequence (1) read current time by touch → (2) set and tactually verify intended alarm time → (3) receive an audible alert, and what is *still unknown* about historical users' ability, preferences and satisfaction?**
+
+Do not rephrase this as "WHO approved ARSA" or "blind users found ARSA excellent."
+
+### Five independent research dimensions / evidence types
+
+1. **Product history and intended provision:** 1950s ARSA/AFB advertising, catalogs, manuals, specialty sources. The actual product-to-user link is mostly OPEN. Do not fill with later interviews.
+2. **Interface mechanics / touch:** raised index geometry, distinguished H/M/alarm hands, seconds omission, front cover/opener, AS1475 controls, alarm-time read-back, contact-induced pointer movement. Specialist books and verified specimen photos first.
+3. **Feedback modality and context:** tactile input versus auditory alarm output, vibration as later *alternative*, daytime privacy versus audible time-of-event notice. A single "accessible" score is meaningless without the user and context.
+4. **Lived-use testimony and values:** Shinohara/Tenenberg (2009, n=1), SEIKO Japanese first-party user/designer interview (2021, no representative sample), WHO final procurement specification (2021, technical standards perspective), and Gilden/Magatani (1998 web release / CSUN 99, design concept). Distinguish testimony, procurement criterion and prototype.
+5. **Owner specimen and observation limits:** arriving watch: crown opener, hands, overlapping-hand recognition, dial tactile code, watch/alarm setting, audible operation and risks. Sighted owner checking mechanical operation ≠ user study with a blind participant; no destructive force or unnecessary touching.
+
+### Priority and publishing gates
+
+- **P0 / retained:** company → user demand (②) → ARSA construction (③) → alternate tactile alarm designs → AS1475 platform. Do not open a generic disability-history or WHO-policy chapter.
+- **P1 / now in focus:** Seiko 2021 Japanese first-party interview: quiet time-checking, socially discreet use, style/comfort, tactile hand shift, the learning curve and individual differences. This source provides **design questions, not historical ARSA results**.
+- **P1 / now in focus:** Shinohara/Tenenberg 2009: tactile watch comfort and discreet use but lack of built-in alarm for the single participant. This illustrates time reading vs planned-time notification, not tested suitability of ARSA.
+- **P1 / methodological comparator:** WHO issued 2021 specification (156-page edition). Note that a separate WHO-hosted indexed PDF visibly says **DRAFT — DO NOT CIRCULATE FOR USE**; do not cite that draft as the final publication. Official final PDF direct text is not verified through WHO's IRIS in this pass; final section text was compared using a public mirror and official final metadata.
+- **CONTEXT only:** 1998/CSUN '99 deafblind/vibration multi-alarm proposal: audible ARSA is not universal for deafblind needs; no ARSA genealogy implied.
+- **P2 / historical gain only if genuinely new source:** ARSA/AFB contemporaneous instructions, wearer accounts, period ARSA catalog describing Blind Alarm target users, design/service documentation. No renewed undirected web-spam searches for previously HOLD AFB contracts.
+- **Draft candidate:** only a **short source-labeled addition to existing DEEP DIVE ②**, if a concrete comparison survives accuracy/style review. Add a distinct sentence to ③ only if it explains a **mechanical affordance**; avoid duplicating ②. Update citationRefs/sourceMeta consistently. Do not silently modify existing final owner's note/catch/lead, media, route, publication flags.
+- **Stop conditions:** no evidence of actual ARSA-user behavior; research becomes generic accessibility history; post-1950 statements are turned into manufacturer's original rationale; one user is used as representative sample; WHO procurement criteria falsely become approval; present-day vibration inferred for 1950s mechanical model; fragile hands subjected to unsafe demonstration.
+- **Success criteria:** a reader can distinguish the 3 operations (**read**, **set/read back**, **notice**), 3 evidence horizons (**1950s object**, **later user experiences**, **2021 procurement requirements**), and exact ARSA-specific unknowns. Existing five-section narrative remains coherent. Public text remains unchanged until separate editorial adoption and checks.
+
+**State:** Research requirements scoped for Council review. **Not a command to merge PR #232 or publish new copy.** Prior ARSA JSH PR #214 remains separate.
+
+## 14. ARSA RESEARCH v1 — comparison design gate (2026-10-12)
+
+**CURRENT:** Keep five DEEP DIVE chapters. Vendor photo evidence supports **12=3 / 9=2 / 3=1 / 6=1** tactile marks in the pictured individual specimen. The specimen-only DEEP DIVE 03 paragraph and source/provenance row are retained in draft PR #235.
+
+**REJECTED, NOT TO BE USED:** The earlier SVG triptych `tactile-alarm-comparison-v1.svg` showed an invented line-art ARSA in spite of the explicit user requirement for an **actual ARSA specimen photo** and schematized undocumented portions of other watches. It was deleted from the draft PR, its DEEP DIVE 04 image attachment removed, and the `wide-zoom` changes to shared DeepDive UI/schema/layout checks reverted. Do not resurrect the deleted SVG or call passing CI proof of design acceptance.
+
+**NEW DESIGN AUTHORITY / review gate:**
+1. **ARSA:** use the actual user-provided seller photograph of the covered-open specimen. Keep real pointer and dot pattern; do not recreate ARSA as a cartoon/vector/watch illustration.
+2. **Enicar:** 1964 Lausanne special documented in Horlbeck pp.222–223. Use source-derived comparison evidence (specific hand widths and four alarm-hand ridges), not a generic fictional Enicar dial.
+3. **BEAT:** Beitl `Alarm am Arm` p.91 figure 1: raised points, white tactile hands, **6 o'clock independent opener**. Do not invent tactile micro-coding.
+4. **Layout:** three genuinely different mobile-first comparison prototypes (photo-led vertical / evidence matrix / archival spread) were prepared **outside the public repository** on 2026-10-12 using user's screenshots and privately supplied book page photographs. They are not approved designs or publication media. Select one by visual review before production HTML/CSS, and inspect at 320px, 390px and desktop.
+5. **Rights:** seller photo originals and source-book photos are for private mock/review at present. No public image assets until reuse rights and originals are confirmed; book scans cannot automatically be republished because a reference is cited.
+
+**Other v1 gates:** hands-on operation, sound and touch checks after arrival; media permissions; source-to-visual mapping; visual mobile/desktop check; citation/build/layout validation; explicit publication authority and live parity. Manufacturer reply and further archive discovery are useful but not mandatory for a documented first release.
+
+**Scope:** PR #235 stays draft. Do not merge unapproved visuals; do not change existing RESEARCH public status or the separate WATCH `published: false`. Keep #214 / #232 intact.
