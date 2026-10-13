@@ -1732,3 +1732,12 @@
 - **検証状態**：救出branchでデータの見出し／旧ACTIVE文言／差分を検証済み。現段階ではCI／main／deploy／liveは未検証として分離する。次段階でPR CI、SNS時系列validator、正本再取得、main反映を確認する。
 - **関連**：証拠源PR #211/#214/#232/#235（元の調査日・書誌・ユーザー提供スクショ経緯は各PRに保持）。実装commit `2f0c6225`（snapshot）、`5179d0ac`（Ledger）、`93b86d2e`・`dcf2c946`（Map）。
 - **日時根拠**：作業ホスト時計 `2026-10-13 15:03:21 +09:00` → `2026-10-13 15:03 JST`。
+
+### 2026-10-13 15:14 JST — 旧PR #216の確定翻訳訂正・研究HOLDを現行main系へ限定救出し破壊テストを追加
+- **変更**：旧PR #216からWittnauer掲載個体の三角インデックスをJA/EN/DEへ同期し、Basisの巻上げ方向・5ブランド・実用品対比と楽しさのEN/DE、CymaのCatch/Lead意味対応（EN/DE）と英語NOTE、Pierce DEの「通知の距離感」比喩を現行main系へ限定救出。`localization-fact-sync.json`へWittnauer/Basis回帰基準を移植。#216のWittnauer/Cyma Ledgerにあった2026-10-09の訂正／HOLDを救出。追加のfailure-injectionテストは一時ワークスペースの複製を利用してSPEC・翻訳・SNS時系列の旧値投入を拒否する。既存`test:quality`へ接続。
+- **理由**：未統合の事実訂正・意味対応が古いDraftだけに残り、CURRENTから見えず同じ誤りが再発している。一方、旧PRを丸ごと採用するとARSAの他研究PRや公開文面との競合を起こすため、変更ブロックごとの照合が必要。
+- **旧状態・棄却**：Wittnauer『数字インデックス』、Basisの短縮された英独NOTE、Cyma英語のLead省略・独語の『fast/erstaunlich』などユーザー確定日本語と一致しない表現を棄却。旧PR #216の全ファイル一括マージと、現行Citizen19石の上書き、ARSAの未確定表示案・一律の公開文面変更も棄却。ARSAの操作案と英独Catch/LeadはPR #216に研究／審査HOLDとして残す。
+- **影響範囲**：`src/content/watches/wittnauer-10wa.md`、`src/data/{en,de}-watch-entry.ts`、`src/data/cyma-localizations.ts`、`src/data/localization-fact-sync.json`、`research/{CYMA_TIME_O_VOX_R464,WITTNAUER_10WA}_LEDGER.md`、`scripts/test-evidence-regressions.mjs`、`package.json`、本Decision Log。Citizen現行19石のファイル、ARSA公開本文・publish flag、写真、他言語研究本文は変更しない。
+- **検証状態**：GitHubで対象hunkが現行mainの旧文言に一意一致することを確認して差分適用。今後、source/rendered同期、失敗注入テスト、PR CI、mainマージ、公開後のlive照合を独立確認する。ここで検証済み・本番公開済みとは扱わない。
+- **関連**：元証拠PR #216（branch保全）、実装commit `6d170414`、`07904b81`、`30248f86`、`97d03d84`、`dd58d612`、`a2d49031`、`103e0308`、`dd213bd8`、`36288f26`。移管後もARSA独立差分は#216へ保留。
+- **日時根拠**：作業ホスト時計 `2026-10-13 15:14:29 +09:00` → `2026-10-13 15:14 JST`。
