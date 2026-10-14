@@ -1810,3 +1810,12 @@
 - **検証状態**：GitHub main更新後に対象正本を再取得して確認する。domain validator、映像一致比較、投稿URLは未確認である限り未確認と記録。
 - **関連**：`IG-MDL-001`、`MDL-01`、Basis初回Instagram本文、2026-09-09 Basis YouTube Shorts、`src/content/watches/basis-alarm.md`。外部投稿の全文は`instagram-operations.md`だけに置く。
 - **日時根拠**：作業環境のJST時計`2026-10-14 21:30:58 +09:00`（直前ホスト確認）に基づく記録。スクショ観測は同日21:00・21:20・21:24 JST。外部投稿の「5日前」は掲載時刻の直接確認ではない。
+
+### 2026-10-14 21:35 JST — Modern De Luxe SNS assetを既存validatorへ追加
+- **変更**：`scripts/check-social-content-inventory.mjs`の資産行IDの正規表現に`MDL-`を追加し、`content-inventory.md`の既登録`MDL-01`を`IG-MDL-001`のprimary assetとして認識させた。
+- **理由**：2026-10-14に登録したModern De Luxeの非掲載個体SNS資産について、既存checkerが旧6個体＋GLBのIDしか抽出せず、GitHub Actionsの`check:social-inventory`が`unknown primary asset MDL-01 at IG-MDL-001`で失敗した。10月14日21:33 JST頃のmain Actions run`38564621783`で失敗を確認。
+- **旧状態・棄却**：Modern De Luxeを6公開WATCHへ追加する／投稿済み行を削除する／validator全体を無効化する、のいずれも不要。既存6 WATCHの必須asset・OWNER'S NOTE・proposal・assignments条件を維持する。
+- **影響範囲**：SNS asset IDパーサー1行と本Decision Logのみ。Modern De Luxeの公開WATCH化、音声・投稿本文・研究Ledger・個体事実には変更なし。
+- **検証状態**：mainへ修正後、GitHub Actions再実行結果と正本再取得、diff確認を別途実施。結果が出るまでは未検証。
+- **関連**：`IG-MDL-001`、`MDL-01`、`scripts/check-social-content-inventory.mjs`、Actions run `38564621783`、本日の外部Basis観測の運用ログ。
+- **日時根拠**：作業ホストJST`2026-10-14 21:34:55 +09:00`の確認を基準として記録。
