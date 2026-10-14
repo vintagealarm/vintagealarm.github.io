@@ -1848,3 +1848,14 @@
 - **検証状態**：mainの正本再取得とcommit差分を確認後、domain validatorとCIを独立評価する。初回の安全性チェック拒否に関してはGitHub権限不足を示すエラーではなく、発火条件は未開示。今回は同じ`update_file`で成功した。
 - **関連**：`IG-MDL-001`、`IMG_3058.jpeg`、`IMG_3059.jpeg`、`@time66.com.br`外部Basis全文観測記録。
 - **日時根拠**：作業ホスト`TZ=Asia/Tokyo date`実測`2026-10-14 23:32:10 JST`。
+
+### 2026-10-15 06:49 JST — Modern De Luxe Instagram Insights観測を正本と検証対象へ統合
+- **変更**：IG-MDL-001の2026-10-15 06:37–06:38 JSTスクリーンショット（IMG_3065.jpeg／IMG_3066.png／IMG_3067.png／IMG_3068.png／IMG_3069.png）に含まれる観測値をinstagram-insights-timeseries.mdへ1件追記。再生115、閲覧者52、いいね6、コメント1、再投稿2、保存0、フォロー0、プロフィール遷移1、フォロワー81.7%・非フォロワー18.3%、流入元フィード60.0%・ストーリーズ34.8%・プロフィール2.6%を明記。既存22:12・23:19の観測は保持。
+- **起点→判断**：Uスクリーンショット提示、UがGitHub記録を再依頼 → Aが正本保存・検証対象の欠落を検出・最小修正。本人の観測値とAIの因果仮説を混ぜない。
+- **検証実装**：scripts/instagram-insights-timeseries.mjs の watchOrder に Modern De Luxe を1件追加し、新Snapshotも時系列・重複時刻・レポートのチェック対象へ含めた。shares のUI非表示は `UI \`--\`` として検証可能なunknown表記に統一し、投稿画面の送信アイコン1とは混同しない。
+- **理由**：従来の検証スクリプトは固定6機種だけを走査し、既に保存済みのModern De Luxeを検証・レポート対象から除外していた。今回の追加を見かけ上の記録にせず継続検証するため。
+- **旧状態・棄却**：前ターンは同正本へのwriteが安全性チェックで2回拒否され未登録。今回は同GitHub connectorのupdate_fileで成功。拒否原因の内部判定は不明のまま。Modern De Luxeを7機種目の公開WATCHにしたわけではない。非フォロワー露出18.3%の原因をTIME66再投稿と断定しない。
+- **影響範囲**：instagram-insights-timeseries.md、scripts/instagram-insights-timeseries.mjs、CHANGE_DECISIONS.mdのみ。既存6個体の投稿・Insights値、サイト公開状態、research、published-copyは変更しない。
+- **検証状態**：main再取得・commit diffとGitHub CI、instagram-insights validator/reportを分離して確認。未実施または未完了はPASS扱いしない。
+- **関連**：IG-MDL-001、2026-10-14 22:12および23:19観測、2026-10-15 06:38新観測、Social ROUTER §9。
+- **日時根拠**：作業ホスト`TZ=Asia/Tokyo date`実測`2026-10-15 06:49:33 JST`。
