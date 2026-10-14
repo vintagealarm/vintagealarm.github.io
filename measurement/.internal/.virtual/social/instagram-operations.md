@@ -2331,3 +2331,10 @@ collectit et wearit
 - **Alternative worth keeping open:** a pure visual 6–10s tilt-focused Reel with atmosphere/music, explicitly testing whether aesthetics alone produce engagement; unlike the sound-led option it cannot convey actual gong tone. Need own real CYMA footage and platform audio rights/permission for any external music.
 - **Validation:** capture equivalent elapsed-age VA Insights (views, viewers, skip, average watch, saves, shares, follows, profile access and bio-click), compare internally with the first CYMA Reel and side-view Edits Reel. Do not equate external public counts to VA Insights or assume that larger third-party reach proves the tilt or music caused success.
 - **State:** USER requested combined analysis and declared importance; no user approval of proposed treatment, no new content-assignment lock, no altered content-inventory asset state, no draft promoted to published caption, and no site-content changes. External video research only; use user's own footage for any future repost.
+
+## 2026-10-15 01:27 JST — 音声についてのユーザー訂正
+
+- USER_REPORT: little_unnecessary_machinesのWittnauer 10WA投稿とinfinitydialsのCYMA Time-O-Vox投稿は、いずれも元動画でアラームを鳴らしている。
+- 訂正対象: 画面録画で音声を確認できなかったことを根拠に、CYMAが「音を鳴らさずBGMと外観のみ」とした従来のAI推定は撤回する。音の開始時刻・長さ・BGMとの重なりは未確認。
+- 比較の現在位置: 両投稿は時計の全体像を小さく傾けて提示し、実機アラームも鳴らす（後者はUSER_REPORT）。違いは操作の見せ方と造形の提示にあり、アラーム音の有無ではない。閲覧数の原因は未確定。
+- この訂正は未確認の映像音声を検証済みに格上げしない。VA再投稿の決定・予約・公開には変更なし。
