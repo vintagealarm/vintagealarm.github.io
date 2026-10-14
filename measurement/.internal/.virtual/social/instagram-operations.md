@@ -2197,3 +2197,8 @@ Equipado com o calibre Baumgartner BFG 90 de duplo tambor, ele é o tipo de peç
 - **Technical distinction:** `indicadores visuais de energia` is the account's expression; the BFG90's 1h/5h windows are winding-completion indicators, not quantitative power-reserve gauges (`src/content/watches/basis-alarm.md`). This external phrase by itself does not explicitly claim a calibrated power-reserve scale.
 - **Outcomes:** third-party post views, referrals, confirmed platform/legal infringement determination and full comment text remain unknown; **permission is explicitly denied by the user's firsthand report**, not established from third-party records. Do not insert third-party numbers into VA Insights or count this as VA's own Instagram content.
 - **Next checks only if requested:** post permalink, footage side-by-side, creator credit in tags/audio/comment section, and original source chronology. No complaint/contact/report initiated here.
+
+### Correction: original-audio page did not show the third-party Reel
+- Evidence: user screenshot `IMG_3051.jpeg`, 2026-10-14 21:44 JST. Instagram original-audio page credits `vintagealarm`, duration 0:12, and shows two Reel tiles, with rounded displayed counts 1.3万 and 2.8万.
+- USER CORRECTION: Neither listed Reel is the `time66.com.br` video. Do not treat either tile or the 2.8万 count as the third party's post, or regard the original-audio page as a credit to `vintagealarm` on the third-party post.
+- The external post is absent from that audio-use listing. This is consistent with downloading/reposting a separate video file, but the exact mechanism remains unverified. The Portuguese caption separately has no original-creator mention or source URL.
