@@ -1370,8 +1370,8 @@
 - top_view_sources: heading `閲覧数上位のソース` and `フィード` visible; numeric share cut off, so unknown
 - average_watch_time: unknown
 - skip_rate: unknown
-- followers: unknown (percentage not shown)
-- non_followers: unknown (percentage not shown)
+- followers: unknown
+- non_followers: unknown
 - source_status: CANONICAL_LOG_SCREENSHOT
 - screenshot_evidence: `IMG_3052.jpeg` (post page), `IMG_3053.png` (overview, all views), `IMG_3054.png` (overview, non-follower filter), all 2026-10-14 22:12 JST
 - note: 23 views / 4 unique viewers imply 5.75 plays per unique viewer as an arithmetic quotient, but do NOT establish who replayed (owner vs audience) or why. Screenshot's non-follower graph shows 0 in the first 60 minutes; later distribution and Audience composition unverified. Post page count 10 and detailed Insights 23 are retained separately as displayed; UI sync/definition cannot be inferred.
@@ -1413,8 +1413,8 @@
 - saves: 0
 - follows: 0
 - profile_accesses: 1
-- follower_audience_pct: 81.7
-- non_follower_audience_pct: 18.3
+- followers: 81.7%
+- non_followers: 18.3%
 - top_source_feed_pct: 60.0
 - top_source_stories_pct: 34.8
 - top_source_profile_pct: 2.6
