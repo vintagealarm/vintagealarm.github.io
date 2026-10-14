@@ -1340,7 +1340,7 @@
 
 ---
 
-# Modern De Luxe — Instagram two-slide mixed-media carousel
+# Modern De Luxe
 
 ## Publication evidence
 - content_id: IG-MDL-001
@@ -1376,7 +1376,6 @@
 - screenshot_evidence: `IMG_3052.jpeg` (post page), `IMG_3053.png` (overview, all views), `IMG_3054.png` (overview, non-follower filter), all 2026-10-14 22:12 JST
 - note: 23 views / 4 unique viewers imply 5.75 plays per unique viewer as an arithmetic quotient, but do NOT establish who replayed (owner vs audience) or why. Screenshot's non-follower graph shows 0 in the first 60 minutes; later distribution and Audience composition unverified. Post page count 10 and detailed Insights 23 are retained separately as displayed; UI sync/definition cannot be inferred.
 
----
 
 ### Snapshot — 2026-10-14 23:19 JST — Modern De Luxe post-page observation
 - observed_at_jst: 2026-10-14 23:19
@@ -1397,7 +1396,6 @@
 - screenshot_evidence: IMG_3058.jpeg
 - note: Post preview includes TIME66 avatar with a purple repost mark. The visible comment preview says "Incredible!". Counts on the post page are distinct from 22:12 Insights views:23; do not calculate a direct increase or audience split between surfaces.
 
----
 
 ### Snapshot — 2026-10-15 06:38 JST — Modern De Luxe (IG-MDL-001)
 - observed_at_jst: 2026-10-15 06:37–06:38 (post page 06:37, Insights 06:38)
