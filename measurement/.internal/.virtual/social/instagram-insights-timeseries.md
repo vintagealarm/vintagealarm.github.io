@@ -1411,7 +1411,7 @@
 - likes: 6
 - comments: 1
 - reposts: 2
-- shares: Insights UI --; post page send icon shows 1, separately recorded
+- shares: UI `--` in Insights; post-page send icon separately displays 1
 - saves: 0
 - follows: 0
 - profile_accesses: 1
