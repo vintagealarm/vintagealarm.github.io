@@ -1399,6 +1399,36 @@
 
 ---
 
+### Snapshot — 2026-10-15 06:38 JST — Modern De Luxe (IG-MDL-001)
+- observed_at_jst: 2026-10-15 06:37–06:38 (post page 06:37, Insights 06:38)
+- content_id: IG-MDL-001
+- published_at_jst: approximately 2026-10-14 20:59 (estimated, exact unknown)
+- elapsed_since_publish: approximately 9h39m (estimated)
+- age_of_post_display: 10時間前
+- format: two-slide mixed-media carousel
+- views: 115 (Insights and post page)
+- viewers: 52
+- likes: 6
+- comments: 1
+- reposts: 2
+- shares: Insights UI --; post page send icon shows 1, separately recorded
+- saves: 0
+- follows: 0
+- profile_accesses: 1
+- follower_audience_pct: 81.7
+- non_follower_audience_pct: 18.3
+- top_source_feed_pct: 60.0
+- top_source_stories_pct: 34.8
+- top_source_profile_pct: 2.6
+- other_sources: unknown
+- likes_on_carousel_slide_1: 4
+- likes_on_carousel_slide_2: 2
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3065.jpeg; IMG_3066.png; IMG_3067.png; IMG_3068.png; IMG_3069.png
+- note: Non-follower graph grows to approximately 21 (chart estimate only). Slide-wise likes are not slide reach/swipes. Platform audience age/country/gender unavailable due activity threshold. Do not attribute exposure to TIME66 repost without evidence.
+
+---
+
 ## 2. Cross-source reconciliation / rejected values
 
 - CYMA `2026-09-28 17:41頃 / viewers 1,406 / age 45–54 10.3 / 65+ 5.4` は旧復旧案由来で、main正本の17:49–17:50 snapshot（viewers 1,408 / age 45–54 10.2 / 65+ 5.5）と矛盾するため棄却。
