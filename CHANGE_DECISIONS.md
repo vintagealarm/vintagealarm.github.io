@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-14 12:50 JST — CYMA OWNER'S NOTE 3言語画像を再照合しDEを添付原本へ置換
+
+- **変更**：ユーザーが本会話で添付したCYMA Time-O-Vox OWNER'S NOTE完成PNG3枚（`CITIZEN SPIKE_16.png` JA、`_17.png` EN、`_18.png` DE）を、既存の言語別公開パス `public/images/cyma-time-o-vox/owners-note-{ja,en,de}-20261011.png` へ再登録した。JAとENは現行ファイルとSHA-256まで一致したためGit差分なし。DEは添付原本のSHA-256 `3535e500dadfcb9013928baca404150c4ebb9873662672a0597933d3cd2c3ab3` へ置換し、`scripts/check-build-output.mjs` のバイト一致検査を同期した。
+- **理由**：2026-10-11の初回登録ではJA / ENは添付原本バイト、DEだけは画素同等の別PNGとして登録されていた。今回3枚を同じ会話入力から直接取得できたため、画像を再生成・再圧縮せず、全言語をユーザー添付原本そのものへ揃える。
+- **旧状態・棄却**：DEは画素同等PNGのSHA-256 `6fbcbe632a288907e46154bf0ad5931607c5cd582f19430d07e9280d18abe24b` を検査していた。見た目が同じことだけで原本一致と扱う状態を解消する一方、日付付き公開URLの新設、本文・翻訳・Catch / Lead / NOTEの改変、画像再生成、再圧縮、レイアウト変更は棄却する。
+- **影響範囲**：CYMAのDE OWNER'S NOTE PNG本体、同PNGのSHA回帰検査、本判断履歴のみ。JA / EN画像バイト、3言語の既存公開パス、WATCH本文、翻訳、公開route、他WATCH、研究本文、UI / CSS、公開フラグは不変更。
+- **検証状態**：添付3枚と公開用3ファイルのSHA-256再照合、生成HTMLの言語別参照、build / quality / output / layout、diffを作業branchで確認する。main反映後のPages deployとlive 3言語routeは別工程で確認するまでDEPLOYED / live VERIFIEDとしない。
+- **関連**：2026-10-11 08:00 JST「CYMA TIME-O-VOX 18K ChronomètreのOWNER'S NOTE画像だけ3言語差し替え」、ユーザー添付 `VINTAGE ALARM — OWNER'S NOTE SLIDE SYSTEM — CITIZEN SPIKE_16.png` / `_17.png` / `_18.png`、基準main `12d428cd5d83de21f7676a182f95be9227205ca5`。
+- **日時根拠**：作業環境のJST `2026-10-14T12:50:00+09:00` / UTC `2026-10-14T03:50:00Z` → `2026-10-14 12:50 JST`。
+
 ### 2026-10-13 16:05 JST — U/A簡易帰属を今後の新規判断へ導入（発案者と採否者を分離）
 
 - **変更**：既存 `AGENTS.md` の帰属保持規則に `U`（ユーザー起点）/ `A`（AI起点）という簡易表記を追加。帰属が重要な新規判断は `起点 → 判断` で記録し、例として `U → U採用` / `A → U採用` / `A → U棄却` / `A → A修正` / `U → 未決` を使用。原発言や出典が未確認なら帰属を断定しない。外部資料・Council起点はU/Aの独自発案に偽装しない。既存research ledgerまたは本台帳を継続使用する。
