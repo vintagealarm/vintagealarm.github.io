@@ -1829,3 +1829,12 @@
 - **検証状態**：main変更後の再取得・diffおよびGitHub Actionsは別々に確認する。元動画の一致検査は未実施。
 - **関連**：スクリーンショット`IMG_3048.png`・`IMG_3050.png`、`@time66.com.br`の2026-10-14記録、原著者からのチャット追証。
 - **日時根拠**：作業環境`TZ=Asia/Tokyo date`実測`2026-10-14 21:45:34 JST`。
+
+### 2026-10-14 22:00 JST — Original audio screen correction
+- Change: record IMG_3051.jpeg and the owner's clarification that the external time66.com.br Reel does not appear among the two listed uses of vintagealarm original audio.
+- Reason: previous assistant incorrectly treated the audio listing as evidence of native attribution for the external post.
+- Rejected: assigning the displayed 2.8万 to time66.com.br or identifying the precise method of reposting. Download and separate upload remain a possibility, not a verified method.
+- Attribution: user clarification, recorded by assistant.
+- Scope: instagram-operations.md and this decision record; no changes to VA Insights or published pages.
+- Verification: pending GitHub main reread, diff and CI.
+- Source: IMG_3051.jpeg and the current user clarification. Time basis: host JST 2026-10-14 22:00:26.
