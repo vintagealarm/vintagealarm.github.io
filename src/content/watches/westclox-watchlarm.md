@@ -92,10 +92,12 @@ deepDive:
   - number: "04"
     title: 製造は簡単ではなかった
     paragraphs:
-      - 元Westclox社員のEllworth Danzは、W5にはW4の部品が一部使われていた可能性を挙げている。
-      - その一方でDanzは、Watchlarmは製造が難しく、Westcloxがこの時計で利益を出せたとは思わない、と振り返っている。
+      - Westcloxは1958年、自社の腕時計を「65ドル級の機能を20ドル未満で」と広告した。Watchlarmの発売時上限は19.95ドルだった。同年の『TIME』は15ドル以下を低価格帯とし、Timexを6.95〜17ドル、Elginの高級時計を34.75ドル以上と伝えている。Watchlarmは低価格帯の中心より高く、高級時計には届かない、Westclox腕時計の上限に置かれていた。
+      - 構造を簡略化しても、組立は別問題だった。W5はフルプレートへ8本の軸と巻真受け2点を同時に合わせる。歯車類はテーパーピンや圧入で固定され、秒針を外す際に秒車の軸が抜けると、ムーブメントを分解して組み直さなければならない。
+      - 元Westclox社員のEllworth Danzは、Watchlarmは製造が難しく、Westcloxが利益を出せたとは思わないと振り返っている。販売数と製造原価の内訳は確認できず、売れなかったとも、組立工数だけが採算を崩したとも断定できない。
     citationRefs:
-      - "3"
+      - 7,8,9
+      - "5"
       - "3"
   - number: "05"
     title: ドイツ製ケースと音の構造
@@ -122,11 +124,20 @@ sourceMeta:
     type: reference
   - id: "6"
     type: owner
+  - id: "7"
+    type: primary
+  - id: "8"
+    type: primary
+  - id: "9"
+    type: primary
 sources:
   - Michael Philip Horlbeck, 『The Alarm Wristwatch』(Schiffer Publishing, 2007), pp.150, 198–199, 220–221（Westclox W5の仕様、操作、コスト削減構造、ケースと音響構造）
   - Leonhard Beitl, 『Alarm am Arm』(2009), pp.497–498, 628（Westclox Alarm / W5、0石、ケース径、操作、ドイツ製ケース・文字盤）
   - Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/)（W5とW4部品の関係、製造難、採算、1960年・1961年のカタログ掲載）
   - ClockHistory, [Western Clock Company Chronology](https://clockhistory.com/westclox/company/dates/index.html)（1956年の従業員数、生産規模、Big Ben / Baby Ben累計生産数）
-  - Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5)（アラーム設定12分刻みの記述）
+  - Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5)（アラーム設定12分刻み、フルプレートの組立と圧入部品に関する整備記述）
   - OWNER OBSERVATION, 掲載個体の記録（ケース径34mm、2時位置プッシャー60回でアラーム針が12時間を一周）
+  - ClockHistory, [Watchlarm発売時価格資料](https://clockhistory.com/0/westclox/model-2447-1.html?page=79&sort=model_number_list)（1958年の発売時上限価格19.95ドル）
+  - Westclox, [1958年11月30日付広告](https://oregonnews.uoregon.edu/lccn/sn97071090/1958-11-30/ed-1/seq-33/ocr/)（「65ドル級の機能を20ドル未満で」という広告文）
+  - 'TIME, [Selling & Marketing: Cheaper the Better?](https://time.com/archive/6870040/selling-marketing-cheaper-the-better/)（1958年の米国腕時計市場、15ドル以下の低価格帯、TimexとElginの価格帯）'
 ---
