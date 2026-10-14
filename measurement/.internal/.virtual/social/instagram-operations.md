@@ -2237,7 +2237,7 @@ Equipado com o calibre Baumgartner BFG 90 de duplo tambor, ele é o tipo de peç
   > @solaponz_bkk I am already in so many rabbit holes in watch collecting..don't drag me into another one 😂
 - The reply is a humorous acknowledgement of the discussion, **not** acceptance/rejection of AS1200 and not a correction to the original caption. No inference about the poster's personal relationship with the user.
 - User description calls `solaponz_bkk` a fellow enthusiast who posted a corrective comment; keep **USER_DESCRIPTION** distinct from actual screenshot wording. Screenshot source is limited to displayed portions of comment UI.
-- **User's intended next step:** leave a friendly congratulatory message about the silver-toned case and black honeycomb dial, without entering the caliber dispute. This is a **draft intention, not evidence that the user has posted a comment**.
+- **User follow-up (2026-10-14):** The user explicitly reported **「コメント済み」** (congratulatory comment posted) after previously intending to leave a supportive comment about the silver-toned case and black honeycomb dial. Treat as **USER_REPORT_COMMENT_POSTED**; exact published wording, Instagram comment permalink and whether the earlier draft was copied verbatim are **not screenshot-verified**.
 
 **Status:** EXTERNAL_INSTAGRAM_SCREENSHOT_OBSERVED / COMMENT_THREAD_SCREENSHOT_OBSERVED / ANALYSIS_ONLY. No third-party view count, rate, account-follower count, attribution link, user-posted congratulation or new VA caption has been confirmed. No change to existing VA research conclusion, published copy, Insights, or social funnel.
 
@@ -2249,3 +2249,31 @@ Equipado com o calibre Baumgartner BFG 90 de duplo tambor, ele é o tipo de peç
 - **Interpretation:** screenshot supports a TIME66 native repost interaction with Modern De Luxe alongside retention of its separate Basis upload. The user attributes the interaction to their DM (USER_REPORT). The exact time and causal reason for the repost cannot be independently established from screenshots alone; neither the repost nor the DM retroactively establishes permission for the earlier Basis use.
 - **Metric boundary:** the post-page eye count 41 is on a different display surface from Modern De Luxe's 22:12 detailed Insights views 23; do not report `+18` as a verified like-for-like delta. 23:19 post-page counts belong to a separate snapshot in `instagram-insights-timeseries.md`.
 - **Decision / provenance / revisit:** U discovered both the third-party Basis post and the subsequent TIME66 repost; A documents and distinguishes the two. Status `OBSERVED`; revisit only if more precise permissions, timing, account provenance, or Insights evidence arrives. No contact, report, or further action is initiated.
+## 2026-10-14 23:21 JST — external Wittnauer 10WA screen-recorded video: motion-first opening, CYMA reuse hypothesis
+
+**Evidence:** user-uploaded `ScreenRecording_10-14-2026 23-21-07_1.mp4`; 17.2667 s screen recording, 512×1108, 30 fps. Screen recording is a capture of third-party Instagram `little_unnecessary_machines` and is **not VA-owned production footage**. The Instagram video canvas visibly carries **`1/2`**, so it is part of a multi-item post. Do not attribute third-party post engagement uniquely to this video or reuse its pixels without permission.
+
+### Frame-checked sequence (approximate, screen-record timeline)
+
+- `0.0–3.0 s`: watch faces viewer in open palm, full watch and bracelet visible. Small hand/watch angle changes move specular highlights across polished silver-toned case, dark dial, and bracelet. This is a **visual object/finish introduction before controls**. Motion is relatively restrained rather than a conspicuous sweeping rotation.
+- `~3.0–11.5 s`: opposite hand reaches into frame and turns the outer bezel while dial and alarm pointer remain visible. The movement makes the special bezel interaction legible as an action rather than static description.
+- `~11.5–13.0 s`: brief forward/reframing movement; image enlarges/softens briefly and returns to full view.
+- `~13.0–17.2 s`: held front view, bracelet and surrounding hand still visible, little additional visible action.
+- **Audio observation limit:** screen recording contains an AAC track, but the captured waveform is effectively silent for the opening ~17 seconds, with only brief audio at the end. Therefore it **does not permit assessing the source post's actual chime, audio mixing, or sound-to-visual synchronization**. Do not treat screen-recording silence as the original upload's sound quality.
+
+### Proposed mechanism of visual attention (hypothesis only)
+
+1. **Physicality / scale:** palm + draping bracelet provides relative size/weight cues absent in a frontal static product shot.
+2. **Specular motion:** moving reflected light communicates polish, curved case surfaces and dial texture before the viewer is asked to interpret a mechanism.
+3. **Pacing:** opening with a short observational beat gives viewers a chance to notice a desirable object, then bezel manipulation supplies a different source of curiosity.
+4. **Not causally established:** no individual-video retention breakdown, controlled static-versus-tilt A/B, follower baseline, post age, original media audio or second carousel item are available. The 289 likes/40 comments etc. in the earlier screenshot concern a public post and cannot isolate the tilt's contribution.
+
+### CYMA Time-O-Vox 18K Chronomètre — scoped production hypothesis (AI_PROPOSED / NOT USER_APPROVED)
+
+- **Keep original subject/identity:** VA's own 18KYG Time-O-Vox Chronomètre with open-work lugs, front `CHRONOMÈTRE` marking, 1 crown + 2 pushers, distinctive gong tone. This is a **new visual treatment of previously posted CYM-01**, not an invented new mechanism or an approved new inventory asset.
+- **Tentative shot structure (target ~12–14 s, pending actual CYMA video/audio):** immediately show the entire CYMA in a hand (~0–1 s); slowly angle it (~1–3 s) to let gold highlights and open-work lugs register without washing out the dial text; introduce its actual gong sound early, approximately during/just after the tilt, and retain a stable full/three-quarter shot long enough for the sound to be heard. Do not lengthen the setup into an instructional alarm-setting demonstration. If the existing specimen's ringing lasts ~8–10 s, allow adequate time rather than cutting it to fit an arbitrary micro-duration. Camera angle and exact sequencing require **actual CYMA footage** verification.
+- **Published-collision:** `IG-CYM-001` already used holy-grail / 18K / open-work lugs / CHRONOMÈTRE / sound; `IG-CYM-002` already used side-view and alarm pushers. This is an explicit re-test of **visual-object-first cinematography**, not a new claim that those features were previously unposted. Preserve current `Instagram Reel → profile → /en/how-they-ring/ → WATCH / OWNER'S NOTE → research` funnel.
+- **Experiment/falsifier:** distinguish full-case tilt/finish-focused introduction from prior CYMA edits using comparable elapsed-time views, reach, early skip/retention (if exposed), shares/saves and follows. Different upload times, audio, formats, and audience exposures prevent attributing results to one movement from a single comparison.
+- **Approval/authorization:** user requested analysis and use as a direction, **not** finalized footage, a posted caption, or public publication. No Content Assignment reservation, new creative asset approval, CYMA media claims, or site-copy edits are implied here. The third-party source video is research-only.
+
+**Status:** SOURCE_VIDEO_FRAME_REVIEWED / USER_COMMENT_POSTED_REPORTED / CYMA_TREATMENT_AI_PROPOSED / MEDIA_PENDING / NOT_PUBLISHED.
