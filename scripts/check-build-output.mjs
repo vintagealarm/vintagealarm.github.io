@@ -65,12 +65,12 @@ for (const [lang, route, expectedSha] of [
     failures.push(`Westclox ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
   }
 }
-// CYMA Time-O-Vox OWNER'S NOTE: verify JA/EN original bytes, DE pixel-equivalent PNG,
-// and three language-specific built page references. Image bytes are pinned to the staged git objects.
+// CYMA Time-O-Vox OWNER'S NOTE: verify all three user-uploaded originals byte-for-byte
+// and their language-specific built page references.
 for (const [lang, route, expectedSha] of [
   ['ja', 'cyma-time-o-vox/index.html', '82a834b9ed7446eb55e42b011304c35bc3e6aa67a2a1f13b302d6a5d429bc5ad'],
   ['en', 'en/cyma-time-o-vox/index.html', 'f39a9cf449238262080a5583f300105b6acbcec775a34bf8363189b1318ca513'],
-  ['de', 'de/cyma-time-o-vox/index.html', '6fbcbe632a288907e46154bf0ad5931607c5cd582f19430d07e9280d18abe24b']
+  ['de', 'de/cyma-time-o-vox/index.html', '3535e500dadfcb9013928baca404150c4ebb9873662672a0597933d3cd2c3ab3']
 ]) {
   const assetPath = `images/cyma-time-o-vox/owners-note-${lang}-20261011.png`;
   const filePath = path.join(dist, assetPath);
