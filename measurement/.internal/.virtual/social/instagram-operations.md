@@ -2277,3 +2277,57 @@ Equipado com o calibre Baumgartner BFG 90 de duplo tambor, ele é o tipo de peç
 - **Approval/authorization:** user requested analysis and use as a direction, **not** finalized footage, a posted caption, or public publication. No Content Assignment reservation, new creative asset approval, CYMA media claims, or site-copy edits are implied here. The third-party source video is research-only.
 
 **Status:** SOURCE_VIDEO_FRAME_REVIEWED / USER_COMMENT_POSTED_REPORTED / CYMA_TREATMENT_AI_PROPOSED / MEDIA_PENDING / NOT_PUBLISHED.
+## 2026-10-14 23:31–23:32 JST — external CYMA Time-O-Vox / infinitydials — motion and caption comparison
+
+**Origin / evidence:** USER supplied `IMG_3061.jpeg` (Instagram search grid, screen clock 23:31), `IMG_3063.png` (public caption screenshot, screen clock 23:32), and screen recording `ScreenRecording_10-14-2026 23-31-38_1.mp4`. The screen recording is **37.6 seconds of UI capture at 512×1108, 30fps**, **not verified to be the length of the underlying posted Reel**. Account as shown: `infinitydials`, verified badge visible. Exact original permalink, post age, followers, publication time, original media file, original audio mix, and account Insights remain **unknown**. Do not infer account identity or watch ownership from visual similarity to a VA specimen.
+
+### Screenshot-observed public performance (EXTERNAL ONLY)
+
+- Instagram `alarm watch` search grid shows the CYMA thumbnail with an eye/play display reading **5,275**. Treat as an approximate-at-observation *public grid display count*, **not unique viewers** and not the screen recording's plays.
+- External post screen recording shows **330 likes / 22 comments / 5 reposts / 17 shares** in the visible right-hand icons.
+- These counts are **not VA Instagram Insights**. Do not add them to `instagram-insights-timeseries.md`. They are not necessarily a same-instant metric set across separate screen surfaces.
+- Comparative VA anchors, **not matched-age tests**: VA CYMA `IG-CYM-001` profile-grid displayed **1,887** at 2026-10-14 prior grid observation (operations log); own detailed Insights at 2026-09-30 22:12 showed 1,772 views, 68 likes, 7s average watch, 53.3% skip on a 23s Reel. `IG-CYM-002` side-view still-image/BGM Reel at 2026-10-07 06:34 showed 107 views, 2s average watch and 75.0% skip at about +54 min. Different post ages, surfaces, followers and creative packages prevent performance-cause ranking.
+
+### Direct video observation — visual grammar
+
+- Visible watch: gold-color case, pale dial, distinctive elongated **open-work lugs**, leather strap, held against a light warm-colored background between fingers. The clip keeps most/all of the object in view.
+- **Initial and repeated motion:** gently angle/rotate the entire watch to vary light reflections on the case and dial and bring the lugs/side depth into view. Finger movement and small camera re-framing are visible; the watch remains the central object.
+- Across inspected screen-record frames, there is **no clearly demonstrated alarm-setting sequence or audible gong strike**. The interface identifies a music track titled **`Hypnotic Dark Neoclassical`** (display text partially truncated by UI). A low-level audio track exists in the screen recording but this is **not proof of the source post's original gong sound or whether a sound layer was available to viewers**.
+- The reel's emphasis is **aesthetic reveal / gold finish / openwork lugs / material presence**, unlike the earlier third-party Wittnauer video where a short watch-in-palm intro leads to rotating-bezel operation. Avoid asserting that watch tilt itself caused the reach; no per-second retention, matched still control, or follower denominators have been supplied.
+- The search-grid thumbnail is a fixed visually readable three-quarter view of the gold-colored CYMA and its openworked lugs. The post contains a long written historical/mechanical caption, so **minimal on-screen instruction and high textual depth can coexist**; engagement cannot be attributed solely to the long caption.
+
+### External public caption — full visible transcription (screenshot; truncated hashtags preserved as shown)
+
+```text
+Cyma Time-O-Vox, chronometer version, 18k.
+
+The alarm wristwatches of the 1950s solved the energy problem the same way: split it. Vulcain’s Cricket and Jaeger-LeCoultre’s Memovox each gave the alarm its own barrel, so the hammer could shout without stealing from the balance. Cyma’s cal. R.464 refused the compromise — a 12½-ligne hand-wound calibre feeding both the going train and the alarm from a single barrel, with small seconds, Cymaflex shock protection, and the alarm set and released through the second crown.
+
+Then Cyma did something none of its rivals attempted: submitted it for chronometer certification, and passed. A certified rate from a movement that spends part of its power reserve striking at you.
+
+How many were made? No one knows. Cyma was absorbed in 1966 and no production records survive. What the literature does say: Beitl devotes several pages to the model in Alarm am Arm (Vienna, 2009, p. 134ff.) and singles out this configuration — gold case, open-worked lugs, chronometer dial — as the one to covet. Horlbeck, in The Alarm Wristwatch, says of these elongated U-shaped lugs simply that very few are out there. And among surviving examples, chronometer markings appear only on gold cases — never steel.
+
+The lugs get the compliments. The barrel earned them.
+
+collectit et wearit
+
+#horology #timeovox #cyma #chronometer...
+```
+
+**Transcription boundary:** User screenshot displays the hashtag line truncated at `#chronometer...`, so full hashtags beyond that point and any caption text behind a `more` expansion are not verified. Caption is third-party authored and its declarative claims are **not promoted to VA facts**.
+
+### Fact checks against VA current WATCH / source boundary
+
+- `second crown`: **conflicts with verified Cal.R.464 control layout**; it is a single crown with **two pushers**, used to select functions. Do not reproduce this phrasing.
+- `none of its rivals attempted` chronometer: **incompatible with the scope of the current VA WATCH’s summary of Beitl** identifying other known alarm chronometer models including Fortis Manager and a Vulcain model. Do not generalize exclusivity.
+- `submitted ... and passed`: whether **this specimen** has independently verified chronometer certification / a traceable exam record is **not established by this screenshot**, and VA's current research treats provenance/testing records with caution. `CHRONOMÈTRE` on the dial is visible designation, not independently confirmed certificate.
+- `no production records survive`, `only on gold cases — never steel`, and `very few` are **the external poster's claims**, not newly source-verified here. An observed collection/sample cannot demonstrate universal non-existence.
+- `single barrel`, `Cymaflex`, and open-worked lugs match VA's documented R.464 / pictured model-level characteristics in `src/content/watches/cyma-time-o-vox.md`, but that does not validate every statement in the external caption.
+
+### Cross-post finding and next CYMA creative test (ANALYSIS / AI_PROPOSED)
+
+- **Common structural candidate:** third-party Wittnauer 10WA and third-party infinitydials CYMA first make the whole watch visually interesting by small hand-held tilt/rotations, changing specular highlights and demonstrating tangible shape. In the former, bezel interaction follows; in the latter, almost all visual attention stays on the watch exterior. This is a **two-example qualitative creative pattern**, not a proven Instagram algorithm or definitive explanation of engagement.
+- **VA opportunity:** user earlier identified the opening tilt as potentially meaningful (**U-origin hypothesis**). Combine a short real 18K CYMA full-object/tilt introduction with an **early genuine gong sound** while retaining a stable view of the dial and open-work lugs. Evaluate whether actual CYMA audio deserves its own brief sound beat rather than overloading this visually led micro-Reel with detailed pushers/Wippe instruction. Treat as **re-test of existing CYM-01 visual + sound**, not a new undisclosed asset or approved storyboard.
+- **Alternative worth keeping open:** a pure visual 6–10s tilt-focused Reel with atmosphere/music, explicitly testing whether aesthetics alone produce engagement; unlike the sound-led option it cannot convey actual gong tone. Need own real CYMA footage and platform audio rights/permission for any external music.
+- **Validation:** capture equivalent elapsed-age VA Insights (views, viewers, skip, average watch, saves, shares, follows, profile access and bio-click), compare internally with the first CYMA Reel and side-view Edits Reel. Do not equate external public counts to VA Insights or assume that larger third-party reach proves the tilt or music caused success.
+- **State:** USER requested combined analysis and declared importance; no user approval of proposed treatment, no new content-assignment lock, no altered content-inventory asset state, no draft promoted to published caption, and no site-content changes. External video research only; use user's own footage for any future repost.
