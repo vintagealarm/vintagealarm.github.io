@@ -2165,3 +2165,35 @@ SIGNALでは、打撃ピンが打撃位置から外れ、ハンマーはゴン�
 - Photo vs Reel contrast includes post age, subject, hook, audio, audience and distribution differences. No controlled A/B causal claim.
 - **Canonical entry** remains `Instagram Reel → Instagram profile → /en/how-they-ring/ → WATCH / OWNER'S NOTE → research`. The screenshot verifies visible profile link text, not actual user clickthrough.
 - Next validation: compare equivalent elapsed-hour snapshots with individual Insights, use views/viewers/skip/saves/shares/follows/profile/bio funnel, and inspect VA Analytics separately before claiming website conversion.
+
+## 2026-10-14 — time66.com.br — full external Basis caption / attribution observation
+
+**Evidence:** user screenshots \`IMG_3048.png\` (21:20 JST, partial caption + Basis Alarm video frame) and \`IMG_3050.png\` (21:24 JST, expanded complete caption). Context: 2026-10-14 JST. External account \`time66.com.br\`; post age shown as \`5日前\`, approximately 2026-10-09 (exact publish timestamp and permalink not provided). Visible text does **not** attribute \`@vintagealarm\` or include an origin URL. At the bottom of the second screenshot a \`vintagealarm\` comment is shown with \`4分・❤️ 投稿者から\` (author liked comment); the comment text itself is cut off.
+
+### Full visible external Portuguese caption (user screenshot, preserve text)
+
+\`\`\`text
+Relógio mecânico ou fidget toy? 🤯
+
+Este é o fascinante Basis Alarm, uma raridade mecânica suíça que desafia os designs tradicionais de relógios com despertador.
+
+Em vez de usar duas coroas complicadas, ele traz soluções geniais da engenharia vintage:
+
+1️⃣ Bezel Rotativo: Para ajustar o alarme, basta girar o próprio bezel externo integrado ao vidro de acrílico.
+
+2️⃣ Orifícios Mágicos: As janelas à 1h e às 5h mudam de cor conforme você dá corda! Elas servem como indicadores visuais de energia para o movimento do relógio e para o mecanismo do despertador.
+
+3️⃣ Controle Lateral: Uma chave deslizante na posição de 9 horas permite ativar ou silenciar o alarme de forma rápida.
+
+Equipado com o calibre Baumgartner BFG 90 de duplo tambor, ele é o tipo de peça histórica que dá vontade de interagir e dar corda o dia inteiro.
+
+#time66 #relogiosvintage #basisalarm #vintagewatch #alarmwatch relojaria relogiomecanico horologia
+\`\`\`
+
+### Evidence assessment and provenance
+
+- **Original VA precedents:** 2026-09-09 Basis YouTube Short \`MWoqA4L2wdM\` and 2026-09-30 first Basis Instagram Reel already used the \`fidget toy\` comparison, two barrels, winding windows, bezel, and 9h slider. Cite \`instagram-published-copy.md\` and the earlier sections of this operations ledger; similarity of topics and phrasing is observable, copying is *not* thereby established.
+- **User account:** user calls this apparent reuse without introduction/credit; retain as **USER_REPORT / POSSIBLE_UNCREDITED_REUSE**. Visible caption contains no \`@vintagealarm\`; cannot establish whether the video file is identical, who recorded it, whether permission was given, or whether credits/tags are elsewhere.
+- **Technical distinction:** \`indicadores visuais de energia\` is the account's expression; the BFG90's 1h/5h windows are winding-completion indicators, not quantitative power-reserve gauges (\`src/content/watches/basis-alarm.md\`). This external phrase by itself does not explicitly claim a calibrated power-reserve scale.
+- **Outcomes:** third-party post views, referrals, permissions, confirmed intellectual-property status and full comment text all unknown. Do not insert third-party numbers into VA Insights or count this as VA's own Instagram content.
+- **Next checks only if requested:** post permalink, footage side-by-side, creator credit in tags/audio/comment section, and original source chronology. No complaint/contact/report initiated here.
