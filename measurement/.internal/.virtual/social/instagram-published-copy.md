@@ -358,3 +358,42 @@ And yes — it still rings. 🔔
 - Published caption opening: screenshot-verified at 2026-10-09 22:45 JST: `Not all mechanical alarm watches sound alike. 🔔` (the image then shows an ellipsis and Read more). The exact full caption and hashtags remain unverified; earlier assistant draft must not be represented as published text.
 - Visual preview: `Cyma Time-O-Vox VS Wittnauer 10WA`. Audio comparison between Wittnauer 10WA and CYMA Time-O-Vox 18K Chronomètre. CYMA sound begins at 0:18 per user report.
 - Status: PUBLISHED_REEL_VERIFIED / CAPTION_OPENING_SCREENSHOT_VERIFIED / FULL_CAPTION_PENDING_SCREENSHOT. See `instagram-insights-timeseries.md` and `content-inventory.md` using the same content ID.
+
+---
+
+## Modern De Luxe — first Instagram post
+
+### Published caption — screenshot verified 2026-10-14 21:00 JST
+
+- **Content ID**: `IG-MDL-001`
+- **Publication evidence**: User-posted Instagram screenshot `IMG_3047.jpeg` (status-bar clock 21:00 JST, age display 「46秒前」). The publish time is **approximately 20:59 JST on 2026-10-14**, not an exact timestamp.
+- **Format**: two-slide **mixed-media carousel** (first slide: user's Modern De Luxe alarm video; second slide: size-comparison image with Wittnauer 10WA and Basis Alarm BFG90), **not a standalone Reel**. Source media shared in this conversation: `IMG_9734(1).mp4` and `IMG_9735(1).jpeg`. The screenshot displays two carousel dots. Exact Instagram post URL was not supplied.
+
+```text
+Can you spot what’s unusual about this watch before the second slide? 👀🔔
+
+Listen to that beautiful mechanical alarm.
+
+This is the Modern De Luxe — an oversized alarm wristwatch with a mechanism more like an alarm clock than a conventional wristwatch.
+
+The sound is beautifully clear, and surprisingly loud, too.
+
+But the real surprise is its size.
+
+Swipe to the second slide and compare it with the Wittnauer 10WA and Basis Alarm (BFG90).
+
+Now that’s a BIG alarm watch! 😁
+
+#vintagewatch #alarmwatch #mechanicalwatch
+#modernedeluxe
+```
+
+### Final creative selection — Modern De Luxe first post
+
+- **Origin / approval**: U → U採用。ユーザーが「Modern De Luxe一回挟んじゃうか」「この違和感に2枚目の写真までに気づけるか」と提案し、動画を1枚目・3本比較写真を2枚目に指定。公開画面で採用が確認された。
+- **Hook and structure**: 最初の動画で奇妙さへの疑問とアラーム音を提示し、2枚目のWittnauer 10WA / Basis BFG90比較写真で大型ケースの違和感を回収する。
+- **Copy**: 「beautiful」「surprisingly loud」「oversized」はユーザーの実機観察と投稿本文の表現。音量とケース寸法の因果関係を実測で確立したという主張ではない。
+- **Research boundary**: `research/MODERN_DE_LUXE_LEDGER.md` にBeitl p.317の55mm・置時計系構造の記載があるが、基礎ムーブメント製造者やライター／時計の同一事業者は引き続き未確定。今回のSNS公開はVA WATCHページの公開許可ではない。
+- **Hashtags / CTA**: 4個 `#vintagewatch #alarmwatch #mechanicalwatch #modernedeluxe`。本文にサイトURLや明示的link-in-bio CTAなし。
+- **Metrics**: `IMG_3047.jpeg` にはInsights数値なし。再生・閲覧者・いいね・保存等は未取得であり0扱いしない。
+- **Visual/audio caution**: 投稿画面の再生枠にミュートアイコンが見える。これだけで配信音声が無い・音声変更されたとは判断しない。
