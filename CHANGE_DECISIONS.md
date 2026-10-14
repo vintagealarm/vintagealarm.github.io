@@ -1800,3 +1800,13 @@
 - **検証状態**：#237/#238/#239は各PRの全CI SUCCESSおよびmainの正本再取得確認済み。#237/#238のmain Pages workflow成功、#239は本記録時点で本番CIの結果待ち。startup pointerと存在ゲートは本PRのCI結果で最終判定する。実際の別チャットからの実行成功は未検証、Managerへの行動制御はCIのみでは完全保証しない。
 - **関連**：PR #237、#238、#239、close履歴PR #211/#214/#232/#216/#135、継続HOLD PR #235。実装commit `3dd00d5c`（pointer）、`88e3dbf0`（実体チェック）。
 - **日時根拠**：作業ホスト時計 `2026-10-13 15:28:25 +09:00` → `2026-10-13 15:28 JST`。
+
+### 2026-10-14 21:31 JST — Modern De Luxe投稿と外部Basis紹介事例のSNS証拠を追補
+- **変更**：10月14日21:00の投稿画面（`IMG_3047.jpeg`）で確認したModern De Luxeの2枚組・動画＋比較写真のInstagram公開を、既存`instagram-published-copy.md`／`content-inventory.md`に`IG-MDL-001`／`MDL-01`として登録した先行変更の判断履歴を遡及補填。さらに`@time66.com.br`のBasis Alarm関連投稿（画面に「5日前」と表示）について、ユーザー提供`IMG_3048.png`・`IMG_3050.png`で確認できたポルトガル語全文とhashtags、時系列、クレジット表示、技術的補足、未確認項目を`instagram-operations.md`へ記録する。
+- **起点と採否**：Modern De Luxeの構成は`U → U採用`（ユーザーが動画→3本サイズ比較を提案し公開）。外部Basis事例は`Uが外部投稿を発見・共有 → UがGitHub記録を明示許可`。第三者動画の権利侵害認定や対外連絡の承認を意味しない。
+- **理由**：初回投稿の判断ログ欠落を解消し、海外アカウントによるBasis説明とVA既出`fidget toy`訴求の重なりを、別チャットから検証可能なSNS記録として残す。
+- **旧状態・棄却**：Modern De Luxeの投稿本文とasset登録はmain反映済みだがDecision Logは未記録。外部事例はチャットのみにあり、GitHubには未登録。出典の類似性・出典タグ不在だけを根拠に「映像の盗用確定」「許可なし確定」「VAへの流入発生」とは結論しない。外部投稿をVA自体の投稿数・Insightsへ加えない。
+- **影響範囲**：SNS`instagram-operations.md`、既存`instagram-published-copy.md`／`content-inventory.md`のModern De Luxe既登録との紐付け、`CHANGE_DECISIONS.md`。WATCH本文、Modern De Luxe研究Ledger、サイト公開状態、Instagram数値正本には変更なし。
+- **検証状態**：GitHub main更新後に対象正本を再取得して確認する。domain validator、映像一致比較、投稿URLは未確認である限り未確認と記録。
+- **関連**：`IG-MDL-001`、`MDL-01`、Basis初回Instagram本文、2026-09-09 Basis YouTube Shorts、`src/content/watches/basis-alarm.md`。外部投稿の全文は`instagram-operations.md`だけに置く。
+- **日時根拠**：作業環境のJST時計`2026-10-14 21:30:58 +09:00`（直前ホスト確認）に基づく記録。スクショ観測は同日21:00・21:20・21:24 JST。外部投稿の「5日前」は掲載時刻の直接確認ではない。
