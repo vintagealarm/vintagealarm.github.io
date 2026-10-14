@@ -1337,6 +1337,47 @@
 
 ---
 
+
+---
+
+# Modern De Luxe — Instagram two-slide mixed-media carousel
+
+## Publication evidence
+- content_id: IG-MDL-001
+- published_date_jst: 2026-10-14
+- published_at_jst: approximately 2026-10-14 20:59 (2026-10-14 21:00 post screenshot displayed 「46秒前」; exact timestamp unknown)
+- format: two-slide mixed-media carousel (first slide mechanical alarm video, second slide Wittnauer 10WA / Modern De Luxe / Basis BFG90 photo comparison)
+- source_status: CANONICAL_LOG_SCREENSHOT
+- creative source: `measurement/.internal/.virtual/social/instagram-published-copy.md`
+
+### Snapshot — 2026-10-14 22:12 JST — Modern De Luxe mixed-media carousel (IG-MDL-001)
+- observed_at_jst: 2026-10-14 22:12
+- age_of_post_display: 1時間前 (post screen)
+- elapsed_since_publish: approximately 1h13m, using approximate publication time; exact elapsed unknown
+- content_id: IG-MDL-001
+- views: 23 (Post Insights Overview; separate post screen shows 10 view icon; not treated as same measurement)
+- viewers: 4
+- likes: 3
+- comments: 1
+- reposts: 1
+- shares: UI `--`
+- saves: 0
+- follows: 0
+- profile_accesses: UI `--`
+- bio_link_clicks: unknown
+- non_follower_trend: 0 across displayed 0–60m chart (non-follower filter; chart evidence ONLY, not an Audience-tab percentage or proof that all 23 views are follower-origin)
+- all_views_trend: rises from 0 to approximately 16 on displayed 0–60m chart; chart reading approximate; summary views=23 is authoritative figure shown on same screenshot
+- top_view_sources: heading `閲覧数上位のソース` and `フィード` visible; numeric share cut off, so unknown
+- average_watch_time: unknown
+- skip_rate: unknown
+- followers: unknown (percentage not shown)
+- non_followers: unknown (percentage not shown)
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: `IMG_3052.jpeg` (post page), `IMG_3053.png` (overview, all views), `IMG_3054.png` (overview, non-follower filter), all 2026-10-14 22:12 JST
+- note: 23 views / 4 unique viewers imply 5.75 plays per unique viewer as an arithmetic quotient, but do NOT establish who replayed (owner vs audience) or why. Screenshot's non-follower graph shows 0 in the first 60 minutes; later distribution and Audience composition unverified. Post page count 10 and detailed Insights 23 are retained separately as displayed; UI sync/definition cannot be inferred.
+
+---
+
 ## 2. Cross-source reconciliation / rejected values
 
 - CYMA `2026-09-28 17:41頃 / viewers 1,406 / age 45–54 10.3 / 65+ 5.4` は旧復旧案由来で、main正本の17:49–17:50 snapshot（viewers 1,408 / age 45–54 10.2 / 65+ 5.5）と矛盾するため棄却。
