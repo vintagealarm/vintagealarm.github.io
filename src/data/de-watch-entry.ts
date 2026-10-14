@@ -946,10 +946,11 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         number: '04',
         title: 'Einfach zu fertigen war sie nicht',
         paragraphs: [
-          'Der frühere Westclox-Mitarbeiter Ellworth Danz hielt es für möglich, dass in der W5 einige Teile der W4 verwendet wurden.',
-          'Gleichzeitig erinnerte Danz sich daran, dass die Watchlarm schwierig herzustellen war und dass er nicht glaubte, Westclox habe mit dieser Uhr Gewinn erzielt.'
+          '1958 warb Westclox für seine Armbanduhren mit „Ausstattung einer 65-Dollar-Uhr für weniger als 20 Dollar“. Der höchste Einführungspreis der Watchlarm lag bei 19,95 Dollar. Im selben Jahr bezeichnete TIME Uhren bis 15 Dollar als Niedrigpreissegment und nannte für Timex 6,95 bis 17 Dollar, für hochwertige Uhren von Elgin dagegen Preise ab 34,75 Dollar. Die Watchlarm lag damit oberhalb der Mitte des Niedrigpreissegments, aber unterhalb hochwertiger Uhren, und am oberen Ende des Westclox-Armbanduhrenprogramms.',
+          'Eine vereinfachte Konstruktion bedeutete nicht automatisch eine einfache Montage. Bei der W5 müssen in der Vollplatine acht Zapfen und zwei Lagerstellen der Aufzugswelle gleichzeitig ausgerichtet werden. Zahnräder sind mit Kegelstiften oder Presssitzen befestigt; wird beim Abnehmen des Sekundenzeigers die Welle des Sekundenrads mit herausgezogen, muss das Werk zerlegt und erneut montiert werden.',
+          'Der frühere Westclox-Mitarbeiter Ellworth Danz erinnerte sich, dass die Watchlarm schwierig herzustellen war, und bezweifelte, dass Westclox mit ihr Gewinn erzielte. Verkaufszahlen und die Aufschlüsselung der Herstellungskosten sind nicht bestätigt. Daher lässt sich weder behaupten, dass sie sich schlecht verkaufte, noch dass allein der Montageaufwand sie unrentabel machte.'
         ],
-        citationRefs: ['3', '3']
+        citationRefs: ['7,8,9', '5', '3']
       },
       {
         number: '05',
@@ -969,15 +970,21 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
       { id: '3', type: 'reference' },
       { id: '4', type: 'reference' },
       { id: '5', type: 'reference' },
-      { id: '6', type: 'owner' }
+      { id: '6', type: 'owner' },
+      { id: '7', type: 'primary' },
+      { id: '8', type: 'primary' },
+      { id: '9', type: 'primary' }
     ],
     sources: [
       'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), S. 150, 198–199, 220–221 — Spezifikation und Bedienung der Westclox W5, kostenreduzierte Konstruktion, Gehäuse- und Klangaufbau.',
       'Leonhard Beitl, Alarm am Arm (2009), S. 497–498, 628 — Westclox Alarm / W5, 0 Steine, Gehäusedurchmesser, Bedienung, deutsches Gehäuse und Zifferblatt.',
       'Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/) — Beziehung zwischen W5- und W4-Teilen, Fertigungsschwierigkeit, Rentabilität sowie Katalogaufnahmen 1960/1961.',
       'ClockHistory, [Western Clock Company Chronology](https://clockhistory.com/westclox/company/dates/index.html) — Beschäftigtenzahl und Produktionsmaßstab 1956 sowie kumulierte Stückzahlen von Big Ben / Baby Ben.',
-      'Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5) — Angabe einer Alarmzeiteinstellung in 12-Minuten-Schritten.',
-      'OWNER OBSERVATION — Dokumentation des gezeigten Exemplars: 34 mm Gehäusedurchmesser; 60 Betätigungen des Drückers bei 2 Uhr bewegen den Alarmzeiger einmal vollständig über 12 Stunden.'
+      'Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5) — Alarmzeiteinstellung in 12-Minuten-Schritten sowie Hinweise zur Vollplatinenmontage und zu Presssitzen.',
+      'OWNER OBSERVATION — Dokumentation des gezeigten Exemplars: 34 mm Gehäusedurchmesser; 60 Betätigungen des Drückers bei 2 Uhr bewegen den Alarmzeiger einmal vollständig über 12 Stunden.',
+      'ClockHistory, [Unterlagen zum Einführungspreis der Watchlarm](https://clockhistory.com/0/westclox/model-2447-1.html?page=79&sort=model_number_list) — höchster Einführungspreis von 19,95 Dollar im Jahr 1958.',
+      'Westclox, [Anzeige vom 30. November 1958](https://oregonnews.uoregon.edu/lccn/sn97071090/1958-11-30/ed-1/seq-33/ocr/) — „Ausstattung einer 65-Dollar-Uhr für weniger als 20 Dollar“.',
+      'TIME, [Selling & Marketing: Cheaper the Better?](https://time.com/archive/6870040/selling-marketing-cheaper-the-better/) — US-Armbanduhrenmarkt 1958, Niedrigpreissegment bis 15 Dollar sowie Preisbereiche von Timex und Elgin.'
     ],
     related: {
       href: '/de/basis-alarm/',

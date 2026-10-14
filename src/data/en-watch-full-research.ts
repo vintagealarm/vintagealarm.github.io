@@ -695,10 +695,11 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
         number: '04',
         title: 'It was not easy to manufacture',
         paragraphs: [
-          'Former Westclox employee Ellworth Danz suggested that some W4 parts may have been used in the W5.',
-          'At the same time, Danz recalled that the Watchlarm was difficult to manufacture and that he did not think Westclox made a profit on the watch.'
+          'In 1958, Westclox advertised its wristwatches as offering “$65 watch features for under $20.” The top launch price for the Watchlarm was $19.95. That same year, TIME defined the low-priced segment as $15 or less, placing Timex at $6.95–$17 and Elgin’s high-grade watches at $34.75 and above. The Watchlarm sat above the centre of the low-priced segment but below high-grade watches, at the top of Westclox’s wristwatch range.',
+          'Simplifying the construction did not make assembly simple. The W5 requires eight pivots and two winding-stem supports to be aligned with the full plate at the same time. Gears are secured with tapered pins or press fits, and if the seconds-wheel arbor comes out while the seconds hand is being removed, the movement has to be dismantled and reassembled.',
+          'Former Westclox employee Ellworth Danz recalled that the Watchlarm was difficult to manufacture and did not believe Westclox made a profit on it. Sales volume and the breakdown of manufacturing costs have not been confirmed, so it cannot be concluded either that the watch failed to sell or that assembly labour alone made it unprofitable.'
         ],
-        citationRefs: ['3', '3']
+        citationRefs: ['7,8,9', '5', '3']
       },
       {
         number: '05',
@@ -718,15 +719,21 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
       { id: '3', type: 'reference' },
       { id: '4', type: 'reference' },
       { id: '5', type: 'reference' },
-      { id: '6', type: 'owner' }
+      { id: '6', type: 'owner' },
+      { id: '7', type: 'primary' },
+      { id: '8', type: 'primary' },
+      { id: '9', type: 'primary' }
     ],
     sources: [
       'Michael Philip Horlbeck, The Alarm Wristwatch (Schiffer Publishing, 2007), pp. 150, 198–199, 220–221 — Westclox W5 specifications, operation, cost-reduction construction, case and acoustic structure.',
       'Leonhard Beitl, Alarm am Arm (2009), pp. 497–498, 628 — Westclox Alarm / W5, zero jewels, case diameter, operation, German-made case and dial.',
       'Ellworth Danz, [Westclox Wristwatches](https://clockhistory.com/westclox/products/wristwatch/) — relationship between W5 and W4 parts, manufacturing difficulty, profitability, and 1960/1961 catalogue appearances.',
       'ClockHistory, [Western Clock Company Chronology](https://clockhistory.com/westclox/company/dates/index.html) — 1956 employee count and production scale, cumulative Big Ben / Baby Ben production figures.',
-      'Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5) — description of 12-minute alarm-setting increments.',
-      'OWNER OBSERVATION — specimen record: 34 mm case diameter; 60 presses of the 2 o’clock pusher move the alarm hand through one full 12-hour circuit.'
+      'Roland Ranfft, [Westclox W5](https://ranfft.org/caliber/10726-Westclox-W5) — description of 12-minute alarm-setting increments, full-plate assembly and press-fit parts.',
+      'OWNER OBSERVATION — specimen record: 34 mm case diameter; 60 presses of the 2 o’clock pusher move the alarm hand through one full 12-hour circuit.',
+      'ClockHistory, [Watchlarm launch-price record](https://clockhistory.com/0/westclox/model-2447-1.html?page=79&sort=model_number_list) — top 1958 launch price of $19.95.',
+      'Westclox, [advertisement dated 30 November 1958](https://oregonnews.uoregon.edu/lccn/sn97071090/1958-11-30/ed-1/seq-33/ocr/) — “$65 watch features for under $20.”',
+      'TIME, [Selling & Marketing: Cheaper the Better?](https://time.com/archive/6870040/selling-marketing-cheaper-the-better/) — the 1958 US wristwatch market, the $15-and-under low-price segment, and Timex and Elgin price ranges.'
     ],
     related: {
       href: '/en/basis-alarm/',

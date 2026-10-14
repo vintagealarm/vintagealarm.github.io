@@ -449,6 +449,58 @@
       ]
     },
     {
+      "id": "westclox-price-assembly-profitability",
+      "slug": "westclox-watchlarm",
+      "canonicalValue": "1958 under-$20 positioning / $19.95 top launch price / assembly difficulty / profitability remains unproven beyond Danz's recollection",
+      "note": "Keep the three-step argument aligned across JA, EN and DE: period market position, concrete assembly difficulty, then the limited scope of Danz's profitability recollection. Do not turn unknown sales volume or manufacturing-cost details into a claim that the watch failed to sell or that assembly labour alone made it unprofitable.",
+      "sourceChecks": [
+        {
+          "path": "src/content/watches/westclox-watchlarm.md",
+          "mustContain": [
+            "Watchlarmの発売時上限は19.95ドルだった。",
+            "販売数と製造原価の内訳は確認できず"
+          ]
+        },
+        {
+          "path": "src/data/en-watch-full-research.ts",
+          "mustContain": [
+            "The top launch price for the Watchlarm was $19.95.",
+            "Sales volume and the breakdown of manufacturing costs have not been confirmed"
+          ]
+        },
+        {
+          "path": "src/data/de-watch-entry.ts",
+          "mustContain": [
+            "Der höchste Einführungspreis der Watchlarm lag bei 19,95 Dollar.",
+            "Verkaufszahlen und die Aufschlüsselung der Herstellungskosten sind nicht bestätigt."
+          ]
+        }
+      ],
+      "renderedChecks": [
+        {
+          "path": "dist/westclox-watchlarm/index.html",
+          "mustContain": [
+            "発売時上限は19.95ドル",
+            "販売数と製造原価の内訳は確認できず"
+          ]
+        },
+        {
+          "path": "dist/en/westclox-watchlarm/index.html",
+          "mustContain": [
+            "top launch price for the Watchlarm was $19.95",
+            "Sales volume and the breakdown of manufacturing costs have not been confirmed"
+          ]
+        },
+        {
+          "path": "dist/de/westclox-watchlarm/index.html",
+          "mustContain": [
+            "höchste Einführungspreis der Watchlarm lag bei 19,95 Dollar",
+            "Verkaufszahlen und die Aufschlüsselung der Herstellungskosten sind nicht bestätigt"
+          ]
+        }
+      ]
+    },
+    {
       "id": "how-they-ring-fig01-omega-tone-spring",
       "slug": "how-they-ring",
       "canonicalValue": "OMEGA MEMOMATIC / Cal.980 / ring-shaped sound spring struck by hammer",
