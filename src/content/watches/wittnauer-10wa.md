@@ -8,7 +8,7 @@ catch:
   - 過酷な現場、アラーム部門。
   - 今日もベゼルがワンオペ中🔔
 ownersNote:
-  image: /images/Wittnauer10WA.png
+  image: /images/wittnauer-10wa/owners-note-ja-20261014.png
   lead:
     - 巻くのも、合わせるのも、このベゼル。
     - 時刻側ムーブメントの文字盤側に、アラーム専用モジュールを上乗せ。

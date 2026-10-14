@@ -85,6 +85,26 @@ for (const [lang, route, expectedSha] of [
     failures.push(`CYMA ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
   }
 }
+// Wittnauer 10WA OWNER'S NOTE: verify all three user-uploaded originals byte-for-byte
+// and their language-specific built page references.
+for (const [lang, route, expectedSha] of [
+  ['ja', 'wittnauer-10wa/index.html', '9d156ecc68d247f5deb2b68ee1ee26fb083433db33c86d6e21be00eb72c0a526'],
+  ['en', 'en/wittnauer-10wa/index.html', '0d7e08e5dacdd21d6ba5c506982f00253dac0010fa350c2238282d5673cf60c6'],
+  ['de', 'de/wittnauer-10wa/index.html', '0bd9e1a442c4f9e69a4b65a7aa6ae1aa4c4a495e0182dedd7e39df09294e5720']
+]) {
+  const assetPath = `images/wittnauer-10wa/owners-note-${lang}-20261014.png`;
+  const filePath = path.join(dist, assetPath);
+  if (!fs.existsSync(filePath)) {
+    failures.push(`Wittnauer ${lang}: OWNER'S NOTE PNG missing from build output`);
+  } else {
+    const actualSha = createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+    if (actualSha !== expectedSha) failures.push(`Wittnauer ${lang}: OWNER'S NOTE PNG differs from uploaded original`);
+  }
+  const htmlPath = path.join(dist, route);
+  if (!fs.existsSync(htmlPath) || !fs.readFileSync(htmlPath, 'utf8').includes(`/${assetPath}`)) {
+    failures.push(`Wittnauer ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
+  }
+}
 const mustExist = [
   'index.html',
   'x/index.html',

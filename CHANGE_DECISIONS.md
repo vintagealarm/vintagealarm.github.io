@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-14 13:35 JST — Wittnauer 10WA OWNER'S NOTEをユーザー添付の3言語原本へ差し替え
+
+- **変更**：ユーザーが本会話で添付したWittnauer 10WA OWNER'S NOTE完成PNG3枚（`CITIZEN SPIKE_20.png` JA、`_19.png` EN、`_21.png` DE）を、無加工のまま `public/images/wittnauer-10wa/owners-note-{ja,en,de}-20261014.png` に登録した。日本語WATCHと英語・ドイツ語WatchEntryのWittnauer限定画像参照を各言語ファイルへ切り替え、`scripts/check-build-output.mjs` に生成HTMLの参照先と公開用PNGのSHA-256検査を追加した。
+- **理由**：現行3言語routeはすべて旧共通画像 `/images/Wittnauer10WA.png` を参照しており、新しい言語別完成画像が未収録だった。ユーザーの「じゃあwittnauer」と3枚の添付を、直前のCYMA差し替えと同じWittnauer差し替え指示として適用する。
+- **旧状態・棄却**：旧画像（1061×1482、SHA-256 `94aa2562632c58d31df08112ce0af1ab93de9dadbca3b3084513c87cedbadcab`）を3言語で共用する状態を解消する。画像の再生成・再圧縮、文面・翻訳・Catch / Lead / NOTEの改変、レイアウト変更、他WATCHへの波及は棄却する。
+- **影響範囲**：Wittnauer 10WAのOWNER'S NOTE用3画像、JA / EN / DEの画像参照、build回帰検査、本判断履歴のみ。研究本文、SPEC、動画、ギャラリー、公開route、共通UI / CSS、他WATCH、open PR #245 / #235は変更しない。
+- **検証状態**：添付原本と公開用3ファイルのSHA-256照合、生成HTMLの言語別参照、build / quality / output / layout、差分を作業branchで確認する。main反映後のPages deployとlive 3言語routeは別工程で確認するまでDEPLOYED / live VERIFIEDとしない。
+- **関連**：ユーザー添付 `VINTAGE ALARM — OWNER'S NOTE SLIDE SYSTEM — CITIZEN SPIKE_19.png` / `_20.png` / `_21.png`、基準main `857f1faab8ef7a167ae50346b8852c89463d979d`、対象route `/wittnauer-10wa/` / `/en/wittnauer-10wa/` / `/de/wittnauer-10wa/`。
+- **日時根拠**：作業環境のJST `2026-10-14T13:35:00+09:00` / UTC `2026-10-14T04:35:00Z` → `2026-10-14 13:35 JST`。
+
 ### 2026-10-14 12:50 JST — CYMA OWNER'S NOTE 3言語画像を再照合しDEを添付原本へ置換
 
 - **変更**：ユーザーが本会話で添付したCYMA Time-O-Vox OWNER'S NOTE完成PNG3枚（`CITIZEN SPIKE_16.png` JA、`_17.png` EN、`_18.png` DE）を、既存の言語別公開パス `public/images/cyma-time-o-vox/owners-note-{ja,en,de}-20261011.png` へ再登録した。JAとENは現行ファイルとSHA-256まで一致したためGit差分なし。DEは添付原本のSHA-256 `3535e500dadfcb9013928baca404150c4ebb9873662672a0597933d3cd2c3ab3` へ置換し、`scripts/check-build-output.mjs` のバイト一致検査を同期した。
