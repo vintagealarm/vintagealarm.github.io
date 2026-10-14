@@ -2209,14 +2209,15 @@ Equipado com o calibre Baumgartner BFG 90 de duplo tambor, ele é o tipo de peç
 - **Decision**: HOLD any suppression/cause diagnosis at ~73min from approximate publication time. Post is a mixed-media carousel, **not** standalone Reel, so do not use the Reel discovery baseline as a controlled causal explanation. Compare future same-content snapshots at +3h / +6h / +24h with non-follower viewer counts, unique viewers and top sources when available; avoid early deletion or caption edits on this evidence alone.
 - **Prior comparative anchor**: Basis second static carousel at ~24h 63 plays / 28 unique viewers and 98.4% follower share; Pierce Reel at +2h53m 275 plays / 168 viewers / 97.3% non-followers; Citizen Reel age UI ~2h 530 plays / 429 viewers / 98.9% non-followers. Times and media formats differ, so these are **contextual**, not matched-exposure A/B comparisons.
 - **Canonical metrics**: corresponding unique snapshot under `IG-MDL-001` in `instagram-insights-timeseries.md`. Values here are analytical pointers, not second competing time series.
+
 ## 2026-10-14 22:49–23:00 JST — external Wittnauer 10WA / little_unnecessary_machines — engagement and AS1200 comment thread
 
-**Scope / provenance:** Third-party Instagram account \`little_unnecessary_machines\`, not the VA-owned account. User-provided Instagram screenshots \`IMG_3056.jpeg\` and \`IMG_3055.jpeg\` (status bar 22:49), plus comment screenshot \`IMG_3057.jpeg\` (status bar 23:00) on 2026-10-14 JST. Screenshot clock is the visible screen clock, **not** independently confirmed capture/upload time. Instagram post permalink and exact publication time are not provided.
+**Scope / provenance:** Third-party Instagram account `little_unnecessary_machines`, not the VA-owned account. User-provided Instagram screenshots `IMG_3056.jpeg` and `IMG_3055.jpeg` (status bar 22:49), plus comment screenshot `IMG_3057.jpeg` (status bar 23:00) on 2026-10-14 JST. Screenshot clock is the visible screen clock, **not** independently confirmed capture/upload time. Instagram post permalink and exact publication time are not provided.
 
 ### Screenshot-observed public post / engagement
 
 - Subject: vintage Wittnauer Alarm Watch / Cal.10WA, silver-toned case, black honeycomb-textured dial, rotating bezel, mesh-like multi-link steel-color bracelet; **case metal/composition and bracelet originality not verified**. Captured frame shows the watch being held and operated by hand; audio is not verified from still screenshots.
-- Instagram post interface at 22:49 screen clock: **289 likes / 40 comments / 9 reposts / 30 shares** (public reaction counters as displayed, not Insights, and not views/follows). Published-at and views: **unknown**. Do not insert these numbers into VA-owned \`instagram-insights-timeseries.md\`.
+- Instagram post interface at 22:49 screen clock: **289 likes / 40 comments / 9 reposts / 30 shares** (public reaction counters as displayed, not Insights, and not views/follows). Published-at and views: **unknown**. Do not insert these numbers into VA-owned `instagram-insights-timeseries.md`.
 - Visible English caption, third-party authored (transcribed from screenshot, with decorative period-only divider lines omitted):
   > Sound On - No extra crown. No pushers. No harsh buzz. Just pure 1950s horological genius with a rotating bezel and a gong.
   >
@@ -2229,13 +2230,13 @@ Equipado com o calibre Baumgartner BFG 90 de duplo tambor, ele é o tipo de peç
 
 ### Screenshot-observed discussion under the external post
 
-- Commenter \`solaponz_bkk\`, age shown \`2時間\` at 23:00 screen clock, discusses the alternative AS1200 identification, with an external X reference. Visible comment:
+- Commenter `solaponz_bkk`, age shown `2時間` at 23:00 screen clock, discusses the alternative AS1200 identification, with an external X reference. Visible comment:
   > thank you for the great photo! we japanese alarm watch lover ever discussed the base movement of cal. 10WA, and we thought it was not based on Longines movement but on AS1200. anyway who knows the truth.... it's always fun to talk about iconic and lovely watches🥰 https://x.com/dragonfire_jp/status/2100537818837819580
 - The commenter presents the AS1200 position as an earlier discussion/opinion and ends with uncertainty. **This is a public counterpoint, not a confirmed correction or definitive identification**. Referenced X URL is visible in the comment screenshot but its contents were not independently checked.
-- Post author \`little_unnecessary_machines\`, reply age shown \`2時間\`, visibly replies:
+- Post author `little_unnecessary_machines`, reply age shown `2時間`, visibly replies:
   > @solaponz_bkk I am already in so many rabbit holes in watch collecting..don't drag me into another one 😂
 - The reply is a humorous acknowledgement of the discussion, **not** acceptance/rejection of AS1200 and not a correction to the original caption. No inference about the poster's personal relationship with the user.
-- User description calls \`solaponz_bkk\` a fellow enthusiast who posted a corrective comment; keep **USER_DESCRIPTION** distinct from actual screenshot wording. Screenshot source is limited to displayed portions of comment UI.
+- User description calls `solaponz_bkk` a fellow enthusiast who posted a corrective comment; keep **USER_DESCRIPTION** distinct from actual screenshot wording. Screenshot source is limited to displayed portions of comment UI.
 - **User's intended next step:** leave a friendly congratulatory message about the silver-toned case and black honeycomb dial, without entering the caliber dispute. This is a **draft intention, not evidence that the user has posted a comment**.
 
 **Status:** EXTERNAL_INSTAGRAM_SCREENSHOT_OBSERVED / COMMENT_THREAD_SCREENSHOT_OBSERVED / ANALYSIS_ONLY. No third-party view count, rate, account-follower count, attribution link, user-posted congratulation or new VA caption has been confirmed. No change to existing VA research conclusion, published copy, Insights, or social funnel.
