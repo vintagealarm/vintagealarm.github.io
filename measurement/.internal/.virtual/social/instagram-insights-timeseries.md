@@ -1378,6 +1378,27 @@
 
 ---
 
+### Snapshot — 2026-10-14 23:19 JST — Modern De Luxe post-page observation
+- observed_at_jst: 2026-10-14 23:19
+- content_id: IG-MDL-001
+- source_surface: Instagram own post page (not Post Insights)
+- age_of_post_display: 2時間前
+- elapsed_since_publish: approximately 2h20m based on inferred ~20:59 publication; exact unknown
+- post_page_views: 41
+- likes: 4
+- comments: 1
+- reposts: 1
+- shares: unknown (no count displayed)
+- saves: unknown (no count displayed)
+- viewers: unknown (Insights not displayed)
+- follows: unknown (Insights not displayed)
+- non_followers: unknown
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3058.jpeg
+- note: Post preview includes TIME66 avatar with a purple repost mark. The visible comment preview says "Incredible!". Counts on the post page are distinct from 22:12 Insights views:23; do not calculate a direct increase or audience split between surfaces.
+
+---
+
 ## 2. Cross-source reconciliation / rejected values
 
 - CYMA `2026-09-28 17:41頃 / viewers 1,406 / age 45–54 10.3 / 65+ 5.4` は旧復旧案由来で、main正本の17:49–17:50 snapshot（viewers 1,408 / age 45–54 10.2 / 65+ 5.5）と矛盾するため棄却。
