@@ -1838,3 +1838,13 @@
 - Scope: instagram-operations.md and this decision record; no changes to VA Insights or published pages.
 - Verification: pending GitHub main reread, diff and CI.
 - Source: IMG_3051.jpeg and the current user clarification. Time basis: host JST 2026-10-14 22:00:26.
+
+### 2026-10-14 23:32 JST — TIME66のModern De Luxe再投稿とBasis別投稿の二形態を分離記録
+- **変更**：2026-10-14 23:19 JSTのModern De Luxe投稿画面（`IMG_3058.jpeg`）の41閲覧・4いいね・1コメント・1再投稿を`IG-MDL-001`の時系列に追記。23:20 JSTの外部`time66.com.br`プロフィール画面（`IMG_3059.jpeg`）でBasis動画5,644再生表示を確認。TIME66の紫の再投稿マークとともに`instagram-operations.md`へ観測履歴を追記。
+- **起点→判断**：Uが画面2枚を共有し、DM後の反応と報告。UがGitHub追記を明示許可 → Aが正本へ観測を反映。本人のDM効果という見解は`USER_REPORT`、時間的因果は未検証。
+- **理由**：Basis動画の独立掲載と、VA元投稿を保持したModern De Luxeのネイティブ再投稿を混同せず、外部布教の成果と作者帰属の違いを保存する。
+- **旧状態・棄却**：前回までの外部Basis単体の無許可転載疑いの記録は保持。Modernの再投稿を根拠にBasisの元動画への許可が遡及成立したとは扱わず、先行音源画面の2.8万をTIME66の再生数とはしない。22:12のInsights再生23と23:19の投稿画面閲覧41の差を同一定義の増分とも認定しない。
+- **影響範囲**：`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`instagram-operations.md`、本判断履歴。公開WATCH・研究・SNS公開本文・台帳の投稿数は変更しない。
+- **検証状態**：mainの正本再取得とcommit差分を確認後、domain validatorとCIを独立評価する。初回の安全性チェック拒否に関してはGitHub権限不足を示すエラーではなく、発火条件は未開示。今回は同じ`update_file`で成功した。
+- **関連**：`IG-MDL-001`、`IMG_3058.jpeg`、`IMG_3059.jpeg`、`@time66.com.br`外部Basis全文観測記録。
+- **日時根拠**：作業ホスト`TZ=Asia/Tokyo date`実測`2026-10-14 23:32:10 JST`。
