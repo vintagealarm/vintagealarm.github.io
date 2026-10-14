@@ -173,6 +173,16 @@ Canonical WATCH: `src/content/watches/citizen-alarm.md`
 | CIT-08 | 系譜の最後にアラーム付き懐中時計が現れる | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | HISTORY | WATCH Deep 04 |
 | CIT-ON | OWNER'S NOTE全体 | WHOLE_ONLY | NO_EXPLICIT_USE_FOUND_2026-10-03 | OWNER_NOTE_HERO_ONLY | READY_FROM_WATCH | OWNER_NOTE_WHOLE | WATCH `ownersNote` |
 
+
+## Modern De Luxe — non-site-published Instagram specimen
+
+Research owner: `research/MODERN_DE_LUXE_LEDGER.md` (not a published WATCH). G0 same-operator and movement attribution remain OPEN. This section records **social-use assets only**; it does not change the site-published six-WATCH group.
+
+| ID | Angle / asset | IG state | Other social | Media | Verify | Role | Source |
+|---|---|---|---|---|---|---|---|
+| MDL-01 | 置時計に近い構造の巨大な腕アラーム。実機アラーム音を先に聴かせ、次の写真でWittnauer 10WA / Basis BFG90とのサイズ差を示す | USED | UNKNOWN | READY_EXISTING | RECHECK_SOURCE | SOUND+COMPARISON | Published `IG-MDL-001` + user `IMG_9734(1).mp4`, `IMG_9735(1).jpeg`; `research/MODERN_DE_LUXE_LEDGER.md` citing Beitl p.317 |
+
+
 ## Cross-watch / URL funnel
 
 | ID | Angle / asset | IG state | Other social | Media | Verify | Role | Source |
@@ -247,6 +257,7 @@ Status:
 | Basis Alarm (BFG90) | PENDING_USER_REVIEW |
 | Westclox Watchlarm W5 | PENDING_USER_REVIEW |
 | Citizen Alarm | PENDING_USER_REVIEW |
+| Modern De Luxe (non-published WATCH) | POSTED_ASSET_ONLY — `MDL-01` used in `IG-MDL-001`; future assets not yet reviewed |
 
 AIだけで PENDING_USER_REVIEW → USER_CONFIRMED へ変更しない。
 
@@ -264,6 +275,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | IG-PIE-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | PIE-01 | — | SOCIAL:IG-PIE-FIRST-REEL | published-copy |
 | IG-BAS-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | BAS-01 | — | SOCIAL:IG-BAS-FIRST-REEL | published-copy |
 | IG-BAS-002 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | STATIC_CAROUSEL | BAS-05 | BAS-01 | USER:IMG_8890.jpeg;USER:IMG_9196.jpeg;USER:IMG_9197.jpeg;USER:IMG_9199.jpeg | 2026-10-12 ~08:25 JST screenshot `IMG_3014.jpeg` confirms full caption, 4-photo carousel; exact publish time and Insights unknown; published-copy |
+| IG-MDL-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | MIXED_CAROUSEL | MDL-01 | — | USER:IMG_9734(1).mp4;USER:IMG_9735(1).jpeg | 2026-10-14 21:00 JST screenshot `IMG_3047.jpeg` / displayed 46 seconds ago; first slide video, second three-watch size comparison; full caption and 4 hashtags recorded in published-copy; Insights pending |
 | IG-WES-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | WES-01 | — | SOCIAL:IG-WES-FIRST-REEL | published-copy |
 | IG-CIT-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | CIT-01 | — | SOCIAL:IG-CIT-FIRST-REEL | published-copy |
 | YT-BAS-20260909 | YOUTUBE | PUBLISHED | LEGACY_VERIFIED | SHORT | BAS-01 | — | YT:MWoqA4L2wdM | operations |
