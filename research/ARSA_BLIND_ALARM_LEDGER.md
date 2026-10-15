@@ -3642,3 +3642,10 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 - Rechecked original MP4 including audio: 4.70-second recording, AAC 44.1 kHz audio track; pronounced sustained high-frequency sound from 0 to approximately 3.4 seconds, followed by a clear fall in sound level. The video shows the watch during the sound.
 - **Status: audio-recorded alarm sounding on this specimen — CONFIRMED.** Full-wind sounding duration, triggering accuracy and repeatability remain unmeasured. The minute-hand displacement recorded in IMG_3079.mp4 is a separate observation.
 - Previous negative assertion is retracted. Research Map must be updated. Public pages and original owner's note remain unchanged.
+
+
+### 2026-10-16 — Minute hand: fingertip versus crown behavior (user report)
+
+**USER-REPORT:** With fingertip movement of the minute hand, the hour hand does not visibly move. Setting via the crown moves both hour and minute hands together normally. This distinction is reported by the user; previously reviewed video only confirms pronounced minute hand displacement, not exact zero hour hand movement.
+
+**INFERENCE / UNCONFIRMED:** Loose minute-hand fit on its arbor is now the leading inspection hypothesis; slipping cannon pinion or motion-works friction remains an alternative. Normal hour hand movement is one-twelfth of the minute angle (90 degrees vs. 7.5 degrees); an apparent lack of movement alone cannot prove no coupling. Avoid further hand deflection. Watchmaker inspection needed before cause or repair can be claimed. Alarm ringing was separately confirmed in recorded audio.
