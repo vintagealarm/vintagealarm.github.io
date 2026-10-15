@@ -81,6 +81,7 @@ VINTAGE ALARMに関する**各ユーザーメッセージ**を処理するとき
 
 - 本文 / WATCH / HISTORY / OWNER'S NOTES / 翻訳 → `SITE_RULES.md`
 - 日本語本文の新規執筆 / 大幅改稿 → `SITE_RULES.md` + `strategy/japanese-writing.md`
+- **「プレゼンして」／チャットでプレゼン／研究段階のチャット納品 → `strategy/chat-presentation.md`**。プレゼンの構成・根拠・面白さ・チャット表示・段階納品はこの単一正本を読む。研究事実はWATCH／Ledger等の分野別正本から取得し、Council／SNS等の起動・分野別規則を上書きしない。
 - デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md`
 - SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
 - Analytics / 計測単体 → `measurement/metrics.md` + 対象実装

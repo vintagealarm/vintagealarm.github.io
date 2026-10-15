@@ -1859,3 +1859,13 @@
 - **検証状態**：main再取得・commit diffとGitHub CI、instagram-insights validator/reportを分離して確認。未実施または未完了はPASS扱いしない。
 - **関連**：IG-MDL-001、2026-10-14 22:12および23:19観測、2026-10-15 06:38新観測、Social ROUTER §9。
 - **日時根拠**：作業ホスト`TZ=Asia/Tokyo date`実測`2026-10-15 06:49:33 JST`。
+
+### 2026-10-15 11:53 JST — 「プレゼンして」チャット納品規約を新設・ルーティング
+- **変更**：`strategy/chat-presentation.md`を単一正本として新設。GitHub `PROJECT.md` §2に「プレゼンして／チャットでプレゼン／研究段階のチャット納品」を同正本へルーティングする項目を追加。
+- **理由**：VA紹介プレゼンの試作・評価・再稿を通じて、初見に分かること、読み進めたくなる発見、実画像と証拠、分析から提案への論理、チャット画面での見せ方、時計リサーチの途中納品を一つの再利用可能な契約にするため。
+- **起点 → 判断**：`U → U採用`。ユーザーの「いいね」「今後時計のリサーチとかもこれで一回納品」「プレゼンしてをGitHubにこの要件で登録したい」が採用根拠。AIは条文化とルーティングを実装。
+- **旧状態・棄却**：`strategy/japanese-writing.md`は文章一般のガイドだったが、チャットプレゼン専用のlauncherや完了条件はなかった。PPT/PDF/LPへ固定する、Council規則を上書きする、研究正本を薄い紹介文へ置換する、未確認素材をイメージ画像で補う、結論を小出しにして追加誘導する方針は不採用。
+- **影響範囲**：`PROJECT.md`、`strategy/chat-presentation.md`、`CHANGE_DECISIONS.md`のみ。公開サイト、WATCH・OWNER'S NOTE本文、SNS/Analytics・Research LedgerのCURRENT、Council仕様は変更しない。
+- **検証状態**：同変更セットのmain commit後、3ファイルの再取得、導線・本文・Decision Logの存在、commit changed filesを独立確認する。公開サイトのUI変更は伴わない。チャット上の読者理解・面白さの効果測定は未実施。
+- **関連**：`PROJECT.md` §0/§2、`AGENTS.md` 時計研究フレーム、`SITE_RULES.md`、`strategy/japanese-writing.md`、`.codex/MANAGER_CONTROL_PLANE.md`。
+- **日時根拠**：作業ホスト `TZ=Asia/Tokyo date` により `2026-10-15 11:53:52 JST` を確認。日時は最寄りのホスト実測分を採用。
