@@ -3616,3 +3616,21 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 
 **Research consequence:** The previous broad 'caseback marks missing' statement must be narrowed to **inside caseback marks / unresolved exterior number meaning**. This is an evidence update only: no WATCH publication-status change, no OWNER'S NOTE rewrite, no public RESEARCH media update, no confirmation of receipt or owner operation.
 
+
+### 2026-10-15 — Hands-on video: minute hand can be displaced by fingertip (IMG_3079.mp4)
+
+**Ingress / origin:** User's direct report in this conversation: 「なお悲報分針は指で動く模様」 (user-observed operational problem), accompanied by three directly uploaded MP4 recordings: `IMG_3073.mp4` (8.87 s), `IMG_3079.mp4` (5.17 s), and `IMG_3076.mp4` (4.70 s). The videos were inspected as frame sequences in this turn. They are current specimen-facing observational material, **not** a manufacturer-documented characteristic, a repair diagnosis, or independent proof of receipt/purchase status.
+
+**VIDEO-CONFIRMED, scoped to this one demonstrated specimen:**
+- In `IMG_3079.mp4`, a fingertip contacts the exposed dial/pointer area with the hinged lid open; the **long minute pointer visibly changes its indicated orientation substantially, from near 12 o'clock toward approximately 3 o'clock** during contact. The apparent shift is much greater than normal elapsed-time motion during this five-second clip.
+- The shorter hour pointer and the independent alarm pointer do **not visibly undergo an equivalent large sweep** during this demonstration. Fine motion of other components, grip/force, exact displacement angle, repeatability, movement train participation and post-contact timekeeping **cannot be decided confidently** from the clip alone.
+- `IMG_3073.mp4` shows the front hinged lid going from closed to open. `IMG_3076.mp4` shows additional handling and the right-side crown area, but provides no independent proof of alarm performance or the root cause of pointer displacement.
+
+**SPECIMEN FAILURE / TACTILE READABILITY CONSEQUENCE:** This is direct evidence of a **contact-induced current-time display disturbance** in the pictured ARSA tactile-alarm specimen. Its practical significance is specific to the direct-touch reading interface: merely reading the hands could invalidate a subsequent displayed time if ordinary tactile contact moves the minute pointer. This qualifies the previous 'robust hand / touch resistance yet to be tested' gap with an actual **negative specimen-level result**. It **does not** establish that all 1950s ARSA Blind Alarm watches suffer the same behavior, nor that the AS 1475 train is damaged.
+
+**POSSIBLE mechanisms (unverified; no single cause adopted):** insufficient minute-hand hub/tube grip; insufficient friction/retention in the motion works/cannon pinion; or another setting/hand-stack issue. An exterior video cannot distinguish displacement **of the hand alone** from hand-and-motion-works movement. Do not assert a loose press-fit, stripped gear or bad overhaul without watchmaker examination. Prior seller statement 'serviced' remains a claim, not evidence of the service's quality or extent.
+
+**Care / next observation gate:** STOP further repeated fingertip deflection of the exposed hands to avoid bending/disturbance and to preserve the as-received state; preserve the original recording for a watchmaker/seller discussion. Investigate hand security / friction with a qualified watchmaker before resuming hands-on touch-read-back tests. Do not pull off/re-seat the hand, force the crown, or perform more push tests to collect a larger sample. Separately establish operation/alarm condition by appropriate non-destructive checks. **Do not revise public OWNER'S NOTE, RESEARCH text, publication flags or uploaded media automatically.**
+
+**Earlier evidence relationship:** Research Ledger had already cited later Seiko interview testimony about touch-induced pointer displacement in tactile watches. That historical/general evidence is not proof of ARSA production defect; this newly supplied video is an individual-specimen observation, not an industry-wide failure rate. Prior verified seller-side `AS 1475 / 17 JEWELS` movement identity remains unchanged.
+
