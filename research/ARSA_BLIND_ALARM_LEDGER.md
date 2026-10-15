@@ -3599,3 +3599,20 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 **Public-page boundary:** The images can guide DEEP DIVE ③ observations and an evidence-grounded DEEP DIVE ④ ARSA reference drawing. Do not change the OWNER'S NOTE, WATCH publication flag, or RESEARCH front-end automatically. The photos do not establish the specimen's date, tactile efficacy, operation success, case metal, seller's servicing extent, or permission to re-publish image files. The seller's prior operation/hinge answers remain seller statements, not user testing. The currently published research route remains independent of the hidden WATCH route.
 
 **Next admissible evidence:** permission-cleared original photo files for public media; actual hands-on check after arrival; movement/case images if newly obtained. Avoid repeat cataloguing existing seller images as new technical discoveries.
+
+
+### 2026-10-15 — User-supplied exterior caseback and on-wrist photos (IMG_3072 / IMG_3077 / IMG_3078)
+
+**Ingress / provenance:** Three original photos were provided directly in this ChatGPT conversation on 2026-10-15, filenames \`IMG_3072.jpeg\` (dial with strap), \`IMG_3077.jpeg\` (caseback **exterior**), and \`IMG_3078.jpeg\` (watch worn on a wrist). Treat as **USER-SUPPLIED IMAGE EVIDENCE**; the circumstances of photography, the possession/delivery state, and match to the earlier seller-photographed specimen are not independently established by the images alone. No files have been republished to the site.
+
+**IMAGE-CONFIRMED / EXTERIOR ONLY:**
+- Dial shows \`ARSA\`, \`ALARM / 17 JEWELS\`, \`SWISS MADE\`, raised hour markers, distinct hour/minute/alarm hands, right-side two-crown arrangement. The 12 o'clock marker appears as vertically grouped three dots. These are corroborations of features already recorded from seller photos, **not a new caliber or dating result**.
+- External caseback includes low-contrast stamped wording best read as **\`STAINLESS STEEL BACK\`** and **\`SWISS MADE\`**. The qualification \`BACK\` matters: **this establishes the stated material of the back only**, not an all-stainless case, and does not identify the case middle's base metal.
+- An additional five-digit-looking marking near the lower edge appears to read **\`52820\`**, but local damage, lighting and shallow engraving make this **provisional / NOT TRANSCRIPTION-CONFIRMED**. Do not classify it as serial, reference or production-year code without independent evidence.
+- Visible exterior case and back show scratches, discolored/corrosion-like spotting and apparent wear of the surface finish around some case edges. These are exterior visual observations; do not infer movement corrosion or plating metal/composition from them.
+- The watch is shown with an attached black strap and in a wrist-worn photograph. **Wearer/owner identity, receipt, continuous running, alarm sound, and tactile read-back are not demonstrated.**
+
+**Still OPEN:** inside caseback markings (the cover was not opened in these new photographs), complete case material, exact date, robust number transcription and what that number means, in-hand lid/opener/tactile usability, alarm behavior, and hidden mechanism condition. Prior seller movement-side photograph already confirmed **AS 1475 / 17 JEWELS**; these new exterior photos do not repeat or replace that evidence.
+
+**Research consequence:** The previous broad 'caseback marks missing' statement must be narrowed to **inside caseback marks / unresolved exterior number meaning**. This is an evidence update only: no WATCH publication-status change, no OWNER'S NOTE rewrite, no public RESEARCH media update, no confirmation of receipt or owner operation.
+
