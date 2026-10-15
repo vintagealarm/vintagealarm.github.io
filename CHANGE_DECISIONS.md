@@ -1869,3 +1869,15 @@
 - **検証状態**：同変更セットのmain commit後、3ファイルの再取得、導線・本文・Decision Logの存在、commit changed filesを独立確認する。公開サイトのUI変更は伴わない。チャット上の読者理解・面白さの効果測定は未実施。
 - **関連**：`PROJECT.md` §0/§2、`AGENTS.md` 時計研究フレーム、`SITE_RULES.md`、`strategy/japanese-writing.md`、`.codex/MANAGER_CONTROL_PLANE.md`。
 - **日時根拠**：作業ホスト `TZ=Asia/Tokyo date` により `2026-10-15 11:53:52 JST` を確認。日時は最寄りのホスト実測分を採用。
+
+
+### 2026-10-15 23:25 JST — ARSA実機分針の接触変位を確認し触読追試をHOLD
+- **変更**：ARSA Blind Alarm実機の動画 `IMG_3079.mp4` で、指に触れた分針が12時付近から3時方向へ大きく変位する現象を個体固有の観察事実としてResearch Ledgerへ追記。Research Mapの未検証項目を更新し、針に直接触れる継続試験は時計師点検までHOLD。
+- **起点 → 判断**：Uが分針の接触変位を報告し3本の実機動画を提供（`Uが実機観察`）。Aが動画の時系列を独立に確認し、暫定的な検証HOLDを判断（`U観察 → A安全判断`）。原因診断やユーザーの修理方針採用ではない。
+- **理由**：触読式アラーム腕時計にとって、時刻を読む指の接触で時刻表示が乱れることは、通常の読取試験の信頼性と個体保全の双方に関わる。既存の「到着後に針を触ってread-backを検証する」計画をそのまま続けないため。
+- **旧状態・棄却**：以前の「触読保持力未測定／到着後read-back試験予定」は、この個体では分針変位を観測した状態へ更新。ただし分針圧入の緩み、筒カナ摩擦不良、歯車破損等の単一原因は未証明。全ARSAに同現象を一般化しない。売主の「serviced」発言は事実認定に昇格しない。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本判断履歴。通常WATCH `published: false`、公開RESEARCH本文、OWNER'S NOTE原文、画像アセット、台帳Issuesは無変更。
+- **検証状態**：動画3件は実ファイルで確認済み。Research Ledger/Mapをmainへ更新済み。再取得・commit更新日時確認は後続の独立確認で実施。時計師による機械的原因診断・修理・経過観察は未実施。
+- **関連**：`IMG_3073.mp4`、`IMG_3079.mp4`、`IMG_3076.mp4`。分針変位の直接根拠は`IMG_3079.mp4`。Ledger / Mapの2026-10-15項目。
+- **日時根拠**：2026-10-15 23:24:29 JSTに作業ホスト `TZ=Asia/Tokyo date` を実測。記録時刻はその直後の分単位。
+
