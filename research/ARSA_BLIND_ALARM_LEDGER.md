@@ -3624,7 +3624,7 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 **VIDEO-CONFIRMED, scoped to this one demonstrated specimen:**
 - In `IMG_3079.mp4`, a fingertip contacts the exposed dial/pointer area with the hinged lid open; the **long minute pointer visibly changes its indicated orientation substantially, from near 12 o'clock toward approximately 3 o'clock** during contact. The apparent shift is much greater than normal elapsed-time motion during this five-second clip.
 - The shorter hour pointer and the independent alarm pointer do **not visibly undergo an equivalent large sweep** during this demonstration. Fine motion of other components, grip/force, exact displacement angle, repeatability, movement train participation and post-contact timekeeping **cannot be decided confidently** from the clip alone.
-- `IMG_3073.mp4` shows the front hinged lid going from closed to open. `IMG_3076.mp4` shows additional handling and the right-side crown area, but provides no independent proof of alarm performance or the root cause of pointer displacement.
+- `IMG_3073.mp4` shows the front hinged lid going from closed to open. `IMG_3076.mp4` shows handling of the watch, and its audio track confirms a recorded alarm sound. The earlier statement about missing alarm evidence was incorrect; see the correction below. The minute-hand displacement diagnosis remains open.
 
 **SPECIMEN FAILURE / TACTILE READABILITY CONSEQUENCE:** This is direct evidence of a **contact-induced current-time display disturbance** in the pictured ARSA tactile-alarm specimen. Its practical significance is specific to the direct-touch reading interface: merely reading the hands could invalidate a subsequent displayed time if ordinary tactile contact moves the minute pointer. This qualifies the previous 'robust hand / touch resistance yet to be tested' gap with an actual **negative specimen-level result**. It **does not** establish that all 1950s ARSA Blind Alarm watches suffer the same behavior, nor that the AS 1475 train is damaged.
 
@@ -3634,3 +3634,11 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 
 **Earlier evidence relationship:** Research Ledger had already cited later Seiko interview testimony about touch-induced pointer displacement in tactile watches. That historical/general evidence is not proof of ARSA production defect; this newly supplied video is an individual-specimen observation, not an industry-wide failure rate. Prior verified seller-side `AS 1475 / 17 JEWELS` movement identity remains unchanged.
 
+
+
+### 2026-10-16 — IMG_3076.mp4 alarm audio verification and correction
+
+- User identified this last clip as the watch sounding its alarm. Earlier analysis examined only video frames and incorrectly claimed that alarm activity was unconfirmed.
+- Rechecked original MP4 including audio: 4.70-second recording, AAC 44.1 kHz audio track; pronounced sustained high-frequency sound from 0 to approximately 3.4 seconds, followed by a clear fall in sound level. The video shows the watch during the sound.
+- **Status: audio-recorded alarm sounding on this specimen — CONFIRMED.** Full-wind sounding duration, triggering accuracy and repeatability remain unmeasured. The minute-hand displacement recorded in IMG_3079.mp4 is a separate observation.
+- Previous negative assertion is retracted. Research Map must be updated. Public pages and original owner's note remain unchanged.
