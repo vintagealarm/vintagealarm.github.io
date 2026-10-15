@@ -97,6 +97,7 @@ ARSAをAS1475史へ戻して終える。
 - 約33mm級
 - seller movement photoで **AS 1475** 刻印、**17 JEWELS**、同caliberのbridge layoutを確認
 - 2026-10-15ユーザー提示の**裏蓋外面**写真で、浅い刻印 `STAINLESS STEEL BACK` / `SWISS MADE` を確認。下部に `52820` と読めそうな数字刻印があるが**判読・意味とも未確定**。ケース本体はステンレス製と断定不可。外面の擦傷・斑点を確認（詳細はLEDGER）
+- **2026-10-15実機動画新証拠**：`IMG_3079.mp4` で、触った分針が12時付近から3時方向まで大きく移動。**現個体の触読時刻表示が指の接触で乱れることを動画確認**。時針・アラーム針の同程度の変位は観察できない。発生原因は未診断（詳細はLEDGER）
 - 2026-10-02購入済み。価格・配送状態は個人台帳側を正本とし、この研究MAPでは追跡しない
 
 **SELLER-CLAIM**
@@ -111,7 +112,8 @@ ARSAをAS1475史へ戻して終える。
 - 正確な製造年代
 - hidden / under-dial condition
 - sellerの「serviced」の正確な範囲・時期・担当
-- 到着後の実機操作で確認できる触覚UI・アラーム設定挙動
+- 分針が指の接触で動く原因・正常な指触保持力・修理要否は**未診断**。更なる針への接触試験は**HOLD**し時計師の点検判断を優先
+- アラーム設定・鳴動・時刻精度等の実機挙動は引き続き未確定
 
 ### 3.2 専門書で固定できる歴史側
 
@@ -220,7 +222,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - failure evidenceは「ARSA固有」と「touch-watch一般」を分離。ARSA固有の慢性hinge弱点や高故障率は未証明
    - model variationはAS1475系を確定本線とし、Venus230 Blind Alarmはforum survivor lead / HOLD。non-alarm ARSA tactile watchesと現行ARSA blind watchesではopen positionが4 / 6 / 3等に分かれ、ARSA共通の単一case architectureとはしない
    - **arrival test:** alarm ON/OFF crown state（early AS1475はcrown down、ca.1960以降のlater typeはpulled up）を確認。movement revisionの年代手掛かりにはなるがwatch assembly date確定には使わない
-   - 到着後の触覚操作実測を重視
+   - **2026-10-15観察**：分針の接触変位を動画確認。針に触れる操作の継続実測は時計師点検までHOLD（単一個体・原因未診断）
    - **利用者視点の到着後確認:** 時分針とアラーム針の重なり時の識別、アラーム設定時刻の触覚read-back、蓋・プッシャーの指先での把握を記録。時計所有者による構造・操作確認と、視覚障害のある利用者の使用感調査とは区別する。
 
 ### P0.5 — 設計思想 / 設計資料
@@ -435,7 +437,7 @@ Deep Dive ③を比較へ進める前に、ARSAの「なぜこの形なのか」
 4. **③b 設計思想 / 設計資料 — PASS 2 COMPLETE / ARCHIVE BONUS ONLY** — factory design documentは未回収。source-labeled requirement reconstructionを採用し、archive本文取得時のみ再開
 5. **④触読alarm比較 — PASS 1 COMPLETE** — ARSA / AFB-ARSA / Enicar / BEAT / A. Schild / later afBをhand coding / opener / read-back / source tierで比較済み
 6. **⑤AS1475と変貌種 — PASS 1 COMPLETE / CLOSING FRAME FIXED** — AS1475を「特殊時計用caliber」ではなく、1954–1970に約78万個作られた普及platformとして起点化。通常alarm → Benedict Park-O-Phonのparking UI → ARSA / Enicar / BEAT等のtactile UI → date派生AS1568 → 高振動後継AS1930 / 1931 → Citizen / Poljot等のdirectly based descendantsまで、同じ機構骨格が別用途・別地域へ展開した流れを固定
-7. 到着後、購入個体で**時・分・alarm handの触り分け / alarm設定時刻read-back / front-cover操作**を実測する
+7. **2026-10-15実機動画で分針の接触変位を確認**。針に触れるread-back・触り分けの追加試験は**HOLD**。時計師に分針とmotion worksの保持／表示追従を点検してもらってから安全に再判定する。蓋操作・アラーム機能の確認は分けて扱う
 8. **03のperiod-ad探索はHOLD。** ARSA Blind Alarm本人を名指し／図示する未確認の1950年代広告・catalog・price list等、新しい直接証拠が得られた時だけ再開する。既読のJSH 1958 p.120広告や撤回済み別記事を再探索条件にしない
 9. AFB契約書、Smithsonian、WPB等は、上記1〜6の未解決を直接埋める場合だけ再開する
 
