@@ -504,6 +504,8 @@ Current state:
 
 **2026-10-16 SELLER DIRECT MESSAGE VERIFIED (IMG_3115/3116):** Before buying, user specifically challenged missing alarm click screw / retention risk. Seller explicitly replied: `There is nothing broken or damaged in the watch. The watch has been serviced and is working properly, including the alarm function. Everything is operating as it should, so there is no known mechanical issue or repair needed in this area.` Earlier possibility that seller did not reply is superseded. This categorical assurance is materially stronger than mere `alarm rings`, but does not itself prove knowledge or intent to defraud. Contrast with user-supplied opened case photos and loose movement observations, still pending physical diagnosis. Seller response is separate from listing text recommending servicing. Ledger contains verbatim original.
 
+**2026-10-16 FINAL PRE-PURCHASE YES/NO (IMG_3122.png):** Buyer further asks, `is there physically a screw in the red-circled hole ... or is that hole empty?` The visible screenshot shows no answer to that narrow binary question; following dated Oct 5 thread concerns shipping and seller's `It will be shipped tomorrow`. Earlier seller broad answer about service/no known mechanical damage exists (IMG_3116) and must not be misrepresented as silence, but **physical presence/absence of specific screw is not visibly answered**. No claim of intentional evasion without complete exchange. Ledger has exact words and evidence boundary.
+
 ## 12. 2026-10-02 — probable missing alarm click screw
 
 New user-marked side-by-side comparison shows the target movement apparently lacks the slotted screw at the alarm click beside the upper alarm ratchet wheel.
