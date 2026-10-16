@@ -3667,3 +3667,11 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 **Interpretation — HYPOTHESIS, not repair-confirmed:** This low contact threshold at the minute hand sharply weakens the suggestion that fingertip back-driving is merely an innocuous high-force property. Given geared hour-hand following and otherwise coordinated crown setting, insufficient friction retention of the cannon pinion/motion works is now a leading diagnostic possibility; a hand-fit issue or other fault cannot be excluded solely from user force descriptions. Touch-readability on this specimen is compromised as reported. No factory force limit or normal comparison specimen verified.
 
 **Action:** Preserve the existing videos and as-found state, stop further deliberate fingertip manipulation; ask a qualified watchmaker to assess holding torque and minute-hand fixation before adjustment. Do not state a confirmed defect location or conclude the seller lied about service. Public research content remains unchanged.
+
+### 2026-10-16 — Alarm crown very hard to pull after winding (user observation)
+
+**USER-REPORT:** After winding the alarm, pulling the alarm crown outward becomes **very stiff** (「巻き上げた時にアラームリューズが引き上げめっちゃ硬い」). User asks whether this connects to the previously suspected missing alarm click screw 57426 and asks why alarm can sound if click is absent.
+
+**CORRECTION / MECHANICAL LIMIT:** Prior seller-side image suggests missing **click screw 57426**, NOT verified absence of click 7426 or click spring 7436. Audible alarm in IMG_3076.mp4 confirms some alarm energy was stored and released; it does not prove all click-retention parts are intact, nor reliably discriminate missing screw, broken screw stump or visual misidentification.
+
+**HYPOTHESES (not diagnosed):** Click winding-retention function may remain present notwithstanding uncertain screw state, but this is not demonstrated. Excessive axial pull resistance after alarm winding could involve alarm crown/stem setting/shift components or load interaction; there is insufficient AS1475-specific evidence to assert it is caused by click screw absence. Avoid forcing the crown, repeat winding or further touch tests; Mori-san is the already-confirmed intended repair contact and has previously indicated click-area repairability and compatible donor stock (cross-repo watchdiary-ios #21/#60).
