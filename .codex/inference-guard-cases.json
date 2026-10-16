@@ -798,6 +798,53 @@
           }
         ]
       }
+    },
+    {
+      "id": "WATCH-CROSSREPO-REPAIR-001",
+      "title": "Owner repair route must be read from watchdiary before general watch-repair advice",
+      "premise": "ARSA Blind Alarm has VA research ledger, but purchase rationale and previously arranged repair route are recorded in watchdiary-ios issues #21 and #60",
+      "forbidden_inference": "Search only ARSA research files, claim Mori-san arrangement was never recorded, suggest generic watchmakers and new repair paths, or treat missing research-ledger mention as absence of prior purchase planning",
+      "required_action": "Follow PROJECT.md collection route across repositories before answering even if the conversation primarily concerns an ARSA technical defect; read watchdiary-ios #21 then #60; preserve Mori-san prior direct reply, compatible AS1475 donor stock and alarm click screw 57426 suspicion, and distinguish plan from confirmed repair completion",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "cross_repo_routing",
+        "prompt": "ARSA Blind Alarmの分針が軽い接触で動く。森さんに預ける約束、買う前に話したよね？",
+        "expected_resolution": "PROJECT.md の横断照合の強制条件に従って、orima1995-create/watchdiary-ios #21 → #60 をfresh取得。#21/#60には、森さんがAS1475アラームのコハゼ部へ対応でき、互換ドナームーブ在庫があると購入前に回答した記録がある。ネジ57426欠落疑いを許容できた修理ルートが購入判断の前提。時計はまだ修理済みと扱わず、故障診断と既定の森さんルートを整合させる。",
+        "forbidden_resolution": "ARSA研究LedgerやMapだけを検索して『記録がない』『共有していない』と回答する、森さんを無視して新規時計師への依頼を一般論で提案する。",
+        "routing_path": [
+          "PROJECT.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": "PROJECT.md",
+            "contains": [
+              "横断照合の強制条件（研究中も適用）",
+              "`watchdiary-ios` #21 → #60",
+              "研究・症状相談"
+            ]
+          }
+        ],
+        "external_required_sources": [
+          {
+            "uri": "https://github.com/orima1995-create/watchdiary-ios/issues/21",
+            "contains": [
+              "repair route",
+              "Mori-san",
+              "57426"
+            ]
+          },
+          {
+            "uri": "https://github.com/orima1995-create/watchdiary-ios/issues/60",
+            "contains": [
+              "repairability risk was reduced before purchase",
+              "Mori-san",
+              "57426"
+            ]
+          }
+        ]
+      }
     }
   ]
 }
