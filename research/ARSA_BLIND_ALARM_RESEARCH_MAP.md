@@ -570,3 +570,6 @@ Do not rephrase this as "WHO approved ARSA" or "blind users found ARSA excellent
 **Other v1 gates:** hands-on operation, sound and touch checks after arrival; media permissions; source-to-visual mapping; visual mobile/desktop check; citation/build/layout validation; explicit publication authority and live parity. Manufacturer reply and further archive discovery are useful but not mandatory for a documented first release.
 
 **Scope:** PR #235 stays draft. Do not merge unapproved visuals; do not change existing RESEARCH public status or the separate WATCH `published: false`. Keep #214 / #232 intact.
+
+
+**2026-10-16 PART-ONLY PROCUREMENT + REFUND PLAN:** Owner selected 60% as initial partial-refund ask (not yet sent/accepted). AS1475 separate alarm click screw 57426 appears in eBay item 275186748488 variant selector, nominal USD7.99 plus displayed USD10.29 shipping; German Heß source indexes NOS 7426 click and 7436 spring but their prices are unverified. eBay 235537615409 has generic parts USD9.99, not proof it stocks 7426 or 7436. Seller return-cost motivation and acceptance probability not proven. Separate click fix from movement case retention and tactile minute-hand issue. Ledger holds URLs and FX snapshot. Public anecdotal 50% refund is not comparable transaction precedent or entitlement.
