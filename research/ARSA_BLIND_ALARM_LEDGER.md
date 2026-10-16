@@ -3659,3 +3659,11 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 **MECHANICAL INFERENCE, NOT ARSA DESIGN PROOF:** Watch motion works include an intentional friction interface to permit crown-driven hand setting. Finger rotation can in principle back-drive the setting/motion works if enough torque is applied. Observed gearing of hour and minute hands is consistent with this, but does not distinguish expected high-force back-driving from insufficient cannon-pinion friction. The normal tactile contact force or a factory ARSA 1950s force threshold is not established by this observation.
 
 **Current state:** Whether this specimen is defective is OPEN; neither 'fixed/normal by design' nor 'faulty serviced watch' is proven. Compare gentle touch-reading pressure versus purposeful forced rotation only using non-destructive observation; avoid repeating deliberate spinning. Alarm sound separately confirmed by IMG_3076.mp4. No public website changes. Source: user correction 2026-10-16.
+
+### 2026-10-16 — Tactile force asymmetry: minute moves with light touch, hour resists force
+
+**USER DIRECT OBSERVATION:** 「時針は力かけても不可／分針は軽く触れれば動く」. Hour hand resists even a deliberate force; minute hand can shift under slight contact. This clarifies previous 2026-10-16 report that deliberately continuing to turn the minute pointer eventually drives the hour pointer proportionally.
+
+**Interpretation — HYPOTHESIS, not repair-confirmed:** This low contact threshold at the minute hand sharply weakens the suggestion that fingertip back-driving is merely an innocuous high-force property. Given geared hour-hand following and otherwise coordinated crown setting, insufficient friction retention of the cannon pinion/motion works is now a leading diagnostic possibility; a hand-fit issue or other fault cannot be excluded solely from user force descriptions. Touch-readability on this specimen is compromised as reported. No factory force limit or normal comparison specimen verified.
+
+**Action:** Preserve the existing videos and as-found state, stop further deliberate fingertip manipulation; ask a qualified watchmaker to assess holding torque and minute-hand fixation before adjustment. Do not state a confirmed defect location or conclude the seller lied about service. Public research content remains unchanged.
