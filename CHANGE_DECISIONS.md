@@ -1920,3 +1920,13 @@
 - **検証状態**：ユーザーの実機観察に基づく更新。分解点検・保持力測定未実施。
 - **関連**：ARSA IMG_3079.mp4、2026-10-16の時針連動訂正。
 - **日時根拠**：実行ホスト2026-10-16T02:20:23.019Z UTC → 2026-10-16 11:20 JST。
+
+### 2026-10-16 11:54 JST — ARSA修理先の記録見落としを横断ルートと回帰テストで防止
+- **変更**：PROJECT.mdの個人時計台帳ルートに、研究・症状相談中でも購入判断・修理先・修理可否に触れたらwatchdiary-ios #21→#60をfresh取得する明示的な横断照合条件を追加。inference-guard-cases.jsonへWATCH-CROSSREPO-REPAIR-001を追加しcheck-replay-evals.mjsの必須ケースに登録。
+- **理由**：ARSA Ledger / Mapに森さんへの事前相談が見当たらないことを、共有履歴自体がないと誤判定した。原因は情報欠落ではなく、現存するcross-repo正本への未到達。
+- **起点→判断**：ユーザーが元々森さんに相談済みである購入背景を指摘し改善を命じた（U）。AIが#21/#60を再確認して既存router・回帰fixtureを差分改修（A実装）。
+- **旧状態・棄却**：従来も#21を読む規則は存在したが、研究案件での横断照合に失敗。新たな事故台帳やARSA Research Ledgerへの私的購入情報の重複保存は採らず、既存routerと既存Replay corpusを修正。
+- **影響範囲**：PROJECT.md、.codex/inference-guard-cases.json、scripts/check-replay-evals.mjs、CHANGE_DECISIONS.mdのみ。サイト記事・公開フラグ・個人台帳issues #21/#60を変更しない。
+- **検証状態**：更新ファイルをmainから再取得し、必須Replay登録・Source anchor・JSON整合を確認する。実際の将来の会話で必ず防止できるという効果実証は未実施。
+- **関連**：watchdiary-ios #21（購入時点の森さん回答・互換ドナー在庫）/#60（購入判断・ネジ57426欠落疑い）、VA Research Ledger / Map、およびWATCH-CROSSREPO-REPAIR-001。
+- **日時根拠**：作業ホスト 2026-10-16T02:54:19.293Z UTC → 2026-10-16 11:54 JST（Asia/Tokyo換算）。
