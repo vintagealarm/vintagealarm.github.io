@@ -3738,3 +3738,23 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 **NEW PRIMARY SCREENSHOT (USER):** `IMG_3122.png`, eBay buyer/seller thread `timelessantique`, order 10-15242-03844. Buyer asks verbatim: `Thank you. Just one final question: is there physically a screw in the red-circled hole in my photo, or is that hole empty?` timestamp displayed 12:21, calendar/date for this specific question not visible in screenshot. Following visible thread entry is dated **2026-10-05**, with a new buyer shipping inquiry (payment Oct 2, not marked shipped) and seller's reply `Hello / It will be shipped tomorrow` at 22:18. No direct answer to the binary screw-present/screw-absent question is visible **in the provided screenshot**. This does not alone prove no response existed elsewhere or a seller's intent; any stronger claim must inspect full thread.
 
 **IMPORTANT SYNTHESIS / CORRECTION:** Prior `IMG_3116.jpeg` seller message was an explicit broad assurance of service and no known broken/damaged mechanical parts, including the alarm click area. But `IMG_3122.png` shows that a narrower final *physical yes/no* question was asked, for which **no answer is visible**. Preserve both: `general no-mechanical-issue response exists` AND `explicit presence/absence of screw not visibly confirmed`. Do not call entire click inquiry unanswered or fully answered. Upon arrival owner sees thin metal piece near click area, owner-reported movement-to-case looseness, tactile minute-hand shifting; exact missing component remains pending diagnosis. Relevant to seller resolution messaging; no proof of intentional fraud.
+
+
+### 2026-10-16 — Owner-supplied ARSA publication photo set (7 images): REGISTERED AS EVIDENCE, BINARY ASSETS PENDING
+
+**USER AUTHORIZATION:** The owner supplied seven actual-specimen photographs as ARSA publication candidates, then explicitly authorized image registration (「画像登録していいよ」). This is authorization for image registration, not a request to change the ARSA WATCH `published: false` flag, alter approved copy, merge the existing draft, or assume any source-book/seller-photo republication rights.
+
+**SOURCE / PHOTO INDEX (original filenames in 2026-10-16 conversation):**
+1. `IMG_3117.jpeg` — watch frontal view with front cover closed; two crowns, case, dial and strap.
+2. `IMG_3118.jpeg` — hinged cover open, showing raised tactile dial markers and hands.
+3. `IMG_3120.jpeg` — actual-specimen close-up of raised tactile index pattern and distinctive central hands.
+4. `IMG_3121.jpeg` — caseback exterior, shallow engraved markings and worn case surface.
+5. `IMG_3104(1).jpeg` — owner specimen with caseback removed, whole exposed mechanical movement.
+6. `IMG_3102(1).jpeg` — removable back inner surface.
+7. `IMG_3103(1).jpeg` — internal cup-like metal component with off-centre projecting pin; identification and acoustic/mechanical function not established from image alone.
+
+**DIRECT PHOTO OBSERVATIONS:** Dial `ARSA / ALARM / 17 JEWELS / SWISS MADE`, hinged cover at 9 o'clock side, raised points with 12=3, 9=2, 3=1, 6=1 arrangement, two operating crowns and a patterned alarm pointer. Movement photograph has `17 JEWELS` on bridge. Do not say an `AS 1475` calibre stamp was read from this photograph. The caseback shows faint stamping and lower numeric marks, but numeral reading and case material remain tentative; a back marked steel does not establish full case material. No mechanical identification should be assigned to the separate metal component without physical and corroborating evidence.
+
+**SEPARATE CONDITION RECORD:** Existing concerns about alarm click hardware and owner-reported movement-to-case play remain OPEN for physical diagnosis. A movement photograph by itself does not establish normal retention or successful servicing.
+
+**ASSET STATUS:** The seven photos are indexed here against their actual original filenames and approved as user-owned publication candidates, but this ledger registration alone does not upload image binaries to the repository. Do not describe them as committed public media or live-gallery images without verifying actual binaries, source references, layout, deployment and rights. No change to ARSA RESEARCH publication status, WATCH `published: false`, approved text, or draft PR #235 is implied.
