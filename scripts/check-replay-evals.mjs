@@ -27,6 +27,7 @@ const requiredReplayIds = [
   'SURFACE-INCHAT-001',
   'CAPABILITY-GITHUB-001',
   'PROGRESS-NOSILENCE-001',
+  'WATCH-CROSSREPO-REPAIR-001',
 ];
 
 const errors = [];
