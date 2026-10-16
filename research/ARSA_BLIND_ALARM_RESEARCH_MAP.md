@@ -502,6 +502,8 @@ Current state:
 
 **2026-10-16 USER CORRECTION:** Bare AS1475 reference `IMG_3114(1).jpeg` versus case-installed owner movement `IMG_3109(2).jpeg`: absence of case-specific fixing screws on the bare example is not a rebuttal; the owner's point that the two outer/lower-looking positions on the cased movement may lack retainers is a stronger working concern **when combined with reported actual play**. Precise screw/clamp/ring interfaces remain for Mori-san to identify; don't assert all three holes are absent clamps. Ledger contains the user-origin correction.
 
+**2026-10-16 SELLER DIRECT MESSAGE VERIFIED (IMG_3115/3116):** Before buying, user specifically challenged missing alarm click screw / retention risk. Seller explicitly replied: `There is nothing broken or damaged in the watch. The watch has been serviced and is working properly, including the alarm function. Everything is operating as it should, so there is no known mechanical issue or repair needed in this area.` Earlier possibility that seller did not reply is superseded. This categorical assurance is materially stronger than mere `alarm rings`, but does not itself prove knowledge or intent to defraud. Contrast with user-supplied opened case photos and loose movement observations, still pending physical diagnosis. Seller response is separate from listing text recommending servicing. Ledger contains verbatim original.
+
 ## 12. 2026-10-02 — probable missing alarm click screw
 
 New user-marked side-by-side comparison shows the target movement apparently lacks the slotted screw at the alarm click beside the upper alarm ratchet wheel.
