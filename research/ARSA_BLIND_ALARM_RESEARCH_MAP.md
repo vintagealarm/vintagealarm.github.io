@@ -499,6 +499,9 @@ Current state:
 
 **2026-10-16 SELLER LISTING EVIDENCE (IMG_3110–3113):** Original eBay item 206595337301 says `Pre-owned - Good`, and listing condition prose says `Pre-owned in good vintage condition with light signs of wear. As with any vintage mechanical watch, servicing is recommended for optimal performance.` This **does not claim completed service/OH**. Prior separate seller direct statement `serviced and working properly` is distinct provenance; do not attribute it to the public listing. New movement retention and click-area observations were not disclosed in shown listing text. Original listing references seller photos as part of description. Seller's 1970s, stainless steel, dimensions remain listing claims, not period/material verification. Detailed evidence in Ledger.
 
+
+**2026-10-16 USER CORRECTION:** Bare AS1475 reference `IMG_3114(1).jpeg` versus case-installed owner movement `IMG_3109(2).jpeg`: absence of case-specific fixing screws on the bare example is not a rebuttal; the owner's point that the two outer/lower-looking positions on the cased movement may lack retainers is a stronger working concern **when combined with reported actual play**. Precise screw/clamp/ring interfaces remain for Mori-san to identify; don't assert all three holes are absent clamps. Ledger contains the user-origin correction.
+
 ## 12. 2026-10-02 — probable missing alarm click screw
 
 New user-marked side-by-side comparison shows the target movement apparently lacks the slotted screw at the alarm click beside the upper alarm ratchet wheel.
