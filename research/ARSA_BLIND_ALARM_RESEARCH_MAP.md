@@ -493,6 +493,8 @@ Current state:
 - do not keep this as an active purchase-risk item unless contradictory evidence appears
 
 
+**2026-10-16 UPDATED, owner-opened movement photos:** `IMG_3104.jpeg`, `IMG_3102.jpeg`, `IMG_3103.jpeg`, `IMG_3105(1).jpeg` received for VA display consideration. Oblique fourth photograph reveals a non-standard, thin metallic-looking element near the alarm click/wheel area. User reports it is a makeshift thin iron rod substituted for the click (「コハゼの代わりにほっそい鉄の棒」). *Exact material, attachment, component identity, original 7426/7436 status and 57426 condition require physical confirmation.* Prior hypothesis of a **mere missing 57426 screw is no longer sufficient as the full working description**. More serious possibility of makeshift winding-retention intervention is now OPEN for Mori-san diagnosis; stop further operation until inspected. Earlier audible alarm is not proof of healthy original click assembly. Ledger has detailed image observations; do not publish accusatory statements as findings or change `published:false` without explicit instruction.
+
 ## 12. 2026-10-02 — probable missing alarm click screw
 
 New user-marked side-by-side comparison shows the target movement apparently lacks the slotted screw at the alarm click beside the upper alarm ratchet wheel.
