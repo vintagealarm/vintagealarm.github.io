@@ -506,6 +506,8 @@ Current state:
 
 **2026-10-16 FINAL PRE-PURCHASE YES/NO (IMG_3122.png):** Buyer further asks, `is there physically a screw in the red-circled hole ... or is that hole empty?` The visible screenshot shows no answer to that narrow binary question; following dated Oct 5 thread concerns shipping and seller's `It will be shipped tomorrow`. Earlier seller broad answer about service/no known mechanical damage exists (IMG_3116) and must not be misrepresented as silence, but **physical presence/absence of specific screw is not visibly answered**. No claim of intentional evasion without complete exchange. Ledger has exact words and evidence boundary.
 
+**2026-10-16 SELLER RESPONSE (IMG_3123.png):** Seller replied 19:58 (buyer complaint sent 19:56): claims alarm worked when checked before shipment, acknowledges concern and disappointment, states willingness to discuss **a fair partial refund if buyer proposes an amount**. No admission of fault or promised refund, and not settled. Negotiation state OPEN; maintain evidence and eBay timelines. Ledger holds verbatim screenshot text.
+
 ## 12. 2026-10-02 — probable missing alarm click screw
 
 New user-marked side-by-side comparison shows the target movement apparently lacks the slotted screw at the alarm click beside the upper alarm ratchet wheel.
