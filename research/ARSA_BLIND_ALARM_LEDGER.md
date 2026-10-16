@@ -3649,3 +3649,13 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 **USER-REPORT:** With fingertip movement of the minute hand, the hour hand does not visibly move. Setting via the crown moves both hour and minute hands together normally. This distinction is reported by the user; previously reviewed video only confirms pronounced minute hand displacement, not exact zero hour hand movement.
 
 **INFERENCE / UNCONFIRMED:** Loose minute-hand fit on its arbor is now the leading inspection hypothesis; slipping cannon pinion or motion-works friction remains an alternative. Normal hour hand movement is one-twelfth of the minute angle (90 degrees vs. 7.5 degrees); an apparent lack of movement alone cannot prove no coupling. Avoid further hand deflection. Watchmaker inspection needed before cause or repair can be claimed. Alarm ringing was separately confirmed in recorded audio.
+
+### 2026-10-16 — User correction: finger-driven minute hand also drives hour hand
+
+**USER CORRECTION, higher priority than prior interpretation:** User clarifies that when continuing to turn the minute hand by fingertip, the hour hand also moves in its normal geared relation. Earlier claim that the hour hand did not move was a misobservation. The user describes a mechanism behaving as if the fingertip is driving the motion works from the minute-hand side instead of using the crown.
+
+**What this overturns:** The earlier first-choice diagnosis 'minute hand loose on its arbor / press-fit' is no longer supported as a preferred hypothesis, because it would not normally transmit proportional rotation into the hour hand. The previously recorded user report of apparently no hour-hand movement is superseded, not erased.
+
+**MECHANICAL INFERENCE, NOT ARSA DESIGN PROOF:** Watch motion works include an intentional friction interface to permit crown-driven hand setting. Finger rotation can in principle back-drive the setting/motion works if enough torque is applied. Observed gearing of hour and minute hands is consistent with this, but does not distinguish expected high-force back-driving from insufficient cannon-pinion friction. The normal tactile contact force or a factory ARSA 1950s force threshold is not established by this observation.
+
+**Current state:** Whether this specimen is defective is OPEN; neither 'fixed/normal by design' nor 'faulty serviced watch' is proven. Compare gentle touch-reading pressure versus purposeful forced rotation only using non-destructive observation; avoid repeating deliberate spinning. Alarm sound separately confirmed by IMG_3076.mp4. No public website changes. Source: user correction 2026-10-16.
