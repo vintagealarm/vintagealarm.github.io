@@ -2061,3 +2061,13 @@
 - **検証状態**: ローカルbuild成功。34件の反例／runner配線テスト成功（合成adapterでありAI実回答Replayではない）。ローカルの全品質gate・既存回帰・publication build gateも成功。GitHub CIは別途実行結果で判定する。実モデルadapterを呼べるAPI／CLIは現環境で確認できず、AI実回答の22件ReplayはNOT_RUN。実装済みのoffline runnerは期待回答をanswer adapterへ渡さず別reviewerへ渡すが、fresh取得・ツール行動・通知間隔・評価者の独立性を保証しない。自己申告レビューを正確性の証明にしない。
 - **関連**: 基準main d0ebddecff5b056d01ffdcbacd1d3e9a4c791851、fix/replay-audit-20261017。A01登録・A02極性・A04読込予算・A05現行状態はコードで対応。A03は実行器と不完全結果拒否を実装、実回答評価は未了。A06は本ターンの事前Chat Audit・同一作業scopeで実行し、実チャットの権限遵守をCIが保証するとはしない。A07はAPIでpublic確認、結果ファイルを公開repo外へ強制するが、既存Ledgerの個人取引履歴とGit履歴は公開のまま。移管・削除・非公開化の範囲判断は未決で、無断で履歴を消さない。新しい台帳や事故DBを作らない。
 - **日時根拠**: 実行ホストのAsia/Tokyo時計を確認した 2026-10-17 17:48 JST。本ターンの途中更新で確認せず付けた17:46表記は誤りとして17:42 JSTに訂正済み。日時取得と生成日時の混同を成功扱いしない。
+
+### 2026-10-17 19:45 JST — ARSA再生加速とInstagramフォロー対象範囲の変更
+- **変更**: ARSA初回Reel 19:39 JST追加Insightsを時系列正本に保存。運用正本にユーザーによる「フォロー対象を絞りすぎない」判断、自己申告のフォロー増加、因果未検証のFF拡散仮説を分離記録。
+- **理由**: 17:17の416再生から19:39には1,333再生へ加速し、古い局面の「伸びが弱い」を現在へ延長できない。ユーザーは同時期に多くのアカウントをフォローしたと申告。
+- **起点と確度**: USER_DECISION＝フォロー対象の幅を広げる。USER_REPORT＝多数フォロー。USER_HYPOTHESIS＝FFによる拡散。OBSERVED＝2時点のInstagram Insights。因果は未確定。
+- **旧状態・棄却**: 17:37の弱勢は履歴として残すが、19:39にも継続する判定として使わない。フォロー件数・相互フォローの成立・アルゴリズムの原因を証拠なしに補完しない。
+- **影響範囲**: `measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`measurement/.internal/.virtual/social/instagram-operations.md`、本ログ。サイト公開、ARSA WATCHの非公開状態、Instagram実投稿には変更なし。
+- **検証状態**: GitHub mainへのcommit後、対象正本の再取得とコミット差分を確認。Instagram checkerのCI結果は別途確認。FF効果の因果検証は未実施。
+- **関連**: IG-ARS-001、19:39の8枚のスクリーンショット `IMG_3150.jpeg`～`IMG_3157.png`、同日17:17の旧観測。
+- **日時根拠**: ホスト時計 `TZ=Asia/Tokyo date` による2026-10-17 19:45:29 JST。スクリーンショット表示は19:39、投稿13:20はユーザー申告。
