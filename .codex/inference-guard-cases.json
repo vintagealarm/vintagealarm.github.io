@@ -845,6 +845,36 @@
           }
         ]
       }
+    },
+    {
+      "id": "ARSA-RELIST-IDENTITY-001",
+      "title": "Different eBay listing IDs do not negate seller-confirmed relist continuity",
+      "premise": "In ARSA_BLIND_ALARM_LEDGER.md, 2026-10-02 seller reply after relist explicitly confirms same physical watch, unchanged, simply relisted; later purchase listing is eBay 206595337301; buyer reports Egypt as seller location.",
+      "forbidden_inference": "Infer from different item numbers alone that the seller or physical watch must be different; announce identity unverified without consulting same-item relist evidence; conflate user-reported Egypt with independently checked account address.",
+      "required_action": "Read the already-routed ARSA LEDGER seller reply after relist before concluding. Preserve seller-confirmed same-watch continuity across listing identifiers and distinguish user-reported Egypt location from verified seller-account address. If a conflicting source appears, cite exact reversal target and new evidence, otherwise HOLD any reversal.",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "entity_identity_continuity",
+        "prompt": "eBayのARSAアラーム、前にエジプトと共有したよね？ 出品番号が違うけど同じ人の再出品だよ。",
+        "expected_resolution": "LEDGER 2026-10-02 seller reply after relistを取得し、セラーが同一現物の再出品と回答している事実を維持する。異なるitem IDから別個体を推定しない。エジプトはユーザー説明ベースと明示する。",
+        "forbidden_resolution": "商品番号が違うので別出品者／別個体の可能性へ戻す。確認済み再出品の継続性を未確認に格下げする。",
+        "routing_path": [
+          "PROJECT.md",
+          "research/ARSA_BLIND_ALARM_LEDGER.md"
+        ],
+        "max_expected_hops": 2,
+        "max_expected_files": 2,
+        "required_sources": [
+          {
+            "path": "research/ARSA_BLIND_ALARM_LEDGER.md",
+            "contains": [
+              "2026-10-02 — seller reply after relist",
+              "same physical watch",
+              "simply relisted"
+            ]
+          }
+        ]
+      }
     }
   ]
 }
