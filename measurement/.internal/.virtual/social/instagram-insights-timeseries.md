@@ -1549,6 +1549,46 @@
 - note: Own-post overlay and Insights both showed 1333 views / 33 likes around 19:39. Platform rates as displayed may use own denominator; do not recompute from simple total views. Visible sources are a subset, not necessarily 100%.
 
 
+### Snapshot — 2026-10-18 00:24–00:25 JST
+- observed_at_jst: 2026-10-18 00:24–00:25
+- content_id: IG-ARS-001
+- published_at_jst: 2026-10-17 13:20 (user first-hand report)
+- elapsed_since_publish: approximately 11h04m–11h05m
+- views: 1605
+- viewers: 1280
+- average_watch_time: 11s
+- likes: 42
+- comments: 2
+- reposts: 0
+- shares: UI `--` (count unconfirmed; separate UI share rate 0.0%)
+- saves: 9
+- follows: 2
+- profile_accesses: 4
+- skip_rate: 46.8%
+- share_rate: 0.0%
+- like_rate: 3.2%
+- save_rate: 0.7%
+- repost_rate: 0.0%
+- comment_rate: 0.2%
+- followers: 4.2%
+- non_followers: 95.8%
+- age: 13–17 10.5% / 18–24 25.0% / 25–34 37.0% / 35–44 14.3% / 45–54 7.8% / 55–64 3.4% / 65+ 2.0%
+- age_18_34_combined: 62.0%
+- countries: India 30.4% / Turkey 12.4% / Iran 11.5% / Japan 3.4% / Indonesia 2.6% (top five visibly listed)
+- top_source_reels_tab_pct: 78.7
+- top_source_explore_pct: 15.2
+- top_source_feed_pct: 3.6
+- top_source_stories_pct: 1.3
+- top_source_profile_pct: 0.8
+- screenshot_ui_quality_note: Instagram shows `このリールのフックは強力です` and watched beyond first three seconds; UI evaluation not independent proof of full-video retention
+- retention_curve_observation: large drop in first few seconds with lower, long tail until approximately 28s; exact graph points not measured
+- normal_reel_baseline_graph_note: after a visible burst up to about six hours, own purple view trajectory levels off near 1605 and is below the gray dashed usual Reel benchmark at screenshot time; comparator numeric values not recoverable
+- likes_at_video_frame: variable spikes including early and later points in UI; precise per-second like counts not supported
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3160.jpeg; IMG_3161.png; IMG_3162.png; IMG_3163.png; IMG_3164.png; IMG_3165.png; IMG_3166.png; IMG_3167.png
+- note: The separate own-post screen at 00:24 displays 1537 views and 41 likes, while Insights at 00:24–00:25 displays 1605 views and 42 likes; preserve these as different UI surfaces, not time-sequenced growth. Post UI labels publication as `11時間前` and user reported 13:20 previous day. Percent rates are the Instagram-displayed metrics, not recalculations from gross view counts; unknown shares must not be entered as zero.
+
+
 ---
 
 ## 2. Cross-source reconciliation / rejected values
