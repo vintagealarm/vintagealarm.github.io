@@ -2338,3 +2338,18 @@ collectit et wearit
 - 訂正対象: 画面録画で音声を確認できなかったことを根拠に、CYMAが「音を鳴らさずBGMと外観のみ」とした従来のAI推定は撤回する。音の開始時刻・長さ・BGMとの重なりは未確認。
 - 比較の現在位置: 両投稿は時計の全体像を小さく傾けて提示し、実機アラームも鳴らす（後者はUSER_REPORT）。違いは操作の見せ方と造形の提示にあり、アラーム音の有無ではない。閲覧数の原因は未確定。
 - この訂正は未確認の映像音声を検証済みに格上げしない。VA再投稿の決定・予約・公開には変更なし。
+
+## 2026-10-17 17:37 JST — ARSA初回Reel・約4時間後の配布／保持率判断
+
+- **Status**: ACTIVE / AI provisional analysis; USER has not approved a new edit, deletion, repost, or content reservation.
+- **Origin**: User screenshots from 2026-10-17 14:12–14:13 and 17:17–17:18 JST; user statement that ARSA is not being distributed as strongly as recent posts.
+- **Content**: IG-ARS-001 / ARSA Blind Alarm, Reel published 2026-10-17 13:20 JST (USER_REPORT). About 28.73 seconds. Public WATCH remains unpublished.
+- **Evidence canonical**: `measurement/.internal/.virtual/social/instagram-insights-timeseries.md` → ARSA Blind Alarm, snapshots 14:12–14:13 and 17:17–17:18; original screenshots IMG_3133–IMG_3138 / IMG_3140–IMG_3147.
+- **Observed change**: Insights views 142 → 416 (+274); viewers 89 → 306 (+217); mean watch time 6s → 9s (+3s); skip rate 47.8% → 51.0% (+3.2 percentage points). Later UI: 11 likes, 2 comments, 1 save, 1 new follow, 1 profile access, repost 0, shares count `--` unverified.
+- **Distribution observation**: 17:17 screenshot reports 91.7% non-followers (earlier 90.6%), Reels tab 68.3%, Explore 19.1%; platform chart's purple Reel trend below dashed grey usual-Reel curve over comparable post age. These show non-follower distribution exists, while growth pace is below the platform's presented baseline at the observed point. Do not claim shadowban or absence of distribution.
+- **Retention observation**: Displayed curve drops steeply in the first several seconds; long low tail through 28s. Instagram's `hook is powerful / passes initial three seconds` UI is a separate platform assessment and does not negate observed early drop. Mean watch time 9s does not prove viewers reached the late alarm beat.
+- **AI working interpretation**: Strong textual hook (taboo of touching dial and hands) appears in the caption, while physical novelty is revealed later in the Reel sequence. This mismatch is a **hypothesis**, not a demonstrated cause of reach or skipping. Video length alone and topic popularity cannot be isolated from these two snapshots.
+- **Decision now**: Preserve the published Reel and continue measurement, not delete or immediately repost it. If proposing a follow-up cut, first compare a lead showing hinge opening / touching the dial and hands in the opening seconds with the current gradual-introduction cut; record as AI_PROPOSED only until USER approval. Do not silently alter user's 28.73-second footage or existing publication.
+- **Revisit/falsifier**: Compare later 24h and matched-age snapshots for views, viewers, mean watch time, skip, saves, share count/rate, follows, profile accesses and non-follower composition. A later acceleration or stronger save/follow conversion would weaken the current weak-early-expansion hypothesis; A/B footage with similar timing would be needed to attribute results to opening edit.
+- **Evidence caveat**: Own-post overlay 263 views vs Insights 416 views at the 17:17 window are two different UI surfaces, not verified growth. Audience-country slices and share count limitations remain in the time-series snapshot.
+- **Record scope**: This is a new operational analysis entry only. No revision of the Social Router's current distribution rules, no change to WATCH published state, no public website or Instagram action.
