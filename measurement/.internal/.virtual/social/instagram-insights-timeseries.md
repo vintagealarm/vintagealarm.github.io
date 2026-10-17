@@ -1508,6 +1508,47 @@
 - screenshot_evidence: IMG_3140.jpeg; IMG_3141.png; IMG_3142.png; IMG_3143.png; IMG_3144.png; IMG_3145.png; IMG_3146.png; IMG_3147.png
 - note: Own post page 17:17 showed 263 views / 9 likes / 2 comments, while Insights 17:17 showed 416 views / 11 likes / 2 comments. Distinct UI surfaces, not a verified time sequence. Reels tab and Explore are the only fully visible source percentages. Screenshots mark skip high, share low, like low, save low, repost low, comment high.
 
+### Snapshot — 2026-10-17 19:39 JST
+- observed_at_jst: 2026-10-17 19:39
+- content_id: IG-ARS-001
+- published_at_jst: 2026-10-17 13:20 (user report)
+- elapsed_since_publish: approximately 6h19m
+- views: 1333
+- viewers: 979
+- average_watch_time: 10s
+- likes: 33
+- comments: 2
+- reposts: 0
+- shares: UI `--` (count unknown; displayed share rate 0.0%)
+- saves: 8
+- follows: 2
+- profile_accesses: 4
+- skip_rate: 46.7%
+- share_rate: 0.0%
+- like_rate: 3.1%
+- save_rate: 0.7%
+- repost_rate: 0.0%
+- comment_rate: 0.2%
+- followers: 3.6%
+- non_followers: 96.4%
+- age: 13–17 11.5% / 18–24 26.2% / 25–34 38.8% / 35–44 12.6% / 45–54 6.6% / 55–64 2.3% / 65+ 2.0%
+- age_18_34_combined: 65.0%
+- countries: India 31.9% / Turkey 13.3% / Iran 9.5% / Japan 3.1% / Indonesia 2.7% (top five visible only)
+- top_source_reels_tab_pct: 79.2
+- top_source_explore_pct: 15.4
+- top_source_feed_pct: 3.8
+- top_source_stories_pct: 0.8
+- top_source_profile_pct: 0.3
+- screenshot_ui_quality_note: platform calls hook powerful and says watched past first 3s; not proof of causal reach
+- retention_curve_observation: steep decline in first seconds, then continued decline until ~28s; exact point values not extracted
+- normal_reel_baseline_graph: sharp acceleration near hour six but Reel trend remains below screenshot gray dashed usual-Reel baseline; no inferred numeric benchmark
+- like_timing: intermittent spikes incl. last seconds in UI; precise likes-per-second unknown
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3150.jpeg; IMG_3151.png; IMG_3152.png; IMG_3153.png; IMG_3154.png; IMG_3155.png; IMG_3156.png; IMG_3157.png
+- user_report_separate: User reports actively following many accounts in the interval and deciding not to restrict follow targets too severely, expecting possible reciprocal follow amplification. Follow count, follow timestamps and follow-backs unverified; no causal inference.
+- note: Own-post overlay and Insights both showed 1333 views / 33 likes around 19:39. Platform rates as displayed may use own denominator; do not recompute from simple total views. Visible sources are a subset, not necessarily 100%.
+
+
 ---
 
 ## 2. Cross-source reconciliation / rejected values
