@@ -2042,3 +2042,12 @@
 - **影響範囲**：AI回答時のentity continuity、回帰fixture。公開WATCH・個人台帳・研究本文の意味・販売交渉状況は変更しない。
 - **検証**：GitHub source再取得、fixture JSON parseと既存source anchor一致を確認する。将来の別チャットでのAI遵守は未実証。
 - **日時根拠**：2026-10-17 16:44 JST（会話時刻）。GitHub commit時刻は別途確認。
+
+### 2026-10-17 16:44 JST — 正本読み込み・事実精度・記録監査（ARSA再出品）
+- **変更**：ARSA研究Ledgerにセラー所在地のユーザー申告（Egypt）、通常eBayメッセージで60％提案送信、同一個体再出品のセラー確認、出品番号387444467772と206595337301の未証明の相互同一性を独立したclaimとして記録。Research Mapに参照ポインタを追加。既存ARSA-RELIST-IDENTITY-001のテストを修正。
+- **理由**：直前のAI回答が2026-10-02確定の再出品継続性を見落とし、さらに比較対象出品387444467772と購入出品206595337301の関係を識別せず語った。元の2026-10-17回帰fixtureもその分離が不十分だった。
+- **棄却**：item ID相違のみでユーザー・セラー確認済み再出品を否定する推論／根拠なく比較対象IDと購入IDを統合する推論／エジプトの具体的住所をverifiedと呼ぶ扱い。
+- **影響範囲**：研究Ledgerの私的交渉証拠、Mapの索引、既存回帰fixtureのみ。公開WATCH・公開本文・個人台帳には反映しない。
+- **検証状態**：GitHub main再取得とfixture JSON構文・required_sources anchorチェックを実施する。AI回答の自動再生とCIチェックの実行は別途判定し、未実行なら未実施とする。
+- **関連**：ARSA-RELIST-IDENTITY-001、`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`.codex/inference-guard-cases.json`。
+- **日時根拠**：会話時刻2026-10-17 16:44 JST（実装操作の厳密な時刻ではない）。
