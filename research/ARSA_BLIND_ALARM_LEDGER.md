@@ -3777,3 +3777,14 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 ### 2026-10-16 — Buyer reports 60% partial-refund proposal sent
 
 **USER-REPORTED STATUS:** Buyer stated 「それで送った」 immediately after approving the proposed English message. Treat the 60% partial-refund request (US$150.66 of US$251.10 item price) as **SENT — user reported**. The outgoing eBay message itself has not been independently inspected in this update. Seller response, acceptance, and any payment/refund remain **UNCONFIRMED / PENDING**. This supersedes earlier `not yet sent` status only; do not portray the dispute as settled. The message explained movement-to-case looseness, minute-hand movement with light contact, unusual alarm click condition, and uncertain potential cost of inspection, donor/replacement movement, parts transplant and specialist work, without claiming that a complete movement replacement had been diagnosed.
+
+
+### 2026-10-17 — Seller geography and relist identity: claim-level separation
+
+**USER-REPORTED:** Buyer previously shared that the relevant eBay seller is in **Egypt**; on 2026-10-17 buyer reaffirmed the seller continuity with 「同じ人の再出品」. This is an owner statement, not an independently verified account address; exact city is **not established here**. Buyer confirms the 60% request was sent via an ordinary **eBay message**, not via an opened formal return/refund request; seller reply still unreported as of this exchange.
+
+**PRIOR SELLER CONFIRMATION:** See `2026-10-02 — seller reply after relist`: seller answered yes to same physical watch, unchanged, simply relisted. This continuity must remain intact; differing listing IDs alone do not overturn it.
+
+**IDENTIFIER NON-EQUIVALENCE / HOLD:** Historical eBay item `387444467772` is explicitly indexed above as **another ARSA Blind Alarm / market comparable**. Purchased listing `206595337301` is separately documented by October 16 original listing screenshots. Existing cited evidence does **not** demonstrate that these two specific IDs refer to the same seller or physical watch. Do not infer that linkage from the October 2 relist confirmation without a documented identifier mapping. Conversely, do not use this unproved specific mapping to deny the seller-confirmed relist continuity in its actual context.
+
+**Source classification:** same-watch relist = October 2 seller yes / user-confirmed interpretation; Egypt + same-person report = user statement; exact location/account verification and specific `387444467772` ↔ `206595337301` identity = unverified/HOLD.
