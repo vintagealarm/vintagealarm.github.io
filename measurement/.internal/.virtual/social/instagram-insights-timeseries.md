@@ -1427,6 +1427,53 @@
 
 ---
 
+# ARSA Blind Alarm
+
+## Publication evidence
+- published_at_jst: 2026-10-17 13:20 (user first-hand report)
+- format: Reel
+- duration: approximately 28.73 seconds (user-provided original `IMG_3131.mp4`; screen Insights 0:28 on axis)
+- content_id: IG-ARS-001
+- watch_publication_status: ARSA public WATCH route remains unpublished; Instagram Reel publication is separate
+- source_status: CANONICAL_LOG_SCREENSHOT + CANONICAL_LOG_USER_REPORT
+
+### Snapshot — 2026-10-17 14:12–14:13 JST
+- observed_at_jst: 2026-10-17 14:12–14:13
+- content_id: IG-ARS-001
+- published_at_jst: 2026-10-17 13:20
+- elapsed_since_publish: approximately 52–53 minutes
+- views: 142
+- viewers: 89
+- average_watch_time: 6s
+- likes: 5
+- comments: 1
+- reposts: 0
+- shares: UI `--` (not zero; share_rate displayed separately 0.0%)
+- saves: 1
+- follows: 0
+- profile_accesses: 1
+- skip_rate: 47.8%
+- share_rate: 0.0%
+- like_rate: 4.3%
+- save_rate: 0.9%
+- repost_rate: 0.0%
+- comment_rate: 0.9%
+- followers: 9.4%
+- non_followers: 90.6%
+- top_source_feed_pct: 61.1
+- top_source_reels_tab_pct: 33.3
+- top_source_explore_pct: 5.6
+- screenshot_ui_quality_note: `このリールのフックは強力です` / `最初の3秒を超えて視聴されました`; platform UI evaluation, not an independent proof of overall retention
+- retention_curve_observation: sharp fall in the first several seconds; subsequent low tail to 28s; intermediate graph values are visual estimates and are not recorded as precise percentages
+- likes_at_video_frame: engagement page shows 5 likes, timing graph has an early and a later spike; does not establish timestamp of all likes
+- audience_detail: Instagram states demographics unavailable below 100 action-taking accounts (not audience count)
+- top_source_note: percentages are viewed source distribution, not counts of followers or linked-site referrals
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3133.png; IMG_3134.png; IMG_3135.png; IMG_3136.png; IMG_3137.png; IMG_3138.jpeg
+- note: Separate own-post screen IMG_3132.jpeg displayed 80 views around 14:12 while Insights displayed 142 views in the same observation window. These are separate UI surfaces; do not infer 80→142 growth or treat 80 as Insights views. Post screen confirms hook opening and ARSA object, but caption is cut off and full published caption/hashtags cannot be screenshot-verified. User reports published at 13:20; exact system/server publish timestamp not independently verified. Audience 90.6% non-followers is a composition metric, not number of non-follower accounts. 
+
+---
+
 ## 2. Cross-source reconciliation / rejected values
 
 - CYMA `2026-09-28 17:41頃 / viewers 1,406 / age 45–54 10.3 / 65+ 5.4` は旧復旧案由来で、main正本の17:49–17:50 snapshot（viewers 1,408 / age 45–54 10.2 / 65+ 5.5）と矛盾するため棄却。

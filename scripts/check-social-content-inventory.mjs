@@ -35,7 +35,7 @@ sectionStarts.sort((a,b)=>a[1]-b[1]);
 
 const rows = [];
 for (const line of text.split('\n')) {
-  if (!/^\| (?:WIT|CYM|PIE|BAS|WES|CIT|GLB|MDL)-/.test(line)) continue;
+  if (!/^\| (?:WIT|CYM|PIE|BAS|WES|CIT|GLB|MDL|ARS)-/.test(line)) continue;
   const cells = line.split('|').slice(1,-1).map((x)=>x.trim());
   if (cells.length !== 8) {
     errors.push(`${file}: inventory row must have 8 cells: ${line}`);

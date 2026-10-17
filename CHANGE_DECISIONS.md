@@ -2024,3 +2024,13 @@
 - **検証状態**：Webページ表示／Reddit申告を確認。特定variantの最終価格、送料、日本向けcheckout、部品適合、返金の実取引明細は未確認。
 - **関連**：eBay 275186748488、235537615409、Heß 7426/7436、注文206595337301。
 - **日時根拠**：2026-10-16T12:07:58.344Z UTC → 2026-10-16 21:07 JST。
+
+### 2026-10-17 14:16 JST — ARSA初回Instagram Reel公開・53分Insights・冒頭本文を正本化
+- **変更**：ARSA Blind AlarmのInstagram初回Reel（2026-10-17 13:20 JST・ユーザー報告）と14:12–14:13 Insights、公開本文のスクリーンショット可視範囲を既存social正本へ保存。非公開WATCHを公開せず、SNS側の`ARS-01`／`IG-ARS-001`として索引に追加。既存validatorsを非公開WATCH由来のInstagram-only投稿も検査できるよう最小拡張。
+- **理由**：新しい実投稿・スクショを別チャットでも追跡できるようにし、実数と評価を混同しない。投稿冒頭の禁忌フックは写真で確認済みだが、全文・hashtagsは下へ切れているため未確認のまま残す。
+- **起点→判断**：U → U実投稿＋Uスクリーンショット提供、Aはsource-backed記録と検証。追加の投稿候補は確定していない。
+- **旧状態・棄却**：ARSAは公開WATCH6個体群にも測定対象5個体群にも含まれず、従来SNS validatorsの対象外。ARSA WATCH `published:false`は維持。「画面の80 viewsとInsights142を時系列増加とみなす」「shares --を0にする」「字幕外のcaption末尾を以前の承認稿で代用する」を棄却。
+- **影響範囲**：instagram-insights-timeseries.md、instagram-published-copy.md、content-inventory.md、`scripts/instagram-insights-timeseries.mjs`、`scripts/check-social-content-inventory.mjs`と本ログのみ。研究Ledger/Map、WATCH公開設定、SNS投稿現物は変更しない。
+- **検証状態**：mainへの単一commit後にGitHub再取得＋commit差分を確認。ローカルnpm検査は実行できた場合のみ結果を別記し、未実行なら未実行とする。将来の再生数の予測や因果は未確定。
+- **関連**：`IG-ARS-001` `ARS-01` `IMG_3131.mp4` `IMG_3132.jpeg`～`IMG_3138.jpeg` `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`。
+- **日時根拠**：ホスト `TZ=Asia/Tokyo date` 実測`2026-10-17 14:16:17 JST`。投稿日時13:20はユーザー申告、画面時刻14:12/14:13はスクショ表示。

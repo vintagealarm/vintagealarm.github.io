@@ -397,3 +397,29 @@ Now that’s a BIG alarm watch! 😁
 - **Hashtags / CTA**: 4個 `#vintagewatch #alarmwatch #mechanicalwatch #modernedeluxe`。本文にサイトURLや明示的link-in-bio CTAなし。
 - **Metrics**: `IMG_3047.jpeg` にはInsights数値なし。再生・閲覧者・いいね・保存等は未取得であり0扱いしない。
 - **Visual/audio caution**: 投稿画面の再生枠にミュートアイコンが見える。これだけで配信音声が無い・音声変更されたとは判断しない。
+
+---
+
+## ARSA Blind Alarm — first Instagram Reel (2026-10-17)
+
+- **Content ID**: `IG-ARS-001`.
+- **Publication**: 2026-10-17 13:20 JST (user report); first evidence from 14:12–14:13 JST screenshot `IMG_3132.jpeg` and Insights.
+- **Format**: 28.73-second Reel of user's ARSA hinged tactile mechanical alarm watch; non-public WATCH page remains `published: false`.
+- **Caption verification**: **PUBLISHED_OPENING_ONLY_VERIFIED / FULL_CAPTION_AND_HASHTAGS_NOT_VISIBLE**. Screenshot shows the start of the caption only, cut off mid-sentence. The earlier ChatGPT complete draft is not automatically certified as identical to the published text. Do not convert it into a `Published caption` without a full expanded post screenshot.
+- **Screenshot-visible published text (verbatim through truncation)**:
+
+```text
+Never touch a watch's dial or hands. One of the golden rules of watch collecting.
+
+But this watch was designed to break that rule. 🤯
+
+Meet the ARSA Blind Alarm.
+
+Open its hinged front cover, and you can touch the raised hour markers and hands directly.
+
+Why? ARSA was making tactile watches for blind and visually impaired people in the 1950s, allowing time to be
+```
+
+- **Creative direction corroborated by published opening**: `Never touch a watch's dial or hands` (watchmaking handling taboo) → this ARSA is designed for direct tactile reading → opening cover / tactile markers / blind and visually impaired context. Any later alarm punchline, caliber line, CTA or hashtags remain pending full-caption evidence.
+- **Publication status**: Instagram published; does NOT release or authorize publication of ARSA WATCH page, RESEARCH modifications, or rights-sensitive photos.
+- **Metrics**: stored only in `instagram-insights-timeseries.md` as `IG-ARS-001` observation on 2026-10-17 14:12–14:13 JST.

@@ -14,6 +14,7 @@ const watchOrder = [
   'Westclox Watchlarm W5',
   'Citizen Alarm',
   'Modern De Luxe',
+  'ARSA Blind Alarm',
 ];
 
 const countFields = new Set([

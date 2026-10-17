@@ -247,6 +247,15 @@ Status:
 
 ---
 
+
+## ARSA Blind Alarm — Instagram-only asset (WATCH not published)
+
+Canonical research: `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`, `research/ARSA_BLIND_ALARM_LEDGER.md`; `src/content/watches/arsa-blind-alarm.md` remains `published: false`.
+
+| ID | Angle / asset | IG state | Other social | Media | Verify | Role | Source |
+|---|---|---|---|---|---|---|---|
+| ARS-01 | Opening front cover → touching dial and hands (handling taboo reversed) → tactile-watch background → alarm function; physical specimen video | USED | NO_EXPLICIT_USE_FOUND_2026-10-17 | READY_EXISTING | READY_FROM_WATCH | POSTED_ASSET | User IMG_3131.mp4 and published opening IMG_3132.jpeg; research ARSA ledger |
+
 ## 4. 共同棚卸し状態 / Content Assignment Registry
 
 | WATCH | Review state |
@@ -257,6 +266,7 @@ Status:
 | Basis Alarm (BFG90) | PENDING_USER_REVIEW |
 | Westclox Watchlarm W5 | PENDING_USER_REVIEW |
 | Citizen Alarm | PENDING_USER_REVIEW |
+| ARSA Blind Alarm (non-published WATCH) | POSTED_ASSET_ONLY — ARS-01 used in IG-ARS-001; no other assets auto-approved |
 | Modern De Luxe (non-published WATCH) | POSTED_ASSET_ONLY — `MDL-01` used in `IG-MDL-001`; future assets not yet reviewed |
 
 AIだけで PENDING_USER_REVIEW → USER_CONFIRMED へ変更しない。
@@ -278,6 +288,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | IG-MDL-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | MIXED_CAROUSEL | MDL-01 | — | USER:IMG_9734(1).mp4;USER:IMG_9735(1).jpeg | 2026-10-14 21:00 JST screenshot `IMG_3047.jpeg` / displayed 46 seconds ago; first slide video, second three-watch size comparison; full caption and 4 hashtags recorded in published-copy; Insights pending |
 | IG-WES-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | WES-01 | — | SOCIAL:IG-WES-FIRST-REEL | published-copy |
 | IG-CIT-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | CIT-01 | — | SOCIAL:IG-CIT-FIRST-REEL | published-copy |
+| IG-ARS-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | ARS-01 | — | USER:IMG_3131.mp4 | screenshot IMG_3132.jpeg first 2026-10-17 14:12; user publication time 13:20; visible caption partial only; IG Insights 14:12–14:13 |
 | YT-BAS-20260909 | YOUTUBE | PUBLISHED | LEGACY_VERIFIED | SHORT | BAS-01 | — | YT:MWoqA4L2wdM | operations |
 | X-CYM-TIMING | X | PUBLISHED | LEGACY_VERIFIED | VIDEO | CYM-03 | — | X:CYM-TIMING-WHEEL | WATCH Deep 04 |
 | YT-WES-20260914 | YOUTUBE | UNVERIFIED_PAST | LEGACY_VERIFIED | SHORT | WES-03 | WES-01 | YT:GWkY7hPO89E | experiment-log |
