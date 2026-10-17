@@ -1472,6 +1472,42 @@
 - screenshot_evidence: IMG_3133.png; IMG_3134.png; IMG_3135.png; IMG_3136.png; IMG_3137.png; IMG_3138.jpeg
 - note: Separate own-post screen IMG_3132.jpeg displayed 80 views around 14:12 while Insights displayed 142 views in the same observation window. These are separate UI surfaces; do not infer 80→142 growth or treat 80 as Insights views. Post screen confirms hook opening and ARSA object, but caption is cut off and full published caption/hashtags cannot be screenshot-verified. User reports published at 13:20; exact system/server publish timestamp not independently verified. Audience 90.6% non-followers is a composition metric, not number of non-follower accounts. 
 
+### Snapshot — 2026-10-17 17:17–17:18 JST
+- observed_at_jst: 2026-10-17 17:17–17:18
+- content_id: IG-ARS-001
+- published_at_jst: 2026-10-17 13:20 (user report)
+- elapsed_since_publish: approximately 3h57m–3h58m
+- views: 416
+- viewers: 306
+- average_watch_time: 9s
+- likes: 11
+- comments: 2
+- reposts: 0
+- shares: UI -- (count unknown)
+- saves: 1
+- follows: 1
+- profile_accesses: 1
+- skip_rate: 51.0%
+- share_rate: 0.0%
+- like_rate: 3.3%
+- save_rate: 0.3%
+- repost_rate: 0.0%
+- comment_rate: 0.6%
+- followers: 8.3%
+- non_followers: 91.7%
+- age: 13–17 2.2% / 18–24 25.7% / 25–34 46.4% / 35–44 14.5% / 45–54 6.7% / 55–64 1.4% / 65+ 3.1%
+- age_18_34_combined: 72.1%
+- countries: India 26% / Turkey 10.6% / Iran 8.7% / Japan 5.9% / Mexico 3.6%
+- top_source_reels_tab_pct: 68.3
+- top_source_explore_pct: 19.1
+- top_source_feed_pct: unknown (cropped)
+- instagram_hook_ui: powerful, viewed past first three seconds (platform statement)
+- retention_note: rapid drop in first few seconds; low tail through 28 seconds; chart-point values unconfirmed
+- normal_reel_graph_note: purple reel views shown below gray dashed normal-reel baseline at comparable elapsed periods; approximate visual comparison only
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3140.jpeg; IMG_3141.png; IMG_3142.png; IMG_3143.png; IMG_3144.png; IMG_3145.png; IMG_3146.png; IMG_3147.png
+- note: Own post page 17:17 showed 263 views / 9 likes / 2 comments, while Insights 17:17 showed 416 views / 11 likes / 2 comments. Distinct UI surfaces, not a verified time sequence. Reels tab and Explore are the only fully visible source percentages. Screenshots mark skip high, share low, like low, save low, repost low, comment high.
+
 ---
 
 ## 2. Cross-source reconciliation / rejected values
