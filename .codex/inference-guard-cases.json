@@ -860,10 +860,13 @@
         "forbidden_resolution": "出品番号が違うから継続性自体を否定する、または387444467772と206595337301を同一個体と断定する。",
         "routing_path": [
           "PROJECT.md",
+          "AGENTS.md",
+          "PROJECT_STATE.md",
+          "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
           "research/ARSA_BLIND_ALARM_LEDGER.md"
         ],
-        "max_expected_hops": 2,
-        "max_expected_files": 2,
+        "max_expected_hops": 5,
+        "max_expected_files": 5,
         "required_sources": [
           {
             "path": "research/ARSA_BLIND_ALARM_LEDGER.md",
