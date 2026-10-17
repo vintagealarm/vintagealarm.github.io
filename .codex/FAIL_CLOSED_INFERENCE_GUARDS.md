@@ -33,6 +33,10 @@ REVERSAL TARGETまたはNEW EVIDENCEが空なら **FAIL-CLOSED**。
 
 URL / route / account / page / component / asset / media / post / current copyについて提案・変更する前に、取得可能な実体とactive PRを先に確認する。確認できないものは **UNKNOWN** とし、「無い前提」で進めない。
 
+## 3.5 ENTITY CONTINUITY / RELIST GATE
+
+同一個体・同一アカウント・同一取引の継続性がユーザー確認・当事者回答・正本のいずれかで確定している場合、商品番号・出品URL・掲載時点が変わったという事実**だけ**では別個体・別人に分断しない。先に既存domain Ledgerの出品／再出品／seller応答の履歴を照合する。継続性を撤回するなら §2 DECISION REVERSAL GATE の新証拠を提示し、なければ既存の確認結果を維持する。所在地等の別属性は、ユーザー申告とWeb／商品ページ直接確認を区別する。
+
 ## 4. GENERAL KNOWLEDGE = CANDIDATE ONLY
 
 Project正本・ユーザー確定・実測に無い一般論は **AI_PROPOSED / CANDIDATE** まで。local decisionを上書きしない。
