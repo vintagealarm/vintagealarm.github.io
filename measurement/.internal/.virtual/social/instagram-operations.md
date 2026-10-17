@@ -2353,3 +2353,14 @@ collectit et wearit
 - **Revisit/falsifier**: Compare later 24h and matched-age snapshots for views, viewers, mean watch time, skip, saves, share count/rate, follows, profile accesses and non-follower composition. A later acceleration or stronger save/follow conversion would weaken the current weak-early-expansion hypothesis; A/B footage with similar timing would be needed to attribute results to opening edit.
 - **Evidence caveat**: Own-post overlay 263 views vs Insights 416 views at the 17:17 window are two different UI surfaces, not verified growth. Audience-country slices and share count limitations remain in the time-series snapshot.
 - **Record scope**: This is a new operational analysis entry only. No revision of the Social Router's current distribution rules, no change to WATCH published state, no public website or Instagram action.
+
+## 2026-10-17 19:45 JST — ARSA配信加速とフォロー対象拡大のユーザー判断
+
+- **Status**: ACTIVE。フォロー対象の幅を広げる方針はUSER_DECISION。多数アカウントをフォローしたのはUSER_REPORT。FF（相互フォロー）による拡散はUSER_HYPOTHESISであり、効果は未検証。
+- **実測**: IG-ARS-001（13:20投稿）の17:17→19:39は416→1333 views（+917）、306→979 viewers、平均再生9→10秒、skip 51.0→46.7%、いいね11→33、保存1→8、フォロー獲得1→2、プロフィールアクセス1→4。非フォロワー91.7→96.4%、リールタブ68.3→79.2%。出典は`instagram-insights-timeseries.md`の同時点snapshot。
+- **伸長速度**: 14:12→17:17は約89 views/h、17:17→19:39は約387 views/h、増加ペース約4.3倍。ただし短い観測区間の比較であり、一定速度を仮定しない。
+- **以前の判断との関係**: 17:37の「序盤の配布が弱い」はその時点の観測として保持。19:39には加速しており、現在の弱勢を断定する判断としては採用しない。
+- **新方針**: ユーザーはフォロー対象を絞りすぎず、趣味上の接点を持つ相手との交流を広げる。具体的フォロー数・時間・FF成立件数は未観測。AIは対象数を勝手に指定しない。
+- **因果判定**: フォロー活動と再生増は同時期に起きたが、アルゴリズム上の因果やFF経由の視聴増は未証明。フォロワー外96.4%やリールタブ79.2%は推薦配布の現象であり、FF増加の証拠にはならない。
+- **再検証条件**: 投稿後24時間の同指標、相互フォローの実際の成立状況、プロフィール→英語HOW THEY RINGへの導線と別Reelの同経過時間帯を比較。今回のReelは削除・差替せず保持。
+- **範囲**: Social運用ログのみ。WATCH非公開状態、既存投稿、サイト、Routerのnormative ruleは未変更。
