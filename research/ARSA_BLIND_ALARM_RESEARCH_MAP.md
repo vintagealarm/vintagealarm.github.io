@@ -7,6 +7,15 @@
 - 新証拠が出たらまずLEDGERへ記録し、**優先順位・仮説状態・タスク状態が変わる場合だけこのMAPを更新する**
 - 会話やMemoryから現在状態を補完しない。毎回GitHub `main` のLEDGER + MAPを確認する
 
+## CURRENT — specimen / relist / negotiation
+
+- **Relist continuity: SELLER_CONFIRMED / USER_CONFIRMED INTERPRETATION.** Ledger `2026-10-02 — seller reply after relist` の範囲で同じ個体の単純再出品を維持する。
+- **ID_MAPPING_HOLD:** 比較対象 `387444467772` と購入品 `206595337301` の対応は未立証。継続性の確認と、この2番号の同定は別判断。
+- **Geography: USER_REPORTED.** エジプトはユーザー申告。セラー住所・都市の独立確認ではない。
+- **Refund proposal: SENT — USER_REPORTED / SELLER_REPLY_PENDING.** 通常のeBayメッセージで送信したとのユーザー報告。正式な返品申請、相手の承諾、返金完了は確認されていない。
+- Evidence: Ledger `2026-10-16 — Buyer reports 60% partial-refund proposal sent` / `2026-10-17 — Seller geography and relist identity: claim-level separation`。
+- 下記の日付付き購入前・交渉前記録は履歴。送信状態の query-time owner は本節。新証拠なしに旧状態へ戻さない。
+
 ---
 
 ## 1. 今回の調査目的 — VA標準フレームへ戻す
@@ -573,4 +582,4 @@ Do not rephrase this as "WHO approved ARSA" or "blind users found ARSA excellent
 **Scope:** PR #235 stays draft. Do not merge unapproved visuals; do not change existing RESEARCH public status or the separate WATCH `published: false`. Keep #214 / #232 intact.
 
 
-**2026-10-16 PART-ONLY PROCUREMENT + REFUND PLAN:** Owner selected 60% as initial partial-refund ask (not yet sent/accepted). AS1475 separate alarm click screw 57426 appears in eBay item 275186748488 variant selector, nominal USD7.99 plus displayed USD10.29 shipping; German Heß source indexes NOS 7426 click and 7436 spring but their prices are unverified. eBay 235537615409 has generic parts USD9.99, not proof it stocks 7426 or 7436. Seller return-cost motivation and acceptance probability not proven. Separate click fix from movement case retention and tactile minute-hand issue. Ledger holds URLs and FX snapshot. Public anecdotal 50% refund is not comparable transaction precedent or entitlement.
+**SUPERSEDED (refund sending status only) — 2026-10-16 PART-ONLY PROCUREMENT + REFUND PLAN:** Owner selected 60% as initial partial-refund ask (historical: not yet sent/accepted at that point; sending status superseded by CURRENT above; acceptance remains unconfirmed). AS1475 separate alarm click screw 57426 appears in eBay item 275186748488 variant selector, nominal USD7.99 plus displayed USD10.29 shipping; German Heß source indexes NOS 7426 click and 7436 spring but their prices are unverified. eBay 235537615409 has generic parts USD9.99, not proof it stocks 7426 or 7436. Seller return-cost motivation and acceptance probability not proven. Separate click fix from movement case retention and tactile minute-hand issue. Ledger holds URLs and FX snapshot. Public anecdotal 50% refund is not comparable transaction precedent or entitlement.

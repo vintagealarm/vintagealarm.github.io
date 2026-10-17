@@ -2051,3 +2051,13 @@
 - **検証状態**：GitHub main再取得とfixture JSON構文・required_sources anchorチェックを実施する。AI回答の自動再生とCIチェックの実行は別途判定し、未実行なら未実施とする。
 - **関連**：ARSA-RELIST-IDENTITY-001、`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`.codex/inference-guard-cases.json`。
 - **日時根拠**：会話時刻2026-10-17 16:44 JST（実装操作の厳密な時刻ではない）。
+
+### 2026-10-17 17:48 JST — Replay登録・証拠極性・採点完全性の再監査と修正
+
+- **変更**: 全LOCKED_REGRESSIONを動的検査し、同じfixture内のlock registryと完全一致を要求する。22件を接続。ARSAのseller回答の極性・継続性Guard・MAP現行状態を指定節内で検査。読込節抽出をreport / runnerで共有し、文字数・hop / file予算を通常gateと結果検査で適用。MAPの現行返金送信状態を一意化し旧記録はSUPERSEDEDとして保持。
+- **理由**: ユーザーが提示した監査を現在コードで再検証。旧通常checkerは21件で、新設ARSAを検査せず、旧scoreは部分PASSでも正常終了した。単なる文字列存在と実回答正確性を混同できる表示を修正する。帰属: ユーザー提示の監査 → Aによるコード再検証・修正。ユーザーが本ターン「監査と完成までやり切ろう」と指示した同じ検査改善を対象とし、別の研究・個人台帳変更へ許可を拡張しない。
+- **旧状態・棄却**: 独立した21件固定リスト、未実行を除いた合格率、FAIL / HOLD / false certainty / 予算超過の正常終了、source取得を実回答の成功とする解釈を棄却。2つのeBay番号の同定保留は維持し、再出品の継続性へ過剰一般化しない。既存fixture・Council・Ledgerを全面作り直す案は採らない。
+- **影響範囲**: scripts/check-replay-evals.mjs、replay-evidence.mjs、run-replay-evals.mjs、report-replay-section-cost.mjs、test-replay-evals.mjs、package.json、既存GuardのReplay説明、同一fixture、ARSA Map。公開WATCH本文・台帳Issue・公開flag・Council実装は変更しない。既存CIの画像重複gateを妨げていた、参照0かつ同一blobの IMG_3117-1.jpeg / IMG_3118-1.jpegだけ除去し、原本は保持（blob ccac0613 / 04ab5bf6）。
+- **検証状態**: ローカルbuild成功。34件の反例／runner配線テスト成功（合成adapterでありAI実回答Replayではない）。ローカルの全品質gate・既存回帰・publication build gateも成功。GitHub CIは別途実行結果で判定する。実モデルadapterを呼べるAPI／CLIは現環境で確認できず、AI実回答の22件ReplayはNOT_RUN。実装済みのoffline runnerは期待回答をanswer adapterへ渡さず別reviewerへ渡すが、fresh取得・ツール行動・通知間隔・評価者の独立性を保証しない。自己申告レビューを正確性の証明にしない。
+- **関連**: 基準main d0ebddecff5b056d01ffdcbacd1d3e9a4c791851、fix/replay-audit-20261017。A01登録・A02極性・A04読込予算・A05現行状態はコードで対応。A03は実行器と不完全結果拒否を実装、実回答評価は未了。A06は本ターンの事前Chat Audit・同一作業scopeで実行し、実チャットの権限遵守をCIが保証するとはしない。A07はAPIでpublic確認、結果ファイルを公開repo外へ強制するが、既存Ledgerの個人取引履歴とGit履歴は公開のまま。移管・削除・非公開化の範囲判断は未決で、無断で履歴を消さない。新しい台帳や事故DBを作らない。
+- **日時根拠**: 実行ホストのAsia/Tokyo時計を確認した 2026-10-17 17:48 JST。本ターンの途中更新で確認せず付けた17:46表記は誤りとして17:42 JSTに訂正済み。日時取得と生成日時の混同を成功扱いしない。

@@ -69,7 +69,16 @@ SNS / platform-bound copy / Analytics / canonical write等、domain固有CURRENT
 - **既存規則の欠落**: 既存canonical ownerを最小差分で修正し、必要ならdecision log / regressionを更新する。
 - **retrieval / routing失敗**: 新しい規則を増やす前にpointer・owner・checker接続を修正する。
 - **state resolution失敗**: competing CURRENT / WORKING / HOLD等の出典を確認し、曖昧ならHOLDする。
-- **再現可能な事故**: 既存 `.codex/inference-guard-cases.json` または該当domain checkerで回帰化する。Replay Evalも同じfixtureを使い、第二の事故DBを作らない。`npm run check:replay-evals` でrouting path / evidence anchorを検査し、`npm run replay:score -- <result.json>` で実行結果の読込量・hop数・再指示・false certaintyを集計できる。
+- **再現可能な事故**: 既存 `.codex/inference-guard-cases.json` または該当domain checkerで回帰化する。Replay Evalも同じfixtureを使い、第二の事故DBを作らない。`npm run check:replay-evals` は全LOCKEDケースとfixture内lock registryの一致、routing / source assertions / scoped予算を検査する**静的整合性検査**。`npm run test:replay-evals` は欠落・意味反転・架空PASS等を拒否する反例検査であり、どちらもAI実回答Replayの成功ではない。
+
+### Replayの実行・採点と保証範囲
+
+- 実回答の実行は `npm run replay:run -- --adapter /path/model.mjs --reviewer /path/reviewer.mjs --output /private/results.json`。2つのNode adapterはstdinのJSONを受けstdoutにJSONだけを返す。回答adapterは `{answer, model}`、別reviewerは `{outcome, reviewer, rationale, false_certainty}` を返す。期待回答は回答adapterへ渡さず、reviewerだけへ渡す。失敗・未取得はHOLDとして保存する。モデル・API設定は勝手に補わない。
+- これは**証拠を事前投入するoffline Replay**。fresh取得の順序、実ツール利用、実チャットの通知間隔を検証できたことにはしない。これらの行動を示す実行ログがなければ該当評価はHOLD。adapterを別にしても独立性・正確性の自動証明にはならない。
+- `npm run replay:score -- /private/results.json` は実回答、出典の行範囲とSHA-256、読込量、外部資料、評価者・理由・実行属性を検査し、PASS / FAIL / HOLD / NOT_RUNを全LOCKED件数を分母に表示する。欠落・FAIL・HOLD・false certainty・再指示・予算超過は非0終了。単なるPASSラベルを実行・正確性の証明にしない。自己評価・人手評価・モデル評価は分けて表示する。
+- `--partial` は部分診断専用。総件数を分母にし、未実行数を隠さず、全件合格とは表現しない。
+- 本文の意味全体をregexで判定できるとは主張しない。現在のARSA source assertionsは、指定節内のseller回答の極性・同定保留・CURRENT状態・Guard接続を固定する。実回答の意味は別途reviewする。
+- 実回答・取引記録を含む結果は公開repository外へ出力する。fixtureへ個人台帳本文を複製しない。公開されている既存履歴の削除・移管・非公開化は別の範囲判断とし、監査を口実に実行しない。
 
 同じ意味の規則をPROJECT / AGENTS / STATE / Manager / Guardへ複製して「再発防止」としない。
 
