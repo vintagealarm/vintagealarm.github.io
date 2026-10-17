@@ -350,11 +350,14 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
     const response=await fetch('/api/ai-readable-link?'+params.toString(),{cache:"no-store"});
     const data=await response.json();
     if(!response.ok||data.error)throw new Error(data.error||("HTTP "+response.status));
+    const sharedUrl=new URL(data.url);
+    const discovery=buildDiscoveryShare(localStorage,true);
+    sharedUrl.hash+=(sharedUrl.hash?";":"")+"discovery="+encodeURIComponent(JSON.stringify(discovery));
     try{
-      await navigator.clipboard.writeText(data.url);
+      await navigator.clipboard.writeText(sharedUrl.toString());
       button.textContent="COPIED";
     }catch{
-      window.prompt("Copy AI readable URL",data.url);
+      window.prompt("Copy AI readable URL",sharedUrl.toString());
       button.textContent="READY";
     }
   }catch(error){

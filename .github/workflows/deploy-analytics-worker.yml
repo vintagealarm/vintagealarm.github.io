@@ -44,6 +44,9 @@ jobs:
       - name: Check production AI URL entry path
         run: node check-entry-worker.mjs
 
+      - name: Check discovery sharing and delivery verification
+        run: node check-discovery-share.mjs
+
       - name: Check deployment credentials
         shell: bash
         env:

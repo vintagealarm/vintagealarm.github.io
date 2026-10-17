@@ -1,4 +1,5 @@
 import { cymaResearchPreviewResponse } from "./cyma-research-preview.js";
+import { buildDiscoveryShare } from "./discovery-share.js";
 const GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql";
 const DEFAULT_HOST = "vintagealarm.github.io";
 export const HOST_MIGRATION = Object.freeze({
@@ -2417,6 +2418,7 @@ function bindDiscoveryInbox(){
   });
 }
 
+${buildDiscoveryShare.toString()}
 function analyticsQuery(){
   const params=new URLSearchParams();
   params.set("range",windowKey);
@@ -2480,7 +2482,8 @@ document.getElementById("aiShare").addEventListener("click",async()=>{
     const exportData=await exportResponse.json();
     if(!exportResponse.ok||exportData.error)throw new Error(exportData.error||("HTTP "+exportResponse.status));
 
-    const payload=JSON.stringify(exportData);
+    const payload=JSON.stringify({...exportData,discovery:buildDiscoveryShare(localStorage),
+      discoveryScope:"Browser-imported SEO/GEO and manual index records attached by AI COPY; server analytics limitations apply only to the server export."});
     try{
       await navigator.clipboard.writeText(payload);
       button.textContent="COPIED";

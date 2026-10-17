@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-18 08:00 JST — Analytics短縮URLのPages接続とSEO/GEO共有漏れを修正
+
+- **変更**: `/s/*` をPages Functionsへ接続。AI URL発行時に渡す短縮URLそのものの本文とexport markerを検証する。AI COPYへブラウザ取込済みSEO/GEO全保存スナップショット・手動Index記録、AI URL fragmentへ最新要約を付加する。
+- **理由**: ユーザーの「そこをいい加減できるようにしたい」という取得修復依頼。`functions/index.js` だけでは短縮pathを処理できず、直接handlerを呼ぶ既存テストではルーティング欠落を検知できなかった。SEO/GEOはlocalStorage保存のみで共有処理が無かった。
+- **旧状態・棄却**: HTTP 200や静的案内HTMLを取得成功としない。未取込を0件、手動CSVを自動取得、取込期間をAnalytics選択期間とみなす解釈を棄却する。`NOT_IMPORTED` / `UNREADABLE` / 欠落指標nullと出所・日時・期間を保持する。
+- **影響範囲**: relay / Analytics worker・そのCI・共有契約のみ。Google認証付き自動取得は未実装。fragmentはサーバーHTTP本文に含まれず、最新要約のみ。全行はAI COPY。既存の署名・認証・有効期限・cache上限を維持する。
+- **検証状態**: 実生成dashboardのAI COPY/AI URLイベント、未取込・破損データ、欠落列、期間保持、認証境界、静的HTTP 200の発行拒否を実行確認。Wrangler生成routerのv1/v2成功・期限切れ・不正path・上流失敗を確認。公開後の短縮path検査をdeploy workflowへ接続。本番deploy・実アカウント最新データ取得は未実施。
+- **関連**: `measurement/metrics.md`、`cloudflare/analytics-dashboard/check-discovery-share.mjs`、`cloudflare/ai-relay/check-built-routes.mjs`。最適化PR #248とは別branch。
+- **日時根拠**: 作業ホストの `TZ=Asia/Tokyo date` 実測（2026-10-18 08:00 JST）。
+
 ### 2026-10-14 13:35 JST — Wittnauer 10WA OWNER'S NOTEをユーザー添付の3言語原本へ差し替え
 
 - **変更**：ユーザーが本会話で添付したWittnauer 10WA OWNER'S NOTE完成PNG3枚（`CITIZEN SPIKE_20.png` JA、`_19.png` EN、`_21.png` DE）を、無加工のまま `public/images/wittnauer-10wa/owners-note-{ja,en,de}-20261014.png` に登録した。日本語WATCHと英語・ドイツ語WatchEntryのWittnauer限定画像参照を各言語ファイルへ切り替え、`scripts/check-build-output.mjs` に生成HTMLの参照先と公開用PNGのSHA-256検査を追加した。

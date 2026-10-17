@@ -23,6 +23,8 @@
 
 これにより、AIクライアントがRelay本文を直接取得できる場合はfull Markdownを読み、取得できない場合でもユーザーが貼ったURL文字列そのものから分析に必要な主要集計を復元できる。第三者Reader serviceは通常経路に使わない。
 
-注意: fragment内の`VA2` snapshotはURL文字列そのものに含まれるため、full exportのような暗号学的な失効はしない。会話へ貼った集計値が後から自動消去されない点も通常の貼り付けデータと同じ。共有内容はaggregate Analyticsだけに限定する。
+注意: fragment内の`VA2` snapshotと`discovery`要約はURL文字列そのものに含まれるため、full exportのような暗号学的な失効はしない。会話へ貼った集計値が後から自動消去されない点も通常の貼り付けデータと同じ。
 
-`AI COPY` はfull JSON fallbackとして残す。Search Console / Google AI snapshotはブラウザlocalStorageのため、引き続きAI URL / AI COPYの対象外。
+`AI COPY` はfull JSONにブラウザ取込済みSEO/GEO・手動Index記録を添付する。`AI URL` はfragmentへ最新SEO/GEO要約を添付する。これはサーバーのHTTP本文には含まれず、Googleからの自動取得でもない。未取込・読込不能・期間・手動取込の出所を保持する。共有契約は `measurement/metrics.md`。
+
+Pagesの `/s/*` は `functions/s/[[path]].js` から既存handlerへ接続する。`functions/index.js` だけでは短縮pathに接続されない。CIはWranglerで組み立てたrouterに成功・期限切れ・不正path・上流失敗を入力する。deploy後も実URLの期限切れ応答を検査し、静的HTMLへのfallbackを検出する。発行側も実際の短縮URLの本文とexport markerを確認してから返す。

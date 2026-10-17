@@ -650,6 +650,21 @@ async function issueAiReadableLink(request, url, env, ctx) {
   if (!signed?.url) return jsonResponse({ error: "Signed export URL was not returned." }, 502);
 
   const relayUrl = buildShortRelayUrl(signed.url);
+  // Verify the exact short route we hand to the user, not the root query route.
+  // A static fallback also returns HTTP 200, so status alone is insufficient.
+  try {
+    const probe = await fetch(relayUrl.toString(), {
+      headers: { Accept: "text/markdown" }, redirect: "error",
+      signal: AbortSignal.timeout(20000),
+    });
+    const body = await probe.text();
+    if (!probe.ok || probe.headers.get("X-Analytics-Export") !== "vintage-alarm-ai-export-v1" ||
+        !body.startsWith("# VINTAGE ALARM ANALYTICS")) {
+      return jsonResponse({ error: "短縮URLの集計本文を取得できませんでした。AI COPYでデータを共有できます。" }, 502);
+    }
+  } catch {
+    return jsonResponse({ error: "短縮URLに接続できませんでした。AI COPYでデータを共有できます。" }, 502);
+  }
   const fallbackFragment = await fallbackFragmentFromSignedExport(signed.url, env, ctx);
   const portableUrl = relayUrl.toString() + (fallbackFragment ? `#${fallbackFragment}` : "");
 
@@ -659,8 +674,8 @@ async function issueAiReadableLink(request, url, env, ctx) {
     expiresAt: signed.expiresAt,
     ttlSeconds: AI_READABLE_TTL_SECONDS,
     format: "text/markdown",
-    deliveryVerified: false,
-    deliveryVerification: "self-contained-va2-fragment-with-relay-best-effort",
+    deliveryVerified: true,
+    deliveryVerification: "exact-short-route-body-and-export-marker-at-issue-time",
     fallbackIncluded: Boolean(fallbackFragment),
     fallbackSchema: fallbackFragment ? "VA2" : null,
     transport: "signed self-hosted relay + inline aggregate snapshot",
