@@ -47,6 +47,30 @@
       "PROGRESS-NOSILENCE-001",
       "WATCH-CROSSREPO-REPAIR-001",
       "ARSA-RELIST-IDENTITY-001"
+    ],
+    "required_route_ids": [
+      "WATCH-TEXT",
+      "WATCH-RESEARCH",
+      "WATCH-OWNERSHIP",
+      "FOREIGN-COST",
+      "OWNER-COPY",
+      "HOW-RING",
+      "DESIGN",
+      "SEO",
+      "ANALYTICS",
+      "SOCIAL",
+      "ENGLISH",
+      "GERMAN",
+      "PRESENTATION",
+      "COUNCIL",
+      "OPERATIONS",
+      "DEPLOY",
+      "SOCIAL-PROPOSAL",
+      "SOCIAL-COPY",
+      "SOCIAL-INSIGHTS",
+      "SOCIAL-ANALYSIS",
+      "SOCIAL-EXPERIMENT",
+      "SOCIAL-METRICS"
     ]
   },
   "cases": [
@@ -65,7 +89,7 @@
         "routing_path": [
           "measurement/.internal/.virtual/social/ROUTER.md"
         ],
-        "max_expected_hops": 1,
+        "max_expected_hops": 2,
         "max_expected_files": 1,
         "required_sources": [
           {
@@ -76,7 +100,10 @@
             ]
           }
         ],
-        "max_expected_chars": 35000
+        "max_expected_chars": 35000,
+        "route_ids": [
+          "SOCIAL"
+        ]
       }
     },
     {
@@ -95,7 +122,7 @@
         "routing_path": [
           "src/pages/x/index.astro"
         ],
-        "max_expected_hops": 1,
+        "max_expected_hops": 2,
         "max_expected_files": 1,
         "required_sources": [
           {
@@ -103,7 +130,10 @@
             "contains": []
           }
         ],
-        "max_expected_chars": 35000
+        "max_expected_chars": 35000,
+        "route_ids": [
+          "SOCIAL"
+        ]
       }
     },
     {
@@ -123,7 +153,7 @@
           "measurement/.internal/.virtual/social/content-inventory.md",
           "measurement/.internal/.virtual/social/instagram-published-copy.md"
         ],
-        "max_expected_hops": 3,
+        "max_expected_hops": 6,
         "max_expected_files": 3,
         "required_sources": [
           {
@@ -132,6 +162,9 @@
               "目の前の実素材が最優先",
               "Content Inventoryから実制作へ分析を落とさない",
               "USER_CONFIRMED / PLANNED"
+            ],
+            "sections": [
+              "## 4. ACTIVE — 今回の分析・Councilで前面に出す論点"
             ]
           },
           {
@@ -141,6 +174,9 @@
               "現在の新規active reservationは0件",
               "MR-PIE-001は2026-10-05にPUBLISHEDへ移行",
               "#### EB:MR-PIE-001"
+            ],
+            "sections": [
+              "## 4. 共同棚卸し状態 / Content Assignment Registry"
             ]
           },
           {
@@ -151,7 +187,12 @@
             ]
           }
         ],
-        "max_expected_chars": 41000
+        "max_expected_chars": 41000,
+        "route_ids": [
+          "SOCIAL",
+          "SOCIAL-PROPOSAL",
+          "SOCIAL-COPY"
+        ]
       }
     },
     {
@@ -204,7 +245,7 @@
           "measurement/.internal/.virtual/social/ROUTER.md",
           "measurement/.internal/.virtual/social/instagram-published-copy.md"
         ],
-        "max_expected_hops": 2,
+        "max_expected_hops": 4,
         "max_expected_files": 2,
         "required_sources": [
           {
@@ -224,7 +265,11 @@
             ]
           }
         ],
-        "max_expected_chars": 37000
+        "max_expected_chars": 37000,
+        "route_ids": [
+          "SOCIAL",
+          "SOCIAL-COPY"
+        ]
       }
     },
     {
@@ -243,7 +288,7 @@
           "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
           "src/content/watches/arsa-blind-alarm.md"
         ],
-        "max_expected_hops": 2,
+        "max_expected_hops": 4,
         "max_expected_files": 2,
         "required_sources": [
           {
@@ -268,7 +313,8 @@
             ]
           }
         ],
-        "max_expected_chars": 35000
+        "max_expected_chars": 35000,
+        "route_ids": []
       }
     },
     {
@@ -297,7 +343,8 @@
             ]
           }
         ],
-        "max_expected_chars": 34000
+        "max_expected_chars": 34000,
+        "route_ids": []
       }
     },
     {
@@ -316,7 +363,7 @@
           "PROJECT.md",
           "measurement/.internal/.virtual/social/ROUTER.md"
         ],
-        "max_expected_hops": 1,
+        "max_expected_hops": 2,
         "max_expected_files": 1,
         "required_sources": [
           {
@@ -344,7 +391,11 @@
             ]
           }
         ],
-        "max_expected_chars": 35000
+        "max_expected_chars": 35000,
+        "route_ids": [
+          "SOCIAL",
+          "SOCIAL-INSIGHTS"
+        ]
       }
     },
     {
@@ -360,14 +411,14 @@
         "expected_resolution": "いいえ。現行の大分類はGONG / CASEBACKの2種類だけ。BELLやPIN等はCASEBACK内部構造を見せるFIGの代表例で、第三・第四カテゴリではない。",
         "forbidden_resolution": "GONG / CASEBACK / BELL / PINを同階層の4分類として復活させる。",
         "routing_path": [
-          "PROJECT_STATE.md",
+          "SITE_RULES.md",
           "src/data/how-they-ring-localizations.ts"
         ],
-        "max_expected_hops": 1,
-        "max_expected_files": 1,
+        "max_expected_hops": 4,
+        "max_expected_files": 2,
         "required_sources": [
           {
-            "path": "PROJECT_STATE.md",
+            "path": "SITE_RULES.md",
             "contains": [
               "HOW THEY RINGの現行分類は **GONG / CASEBACK の2種類だけ**",
               "FIG.02–04は第三・第四カテゴリではない"
@@ -377,10 +428,16 @@
             "path": "src/data/how-they-ring-localizations.ts",
             "contains": [
               "GONG / CASEBACK"
+            ],
+            "sections": [
+              "*"
             ]
           }
         ],
-        "max_expected_chars": 34000
+        "max_expected_chars": 34000,
+        "route_ids": [
+          "HOW-RING"
+        ]
       }
     },
     {
@@ -396,31 +453,28 @@
         "expected_resolution": "いいえ。branch実装と検証はIMPLEMENTED / VERIFIEDまで。main merge、deploy、live確認、成果観測はそれぞれ別状態で、実体確認なしに昇格しない。",
         "forbidden_resolution": "build PASSだけでDEPLOYED / OBSERVEDまで完了扱いする。",
         "routing_path": [
-          "PROJECT_STATE.md",
-          "AGENTS.md"
+          ".codex/MANAGER_CONTROL_PLANE.md"
         ],
-        "max_expected_hops": 0,
-        "max_expected_files": 0,
+        "max_expected_hops": 2,
+        "max_expected_files": 1,
         "required_sources": [
           {
-            "path": "PROJECT_STATE.md",
+            "path": ".codex/MANAGER_CONTROL_PLANE.md",
             "contains": [
               "1. `IMPLEMENTED`",
               "2. `VERIFIED`",
               "3. `DEPLOYED`",
-              "4. `OBSERVED`"
-            ]
-          },
-          {
-            "path": "AGENTS.md",
-            "contains": [
+              "4. `OBSERVED`",
               "作業中の現在状態",
               "本番へmerge済みの確定状態",
               "実際の公開状態"
             ]
           }
         ],
-        "max_expected_chars": 34000
+        "max_expected_chars": 34000,
+        "route_ids": [
+          "OPERATIONS"
+        ]
       }
     },
     {
@@ -436,15 +490,15 @@
         "expected_resolution": "回答だけで消費せず、まず既存ARSA Ledgerへ詳細証拠を記録する。新証拠が優先順位・仮説状態・タスク状態を変える場合だけResearch Mapも更新する。公開WATCH本文は新資料を受け取っただけでは変更しない。その後、資料が実際に支える内容を説明する。",
         "forbidden_resolution": "会話内の説明だけで終える、Ledgerを飛ばしてMapへ詳細を集約する、または公開WATCHを自動で書き換える。",
         "routing_path": [
-          "AGENTS.md",
+          "SITE_RULES.md",
           "research/ARSA_BLIND_ALARM_LEDGER.md",
           "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md"
         ],
-        "max_expected_hops": 2,
-        "max_expected_files": 2,
+        "max_expected_hops": 6,
+        "max_expected_files": 3,
         "required_sources": [
           {
-            "path": "AGENTS.md",
+            "path": "SITE_RULES.md",
             "contains": [
               "Research Evidence Ingress",
               "詳細証拠・出典・逐次履歴をLedgerへ追記"
@@ -464,7 +518,10 @@
             ]
           }
         ],
-        "max_expected_chars": 35000
+        "max_expected_chars": 35000,
+        "route_ids": [
+          "WATCH-RESEARCH"
+        ]
       }
     },
     {
@@ -494,7 +551,8 @@
             ]
           }
         ],
-        "max_expected_chars": 34000
+        "max_expected_chars": 34000,
+        "route_ids": []
       }
     },
     {
@@ -512,10 +570,13 @@
         "forbidden_resolution": "1の意味を作り直す、別形式を実行する、7択をもう一度尋ねる。",
         "routing_path": [
           "PROJECT.md",
-          "council-worker/README.md"
+          "council-worker/README.md",
+          "council-worker/V3.md",
+          "council-worker/src/v3.ts",
+          "council-worker/src/index.ts"
         ],
-        "max_expected_hops": 1,
-        "max_expected_files": 1,
+        "max_expected_hops": 8,
+        "max_expected_files": 4,
         "required_sources": [
           {
             "path": "PROJECT.md",
@@ -531,7 +592,10 @@
             ]
           }
         ],
-        "max_expected_chars": 34000
+        "max_expected_chars": 150000,
+        "route_ids": [
+          "COUNCIL"
+        ]
       }
     },
     {
@@ -549,10 +613,13 @@
         "forbidden_resolution": "residentを一人追加するだけ、短い要約だけで逆張りする、自分の直前作業を監査対象から外す、評価開始点を未来へ動かして既存実績を0件扱いする、不足contextのままノンデリ口調を使う、異論を捏造する。",
         "routing_path": [
           "PROJECT.md",
-          "council-worker/V3.md"
+          "council-worker/V3.md",
+          "council-worker/README.md",
+          "council-worker/src/v3.ts",
+          "council-worker/src/index.ts"
         ],
-        "max_expected_hops": 1,
-        "max_expected_files": 1,
+        "max_expected_hops": 8,
+        "max_expected_files": 4,
         "required_sources": [
           {
             "path": "PROJECT.md",
@@ -571,10 +638,16 @@
               "Observation boundary",
               "Exclusions with reasons",
               "文脈不足のため無礼許可は未発効"
+            ],
+            "sections": [
+              "## 道化師の人格と context burden"
             ]
           }
         ],
-        "max_expected_chars": 35000
+        "max_expected_chars": 150000,
+        "route_ids": [
+          "COUNCIL"
+        ]
       }
     },
     {
@@ -605,7 +678,8 @@
             ]
           }
         ],
-        "max_expected_chars": 34000
+        "max_expected_chars": 34000,
+        "route_ids": []
       }
     },
     {
@@ -621,14 +695,14 @@
         "expected_resolution": "戻さない。ARSA published falseがユーザー意図のCURRENTで、公開集合側をfrontmatterのpublished true集合へ動的追従させる。",
         "forbidden_resolution": "固定公開本数を守るためARSAを再公開する。",
         "routing_path": [
-          "PROJECT_STATE.md",
+          "SITE_RULES.md",
           "src/content/watches/arsa-blind-alarm.md"
         ],
-        "max_expected_hops": 1,
-        "max_expected_files": 1,
+        "max_expected_hops": 4,
+        "max_expected_files": 2,
         "required_sources": [
           {
-            "path": "PROJECT_STATE.md",
+            "path": "SITE_RULES.md",
             "contains": [
               "公開中のWATCH routeの正本は `src/content/watches/*.md` の `published: true`",
               "ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT"
@@ -650,7 +724,10 @@
             ]
           }
         ],
-        "max_expected_chars": 34000
+        "max_expected_chars": 34000,
+        "route_ids": [
+          "WATCH-TEXT"
+        ]
       }
     },
     {
@@ -667,20 +744,23 @@
         "expected_resolution": "ホストでJSTを確認し、回答の冒頭をYYYY-MM-DD HH:mm JSTで始める。",
         "forbidden_resolution": "日時なし、推測時刻、UTCのまま、または末尾だけに日時を書く。",
         "routing_path": [
-          "AGENTS.md"
+          ".codex/MANAGER_CONTROL_PLANE.md"
         ],
-        "max_expected_hops": 0,
-        "max_expected_files": 0,
+        "max_expected_hops": 2,
+        "max_expected_files": 1,
         "required_sources": [
           {
-            "path": "AGENTS.md",
+            "path": ".codex/MANAGER_CONTROL_PLANE.md",
             "contains": [
               "冒頭にホスト確認済みの `YYYY-MM-DD HH:mm JST` を表示する",
               "会話時刻を推測で補わず、実行環境のJSTを確認する"
             ]
           }
         ],
-        "max_expected_chars": 34000
+        "max_expected_chars": 34000,
+        "route_ids": [
+          "OPERATIONS"
+        ]
       }
     },
     {
@@ -712,7 +792,8 @@
             ]
           }
         ],
-        "max_expected_chars": 34000
+        "max_expected_chars": 34000,
+        "route_ids": []
       }
     },
     {
@@ -730,7 +811,7 @@
         "routing_path": [
           ".codex/MANAGER_CONTROL_PLANE.md"
         ],
-        "max_expected_hops": 1,
+        "max_expected_hops": 2,
         "max_expected_files": 1,
         "required_sources": [
           {
@@ -756,7 +837,10 @@
             ]
           }
         ],
-        "max_expected_chars": 35000
+        "max_expected_chars": 35000,
+        "route_ids": [
+          "OPERATIONS"
+        ]
       }
     },
     {
@@ -774,7 +858,7 @@
         "routing_path": [
           ".codex/MANAGER_CONTROL_PLANE.md"
         ],
-        "max_expected_hops": 1,
+        "max_expected_hops": 2,
         "max_expected_files": 1,
         "required_sources": [
           {
@@ -800,7 +884,10 @@
             ]
           }
         ],
-        "max_expected_chars": 35000
+        "max_expected_chars": 35000,
+        "route_ids": [
+          "OPERATIONS"
+        ]
       }
     },
     {
@@ -818,7 +905,7 @@
         "routing_path": [
           ".codex/MANAGER_CONTROL_PLANE.md"
         ],
-        "max_expected_hops": 1,
+        "max_expected_hops": 2,
         "max_expected_files": 1,
         "required_sources": [
           {
@@ -845,7 +932,10 @@
             ]
           }
         ],
-        "max_expected_chars": 35000
+        "max_expected_chars": 35000,
+        "route_ids": [
+          "OPERATIONS"
+        ]
       }
     },
     {
@@ -861,13 +951,13 @@
         "expected_resolution": "PROJECT.md の横断照合の強制条件に従って、orima1995-create/watchdiary-ios #21 → #60 をfresh取得。#21/#60には、森さんがAS1475アラームのコハゼ部へ対応でき、互換ドナームーブ在庫があると購入前に回答した記録がある。ネジ57426欠落疑いを許容できた修理ルートが購入判断の前提。時計はまだ修理済みと扱わず、故障診断と既定の森さんルートを整合させる。",
         "forbidden_resolution": "ARSA研究LedgerやMapだけを検索して『記録がない』『共有していない』と回答する、森さんを無視して新規時計師への依頼を一般論で提案する。",
         "routing_path": [
-          "PROJECT.md"
+          "SITE_RULES.md"
         ],
-        "max_expected_hops": 2,
-        "max_expected_files": 0,
+        "max_expected_hops": 4,
+        "max_expected_files": 1,
         "required_sources": [
           {
-            "path": "PROJECT.md",
+            "path": "SITE_RULES.md",
             "contains": [
               "横断照合の強制条件（研究中も適用）",
               "`watchdiary-ios` #21 → #60",
@@ -893,7 +983,10 @@
             ]
           }
         ],
-        "max_expected_chars": 84000
+        "max_expected_chars": 84000,
+        "route_ids": [
+          "WATCH-OWNERSHIP"
+        ]
       }
     },
     {
@@ -912,7 +1005,7 @@
           "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
           "research/ARSA_BLIND_ALARM_LEDGER.md"
         ],
-        "max_expected_hops": 2,
+        "max_expected_hops": 4,
         "max_expected_files": 2,
         "required_sources": [
           {
@@ -969,7 +1062,10 @@
             ]
           }
         ],
-        "max_expected_chars": 37000
+        "max_expected_chars": 37000,
+        "route_ids": [
+          "WATCH-RESEARCH"
+        ]
       }
     }
   ]

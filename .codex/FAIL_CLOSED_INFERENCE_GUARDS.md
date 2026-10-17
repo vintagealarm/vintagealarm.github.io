@@ -73,6 +73,11 @@ SNS / platform-bound copy / Analytics / canonical write等、domain固有CURRENT
 
 ### Replayの実行・採点と保証範囲
 
+- 道案内の単一正本はPROJECT §2とSocial Router内の分岐表。`check:routing` は参照先・一意な節・経路IDの欠落と起動文字数を検査し、`test:routing` は誤参照・起動への戻り・再読・早すぎる停止の反例を検査する。
+- `npm run replay:route -- --adapter /path/answer.mjs --reviewer /path/judge.mjs --output /private/results.json` は段階読込の別実行器。最初は起動3文書のみ。回答adapterは `{action:"read",route_id,path,section,via,reason}`、コードの行指定なら `start_line/end_line`、ファイル候補探索なら `{action:"locate",query,reason}`、最後に `{action:"answer",answer,model}` を返す。期待回答は別reviewerだけへ渡す。
+- 段階読込のtraceは順序・参照元・理由・行範囲・SHA-256を保存し、hopsは起動を除いた実際のreadイベント数、filesはユニーク数と分ける。同じ内容の不要な再読と起動への戻りは拒否。新しい矛盾や変更の調査は別の明示的なscope・実行証拠で扱い、このローカルsnapshot試験をremote fresh取得の証明にしない。
+- chars_readはAIに開示した出典文字数。adapterへのJSON累積送信文字数・呼出回数・reviewer入力文字数も別に保存する。段階化だけでAPI総費用が減るとは主張しない。外部台帳の実ツール取得は接続されたsurfaceの証拠が必要で、このローカルreaderだけではHOLD。
+
 - 実回答の実行は `npm run replay:run -- --adapter /path/model.mjs --reviewer /path/reviewer.mjs --output /private/results.json`。2つのNode adapterはstdinのJSONを受けstdoutにJSONだけを返す。回答adapterは `{answer, model}`、別reviewerは `{outcome, reviewer, rationale, false_certainty}` を返す。期待回答は回答adapterへ渡さず、reviewerだけへ渡す。失敗・未取得はHOLDとして保存する。モデル・API設定は勝手に補わない。
 - これは**証拠を事前投入するoffline Replay**。fresh取得の順序、実ツール利用、実チャットの通知間隔を検証できたことにはしない。これらの行動を示す実行ログがなければ該当評価はHOLD。adapterを別にしても独立性・正確性の自動証明にはならない。
 - `npm run replay:score -- /private/results.json` は実回答、出典の行範囲とSHA-256、読込量、外部資料、評価者・理由・実行属性を検査し、PASS / FAIL / HOLD / NOT_RUNを全LOCKED件数を分母に表示する。欠落・FAIL・HOLD・false certainty・再指示・予算超過は非0終了。単なるPASSラベルを実行・正確性の証明にしない。自己評価・人手評価・モデル評価は分けて表示する。

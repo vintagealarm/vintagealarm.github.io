@@ -104,9 +104,10 @@ for (const id of requiredReplayIds) {
     fail(`${id} max_expected_files must be an integer >= incremental task-file count`);
   }
 
-  if (replay.max_expected_hops !== incrementalRoute.length + (replay.external_required_sources || []).length ||
+  if (replay.max_expected_hops < incrementalRoute.length + (replay.external_required_sources || []).length ||
+      replay.max_expected_hops > incrementalRoute.length * 2 + (replay.external_required_sources || []).length ||
       replay.max_expected_files !== incrementalRoute.length) {
-    fail(`${id} budgets must equal incremental routing length; boot is counted separately`);
+    fail(`${id} budgets must equal incremental file count; read hops must be bounded separately from unique files`);
   }
   if (!Number.isInteger(replay.max_expected_chars) || replay.max_expected_chars <= 0) {
     fail(`${id} needs a positive max_expected_chars (boot + scoped task evidence)`);
@@ -306,7 +307,7 @@ function scoreResults(resultPath) {
           evidencePaths.add(e.path); observedChars += excerpt.length;
         } catch (error) { issues.push(`${id}: ${error.message}`); }
       }
-      for (const expected of caseEvidence(fixture, item)) {
+      for (const expected of result.execution?.kind === 'staged_model_adapter' ? [] : caseEvidence(fixture, item)) {
         if (!result.evidence.some((e) => e?.path === expected.path && e.start_line <= expected.start_line && e.end_line >= expected.end_line)) {
           issues.push(`${id}: incomplete required excerpt ${expected.path}:${expected.start_line}-${expected.end_line}`);
         }
@@ -331,7 +332,24 @@ function scoreResults(resultPath) {
       }
     }
     const taskFiles = result.files_read.filter((path) => !bootPaths.includes(path));
-    if (result.routing_hops !== taskFiles.length + (item.replay.external_required_sources || []).length) issues.push(`${id}: routing_hops differs from trace`);
+    if (result.execution?.kind === 'staged_model_adapter') {
+      if (!Array.isArray(result.read_trace) || JSON.stringify(result.read_trace) !== JSON.stringify(result.evidence)) issues.push(`${id}: missing ordered read trace`);
+      else {
+        if (result.read_trace.slice(0,3).some((e,i)=>e.path!==bootPaths[i])) issues.push(`${id}: invalid boot order`);
+        const reads=result.read_trace.filter(e=>!bootPaths.includes(e.path)).length;
+        if (result.routing_hops!==reads) issues.push(`${id}: routing_hops differs from actual reads`);
+        const seenRanges=new Set();const covered=[];
+        for(const [i,e] of result.read_trace.entries()) {
+          const key=`${e.path}:${e.start_line}:${e.end_line}:${e.sha256}`;
+          if(seenRanges.has(key)) issues.push(`${id}: unnecessary reread in trace`);
+          if(covered.some(t=>t.path===e.path && t.start_line<=e.start_line && t.end_line>=e.end_line)) issues.push(`${id}: redundant contained read in trace`);
+          if(e.sequence!==i+1 || !e.reason?.trim() || !Number.isFinite(Date.parse(e.read_at))) issues.push(`${id}: invalid read event`);
+          seenRanges.add(key);
+          covered.push(e);
+        }
+      }
+      for(const route of item.replay.route_ids || []) if(!result.route_ids?.includes(route)) issues.push(`${id}: missing route decision ${route}`);
+    } else if (result.routing_hops !== taskFiles.length + (item.replay.external_required_sources || []).length) issues.push(`${id}: routing_hops differs from trace`);
     if (taskFiles.length > item.replay.max_expected_files || result.routing_hops > item.replay.max_expected_hops ||
         result.chars_read > item.replay.max_expected_chars) issues.push(`${id}: retrieval budget exceeded`);
     if (result.false_certainty || result.outcome !== 'PASS' || result.user_reinstruction_count > 0) issues.push(`${id}: correctness / intervention failure`);

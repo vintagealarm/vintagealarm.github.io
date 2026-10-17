@@ -16,6 +16,21 @@
 
 ## 2. 参照順
 
+PROJECT §0の起動確認はこのメッセージ内で完了済みとして再利用する。下の作業別分岐を選び、必要な節だけ読む。従来の番号付き一覧は資料の役割・照合順の説明であり、全件を毎回開く指示ではない。以下の表がSocial内の分岐の単一正本。
+
+<!-- VA_ROUTES_BEGIN -->
+| ID | 適用条件 | 次の正本 | 最初の節 | 追加参照・停止条件 |
+|---|---|---|---|---|
+| SOCIAL-PROPOSAL | 投稿案・未使用角度・素材の棚卸し | [inventory](content-inventory.md) | ## 2. 引き継ぎ後の強制手順 | 対象assetのSourceと既出投稿を照合。ユーザー選択前にfinalにしない |
+| SOCIAL-COPY | 公開済みInstagram本文・ハッシュタグの再利用 | [実投稿](instagram-published-copy.md) | * | 対象時計と投稿の見出しを指定。別投稿を混ぜず全文を確認したら停止 |
+| SOCIAL-INSIGHTS | 新しいInsights・時系列比較 | [Insights](instagram-insights-timeseries.md) | * | 対象content IDと観測日時を指定。書込時は本Routerの完了条件も読む |
+| SOCIAL-ANALYSIS | 過去の分析・先行実績を照合 | [Operations](instagram-operations.md) | * | 対象投稿の判断・実測だけ。必要な場合だけexperiment-logへ |
+| SOCIAL-EXPERIMENT | 過去X・YouTube・VA流入の実験 | [実験](../../../experiment-log.md) | * | 対象期間・媒体だけ。指標の意味が必要ならmetricsへ |
+| SOCIAL-METRICS | 指標定義・SNSとVA Analyticsの突合 | [定義](../../../metrics.md) | * | 定義と観測を分離。今回の値の解釈ができれば停止 |
+<!-- VA_ROUTES_END -->
+
+Xの出力条件だけなら本ファイルの「## 3.5 X CURRENT OUTPUT CONTRACT — overseas English / Instagram reuse」を読む。Insights書込・公開本文登録は本ファイルの「## 9. 更新ルール — CANONICAL WRITE CONTRACT」の該当完了条件へ進む。企画・評価・Councilでは「## 4. ACTIVE — 今回の分析・Councilで前面に出す論点」と「## 5. RESOLVED / INTERNAL — 原則として再説明・再審議しない」の関連項目を確認し、解決済み論点を再審議しない。英語出力は「## 入口から移管したSNS共通出力契約」も適用する。
+
 1. 現在の会話にある最新スクリーンショット / Insights / Relay URL・値 / ユーザー訂正
 2. この `ROUTER.md`
 3. `measurement/.internal/.virtual/social/content-inventory.md` — SNS投稿案・既出除外・未使用候補・撮影要否・検証要否の横断索引。投稿案では必須
@@ -254,7 +269,7 @@ Instagram Insightsスクリーンショットを受け取った場合は、原�
 2. `instagram-published-copy.md` の既存登録と照合する。
 3. 公開本文を全文保存し、採用された主フック／機構／CTAを記録する。
 4. 最終本文に入らなかった要素を記録する場合、公開本文・既存草案・ユーザー訂正から確認できる範囲だけに限定する。理由を推測しない。
-5. commit成功後に本ファイルを再取得し、全文・hashtags・訴求マップを監査する。
+5. commit成功後に `instagram-published-copy.md` の更新した投稿節を再取得し、全文・hashtags・訴求マップを監査する。
 6. ここまで完了して初めて「実投稿全文を記録済み」と扱う。
 
 ### 禁止
@@ -293,3 +308,31 @@ SNS案件でも `.codex/FAIL_CLOSED_INFERENCE_GUARDS.md` と `.codex/inference-g
 - SOCIAL-X-LANGUAGE-001
 
 この4件は、既存判断・現物・実素材を確認したうえで処理し、一般論だけで現行方針を書き換えない。
+
+
+## SNS再利用の現行方針
+
+- SNS再利用資産の横断索引: `measurement/.internal/.virtual/social/content-inventory.md`（現行asset索引＋時計横断rolling `AI_PROPOSED`候補棚。AIがSource-backed候補を分類して継続追加し、ユーザーは棚から時計＋内容を選んで KEEP / MERGE / SPLIT / DROP を確定する。1個体を完了してから次へ進む必要はなく、KEEP済みassetも後日選択可能。動画採用後だけContent Assignment Registryで ASSET → CONTENT → MEDIA を USER_CONFIRMED 予約。事実正本は各WATCH等へ戻る）
+- 6個体のSNS再利用は `content-inventory.md` を商品棚として管理する。OWNER'S NOTEは1個体1完成物で分割禁止。実投稿証拠は `instagram-published-copy.md`、数値は `instagram-insights-timeseries.md` のまま分離する
+- SNS再利用の現行運用は **micro-Reel ACTIVE**。`content-inventory.md` の独立資産を原則 `1 Reel = 1要素` の短編動画へ分解し、画面文字は最小限、1操作・1機構・1ディテール単位で扱う。静止画カルーセルは補助扱い。これは2026-10-03 Wittnauer 10WA静止画カルーセルの観測を受けた比較施策であり、「静止画は常に不利」「動画なら必ず伸びる」という因果確定ではない。実績評価は今後のmicro-Reel Insightsで別途観測する
+
+
+## 入口から移管した候補運用
+
+- **SNS投稿案・既出除外・未使用角度抽出では、Social Routerの後に `measurement/.internal/.virtual/social/content-inventory.md` を必ず確認する。** 会話記憶から投稿ネタを再発明せず、inventoryで候補を絞った後にWATCH / research / published-copyの正本へ戻って事実を再確認する。OWNER'S NOTEはinventoryの `WHOLE_ONLY` を守り、leadや本文を複数投稿へ分割しない。AIはSourceに基づいてasset候補を分類し、`AI_PROPOSED` として提示してよい。Candidate Review Queueは**時計横断のrolling shelf**として継続的に増やし、1個体を全件確定してから次の時計へ進む必要はない。asset境界の KEEP / MERGE / SPLIT / DROP は、その候補一覧をユーザーへ見せて相談した後に確定する。KEEPは「assetとして棚に残す」の意味で、次回投稿の採用とは分離する。**候補を提示せずAI単独で確定したことにしない。** final storyboard / captionを確定する前に、ユーザーが選んだ時計＋内容だけContent Assignment Registryへ USER_CONFIRMED / PLANNED として予約する。active予約済みasset / mediaは候補から除外し、中止時は削除せず DROPPED で解放する。
+
+
+## 入口から移管したSNS共通出力契約
+
+SNS投稿案・評価・Councilでは、**必ず `measurement/.internal/.virtual/social/ROUTER.md` の ACTIVE / RESOLVED を先に分離する。**
+
+- ACTIVE = 現在検討・比較・焼くべき論点。
+- RESOLVED / INTERNAL = 判断の前提として内部適用するが、新証拠や明示的な再検討指示がない限り回答・Councilの主要論点へ戻さない。
+
+これにより、既に確定した計測上の注意事項や過去の訂正を毎回答で再説明しない。
+
+現在の会話にある最新スクショ / Insights / Relay / ユーザー訂正を入口とし、§2の案件別経路で必要な正本だけを取得する。既読の起動3文書・Routerを同じメッセージ内で取得し直さない。対象VAページ・Project資料・一次資料・Web / 市場 / SNSは、その案件の事実確認に必要な場合だけ追加する。
+
+過去X / YouTube / Instagramで既に使った訴求を確認せず、新しい企画として再発明しない。
+
+英語投稿を作る場合は、**ネイティブとして自然な英語 + 英語構文を引きずらない自然な日本語訳**をセットで提示する。

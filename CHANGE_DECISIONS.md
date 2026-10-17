@@ -2071,3 +2071,13 @@
 - **検証状態**: GitHub mainへのcommit後、対象正本の再取得とコミット差分を確認。Instagram checkerのCI結果は別途確認。FF効果の因果検証は未実施。
 - **関連**: IG-ARS-001、19:39の8枚のスクリーンショット `IMG_3150.jpeg`～`IMG_3157.png`、同日17:17の旧観測。
 - **日時根拠**: ホスト時計 `TZ=Asia/Tokyo date` による2026-10-17 19:45:29 JST。スクリーンショット表示は19:39、投稿13:20はユーザー申告。
+
+### 2026-10-17 20:07 JST — 起動の軽量化と段階参照ルートの実行検査
+
+- **変更**: 起動3文書の詳細規約を既存のSITE_RULES / Manager / Social Router / Council V3へ移管し、PROJECTの作業別16経路とSocialの6分岐を単一のMarkdown表で定義。起動3文書は32,633→12,151 JS文字へ縮小し、各メッセージのfresh boot順序は維持する。経路・節・参照先・14,000文字予算のgateを追加。節抽出は重複見出し・複数アンカーの曖昧性を拒否する。別の段階Replayはbootだけから開始し、取得済み道案内→必要節の参照を実行記録に残す。同一内容の再読・入口節の飛越・未発見source・予算超過を拒否し、read回数とunique file数を分離する。
+- **理由**: ユーザーの「順次道案内があって適宜参照する」最適化監査で、重複する起動本文、旧V2例、dispatch削除や不存在pathでも通る検査、先頭substringによる過去投稿混入、preloaded fixtureを経路実行と呼べる問題を確認。ユーザーが提示済みの3点案に「それでいこうか」と実装を承認したため、その範囲で対応する。
+- **旧状態・棄却**: 毎回すべての分野正本を読む方式、削除による規約の簡略化、同じメッセージ内の無理由なboot再開、最初に一致する過去アンカーの採用、preloaded回答評価だけで道案内の遵守を認定する扱いを棄却。規約を新しい台帳へ増殖させず既存ownerへ移管する。fresh bootを省略しない。
+- **影響範囲**: 起動・分野規約、既存22ケースのsource ownerと経路/予算、経路gate、共通節抽出、段階Replay実行器、検証コード、package commands。公開WATCH・画像・公開flag・研究の事実・個人台帳・Council runtimeは変更しない。結果ファイルは公開repo外へ限定する。
+- **検証状態**: ローカルbuild、全check:quality、全test:quality成功。新規32件の経路/反例試験と既存34件のReplay試験は合成adapterによる配線検証であり、AI実回答の22件ReplayはNOT_RUN。段階実行器はlocal snapshotのみでremote fresh取得を証明しない。cross-repo外部証拠が必要なケースはHOLD。source context文字数と複数呼出の累積adapter入力文字数を別々に記録し、API総費用削減とは断定しない。GitHub CIはPR作成後に別途判定する。mainへのmerge・公開はこの作業では実行しない。
+- **関連**: 初期基準main a111711ddc79368426febb646f2db0916f3be291、保存前にSNS観測・運用記録を追加したmain b77313e61c62c47aa975e759d5ee1ed89cb1d528を取り込み保持。fix/progressive-routing-20261017。check:routing / test:routing / replay:route。実AI評価と公開GitHub内の既存個人取引情報の公開範囲判断は未了のまま分離する。
+- **日時根拠**: 実行ホスト `TZ=Asia/Tokyo date` 実測 2026-10-17 20:07:56 JST。
