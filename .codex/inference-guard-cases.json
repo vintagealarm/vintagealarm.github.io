@@ -120,10 +120,11 @@
         "expected_resolution": "新設前提にせず、既存src/pages/x/index.astroと現在用途を確認してから判断する。",
         "forbidden_resolution": "既存routeを確認せず、/x/が無いものとして設計を始める。",
         "routing_path": [
+          "measurement/.internal/.virtual/social/ROUTER.md",
           "src/pages/x/index.astro"
         ],
-        "max_expected_hops": 2,
-        "max_expected_files": 1,
+        "max_expected_hops": 4,
+        "max_expected_files": 2,
         "required_sources": [
           {
             "path": "src/pages/x/index.astro",
@@ -285,11 +286,12 @@
         "expected_resolution": "Catchはユーザー発「開けて、触って、聞く。」でFINAL。Lead / Subは「文字盤を覆う蓋が開く。／現在時刻も、アラーム時刻も、指先で読む。／設定した時刻になれば、／今度は耳の出番。」でFINAL。旧catchやWORKING未確定状態へ戻さない。",
         "forbidden_resolution": "旧catch「蓋を開けて、時刻を触る。／アラームの予約時刻まで、指先で読む。」をCURRENTとして返す、またはCatchをWORKING_MAIN / FINAL未実施と答える。",
         "routing_path": [
+          "SITE_RULES.md",
           "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
           "src/content/watches/arsa-blind-alarm.md"
         ],
-        "max_expected_hops": 4,
-        "max_expected_files": 2,
+        "max_expected_hops": 6,
+        "max_expected_files": 3,
         "required_sources": [
           {
             "path": "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
@@ -311,10 +313,19 @@
               "現在時刻も、アラーム時刻も、指先で読む。",
               "今度は耳の出番。"
             ]
+          },
+          {
+            "path": "SITE_RULES.md",
+            "sections": [
+              "## 時計研究の標準フレーム"
+            ],
+            "contains": []
           }
         ],
         "max_expected_chars": 35000,
-        "route_ids": []
+        "route_ids": [
+          "WATCH-RESEARCH"
+        ]
       }
     },
     {
@@ -361,10 +372,11 @@
         "forbidden_resolution": "正本更新をせず分析だけ返す、旧snapshotを上書きする、unknownを0で埋める、臨時sidecarを正本化する。",
         "routing_path": [
           "PROJECT.md",
-          "measurement/.internal/.virtual/social/ROUTER.md"
+          "measurement/.internal/.virtual/social/ROUTER.md",
+          "measurement/.internal/.virtual/social/instagram-insights-timeseries.md"
         ],
-        "max_expected_hops": 2,
-        "max_expected_files": 1,
+        "max_expected_hops": 4,
+        "max_expected_files": 2,
         "required_sources": [
           {
             "path": "PROJECT.md",
@@ -378,7 +390,13 @@
               "このcontractは会話単位ではなくrepo単位",
               "分析回答より先に",
               "1観測=1snapshot"
-            ]
+            ],
+            "sections": ["## 9. 更新ルール — CANONICAL WRITE CONTRACT"]
+          },
+          {
+            "path": "measurement/.internal/.virtual/social/instagram-insights-timeseries.md",
+            "sections": ["## 0. 完成条件 / 記録契約"],
+            "contains": []
           }
         ],
         "verification_sources": [
@@ -455,7 +473,7 @@
         "routing_path": [
           ".codex/MANAGER_CONTROL_PLANE.md"
         ],
-        "max_expected_hops": 2,
+        "max_expected_hops": 3,
         "max_expected_files": 1,
         "required_sources": [
           {
@@ -468,6 +486,10 @@
               "作業中の現在状態",
               "本番へmerge済みの確定状態",
               "実際の公開状態"
+            ],
+            "sections": [
+              "## 作業中 / 本番 / 公開の区別",
+              "## 5. CURRENT STATE SEMANTICS"
             ]
           }
         ],
@@ -502,6 +524,9 @@
             "contains": [
               "Research Evidence Ingress",
               "詳細証拠・出典・逐次履歴をLedgerへ追記"
+            ],
+            "sections": [
+              "## 時計研究の標準フレーム"
             ]
           },
           {
@@ -616,10 +641,11 @@
           "council-worker/V3.md",
           "council-worker/README.md",
           "council-worker/src/v3.ts",
-          "council-worker/src/index.ts"
+          "council-worker/src/index.ts",
+          "research/COUNCIL_V3_COURT_JESTER_DESIGN.md"
         ],
         "max_expected_hops": 8,
-        "max_expected_files": 4,
+        "max_expected_files": 5,
         "required_sources": [
           {
             "path": "PROJECT.md",
@@ -642,6 +668,10 @@
             "sections": [
               "## 道化師の人格と context burden"
             ]
+          },
+          {
+            "path": "research/COUNCIL_V3_COURT_JESTER_DESIGN.md",
+            "contains": []
           }
         ],
         "max_expected_chars": 150000,
@@ -1003,11 +1033,17 @@
         "forbidden_resolution": "出品番号が違うから継続性自体を否定する、または387444467772と206595337301を同一個体と断定する。",
         "routing_path": [
           "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
-          "research/ARSA_BLIND_ALARM_LEDGER.md"
+          "research/ARSA_BLIND_ALARM_LEDGER.md",
+          "SITE_RULES.md"
         ],
-        "max_expected_hops": 4,
-        "max_expected_files": 2,
+        "max_expected_hops": 6,
+        "max_expected_files": 3,
         "required_sources": [
+          {
+            "path": "SITE_RULES.md",
+            "sections": ["## 時計研究の標準フレーム"],
+            "contains": []
+          },
           {
             "path": "research/ARSA_BLIND_ALARM_LEDGER.md",
             "contains": [

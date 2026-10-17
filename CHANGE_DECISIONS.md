@@ -2081,3 +2081,13 @@
 - **検証状態**: ローカルbuild、全check:quality、全test:quality成功。新規32件の経路/反例試験と既存34件のReplay試験は合成adapterによる配線検証であり、AI実回答の22件ReplayはNOT_RUN。段階実行器はlocal snapshotのみでremote fresh取得を証明しない。cross-repo外部証拠が必要なケースはHOLD。source context文字数と複数呼出の累積adapter入力文字数を別々に記録し、API総費用削減とは断定しない。GitHub CIはPR作成後に別途判定する。mainへのmerge・公開はこの作業では実行しない。
 - **関連**: 初期基準main a111711ddc79368426febb646f2db0916f3be291、保存前にSNS観測・運用記録を追加したmain b77313e61c62c47aa975e759d5ee1ed89cb1d528を取り込み保持。fix/progressive-routing-20261017。check:routing / test:routing / replay:route。実AI評価と公開GitHub内の既存個人取引情報の公開範囲判断は未了のまま分離する。
 - **日時根拠**: 実行ホスト `TZ=Asia/Tokyo date` 実測 2026-10-17 20:07:56 JST。
+
+### 2026-10-18 00:39 JST — PR #248 段階参照の6欠陥を修正・1と7で再監査
+
+- **変更**: route_id / via / 行指定に共通の入口被覆検査を適用し、sectionと行指定の併用・部分重複を拒否。予算超過時に読了状態を残さない。必須証拠はアンカーだけでなく節の全行被覆をreaderとscoreで検査。scoreは記録されたread要求とlocate発生位置を再実行し、経路自己申告を照合する。WATCH-TEXT入口に日本語執筆正本への条件付き案内を復元。
+- **理由**: Aによる前回監査の6反例を受け、ユーザーが「いいよ。でも1と7でも監査しておこうな」とPR内の修正と再監査を承認（A指摘 → U修正承認）。旧検査PASSでも入口飛ばし、本文抜け、指定矛盾、重複読込が通った。既存資産を保持した差分修正を採用。
+- **旧状態・棄却**: 2026-10-17 20:07の「入口節の飛越・同一内容の再読を拒否」は一部経路のみで不十分だった。履歴を消さず本項で訂正。規約の大量追加・全面再設計・テスト数だけによる完成認定は棄却。全22ケースの正常経路検査で、SNS書込以外にX既存ページ、ARSA CURRENT照会・再出品、状態区別、研究証拠、Council 7の設計根拠の案内／予算不足も修正。全件一律の予算緩和はせず、必要な入口・節に合わせた。
+- **影響範囲**: 参照reader、score、routing checker、既存fixture、検査、SITE_RULES / Social Routerの発見用pointer、Guard説明、本ログ。公開WATCH・画像・研究Ledger / Map・個人台帳・Council runtime・起動3文書は今回変更しない。
+- **検証状態**: ローカルbuild、check:quality、test:quality成功。経路検査73件（全22 LOCKEDの正常参照経路、6欠陥と採点偽装等の合成反例を含む）、既存Replay反例34件成功。外部証拠必須ケースのローカル経路は確認したが外部取得はHOLDを維持。AI実回答22件はNOT_RUN。GitHub CIは更新後の実行結果で別途確認する。main merge / deployは行わない。
+- **関連**: PR #248 / fix/progressive-routing-20261017、基準head 5ebb18c2be6a861e8a5373be11c8f053337abf19。1の相互反証は正常経路の不当拒否と偽装PASSを重点検査。7の裁定は「資料を取得した＝理解できた」の前提を棄却し、今回の合成検査を実AIの正確性保証へ拡張しない。少数意見の既存基盤維持を採用。監査範囲は本PRの最適化実装・前回報告・今回修正で、時計事実の再認定と公開履歴の移管は対象外。
+- **日時根拠**: 実行ホスト `TZ=Asia/Tokyo date` 実測 2026-10-18 00:39 JST。

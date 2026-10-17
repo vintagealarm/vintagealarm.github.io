@@ -29,6 +29,8 @@ PROJECT §0の起動確認はこのメッセージ内で完了済みとして再
 | SOCIAL-METRICS | 指標定義・SNSとVA Analyticsの突合 | [定義](../../../metrics.md) | * | 定義と観測を分離。今回の値の解釈ができれば停止 |
 <!-- VA_ROUTES_END -->
 
+Xの既存ページ・導線を確認する場合は `src/pages/x/index.astro` を参照する。
+
 Xの出力条件だけなら本ファイルの「## 3.5 X CURRENT OUTPUT CONTRACT — overseas English / Instagram reuse」を読む。Insights書込・公開本文登録は本ファイルの「## 9. 更新ルール — CANONICAL WRITE CONTRACT」の該当完了条件へ進む。企画・評価・Councilでは「## 4. ACTIVE — 今回の分析・Councilで前面に出す論点」と「## 5. RESOLVED / INTERNAL — 原則として再説明・再審議しない」の関連項目を確認し、解決済み論点を再審議しない。英語出力は「## 入口から移管したSNS共通出力契約」も適用する。
 
 1. 現在の会話にある最新スクリーンショット / Insights / Relay URL・値 / ユーザー訂正

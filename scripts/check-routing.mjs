@@ -8,6 +8,10 @@ export function routingErrors(read=p=>fs.readFileSync(p,'utf8'), exists=p=>fs.ex
   try {routes=loadRoutes(read);} catch(error) {return [error.message];}
   const f=JSON.parse(read('.codex/inference-guard-cases.json'));
   const ids=routes.map(r=>r.id), locks=f.replay_eval.required_route_ids || [];
+  const writing=routes.find(r=>r.id==='WATCH-TEXT');
+  try {
+    if(!writing || !writing.targets.includes('SITE_RULES.md') || !sectionRanges(read('SITE_RULES.md'),[writing.section]).some(r=>read('SITE_RULES.md').split('\n').slice(r.start,r.end).join('\n').includes('[strategy/japanese-writing.md](strategy/japanese-writing.md)'))) errors.push('Japanese writing conditional route missing from WATCH-TEXT entry');
+  } catch(e) {errors.push(e.message);}
   if(new Set(ids).size!==ids.length) errors.push('duplicate route ID');
   if(!locks.length || JSON.stringify([...ids].sort())!==JSON.stringify([...locks].sort())) errors.push('routing table / required_route_ids mismatch');
   for(const r of routes) for(const target of r.targets) {
@@ -33,7 +37,16 @@ export function routingErrors(read=p=>fs.readFileSync(p,'utf8'), exists=p=>fs.ex
   for(const owner of bootPaths) {
     if(/Candidate Review Queue|KEEP \/ MERGE \/ SPLIT \/ DROP|micro-Reel ACTIVE/.test(read(owner))) errors.push(`${owner}: detailed SNS policy must stay in Social owner`);
   }
-  for(const r of f.cases) for(const id of r.replay?.route_ids || []) if(!ids.includes(id)) errors.push(`${r.id}: unresolved route ${id}`);
+  for(const r of f.cases) {
+    const targets=new Set(r.replay?.required_sources.map(s=>s.path) || []);
+    for(const id of r.replay?.route_ids || []) {
+      const route=routes.find(route=>route.id===id);
+      if(!route) errors.push(`${r.id}: unresolved route ${id}`);
+      else {targets.add(route.owner);for(const t of route.targets) targets.add(t);}
+    }
+    const files=[...targets].filter(p=>!bootPaths.includes(p));
+    if(files.length>r.replay?.max_expected_files || files.length>r.replay?.max_expected_hops) errors.push(`${r.id}: required route targets exceed retrieval budget`);
+  }
   return errors;
 }
 

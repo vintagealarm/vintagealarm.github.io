@@ -3,6 +3,21 @@ import { createHash } from 'node:crypto';
 import { sectionRanges, headings } from './routing-contract.mjs';
 export const digest = text => createHash('sha256').update(text).digest('hex');
 
+export function coversRange(trace, expected) {
+  let next = expected.start_line;
+  for (const e of trace.filter(e => e.path === expected.path).sort((a,b) => a.start_line-b.start_line)) {
+    if (e.start_line > next) break;
+    if (e.end_line >= next) next = e.end_line + 1;
+  }
+  return next > expected.end_line;
+}
+
+export function requiredEvidence(fixture, item, read) {
+  return [...fixture.replay_eval.boot_paths.map(path => ({path})),
+    ...item.replay.required_sources.filter(s => !fixture.replay_eval.boot_paths.includes(s.path))]
+    .flatMap(source => selectEvidence(source, read));
+}
+
 export function selectEvidence(source, read = p => readFileSync(p, 'utf8')) {
   const text = read(source.path), lines = text.split('\n');
   let ranges;

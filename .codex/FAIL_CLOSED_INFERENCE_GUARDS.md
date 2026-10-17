@@ -77,6 +77,8 @@ SNS / platform-bound copy / Analytics / canonical write等、domain固有CURRENT
 - `npm run replay:route -- --adapter /path/answer.mjs --reviewer /path/judge.mjs --output /private/results.json` は段階読込の別実行器。最初は起動3文書のみ。回答adapterは `{action:"read",route_id,path,section,via,reason}`、コードの行指定なら `start_line/end_line`、ファイル候補探索なら `{action:"locate",query,reason}`、最後に `{action:"answer",answer,model}` を返す。期待回答は別reviewerだけへ渡す。
 - 段階読込のtraceは順序・参照元・理由・行範囲・SHA-256を保存し、hopsは起動を除いた実際のreadイベント数、filesはユニーク数と分ける。同じ内容の不要な再読と起動への戻りは拒否。新しい矛盾や変更の調査は別の明示的なscope・実行証拠で扱い、このローカルsnapshot試験をremote fresh取得の証明にしない。
 - chars_readはAIに開示した出典文字数。adapterへのJSON累積送信文字数・呼出回数・reviewer入力文字数も別に保存する。段階化だけでAPI総費用が減るとは主張しない。外部台帳の実ツール取得は接続されたsurfaceの証拠が必要で、このローカルreaderだけではHOLD。
+- 段階読込ではsectionと行指定の併用、既読行との部分重複も拒否する。必要な残りの行だけを指定する。拒否時は読了・経路選択を更新しない。採点は各readのrequestとlocateの発生位置を再実行し、入口順序・参照元・実際の行範囲・選択経路を照合する。旧traceにrequestが無い場合は検証不能として不合格。必須節は分割読込でも全行の被覆を要求し、アンカーだけの抜粋で代替しない。
+- 正常経路の合成検査は全LOCKEDケースを対象にし、必須の入口・参照先を含むfiles / hops / chars予算内で通ることを確認する。hopsはファイル数の倍数で代用せず、ケース別の必要な節読込数で定める（上限30）。この検査は資料の参照可能性だけを扱い、モデルによる発見・理解・書込・外部取得の成功には数えない。
 
 - 実回答の実行は `npm run replay:run -- --adapter /path/model.mjs --reviewer /path/reviewer.mjs --output /private/results.json`。2つのNode adapterはstdinのJSONを受けstdoutにJSONだけを返す。回答adapterは `{answer, model}`、別reviewerは `{outcome, reviewer, rationale, false_certainty}` を返す。期待回答は回答adapterへ渡さず、reviewerだけへ渡す。失敗・未取得はHOLDとして保存する。モデル・API設定は勝手に補わない。
 - これは**証拠を事前投入するoffline Replay**。fresh取得の順序、実ツール利用、実チャットの通知間隔を検証できたことにはしない。これらの行動を示す実行ログがなければ該当評価はHOLD。adapterを別にしても独立性・正確性の自動証明にはならない。

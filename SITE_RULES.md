@@ -4,6 +4,7 @@ PROJECT §2の該当分岐から必要な節を読む。同じメッセージ内
 
 ## 原則
 
+- 日本語本文の新規執筆・大幅改稿では、次に [strategy/japanese-writing.md](strategy/japanese-writing.md) を読む。通常のコード修正・資料調査では追加しない。
 - 資料で確認した事実を書く。必要な関係だけ示し、そこで止める。
 - 未確認事項は断定しない。資料間の差は差のまま扱う。
 - OWNER'S NOTE原文は、明示指示なしに改変しない。
@@ -271,6 +272,8 @@ WATCH / OWNER'S NOTE用の個体研究は、特別な理由がない限り **Pie
 
 
 ## HOW THEY RING — CURRENT
+
+表示の実装照合は `src/data/how-they-ring-localizations.ts` を参照する。
 
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
 - HOW THEY RINGの現行分類は **GONG / CASEBACK の2種類だけ**。詳細機構を第三・第四カテゴリへ増やさない。

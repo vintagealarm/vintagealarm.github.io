@@ -15,7 +15,7 @@ for (const c of f.cases) {
  for (const s of [...c.replay.required_sources,...c.replay.verification_sources || [],...c.replay.semantic_checks || []]) files.add(s.path);
 }
 for (const p of files) put(p,fs.readFileSync(p));
-for (const p of ['scripts/check-replay-evals.mjs','scripts/replay-evidence.mjs','scripts/routing-contract.mjs']) put(p,fs.readFileSync(p));
+for (const p of ['scripts/check-replay-evals.mjs','scripts/replay-evidence.mjs','scripts/routing-contract.mjs','scripts/staged-routing.mjs']) put(p,fs.readFileSync(p));
 const checker = path.join(root,'scripts/check-replay-evals.mjs');
 let count=0;
 function run(args, ok, signal='') {

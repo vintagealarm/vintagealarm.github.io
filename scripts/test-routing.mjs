@@ -5,8 +5,8 @@ import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
 import {routingErrors} from './check-routing.mjs';
 import {bootPaths,sectionRanges} from './routing-contract.mjs';
-import {StagedReader} from './staged-routing.mjs';
-import {selectEvidence} from './replay-evidence.mjs';
+import {StagedReader,validateStagedTrace} from './staged-routing.mjs';
+import {selectEvidence,coversRange} from './replay-evidence.mjs';
 
 let count=0;
 const read=p=>fs.readFileSync(p,'utf8');
@@ -22,6 +22,8 @@ mutation('SITE_RULES.md',s=>s.replace('## 原則','## RENAMED'),'section must re
 mutation('PROJECT.md',s=>s.replace('<!-- VA_ROUTES_END -->','<!-- VA_ROUTES_BEGIN -->'),'routing table');
 mutation('AGENTS.md',s=>s+'x'.repeat(14000),'character budget');
 mutation('PROJECT_STATE.md',s=>s+'\nmicro-Reel ACTIVE\n','detailed SNS policy');
+mutation('SITE_RULES.md',s=>s.replace('[strategy/japanese-writing.md](strategy/japanese-writing.md)','omitted'),'Japanese writing conditional route');
+mutation('.codex/inference-guard-cases.json',s=>{const f=JSON.parse(s);f.cases.find(c=>c.id==='SOCIAL-CROSSCHAT-WRITE-001').replay.max_expected_files=1;return JSON.stringify(f);},'required route targets exceed');
 
 const f=JSON.parse(read('.codex/inference-guard-cases.json'));
 const item=f.cases.find(c=>c.id==='SOCIAL-X-LANGUAGE-001');
@@ -42,9 +44,34 @@ assert.throws(()=>reader.request(initial),/unnecessary reread/);count++;
 assert.throws(()=>fresh().request({action:'read',route_id:'SOCIAL-COPY',path:'measurement/.internal/.virtual/social/instagram-published-copy.md',reason:'Guess a deep source without Router'}),/not been discovered/);count++;
 assert.throws(()=>fresh().request({...initial,section:'## 3.5 X CURRENT OUTPUT CONTRACT — overseas English / Instagram reuse'}),/entry section first/);count++;
 assert.throws(()=>fresh().request({...initial,path:'/etc/passwd'}),/invalid repository/);count++;
+assert.throws(()=>fresh().request({...initial,route_id:undefined,via:'PROJECT.md',section:'## 3.5 X CURRENT OUTPUT CONTRACT — overseas English / Instagram reuse'}),/entry section first/);count++;
+for(const selectors of [{section:initial.section,start_line:1,end_line:1},{section:undefined,start_line:1},{section:undefined,start_line:0,end_line:1}]) {
+  const r=fresh();assert.throws(()=>r.request({...initial,...selectors}),/selector|line range/);assert.equal(r.selected.size,0);assert.equal(r.trace.length,3);count++;
+}
+const overlap=fresh();overlap.request(initial);
+assert.throws(()=>overlap.request({via:router,path:router,section:'*',reason:'Overlap audit'}),/overlapping/);assert.equal(overlap.trace.length,4);count++;
+const omitted=fresh();omitted.request(initial);
+omitted.request({via:router,path:router,section:'## 3.5 X CURRENT OUTPUT CONTRACT — overseas English / Instagram reuse',reason:'Read X contract'});
+const copy='measurement/.internal/.virtual/social/instagram-published-copy.md';
+for(const [start_line,end_line] of [[155,158],[177,177]]) omitted.request({route_id:'SOCIAL-COPY',path:copy,start_line,end_line,reason:'Anchor-only attack'});
+assert.ok(omitted.finish().some(e=>e.includes('incomplete required excerpt')));count++;
+assert.ok(validateStagedTrace(f,item,omitted.result('synthetic')).some(e=>e.includes('incomplete required excerpt')));count++;
+assert.ok(coversRange([{path:'x',start_line:1,end_line:3},{path:'x',start_line:4,end_line:6}],{path:'x',start_line:1,end_line:6}));count++;
+assert.ok(!coversRange([{path:'x',start_line:1,end_line:3},{path:'x',start_line:5,end_line:6}],{path:'x',start_line:1,end_line:6}));count++;
+assert.deepEqual(validateStagedTrace(f,item,result),[]);count++;
+const forged=structuredClone(result);forged.read_trace[3].request={...forged.read_trace[4].request,via:'PROJECT.md'};
+assert.ok(validateStagedTrace(f,item,forged).some(e=>e.includes('entry section first')));count++;
+const fakeRoute=structuredClone(result);fakeRoute.route_ids.push('OPERATIONS');
+assert.ok(validateStagedTrace(f,item,fakeRoute).some(e=>e.includes('route decisions')));count++;
 assert.ok(fresh().finish().length>0);count++;
 const constrained=structuredClone(item);constrained.replay.max_expected_hops=0;
 assert.throws(()=>new StagedReader(f,constrained).request(initial),/budget exceeded/);count++;
+const atomic=new StagedReader(f,constrained);assert.throws(()=>atomic.request(initial),/budget exceeded/);assert.equal(atomic.trace.length,3);assert.equal(atomic.selected.size,0);count++;
+const crossItem=f.cases.find(c=>c.id==='SOCIAL-CROSSCHAT-WRITE-001'),crossReader=new StagedReader(f,crossItem);
+crossReader.request(initial);
+crossReader.request({via:router,path:router,section:'## 9. 更新ルール — CANONICAL WRITE CONTRACT',reason:'Read write contract'});
+crossReader.request({route_id:'SOCIAL-INSIGHTS',path:'measurement/.internal/.virtual/social/instagram-insights-timeseries.md',section:'## 0. 完成条件 / 記録契約',reason:'Read canonical preservation requirements'});
+assert.deepEqual(crossReader.finish(),[]);count++;
 const operational=structuredClone(item);
 operational.replay={...operational.replay,route_ids:['OPERATIONS'],required_sources:[],max_expected_chars:30000,max_expected_files:1,max_expected_hops:4};
 const manager=new StagedReader(f,operational),managerPath='.codex/MANAGER_CONTROL_PLANE.md';
@@ -62,6 +89,42 @@ assert.deepEqual(sectionRanges('# F\n## One\n### Repeat\n## Two\n### Repeat\n',[
 assert.deepEqual(sectionRanges('# F\n```text\n## Fake\n```\n## Real\n',['## Real']),[{start:4,end:6}]);count++;
 const caption=selectEvidence(item.replay.required_sources[1]);
 assert.ok(caption.every(e=>e.start_line>=155));count++;
+
+// Every locked case gets a positive navigation exercise. The fixture chooses
+// evidence only in this synthetic test, never in the production answer adapter.
+for(const c of f.cases.filter(c=>c.status==='LOCKED_REGRESSION')) {
+  const r=new StagedReader(f,c);
+  const take=(e,id)=>{
+    let parts=[[e.start_line,e.end_line]];
+    for(const t of r.trace.filter(t=>t.path===e.path)) parts=parts.flatMap(([a,b])=>t.end_line<a || t.start_line>b?[[a,b]]:
+      [[a,Math.min(b,t.start_line-1)],[Math.max(a,t.end_line+1),b]].filter(([x,y])=>x<=y));
+    for(const [start_line,end_line] of parts) {
+      let accepted=false,last;
+      for(const via of [...new Set(r.trace.map(t=>t.path))]) {
+        try {r.request({route_id:id,path:e.path,start_line,end_line,via,reason:'Synthetic corpus path'});accepted=true;break;}
+        catch(error) {last=error;}
+      }
+      if(!accepted) {
+        if(id) throw last;
+        r.request({action:'locate',query:e.path,reason:'Locate task-specific source'});
+        r.request({path:e.path,start_line,end_line,reason:'Synthetic corpus source'});
+      }
+    }
+  };
+  for(const id of c.replay.route_ids) {
+    const route=r.routes.get(id);assert.ok(route,`${c.id}: ${id}`);
+    for(const path of route.targets) {
+      const source=route.section==='*'?(c.replay.required_sources.find(s=>s.path===path)||{path}):{path,sections:[route.section]};
+      for(const e of selectEvidence(source)) take(e,id);
+    }
+  }
+  for(const s of c.replay.required_sources) if(!bootPaths.includes(s.path)) {
+    const route=[...r.routes.values()].find(rt=>r.selected.has(rt.id) && rt.targets.includes(s.path));
+    for(const e of selectEvidence(s)) take(e,route?.id);
+  }
+  assert.deepEqual(r.finish().filter(e=>!e.startsWith('external tool evidence')),[],c.id);
+  assert.deepEqual(validateStagedTrace(f,c,r.result('SYNTHETIC corpus navigation')),[],c.id);count++;
+}
 
 // Exercise the staged CLI with explicitly synthetic adapters. The first call must
 // contain only boot evidence; requested files appear only in later calls.
@@ -84,5 +147,14 @@ try {
   assert.equal(scored.status,0,scored.stdout+scored.stderr);count++;
   const complete=spawnSync(process.execPath,['scripts/check-replay-evals.mjs','score',output],{encoding:'utf8'});
   assert.equal(complete.status,1);count++;
+  for(const [attack,signal] of [
+    [{...run,...omitted.result('SYNTHETIC omitted body')},'incomplete required excerpt'],
+    [{...run,...forged},'entry section first'],
+    [{...run,...fakeRoute},'route decisions'],
+  ]) {
+    fs.writeFileSync(output,JSON.stringify({results:[attack]}));
+    const checked=spawnSync(process.execPath,['scripts/check-replay-evals.mjs','score',output,'--partial'],{encoding:'utf8'});
+    assert.equal(checked.status,1,checked.stdout+checked.stderr);assert.ok(checked.stderr.includes(signal),checked.stderr);count++;
+  }
 } finally {fs.rmSync(temp,{recursive:true,force:true});}
 console.log(`Routing adversarial checks: ${count} passed. Synthetic reader/adapter exercises; real AI routing is NOT certified.`);

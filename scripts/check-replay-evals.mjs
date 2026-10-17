@@ -1,7 +1,8 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve, relative, isAbsolute } from 'node:path';
-import { caseEvidence } from './replay-evidence.mjs';
+import { caseEvidence, requiredEvidence, coversRange } from './replay-evidence.mjs';
+import { validateStagedTrace } from './staged-routing.mjs';
 
 const root = process.cwd();
 const fixturePath = '.codex/inference-guard-cases.json';
@@ -105,7 +106,7 @@ for (const id of requiredReplayIds) {
   }
 
   if (replay.max_expected_hops < incrementalRoute.length + (replay.external_required_sources || []).length ||
-      replay.max_expected_hops > incrementalRoute.length * 2 + (replay.external_required_sources || []).length ||
+      replay.max_expected_hops > 30 ||
       replay.max_expected_files !== incrementalRoute.length) {
     fail(`${id} budgets must equal incremental file count; read hops must be bounded separately from unique files`);
   }
@@ -307,8 +308,8 @@ function scoreResults(resultPath) {
           evidencePaths.add(e.path); observedChars += excerpt.length;
         } catch (error) { issues.push(`${id}: ${error.message}`); }
       }
-      for (const expected of result.execution?.kind === 'staged_model_adapter' ? [] : caseEvidence(fixture, item)) {
-        if (!result.evidence.some((e) => e?.path === expected.path && e.start_line <= expected.start_line && e.end_line >= expected.end_line)) {
+      for (const expected of result.execution?.kind === 'staged_model_adapter' ? requiredEvidence(fixture,item) : caseEvidence(fixture, item)) {
+        if (!coversRange(result.evidence.filter(e=>e && Number.isInteger(e.start_line) && Number.isInteger(e.end_line)),expected)) {
           issues.push(`${id}: incomplete required excerpt ${expected.path}:${expected.start_line}-${expected.end_line}`);
         }
       }
@@ -333,6 +334,7 @@ function scoreResults(resultPath) {
     }
     const taskFiles = result.files_read.filter((path) => !bootPaths.includes(path));
     if (result.execution?.kind === 'staged_model_adapter') {
+      for(const error of validateStagedTrace(fixture,item,result)) issues.push(`${id}: ${error}`);
       if (!Array.isArray(result.read_trace) || JSON.stringify(result.read_trace) !== JSON.stringify(result.evidence)) issues.push(`${id}: missing ordered read trace`);
       else {
         if (result.read_trace.slice(0,3).some((e,i)=>e.path!==bootPaths[i])) issues.push(`${id}: invalid boot order`);
