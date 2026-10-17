@@ -2034,3 +2034,11 @@
 - **検証状態**：mainへの単一commit後にGitHub再取得＋commit差分を確認。ローカルnpm検査は実行できた場合のみ結果を別記し、未実行なら未実行とする。将来の再生数の予測や因果は未確定。
 - **関連**：`IG-ARS-001` `ARS-01` `IMG_3131.mp4` `IMG_3132.jpeg`～`IMG_3138.jpeg` `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`。
 - **日時根拠**：ホスト `TZ=Asia/Tokyo date` 実測`2026-10-17 14:16:17 JST`。投稿日時13:20はユーザー申告、画面時刻14:12/14:13はスクショ表示。
+
+### 2026-10-17 16:44 JST — ARSA再出品の同一性を誤って分断した回答の回帰防止
+- **変更**：既存Fail-Closed GuardにRELIST ENTITY CONTINUITYゲートを追記し、既存inference-guard-cases.jsonにARSA-RELIST-IDENTITY-001を追加。
+- **原因・証拠**：ARSA Ledgerの2026-10-02 seller reply after relistは同一物理個体・単純再出品をセラーがYesと答えたと記録。回答では別item IDだけから別個体・別セラーの可能性へ戻し、Ledgerの既存確定を反映しなかった。エジプト所在地はユーザー説明と独立確認を区別する。
+- **棄却**：出品IDの不一致だけを継続性否定の根拠にする推論。USER_CONFIRMEDの既存状態を無根拠に未確認へ格下げすること。
+- **影響範囲**：AI回答時のentity continuity、回帰fixture。公開WATCH・個人台帳・研究本文の意味・販売交渉状況は変更しない。
+- **検証**：GitHub source再取得、fixture JSON parseと既存source anchor一致を確認する。将来の別チャットでのAI遵守は未実証。
+- **日時根拠**：2026-10-17 16:44 JST（会話時刻）。GitHub commit時刻は別途確認。
