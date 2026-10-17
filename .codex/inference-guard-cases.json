@@ -17,7 +17,36 @@
       "routing_hops",
       "user_reinstruction_count",
       "false_certainty",
-      "notes"
+      "notes",
+      "answer",
+      "evidence",
+      "review",
+      "execution",
+      "external_evidence"
+    ],
+    "locked_case_ids": [
+      "SOCIAL-DIRECTION-001",
+      "REALITY-X-ROUTE-001",
+      "SOCIAL-DUOFON-001",
+      "SOCIAL-X-LANGUAGE-001",
+      "STATE-ARSA-COPY-001",
+      "ACTIVE-PR-001",
+      "SOCIAL-CROSSCHAT-WRITE-001",
+      "HOW-RING-CLASSIFICATION-001",
+      "STATE-LIFECYCLE-001",
+      "RESEARCH-CROSSCHAT-WRITE-001",
+      "COUNCIL-ROUTER-001",
+      "COUNCIL-FORMAT-1-001",
+      "COUNCIL-FORMAT-7-001",
+      "STATE-CYMA-LAB-001",
+      "PUBLICATION-ARSA-001",
+      "REPORT-JST-PREFIX-001",
+      "VA-BOOT-HARD-GATE-001",
+      "SURFACE-INCHAT-001",
+      "CAPABILITY-GITHUB-001",
+      "PROGRESS-NOSILENCE-001",
+      "WATCH-CROSSREPO-REPAIR-001",
+      "ARSA-RELIST-IDENTITY-001"
     ]
   },
   "cases": [
@@ -46,7 +75,8 @@
               "Published Copy → English compression/adaptation → X weighted-length validation（全角140字相当）→ output"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 35000
       }
     },
     {
@@ -72,7 +102,8 @@
             "path": "src/pages/x/index.astro",
             "contains": []
           }
-        ]
+        ],
+        "max_expected_chars": 35000
       }
     },
     {
@@ -119,7 +150,8 @@
               "### Mechanism follow-up — Published caption"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 41000
       }
     },
     {
@@ -191,7 +223,8 @@
               "#PierceDuofon #PierceWatch #AlarmWatch"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 37000
       }
     },
     {
@@ -234,7 +267,8 @@
               "今度は耳の出番。"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 35000
       }
     },
     {
@@ -262,7 +296,8 @@
               "branchが存在するだけでactiveとみなさない"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 34000
       }
     },
     {
@@ -308,7 +343,8 @@
               "pending Instagram merge marker found outside"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 35000
       }
     },
     {
@@ -343,7 +379,8 @@
               "GONG / CASEBACK"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 34000
       }
     },
     {
@@ -382,7 +419,8 @@
               "実際の公開状態"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 34000
       }
     },
     {
@@ -425,7 +463,8 @@
               "優先順位・仮説状態・タスク状態が変わる場合だけこのMAPを更新する"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 35000
       }
     },
     {
@@ -454,7 +493,8 @@
               "次の7択をそのまま出して選択を待つ。"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 34000
       }
     },
     {
@@ -490,7 +530,8 @@
               "単なる2ch口調の連投にはしない。"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 34000
       }
     },
     {
@@ -532,7 +573,8 @@
               "文脈不足のため無礼許可は未発効"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 35000
       }
     },
     {
@@ -562,7 +604,8 @@
               "`noindex,nofollow`"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 34000
       }
     },
     {
@@ -606,7 +649,8 @@
               "published false→true dynamically expands every language"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 34000
       }
     },
     {
@@ -635,7 +679,8 @@
               "会話時刻を推測で補わず、実行環境のJSTを確認する"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 34000
       }
     },
     {
@@ -666,7 +711,8 @@
               "VAの各ユーザーメッセージを受けたこと自体が再取得理由"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 34000
       }
     },
     {
@@ -709,7 +755,8 @@
               "## EXECUTION SURFACE / CAPABILITY / PROGRESS"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 35000
       }
     },
     {
@@ -752,7 +799,8 @@
               "## EXECUTION SURFACE / CAPABILITY / PROGRESS"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 35000
       }
     },
     {
@@ -796,7 +844,8 @@
               "## EXECUTION SURFACE / CAPABILITY / PROGRESS"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 35000
       }
     },
     {
@@ -814,8 +863,8 @@
         "routing_path": [
           "PROJECT.md"
         ],
-        "max_expected_hops": 1,
-        "max_expected_files": 1,
+        "max_expected_hops": 2,
+        "max_expected_files": 0,
         "required_sources": [
           {
             "path": "PROJECT.md",
@@ -843,7 +892,8 @@
               "57426"
             ]
           }
-        ]
+        ],
+        "max_expected_chars": 84000
       }
     },
     {
@@ -859,14 +909,11 @@
         "expected_resolution": "セラーが同じ時計を単純再出品したことは2026-10-02に確認済み。一方で387444467772は比較対象の別個体として台帳に載り、206595337301との同一ID対応は示されていない。ユーザー報告のエジプトは独立住所確認ではない。",
         "forbidden_resolution": "出品番号が違うから継続性自体を否定する、または387444467772と206595337301を同一個体と断定する。",
         "routing_path": [
-          "PROJECT.md",
-          "AGENTS.md",
-          "PROJECT_STATE.md",
           "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
           "research/ARSA_BLIND_ALARM_LEDGER.md"
         ],
-        "max_expected_hops": 5,
-        "max_expected_files": 5,
+        "max_expected_hops": 2,
+        "max_expected_files": 2,
         "required_sources": [
           {
             "path": "research/ARSA_BLIND_ALARM_LEDGER.md",
@@ -875,9 +922,54 @@
               "same physical watch",
               "2026-10-17 — Seller geography and relist identity",
               "another ARSA Blind Alarm"
+            ],
+            "sections": [
+              "### 2026-10-02 — seller reply after relist",
+              "### 2026-10-17 — Seller geography and relist identity: claim-level separation"
+            ]
+          },
+          {
+            "path": "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
+            "contains": [
+              "## CURRENT — specimen / relist / negotiation"
             ]
           }
-        ]
+        ],
+        "semantic_checks": [
+          {
+            "path": "research/ARSA_BLIND_ALARM_LEDGER.md",
+            "section": "### 2026-10-02 — seller reply after relist",
+            "require": [
+              "The seller replied \\*\\*yes\\*\\* to the user",
+              "same physical watch",
+              "unchanged and was simply relisted"
+            ],
+            "forbid": [
+              "The seller replied \\*\\*no\\*\\*"
+            ]
+          },
+          {
+            "path": ".codex/FAIL_CLOSED_INFERENCE_GUARDS.md",
+            "section": "## 3.5 ENTITY CONTINUITY / RELIST GATE",
+            "require": [
+              "既存domain Ledger",
+              "§2 DECISION REVERSAL GATE"
+            ]
+          },
+          {
+            "path": "research/ARSA_BLIND_ALARM_RESEARCH_MAP.md",
+            "section": "## CURRENT — specimen / relist / negotiation",
+            "require": [
+              "SENT — USER_REPORTED",
+              "ID_MAPPING_HOLD",
+              "SELLER_REPLY_PENDING"
+            ],
+            "forbid": [
+              "not yet sent"
+            ]
+          }
+        ],
+        "max_expected_chars": 37000
       }
     }
   ]
