@@ -2192,3 +2192,13 @@
 - **検証状態**：受領時に3画像とも1146×1600を目視確認し、SHA-256を取得。branch上のbuild、品質gate、生成HTML、保存後ハッシュ、diffはこの後に再検証する。main merge・Pages deploy・live確認は本依頼の公開権限外で未実施。
 - **関連**：`ARSA_JP.png` SHA-256 `897458909bf1ac603b3f6823f6d1b22b47ead2523e289a26fe0be7fbef7b06c9`、`ARSA_EN.png` `3215b22c50d620e54fe5ebb387add10ab2b48f9eae7c4903fc37cc59cecf1b95`、`ARSA_DE.png` `4ddc30f3afaba319b4e3125a8ee1396dc4cfe6a253d5a9f5d22626825def4c83`、Draft/HOLD PR #235。
 - **日時根拠**：実行ホストのJST時計で `2026-10-19 08:09:47 +09:00` を確認。
+
+### 2026-10-19 08:18 JST — Pages CMSが再生成したARSA同一画像別名を承認済み状態へ復元
+- **変更**：ARSAギャラリーの `IMG_3118-1.jpeg` 参照をbyte-identicalな元画像 `IMG_3118.jpeg` へ戻し、重複別名だけを削除する。
+- **理由**：PR #252でユーザー承認のうえ実施済みだった重複整理が、その後のPages CMS commit `8799fae`で再生成され、最新mainとPR #258の画像重複gateを再び失敗させていたため。両ファイルのSHA-256一致を再確認してから復元した。
+- **起点→判断**：PR #258のGitHub CI失敗 → Aがログ・main履歴・既存のU承認済みPR #252を照合 → 新しい編集判断ではなく承認済み状態の回帰修正として復元。
+- **旧状態・棄却**：最新mainは同一内容の `IMG_3118-1.jpeg` と `IMG_3118.jpeg` を併存させ、ギャラリーが別名側を参照していた。画像の再圧縮、異なる画像への置換、他の現在非同一な `-1.jpeg` 3点の削除、ギャラリー本文・表示変更は行わない。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` の掲載個体画像参照1箇所、`public/images/IMG_3118-1.jpeg` の削除、本ログ。表示画像のbytes、OWNER'S NOTE、研究本文、公開flagは不変更。
+- **検証状態**：削除前に両ファイルのSHA-256 `4bfe3f6258e1c4442479c4e0391358ce13a411d4754c16455318092a238a97e8`一致を確認。build、画像重複gate、GitHub CIは修正commit後に再実行する。
+- **関連**：PR #252、PR #258、Pages CMS commit `8799faedc65826e646cc744916dd0b6bae2201d8`、`scripts/check-image-duplicates.mjs`。
+- **日時根拠**：実行ホストのJST時計で `2026-10-19 08:18:42 +09:00` を確認。

@@ -43,7 +43,7 @@ spec:
 specimenGallery:
   - image: /images/IMG_3117-1.jpeg
     label: 正面
-  - image: /images/IMG_3118-1.jpeg
+  - image: /images/IMG_3118.jpeg
     label: 正面（前蓋オープン）
   - image: /images/IMG_3120.jpeg
     label: 触読用　針・ダイヤル
