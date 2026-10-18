@@ -117,7 +117,10 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
 
   if (!watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published) {
     const preview = await get('preview/watch/arsa-blind-alarm/');
-    if (preview.ok) failures.push('ARSA unpublished preview remains accessible on public GitHub Pages');
+    if (!preview.ok) failures.push(`ARSA owner preview unavailable: HTTP ${preview.status}`);
+    if (preview.ok && !preview.text.includes('noindex,nofollow,noarchive')) failures.push('ARSA owner preview lost noindex');
+    if (preview.ok && !preview.text.includes('④ アラームON/OFF')) failures.push('ARSA owner preview lost corrected guide');
+    if (sitemap.ok && sitemap.text.includes('https://vintagealarm.github.io/preview/watch/arsa-blind-alarm/')) failures.push('ARSA preview leaked into live sitemap');
     for (const locale of ['en', 'de']) {
       for (const rel of [`${locale}/arsa-blind-alarm/`, `${locale}/research/arsa-blind-alarm/`]) {
         const page = await get(rel);
