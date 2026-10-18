@@ -131,6 +131,52 @@ try {
         if (!researchState.canonical.includes(`/${route}`)) failures.push(`${width}px ${route}: RESEARCH canonical mismatch`);
       }
 
+      if (route === 'research/arsa-blind-alarm/') {
+        await page.locator('.specimen-gallery-track').scrollIntoViewIfNeeded();
+        const arsa = await page.evaluate(async () => {
+          const gallery = document.querySelector('.specimen-gallery');
+          const image = gallery?.querySelector('.specimen-gallery-card img');
+          if (image instanceof HTMLImageElement) {
+            image.loading = 'eager';
+            try { await image.decode(); } catch { /* report natural size below */ }
+          }
+          const frame = gallery?.querySelector('.specimen-gallery-media');
+          const rect = frame?.getBoundingClientRect();
+          const paragraphs = [...document.querySelectorAll('.deep-list .copy.prose p')];
+          const citationLinks = [...document.querySelectorAll('.deep-list .cite-refs a')];
+          return {
+            hasScopedClass: !!gallery?.classList.contains('specimen-gallery--uncropped'),
+            fit: image ? getComputedStyle(image).objectFit : '',
+            position: image ? getComputedStyle(image).objectPosition : '',
+            naturalWidth: image instanceof HTMLImageElement ? image.naturalWidth : 0,
+            naturalHeight: image instanceof HTMLImageElement ? image.naturalHeight : 0,
+            frameRatio: rect?.height ? rect.width / rect.height : 0,
+            inlineMarkers: paragraphs.filter((p) => /\[\d{1,3}\]/.test(p.textContent || '')).length,
+            paragraphCount: paragraphs.length,
+            citationCount: citationLinks.length,
+            missingTargets: citationLinks.map((a) => a.getAttribute('href') || '')
+              .filter((href) => !href.startsWith('#source-') || !document.getElementById(href.slice(1)))
+          };
+        });
+        if (!arsa.hasScopedClass || arsa.fit !== 'contain' || arsa.position !== '50% 50%') {
+          failures.push(`${width}px ${route}: ARSA specimen image is cropped or not centered (${JSON.stringify(arsa)})`);
+        }
+        if (Math.abs(arsa.frameRatio - 0.8) > 0.03 || !arsa.naturalWidth || !arsa.naturalHeight) {
+          failures.push(`${width}px ${route}: ARSA specimen frame or image loading failed (${JSON.stringify(arsa)})`);
+        }
+        if (arsa.paragraphCount !== 23 || arsa.inlineMarkers || arsa.citationCount !== 34 || arsa.missingTargets.length) {
+          failures.push(`${width}px ${route}: citation duplicate/link regression (${JSON.stringify(arsa)})`);
+        }
+        if (width <= 390) {
+          await page.locator('.specimen-gallery-open').first().click();
+          const visible = await page.locator('.specimen-lightbox').evaluate((el) => !el.hidden && el.getAttribute('aria-hidden') === 'false');
+          if (!visible) failures.push(`${width}px ${route}: first specimen zoom does not open`);
+          await page.locator('.specimen-lightbox-close').click();
+          const closed = await page.locator('.specimen-lightbox').evaluate((el) => el.hidden);
+          if (!closed) failures.push(`${width}px ${route}: specimen zoom does not close`);
+        }
+      }
+
       if (publishedWatchRoutes.includes(route) && width <= 390) {
         const japaneseState = await page.evaluate(() => ({
           lang: document.documentElement.lang,

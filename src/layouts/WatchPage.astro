@@ -183,7 +183,7 @@ const schema = {
         <WatchSpec spec={watch.spec} />
       </div>
       {watch.video && <AlarmVideo video={watch.video} title={`${watch.brand} ${watch.model}`} />}
-      {watch.specimenGallery?.length > 0 && <SpecimenGallery items={watch.specimenGallery} title={`${watch.brand} ${watch.model}`} />}
+      {watch.specimenGallery?.length > 0 && <SpecimenGallery items={watch.specimenGallery} title={`${watch.brand} ${watch.model}`} uncropped={watch.slug === "arsa-blind-alarm"} />}
       <DeepDive items={watch.deepDive} />
       <Sources sources={watch.sources} meta={watch.sourceMeta} research={researchRecord} />
       {nextOwnerNote && (

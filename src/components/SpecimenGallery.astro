@@ -1,5 +1,5 @@
 ---
-const { items = [], title = '', lang = 'ja' } = Astro.props;
+const { items = [], title = '', lang = 'ja', uncropped = false } = Astro.props;
 const isEnglish = lang === 'en';
 const isGerman = lang === 'de';
 const base = import.meta.env.BASE_URL;
@@ -12,7 +12,7 @@ const lightboxLabel = isEnglish ? `${title} enlarged specimen view` : isGerman ?
 const closeLabel = isEnglish ? 'Close enlarged image' : isGerman ? 'Vergrößerte Ansicht schließen' : '拡大表示を閉じる';
 const enlargeLabel = (alt: string) => isEnglish ? `Enlarge ${alt}` : isGerman ? `${alt} vergrößern` : `${alt}を拡大表示`;
 ---
-<section class="section shell specimen-gallery" aria-labelledby="specimen-gallery-title" lang={lang}>
+<section class:list={["section shell specimen-gallery", uncropped && "specimen-gallery--uncropped"]} aria-labelledby="specimen-gallery-title" lang={lang}>
   <div class="specimen-gallery-head">
     <h2 id="specimen-gallery-title">{heading}</h2>
     <span aria-hidden="true">SWIPE →</span>
@@ -165,6 +165,12 @@ const enlargeLabel = (alt: string) => isEnglish ? `Enlarge ${alt}` : isGerman ? 
     height:100%;
     object-fit:cover;
     object-position:center;
+  }
+  /* Preserve the complete ARSA specimen photograph before opening the lightbox. */
+  .specimen-gallery--uncropped .specimen-gallery-media{aspect-ratio:4/5}
+  .specimen-gallery--uncropped .specimen-gallery-media img{
+    object-fit:contain;
+    object-position:center center;
   }
   .specimen-gallery-zoom{
     position:absolute;

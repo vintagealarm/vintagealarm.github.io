@@ -2140,3 +2140,12 @@
 - **検証状態**：変更前に両重複ファイルのGit blob SHA一致とARSA既存参照を確認。英独の意味・技術語・自然さはAIによる編集監査と日本語への逆訳で確認（人間のネイティブ校閲者による署名・第三者認証ではない）。コミット後、差分・build・品質gate・live parityは別途検証する。
 - **関連**：PR #252、`src/content/watches/basis-alarm.md`、`src/content/watches/arsa-blind-alarm.md`、`src/data/en-watch-full-research.ts`、`src/data/de-watch-entry.ts`、`strategy/localization-sync.md`、`scripts/check-image-duplicates.mjs`、ARSA photo-rights HOLD PR #235。
 - **日時根拠**：実行ホスト `TZ=Asia/Tokyo date` の実測2026-10-18 16:24:57 JST。
+
+### 2026-10-18 18:05 JST — ARSA RESEARCHの掲載個体トリミングと出典二重表示を修正
+- **変更**：ARSAのギャラリーのみ拡大前画像を4:5の枠内で`object-fit: contain`＋中央表示とし、`deepDive` 5章23段落の手打ち出典`[N]`計34個を除去。自動リンク用`citationRefs`、出典14件、本文の事実記述は維持。引用チェッカーを公開RESEARCHまで拡張し、重複手打ち番号をFAILにする。Playwrightで320/390/768pxのレイアウト、脚注導線、拡大前／後の動作を検査する。
+- **理由**：U提供の2026-10-18 iOS Safariスクショ`IMG_3171.jpeg`・`IMG_3172.jpeg`で、拡大前の正面画像の見せ方と`[10][14]`等の二重脚注が報告された。AのGitHub実装監査で共通ギャラリーの`cover`／手動`[N]`＋`citationRefs`自動出典の二系統を確認。Council 1＝匿名スレ、7＝宮廷道化師で修正前に既定案・共通CSS波及・研究記事の検査漏れを批判後、限定修正GOと判断。起点 U → U実行承認。
+- **旧状態・棄却**：既にCSSに存在する`object-position: center`だけを再指定する対処、サイト全WATCHギャラリーの一律`contain`化、`citationRefs`そのものの削除、RESEARCH本文の事実・参考文献の大改稿、ARSA通常WATCH再公開を棄却。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md`の`deepDive`内末尾の手動出典記号のみ、`src/components/SpecimenGallery.astro`の任意opt-in、`src/layouts/WatchPage.astro`のARSA限定opt-in、`scripts/check-watch-citations.mjs`、`scripts/check-layout.mjs`、本Decision。同ページのギャラリー写真・章構成・ソース一覧・OTHER WATCH・OWNER'S NOTE・公開設定は変更しない。PR #235の写真権利HOLDは保持。
+- **検証状態**：実装前に23段落の34個の手打ち脚注と`citationRefs`を段落順に全件照合して一致を確認。実装後のbranch差分、CI、main再取得、Pages deploy、live parityは独立に検証し、各段階の実結果だけを報告する。
+- **関連**：U撮影`IMG_3171.jpeg`／`IMG_3172.jpeg`、`src/content/watches/arsa-blind-alarm.md`、`SpecimenGallery.astro`、`DeepDive.astro`、`SITE_RULES.md`、`DESIGN_ENGINEERING.md`、`council-worker/V3.md`、`CHANGE_DECISIONS.md`、HOLD PR #235。
+- **日時根拠**：実行ホスト`TZ=Asia/Tokyo date`の実測 `2026-10-18 18:05:37 JST`。

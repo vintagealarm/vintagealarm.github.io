@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const watchesDir = path.join(root, 'src', 'content', 'watches');
+const researchSettings = JSON.parse(fs.readFileSync(path.join(root, 'src', 'data', 'research-settings.json'), 'utf8'));
 const failures = [];
 
 const cleanScalar = (value) => String(value ?? '').trim().replace(/^['"]|['"]$/g, '').trim();
@@ -12,7 +13,8 @@ for (const file of fs.readdirSync(watchesDir).filter((name) => name.endsWith('.m
   const lines = source.split(/\r?\n/);
   const slug = source.match(/^slug:\s*["']?([^"'\n]+)["']?\s*$/m)?.[1]?.trim() || file;
   const published = /^published:\s*true\s*$/m.test(source);
-  if (!published) continue;
+  const publishedResearch = researchSettings.published && researchSettings.locales.includes('ja') && researchSettings.entries.includes(slug);
+  if (!published && !publishedResearch) continue;
 
   const sourceMetaStart = lines.findIndex((line) => line === 'sourceMeta:');
   const sourcesStart = lines.findIndex((line) => line === 'sources:');
@@ -56,6 +58,10 @@ for (const file of fs.readdirSync(watchesDir).filter((name) => name.endsWith('.m
     failures.push(`${slug}: deepDive block is missing`);
     continue;
   }
+
+  // DeepDive.astro renders source markers from citationRefs; manual [N] markers duplicate the visible citations.
+  const manualRefs = [...lines.slice(deepDiveStart, deepDiveEnd).join('\n').matchAll(/\[(\d{1,3})\]/g)].map((match) => match[1]);
+  if (manualRefs.length) failures.push(`${slug}: ${manualRefs.length} duplicate inline [N] citation marker(s) in DEEP DIVE; use citationRefs only`);
 
   const items = [];
   let current = null;
