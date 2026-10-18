@@ -322,10 +322,13 @@ export async function onRequestGet(context) {
     const isShortLink = /^\/s\/v(?:1|2)\//.test(requestUrl.pathname);
     const upstream = await fetch(source.toString(), {
       headers: { Accept: "application/json" },
-      redirect: "error",
+      redirect: "manual",
       signal: AbortSignal.timeout(15000),
     });
     if (!upstream.ok) {
+      if (upstream.status >= 300 && upstream.status < 400) {
+        return documentResponse("Analytics source redirect refused.", 502, request);
+      }
       return documentResponse(`AI analytics source failed (HTTP ${upstream.status}). Generate a new AI URL in the Analytics dashboard.`, upstream.status, request);
     }
     const payload = await upstream.json();

@@ -22,7 +22,8 @@ const env = { ASSETS: { fetch: () => new Response('STATIC FALLBACK', { status: 2
 const ctx = { waitUntil() {} };
 const run = path => worker.fetch(new Request('https://relay.example' + path), env, ctx);
 try {
-  globalThis.fetch = async () => {
+  globalThis.fetch = async (_url, options) => {
+    assert.equal(options.redirect, 'manual', 'compiled edge fetch must not use unsupported redirect:error');
     upstreamCalls++;
     return Response.json({ schemaVersion: 'vintage-alarm-ai-export-v1', generatedAt: new Date().toISOString(), current: { visits: 3, pageviews: 8 } });
   };

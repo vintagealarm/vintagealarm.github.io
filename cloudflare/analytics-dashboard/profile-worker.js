@@ -488,7 +488,7 @@ async function aiReadableLinkResponse(request, url, env, ctx) {
   try {
     const probe = await fetch(relayUrl.toString(), {
       headers: { Accept: "text/markdown" },
-      redirect: "error",
+      redirect: "manual",
       signal: AbortSignal.timeout(20000),
     });
     const body = await probe.text();

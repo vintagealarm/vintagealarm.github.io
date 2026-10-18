@@ -654,7 +654,7 @@ async function issueAiReadableLink(request, url, env, ctx) {
   // A static fallback also returns HTTP 200, so status alone is insufficient.
   try {
     const probe = await fetch(relayUrl.toString(), {
-      headers: { Accept: "text/markdown" }, redirect: "error",
+      headers: { Accept: "text/markdown" }, redirect: "manual",
       signal: AbortSignal.timeout(20000),
     });
     const body = await probe.text();
