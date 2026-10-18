@@ -124,7 +124,15 @@ for (const watch of watches) {
   const route = path.join(dist, watch.slug, 'index.html');
   if (watch.published && !fs.existsSync(route)) failures.push(`${watch.slug}: published route missing`);
   if (!watch.published && fs.existsSync(route)) failures.push(`${watch.slug}: unpublished route was generated`);
-  if (!watch.published && fs.existsSync(path.join(dist, 'preview/watch', watch.slug, 'index.html'))) failures.push(`${watch.slug}: unpublished preview HTML generated on public GitHub Pages`);
+  const previewRoute = path.join(dist, 'preview/watch', watch.slug, 'index.html');
+  if (watch.slug === 'arsa-blind-alarm' && !fs.existsSync(previewRoute)) failures.push('ARSA owner preview missing');
+  if (watch.slug !== 'arsa-blind-alarm' && !watch.published && fs.existsSync(previewRoute)) failures.push(`${watch.slug}: unrequested unpublished preview was generated`);
+  if (watch.slug === 'arsa-blind-alarm' && fs.existsSync(previewRoute)) {
+    const previewHtml = fs.readFileSync(previewRoute, 'utf8');
+    if (!previewHtml.includes('noindex,nofollow,noarchive')) failures.push('ARSA preview lost search-engine exclusion');
+    if (!previewHtml.includes('④ アラームON/OFF')) failures.push('ARSA preview lost corrected guide');
+    if (sitemap.includes('https://vintagealarm.github.io/preview/watch/arsa-blind-alarm/')) failures.push('ARSA preview leaked into sitemap');
+  }
 }
 
 const homeHtml = fs.existsSync(path.join(dist, 'index.html'))
