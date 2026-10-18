@@ -15,6 +15,17 @@
 
 ---
 
+### 2026-10-18 18:25 JST — ARSA RESEARCHを日英独3言語で公開するため既存全文翻訳を現行日本語正本へ同期
+
+- **変更**：公開中の日本語ARSA RESEARCHを維持したまま、専用 `/en/research/arsa-blind-alarm/`・`/de/research/arsa-blind-alarm/` を追加。既存EN/DE全文研究の5章・引用・出典を基礎に、Catch/Lead/NOTE/操作ガイドを日本語正本に整合。④のリューズ引出しON/押込みOFFは2026-10-18ユーザー指定。6枚ずつの現物ギャラリーを同じ写真資産から言語別caption/altで表示し、RESEARCH導線・言語切替・hreflang・canonical・sitemap・llms・project-state・build/layout/live検査を連動させる。
+- **理由**：ユーザーが前件PR #253のmain反映と本番公開を要求し、併せてネイティブな独英ページの作成を明示許可した。英独原稿は既存だが、旧Catch/Lead/NOTE、旧5段ガイド、空ギャラリー、RESEARCH専用URLなしの不整合が存在した。公開済み日本語RESEARCHを翻訳言語から独立して読めるようにする。
+- **旧状態・棄却**：英独RESEARCH未公開・日本語だけのRESEARCH導線を終了。旧英独Catch/Leadと5段操作ガイドを採用しない。比較段落でA. Schild prototypeの未確認触覚UIまで「全機が同じ蓋を開く」とする旧英文を修正。ブラウザ自動翻訳・要約・別内容の新記事化、通常ARSA WATCHの誤公開は禁止。
+- **起点・帰属**：U（3言語の本番化・ネイティブ独英作成）→ U採用。Aは既存全文訳と日本語正本の差分検出・実装。
+- **影響範囲**：ARSA固有のEN/DE翻訳データ、日英独RESEARCHページ／言語切替／発見導線・sitemap、関連CI gate・本State・本履歴。通常WATCH `published: false` は不変。Google Slides原本・既存画像バイト・無関係なWATCH本文・他言語ページ本文は変更しない。
+- **検証状態**：GitHub作業branchへの実装。PR CI → main merge → deploy → 3言語live URL・canonical・sitemap確認を独立実施し、未実施工程をPASS扱いしない。翻訳は日本語正本との内容照合で確認。なおネイティブ言語話者による第三者レビューは未実施。
+- **関連**：PR #253（日本語操作ガイド main merge `556ac12a23c526b6ef3cc57fa0c1341abed02218`）、作業branch `feat/arsa-research-en-de-20261018`、実装・検査commits `b019f5c0c28904b73a1e0c1405333b3de98ed8a5` / `4e4cbabcf1c8fb1de88ad1473a0d95e8d3930a4d` / `00929906c6e6cba92cf414f0cfe27de5805f06c9` / `1183b90fb09d551d9e1f72cad4b9b693c5dccf2c` / `b22cb599cb35347222f508f0562c682f0b3be778` / `bec75cd090faba2007468198010596693d5fcbc8` / `32facd669f882be37f37f8c72ec6050d4ccd5d53` / `a0cf7f873279a89303d647dc597c2c9de7b8efbe` / `c05e12fd39d6a46b87b3d950be6cbff78f192f76` / `ec2e0ce48dcdff65796e8656fb5bd58b3ba3dd14` / `a8565d363cc8bc984cfea52edd8f47982e706866` / `c9d69e3a592bba7b69044ff86637bc9473946210` / `ef66b5c97c9975c5878d234821339941b0868689` / `a5cf1c2893ce7b8005d1bd46ff1c7a60906f0704` / `f0f45da4df89621554cf33bfb42e595dfccdee80` / `e809469cf141583e58a742eb3ee4246f942d6eb7` / `be00d2c26aaa835b4b7cbfa3432b58cda9262e60` / `e9c8541fd278bb0edc30b1fbf9c01bfcdd29d69d`、ARSA 2026-10-18ユーザー指示と画像・Google Slides 7枚目（今回Slides自体は未編集）。
+- **日時根拠**：実行ホスト `TZ=Asia/Tokyo date` 実測 2026-10-18 18:25:32 JST。
+
 ### 2026-10-18 18:02 JST — ARSA操作ガイドのSlides原文との不一致を訂正し④ON/OFFを更新
 
 - **変更**：ARSA Blind Alarmの日本語WATCH/RESEARCH共通ソースの`ownersNote.guide`だけを、Google Slides ARSA日本語版の①前蓋、②時計巻上げ・時刻設定、③アラーム巻上げ・時刻設定に合わせて再構成。④はユーザー指定の「2時リューズ引き出し／ON、押し込み／OFF」に置換。重複した旧⑤を削除し、ガイドそのものは残す。
