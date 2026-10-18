@@ -148,6 +148,22 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     if (germanHistory.ok && germanHistory.text.includes('id="research"')) failures.push('de/history: untranslated RESEARCH section leaked');
   }
 
+  for (const [locale, top, localizedHistory] of [['en', englishHome, englishHistory], ['de', germanHome, germanHistory]]) {
+    if (!(researchSettings.published && researchLocales.has(locale))) continue;
+    if (top.ok && !top.text.includes(`${locale}/history/#research`)) failures.push(`${locale}: RESEARCH TOP link missing`);
+    if (localizedHistory.ok && !localizedHistory.text.includes('id="research"')) failures.push(`${locale}: RESEARCH HISTORY section missing`);
+    for (const slug of researchEntries) {
+      const pathName = `${locale}/research/${slug}/`;
+      const res = await get(pathName);
+      if (!res.ok) { failures.push(`${pathName}: HTTP ${res.status}`); continue; }
+      for (const marker of ['RESEARCH', 'ARSA BLIND ALARM', 'specimen-gallery', 'id="deep"', locale === 'en' ? 'Alarm ON/OFF' : 'Wecker EIN/AUS']) {
+        if (!res.text.includes(marker)) failures.push(`${pathName}: marker missing: ${marker}`);
+      }
+      const url = `https://vintagealarm.github.io/${pathName}`;
+      if (!res.text.includes(url)) failures.push(`${pathName}: canonical missing`);
+      if (sitemap.ok && !sitemap.text.includes(url)) failures.push(`${pathName}: sitemap missing`);
+    }
+  }
   if (history.ok && history.text.includes('WITTNAUER ALARM')) failures.push('history: unpublished Wittnauer leaked into OWNER\'S NOTE rail');
   if (owners.ok && !owners.text.includes('c.1959–early 1960s')) failures.push('owners-notes: compact Westclox uncertain-era label missing');
   if (owners.ok && owners.text.includes('id="owners-1950年代末〜1960年代初頭"')) failures.push('owners-notes: long uncertain Westclox era leaked into section heading');
