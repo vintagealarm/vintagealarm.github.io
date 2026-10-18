@@ -47,7 +47,7 @@
 
 ## 2. 引き継ぎ後の強制手順
 
-1. PROJECT.md → AGENTS.md → PROJECT_STATE.md → Social ROUTER.md を読む。
+1. このメッセージ内で取得したSocial ROUTERの該当分岐を使う。PROJECT §0の起動3文書へ戻って再読しない。新証拠・変更・矛盾の再確認だけ理由付きで行う。
 2. 投稿案なら、この content-inventory.md を記憶より先に開く。
 3. 対象時計の現行asset表を開始点としてSourceへ戻り、AIが追加候補を分類する。候補には一時IDを付け、Category / IG state候補 / Other social / Media / Verify / overlap候補 / video-fit候補を整理する。
 4. **分類済み候補を時計横断のrolling shelfとしてユーザーへ提示する。** この段階は `AI_PROPOSED` であり、正本assetではない。1個体を完了するまで他個体を止めない。

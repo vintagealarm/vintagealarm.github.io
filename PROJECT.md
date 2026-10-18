@@ -52,7 +52,6 @@ VINTAGE ALARMに関する**各ユーザーメッセージ**を処理するとき
 - `council-worker/src/v3.ts`
 - `council-worker/src/index.ts`（V2互換エンジン）
 - `research/COUNCIL_V3_COURT_JESTER_DESIGN.md`（7の誕生経緯・設計根拠）
-- `AGENTS.md` の Council / 焼いて
 
 ### 「焼いて」だけの場合
 
@@ -79,125 +78,33 @@ VINTAGE ALARMに関する**各ユーザーメッセージ**を処理するとき
 
 ## 2. 分野別ルーティング
 
-- 本文 / WATCH / HISTORY / OWNER'S NOTES / 翻訳 → `SITE_RULES.md`
-- 日本語本文の新規執筆 / 大幅改稿 → `SITE_RULES.md` + `strategy/japanese-writing.md`
-- **「プレゼンして」／チャットでプレゼン／研究段階のチャット納品 → `strategy/chat-presentation.md`**。プレゼンの構成・根拠・面白さ・チャット表示・段階納品はこの単一正本を読む。研究事実はWATCH／Ledger等の分野別正本から取得し、Council／SNS等の起動・分野別規則を上書きしない。
-- デザイン / UI / 画像 / mobile / motion → `DESIGN_ENGINEERING.md`
-- SEO / AIO → `strategy/seo-aio.md` + 必要な `measurement/*`
-- Analytics / 計測単体 → `measurement/metrics.md` + 対象実装
-- **SNS / 布教 / Instagram / X / YouTube / SNSとVA Analyticsの突合 → `measurement/.internal/.virtual/social/ROUTER.md` を最初に読む**
-- **SNS投稿案 / 既出・未使用角度 / 再利用素材 / 要追加撮影の棚卸し → Social `ROUTER.md` の後に `measurement/.internal/.virtual/social/content-inventory.md` を必ず読む**。AIはSourceに基づいて候補を先に分類し、`AI_PROPOSED` としてユーザーへ提示してよい。候補棚は**時計横断のrolling shelf**として増やしてよく、1個体を棚卸し完了するまで次の時計へ進めない運用にはしない。ユーザーは提示済み候補から**時計＋内容**を選び、KEEP / MERGE / SPLIT / DROP でasset境界を確定する。KEEP済みassetは「次回投稿に採用済み」とは限らず、棚に残して後から選べる。動画への当て込みをユーザーが採用した後だけContent Assignment Registryへ USER_CONFIRMED / PLANNED として予約する。**候補提示を飛ばしてAI単独で正本化しない。**
-- SNS詳細実測 → `measurement/.internal/.virtual/social/instagram-operations.md`
-- 過去SNS / Analytics実験 → `measurement/experiment-log.md`
-- 英語入口 → `strategy/english-entry.md`
-- ドイツ語入口 → `strategy/german-entry.md`
-- Council / 焼いて → `council-worker/V3.md` + `council-worker/README.md` + `council-worker/src/v3.ts` + `council-worker/src/index.ts`
-- **個人時計台帳 / コレクション台帳 / 所持時計 / 取得日・取得経緯・取得額 / OH・OVH・修理歴 / 現在地・現在状態 / 売却・保有意志 → cross-repo `orima1995-create/watchdiary-ios` のCURRENT Issue群を先に読む**
+この表が作業別routeの単一正本。該当する行だけを選び、指定節から読む。節が * の場合も必要な見出しを指定する。複数分野の併用は必要な時だけ。必要事実が揃ったら停止し、不足・矛盾・新証拠がある時だけ追加参照する。
 
-### 個人時計台帳 — cross-repo正本
+<!-- VA_ROUTES_BEGIN -->
+| ID | 適用条件 | 次の正本 | 最初の節 | 追加参照・停止条件 |
+|---|---|---|---|---|
+| WATCH-TEXT | WATCH・HISTORY・OWNER本文／翻訳 | [SITE_RULES.md](SITE_RULES.md) | ## 原則 | 対象WATCHと担当節へ。必要事実が揃えば停止 |
+| WATCH-RESEARCH | 個体研究・資料読解・新証拠 | [SITE_RULES.md](SITE_RULES.md) | ## 時計研究の標準フレーム | 既存MapからLedgerの該当節へ。Research Evidence Ingressを適用 |
+| WATCH-OWNERSHIP | 所持・購入理由・取得・整備・修理ルート・現在状態・売却 | [SITE_RULES.md](SITE_RULES.md) | ## 個人時計台帳 — cross-repo正本 | 研究相談でも該当すればwatchdiary-ios #21 → #60をfresh照合。未照合ならHOLD |
+| FOREIGN-COST | 海外価格・送料・修理費・返金額 | [SITE_RULES.md](SITE_RULES.md) | ## 海外価格・費用の日本円併記（共通出力契約） | 原額・円換算・日時・未確認費用を分離したら停止 |
+| OWNER-COPY | Catch／Leadの新規・大幅改稿・選別 | [SITE_RULES.md](SITE_RULES.md) | ### Catch / Lead開発プロトコル（全WATCH共通・必須） | 公開WATCH全件比較と帰属・採否記録。短いCURRENT照会は既存Mapへ |
+| HOW-RING | HOW THEY RINGの分類・表示 | [SITE_RULES.md](SITE_RULES.md) | ## HOW THEY RING — CURRENT | 対象実装と必要資料を照合。旧分類を復活させない |
+| DESIGN | UI・画像・mobile・motion | [DESIGN_ENGINEERING.md](DESIGN_ENGINEERING.md) | ## 適用範囲 | 対象componentと該当実寸監査へ |
+| SEO | SEO／AIO方針 | [strategy/seo-aio.md](strategy/seo-aio.md) | * | 必要な観測だけmeasurementへ。観測不要なら停止 |
+| ANALYTICS | 計測単体 | [measurement/metrics.md](measurement/metrics.md) | * | 対象実装と時点を照合。SNS突合ならSOCIALを併用 |
+| SOCIAL | Instagram・X・YouTube・布教・SNSとVA Analytics突合 | [measurement/.internal/.virtual/social/ROUTER.md](measurement/.internal/.virtual/social/ROUTER.md) | ## 2. 参照順 | Router内の作業別分岐へ。投稿案はinventory必須 |
+| ENGLISH | 英語入口・英訳同期 | [strategy/english-entry.md](strategy/english-entry.md) | * | 日本語正本と対応言語を確認。同期変更時だけsync規約へ |
+| GERMAN | ドイツ語入口・独訳同期 | [strategy/german-entry.md](strategy/german-entry.md) | * | 日本語正本から翻訳し、対応同期検査へ |
+| PRESENTATION | 「プレゼンして」・研究チャット納品 | [strategy/chat-presentation.md](strategy/chat-presentation.md) | ## 1. 起動条件・優先順位 | 事実は研究正本。提出様式と分析protocolを分離 |
+| COUNCIL | 形式選択済みCouncil・焼き | [council-worker/V3.md](council-worker/V3.md), [council-worker/README.md](council-worker/README.md), [council-worker/src/v3.ts](council-worker/src/v3.ts), [council-worker/src/index.ts](council-worker/src/index.ts) | * | 対象資料を先に確認。7は設計根拠と文脈manifestも確認 |
+| OPERATIONS | 複数工程・実装・監査・権限・記録 | [.codex/MANAGER_CONTROL_PLANE.md](.codex/MANAGER_CONTROL_PLANE.md) | ## 1. Task Envelope | Task Envelopeと該当gateだけ。判断変更はCHANGE_DECISIONSへ |
+| DEPLOY | 公開変更・本番未反映・deploy検証 | [.codex/MANAGER_CONTROL_PLANE.md](.codex/MANAGER_CONTROL_PLANE.md) | ## 公開変更の原子性とデプロイ監査 | 実装→gate→deploy→liveを区別して確認 |
+<!-- VA_ROUTES_END -->
 
-個人所有・取得・整備・売却の台帳は、公開VINTAGE ALARMリポジトリへ重複保存しない。正本は **`orima1995-create/watchdiary-ios` のGitHub Issues** に置く。
+同じユーザーメッセージ内で取得済みの起動文書へ戻らない。新証拠・正本の変更・矛盾がある時は理由を記録して該当節だけ再確認する。
+個人時計台帳の全条件・基本取得順・必須項目はSITE_RULESのcross-repo節。SNSのACTIVE／RESOLVED・投稿案・書込はSocial Router。起点の表へ詳細本文を複製しない。
 
-時計台帳、所持時計、コレクション、購入日／取得日、取得経緯、購入額／取得額、OH・OVH、修理歴、現在地、輸送中、預け中、売却、KEEP / MAY SELL等を扱う場合は、**VINTAGE ALARM repo内だけを検索して「台帳がない」と判断してはならない。**
+## 3. 実行・記録の詳細
 
-**横断照合の強制条件（研究中も適用）**：所有個体について「購入を決めた理由／事前に許容した故障リスク／整備・修理の依頼先／部品の調達・修理可否／購入後の対応方針」を語るときは、研究・症状相談という表向きの分類でも **回答前に `watchdiary-ios` #21 → #60 をfresh取得**し、個体別issueがあれば確認する。Research Ledger / Mapに見当たらないことを、ユーザーが事前共有していない根拠にしない。取得できなければ「個人台帳未照合」と明示して判断をHOLDし、一般論で既存の修理ルートを上書きしない。ユーザーの現状報告は研究証拠として別途Research Ledgerへ記録し、**個人台帳自体はユーザーが更新を明示した場合のみ変更**する。
-
-基本取得順:
-1. **#21 `[CURRENT] 腕時計コレクション台帳｜OWNED`** — 現在所有の主台帳。まずここを取得する
-2. **#60 `[CURRENT] 腕時計コレクション遍歴｜DIRECT-EVIDENCE REBUILD`** — 取得順、購入・譲渡経緯、価格、意味づけ、時系列
-3. **#23 `コレクション保有意志｜KEEP / MAY SELL`** — 現在の保有・売却意向
-4. **#25 `時計周辺コレクション｜Watch-lighter + Eterna 8 DAYS`** — 腕時計本数に含めない周辺時計
-5. 個体別のCURRENT Issueがある場合は追加取得する。例: **#58 WESTCLOX Watchlarm、#31 CYMA Time-O-Vox No.489**
-6. 売却・査定は **#20 Rolex Ref.1501**、金融状態は **#19 loans** へ分離する
-
-#21で持つ基本項目:
-- 取得日
-- 取得方法・場所
-- 取得額
-- 取得経緯
-- OH / OVH / 修理歴
-- **個体識別情報** — Ref. / Cal. / movement No. / case No. 等、分かるものだけ
-- **既知不具合・状態**
-- **改造・部品交換歴**
-- **現在地 / 現在状態**
-
-日差・振り角・beat error等の精度測定や「最終動作確認」は**台帳の必須項目にしない**。個体研究・修理資料に実測が存在し、意味がある場合だけ詳細正本へ残す。
-
-個体の歴史・機構・一次資料・公開研究はVINTAGE ALARM側の研究正本を使う。たとえばARSA Blind Alarmなら `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` / `research/ARSA_BLIND_ALARM_LEDGER.md` が研究正本で、**所有・取得・OH・現在状態はwatchdiary台帳と突合する**。研究正本と個人台帳の役割を混ぜない。
-
-ユーザーが台帳更新を明示した場合は、該当する `watchdiary-ios` CURRENT Issueを更新する。単なる会話・調査だけで無断更新しない。公開サイトへ載せる指示がない限り、個人台帳をVINTAGE ALARM公開本文へコピーしない。
-
-時計の事実認定では、Project資料『Alarm am Arm』『The Alarm Wrist Watch』等を確認できる場合は一般論より先に使う。
-
-## 3. SNS / Analytics / VA運用
-
-SNS投稿案・評価・Councilでは、**必ず `measurement/.internal/.virtual/social/ROUTER.md` の ACTIVE / RESOLVED を先に分離する。**
-
-- ACTIVE = 現在検討・比較・焼くべき論点。
-- RESOLVED / INTERNAL = 判断の前提として内部適用するが、新証拠や明示的な再検討指示がない限り回答・Councilの主要論点へ戻さない。
-
-これにより、既に確定した計測上の注意事項や過去の訂正を毎回答で再説明しない。
-
-SNS案件の基本確認順:
-1. 現在の会話にある最新スクショ / Insights / Relay / ユーザー訂正
-2. `measurement/.internal/.virtual/social/ROUTER.md`
-3. `measurement/.internal/.virtual/social/instagram-operations.md`
-4. `measurement/experiment-log.md`
-5. `measurement/metrics.md`
-6. `PROJECT_STATE.md` と対象VAページ
-7. Project資料・一次資料
-8. 必要ならWeb / 市場 / SNS
-
-過去X / YouTube / Instagramで既に使った訴求を確認せず、新しい企画として再発明しない。
-
-英語投稿を作る場合は、**ネイティブとして自然な英語 + 英語構文を引きずらない自然な日本語訳**をセットで提示する。
-
-## 4. 変更履歴と日時
-
-仕様・運用・公開・計測・UI・分類・文言の意味・公開状態・検証方針・棄却判断・再発防止策が変わる場合、**同じ変更セット内で `CHANGE_DECISIONS.md` にJST日時付きで記録する。**
-
-形式:
-
-`### YYYY-MM-DD HH:mm JST — ...`
-
-最低限、**変更 / 理由 / 旧状態・棄却 / 影響範囲 / 検証状態 / 関連 / 日時根拠** を残す。
-
-GitHub UTC時刻を根拠にする場合、UTC原文とJST換算を併記する。日時を頭だけで変換して済ませない。
-
-記録漏れがある状態を `完了` / `VERIFIED` と呼ばない。過去漏れを見つけたら「次回」へ送らず、その場で安全に補填する。
-
-## 5. 実行と検証
-
-- 実装済み / 検証済み / main反映済み / deploy成功 / live確認済み / 成果観測済みを混同しない。
-- ユーザーが本番反映まで求めた場合、main pushで終了しない。
-- 部分修正は差分編集。指定外を勝手に改善しない。
-- エラーは自力で原因特定・再試行できる範囲を先に処理する。
-- ユーザーが棄却した候補は、新証拠がない限り復活させない。
-- 過去のPR / branch / decision / 棄却案 / superseded案を、整理だけを理由に削除しない。active queueから外す必要がある場合は close / draft / superseded / HOLD 等で状態を分け、PR・commit・branch・decision logから「何を検討し、何を採用／棄却し、なぜそうしたか」を後から参照できる状態を保つ。closeは削除ではなく作業キューからの退避として扱う。
-- **active queueの判定はopen PRを第一基準にする。** branchが存在するだけでは「現在作業中」とみなさない。open PRに紐づくbranch、または会話・正本で明示的に作業中と指定されたbranchだけをactive扱いし、closed PRや孤立branchは履歴候補として参照する。
-
-## 6. 回答前の強制チェック
-
-回答・実行前に最低限これを確認する。
-
-- 今回、正本ファイルがあるか。あるなら読んだか。
-- 個人時計台帳案件なのに、`watchdiary-ios` #21を取得せずVINTAGE ALARM repo内だけで「無い」と判断していないか。
-- SNS案件ならSocial Routerを通したか。
-- ACTIVEとRESOLVEDを分け、RESOLVEDを不要に再説明していないか。
-- 目の前の画像 / 資料 / Analytics / GitHubを一般論より先に確認したか。
-- 「焼いて」や番号の意味を勝手に作っていないか。
-- 過去SNS実績を確認せず既存案を再発明していないか。
-- ユーザーの訂正を最新仕様へ反映したか。
-- 未確認を確認済みのように書いていないか。
-- 旧仕様・棄却済み候補を復活させていないか。
-- 判断変更なら `CHANGE_DECISIONS.md` も同時に更新したか。
-- OWNER'S NOTEの `catch` / `ownersNote.lead` を新規作成・大幅改稿・選別する案件なら、`SITE_RULES.md` の全WATCH共通Catch / Lead開発プロトコルを通し、**現在公開中の日本語WATCHすべての現行Catch / Leadを横並び確認**したか。発案者・派生元・採否理由・VA温度比較・現在状態を記録したか。
-- 実行と検証を混同していないか。
-
-- directional ruleを逆向き・対偶・双方向へ変形していないか。
-- 既存判断を変える場合、REVERSAL TARGETとNEW EVIDENCEが両方あるか。
-- route / account / page / media / postを、現物確認なしに無い前提・新設前提で扱っていないか。
-- 一般論をProject固有の決定へ昇格していないか。
-- 最終結論が直近ユーザー決定・正本・既存実装と矛盾していないか。
-
-このチェックに失敗した場合、回答を続けず正本確認へ戻る。
+[Manager](.codex/MANAGER_CONTROL_PLANE.md)に差分編集・帰属・日時付き判断履歴・検証段階・履歴保持を集約する。新たな実装許可・公開許可を推測で作らない。回答前は[Guard](.codex/FAIL_CLOSED_INFERENCE_GUARDS.md)と担当正本でCURRENT・ユーザー決定・実物との矛盾を確認する。
+道案内の実在・節・欠落・起動サイズは npm run check:routing、反例と段階読込は npm run test:routing。合成試験を実AI回答の正確性保証とは呼ばない。

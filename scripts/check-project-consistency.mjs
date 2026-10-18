@@ -1,6 +1,8 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { extractLlmsWatchSlugs, publicationSetErrors } from './publication-consistency.mjs';
+import { routingErrors } from './check-routing.mjs';
+import { headings, loadRoutes } from './routing-contract.mjs';
 
 const read = (path) => readFileSync(path, 'utf8');
 const fail = (message) => {
@@ -11,7 +13,8 @@ const requireText = (text, needle, label) => {
   if (!text.includes(needle)) fail(`${label} is missing: ${needle}`);
 };
 const requireSingleOccurrence = (text, needle, label) => {
-  const count = text.split(needle).length - 1;
+  // Discovery pointers may quote a heading; only real headings own the section.
+  const count = headings(text).filter(h => h.text === needle).length;
   if (count !== 1) fail(`${label} must appear exactly once; found ${count}: ${needle}`);
 };
 const forbidText = (text, needle, label) => {
@@ -21,6 +24,8 @@ const forbidText = (text, needle, label) => {
 const project = read('PROJECT.md');
 const agents = read('AGENTS.md');
 const state = read('PROJECT_STATE.md');
+const siteRules = read('SITE_RULES.md');
+for (const error of routingErrors()) fail(error);
 const llms = read('public/llms.txt');
 const researchSettings = JSON.parse(read('src/data/research-settings.json'));
 const aio = read('measurement/aio-observation-log.md');
@@ -51,7 +56,7 @@ for (const [label, text, needle] of [
   ['PROJECT_STATE task-envelope pointer', state, taskEnvelopePath],
   ['PROJECT_STATE inference-guard pointer', state, inferenceGuardPath],
   ['PROJECT social pointer', project, socialRouter],
-  ['AGENTS social pointer', agents, socialRouter],
+  ['PROJECT domain social pointer', project, socialRouter],
   ['PROJECT_STATE social pointer', state, socialRouter]
 ]) requireText(text, needle, label);
 
@@ -80,7 +85,7 @@ for (const path of [
   'council-worker/src/v3.ts',
   'council-worker/src/index.ts',
   'research/COUNCIL_V3_COURT_JESTER_DESIGN.md'
-]) requireText(agents, path, 'AGENTS deferred Council pointer');
+]) requireText(project, path, 'PROJECT deferred Council pointer');
 forbidText(agents, '1. **2ch民で焼いて**', 'AGENTS Council menu');
 forbidText(agents, 'V2共通プロトコル:', 'AGENTS Council protocol');
 
@@ -202,7 +207,7 @@ requireText(social, '分析回答より先に', 'Social write-before-analysis ru
 requireText(social, 'このcontractは会話単位ではなくrepo単位', 'Social cross-chat write contract');
 
 requireText(agents, 'Research Evidence Ingress', 'Research evidence-ingress routing');
-requireText(agents, '詳細証拠・出典・逐次履歴をLedgerへ追記', 'Research Ledger write contract');
+requireText(siteRules, '詳細証拠・出典・逐次履歴をLedgerへ追記', 'Research Ledger write contract');
 requireText(metrics, '個別スクリーンショットや時点観測の保存先ではない', 'Metrics definition-only boundary');
 requireText(experimentLog, '## Canonical write contract', 'Experiment log write contract');
 requireText(experimentLog, '任意のダッシュボード画面をraw snapshotとして機械的に保存しない', 'Experiment raw-snapshot boundary');
@@ -222,18 +227,18 @@ for (const needle of [
 ]) requireText(instagramTimeseriesScript, needle, 'Instagram cross-chat ingestion guard');
 
 const canonical = 'https://vintagealarm.github.io/';
-requireText(state, `正規公開ホスト: \`${canonical}\``, 'PROJECT_STATE canonical host');
+requireText(siteRules, `正規公開ホスト: \`${canonical}\``, 'SITE_RULES canonical host');
 requireText(llms, `Canonical URL: ${canonical}`, 'llms canonical host');
 
 
-const councilPointer = state.split('\n').find((line) => line.startsWith('- Council現行仕様:')) || '';
+const councilPointer = loadRoutes().find(route => route.id === 'COUNCIL')?.targets.join(' ') || '';
 for (const path of [
   'council-worker/V3.md',
   'council-worker/README.md',
   'council-worker/src/v3.ts',
   'council-worker/src/index.ts'
 ]) {
-  if (!councilPointer.includes(path)) fail(`PROJECT_STATE Council pointer is missing ${path}`);
+  if (!councilPointer.includes(path)) fail(`PROJECT Council route is missing ${path}`);
 }
 
 const jaFigureMatch = ring.match(/ja:\s*\{[\s\S]*?figureLabel:\s*\{\s*'01':\s*'([^']+)'[\s\S]*?'03':\s*'([^']+)'/);
@@ -241,10 +246,10 @@ if (!jaFigureMatch) {
   fail('could not parse JA HOW THEY RING figure labels');
 } else {
   const [, fig01, fig03] = jaFigureMatch;
-  if (!state.includes(`FIG.01 GONG: OMEGA MEMOMATIC。現行表示は「${fig01}」`)) {
+  if (!siteRules.includes(`FIG.01 GONG: OMEGA MEMOMATIC。現行表示は「${fig01}」`)) {
     fail(`PROJECT_STATE FIG.01 does not match JA implementation: ${fig01}`);
   }
-  if (!state.includes(`FIG.03 CASEBACK: 「${fig03} — JUNGHANS MINIVOX」`)) {
+  if (!siteRules.includes(`FIG.03 CASEBACK: 「${fig03} — JUNGHANS MINIVOX」`)) {
     fail(`PROJECT_STATE FIG.03 does not match JA implementation: ${fig03}`);
   }
 }
@@ -271,12 +276,12 @@ const allWatchSlugs = new Set(watchStates.map((watch) => watch.slug));
 const llmsGroups = extractLlmsWatchSlugs(llms, allWatchSlugs);
 for (const mismatch of publicationSetErrors(watchStates, llmsGroups)) fail(`llms published WATCH pages differ from frontmatter: ${mismatch}`);
 
-requireText(state, '公開中のWATCH routeの正本は `src/content/watches/*.md` の `published: true`', 'PROJECT_STATE dynamic publication owner');
-requireText(state, '公開本数と対象一覧をこのStateへ固定しない', 'PROJECT_STATE dynamic publication rule');
+requireText(siteRules, '公開中のWATCH routeの正本は `src/content/watches/*.md` の `published: true`', 'SITE_RULES dynamic publication owner');
+requireText(siteRules, '公開本数と対象一覧をこのStateへ固定しない', 'SITE_RULES dynamic publication rule');
 const arsa = watchStates.find((watch) => watch.slug === 'arsa-blind-alarm');
 if (!arsa) fail('ARSA Blind Alarm WATCH state is missing');
-if (arsa && !arsa.published) requireText(state, 'ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT', 'PROJECT_STATE ARSA unpublished CURRENT');
-if (arsa?.published && state.includes('ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT')) fail('PROJECT_STATE says ARSA is unpublished while frontmatter is published');
+if (arsa && !arsa.published) requireText(siteRules, 'ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT', 'SITE_RULES ARSA unpublished CURRENT');
+if (arsa?.published && siteRules.includes('ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT')) fail('SITE_RULES says ARSA is unpublished while frontmatter is published');
 
 const researchLocales = new Set(researchSettings.locales ?? []);
 const researchEntries = Array.isArray(researchSettings.entries) ? researchSettings.entries : [];
@@ -287,13 +292,13 @@ if (researchSettings.published) {
     if (!allWatchSlugs.has(slug)) fail(`RESEARCH references unknown WATCH slug: ${slug}`);
     requireText(llms, `https://vintagealarm.github.io/research/${slug}/`, `llms RESEARCH route ${slug}`);
   }
-  requireText(state, '**RESEARCHは現在、日本語で公開中。**', 'PROJECT_STATE RESEARCH published CURRENT');
+  requireText(siteRules, '**RESEARCHは現在、日本語で公開中。**', 'SITE_RULES RESEARCH published CURRENT');
 }
 if (researchSettings.published && researchEntries.includes('arsa-blind-alarm') && arsa?.published) {
   fail('ARSA RESEARCH release must not silently republish the normal ARSA WATCH route');
 }
 
-requireText(state, 'measurement target 5本', 'PROJECT_STATE measurement target');
+requireText(siteRules, 'measurement target 5本', 'SITE_RULES measurement target');
 requireText(aio, 'measurement target 5 WATCH', 'AIO measurement target');
 if (aio.includes('公開済み5 WATCH')) {
   fail('AIO log revived the ambiguous "公開済み5 WATCH" wording');
