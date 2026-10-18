@@ -55,28 +55,5 @@ jobs:
             --commit-hash "$GITHUB_SHA" \
             --commit-message "VINTAGE ALARM AI readable analytics relay"
 
-      - name: Verify live relay landing page
-        run: |
-          set -euo pipefail
-          headers="$(mktemp)"
-          curl --fail --silent --show-error --retry 3 --max-time 30 \
-            -D "$headers" \
-            https://vintage-alarm-ai-relay.pages.dev/ \
-            -o /tmp/relay.html
-          grep -Fq '<!doctype html>' /tmp/relay.html
-          grep -Fq 'No analytics data' /tmp/relay.html
-          grep -Eiq '^x-robots-tag: noindex, nofollow, noarchive' "$headers"
-          grep -Eiq '^cache-control: no-store' "$headers"
-
-      - name: Verify live short route rejects expired token
-        run: |
-          set -euo pipefail
-          headers="$(mktemp)"
-          body="$(mktemp)"
-          status=$(curl --silent --show-error --retry 3 --max-time 30 \
-            -D "$headers" -o "$body" -w '%{http_code}' \
-            https://vintage-alarm-ai-relay.pages.dev/s/v2/24h/auto/-/-/1000000000/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa)
-          test "$status" = 400
-          grep -Fq 'Signed analytics source has expired.' "$body"
-          grep -Eiq '^cache-control: no-store' "$headers"
-          grep -Eiq '^x-robots-tag: noindex, nofollow, noarchive' "$headers"
+      - name: Verify live routing and upstream transport
+        run: node check-live-relay.mjs

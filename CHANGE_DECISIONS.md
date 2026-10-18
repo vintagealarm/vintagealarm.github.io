@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-18 12:22 JST — 公開先で発見したRelay fetchのredirect互換性を修正
+
+- **変更**: RelayとAI URL発行のfetchを `redirect: manual` へ変更し、3xxを成功扱いせず拒否。live gateへ期限内・不正署名の短縮URLを加え、上流のHTTP 401がRelay経由でも戻ることを検査する。これはデータ取得成功の代用ではなく通信・署名拒否の検査。
+- **理由**: PR #249の公開後、期限切れpathの400は確認できたが、期限内pathで公開先が `Invalid redirect value ... error ... won't be implemented ... at the edge` を返した。上流直アクセスは401。期限切れ検査だけではfetchが走らず、この欠陥を検出できなかった。
+- **旧状態・棄却**: Node上のmock検査成功だけからedge fetchを動作済みとしない。自動redirect追従でallowlistを迂回する案は採用しない。初回live gate失敗は再実行成功で記録を消さず、原因未確定として保持する。
+- **影響範囲**: Relay fetch / AI URL発行時の検証fetch / 該当検査のみ。無料条件付き公開承認の対象である取得修復の継続。新規課金契約・APIは追加しない。
+- **検証状態**: ローカルRelay / discoveryイベント / profile wrapper / 生成JS検査は成功。manual指定と3xx拒否を追加確認。最新head CIと再deploy後のlive通信確認は本記録時点では未実施。
+- **関連**: PR #249、`cloudflare/ai-relay/check-live-relay.mjs`。公開実測は2026-10-18 12:19 JST以降。ユーザーの実データ成功取得とは区別する。
+- **日時根拠**: ホスト `TZ=Asia/Tokyo date` 実測（2026-10-18 12:22 JST）。
+
 ### 2026-10-18 12:14 JST — ユーザーの課金契約なし説明を受け料金API必須条件を撤回
 
 - **変更**: U「課金類の契約は一切してない」をユーザー説明ベースの根拠として記録し、PR #249を既存構成の修復として公開へ進める。AIが追加した料金API照会job / deploy必須条件と専用scriptを撤回する。旧実装はGit履歴に保持。

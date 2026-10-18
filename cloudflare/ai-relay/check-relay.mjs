@@ -76,7 +76,8 @@ assert(bad.status === 400, 'unapproved source host should fail');
 
 const originalFetch = globalThis.fetch;
 let fetchedUrl = '';
-globalThis.fetch = async (url) => {
+globalThis.fetch = async (url, options) => {
+  assert(options.redirect === 'manual', 'edge fetch must use manual redirect handling');
   fetchedUrl = String(url);
   return new Response(JSON.stringify(sample), { status: 200, headers: { 'Content-Type': 'application/json' } });
 };
@@ -150,6 +151,10 @@ try {
 
   globalThis.fetch = async () => new Response('{}');
   assert((await onRequestGet({ request: new Request(relay.toString()) })).status === 502, 'invalid payload cannot be zero analytics');
+  globalThis.fetch = async () => new Response(null, { status: 302, headers: { Location: 'https://example.com/' } });
+  const redirect = await onRequestGet({ request: new Request(relay.toString()) });
+  assert(redirect.status === 502, 'upstream redirect must fail closed');
+  assert(!redirect.headers.has('location'), 'redirect location must not be forwarded');
 } finally {
   globalThis.fetch = originalFetch;
 }

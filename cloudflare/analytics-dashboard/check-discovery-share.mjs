@@ -82,7 +82,8 @@ const originalBaseFetch = baseWorker.fetch;
 const originalFetch = globalThis.fetch;
 try {
   baseWorker.fetch = async () => Response.json({ url: 'https://vintage-alarm-analytics.orima1995.workers.dev/api/ai-export?window=24h&expires=1999999999&sig=' + 'a'.repeat(64) });
-  globalThis.fetch = async url => {
+  globalThis.fetch = async (url, options) => {
+    assert.equal(options.redirect, 'manual');
     assert.match(String(url), /\/s\/v2\/24h\/auto\//);
     return new Response('<!doctype html>STATIC FALLBACK');
   };
@@ -95,6 +96,9 @@ try {
   const accepted = await entryWorker.fetch(new Request('https://dashboard.example/api/ai-readable-link?range=24h'), {}, {});
   assert.equal(accepted.status, 200);
   assert.equal((await accepted.json()).deliveryVerified, true);
+  globalThis.fetch = async () => new Response(null, { status: 302, headers: { Location: 'https://example.com/' } });
+  const redirected = await entryWorker.fetch(new Request('https://dashboard.example/api/ai-readable-link?range=24h'), {}, {});
+  assert.equal(redirected.status, 502, 'redirect is not delivery verification');
 } finally {
   baseWorker.fetch = originalBaseFetch;
   globalThis.fetch = originalFetch;
