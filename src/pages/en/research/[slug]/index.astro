@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import EnglishWatchEntry from '../../../../layouts/EnglishWatchEntry.astro';
+import { englishWatchEntries } from '../../../../data/en-watch-entry';
+import { englishFullResearchWithCyma } from '../../../../data/cyma-localizations';
+import researchSettings from '../../../../data/research-settings.json';
+
+export async function getStaticPaths() {
+  if (!researchSettings.published || !researchSettings.locales.includes('en')) return [];
+  const watches = await getCollection('watches');
+  const watchBySlug = new Map(watches.map((item) => [item.data.slug, item]));
+  return researchSettings.entries.flatMap((slug) => {
+    const item = watchBySlug.get(slug);
+    const entry = englishWatchEntries[slug];
+    if (!item || !entry || !englishFullResearchWithCyma[slug]) return [];
+    return [{ params: { slug }, props: { watch: item.data, entry } }];
+  });
+}
+const { watch, entry } = Astro.props;
+---
+<EnglishWatchEntry watch={watch} entry={entry} research={true} />
