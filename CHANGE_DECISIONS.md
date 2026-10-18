@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-18 09:03 JST — 無料条件付き公開承認を記録し費用確認をdeployへ接続
+
+- **変更**: U「金がかからないなら承認。このやりとりは2回目」をPR #249の条件付き公開承認として記録。公開承認の再質問をしない。既存GitHub Secretsを使う読み取り専用subscription照会をCI / Analytics / Relay deploy前へ接続。
+- **理由**: 新規有料APIを追加しないことだけではCloudflareアカウントの従量課金の有無を確認したことにならないため。
+- **旧状態・棄却**: 料金表や既存の0円方針だけからアカウントの無料状態を断定しない。subscription一覧が非空・不完全・HTTP失敗の場合はCOST_UNVERIFIEDで止める。契約変更・秘密情報の表示・権限拡張は行わない。
+- **影響範囲**: PR #249の費用確認と公開手順。Google自動取得、有料プラン、新規保存サービスは追加しない。課金設定変更は対象外。
+- **検証状態**: 費用gateの欠落・失敗・非空・途中ページ・エラー応答の拒否をローカル検証済み。実アカウント照会・deployはこの記録時点では未実施。
+- **関連**: `measurement/metrics.md`、`cloudflare/check-free-plan.mjs`、PR #249。起点U → A実装。Cloudflare公式Pages Functions pricing / Account Subscriptions APIを確認。
+- **日時根拠**: ホスト `TZ=Asia/Tokyo date` 実測（2026-10-18 09:03 JST）。
+
 ### 2026-10-18 08:00 JST — Analytics短縮URLのPages接続とSEO/GEO共有漏れを修正
 
 - **変更**: `/s/*` をPages Functionsへ接続。AI URL発行時に渡す短縮URLそのものの本文とexport markerを検証する。AI COPYへブラウザ取込済みSEO/GEO全保存スナップショット・手動Index記録、AI URL fragmentへ最新要約を付加する。

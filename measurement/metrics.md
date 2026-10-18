@@ -424,6 +424,8 @@ SEO / GEO / SNS / Analyticsの追加機能は、毎回次の順で進める。
 
 追加月額0円を優先し、Google Cloud / Service Account / Search Console APIは現段階では採用しない。
 
+2026-10-18のユーザー承認は「金がかからないなら承認」。PR #249の公開はこの条件付きで承認済みとし、再承認を求めない。Analytics / Relay deploy直前に `cloudflare/check-free-plan.mjs` でCloudflareアカウントのsubscription一覧を読み取り確認する。非空・不完全・取得不可はCOST_UNVERIFIEDとしてdeployを止め、有料subscriptionを勝手に契約・解除・変更しない。請求詳細・tokenはログへ出さない。APIのBilling Read権限不足は「課金あり」とは認定せず、費用条件未確認として区別する。
+
 通常SEO:
 - Search Console UIからCSV Export
 - Date / Page / Query / Country / Device等をDISCOVERY INBOXへImport
