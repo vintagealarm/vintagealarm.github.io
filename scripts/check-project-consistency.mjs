@@ -287,7 +287,11 @@ if (researchSettings.published) {
     if (!allWatchSlugs.has(slug)) fail(`RESEARCH references unknown WATCH slug: ${slug}`);
     requireText(llms, `https://vintagealarm.github.io/research/${slug}/`, `llms RESEARCH route ${slug}`);
   }
-  requireText(state, '**RESEARCHは現在、日本語で公開中。**', 'PROJECT_STATE RESEARCH published CURRENT');
+  for (const locale of researchLocales) {
+    if (!['ja', 'en', 'de'].includes(locale)) fail(`Unsupported RESEARCH locale: ${locale}`);
+    for (const slug of researchEntries) requireText(llms, `https://vintagealarm.github.io/${locale === 'ja' ? '' : `${locale}/`}research/${slug}/`, `llms RESEARCH ${locale} route ${slug}`);
+  }
+  requireText(state, '**RESEARCHは日本語・英語・ドイツ語の公開対象。**', 'PROJECT_STATE RESEARCH locale CURRENT');
 }
 if (researchSettings.published && researchEntries.includes('arsa-blind-alarm') && arsa?.published) {
   fail('ARSA RESEARCH release must not silently republish the normal ARSA WATCH route');
