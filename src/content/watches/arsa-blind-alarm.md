@@ -32,14 +32,19 @@ ownersNote:
     - ちなみに、麻酔針は出ない。
 spec:
   era: 1958年（専門書掲載例）／掲載個体の製造年は未確認
-  caseSize: 約33mm（掲載個体、未実測）
+  caseSize: 約33mm
   caliber: A. Schild AS 1475
   jewels: 17石
   frequency: 18,000振動／時
   barrels: 2香箱
   winding: 手巻き
   acoustic: 機械式アラーム
-  notes: 開閉式前蓋、触覚目盛・針、4時位置リューズ中央プッシャー。ケース材・正確な製造年は未確認
+  notes: |-
+    開閉式前蓋、触覚目盛・針
+    4時位置リューズ中央プッシャー。
+specimenGallery:
+  - image: /images/IMG_3117-1.jpeg
+    label: 正面
 deepDive:
   - number: "01"
     title: Auguste Reymond / ARSA
@@ -95,7 +100,8 @@ deepDive:
     title: 同じ目的への、別々の答え
     paragraphs:
       - 『Alarm am Arm』には、ARSA以外にもEnicar、BEAT / Friedli-Frères、A. Schild自身のAS1475
-        Blind Alarmが記録されている。ARSA、Enicar、BEATはいずれも蓋を開け、針と目盛へ直接触れて時刻を読むが、蓋の開け方や針の識別方法は異なる。[3]
+        Blind
+        Alarmが記録されている。ARSA、Enicar、BEATはいずれも蓋を開け、針と目盛へ直接触れて時刻を読むが、蓋の開け方や針の識別方法は異なる。[3]
       - ARSAでは4時位置の時計用リューズ中央に前蓋のオープナーを組み込む。1964年のローザンヌ向けEnicar特別個体では、分針・時針・アラーム針の幅を変え、アラーム針の先端に四本の隆起を設けた。二つのリューズも触って区別できる形に作られている。[10]
       - BEAT /
         Friedli-Frèresは33.8mmのケースにAS1475を収め、蓋を開ける機構を4時リューズではなく6時位置に独立して置いた。A.
