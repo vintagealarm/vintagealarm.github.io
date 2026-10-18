@@ -23,7 +23,7 @@
 - **起点・帰属**：U（プレビュー消失を報告・復旧許可）→ U採用。A（除外実装と誤った検査条件）→ A修正。
 - **影響範囲**：`src/pages/preview/watch/[slug]/index.astro`、`scripts/check-build-output.mjs`、`scripts/check-live-site.mjs`、本変更履歴のみ。JA/EN/DE本文、CMS、`published: false`、RESEARCH、画像、他WATCHは不変。
 - **検証状態**：作業branchで正本を修正。PR CI→main merge→deploy→live URL実測を別判定。静的URL + noindexは技術的な本人認証ではなく、閲覧を知る人以外へ保証していないことを明記する。
-- **関連**：誤削除PR #256、復旧branch `fix/restore-arsa-watch-preview-20261018`、修正commits `264331700bec723f8bca4f044aef5df367245c4e` / `c4807094bbfe075aea73db7a9bb18cfd7bb44e7c` / `b3f3fc0058755af24fa450429d0e4b39579a0304`。
+- **関連**：誤削除PR #256、復旧branch `fix/restore-arsa-watch-preview-20261018`、修正commits `264331700bec723f8bca4f044aef5df367245c4e` / `c4807094bbfe075aea73db7a9bb18cfd7bb44e7c` / `b3f3fc0058755af24fa450429d0e4b39579a0304` / `f2e9fe41cb8bc9fb32c4c7a06ee9e90e4b434032`（check-build-output初期化順修正）。
 - **日時根拠**：2026-10-18 21:27 JST、作業ホストの `TZ=Asia/Tokyo date` 実測。
 
 ### 2026-10-18 18:58 JST — ARSA WATCHをJA/EN/DEのCMS下書きへ戻し誤公開EN/DE RESEARCHを撤回
