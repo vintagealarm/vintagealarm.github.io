@@ -2118,5 +2118,5 @@
 - **旧状態・棄却**：従来は「エボーシュメーカー」「ピンレバー脱進機」の意味をほぼ補足せず提示していた。B案の段落再構成、C案の第2章改稿、D案の用語解説UI追加は今回の変更対象外。機構説明以外の改稿や追加施策は行わない。
 - **影響範囲**：日本語BASIS WATCHのDEEP DIVE 01冒頭段落のみ。OWNER'S NOTE、catch/lead、ガイド、SPEC、DEEP DIVE 02以降、他WATCH、ページ構成、翻訳版、SEO/Analytics設定は変更しない。
 - **検証状態**：指定文の単一箇所置換をbranch上で確認。PR差分とCI・main再取得・公開サイトの状態はそれぞれ別途検証して確定する。読者の理解度改善は未実測。
-- **関連**：`src/content/watches/basis-alarm.md`、`SITE_RULES.md`、本会話のA案採用・サイト反映承認。
+- **関連**：`src/content/watches/basis-alarm.md`、`SITE_RULES.md`、BASIS本文コミット `585272931f56011b921a2ba706935190548a1bda`、本会話のA案採用・サイト反映承認。
 - **日時根拠**：実行ホストの `TZ=Asia/Tokyo date` で2026-10-18 15:53:11 JSTを確認。
