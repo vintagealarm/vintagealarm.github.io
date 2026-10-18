@@ -2120,3 +2120,12 @@
 - **検証状態**：指定文の単一箇所置換をbranch上で確認。PR差分とCI・main再取得・公開サイトの状態はそれぞれ別途検証して確定する。読者の理解度改善は未実測。
 - **関連**：`src/content/watches/basis-alarm.md`、`SITE_RULES.md`、BASIS本文コミット `585272931f56011b921a2ba706935190548a1bda`、本会話のA案採用・サイト反映承認。
 - **日時根拠**：実行ホストの `TZ=Asia/Tokyo date` で2026-10-18 15:53:11 JSTを確認。
+
+### 2026-10-18 16:24 JST — BASIS A案の英独同期と既存画像重複の安全整理
+- **変更**：日本語BASIS DEEP DIVE 01冒頭のUSER採用A案に合わせ、英語 `src/data/en-watch-full-research.ts`・独語 `src/data/de-watch-entry.ts` のBASIS同段落を自然な現代語と時計専門語で同期。既存の重複画像4組について、ARSA `specimenGallery` の参照を同一SHAの元画像名へ切替後、末尾 `-1.jpeg` の4ファイルのみ削除する。
+- **理由**：Uが2026-10-18に、重複画像整理と「各言語もネイティブ監査」を追加承認。元PR #252の画像重複CI失敗を解消し、A案を日本語だけの改善に留めず英独でも初見理解ができる順序にする。
+- **旧状態・棄却**：初回PRの「翻訳版不変更」は今回の明示追加指示によりBASIS冒頭段落に限って上書き。本文へ別の解釈や新事実を追加しない。ARSA写真の新規掲載・権利判断・研究本文改稿・非公開flag変更、他WATCHやOWNER'S NOTE変更、他の重複でない画像削除は不採用。
+- **影響範囲**：英独BASIS DEEP DIVE 01第1段落、ARSA既存ギャラリー4参照、byte-identicalな重複画像4ファイル、同Decisionのみ。ARSAの `published:false` とRESEARCHの公開状態を維持。PR #235の未統合研究案・写真権利HOLDは維持。
+- **検証状態**：変更前に両重複ファイルのGit blob SHA一致とARSA既存参照を確認。英独の意味・技術語・自然さはAIによる編集監査と日本語への逆訳で確認（人間のネイティブ校閲者による署名・第三者認証ではない）。コミット後、差分・build・品質gate・live parityは別途検証する。
+- **関連**：PR #252、`src/content/watches/basis-alarm.md`、`src/content/watches/arsa-blind-alarm.md`、`src/data/en-watch-full-research.ts`、`src/data/de-watch-entry.ts`、`strategy/localization-sync.md`、`scripts/check-image-duplicates.mjs`、ARSA photo-rights HOLD PR #235。
+- **日時根拠**：実行ホスト `TZ=Asia/Tokyo date` の実測2026-10-18 16:24:57 JST。

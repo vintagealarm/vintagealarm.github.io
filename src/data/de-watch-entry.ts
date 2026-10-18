@@ -226,7 +226,7 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
         number: '01',
         title: 'Baumgartner Frères — Werke für den Massenmarkt bauen',
         paragraphs: [
-          'Baumgartner Frères war ein Ébauche-Hersteller, der Uhrwerke an andere Firmen lieferte. Viele BFG-Werke waren konstruktiv auf vergleichsweise preisgünstige Uhren ausgerichtet. Die Stiftankerhemmung war ein Beispiel dafür.',
+          'Baumgartner Frères war ein Ébauche-Hersteller und belieferte andere Firmen mit Uhrwerken, also der Mechanik im Inneren einer Uhr. Viele BFG-Werke waren konstruktiv auf vergleichsweise preisgünstige Uhren ausgerichtet. Eine Hemmung sorgt dafür, dass das Räderwerk in gleichmäßigen Schritten weiterläuft. Bei BFG kam dafür eine Stiftankerhemmung zum Einsatz.',
           'Das BFG 90 ist in Säulenbauweise aufgebaut. Flache Platinen werden durch Säulen auf Abstand gehalten und verbunden, wodurch aufwendige Fräsarbeiten reduziert werden. Auch der Zeigerstellmechanismus liegt auf der Werkseite statt unter dem Zifferblatt. Der Kupplungshebel benötigt keine separate Feder; der Hebel selbst übernimmt die Federwirkung.',
           'An der Unruh sitzen Vorsprünge, die auf den ersten Blick wie Schrauben einer Schraubenunruh wirken. Tatsächlich sind es keine Schrauben, sondern fest mitgeformte halbrunde Verzierungen.',
           'Bearbeitung, die entfallen konnte, wurde gestrichen. Teile, die sich reduzieren ließen, wurden reduziert. Die konstruktive Idee des BFG 90 liegt damit an einer ganz anderen Stelle als die Finissierung eines hochwertigen Werks.'
