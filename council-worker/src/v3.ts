@@ -3,6 +3,10 @@ import v2, {
   formatCouncilResult,
 } from "./index";
 
+// Structured third-generation Jester hold decision, reusable by an orchestrator.
+// This export does not install a background watcher into ordinary ChatGPT sessions.
+export { thirdJesterGate, JESTER_OUTCOME } from "./third-jester-gate.mjs";
+
 interface Env {
   OPENAI_API_KEY: string;
   ALLOWED_ORIGIN?: string;
