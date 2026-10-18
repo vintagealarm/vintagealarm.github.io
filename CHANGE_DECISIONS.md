@@ -2182,3 +2182,13 @@
 - **検証状態**：実装前に23段落の34個の手打ち脚注と`citationRefs`を段落順に全件照合して一致を確認。実装後のbranch差分、CI、main再取得、Pages deploy、live parityは独立に検証し、各段階の実結果だけを報告する。
 - **関連**：U撮影`IMG_3171.jpeg`／`IMG_3172.jpeg`、`src/content/watches/arsa-blind-alarm.md`、`SpecimenGallery.astro`、`DeepDive.astro`、`SITE_RULES.md`、`DESIGN_ENGINEERING.md`、`council-worker/V3.md`、`CHANGE_DECISIONS.md`、HOLD PR #235。
 - **日時根拠**：実行ホスト`TZ=Asia/Tokyo date`の実測 `2026-10-18 18:05:37 JST`。
+
+### 2026-10-19 08:09 JST — ARSA OWNER'S NOTE画像を日英独の指定原稿へ差し替え
+- **変更**：ユーザー指定の `ARSA_JP.png`／`ARSA_EN.png`／`ARSA_DE.png` を再圧縮せず保存し、ARSA OWNER'S NOTEの日本語・英語・ドイツ語参照を各画像へ切り替える。build gateへ3画像のSHA-256、言語別配線、非公開プレビューと公開RESEARCH上の日本語画像参照を追加する。
+- **理由**：画像内の本文を再編集せず、ユーザーが完成原稿として指定した3画像をそのまま表示資産として使うため。
+- **起点→判断**：Uが3言語の完成画像を提示し「各言語のオーナーズノートさしかえて」と明示 → U採用。
+- **旧状態・棄却**：ARSA OWNER'S NOTEは `draft-placeholder.svg` を参照し、英独も日本語と同じplaceholderへフォールバックしていた。画像の再生成・再圧縮、OWNER'S NOTE本文／Catch／Leadの改稿、共通レイアウト変更、ARSA通常WATCHの公開化、PR #235の未統合差分の採用は行わない。
+- **影響範囲**：`public/images/arsa-blind-alarm/owners-note-{ja,en,de}-20261019.png`、ARSA日本語contentの画像参照、英独layoutのARSA限定画像参照、`scripts/check-build-output.mjs`、本ログ。`published:false`、公開RESEARCH設定、研究本文、他WATCHは不変更。
+- **検証状態**：受領時に3画像とも1146×1600を目視確認し、SHA-256を取得。branch上のbuild、品質gate、生成HTML、保存後ハッシュ、diffはこの後に再検証する。main merge・Pages deploy・live確認は本依頼の公開権限外で未実施。
+- **関連**：`ARSA_JP.png` SHA-256 `897458909bf1ac603b3f6823f6d1b22b47ead2523e289a26fe0be7fbef7b06c9`、`ARSA_EN.png` `3215b22c50d620e54fe5ebb387add10ab2b48f9eae7c4903fc37cc59cecf1b95`、`ARSA_DE.png` `4ddc30f3afaba319b4e3125a8ee1396dc4cfe6a253d5a9f5d22626825def4c83`、Draft/HOLD PR #235。
+- **日時根拠**：実行ホストのJST時計で `2026-10-19 08:09:47 +09:00` を確認。

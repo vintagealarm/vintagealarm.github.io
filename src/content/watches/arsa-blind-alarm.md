@@ -7,7 +7,7 @@ model: BLIND ALARM
 catch:
   - 開けて、触って、聞く。
 ownersNote:
-  image: /images/arsa-blind-alarm/draft-placeholder.svg
+  image: /images/arsa-blind-alarm/owners-note-ja-20261019.png
   lead:
     - 文字盤を覆う蓋が開く。
     - 現在時刻も、アラーム時刻も、指先で読む。
