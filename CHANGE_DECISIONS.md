@@ -22,8 +22,8 @@
 - **旧状態・棄却**：PR #255 による `/en/research/arsa-blind-alarm/`・`/de/research/arsa-blind-alarm/` の公開を取り消す。RESEARCHの `locales` を `['ja']` に戻し、EN/DEのsitemap/llms/menu導線とAnalytics名の公開対象を撤回。従来の日本語 `/research/arsa-blind-alarm/` は今回のWATCH指示の外として現状維持する。過去PRとGit履歴は削除しない。
 - **起点・帰属**：U（WATCH側、全言語非公開CMS下書き、誤公開指摘）→ U採用。A（誤ってEN/DE RESEARCHを公開した主体）→ A修正。ネイティブ第三者校閲が行われたとは主張しない。
 - **影響範囲**：ARSA用EN/DE JSON翻訳正本、ローカライズTS参照先、Pages CMS config、RESEARCHの公開言語フラグ、関連llms/Analytics/ProjectState/CI gate、変更履歴。無関係WATCH、日本語ARSA原文・スライド・写真・デザイン・日本語RESEARCHは変更しない。EN/DE研究本文はWATCH下書きデータとして保持し、破棄しない。
-- **検証状態**：作業branchへ実装、CMS⇄ローカライズ読み込み・非公開route禁止の回帰検査を追加。PR CI、main merge、Pages deploy、live非公開URLのHTTPとsitemapは独立して確認し、未実行段階は合格扱いしない。
-- **関連**：誤公開PR #255（merge `7871fc54e3ab61d13c6d20dbb2777208717eea6c`）、日本語操作説明PR #253、修正branch `fix/arsa-watch-draft-cms-20261018`、最初のCMS移管commit `694dacb64ed45ab035faa608caee2fe90fe41a3b`、公開フラグ撤回commit `a1ff6783b6c8f8c70bbfc7203bcd395b16062b25`。今回の作業はこのGitHub connectorを使用。
+- **検証状態**：作業branchへ実装、CMS⇄ローカライズ読み込み・非公開route禁止の回帰検査を追加。さらに既存 `/preview/watch/[slug]/` が公開GitHub Pagesで未公開WATCHまで静的生成する問題を発見し、未公開WATCHを生成対象から除外。非公開プレビューが公開URLで閲覧できないことをbuildとliveの404チェックに追加した。PR CI、main merge、Pages deploy、live非公開URLのHTTPとsitemapは独立して確認し、未実行段階は合格扱いしない。
+- **関連**：誤公開PR #255（merge `7871fc54e3ab61d13c6d20dbb2777208717eea6c`）、日本語操作説明PR #253、修正branch `fix/arsa-watch-draft-cms-20261018`、最初のCMS移管commit `694dacb64ed45ab035faa608caee2fe90fe41a3b`、公開フラグ撤回commit `a1ff6783b6c8f8c70bbfc7203bcd395b16062b25`、プレビュー隔離commit `3177c355600e62f44bda96efec408382b1ded8b4`。今回の作業はこのGitHub connectorを使用。
 - **日時根拠**：作業ホスト実測 `TZ=Asia/Tokyo date` 2026-10-18 18:57:53 JST（項目は分に丸めて18:58 JST）。
 
 ### 2026-10-18 18:25 JST — ARSA RESEARCHを日英独3言語で公開するため既存全文翻訳を現行日本語正本へ同期
