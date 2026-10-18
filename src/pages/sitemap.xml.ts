@@ -43,10 +43,10 @@ export async function GET() {
       { loc: `${root}en/how-they-ring/` },
       { loc: `${root}de/how-they-ring/` }
     ] : []),
-    ...(researchSettings.published && researchSettings.locales.includes('ja') ? researchSettings.entries.map((slug) => ({
-      loc: `${root}research/${slug}/`,
+    ...(researchSettings.published ? researchSettings.locales.flatMap((locale) => researchSettings.entries.map((slug) => ({
+      loc: `${root}${locale === 'ja' ? '' : `${locale}/`}research/${slug}/`,
       lastmod: getGitLastmod(`src/content/watches/${slug}.md`)
-    })) : []),
+    }))) : []),
     ...(cymaChronometreResearch.published ? [
       {
         loc: `${root}cyma-time-o-vox/chronometre/`,
