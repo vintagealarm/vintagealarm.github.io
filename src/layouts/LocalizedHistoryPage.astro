@@ -197,7 +197,7 @@ const schema = {
         <div class="chapter-date"><strong>CURRENT</strong><span>{ui.currentChapter}</span></div>
         <div><h2 id="current-title">{current.title}</h2><a class="current-link" href={`${base}${current.href}`} hreflang="ja"><span>{current.name}</span><span aria-hidden="true">↗</span></a></div>
       </section>
-      {researchPublished && <aside class="history-research-v13 shell" id="research" aria-label={ui.researchAria}><h2>{researchSettings.title}</h2><p>{ui.researchLead}</p></aside>}
+      {researchPublished && <aside class="history-research-v13 shell" id="research" aria-label={ui.researchAria}><h2>{researchSettings.title}</h2><p>{ui.researchLead}</p><div>{researchSettings.entries.map((slug) => <a href={`${base}${lang}/research/${slug}/`}>{slug === "arsa-blind-alarm" ? "ARSA BLIND ALARM →" : slug}</a>)}</div></aside>}
       <section class="history-sources-v13 shell">
         <details><summary>{sources.summary}</summary><ol class="history-source-list">{sources.items.map((item: any) => <li id={`history-source-${item.id}`}><span class="history-source-no" aria-hidden="true">{item.id}</span><span>{item.text}</span></li>)}</ol></details>
       </section>
