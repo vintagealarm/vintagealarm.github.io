@@ -41,15 +41,15 @@ spec:
     開閉式前蓋、触覚目盛・針
     4時位置リューズ中央プッシャー。
 specimenGallery:
-  - image: /images/IMG_3117.jpeg
+  - image: /images/IMG_3117-1.jpeg
     label: 正面
-  - image: /images/IMG_3118.jpeg
+  - image: /images/IMG_3118-1.jpeg
     label: 正面（前蓋オープン）
   - image: /images/IMG_3120.jpeg
     label: 触読用　針・ダイヤル
-  - image: /images/IMG_3104.jpeg
+  - image: /images/IMG_3104-1.jpeg
     label: ムーブメント
-  - image: /images/IMG_3103.jpeg
+  - image: /images/IMG_3103-1.jpeg
     label: 内蓋
   - image: /images/IMG_3121.jpeg
     label: ケースバック
