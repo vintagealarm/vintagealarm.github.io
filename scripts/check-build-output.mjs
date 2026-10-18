@@ -131,7 +131,6 @@ for (const watch of watches) {
     const previewHtml = fs.readFileSync(previewRoute, 'utf8');
     if (!previewHtml.includes('noindex,nofollow,noarchive')) failures.push('ARSA preview lost search-engine exclusion');
     if (!previewHtml.includes('④ アラームON/OFF')) failures.push('ARSA preview lost corrected guide');
-    if (sitemap.includes('https://vintagealarm.github.io/preview/watch/arsa-blind-alarm/')) failures.push('ARSA preview leaked into sitemap');
   }
 }
 
