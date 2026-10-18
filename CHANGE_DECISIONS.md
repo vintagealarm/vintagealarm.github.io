@@ -15,6 +15,17 @@
 
 ---
 
+### 2026-10-18 18:02 JST — ARSA操作ガイドのSlides原文との不一致を訂正し④ON/OFFを更新
+
+- **変更**：ARSA Blind Alarmの日本語WATCH/RESEARCH共通ソースの`ownersNote.guide`だけを、Google Slides ARSA日本語版の①前蓋、②時計巻上げ・時刻設定、③アラーム巻上げ・時刻設定に合わせて再構成。④はユーザー指定の「2時リューズ引き出し／ON、押し込み／OFF」に置換。重複した旧⑤を削除し、ガイドそのものは残す。
+- **理由**：ユーザー提供画像および実Google Slides（ARSA JA slide 7）とGitHubサイトの操作ガイドに項目・説明の不一致。④は2026-10-18のユーザー明示訂正を優先し、旧「初期・後期で異なるため要確認」というスライド文案をサイトに転記しない。
+- **旧状態・棄却**：サイト旧「時刻を読む／アラーム時刻を読む／時刻を合わせる／動力を巻く」5項目、到着前という古い注記を置換。AIが一度提案した「ガイド全削除」はユーザーの画像指定に反するため撤回。今回の操作記述はユーザー指定であり、第三者による個体操作実測済みという独立認定にはしない。
+- **起点・帰属**：U（画像提供・Slides準拠の訂正・④ON/OFF指定・テキストのみの書込許可）→U採用。AはGitHub旧稿とSlidesの差分照合、差分実装のみ。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` の`ownersNote.guide`だけ（公開日本語RESEARCHもこのファイルを参照）および判断履歴。Catch/Lead/NOTE/DEEP DIVE/SPEC/画像/レイアウト/英独翻訳/Google Slides/通常WATCH `published: false`は変更しない。
+- **検証状態**：作業branchへ指定文字列を書き込む。差分、再取得、PR/CI検査までを別途確認する。main反映・deploy・liveは今回の書き込み許可からは自動承認しない。
+- **関連**：作業branch `fix/arsa-guide-text-20261018`、baseline main commit `55c80f1948e8712dc38f3b36d42a2bd6e410d90a`、2026-10-18ユーザー提供Google Slides画面・同日④訂正、Google Slides制作正本 `arsa_ja_slide`（閲覧のみ）。
+- **日時根拠**：作業ホスト `TZ=Asia/Tokyo date` 2026-10-18 18:02:14 JST。
+
 ### 2026-10-18 12:22 JST — 公開先で発見したRelay fetchのredirect互換性を修正
 
 - **変更**: RelayとAI URL発行のfetchを `redirect: manual` へ変更し、3xxを成功扱いせず拒否。live gateへ期限内・不正署名の短縮URLを加え、上流のHTTP 401がRelay経由でも戻ることを検査する。これはデータ取得成功の代用ではなく通信・署名拒否の検査。
