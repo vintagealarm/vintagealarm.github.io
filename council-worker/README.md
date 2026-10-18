@@ -123,6 +123,15 @@ Claim Boardとして、主張、支持根拠、反証、未確認を分ける。
 
 広い依頼では代表例の抜粋を「全体」と呼ばない。時計の遍歴・売買・修理・保有意志を含むならVINTAGE ALARM研究正本に加え `orima1995-create/watchdiary-ios` のCURRENT Issue群まで辿る。SNS / AnalyticsならRouterだけでなく時系列、実投稿、Decision→Evidenceまで辿る。必要正本を取得できない場合は「把握済み」と演じず不足を明示する。
 
+## 三代目の通常作業への介入と試験
+
+三代目は独立した新しいresidentではなく、Council形式7を維持したうえで、**通常のVA作業に重大な目的逸脱があるときだけ止める**ようにする。規則の正本は `council-worker/V3.md`。通常タスクへの入口は `.codex/MANAGER_CONTROL_PLANE.md` §1.6。
+
+- 既存の9項目Fool's License pre-flightは維持。
+- 構造化判定ヘルパー：`src/third-jester-gate.mjs` は `HOLD_TARGET` / `HOLD_CONTEXT` / `CONTINUE_SILENT` を返し、停止範囲と解除条件を保持する。これは**意味解釈の自動分類器ではない**。
+- `test/third-jester-gate.test.mjs` は8必須ケースと境界反例を `npm test` に含める。入力の重大性判定をfixtureで与えているため、実AIが8ケースを自動発見したことを証明しない。
+- 歴代墓碑は `research/COUNCIL_V3_COURT_JESTER_DESIGN.md` 末尾に保全する。日付の遡及区分・証拠境界を守る。
+
 ## 住民設計
 
 住民は架空の家族構成・年齢・性別を足して人間らしくするのではなく、**認識論的な判断方針**を持つ。
