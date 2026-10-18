@@ -6,7 +6,6 @@ on:
     branches: ["main"]
     paths:
       - "cloudflare/ai-relay/**"
-      - "cloudflare/check-free-plan.mjs"
       - ".github/workflows/deploy-ai-relay-pages.yml"
 
 permissions:
@@ -45,13 +44,6 @@ jobs:
             echo "::error::AI relay deployment requires CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets."
             exit 1
           fi
-
-      - name: Require verified no-paid-subscription account before deploy
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_BILLING_READ_TOKEN: ${{ secrets.CLOUDFLARE_BILLING_READ_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: node ../check-free-plan.mjs
 
       - name: Deploy Pages relay
         env:

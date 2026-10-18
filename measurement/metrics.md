@@ -424,7 +424,7 @@ SEO / GEO / SNS / Analyticsの追加機能は、毎回次の順で進める。
 
 追加月額0円を優先し、Google Cloud / Service Account / Search Console APIは現段階では採用しない。
 
-2026-10-18のユーザー承認は「金がかからないなら承認」。PR #249の公開はこの条件付きで承認済みとし、再承認を求めない。Analytics / Relay deploy直前に `cloudflare/check-free-plan.mjs` でCloudflareアカウントのsubscription一覧を読み取り確認する。非空・不完全・取得不可はCOST_UNVERIFIEDとしてdeployを止め、有料subscriptionを勝手に契約・解除・変更しない。請求詳細・tokenはログへ出さない。APIのBilling Read権限不足は「課金あり」とは認定せず、費用条件未確認として区別する。
+2026-10-18のユーザー承認は「金がかからないなら承認」。同日12:13 JSTに「課金類の契約は一切してない」と明示された（ユーザー説明ベース。料金APIでの独立確認とは区別）。PR #249は新規有料サービス・プラン変更・有料APIを追加しない既存構成の修復として公開承認済みとし、再承認を求めない。AIが09:03 JSTに追加した料金API照会必須条件は、この追加説明に基づき撤回する。403は料金情報への閲覧権限不足であり、有料契約の証拠ではない。契約・課金設定の変更、Billing Read権限の追加は行わない。今後、有料サービスを追加する変更は今回の承認範囲に含めない。
 
 通常SEO:
 - Search Console UIからCSV Export

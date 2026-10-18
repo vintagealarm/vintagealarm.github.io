@@ -5,34 +5,14 @@ on:
     paths:
       - "cloudflare/analytics-dashboard/**"
       - "cloudflare/ai-relay/**"
-      - "cloudflare/check-free-plan.mjs"
       - ".github/workflows/check-analytics-worker.yml"
   pull_request:
     paths:
       - "cloudflare/analytics-dashboard/**"
       - "cloudflare/ai-relay/**"
-      - "cloudflare/check-free-plan.mjs"
       - ".github/workflows/check-analytics-worker.yml"
 
 jobs:
-  cost-boundary:
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-      - name: Verify cost gate rejection cases
-        run: node cloudflare/check-free-plan.mjs --self-test
-      - name: Read account subscriptions without changing billing
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_BILLING_READ_TOKEN: ${{ secrets.CLOUDFLARE_BILLING_READ_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: node cloudflare/check-free-plan.mjs
   syntax:
     runs-on: ubuntu-latest
     steps:
