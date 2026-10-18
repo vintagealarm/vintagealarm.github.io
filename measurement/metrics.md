@@ -101,7 +101,9 @@ Cloudflare API tokenはWorker Secretにのみ保存し、GitHub Pagesやブラ�
 - VA2の `compare` は `previous-period` / `none` を明示し、比較対象期間が存在しないALL等では `previous=NA` とする。取得不能を `0/0` として表示しない。
 - VA2のtrend statusは `PARTIAL / MIGRATION / SAMPLED / ESTIMATE` 等の複合状態を省略せず保持する。
 - Cloudflare API token / Dashboard password / IP / Cookie / raw User-Agentは返さない。
-- Search Console / Google生成AIのCSV ImportはブラウザlocalStorageのためexport対象外。
+- サーバーの `/api/ai-export` はブラウザlocalStorageを読めない。`AI COPY` はブラウザで取込済みSEO/GEOの全保存スナップショット・手動Index記録を `discovery` として付加する。`AI URL` はfragmentの `discovery` に最新要約のみを付加し、全CSV行は含めない。fragmentはHTTP取得本文には届かないので、要約を読むには共有されたURL文字列も参照する。
+- `discovery` は手動取込・サーバー未検証であること、取込日時、CSV日付行から分かる期間を明示する。Analyticsの選択期間と自動的に揃えない。未取込は `NOT_IMPORTED`、読込不能は `UNREADABLE`、欠落指標は `null`。Googleからの自動取得・AI回答の引用や正確性の検証とは区別する。
+- `AI URL` 発行時は渡す短縮URLそのものの本文・export markerを確認する。静的案内ページのHTTP 200は失敗にし、AI COPYを案内する。発行時の成功を将来の取得成功やAIクライアント側の取得保証へ拡張しない。
 
 このexportを使ったChatGPT分析でも、`実装済み / 公開済み / 成果観測済み`を分け、X流入・検索流入・AI Assistant Referrerを混同しない。
 
@@ -421,6 +423,8 @@ SEO / GEO / SNS / Analyticsの追加機能は、毎回次の順で進める。
 ## Search Console / GEOの現在方針
 
 追加月額0円を優先し、Google Cloud / Service Account / Search Console APIは現段階では採用しない。
+
+2026-10-18のユーザー承認は「金がかからないなら承認」。同日12:13 JSTに「課金類の契約は一切してない」と明示された（ユーザー説明ベース。料金APIでの独立確認とは区別）。PR #249は新規有料サービス・プラン変更・有料APIを追加しない既存構成の修復として公開承認済みとし、再承認を求めない。AIが09:03 JSTに追加した料金API照会必須条件は、この追加説明に基づき撤回する。403は料金情報への閲覧権限不足であり、有料契約の証拠ではない。契約・課金設定の変更、Billing Read権限の追加は行わない。今後、有料サービスを追加する変更は今回の承認範囲に含めない。
 
 通常SEO:
 - Search Console UIからCSV Export

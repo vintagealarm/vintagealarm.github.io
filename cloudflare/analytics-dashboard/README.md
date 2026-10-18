@@ -74,10 +74,12 @@ Workerは `vintagealarm.github.io` と `orima1995-create.github.io` を別々の
 
 1. ダッシュボード右上の `AI COPY` を押す。
 2. 現在選択中のwindowに対するread-only exportをブラウザ内で取得する。
-3. 集計JSONそのものがクリップボードへコピーされる。
+3. 集計JSONに、このブラウザへ取込済みのSEO/GEOスナップショットと手動Index記録を `discovery` として付け、クリップボードへコピーする。
 4. そのJSONをChatGPTへ貼る。
 
 `workers.dev` のURLをChatGPT側Web取得が拒否する環境でも分析できるよう、通常運用はURL共有ではなくJSONコピーを使う。
+
+`AI URL` は短縮URLの本文とexport markerを発行時に検証する。HTTP 200の静的案内ページは成功扱いしない。URL fragmentの `discovery` はブラウザ取込データの最新要約のみ（全行はAI COPY）、手動取込・未検証・対象期間を明示する。未取込は `NOT_IMPORTED`、読込不能は `UNREADABLE` であり、ゼロ件ではない。Googleの認証付き自動取得は未実装。詳細な共有契約は `measurement/metrics.md`。
 
 手動でも、Basic Auth済みのブラウザで `/api/ai-share-link?window=7d` を開けば同じURLを取得できる。
 

@@ -15,6 +15,36 @@
 
 ---
 
+### 2026-10-18 12:14 JST — ユーザーの課金契約なし説明を受け料金API必須条件を撤回
+
+- **変更**: U「課金類の契約は一切してない」をユーザー説明ベースの根拠として記録し、PR #249を既存構成の修復として公開へ進める。AIが追加した料金API照会job / deploy必須条件と専用scriptを撤回する。旧実装はGit履歴に保持。
+- **理由**: 無料条件付き公開承認は受領済みであり、追加説明によりその前提が明示された。閲覧権限不足を理由に同じ承認や画面提出を繰り返し求めない。
+- **旧状態・棄却**: 09:03 JSTのAPI照会必須条件をSUPERSEDEDとする。403はBilling Read権限不足であり、課金の有無を実測した結果ではない。ユーザー説明をAPI確認済みへ置換しない。
+- **影響範囲**: 料金確認のために追加した処理のみ撤回。新規有料サービス・契約変更・有料API・権限拡張を追加しない。短縮URL / SEO・GEO共有の検査は維持。
+- **検証状態**: 撤回差分と既存取得・共有検査を確認後、最新head CI → merge → deploy → live確認の順で進める。本記録時点では公開未実施。
+- **関連**: `measurement/metrics.md`、PR #249。起点U → A修正。公開承認の再質問なし。
+- **日時根拠**: ホスト `TZ=Asia/Tokyo date` 実測（2026-10-18 12:14 JST）。
+
+### 2026-10-18 09:03 JST — 無料条件付き公開承認を記録し費用確認をdeployへ接続
+
+- **変更**: U「金がかからないなら承認。このやりとりは2回目」をPR #249の条件付き公開承認として記録。公開承認の再質問をしない。既存GitHub Secretsを使う読み取り専用subscription照会をCI / Analytics / Relay deploy前へ接続。
+- **理由**: 新規有料APIを追加しないことだけではCloudflareアカウントの従量課金の有無を確認したことにならないため。
+- **旧状態・棄却**: 料金表や既存の0円方針だけからアカウントの無料状態を断定しない。subscription一覧が非空・不完全・HTTP失敗の場合はCOST_UNVERIFIEDで止める。契約変更・秘密情報の表示・権限拡張は行わない。
+- **影響範囲**: PR #249の費用確認と公開手順。Google自動取得、有料プラン、新規保存サービスは追加しない。課金設定変更は対象外。
+- **検証状態**: 費用gateの欠落・失敗・非空・途中ページ・エラー応答の拒否をローカル検証済み。実アカウント照会・deployはこの記録時点では未実施。
+- **関連**: `measurement/metrics.md`、`cloudflare/check-free-plan.mjs`、PR #249。起点U → A実装。Cloudflare公式Pages Functions pricing / Account Subscriptions APIを確認。
+- **日時根拠**: ホスト `TZ=Asia/Tokyo date` 実測（2026-10-18 09:03 JST）。
+
+### 2026-10-18 08:00 JST — Analytics短縮URLのPages接続とSEO/GEO共有漏れを修正
+
+- **変更**: `/s/*` をPages Functionsへ接続。AI URL発行時に渡す短縮URLそのものの本文とexport markerを検証する。AI COPYへブラウザ取込済みSEO/GEO全保存スナップショット・手動Index記録、AI URL fragmentへ最新要約を付加する。
+- **理由**: ユーザーの「そこをいい加減できるようにしたい」という取得修復依頼。`functions/index.js` だけでは短縮pathを処理できず、直接handlerを呼ぶ既存テストではルーティング欠落を検知できなかった。SEO/GEOはlocalStorage保存のみで共有処理が無かった。
+- **旧状態・棄却**: HTTP 200や静的案内HTMLを取得成功としない。未取込を0件、手動CSVを自動取得、取込期間をAnalytics選択期間とみなす解釈を棄却する。`NOT_IMPORTED` / `UNREADABLE` / 欠落指標nullと出所・日時・期間を保持する。
+- **影響範囲**: relay / Analytics worker・そのCI・共有契約のみ。Google認証付き自動取得は未実装。fragmentはサーバーHTTP本文に含まれず、最新要約のみ。全行はAI COPY。既存の署名・認証・有効期限・cache上限を維持する。
+- **検証状態**: 実生成dashboardのAI COPY/AI URLイベント、未取込・破損データ、欠落列、期間保持、認証境界、静的HTTP 200の発行拒否を実行確認。Wrangler生成routerのv1/v2成功・期限切れ・不正path・上流失敗を確認。公開後の短縮path検査をdeploy workflowへ接続。本番deploy・実アカウント最新データ取得は未実施。
+- **関連**: `measurement/metrics.md`、`cloudflare/analytics-dashboard/check-discovery-share.mjs`、`cloudflare/ai-relay/check-built-routes.mjs`。最適化PR #248とは別branch。
+- **日時根拠**: 作業ホストの `TZ=Asia/Tokyo date` 実測（2026-10-18 08:00 JST）。
+
 ### 2026-10-14 13:35 JST — Wittnauer 10WA OWNER'S NOTEをユーザー添付の3言語原本へ差し替え
 
 - **変更**：ユーザーが本会話で添付したWittnauer 10WA OWNER'S NOTE完成PNG3枚（`CITIZEN SPIKE_20.png` JA、`_19.png` EN、`_21.png` DE）を、無加工のまま `public/images/wittnauer-10wa/owners-note-{ja,en,de}-20261014.png` に登録した。日本語WATCHと英語・ドイツ語WatchEntryのWittnauer限定画像参照を各言語ファイルへ切り替え、`scripts/check-build-output.mjs` に生成HTMLの参照先と公開用PNGのSHA-256検査を追加した。

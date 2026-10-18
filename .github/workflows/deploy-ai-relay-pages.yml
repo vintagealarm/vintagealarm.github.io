@@ -30,6 +30,8 @@ jobs:
         run: |
           node --check functions/index.js
           node check-relay.mjs
+          npx --yes wrangler@4 pages functions build --outfile /tmp/va-relay.mjs
+          node check-built-routes.mjs /tmp/va-relay.mjs
 
       - name: Check deployment credentials
         shell: bash
@@ -65,3 +67,16 @@ jobs:
           grep -Fq 'No analytics data' /tmp/relay.html
           grep -Eiq '^x-robots-tag: noindex, nofollow, noarchive' "$headers"
           grep -Eiq '^cache-control: no-store' "$headers"
+
+      - name: Verify live short route rejects expired token
+        run: |
+          set -euo pipefail
+          headers="$(mktemp)"
+          body="$(mktemp)"
+          status=$(curl --silent --show-error --retry 3 --max-time 30 \
+            -D "$headers" -o "$body" -w '%{http_code}' \
+            https://vintage-alarm-ai-relay.pages.dev/s/v2/24h/auto/-/-/1000000000/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa)
+          test "$status" = 400
+          grep -Fq 'Signed analytics source has expired.' "$body"
+          grep -Eiq '^cache-control: no-store' "$headers"
+          grep -Eiq '^x-robots-tag: noindex, nofollow, noarchive' "$headers"
