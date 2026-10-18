@@ -252,6 +252,14 @@ for (const stale of ['鐘から現在まで。アラーム腕時計の歴史を�
 }
 if (!xHtml.includes('noindex,follow')) failures.push('X: profile entry route lost noindex,follow');
 
+if (!watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published) {
+  for (const locale of ['en', 'de']) {
+    for (const prefix of [`${locale}/arsa-blind-alarm/`, `${locale}/research/arsa-blind-alarm/`]) {
+      if (fs.existsSync(path.join(dist, prefix, 'index.html'))) failures.push(`${prefix}: unpublished ARSA WATCH / revoked RESEARCH route generated`);
+      if (sitemap.includes(`https://vintagealarm.github.io/${prefix}`)) failures.push(`${prefix}: unpublished or revoked ARSA URL leaked into sitemap`);
+    }
+  }
+}
 const researchLocales = new Set(researchSettings.locales ?? []);
 const researchEntries = Array.isArray(researchSettings.entries) ? researchSettings.entries : [];
 const researchJaPublished = researchSettings.published && researchLocales.has('ja');

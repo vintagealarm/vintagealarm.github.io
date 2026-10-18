@@ -115,6 +115,15 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     }
   }
 
+  if (!watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published) {
+    for (const locale of ['en', 'de']) {
+      for (const rel of [`${locale}/arsa-blind-alarm/`, `${locale}/research/arsa-blind-alarm/`]) {
+        const page = await get(rel);
+        if (page.ok) failures.push(`${rel}: ARSA WATCH draft / revoked RESEARCH publicly accessible`);
+        if (sitemap.ok && sitemap.text.includes(`https://vintagealarm.github.io/${rel}`)) failures.push(`${rel}: leaked into live sitemap`);
+      }
+    }
+  }
   const researchLocales = new Set(researchSettings.locales ?? []);
   const researchEntries = Array.isArray(researchSettings.entries) ? researchSettings.entries : [];
   const researchJaPublished = researchSettings.published && researchLocales.has('ja');
