@@ -124,6 +124,7 @@ for (const watch of watches) {
   const route = path.join(dist, watch.slug, 'index.html');
   if (watch.published && !fs.existsSync(route)) failures.push(`${watch.slug}: published route missing`);
   if (!watch.published && fs.existsSync(route)) failures.push(`${watch.slug}: unpublished route was generated`);
+  if (!watch.published && fs.existsSync(path.join(dist, 'preview/watch', watch.slug, 'index.html'))) failures.push(`${watch.slug}: unpublished preview HTML generated on public GitHub Pages`);
 }
 
 const homeHtml = fs.existsSync(path.join(dist, 'index.html'))

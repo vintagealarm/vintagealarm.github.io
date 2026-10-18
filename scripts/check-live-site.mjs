@@ -116,6 +116,8 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
   }
 
   if (!watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published) {
+    const preview = await get('preview/watch/arsa-blind-alarm/');
+    if (preview.ok) failures.push('ARSA unpublished preview remains accessible on public GitHub Pages');
     for (const locale of ['en', 'de']) {
       for (const rel of [`${locale}/arsa-blind-alarm/`, `${locale}/research/arsa-blind-alarm/`]) {
         const page = await get(rel);
