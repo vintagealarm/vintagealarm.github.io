@@ -130,7 +130,7 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
         number: '01',
         title: 'Baumgartner Frères — engineering for the mass market',
         paragraphs: [
-          'Baumgartner Frères was an ébauche manufacturer supplying movements to other companies. Many BFG movements were built around structures intended for comparatively affordable watches; the pin-lever escapement was one example.',
+          'Baumgartner Frères was an ébauche manufacturer that supplied other companies with watch movements—the mechanisms inside watches. Many BFG movements were built around structures intended for comparatively affordable watches. The escapement, which lets the gear train advance in controlled steps, used a pin-lever design.',
           'The BFG 90 uses pillar construction. Flat plates are spaced and joined by pillars, reducing the amount of complex machining required. The hand-setting mechanism is also placed on the movement side rather than hidden beneath the dial. Its coupling lever does without a separate spring: the lever itself provides the spring action.',
           'Around the balance are protrusions that resemble the screws of a screw balance. They are not screws, however, but integral half-round decorative forms.',
           'Machining that could be eliminated was eliminated; parts that could be reduced were reduced. The ingenuity of the BFG 90 lies somewhere very different from the finishing priorities of a high-grade movement.'
