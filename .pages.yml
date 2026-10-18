@@ -176,6 +176,307 @@ content:
         type: string
         list: true
 
+  - name: arsaWatchEn
+    label: "ARSA WATCH — English draft"
+    type: file
+    path: src/data/watch-locales/arsa-en.json
+    format: json
+    fields:
+      - name: entry
+        label: "entry"
+        type: object
+        fields:
+          - name: slug
+            label: "slug"
+            type: string
+          - name: title
+            label: "title"
+            type: string
+          - name: description
+            label: "description"
+            type: text
+          - name: indexBlurb
+            label: "indexBlurb"
+            type: string
+          - name: catch
+            label: "catch"
+            type: text
+            list: true
+          - name: ownersNote
+            label: "ownersNote"
+            type: object
+            fields:
+              - name: lead
+                label: "lead"
+                type: text
+                list: true
+              - name: guideTitle
+                label: "guideTitle"
+                type: string
+              - name: guide
+                label: "guide"
+                type: text
+                list: true
+              - name: noteTitle
+                label: "noteTitle"
+                type: string
+              - name: note
+                label: "note"
+                type: text
+                list: true
+          - name: spec
+            label: "spec"
+            type: object
+            fields:
+              - name: era
+                label: "era"
+                type: string
+              - name: caseSize
+                label: "caseSize"
+                type: string
+              - name: caliber
+                label: "caliber"
+                type: string
+              - name: jewels
+                label: "jewels"
+                type: string
+              - name: frequency
+                label: "frequency"
+                type: string
+              - name: barrels
+                label: "barrels"
+                type: string
+              - name: winding
+                label: "winding"
+                type: string
+              - name: acoustic
+                label: "acoustic"
+                type: string
+              - name: notes
+                label: "notes"
+                type: string
+      - name: research
+        label: "research"
+        type: object
+        fields:
+          - name: title
+            label: "title"
+            type: string
+          - name: description
+            label: "description"
+            type: text
+          - name: specimenGallery
+            label: "specimenGallery"
+            type: object
+            list: true
+            fields:
+              - name: image
+                label: "image"
+                type: image
+              - name: label
+                label: "label"
+                type: string
+              - name: alt
+                label: "alt"
+                type: string
+          - name: deepDive
+            label: "deepDive"
+            type: object
+            list: true
+            fields:
+              - name: number
+                label: "number"
+                type: string
+              - name: title
+                label: "title"
+                type: string
+              - name: paragraphs
+                label: "paragraphs"
+                type: text
+                list: true
+              - name: citationRefs
+                label: "citationRefs"
+                type: text
+                list: true
+              - name: subtitle
+                label: "subtitle"
+                type: string
+          - name: sourceMeta
+            label: "sourceMeta"
+            type: object
+            list: true
+            fields:
+              - name: id
+                label: "id"
+                type: string
+              - name: type
+                label: "type"
+                type: string
+          - name: sources
+            label: "sources"
+            type: text
+            list: true
+          - name: related
+            label: "related"
+            type: object
+            fields:
+              - name: href
+                label: "href"
+                type: string
+              - name: name
+                label: "name"
+                type: string
+              - name: reason
+                label: "reason"
+                type: string
+
+  - name: arsaWatchDe
+    label: "ARSA WATCH — Deutsch Entwurf"
+    type: file
+    path: src/data/watch-locales/arsa-de.json
+    format: json
+    fields:
+      - name: entry
+        label: "entry"
+        type: object
+        fields:
+          - name: slug
+            label: "slug"
+            type: string
+          - name: title
+            label: "title"
+            type: string
+          - name: description
+            label: "description"
+            type: text
+          - name: indexBlurb
+            label: "indexBlurb"
+            type: string
+          - name: catch
+            label: "catch"
+            type: text
+            list: true
+          - name: ownersNote
+            label: "ownersNote"
+            type: object
+            fields:
+              - name: lead
+                label: "lead"
+                type: text
+                list: true
+              - name: guideTitle
+                label: "guideTitle"
+                type: string
+              - name: guide
+                label: "guide"
+                type: text
+                list: true
+              - name: noteTitle
+                label: "noteTitle"
+                type: string
+              - name: note
+                label: "note"
+                type: text
+                list: true
+          - name: spec
+            label: "spec"
+            type: object
+            fields:
+              - name: era
+                label: "era"
+                type: string
+              - name: caseSize
+                label: "caseSize"
+                type: string
+              - name: caliber
+                label: "caliber"
+                type: string
+              - name: jewels
+                label: "jewels"
+                type: string
+              - name: frequency
+                label: "frequency"
+                type: string
+              - name: barrels
+                label: "barrels"
+                type: string
+              - name: winding
+                label: "winding"
+                type: string
+              - name: acoustic
+                label: "acoustic"
+                type: string
+              - name: notes
+                label: "notes"
+                type: string
+          - name: specimenGallery
+            label: "specimenGallery"
+            type: object
+            list: true
+            fields:
+              - name: image
+                label: "image"
+                type: image
+              - name: label
+                label: "label"
+                type: string
+              - name: alt
+                label: "alt"
+                type: string
+          - name: deepDive
+            label: "deepDive"
+            type: object
+            list: true
+            fields:
+              - name: number
+                label: "number"
+                type: string
+              - name: title
+                label: "title"
+                type: string
+              - name: paragraphs
+                label: "paragraphs"
+                type: text
+                list: true
+              - name: citationRefs
+                label: "citationRefs"
+                type: text
+                list: true
+              - name: subtitle
+                label: "subtitle"
+                type: string
+          - name: sourceMeta
+            label: "sourceMeta"
+            type: object
+            list: true
+            fields:
+              - name: id
+                label: "id"
+                type: string
+              - name: type
+                label: "type"
+                type: string
+          - name: sources
+            label: "sources"
+            type: text
+            list: true
+          - name: related
+            label: "related"
+            type: object
+            fields:
+              - name: href
+                label: "href"
+                type: string
+              - name: hreflang
+                label: "hreflang"
+                type: string
+              - name: name
+                label: "name"
+                type: string
+              - name: reason
+                label: "reason"
+                type: string
+
   - name: history
     label: HISTORY 本文・MILESTONES
     type: file
