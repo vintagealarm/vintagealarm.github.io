@@ -16,8 +16,8 @@ const englishWatchRoutes = watchStates
 const germanWatchRoutes = watchStates
   .filter((watch) => watch.published)
   .map((watch) => `de/${watch.slug}/`);
-const researchRoutes = researchSettings.published && researchSettings.locales.includes('ja')
-  ? researchSettings.entries.map((slug) => `research/${slug}/`)
+const researchRoutes = researchSettings.published
+  ? researchSettings.locales.flatMap((locale) => researchSettings.entries.map((slug) => `${locale === 'ja' ? '' : `${locale}/`}research/${slug}/`))
   : [];
 const routes = [
   '',
@@ -126,7 +126,8 @@ try {
           mast: document.querySelector('.section-mast-right > span:last-child')?.textContent?.trim() || '',
           canonical: document.querySelector('link[rel="canonical"]')?.getAttribute('href') || ''
         }));
-        if (researchState.lang !== 'ja') failures.push(`${width}px ${route}: RESEARCH html lang is not ja`);
+        const expectedLang = route.startsWith('en/') ? 'en' : route.startsWith('de/') ? 'de' : 'ja';
+         if (researchState.lang !== expectedLang) failures.push(`${width}px ${route}: RESEARCH html lang is not ${expectedLang}`);
         if (researchState.mast !== 'RESEARCH') failures.push(`${width}px ${route}: RESEARCH mast label missing`);
         if (!researchState.canonical.includes(`/${route}`)) failures.push(`${width}px ${route}: RESEARCH canonical mismatch`);
       }

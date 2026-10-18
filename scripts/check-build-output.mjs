@@ -291,6 +291,27 @@ for (const [locale, topHtml, localizedHistoryHtml] of [
   }
 }
 
+for (const [locale, topHtml, localizedHistoryHtml] of [
+  ['en', englishHomeHtml, fs.existsSync(path.join(dist, 'en/history/index.html')) ? fs.readFileSync(path.join(dist, 'en/history/index.html'), 'utf8') : ''],
+  ['de', germanHomeHtml, fs.existsSync(path.join(dist, 'de/history/index.html')) ? fs.readFileSync(path.join(dist, 'de/history/index.html'), 'utf8') : '']
+]) {
+  if (!(researchSettings.published && researchLocales.has(locale))) continue;
+  if (!topHtml.includes(`${locale}/history/#research`)) failures.push(`${locale}: RESEARCH TOP link missing`);
+  if (!localizedHistoryHtml.includes('id="research"')) failures.push(`${locale}: RESEARCH HISTORY section missing`);
+  for (const slug of researchEntries) {
+    const pathName = `${locale}/research/${slug}/`;
+    const file = path.join(dist, pathName, 'index.html');
+    if (!fs.existsSync(file)) { failures.push(`${pathName}: RESEARCH page missing`); continue; }
+    const html = fs.readFileSync(file, 'utf8');
+    const url = `https://vintagealarm.github.io/${pathName}`;
+    for (const marker of ['RESEARCH', 'ARSA BLIND ALARM', 'specimen-gallery', 'id="deep"', locale === 'en' ? 'Alarm ON/OFF' : 'Wecker EIN/AUS']) {
+      if (!html.includes(marker)) failures.push(`${pathName}: marker missing: ${marker}`);
+    }
+    if (!html.includes(url) || !sitemap.includes(url)) failures.push(`${pathName}: canonical / sitemap missing`);
+    if (!html.includes('hreflang="ja"')) failures.push(`${pathName}: JA alternate missing`);
+  }
+}
+
 if (historyHtml.includes('ja-phrase')) {
   failures.push('HISTORY: legacy nowrap phrase wrappers remain in generated HTML');
 }

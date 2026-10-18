@@ -74,7 +74,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で公開可否、`locales` で公開言語を制御する
-- **RESEARCHは現在、日本語で公開中。** 第一号はARSA Blind Alarmで、`/research/arsa-blind-alarm/` が `src/content/watches/arsa-blind-alarm.md` を同一正本として表示する。ARSA通常WATCHの `published: false` は維持し、OWNER'S NOTES / HISTORYの所有個体レールへは出さない。画像は現行placeholderを使用し、COMING SOON等の制作メタは視聴者画面へ出さない。EN / DEのRESEARCH入口は未公開。
+- **RESEARCHは日本語・英語・ドイツ語の公開対象。** 第一号ARSA Blind Alarmの正本は日本語WATCH本文で、`/research/arsa-blind-alarm/`・`/en/research/arsa-blind-alarm/`・`/de/research/arsa-blind-alarm/` は日本語本文と翻訳原稿を各言語で表示する。通常ARSA WATCHの `published: false` は維持し、OWNER'S NOTES / HISTORYの所有個体レールへ出さない。Google Slidesおよび画像原本は変更しない。main merge・deploy・live検証を別々に判定する。
 - 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
 - HOW THEY RINGの現行分類は **GONG / CASEBACK の2種類だけ**。詳細機構を第三・第四カテゴリへ増やさない。

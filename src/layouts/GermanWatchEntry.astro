@@ -13,12 +13,12 @@ import { applyPierceGermanEntryCorrection } from '../lib/pierce-factual-correcti
 import '../styles/site.css';
 import '../styles/owners-v15.css';
 
-const { watch, entry: rawEntry } = Astro.props;
+const { watch, entry: rawEntry, research = false } = Astro.props;
 const entry = applyPierceGermanEntryCorrection(rawEntry, watch.slug);
 const siteRoot = 'https://vintagealarm.github.io/';
-const germanPath = `de/${watch.slug}/`;
-const japanesePath = `${watch.slug}/`;
-const englishPath = `en/${watch.slug}/`;
+const germanPath = research ? `de/research/${watch.slug}/` : `de/${watch.slug}/`;
+const japanesePath = research ? `research/${watch.slug}/` : `${watch.slug}/`;
+const englishPath = research ? `en/research/${watch.slug}/` : `en/${watch.slug}/`;
 const pageUrl = new URL(germanPath, siteRoot).href;
 const japaneseUrl = new URL(japanesePath, siteRoot).href;
 const englishUrl = new URL(englishPath, siteRoot).href;
@@ -111,11 +111,11 @@ const schema = {
   </head>
   <body class="owners-v15">
     <SectionMast
-      rightLabel="OWNER'S NOTE"
+      rightLabel={research ? "RESEARCH" : "OWNER'S NOTE"}
       lang="de"
       languageLinks={[
-        { href: `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
-        { href: `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }
+        { href: research ? `/research/${watch.slug}/` : `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
+        { href: research ? `/en/research/${watch.slug}/` : `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }
       ]}
     />
     <main>

@@ -1,6 +1,6 @@
 {
   "published": true,
-  "locales": ["ja"],
+  "locales": ["ja", "en", "de"],
   "entries": ["arsa-blind-alarm"],
   "title": "RESEARCH",
   "lead": "次に気になっているものと、そのデータ。"

@@ -30,40 +30,42 @@ export const englishWatchEntries: Record<string, EnglishWatchEntry> = {
     title: 'ARSA Blind Alarm — Tactile Mechanical Alarm Watch | VINTAGE ALARM',
     description: 'ARSA Blind Alarm with AS 1475: an opening front cover, raised tactile markers and hands, and an alarm hand whose set time can be read by touch.',
     indexBlurb: 'Open the front cover and read both the current time and the alarm time with a fingertip.',
-    catch: ['Open the cover and touch the time.', 'Read even the scheduled alarm time with a fingertip.'],
+    catch: ['Open it. Touch it. Listen.'],
     ownersNote: {
       lead: [
-        'Press the centre of the crown at 4 o’clock and the front cover opens.',
-        'Read the current time from the raised markers and broad hands,',
-        'then touch the central alarm hand to check the time at which it is set to ring.'
+        'The cover over the dial opens.',
+        'Read both the current time and the alarm time with your fingertips.',
+        'When the set time arrives,',
+        'it’s your ears’ turn.'
       ],
       guideTitle: 'Quick operating guide',
       guide: [
-        'The following is based on the literature. Operation and condition of the shown specimen remain to be checked after arrival.',
-        '1. Open the front cover — press the pusher in the centre of the time-setting crown at 4 o’clock',
-        '2. Read the time — touch the raised markers and the hour and minute hands',
-        '3. Read the alarm time — touch the central alarm hand to check its set time',
-        '4. Set the alarm — use the alarm crown at 2 o’clock',
-        '5. Wind the watch — wind the timekeeping and alarm sides with their respective crowns'
+        '1. Open the front cover — press the pusher in the centre of the crown at 4 o’clock',
+        '2. Wind and set the time — wind using the crown at 4 o’clock in its normal position; pull it out one click to set the time',
+        '3. Wind and set the alarm — wind using the crown at 2 o’clock in its normal position; pull it out one click to set the alarm time',
+        '4. Alarm ON/OFF — pull out the crown at 2 o’clock for ON; push it in for OFF'
       ],
       noteTitle: 'NOTE',
       note: [
-        'The dial carries raised hour markers and three hands.',
-        'The hour and minute hands are made broad enough to touch directly; a seconds hand is omitted.',
-        'The control that opens the front cover is housed in the centre of the time-setting crown at 4 o’clock.',
-        'The watch turns its states into differences of shape and passes otherwise invisible information to the fingertip.'
+        'The ARSA Blind Alarm dial has raised hour markers that can be felt with a fingertip.',
+        'The hour and minute hands are built to withstand direct touch.',
+        'There is no seconds hand.',
+        'A seconds hand would interfere with reading the time by touch,',
+        'and touching it could even stop the watch.',
+        'The pusher that opens the cover sits in the centre of the timekeeping crown at 4 o’clock.',
+        'And no, an anaesthetic needle does not pop out.'
       ]
     },
     spec: {
       era: '1958 (example in specialist literature); production year of the shown specimen unverified',
-      caseSize: 'Approx. 33 mm (shown specimen; not yet measured)',
+      caseSize: 'Approx. 33 mm',
       caliber: 'A. Schild AS 1475',
       jewels: '17 jewels',
       frequency: '18,000 vph',
       barrels: '2 barrels',
       winding: 'Manual winding',
       acoustic: 'Mechanical alarm',
-      notes: 'Opening front cover, tactile markers and hands, centre pusher in the 4 o’clock crown. Case material and exact production year unverified.'
+      notes: 'Opening front cover, tactile markers and hands; centre pusher in the crown at 4 o’clock.'
     }
   },
   'wittnauer-10wa': {

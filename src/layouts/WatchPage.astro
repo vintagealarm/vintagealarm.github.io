@@ -17,6 +17,7 @@ import ownersDirectory from '../data/owners-directory.json';
 import { englishWatchEntries } from '../data/en-watch-entry';
 import { germanWatchEntriesWithCyma } from '../data/cyma-localizations';
 import { watchRecommendations } from '../data/watch-recommendations';
+import researchSettings from '../data/research-settings.json';
 import { watchResearchRecords } from '../data/watch-research';
 import { resolveSourceLibraryId } from '../data/source-library';
 import { getGitLastmod, latestDate } from '../lib/git-lastmod';
@@ -49,17 +50,17 @@ const pageUrl = new URL(pagePath, siteRoot).href;
 const imageUrl = new URL(watch.ownersNote.image.replace(/^\//, ''), siteRoot).href;
 const englishEntry = englishWatchEntries[watch.slug];
 const germanEntry = germanWatchEntriesWithCyma[watch.slug];
-const englishUrl = englishEntry ? new URL(`en/${watch.slug}/`, siteRoot).href : null;
-const germanUrl = germanEntry ? new URL(`de/${watch.slug}/`, siteRoot).href : null;
-const alternates = preview || research ? [] : [
+const englishUrl = englishEntry && (!research || researchSettings.locales.includes('en')) ? new URL(research ? `en/research/${watch.slug}/` : `en/${watch.slug}/`, siteRoot).href : null;
+const germanUrl = germanEntry && (!research || researchSettings.locales.includes('de')) ? new URL(research ? `de/research/${watch.slug}/` : `de/${watch.slug}/`, siteRoot).href : null;
+const alternates = preview ? [] : [
   { hreflang: 'ja', href: pageUrl },
   ...(englishUrl ? [{ hreflang: 'en', href: englishUrl }] : []),
   ...(germanUrl ? [{ hreflang: 'de', href: germanUrl }] : []),
   { hreflang: 'x-default', href: pageUrl }
 ];
-const languageLinks = preview || research ? [] : [
-  ...(englishEntry ? [{ href: `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }] : []),
-  ...(germanEntry ? [{ href: `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
+const languageLinks = preview ? [] : [
+  ...(englishUrl ? [{ href: research ? `/en/research/${watch.slug}/` : `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }] : []),
+  ...(germanUrl ? [{ href: research ? `/de/research/${watch.slug}/` : `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
 ];
 const researchRecord = watchResearchRecords[watch.slug];
 const dateModified = latestDate(

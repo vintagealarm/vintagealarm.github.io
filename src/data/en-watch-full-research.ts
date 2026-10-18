@@ -40,7 +40,14 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
   'arsa-blind-alarm': {
     title: 'ARSA Blind Alarm — Tactile AS 1475 Alarm Watch | VINTAGE ALARM',
     description: 'ARSA Blind Alarm with AS 1475: opening cover, raised markers and tactile hands, the history of watches for blind users, related designs and cited sources.',
-    specimenGallery: [],
+    specimenGallery: [
+      { image: '/images/IMG_3117.jpeg', label: 'Front', alt: 'Front view of the ARSA Blind Alarm' },
+      { image: '/images/IMG_3118.jpeg', label: 'Front cover open', alt: 'ARSA Blind Alarm with its front cover open' },
+      { image: '/images/IMG_3120.jpeg', label: 'Tactile hands and dial', alt: 'Raised hour markers and tactile hands of the ARSA Blind Alarm' },
+      { image: '/images/IMG_3104.jpeg', label: 'Movement', alt: 'Movement of the ARSA Blind Alarm' },
+      { image: '/images/IMG_3103.jpeg', label: 'Inner cover', alt: 'Inner cover of the ARSA Blind Alarm' },
+      { image: '/images/IMG_3121.jpeg', label: 'Caseback', alt: 'Caseback of the ARSA Blind Alarm' }
+    ],
     deepDive: [
       {
         number: '01', title: 'Auguste Reymond / ARSA',
@@ -72,7 +79,7 @@ export const englishFullResearchBySlug: Record<string, EnglishFullResearch> = {
       {
         number: '04', title: 'Different answers to the same purpose',
         paragraphs: [
-          'Alarm am Arm records Blind Alarm watches by Enicar, BEAT / Friedli-Frères and A. Schild itself in addition to ARSA. Each opens a cover so that the hands and markers can be touched, but the cover-opening method and the way the hands are distinguished differ.[3]',
+          'Alarm am Arm records Blind Alarm watches by Enicar, BEAT / Friedli-Frères and A. Schild itself in addition to ARSA. ARSA, Enicar and BEAT each have an opening cover that allows the hands and markers to be read by touch, but the opening mechanisms and ways of distinguishing the hands differ.[3]',
           'ARSA integrates the front-cover opener into the centre of the time-setting crown at 4 o’clock. A special Enicar watch made for Lausanne in 1964 varies the widths of the minute, hour and alarm hands and puts four raised ridges on the tip of the alarm hand. Its two crowns are also shaped so that they can be distinguished by touch.[10]',
           'BEAT / Friedli-Frères housed the AS 1475 in a 33.8 mm case and placed a separate cover-opening mechanism at 6 o’clock rather than in the crown at 4. A. Schild itself is also recorded as making an AS 1475 Blind Alarm prototype, but the sources used here do not reveal the tactile codes of its hands or its cover structure.[3]',
           'A surviving ARSA Blindenwecker presented on Uhrforum in 2016 uses a Venus 230 rather than an AS 1475. Its front cover opens with a separate pusher at 2 o’clock. The poster describes it as a 1950s watch, but no period ARSA catalogue or advertisement supporting that date has yet been recovered.[13]',
