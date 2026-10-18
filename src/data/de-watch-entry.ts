@@ -64,42 +64,51 @@ export const germanWatchEntries: Record<string, GermanWatchEntry> = {
     title: 'ARSA Blind Alarm — taktile Wecker-Armbanduhr mit AS 1475 | VINTAGE ALARM',
     description: 'ARSA Blind Alarm mit AS 1475: aufklappbarer Vorderdeckel, erhabene Tastmarken und Zeiger sowie ein Alarmzeiger, dessen eingestellte Zeit ertastet werden kann.',
     indexBlurb: 'Den Vorderdeckel öffnen und sowohl die Uhrzeit als auch die Alarmzeit mit der Fingerspitze lesen.',
-    catch: ['Deckel öffnen und die Zeit ertasten.', 'Sogar die vorgemerkte Alarmzeit lässt sich mit der Fingerspitze lesen.'],
+    catch: ['Öffnen. Fühlen. Hören.'],
     ownersNote: {
       lead: [
-        'Ein Druck auf die Mitte der Krone bei 4 Uhr öffnet den Vorderdeckel.',
-        'Die aktuelle Zeit wird an den erhabenen Marken und breiten Zeigern ertastet,',
-        'die eingestellte Weckzeit am mittleren Alarmzeiger.'
+        'Der Deckel über dem Zifferblatt lässt sich öffnen.',
+        'Sowohl die aktuelle Uhrzeit als auch die Alarmzeit liest man mit den Fingerspitzen.',
+        'Wenn die eingestellte Zeit erreicht ist,',
+        'sind die Ohren dran.'
       ],
       guideTitle: 'Kurzanleitung',
       guide: [
-        'Die folgenden Angaben beruhen auf der Literatur. Bedienung und Zustand des gezeigten Exemplars werden nach seiner Ankunft geprüft.',
-        '1. Vorderdeckel öffnen — den Drücker in der Mitte der Aufzugskrone bei 4 Uhr betätigen',
-        '2. Uhrzeit lesen — die erhabenen Marken sowie Stunden- und Minutenzeiger ertasten',
-        '3. Alarmzeit lesen — am mittleren Alarmzeiger die eingestellte Zeit prüfen',
-        '4. Alarmzeit einstellen — die Alarmkrone bei 2 Uhr verwenden',
-        '5. Aufziehen — Uhrwerk und Alarmwerk mit den jeweiligen Kronen aufziehen'
+        '1. Vorderdeckel öffnen — Drücker in der Mitte der Krone bei 4 Uhr betätigen',
+        '2. Gehwerk aufziehen und Uhrzeit stellen — Krone bei 4 Uhr in Normalposition aufziehen; eine Rastung herausziehen, um die Uhrzeit einzustellen',
+        '3. Wecker aufziehen und Alarmzeit stellen — Krone bei 2 Uhr in Normalposition aufziehen; eine Rastung herausziehen, um die Alarmzeit einzustellen',
+        '4. Wecker EIN/AUS — Krone bei 2 Uhr herausziehen = EIN; hineindrücken = AUS'
       ],
-      noteTitle: 'NOTE',
+      noteTitle: 'NOTIZ',
       note: [
-        'Auf dem Zifferblatt liegen erhabene Stundenmarken und drei Zeiger.',
-        'Stunden- und Minutenzeiger sind so breit ausgeführt, dass sie direkt berührt werden können; ein Sekundenzeiger fehlt.',
-        'Der Öffner des Vorderdeckels sitzt in der Mitte der Aufzugskrone bei 4 Uhr.',
-        'Die Uhr übersetzt ihre Zustände in Formunterschiede und gibt unsichtbare Information an die Fingerspitze weiter.'
+        'Auf dem Zifferblatt der ARSA Blind Alarm stehen erhabene Stundenmarkierungen, die sich mit dem Finger ertasten lassen.',
+        'Auch Stunden- und Minutenzeiger sind so robust ausgeführt, dass man sie direkt berühren kann.',
+        'Einen Sekundenzeiger gibt es nicht.',
+        'Er würde das Ablesen mit den Fingerspitzen stören,',
+        'und bei einer Berührung könnte die Uhr stehen bleiben.',
+        'Der Drücker zum Öffnen des Deckels sitzt in der Mitte der Gehwerkkrone bei 4 Uhr.',
+        'Übrigens: Eine Narkosenadel kommt dabei nicht zum Vorschein.'
       ]
     },
     spec: {
       era: '1958 (Beispiel in der Fachliteratur); Baujahr des gezeigten Exemplars ungeklärt',
-      caseSize: 'ca. 33 mm (gezeigtes Exemplar; noch nicht nachgemessen)',
+      caseSize: 'ca. 33 mm',
       caliber: 'A. Schild AS 1475',
       jewels: '17 Steine',
       frequency: '18.000 A/h',
       barrels: '2 Federhäuser',
       winding: 'Handaufzug',
       acoustic: 'Mechanischer Alarm',
-      notes: 'Aufklappbarer Vorderdeckel, Tastmarken und tastbare Zeiger, mittiger Drücker in der Krone bei 4 Uhr. Gehäusematerial und genaues Baujahr ungeklärt.'
+      notes: 'Aufklappbarer Vorderdeckel, Tastmarken und tastbare Zeiger; mittiger Drücker in der Krone bei 4 Uhr.'
     },
-    specimenGallery: [],
+    specimenGallery: [
+      { image: '/images/IMG_3117.jpeg', label: 'Vorderseite', alt: 'ARSA Blind Alarm, Vorderansicht' },
+      { image: '/images/IMG_3118.jpeg', label: 'Geöffneter Vorderdeckel', alt: 'ARSA Blind Alarm mit geöffnetem Vorderdeckel' },
+      { image: '/images/IMG_3120.jpeg', label: 'Tastbare Zeiger und Zifferblatt', alt: 'Tastbare Zeiger und Stundenmarkierungen der ARSA Blind Alarm' },
+      { image: '/images/IMG_3104.jpeg', label: 'Uhrwerk', alt: 'Werk der ARSA Blind Alarm' },
+      { image: '/images/IMG_3103.jpeg', label: 'Innendeckel', alt: 'Innendeckel der ARSA Blind Alarm' },
+      { image: '/images/IMG_3121.jpeg', label: 'Gehäuseboden', alt: 'Rückseite des Gehäuses der ARSA Blind Alarm' }
+    ],
     deepDive: [
       {
         number: '01', title: 'Auguste Reymond / ARSA',
