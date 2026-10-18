@@ -15,6 +15,17 @@
 
 ---
 
+### 2026-10-18 21:27 JST — ARSA WATCHオーナー閲覧プレビューを復旧（通常公開とは別扱い）
+
+- **変更**：既存の `/preview/watch/arsa-blind-alarm/` に限り、`published: false` のARSAでも生成する例外を復元。build/live検査はプレビューの存在・`noindex,nofollow,noarchive`・修正済み操作説明④・sitemap非掲載を確認する条件に修正する。他の未公開WATCHを一括生成しない。
+- **理由**：ユーザーが長年の閲覧用プレビューを利用しており、2026-10-18 19時のPR #256が誤ってこれを削除した。ユーザーによる2026-10-18当日の404報告・復旧同意を新根拠とする。
+- **旧状態・棄却**：PR #256の「未公開WATCHのpreviewは生成しない」「ARSAプレビューHTTP 200はCI失敗」とする誤ったgateを棄却。通常WATCHの公開可否とユーザー用閲覧URLは別の制御とする。
+- **起点・帰属**：U（プレビュー消失を報告・復旧許可）→ U採用。A（除外実装と誤った検査条件）→ A修正。
+- **影響範囲**：`src/pages/preview/watch/[slug]/index.astro`、`scripts/check-build-output.mjs`、`scripts/check-live-site.mjs`、本変更履歴のみ。JA/EN/DE本文、CMS、`published: false`、RESEARCH、画像、他WATCHは不変。
+- **検証状態**：作業branchで正本を修正。PR CI→main merge→deploy→live URL実測を別判定。静的URL + noindexは技術的な本人認証ではなく、閲覧を知る人以外へ保証していないことを明記する。
+- **関連**：誤削除PR #256、復旧branch `fix/restore-arsa-watch-preview-20261018`、修正commits `264331700bec723f8bca4f044aef5df367245c4e` / `c4807094bbfe075aea73db7a9bb18cfd7bb44e7c` / `b3f3fc0058755af24fa450429d0e4b39579a0304`。
+- **日時根拠**：2026-10-18 21:27 JST、作業ホストの `TZ=Asia/Tokyo date` 実測。
+
 ### 2026-10-18 18:58 JST — ARSA WATCHをJA/EN/DEのCMS下書きへ戻し誤公開EN/DE RESEARCHを撤回
 
 - **変更**：ユーザー指定の対象はARSA `WATCH`。JAの既存 `src/content/watches/arsa-blind-alarm.md` を改変せず、共通 `published: false` を維持する。EN/DEのWATCH翻訳を `src/data/watch-locales/arsa-en.json` / `arsa-de.json` へロスレス移行し、`.pages.yml` にPages CMSの多言語下書き編集項目を追加。日本語WATCHの操作ガイド①〜④とEN/DEの対応訳を保持する。
