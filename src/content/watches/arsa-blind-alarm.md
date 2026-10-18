@@ -49,6 +49,12 @@ specimenGallery:
     label: 正面（前蓋オープン）
   - image: /images/IMG_3120.jpeg
     label: 触読用　針・ダイヤル
+  - image: /images/IMG_3104-1.jpeg
+    label: ムーブメント
+  - image: /images/IMG_3103-1.jpeg
+    label: 内蓋
+  - image: /images/IMG_3121.jpeg
+    label: ケースバック
 deepDive:
   - number: "01"
     title: Auguste Reymond / ARSA
