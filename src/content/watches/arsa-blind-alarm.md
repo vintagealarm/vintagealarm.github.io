@@ -55,6 +55,8 @@ specimenGallery:
     label: 内蓋
   - image: /images/IMG_3121.jpeg
     label: ケースバック
+video:
+  youtubeId: https://youtube.com/shorts/eM_2YbowtwM?si=3D95pYH-HHUXGyMy
 deepDive:
   - number: "01"
     title: Auguste Reymond / ARSA
