@@ -23,7 +23,7 @@
 - **起点・帰属**：U（画像提供・Slides準拠の訂正・④ON/OFF指定・テキストのみの書込許可）→U採用。AはGitHub旧稿とSlidesの差分照合、差分実装のみ。
 - **影響範囲**：`src/content/watches/arsa-blind-alarm.md` の`ownersNote.guide`だけ（公開日本語RESEARCHもこのファイルを参照）および判断履歴。Catch/Lead/NOTE/DEEP DIVE/SPEC/画像/レイアウト/英独翻訳/Google Slides/通常WATCH `published: false`は変更しない。
 - **検証状態**：作業branchへ指定文字列を書き込む。差分、再取得、PR/CI検査までを別途確認する。main反映・deploy・liveは今回の書き込み許可からは自動承認しない。
-- **関連**：作業branch `fix/arsa-guide-text-20261018`、baseline main commit `55c80f1948e8712dc38f3b36d42a2bd6e410d90a`、2026-10-18ユーザー提供Google Slides画面・同日④訂正、Google Slides制作正本 `arsa_ja_slide`（閲覧のみ）。
+- **関連**：作業branch `fix/arsa-guide-text-20261018`、baseline main commit `55c80f1948e8712dc38f3b36d42a2bd6e410d90a`、操作ガイド変更commit `c39a83e33080374fde97c5595a532e9e5a2154c1`、2026-10-18ユーザー提供Google Slides画面・同日④訂正、Google Slides制作正本 `arsa_ja_slide`（閲覧のみ）。
 - **日時根拠**：作業ホスト `TZ=Asia/Tokyo date` 2026-10-18 18:02:14 JST。
 
 ### 2026-10-18 12:22 JST — 公開先で発見したRelay fetchのredirect互換性を修正
