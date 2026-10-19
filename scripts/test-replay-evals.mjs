@@ -37,7 +37,7 @@ try {
  changeFixture((x)=>x.cases.at(-1).status='DRAFT',()=>run(['check'],false,'must match exactly'));
  changeFixture((x)=>x.cases.at(-1).replay=null,()=>run(['check'],false,'missing replay block'));
  changeFixture((x)=>x.cases.push(x.cases[0]),()=>run(['check'],false,'duplicate case id'));
- changeFixture((x)=>{x.cases.at(-1).replay.semantic_checks=[];},()=>run(['check'],false,'must retain'));
+ changeFixture((x)=>{const c=x.cases.find((v)=>v.replay?.semantic_checks?.length);assert.ok(c,'fixture must contain a semantic-check case');c.replay.semantic_checks=[];},()=>run(['check'],false,'must retain'));
  const ledger='research/ARSA_BLIND_ALARM_LEDGER.md';
  mutate(ledger,(s)=>{assert.ok(s.includes('The seller replied **yes**'));return s.replace('The seller replied **yes**','The seller replied **no**');},()=>run(['check'],false,'semantic assertion failed'));
  const guard='.codex/FAIL_CLOSED_INFERENCE_GUARDS.md';
