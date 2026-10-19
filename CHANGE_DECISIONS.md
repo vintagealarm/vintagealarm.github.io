@@ -2314,3 +2314,12 @@
 - **検証状態**：原文帰属・ARSA・UI・SNSのmock/API回帰、Worker dry-run、CI、main再取得で判定。外部Cloudflare稼働と実モデルの成果測定は独立。mockによるPASSを意味理解の完成とみなさない。
 - **関連**：PR #265、コミット `c67a42740338898b2091f6a5363674fc4211f6f5`、`9d70eff95be5fb4fd02fdc79c95d87983900ebea`、`49964f601bf8c86bf511569286cb7427f05be670`。判断関連コミット `8aab6408e95ef1380e93360fd0209221d87b3e41`、`08e03ff07dd19a6a7016f85703705600c59abf98`、`618f9f278efe05da4d7fa1a8737b152ba41d5006`、`598fdbc9c75b88340cb5dd2afa7f3f21e60c0c65`、`council-worker/V3.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`。
 - **日時根拠**：実行ホスト 2026-10-19T14:20:00.255Z UTC → Asia/Tokyo 2026-10-19 23:20 JST。
+
+### 2026-10-19 23:33 JST — 四代目Council Workerの配備後検証を追加
+- **変更**：deploy-council-worker.ymlに本番HTTP /healthと/api/menuの検証を追加。Council V4応答と7形式を照合する。
+- **理由**：Uによる「実装して４代目で稼働で」。Workerデプロイ成功だけでなく本番応答を検証するため。
+- **旧状態・棄却**：配備ログのみで「正常稼働」とすることを棄却。有料モデルAPIの試験は追加しない。
+- **影響範囲**：Deploy workflowと本判断記録のみ。Council本体・公開本文は不変。
+- **検証状態**：PR品質チェック後の本番deployとライブ検査結果で判定。
+- **関連**：PR #265、commit bf37e11661f69e6dc6a7d45573fdaccdc71a770d、Deploy run #39269081085。
+- **日時根拠**：UTC 2026-10-19T14:33:59.632Z → JST 2026-10-19 23:33 JST。

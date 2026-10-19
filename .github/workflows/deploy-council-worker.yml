@@ -73,3 +73,36 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: npm run deploy
+
+      - name: Verify Fourth Jester live health and menu
+        if: steps.deploy_config.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://council-api.orima1995.workers.dev"
+          health="$(curl -fsS --retry 6 --retry-delay 3 --retry-connrefused --max-time 15 "$url/health")"
+          printf '%s' "$health" | node -e '
+            let body=""; process.stdin.on("data", c=>body+=c);
+            process.stdin.on("end",()=>{
+              const o=JSON.parse(body);
+              console.log("Worker health:",JSON.stringify({
+                version:o.version,openai:o.openai,vectorStore:o.vectorStore,
+                fourthJester:o.fourthJester
+              }));
+              if(o.ok!==true||o.version!=="council-v4"||o.fourthJester!==true)
+                process.exitCode=1;
+            });
+          '
+          menu="$(curl -fsS --retry 6 --retry-delay 3 --retry-connrefused --max-time 15 "$url/api/menu")"
+          printf '%s' "$menu" | node -e '
+            let body=""; process.stdin.on("data", c=>body+=c);
+            process.stdin.on("end",()=>{
+              const o=JSON.parse(body);
+              console.log("Worker menu:",JSON.stringify({
+                version:o.version,count:o.menu?.length,
+                fourth:(o.menu||[])[6]?.slice(0,40)
+              }));
+              if(o.version!=="council-v4"||!Array.isArray(o.menu)||o.menu.length!==7)
+                process.exitCode=1;
+            });
+          '
