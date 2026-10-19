@@ -664,6 +664,44 @@
 - video_evidence: A11CE39E-6AF8-443F-8A56-B2EDAED0E3E2(1).mp4 (33.0s, H.264 512×910, AAC)
 - note: Own-post and Insights both displayed 628. User supplied approximate 17:00 posting time; no exact timestamp. Shares count unknown despite displayed 0.0% share rate.
 
+### Snapshot — 2026-10-20 06:37 JST — CYMA macro Reel (~13h37m)
+- observed_at_jst: 2026-10-20 06:37
+- content_id: IG-CYM-003
+- published_at_jst: 2026-10-19 around 17:00 (USER_REPORT, exact minute unknown)
+- elapsed_since_publish: approximately 13h37m (estimated from user-reported post time)
+- reel_duration: 33.0s
+- views: 1269
+- viewers: 1091
+- average_watch_time: 6s
+- likes: 27
+- comments: 0
+- reposts: 1
+- shares: UI `--` (count unknown)
+- saves: 2
+- follows: 0
+- profile_accesses: 9
+- skip_rate: 50.4%
+- share_rate: 0.0%
+- like_rate: 2.4%
+- save_rate: 0.2%
+- repost_rate: 0.1%
+- comment_rate: 0.0%
+- followers: 3.7%
+- non_followers: 96.3%
+- age: 13–17 4.1% / 18–24 36.3% / 25–34 39.3% / 35–44 9.9% / 45–54 4.5% / 55–64 3.2% / 65+ 2.7%
+- age_18_34_combined: 75.6%
+- countries: India 47.2% / Turkey 11.9% / France 3.3% / Italy 2.4% / Brazil 1.8%
+- top_source_reels_tab_pct: 77.2
+- top_source_explore_pct: 17.7
+- top_source_feed_pct: 4.4
+- top_source_profile_pct: 0.5
+- instagram_labels: skip HIGH / share LOW / like LOW / save LOW / repost HIGH / comment LOW
+- usual_reel_chart: purple Reel curve plateaued around 1.27k by approximately 13h while gray dashed usual-Reel line continued upward; comparison is qualitative.
+- retention_curve: sharp drop in opening seconds, gradually falling to low single-digit percentage near end; graph-derived precise percentages unknown
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3208.jpeg; IMG_3209.png; IMG_3210.png; IMG_3211.png; IMG_3212.png; IMG_3213.png; IMG_3214.png; IMG_3215.png
+- note: Own-post overlay displayed 1,268 views and 27 likes; Insights displayed 1,269 views and 27 likes at ~06:37. Separate UI surfaces, not sequential observations. Earlier 19:04 snapshot had 628 views/375 viewers; later snapshot shows 1,269 views/1,091 viewers. Avoid inferring replays or converting viewers-vs-views discrepancy into a causal story.
+
 ---
 
 # Pierce Duofon
