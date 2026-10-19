@@ -2182,3 +2182,34 @@
 - **検証状態**：実装前に23段落の34個の手打ち脚注と`citationRefs`を段落順に全件照合して一致を確認。実装後のbranch差分、CI、main再取得、Pages deploy、live parityは独立に検証し、各段階の実結果だけを報告する。
 - **関連**：U撮影`IMG_3171.jpeg`／`IMG_3172.jpeg`、`src/content/watches/arsa-blind-alarm.md`、`SpecimenGallery.astro`、`DeepDive.astro`、`SITE_RULES.md`、`DESIGN_ENGINEERING.md`、`council-worker/V3.md`、`CHANGE_DECISIONS.md`、HOLD PR #235。
 - **日時根拠**：実行ホスト`TZ=Asia/Tokyo date`の実測 `2026-10-18 18:05:37 JST`。
+
+### 2026-10-19 08:09 JST — ARSA OWNER'S NOTE画像を日英独の指定原稿へ差し替え
+- **変更**：ユーザー指定の `ARSA_JP.png`／`ARSA_EN.png`／`ARSA_DE.png` を再圧縮せず保存し、ARSA OWNER'S NOTEの日本語・英語・ドイツ語参照を各画像へ切り替える。build gateへ3画像のSHA-256、言語別配線、非公開プレビューと公開RESEARCH上の日本語画像参照を追加する。
+- **理由**：画像内の本文を再編集せず、ユーザーが完成原稿として指定した3画像をそのまま表示資産として使うため。
+- **起点→判断**：Uが3言語の完成画像を提示し「各言語のオーナーズノートさしかえて」と明示 → U採用。
+- **旧状態・棄却**：ARSA OWNER'S NOTEは `draft-placeholder.svg` を参照し、英独も日本語と同じplaceholderへフォールバックしていた。画像の再生成・再圧縮、OWNER'S NOTE本文／Catch／Leadの改稿、共通レイアウト変更、ARSA通常WATCHの公開化、PR #235の未統合差分の採用は行わない。
+- **影響範囲**：`public/images/arsa-blind-alarm/owners-note-{ja,en,de}-20261019.png`、ARSA日本語contentの画像参照、英独layoutのARSA限定画像参照、`scripts/check-build-output.mjs`、本ログ。`published:false`、公開RESEARCH設定、研究本文、他WATCHは不変更。
+- **検証状態**：受領時に3画像とも1146×1600を目視確認し、SHA-256を取得。branch上のbuild、品質gate、生成HTML、保存後ハッシュ、diffはこの後に再検証する。main merge・Pages deploy・live確認は本依頼の公開権限外で未実施。
+- **関連**：`ARSA_JP.png` SHA-256 `897458909bf1ac603b3f6823f6d1b22b47ead2523e289a26fe0be7fbef7b06c9`、`ARSA_EN.png` `3215b22c50d620e54fe5ebb387add10ab2b48f9eae7c4903fc37cc59cecf1b95`、`ARSA_DE.png` `4ddc30f3afaba319b4e3125a8ee1396dc4cfe6a253d5a9f5d22626825def4c83`、Draft/HOLD PR #235。
+- **日時根拠**：実行ホストのJST時計で `2026-10-19 08:09:47 +09:00` を確認。
+
+### 2026-10-19 08:18 JST — Pages CMSが再生成したARSA同一画像別名を承認済み状態へ復元
+- **変更**：ARSAギャラリーの `IMG_3118-1.jpeg` 参照をbyte-identicalな元画像 `IMG_3118.jpeg` へ戻し、重複別名だけを削除する。
+- **理由**：PR #252でユーザー承認のうえ実施済みだった重複整理が、その後のPages CMS commit `8799fae`で再生成され、最新mainとPR #258の画像重複gateを再び失敗させていたため。両ファイルのSHA-256一致を再確認してから復元した。
+- **起点→判断**：PR #258のGitHub CI失敗 → Aがログ・main履歴・既存のU承認済みPR #252を照合 → 新しい編集判断ではなく承認済み状態の回帰修正として復元。
+- **旧状態・棄却**：最新mainは同一内容の `IMG_3118-1.jpeg` と `IMG_3118.jpeg` を併存させ、ギャラリーが別名側を参照していた。画像の再圧縮、異なる画像への置換、他の現在非同一な `-1.jpeg` 3点の削除、ギャラリー本文・表示変更は行わない。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` の掲載個体画像参照1箇所、`public/images/IMG_3118-1.jpeg` の削除、本ログ。表示画像のbytes、OWNER'S NOTE、研究本文、公開flagは不変更。
+- **検証状態**：削除前に両ファイルのSHA-256 `4bfe3f6258e1c4442479c4e0391358ce13a411d4754c16455318092a238a97e8`一致を確認。build、画像重複gate、GitHub CIは修正commit後に再実行する。
+- **関連**：PR #252、PR #258、Pages CMS commit `8799faedc65826e646cc744916dd0b6bae2201d8`、`scripts/check-image-duplicates.mjs`。
+- **日時根拠**：実行ホストのJST時計で `2026-10-19 08:18:42 +09:00` を確認。
+
+### 2026-10-19 09:23 JST — ARSA OWNER'S NOTE英独画像を語感修正版へ更新
+
+- **変更**：ARSA英語版NOTEの `built sturdy enough` を `built to withstand direct touch` へ改め、`centre` / `anaesthetic` の英国綴りへ統一。ドイツ語版NOTE末尾を `Eine Narkosenadel kommt dabei nicht zum Vorschein.` へ自然化したGoogle Slidesから、ユーザーが再書き出した `ARSA_EN.png` / `ARSA_DE.png` をGitHub上の同言語OWNER'S NOTE画像へ差し替え、build gateのSHA-256も新画像へ同期する。
+- **理由**：意味・事実・操作説明を変えず、前回画像に残っていた英語の非母語的表現と表記ゆれ、ドイツ語の機械的な言い回しだけを直すため。ユーザーが修正採用、Slides更新、再書き出し画像のGitHub差替えを順に明示した。
+- **起点→判断**：Aが任意の語感調整候補を指摘 → Uが修正を採用し、再書き出し画像を提示してGitHub差替えを指示 → U採用。
+- **旧状態・棄却**：旧EN画像の `built sturdy enough` / `center` / `anesthetic` と旧DE画像の `Narkosenadel fährt dabei nicht heraus` をSUPERSEDEDとする。Lead、操作ガイド、写真、配置、日本語画像、WATCH本文、`published: false` は変更しない。
+- **影響範囲**：`public/images/arsa-blind-alarm/owners-note-en-20261019.png`、`owners-note-de-20261019.png`、`scripts/check-build-output.mjs`、本ログのみ。
+- **検証状態**：両画像を原寸で目視し、文字欠け・衝突なしを確認。ともに1146×1600。受領原本とGitHub保存後のSHA-256完全一致、Astro build、画像重複gate、生成物の画像hash / 公開状態gateを確認。PR CIはpush後に別判定する。
+- **関連**：PR #258。新EN SHA-256 `4d39a4217227a3fc3722f6b4d8066a71624f060bba4fe57e8075299b6a855a39`、新DE `3815acd36e9dcbbc2fd8d3db2b55679218dab11ee29198a8225ebe26a4b39b67`。旧hashは08:09 JST項目に履歴として保持する。
+- **日時根拠**：実行ホストのJST時計で `2026-10-19 09:22:58 +09:00` を確認し、分単位表記を09:23 JSTへ丸めた。

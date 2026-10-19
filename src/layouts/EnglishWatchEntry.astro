@@ -43,7 +43,9 @@ const translatedOwnersNote = {
             ? '/images/cyma-time-o-vox/owners-note-en-20261011.png'
             : watch.slug === 'wittnauer-10wa'
               ? '/images/wittnauer-10wa/owners-note-en-20261014.png'
-              : watch.ownersNote.image
+              : watch.slug === 'arsa-blind-alarm'
+                ? '/images/arsa-blind-alarm/owners-note-en-20261019.png'
+                : watch.ownersNote.image
 };
 const languageLinks = [
   { href: research ? `/research/${watch.slug}/` : `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },

@@ -105,6 +105,32 @@ for (const [lang, route, expectedSha] of [
     failures.push(`Wittnauer ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
   }
 }
+// ARSA Blind Alarm OWNER'S NOTE: preserve all three uploaded PNGs byte-for-byte.
+// While the normal WATCH routes remain unpublished, verify the Japanese preview and
+// the English/German layout wiring; once published, verify each generated route too.
+const arsaPublished = watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published ?? false;
+for (const [lang, route, expectedSha, sourcePath] of [
+  ['ja', 'arsa-blind-alarm/index.html', '897458909bf1ac603b3f6823f6d1b22b47ead2523e289a26fe0be7fbef7b06c9', 'src/content/watches/arsa-blind-alarm.md'],
+  ['en', 'en/arsa-blind-alarm/index.html', '4d39a4217227a3fc3722f6b4d8066a71624f060bba4fe57e8075299b6a855a39', 'src/layouts/EnglishWatchEntry.astro'],
+  ['de', 'de/arsa-blind-alarm/index.html', '3815acd36e9dcbbc2fd8d3db2b55679218dab11ee29198a8225ebe26a4b39b67', 'src/layouts/GermanWatchEntry.astro']
+]) {
+  const assetPath = `images/arsa-blind-alarm/owners-note-${lang}-20261019.png`;
+  const builtAsset = path.join(dist, assetPath);
+  if (!fs.existsSync(builtAsset)) {
+    failures.push(`ARSA ${lang}: OWNER'S NOTE PNG missing from build output`);
+  } else {
+    const actualSha = createHash('sha256').update(fs.readFileSync(builtAsset)).digest('hex');
+    if (actualSha !== expectedSha) failures.push(`ARSA ${lang}: OWNER'S NOTE PNG differs from uploaded original`);
+  }
+  const source = fs.readFileSync(path.join(root, sourcePath), 'utf8');
+  if (!source.includes(`/${assetPath}`)) failures.push(`ARSA ${lang}: source does not reference correct language PNG`);
+  if (arsaPublished) {
+    const htmlPath = path.join(dist, route);
+    if (!fs.existsSync(htmlPath) || !fs.readFileSync(htmlPath, 'utf8').includes(`/${assetPath}`)) {
+      failures.push(`ARSA ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
+    }
+  }
+}
 const mustExist = [
   'index.html',
   'x/index.html',
@@ -131,6 +157,7 @@ for (const watch of watches) {
     const previewHtml = fs.readFileSync(previewRoute, 'utf8');
     if (!previewHtml.includes('noindex,nofollow,noarchive')) failures.push('ARSA preview lost search-engine exclusion');
     if (!previewHtml.includes('④ アラームON/OFF')) failures.push('ARSA preview lost corrected guide');
+    if (!previewHtml.includes('/images/arsa-blind-alarm/owners-note-ja-20261019.png')) failures.push('ARSA preview does not reference the Japanese OWNER\'S NOTE PNG');
   }
 }
 
@@ -284,7 +311,7 @@ if (researchJaPublished) {
       continue;
     }
     const researchHtml = fs.readFileSync(researchPath, 'utf8');
-    for (const marker of ['RESEARCH', 'ARSA BLIND ALARM', 'ちなみに、麻酔針は出ない。', '/images/arsa-blind-alarm/draft-placeholder.svg']) {
+    for (const marker of ['RESEARCH', 'ARSA BLIND ALARM', 'ちなみに、麻酔針は出ない。', '/images/arsa-blind-alarm/owners-note-ja-20261019.png']) {
       if (!researchHtml.includes(marker)) failures.push(`RESEARCH ${slug}: copied source marker missing: ${marker}`);
     }
     if (!researchHtml.includes(researchUrl)) failures.push(`RESEARCH ${slug}: canonical URL missing`);
