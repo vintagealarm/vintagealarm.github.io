@@ -2295,3 +2295,12 @@
 - **検証状態**: main上で当該5ファイルと `IG-CYM-003` 件数、差分を再取得確認する。ローカル `check:instagram-insights`、`check:social-inventory`、`instagram:report` は実行可否と結果を別報告。公開サイトのdeployは対象外。
 - **関連**: `IG-CYM-003`, `CYM-14`, `CYM-09`, screenshots `IMG_3199.jpeg`–`IMG_3206.png`, user MP4 `A11CE39E-6AF8-443F-8A56-B2EDAED0E3E2(1).mp4`。
 - **日時根拠**: ホストコマンド `TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M JST'` による2026-10-19 19:46 JST確認。Insightsはスクショ画面時刻19:04–19:05、17時頃公開はユーザー概算。
+
+### 2026-10-19 21:43 JST — 宮廷道化師のユーザー例示→確定見解の誤帰属を防ぐ
+- **変更**：Council V3の明示7に、発言ID・原文・origin・speechActからなる `claimProvenance` を必須とし、構造化批判の参照ID、発案者と確定的ユーザー見解への扱いを検査。不正時は `attribution-hold`。形式1〜6のsilent hookにも帰属誤認禁止を反映。運用正本・Worker・テストを同期。
+- **理由**：Uが「ARSAが問題頻発のため針を強化した可能性もある」と研究の探索方向を例示しただけなのに、形式1でAI/Councilが形成したH1を、形式7がUの既成の信念として批判した。Uがこの藁人形化を直接指摘し、改善を命令。起点：Uの探索例示 → A/Council生成仮説 → A/7の誤帰属 → U訂正 → U改善指示。
+- **旧状態・棄却**：これまで10項目のcontext非空ゲートだけで、誰がどの発言行為をしたかの検査がなく、自由文の道化師が自作仮説をUへ付け替えられた。単に口調を緩める、全批判を禁止する、形式1/7の人格を廃止する代案は採用しない。
+- **影響範囲**：`council-worker/V3.md`、`council-worker/README.md`、`council-worker/src/v3.ts`、`council-worker/test/v3.behavior.test.ts`、本ログのみ。明示7の外部Worker呼出し入力にはclaimProvenanceの移行が必要。サイト本文やARSA研究・所有台帳は不変更。既存open PR #250の第三道化師機能も保全し、本PRとの差分競合は別途解消する。
+- **検証状態**：ARSAの探索例示をユーザー信念として扱う回答、Council生成H1のユーザー誤帰属、欠落・不正入力、正当なCouncil自身への批判、U明示決定への批判を回帰テスト化。テストとCI・差分・公開の結果は別途確認する。構造化情報の照合だけでAI言語理解の完全性を保証しない。
+- **関連**：本会話のU訂正、`council-worker/V3.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、既存open PR #250。
+- **日時根拠**：ホスト計測 `2026-10-19T12:43:42Z` → `2026-10-19 21:43 JST`。
