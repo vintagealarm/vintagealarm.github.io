@@ -2312,5 +2312,5 @@
 - **旧状態・棄却**：三代目PR #250/#264は未マージ・閉鎖のまま。書類の形式検査だけで実研究能力を保証する旧路線を復活させない。墓碑の原因記録は保持。
 - **影響範囲**：Council Workerの形式7と1〜6のsilent hook、Council正本、README、Research墓碑、Stateの参照、テスト、本ログ。WATCH・SNS運用・サイトの出力内容は変更しない。
 - **検証状態**：原文帰属・ARSA・UI・SNSのmock/API回帰、Worker dry-run、CI、main再取得で判定。外部Cloudflare稼働と実モデルの成果測定は独立。mockによるPASSを意味理解の完成とみなさない。
-- **関連**：PR #265、コミット `c67a42740338898b2091f6a5363674fc4211f6f5`、`9d70eff95be5fb4fd02fdc79c95d87983900ebea`、`49964f601bf8c86bf511569286cb7427f05be670`、`council-worker/V3.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`。
+- **関連**：PR #265、コミット `c67a42740338898b2091f6a5363674fc4211f6f5`、`9d70eff95be5fb4fd02fdc79c95d87983900ebea`、`49964f601bf8c86bf511569286cb7427f05be670`。判断関連コミット `8aab6408e95ef1380e93360fd0209221d87b3e41`、`08e03ff07dd19a6a7016f85703705600c59abf98`、`618f9f278efe05da4d7fa1a8737b152ba41d5006`、`598fdbc9c75b88340cb5dd2afa7f3f21e60c0c65`、`council-worker/V3.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`。
 - **日時根拠**：実行ホスト 2026-10-19T14:20:00.255Z UTC → Asia/Tokyo 2026-10-19 23:20 JST。
