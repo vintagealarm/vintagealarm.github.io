@@ -6,11 +6,11 @@
       "ownedEra": "1940s",
       "ownedSortKey": 1948,
       "historyEra": "1940s",
-      "image": "/images/IMG_8890-1.jpeg",
       "ownersThumbnail": "/images/IMG_8890-1.jpeg",
       "historyThumbnail": "/images/IMG_8890-1.jpeg",
       "fallbackThumbnail": "/images/Basis Alarm(BFG90).png",
-      "directoryCatch": "2香箱と、2つの巻上げ表示窓。"
+      "directoryCatch": "2香箱と、2つの巻上げ表示窓。",
+      "image": "/images/IMG_8890-1.jpeg"
     },
     {
       "historyId": "wittnauer-10wa",
@@ -18,11 +18,11 @@
       "ownedEra": "1950年代前半",
       "ownedSortKey": 1954,
       "historyEra": "1950s",
-      "image": "/images/IMG_5792.jpeg",
       "ownersThumbnail": "/images/IMG_5792.jpeg",
       "historyThumbnail": "/images/IMG_5792.jpeg",
       "fallbackThumbnail": "/images/Wittnauer10WA.png",
-      "directoryCatch": "ベゼルでアラーム設定＋巻上げ。"
+      "directoryCatch": "ベゼルでアラーム設定＋巻上げ。",
+      "image": "/images/IMG_5792.jpeg"
     },
     {
       "historyId": "cyma-time-o-vox",
@@ -30,11 +30,11 @@
       "ownedEra": "1950s",
       "ownedSortKey": 1956,
       "historyEra": "1950s",
-      "image": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
       "ownersThumbnail": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
       "historyThumbnail": "/images/owners-thumbnails/cyma-time-o-vox-full.png",
       "fallbackThumbnail": "/images/cyma-time-o-vox/gallery/cyma-front.jpg",
-      "directoryCatch": "1香箱、2プッシャー、Chronomètre。"
+      "directoryCatch": "1香箱、2プッシャー、Chronomètre。",
+      "image": "/images/owners-thumbnails/cyma-time-o-vox-full.png"
     },
     {
       "historyId": "citizen-alarm",
@@ -42,11 +42,11 @@
       "ownedEra": "1950s",
       "ownedSortKey": 1958,
       "historyEra": "1950s",
-      "image": "/images/owners-thumbnails/citizen-alarm-full.jpg",
       "ownersThumbnail": "/images/owners-thumbnails/citizen-alarm-full.jpg",
       "historyThumbnail": "/images/owners-thumbnails/citizen-alarm-full.jpg",
       "fallbackThumbnail": "/images/citizen-alarm/owners-note.jpg",
-      "directoryCatch": "1958年、国産初のベル腕時計。"
+      "directoryCatch": "1958年、国産初のベル腕時計。",
+      "image": "/images/owners-thumbnails/citizen-alarm-full.jpg"
     },
     {
       "historyId": "westclox-watchlarm",
@@ -54,11 +54,11 @@
       "ownedEra": "c.1959–early 1960s",
       "ownedSortKey": 1959.5,
       "historyEra": "1950s",
-      "image": "/images/IMG_2093-1.jpeg",
       "ownersThumbnail": "/images/IMG_2093-1.jpeg",
       "historyThumbnail": "/images/IMG_2093-1.jpeg",
       "fallbackThumbnail": "/images/IMG_2093-2.jpeg",
-      "directoryCatch": "0石、1香箱、プッシャー式アラーム。"
+      "directoryCatch": "0石、1香箱、プッシャー式アラーム。",
+      "image": "/images/IMG_2093-1.jpeg"
     },
     {
       "historyId": "arsa-blind-alarm",
@@ -66,11 +66,11 @@
       "ownedEra": "1958年（専門書掲載例）",
       "ownedSortKey": 1958.5,
       "historyEra": "1950s",
-      "image": "/images/IMG_3117-1.jpeg",
-      "ownersThumbnail": "/images/IMG_3117-1.jpeg",
-      "historyThumbnail": "/images/IMG_3117-1.jpeg",
+      "ownersThumbnail": "/images/IMG_3179.jpeg",
+      "historyThumbnail": "/images/IMG_3179-1.jpeg",
       "fallbackThumbnail": "/images/IMG_3118.jpeg",
-      "directoryCatch": "現在時刻も、アラーム時刻も指先で読む。"
+      "directoryCatch": "現在時刻も、アラーム時刻も指先で読む。",
+      "image": "/images/IMG_3117-1.jpeg"
     },
     {
       "historyId": "pierce-duofon",
@@ -78,11 +78,11 @@
       "ownedEra": "1960s",
       "ownedSortKey": 1960,
       "historyEra": "1950s",
-      "image": "/images/owners-thumbnails/pierce-duofon-full.png",
       "ownersThumbnail": "/images/owners-thumbnails/pierce-duofon-full.png",
       "historyThumbnail": "/images/owners-thumbnails/pierce-duofon-full.png",
       "fallbackThumbnail": "/images/pierce-duofon/gallery/pierce-duofon-wrist-front.jpg",
-      "directoryCatch": "WECKER / SIGNAL、2段階のアラーム。"
+      "directoryCatch": "WECKER / SIGNAL、2段階のアラーム。",
+      "image": "/images/owners-thumbnails/pierce-duofon-full.png"
     }
   ]
 }
