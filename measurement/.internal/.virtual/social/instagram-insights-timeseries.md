@@ -624,6 +624,46 @@
 - non_followers: 95.3%
 - note: 2026-10-07 06:34 JST user-supplied public caption and Insights screenshots. The user converted a CYMA side-profile still image to a Reel with BGM using Edits. A post screen shortly before the Insights displayed 101 views; Insights showed 107. Instagram rated skip HIGH and all displayed interaction rates LOW. Profile actions and demographics were unavailable rather than zero. The 2026-10-10 00:31 profile grid later showed 161 views; see instagram-operations.md.
 
+### Snapshot — 2026-10-19 19:04–19:05 JST — CYMA macro Reel
+- observed_at_jst: 2026-10-19 19:04–19:05
+- content_id: IG-CYM-003
+- published_at_jst: 2026-10-19 around 17:00 (USER_REPORT, minute unknown)
+- elapsed_since_publish: approximately 2 hours, uncertain
+- reel_duration: 33.0s (source MP4)
+- views: 628
+- viewers: 375
+- average_watch_time: 7s
+- likes: 12
+- comments: 0
+- reposts: 1
+- shares: UI `--` (unknown count)
+- saves: 1
+- follows: 0
+- profile_accesses: 3
+- skip_rate: 31.2%
+- share_rate: 0.0%
+- like_rate: 2.2%
+- save_rate: 0.2%
+- repost_rate: 0.2%
+- comment_rate: 0.0%
+- followers: 4.5%
+- non_followers: 95.5%
+- age: 13–17 3.8% / 18–24 36.0% / 25–34 42.0% / 35–44 8.8% / 45–54 4.9% / 55–64 2.0% / 65+ 2.5%
+- age_18_34_combined: 78.0%
+- countries: India 45.6% / Turkey 15.1% / France 4.9% / Spain 2.7% / Japan 2.5%
+- top_source_reels_tab_pct: 77.8
+- top_source_explore_pct: 16.4
+- top_source_feed_pct: 5.8
+- instagram_labels: skip LOW, share LOW, like LOW, save LOW, repost HIGH, comment LOW
+- usual_reel_chart: Reel above account usual-Reel dashed line at ~2h in UI; exact comparator unknown
+- retention_curve: major early drop then low tail until ~33s; exact points unverified
+- video_observation: macro 6 o'clock small seconds at start; aged dial and operating hands in middle; side profile about 28s; display-back movement about 31s. AAC audio exists; alarm onset not independently verified.
+- caption_confirmation: opening text until 'Then comes the gong. Its clear, bright tone has earned' only; unseen continuation/hashtags unknown
+- source_status: CANONICAL_LOG_SCREENSHOT + USER_REPORTED_APPROXIMATE_PUBLICATION_TIME + USER_VIDEO_FILE_CHECK
+- screenshot_evidence: IMG_3199.jpeg; IMG_3200.png; IMG_3201.png; IMG_3202.png; IMG_3203.png; IMG_3204.png; IMG_3205.png; IMG_3206.png
+- video_evidence: A11CE39E-6AF8-443F-8A56-B2EDAED0E3E2(1).mp4 (33.0s, H.264 512×910, AAC)
+- note: Own-post and Insights both displayed 628. User supplied approximate 17:00 posting time; no exact timestamp. Shares count unknown despite displayed 0.0% share rate.
+
 ---
 
 # Pierce Duofon

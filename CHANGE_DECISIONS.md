@@ -2284,3 +2284,14 @@
 - **検証状態**：作業branchで差分反映中。WorkerのBehavior testsとdry-run compileはPR前push CIでPASS。初回PR CIではdecision logのcommit参照不足、次のCIでは追加した回帰ケースに対してテストが旧22件を固定していたためFAIL。前者へ個別commit参照を補完し、後者をLOCKED件数動的参照へ修正。新たなCI / main反映は結果で分離して報告し、未実行はPASSとしない。回帰fixture整合性のPASSは実Chat挙動の自動保証とは呼ばない。
 - **関連**：ユーザーの2026-10-19会話上の訂正、外部比較と音声訂正を残す `measurement/.internal/.virtual/social/instagram-operations.md`、Social `ROUTER.md`、Manager §2.5、branch `fix/council-v3-context-gate-20261019`。対象判断変更commits: `9734349d984b1b743a5587c7c70d813a6b1015a9`、`f57aae889f730bba6f7d745c1213c5ad2e70ee23`、`f8dbac3db3f4f7ccd23f41b39949a2213e61cdea`、`401403a0da2c16a3f3f256df64e9580adfb3e5a2`、`110e3dca067aa4200d047c0ccd78f974405c7cdf`、`347432d3e4407c1242503546524ccc3f3a47d3f1`、`cd38cfec33438754f7ea181b9f63bfc1ea661bb1`、`6b2f17c67bb48b7b302e888fe8fb7b61b13f543d`。
 - **日時根拠**：実行ホストの `TZ=Asia/Tokyo date` で `2026-10-19 19:16:14 JST` を確認。
+
+### 2026-10-19 19:46 JST — CYMA第3Reel公開とInstagram初回観測
+
+- **変更**: 2026-10-19公開 CYMA Time-O-Vox 18K Chronomètre の第3Reelを `IG-CYM-003` として投稿本文・Insights時系列・SNS運用・再利用素材索引に記録。文字盤のマクロ／6時スモセコ／秋の光の新規実使用素材 `CYM-14` を追加。双方向アラーム設定 `CYM-09` は公開本文で確認できた部分のみ `PARTIAL` とする。
+- **理由**: ユーザーの2026-10-19公開申告、19:04–19:05 JST公開投稿＋Insightsのスクリーンショット8枚、33秒実動画により新規公開と初期628views等を確認したため。
+- **起点 → 判断**: Uが実動画の制作・投稿・証拠提供。Aが正本記録と初期比較を行った。制作努力と初動の因果はUの可能性指摘であり、実測による確定ではない。
+- **旧状態・棄却**: `IG-CYM-001` / `IG-CYM-002`へ観測値を混合しない。公開本文の画像に見えない末尾・hashtagsを作文しない。CYM-09のスパイラルスプリング説明と精度推奨は今回の公開本文で確認されていない。SNSアルゴリズムの因果は未確認。
+- **影響範囲**: `measurement/.internal/.virtual/social/instagram-insights-timeseries.md`, `instagram-published-copy.md`, `content-inventory.md`, `instagram-operations.md`, `CHANGE_DECISIONS.md`。サイト公開ページ、ユーザーのReel、研究台帳、他PRは変更しない。
+- **検証状態**: main上で当該5ファイルと `IG-CYM-003` 件数、差分を再取得確認する。ローカル `check:instagram-insights`、`check:social-inventory`、`instagram:report` は実行可否と結果を別報告。公開サイトのdeployは対象外。
+- **関連**: `IG-CYM-003`, `CYM-14`, `CYM-09`, screenshots `IMG_3199.jpeg`–`IMG_3206.png`, user MP4 `A11CE39E-6AF8-443F-8A56-B2EDAED0E3E2(1).mp4`。
+- **日時根拠**: ホストコマンド `TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M JST'` による2026-10-19 19:46 JST確認。Insightsはスクショ画面時刻19:04–19:05、17時頃公開はユーザー概算。

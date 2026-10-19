@@ -2364,3 +2364,13 @@ collectit et wearit
 - **因果判定**: フォロー活動と再生増は同時期に起きたが、アルゴリズム上の因果やFF経由の視聴増は未証明。フォロワー外96.4%やリールタブ79.2%は推薦配布の現象であり、FF増加の証拠にはならない。
 - **再検証条件**: 投稿後24時間の同指標、相互フォローの実際の成立状況、プロフィール→英語HOW THEY RINGへの導線と別Reelの同経過時間帯を比較。今回のReelは削除・差替せず保持。
 - **範囲**: Social運用ログのみ。WATCH非公開状態、既存投稿、サイト、Routerのnormative ruleは未変更。
+
+## 2026-10-19 19:46 JST — CYMA Time-O-Vox third Reel (IG-CYM-003), first ~2h
+
+- **State**: ACTIVE / INITIAL OBSERVATION. Posted at approximately 17:00 JST on 2026-10-19 by user report; exact minute not independently verified. 19:04–19:05 JST screenshots from published Reel, 8 Insights screens and a 33s original video.
+- **Observed**: 628 views, 375 viewers, average 7s watch (33s video), skip 31.2% (Instagram label LOW), 12 likes, 1 repost, 1 save, 0 follows, 3 profile visits, 0 comments. Share count UI `--` (unknown), share rate 0.0% as separately displayed. Nonfollowers 95.5%; Reels-tab 77.8%, Explore 16.4%, Feed 5.8%. The Reel curve was ahead of the UI's dashed usual-Reel reference around 2h, with unknown numeric baseline.
+- **Creative verified**: moving close-up of small seconds at 6 in the first seconds, aged 18K dial with shifting light, side controls and movement-view late in the video. The visible published caption begins by directing attention to small seconds; it mentions autumn gold and bidirectional alarm setting. Screenshot cuts mid-gong sentence, so missing ending and hashtags remain unknown.
+- **Prior CYMA observational contrast**: first CYMA Reel on 2026-09-27 early had 141 views, mean 4s, skip 49.2% (post age uncertain). 2026-10-07 static photo/Edits Reel at ~54m had 107 views, mean 2s, skip 75.0%. Not duration- or format-matched; do not attribute all improvement causally to craft.
+- **Judgment**: early skip performance improved; 7s / 33s mean and small save/follow actions imply that hook success and downstream conversion must be separated. Check 6h and 24h snapshots before labeling breakout. User's statement that editing effort may have paid off is a hypothesis, not a proven mechanism.
+- **Sources**: `instagram-insights-timeseries.md` IG-CYM-003 (19:04–19:05); `instagram-published-copy.md` screenshot-visible caption; `content-inventory.md` assignment. Source screens `IMG_3199.jpeg`–`IMG_3206.png`, user original `A11CE39E-6AF8-443F-8A56-B2EDAED0E3E2(1).mp4`.
+- **Scope**: SNS documentation only. No WATCH/website/Instagram mutation.

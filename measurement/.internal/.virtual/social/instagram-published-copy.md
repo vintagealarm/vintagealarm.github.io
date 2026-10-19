@@ -115,6 +115,28 @@ From the side, it looks like a chronograph — but on the Cyma Time-O-Vox, those
 - Baseline and next grid observation: `instagram-insights-timeseries.md`; assignment state `content-inventory.md`.
 - Evidence: user-provided public caption / Reel screenshots dated 2026-10-07 and user-written Edits/BGM format note. No effect or reach guarantee is inferred from use of Edits.
 
+### Third CYMA Reel — small-seconds and autumn gold — published 2026-10-19
+
+- Content ID: `IG-CYM-003`, posted approximately 2026-10-19 17:00 JST (user approximate report; exact minute unknown). Public post screenshot `IMG_3199.jpeg`; Insights 19:04–19:05 `IMG_3200.png`–`IMG_3206.png`.
+- Video: 33.0s actual moving CYMA Time-O-Vox 18K Chronomètre, user file `A11CE39E-6AF8-443F-8A56-B2EDAED0E3E2(1).mp4`. Begins with 6 o'clock small-seconds macro, then full aged dial / right-side manipulation / late side and transparent movement view.
+- **PUBLISHED_CAPTION_PARTIAL_ONLY**. Published screenshot cuts off mid-sentence; full text, CTA and hashtags NOT verified. The following excerpt is the verbatim visible portion; it does not represent a complete caption.
+
+```text
+Look closely at the small seconds at 6 o’clock.
+
+There’s something about an aged gold watch that feels just right for autumn.
+
+This is the Cyma Time-O-Vox 18K Chronomètre. Its beautifully aged dial reveals a remarkable sense of depth as the light moves across it.
+
+Beyond its appearance lies an unusual feature: the alarm time can be set in either direction, something rarely found in mechanical alarm wristwatches.
+
+Then comes the gong. Its clear, bright tone has earned
+```
+
+- **Observed creative decision**: small seconds, aged 18K watch dial under changing light and an explicit bidirectional alarm-setting fact. Gong is mentioned, but actual hammer/tone-spring explanation (CYM-13) isn't in the visible text. Don't backfill the rest from a pre-publication draft.
+- **Distinction**: Prior `IG-CYM-001` highlighted 18K, open-work lugs, CHRONOMÈTRE and alarm sound; `IG-CYM-002` was an Edits still-photo side-profile Reel. This is a third separate published CYMA Reel, creative using new macro detail and partial reuse of CYM-09.
+
+
 ---
 
 ## Pierce Duofon

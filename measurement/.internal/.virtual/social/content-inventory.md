@@ -102,11 +102,13 @@ Canonical WATCH: `src/content/watches/cyma-time-o-vox.md`
 | CYM-06 | 裏蓋内側の18K 0.750 / Weber刻印 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Gallery `cyma-caseback-inside.jpg` |
 | CYM-07 | 「アラーム＋Chronomètre」の少数例という文献上の位置づけ | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | RECHECK_SOURCE | RESEARCH | WATCH Deep 02 / `Alarm am Arm` |
 | CYM-08 | 「アラームとクロノメーターという矛盾」＝精度を求める時計へアラーム機構を載せる設計上の緊張 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | RESEARCH | WATCH Deep 02。初回IGではChronomètre自体は使用済みだが、この設計上の緊張を主題にはしていない |
-| CYM-09 | アラーム時刻を双方向で設定できる。小さなスパイラルスプリングを含む切替機構が時計回り設定も可能にする。精度重視なら反時計回り推奨 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_SOURCE | OPERATION+MECHANISM | WATCH guide + Horlbeck R.464 discussion + USER_KEEP / USER_MERGE 2026-10-05 |
+| CYM-09 | アラーム時刻を双方向で設定できる。小さなスパイラルスプリングを含む切替機構が時計回り設定も可能にする。精度重視なら反時計回り推奨 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_SOURCE | OPERATION+MECHANISM | WATCH guide + Horlbeck R.464 discussion + USER_KEEP / USER_MERGE 2026-10-05; IG-CYM-003 published opening verifies bidirectional-setting mention only; spring/accuracy explanation not confirmed as published |
 | CYM-10 | Cymaflex耐震機構。ムーブメント側からC字形に見える独自の耐震構造 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+MECHANISM | Horlbeck R.464 discussion + USER_KEEP 2026-10-05 |
 | CYM-11 | tone springの空間を確保するための段付きムーブメント構造。裏スケ換装後の掲載個体ケース厚・実寸は訴求に使わない | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+MECHANISM | Horlbeck R.464 discussion + USER_KEEP 2026-10-05 |
 | CYM-12 | 1 crown + 2 pushersで横顔はクロノグラフ風だが、役割はalarm control | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+OPERATION | Beitl p.134 + WATCH side gallery + USER_KEEP 2026-10-05; Instagram Edits side-profile Reel 2026-10-07 IG-CYM-002, verified public caption |
 | CYM-13 | 大きなhammerがムーブメントを囲むtone springを叩く発音機構 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | SOUND+MECHANISM | Beitl p.136 + Humbert R.464 + USER_KEEP 2026-10-05 |
+
+| CYM-14 | 6時スモールセコンドの接写・経年18K文字盤の陰影・光の変化 | USED | NO_EXPLICIT_USE_FOUND_2026-10-19 | READY_EXISTING | READY_FROM_USER_VIDEO | DETAIL | Instagram IG-CYM-003, 2026-10-19 video + published text opening |
 | CYM-ON | OWNER'S NOTE全体 | WHOLE_ONLY | NO_EXPLICIT_USE_FOUND_2026-10-03 | OWNER_NOTE_HERO_ONLY | READY_FROM_WATCH | OWNER_NOTE_WHOLE | WATCH `ownersNote` |
 
 ## Pierce Duofon
@@ -282,6 +284,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | IG-WIT-002 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | STATIC_CAROUSEL | WIT-02 | — | USER:POCKETSHOT-20261003;WIT:IMG_6609.jpeg | published-copy + Insights |
 | IG-CYM-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | CYM-01 | — | SOCIAL:IG-CYM-FIRST-REEL | published-copy |
 | IG-CYM-002 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | CYM-12 | — | USER:CYMA-SIDE-STILL-EDITS-BGM-20261007 | published 2026-10-07 ~05:40 JST user report; photo-to-Reel via Edits with BGM; published-caption screenshot 06:34; Insights baseline 06:34; profile grid view 161 at 2026-10-10 00:31 |
+| IG-CYM-003 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | CYM-14 | CYM-09 | USER:A11CE39E-6AF8-443F-8A56-B2EDAED0E3E2(1).mp4 | User reports publication 2026-10-19 ~17:00 JST; 19:04–19:05 public/Insights screenshots; 33s video, caption ending and hashtags unverified |
 | IG-PIE-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | PIE-01 | — | SOCIAL:IG-PIE-FIRST-REEL | published-copy |
 | IG-BAS-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | BAS-01 | — | SOCIAL:IG-BAS-FIRST-REEL | published-copy |
 | IG-BAS-002 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | STATIC_CAROUSEL | BAS-05 | BAS-01 | USER:IMG_8890.jpeg;USER:IMG_9196.jpeg;USER:IMG_9197.jpeg;USER:IMG_9199.jpeg | 2026-10-12 ~08:25 JST screenshot `IMG_3014.jpeg` confirms full caption, 4-photo carousel; exact publish time and Insights unknown; published-copy |
