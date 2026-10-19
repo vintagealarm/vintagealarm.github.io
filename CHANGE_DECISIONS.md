@@ -2274,3 +2274,13 @@
 - **検証状態**：原本再取得・旧文字列の単一箇所置換・参考URLのWeb検出を実施。PR差分、CI、main再取得、Pages公開照合は別途結果をもって判定する。
 - **関連**：当該チャットのU指示、ARSA Research Ledger/Map、Davoine 1970 p.102、US365032「Watch」、Europa Star Swisstime 1967。
 - **日時根拠**：実行環境の `new Date().toISOString()` = `2026-10-19T09:24:05.222Z` → Asia/Tokyo `2026-10-19 18:24 JST` に変換。
+
+### 2026-10-19 19:16 JST — 宮廷道化師の文脈欠落・Instagram媒体逸脱・無断Work移管を再発防止
+
+- **変更**：Council V3のFool's License pre-flightへ `taskContract` を追加し、対象媒体・読者・出力言語・原稿保持・ユーザー訂正・実行場所を未復元のまま批判開始しない。空欄・単独未確認placeholderを拒否。比較外部動画のUI画面録画尺と元Reel尺、音声キャプチャ欠落と実投稿音声、一般的短尺推奨と根拠ある編集判断を区別する。ManagerのIN_CHAT / NO_HANDOFFは同一作業の「続けて」「はよやれ」でも継続。既存回帰集合にCYMA/Instagram評価事故とWork無断移管事故を追加し、Worker Jester pre-flightのunit testも追加する。
+- **理由**：33秒CYMA ReelのInstagram向けcaption評価で、以前に共有されたWittnauerとinfinitydials CYMA比較の現行記録・ユーザー音声訂正を十分に評価せず、一般的な短尺理屈で否定した。さらに海外Instagram向け英語全文・hashtags・自然な日本語訳、絵文字無し、ユーザー原稿という条件を途中で落とした。再発防止実装の依頼を、このチャットでGitHub操作を試す前にWorkへ無断移管した。
+- **旧状態・棄却**：9項目が非空文字列であれば無礼許可が発効する構造、task frameを別管理せず批評へ進む運用、直前の明示的移管拒否を続行指示でリセットする解釈を棄却。比較動画だけから33秒維持の効果を断定する逆方向の飛躍も採用しない。
+- **影響範囲**：`council-worker/src/v3.ts`、`council-worker/test/v3.behavior.test.ts`、`council-worker/V3.md`、`council-worker/README.md`、`.codex/MANAGER_CONTROL_PLANE.md`、`.codex/inference-guard-cases.json`、本ログ。Instagram公開本文・WATCH記事・実動画・サイトUIは変更しない。
+- **検証状態**：作業branchで差分反映中。worker test / inference-guard check / decision-log check / PR CI / mainへの反映は実行結果で分離して報告し、未実行はPASSとしない。回帰fixture整合性のPASSは実Chat挙動の自動保証とは呼ばない。
+- **関連**：ユーザーの2026-10-19会話上の訂正、外部比較と音声訂正を残す `measurement/.internal/.virtual/social/instagram-operations.md`、Social `ROUTER.md`、Manager §2.5、branch `fix/council-v3-context-gate-20261019`。
+- **日時根拠**：実行ホストの `TZ=Asia/Tokyo date` で `2026-10-19 19:16:14 JST` を確認。
