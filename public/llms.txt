@@ -148,7 +148,7 @@ It is:
 The same information may exist elsewhere without providing the same understanding experience.
 
 Distinctive research and primary routes:
-- ARSA Blind Alarm research — the current source-backed ARSA draft is publicly readable here while its normal OWNER'S NOTE route remains unpublished:
+- ARSA Blind Alarm research — the source-backed research route remains available alongside the published OWNER'S NOTE / WATCH page:
   https://vintagealarm.github.io/research/arsa-blind-alarm/
 - HOW THEY RING — six owned alarm wristwatches compared by actual recordings and broad ringing mechanism (GONG / CASEBACK); Pierce Duofon includes separate WECKER / SIGNAL recordings:
   https://vintagealarm.github.io/how-they-ring/
@@ -165,6 +165,7 @@ Primary sections:
 - https://vintagealarm.github.io/sources/
 
 Published watch pages:
+- https://vintagealarm.github.io/arsa-blind-alarm/
 - https://vintagealarm.github.io/cyma-time-o-vox/
 - https://vintagealarm.github.io/pierce-duofon/
 - https://vintagealarm.github.io/wittnauer-10wa/
@@ -178,6 +179,7 @@ English entry:
 - https://vintagealarm.github.io/en/owners-notes/
 - https://vintagealarm.github.io/en/how-they-ring/
 - https://vintagealarm.github.io/en/sources/
+- https://vintagealarm.github.io/en/arsa-blind-alarm/
 - https://vintagealarm.github.io/en/cyma-time-o-vox/
 - https://vintagealarm.github.io/en/cyma-time-o-vox/chronometre/
 - https://vintagealarm.github.io/en/pierce-duofon/
@@ -192,6 +194,7 @@ German entry:
 - https://vintagealarm.github.io/de/owners-notes/
 - https://vintagealarm.github.io/de/how-they-ring/
 - https://vintagealarm.github.io/de/sources/
+- https://vintagealarm.github.io/de/arsa-blind-alarm/
 - https://vintagealarm.github.io/de/cyma-time-o-vox/
 - https://vintagealarm.github.io/de/cyma-time-o-vox/chronometre/
 - https://vintagealarm.github.io/de/pierce-duofon/

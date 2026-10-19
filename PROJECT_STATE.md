@@ -65,7 +65,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - SMARTWATCHはHISTORYのエピローグ。検索流入目的ではなく `noindex,follow`、sitemap対象外
 - 日本語WATCH本文が多言語版の意味上の正本
 - 公開中のWATCH routeの正本は `src/content/watches/*.md` の `published: true`。**公開本数と対象一覧をこのStateへ固定しない**。`public/llms.txt` と各checkerは作業時点のfrontmatterへ追従する。Analytics運用上の **measurement target 5本**（Basis / Pierce / Cyma / Citizen / Westclox）は公開状態とは別の固定groupingとする
-- **ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT。** 非公開指定を `true` へ戻さない。旧実装で公開された履歴は保持するが、再公開はユーザーの新しい明示指示がある場合だけ行う
+- **ARSA Blind Alarmは `published: true` がユーザー意図のCURRENT。** 2026-10-19のユーザー明示指示「公開してよいです」により、通常WATCHをJA / EN / DEで正式公開する。公開集合は固定本数ではなく全WATCHのfrontmatterへ動的追従する
 - 6個体のSNS再利用は `content-inventory.md` を商品棚として管理する。OWNER'S NOTEは1個体1完成物で分割禁止。実投稿証拠は `instagram-published-copy.md`、数値は `instagram-insights-timeseries.md` のまま分離する
 - SNS再利用の現行運用は **micro-Reel ACTIVE**。`content-inventory.md` の独立資産を原則 `1 Reel = 1要素` の短編動画へ分解し、画面文字は最小限、1操作・1機構・1ディテール単位で扱う。静止画カルーセルは補助扱い。これは2026-10-03 Wittnauer 10WA静止画カルーセルの観測を受けた比較施策であり、「静止画は常に不利」「動画なら必ず伸びる」という因果確定ではない。実績評価は今後のmicro-Reel Insightsで別途観測する
 - Xの投稿本文生成・language / audience / character limit / transformation / destinationのCURRENTは Social Router の **X CURRENT OUTPUT CONTRACT** を正とする。このStateへ値を複製しない
@@ -74,7 +74,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で公開可否、`locales` で公開言語を制御する
-- **RESEARCH公開対象は日本語のみ。** 第一号ARSA Blind Alarmは `/research/arsa-blind-alarm/` で表示する。2026-10-18に誤って公開したEN/DE RESEARCH routeは公開対象から撤回した。**ARSA WATCHはJA/EN/DEとも下書き**で、通常WATCH用のJA `src/content/watches/arsa-blind-alarm.md` にある `published: false` が共通release gate。EN/DE翻訳は `src/data/watch-locales/arsa-en.json` / `arsa-de.json` のPages CMS editable dataを参照する。通常の公開WATCH routeは3言語すべて生成しない。一方、ユーザー確認用の `noindex,nofollow,noarchive` プレビューはJA `/preview/watch/arsa-blind-alarm/`、EN `/preview/watch/arsa-blind-alarm/en/`、DE `/preview/watch/arsa-blind-alarm/de/` を生成し、各言語の完成OWNER'S NOTE画像と相互言語切替を表示する。sitemapには載せない。スライド・画像・他WATCHは不変。
+- **RESEARCH公開対象は日本語のみ。** ARSA Blind Alarmの独立RESEARCHは `/research/arsa-blind-alarm/` で表示し、EN / DE RESEARCH routeは撤回状態を維持する。**通常ARSA WATCHはJA `/arsa-blind-alarm/`、EN `/en/arsa-blind-alarm/`、DE `/de/arsa-blind-alarm/` を公開する。** `src/content/watches/arsa-blind-alarm.md` の `published: true` が3言語共通release gateで、EN / DE本文は `src/data/watch-locales/arsa-en.json` / `arsa-de.json` のPages CMS editable dataを参照する。既存の `noindex,nofollow,noarchive` プレビュー3言語は確認用として維持し、sitemapには載せない。
 - 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
 - HOW THEY RINGの現行分類は **GONG / CASEBACK の2種類だけ**。詳細機構を第三・第四カテゴリへ増やさない。

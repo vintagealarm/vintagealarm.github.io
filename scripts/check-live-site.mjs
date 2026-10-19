@@ -115,7 +115,8 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     }
   }
 
-  if (!watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published) {
+  const arsaWatchPublished = watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published ?? false;
+  if (!arsaWatchPublished) {
     const preview = await get('preview/watch/arsa-blind-alarm/');
     if (!preview.ok) failures.push(`ARSA owner preview unavailable: HTTP ${preview.status}`);
     if (preview.ok && !preview.text.includes('noindex,nofollow,noarchive')) failures.push('ARSA owner preview lost noindex');
@@ -128,12 +129,34 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
       if (!localizedPreview.ok) failures.push(`ARSA ${locale} owner preview unavailable: HTTP ${localizedPreview.status}`);
       if (localizedPreview.ok && !localizedPreview.text.includes('noindex,nofollow,noarchive')) failures.push(`ARSA ${locale} owner preview lost noindex`);
       if (localizedPreview.ok && !localizedPreview.text.includes(`/images/arsa-blind-alarm/owners-note-${locale}-20261019.png`)) failures.push(`ARSA ${locale} owner preview lost localized image`);
-      for (const rel of [`${locale}/arsa-blind-alarm/`, `${locale}/research/arsa-blind-alarm/`]) {
-        const page = await get(rel);
-        if (page.ok) failures.push(`${rel}: ARSA WATCH draft / revoked RESEARCH publicly accessible`);
-        if (sitemap.ok && sitemap.text.includes(`https://vintagealarm.github.io/${rel}`)) failures.push(`${rel}: leaked into live sitemap`);
-      }
+      const rel = `${locale}/arsa-blind-alarm/`;
+      const page = await get(rel);
+      if (page.ok) failures.push(`${rel}: unpublished ARSA WATCH publicly accessible`);
+      if (sitemap.ok && sitemap.text.includes(`https://vintagealarm.github.io/${rel}`)) failures.push(`${rel}: unpublished ARSA WATCH leaked into live sitemap`);
     }
+  } else {
+    for (const [locale, rel, image] of [
+      ['ja', 'arsa-blind-alarm/', 'owners-note-ja-20261019.png'],
+      ['en', 'en/arsa-blind-alarm/', 'owners-note-en-20261019.png'],
+      ['de', 'de/arsa-blind-alarm/', 'owners-note-de-20261019.png']
+    ]) {
+      const page = await get(rel);
+      if (!page.ok) failures.push(`${rel}: published ARSA WATCH HTTP ${page.status}`);
+      if (page.ok && !page.text.includes(`lang="${locale}"`)) failures.push(`${rel}: published ARSA WATCH language missing`);
+      if (page.ok && !page.text.includes(`/images/arsa-blind-alarm/${image}`)) failures.push(`${rel}: localized ARSA OWNER'S NOTE image missing`);
+      if (page.ok && page.text.includes('noindex,nofollow,noarchive')) failures.push(`${rel}: published ARSA WATCH retained preview robots policy`);
+      if (sitemap.ok && !sitemap.text.includes(`https://vintagealarm.github.io/${rel}`)) failures.push(`${rel}: published ARSA WATCH missing from sitemap`);
+    }
+    for (const [name, page] of [["JA OWNER'S NOTES", owners], ["EN OWNER'S NOTES", englishOwners], ["DE OWNER'S NOTES", germanOwners], ['JA HISTORY', history]]) {
+      if (page.ok && !page.text.includes('/images/IMG_3117-1.jpeg')) failures.push(`${name}: published ARSA specimen thumbnail missing`);
+      if (page.ok && page.text.includes('/images/arsa-blind-alarm/draft-placeholder.svg')) failures.push(`${name}: ARSA draft placeholder remains after release`);
+    }
+  }
+  for (const locale of ['en', 'de']) {
+    const rel = `${locale}/research/arsa-blind-alarm/`;
+    const page = await get(rel);
+    if (page.ok) failures.push(`${rel}: revoked ARSA RESEARCH publicly accessible`);
+    if (sitemap.ok && sitemap.text.includes(`https://vintagealarm.github.io/${rel}`)) failures.push(`${rel}: revoked ARSA RESEARCH leaked into live sitemap`);
   }
   const researchLocales = new Set(researchSettings.locales ?? []);
   const researchEntries = Array.isArray(researchSettings.entries) ? researchSettings.entries : [];

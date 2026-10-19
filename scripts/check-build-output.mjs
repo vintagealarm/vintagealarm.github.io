@@ -295,12 +295,25 @@ for (const stale of ['鐘から現在まで。アラーム腕時計の歴史を�
 }
 if (!xHtml.includes('noindex,follow')) failures.push('X: profile entry route lost noindex,follow');
 
-if (!watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published) {
-  for (const locale of ['en', 'de']) {
-    for (const prefix of [`${locale}/arsa-blind-alarm/`, `${locale}/research/arsa-blind-alarm/`]) {
-      if (fs.existsSync(path.join(dist, prefix, 'index.html'))) failures.push(`${prefix}: unpublished ARSA WATCH / revoked RESEARCH route generated`);
-      if (sitemap.includes(`https://vintagealarm.github.io/${prefix}`)) failures.push(`${prefix}: unpublished or revoked ARSA URL leaked into sitemap`);
-    }
+const arsaWatchPublished = watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published ?? false;
+for (const locale of ['en', 'de']) {
+  const watchPrefix = `${locale}/arsa-blind-alarm/`;
+  const researchPrefix = `${locale}/research/arsa-blind-alarm/`;
+  if (!arsaWatchPublished && fs.existsSync(path.join(dist, watchPrefix, 'index.html'))) failures.push(`${watchPrefix}: unpublished ARSA WATCH route generated`);
+  if (!arsaWatchPublished && sitemap.includes(`https://vintagealarm.github.io/${watchPrefix}`)) failures.push(`${watchPrefix}: unpublished ARSA WATCH URL leaked into sitemap`);
+  if (fs.existsSync(path.join(dist, researchPrefix, 'index.html'))) failures.push(`${researchPrefix}: revoked ARSA RESEARCH route generated`);
+  if (sitemap.includes(`https://vintagealarm.github.io/${researchPrefix}`)) failures.push(`${researchPrefix}: revoked ARSA RESEARCH URL leaked into sitemap`);
+}
+if (arsaWatchPublished) {
+  for (const [name, html, route] of [
+    ["JA OWNER'S NOTES", ownersHtml, 'arsa-blind-alarm/#owners-note'],
+    ["EN OWNER'S NOTES", englishOwnersHtml, 'en/arsa-blind-alarm/'],
+    ["DE OWNER'S NOTES", germanOwnersHtml, 'de/arsa-blind-alarm/'],
+    ['JA HISTORY', historyHtml, 'arsa-blind-alarm/#owners-note']
+  ]) {
+    if (!html.includes(route)) failures.push(`${name}: published ARSA link missing`);
+    if (!html.includes('/images/IMG_3117-1.jpeg')) failures.push(`${name}: published ARSA specimen thumbnail missing`);
+    if (html.includes('/images/arsa-blind-alarm/draft-placeholder.svg')) failures.push(`${name}: ARSA draft placeholder remains after release`);
   }
 }
 const researchLocales = new Set(researchSettings.locales ?? []);
@@ -526,7 +539,7 @@ const soundGallerySlugs = [
 ];
 const soundGalleryFiles = fs.readdirSync(soundGalleryDir).filter((file) => file.endsWith('.md')).sort();
 if (JSON.stringify(soundGalleryFiles) !== JSON.stringify(soundGallerySlugs.map((slug) => `${slug}.md`))) {
-  failures.push(`Independent sound gallery CMS entries differ from the six published watches: ${soundGalleryFiles.join(', ')}`);
+  failures.push(`Independent sound gallery CMS entries differ from the six configured sound-gallery watches: ${soundGalleryFiles.join(', ')}`);
 }
 for (const slug of soundGallerySlugs) {
   const entryPath = path.join(soundGalleryDir, `${slug}.md`);
