@@ -147,8 +147,9 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
       if (page.ok && page.text.includes('noindex,nofollow,noarchive')) failures.push(`${rel}: published ARSA WATCH retained preview robots policy`);
       if (sitemap.ok && !sitemap.text.includes(`https://vintagealarm.github.io/${rel}`)) failures.push(`${rel}: published ARSA WATCH missing from sitemap`);
     }
-    for (const [name, page] of [["JA OWNER'S NOTES", owners], ["EN OWNER'S NOTES", englishOwners], ["DE OWNER'S NOTES", germanOwners], ['JA HISTORY', history]]) {
-      if (page.ok && !page.text.includes('/images/IMG_3117-1.jpeg')) failures.push(`${name}: published ARSA specimen thumbnail missing`);
+    const arsaDirectory = ownersDirectory.entries.find((entry) => entry.historyId === 'arsa-blind-alarm');
+    for (const [name, page, thumbnail] of [["JA OWNER'S NOTES", owners, arsaDirectory?.ownersThumbnail ?? arsaDirectory?.image], ["EN OWNER'S NOTES", englishOwners, arsaDirectory?.ownersThumbnail ?? arsaDirectory?.image], ["DE OWNER'S NOTES", germanOwners, arsaDirectory?.ownersThumbnail ?? arsaDirectory?.image], ['JA HISTORY', history, arsaDirectory?.historyThumbnail ?? arsaDirectory?.image]]) {
+      if (page.ok && (!thumbnail || !page.text.includes(thumbnail))) failures.push(`${name}: published ARSA specimen thumbnail missing`);
       if (page.ok && page.text.includes('/images/arsa-blind-alarm/draft-placeholder.svg')) failures.push(`${name}: ARSA draft placeholder remains after release`);
     }
   }
