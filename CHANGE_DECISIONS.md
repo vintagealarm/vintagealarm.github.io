@@ -2304,3 +2304,13 @@
 - **検証状態**：第三代の実装・テストと事故会話の因果は区別して監査。PR閉鎖結果はGitHub再取得で確認し、候補文書の差分・decision gateはPR CIで確認する。四代目の実モデルReplayや正式任命はNOT_RUN / NOT_DECIDED。
 - **関連**：PR #250 `2abae6a4ecffd8a86b52c4feb65a4a5fac864dd1`、PR #264 `45af72668054050739f1580e7436c3d7c87071a7`、本会話のU指示、`council-worker/src/third-jester-gate.mjs`、`council-worker/src/v3.ts`。
 - **日時根拠**：実行時UTC `2026-10-19T13:03:25.784Z` をAsia/Tokyoへ変換し `2026-10-19 22:03 JST` と確認。
+
+
+### 2026-10-19 23:20 JST — 四代目宮廷道化師の採用・実装
+- **変更**：ユーザーの「実装して４代目で稼働で」により候補を採用。既存7の四代目版に発言者別の原文引用チェック、AI/Council自身の仮説監査、未探索分野の資料照会先、異論の撤回条件、silent hookの原文照合を実装。形式1〜6は互換維持。
+- **理由**：ARSAでユーザーの可能性例示をAIの仮説に誤帰属し、企業資料・現行製品の探索不足を放置した失敗を再発条件にする。U→U採用、A実装。
+- **旧状態・棄却**：三代目PR #250/#264は未マージ・閉鎖のまま。書類の形式検査だけで実研究能力を保証する旧路線を復活させない。墓碑の原因記録は保持。
+- **影響範囲**：Council Workerの形式7と1〜6のsilent hook、Council正本、README、Research墓碑、Stateの参照、テスト、本ログ。WATCH・SNS運用・サイトの出力内容は変更しない。
+- **検証状態**：原文帰属・ARSA・UI・SNSのmock/API回帰、Worker dry-run、CI、main再取得で判定。外部Cloudflare稼働と実モデルの成果測定は独立。mockによるPASSを意味理解の完成とみなさない。
+- **関連**：PR #265、コミット `c67a42740338898b2091f6a5363674fc4211f6f5`、`9d70eff95be5fb4fd02fdc79c95d87983900ebea`、`49964f601bf8c86bf511569286cb7427f05be670`、`council-worker/V3.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`。
+- **日時根拠**：実行ホスト 2026-10-19T14:20:00.255Z UTC → Asia/Tokyo 2026-10-19 23:20 JST。
