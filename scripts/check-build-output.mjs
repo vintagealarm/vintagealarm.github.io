@@ -535,12 +535,12 @@ for (const [name, html] of [['TOP', homeHtml], ['X', xHtml]]) {
 
 const soundGalleryDir = path.join(root, 'src/content/how-they-ring');
 const soundGallerySlugs = [
-  'basis-alarm', 'citizen-alarm', 'cyma-time-o-vox',
+  'arsa-blind-alarm', 'basis-alarm', 'citizen-alarm', 'cyma-time-o-vox',
   'pierce-duofon', 'westclox-watchlarm', 'wittnauer-10wa'
 ];
 const soundGalleryFiles = fs.readdirSync(soundGalleryDir).filter((file) => file.endsWith('.md')).sort();
 if (JSON.stringify(soundGalleryFiles) !== JSON.stringify(soundGallerySlugs.map((slug) => `${slug}.md`))) {
-  failures.push(`Independent sound gallery CMS entries differ from the six configured sound-gallery watches: ${soundGalleryFiles.join(', ')}`);
+  failures.push(`Independent sound gallery CMS entries differ from the seven configured sound-gallery watches: ${soundGalleryFiles.join(', ')}`);
 }
 for (const slug of soundGallerySlugs) {
   const entryPath = path.join(soundGalleryDir, `${slug}.md`);
