@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { hookContext, jesterPreflight, render } from "../src/v3";
+import { hookContext, jesterPreflight, jesterAttributionAudit, render } from "../src/v3";
 
 const board = {
   items: [
@@ -101,6 +101,10 @@ const completeJesterContext = {
   observationBoundary: "今回の連続作業の開始点から現在まで",
   exclusionsWithReasons: "除外なし（今回の連続作業すべてを対象にする）",
   taskContract: "媒体・読者・言語・出力形式・原稿保持・作業場所の契約を再確認済み",
+  claimProvenance: [
+    { id: "U1", origin: "user", speechAct: "example", excerpt: "ARSAの針が頻発問題で強化された可能性もある" },
+    { id: "C1", origin: "council", speechAct: "hypothesis", excerpt: "H1: ARSAは問題頻発で針の固定を強化した" },
+  ],
 };
 
 test("Fool's License stays inactive when current-session self-audit is missing", () => {
@@ -146,4 +150,69 @@ test("placeholder context is not accepted as restored evidence", () => {
   });
   assert.equal(result.eligible, false);
   assert.deepEqual(result.missing, ["correctionsReversals", "evidenceTrail"]);
+});
+
+test("preflight refuses missing, invalid or duplicate claim origins", () => {
+  const { claimProvenance: _omitted, ...context } = completeJesterContext;
+  assert.deepEqual(jesterPreflight({ jesterContext: context }).missing, ["claimProvenance"]);
+  for (const claimProvenance of [
+    [],
+    [{ id: "U1", origin: "user", speechAct: "invented", excerpt: "ARSAでの調査例示" }],
+    [completeJesterContext.claimProvenance[0], completeJesterContext.claimProvenance[0]],
+  ]) {
+    const result = jesterPreflight({ jesterContext: { ...completeJesterContext, claimProvenance } });
+    assert.equal(result.eligible, false);
+    assert.ok(result.missing.includes("claimProvenance"));
+  }
+});
+
+test("ARSA exploratory example cannot be presented as a user belief", () => {
+  const x = jesterAttributionAudit(completeJesterContext.claimProvenance, {
+    noObjection: false,
+    targets: [{ claimId: "U1", targetOrigin: "user", asUserCommitment: true,
+      critique: "陛下は改良されたと信じているのでしょう" }],
+  });
+  assert.equal(x.valid, false);
+  assert.match(x.violations.join(","), /exploratory\/non-user/);
+});
+
+test("AI/Council-created H1 must not be reassigned to the user", () => {
+  const x = jesterAttributionAudit(completeJesterContext.claimProvenance, {
+    noObjection: false,
+    targets: [{ claimId: "C1", targetOrigin: "user", asUserCommitment: false,
+      critique: "ユーザーの仮説は不十分" }],
+  });
+  assert.equal(x.valid, false);
+  assert.match(x.violations.join(","), /origin mismatch/);
+});
+
+test("Jester may critique Council's own H1 with attribution intact", () => {
+  const x = jesterAttributionAudit(completeJesterContext.claimProvenance, {
+    noObjection: false,
+    targets: [{ claimId: "C1", targetOrigin: "council", asUserCommitment: false,
+      critique: "H1はCouncilが作った推測なのに設計史を確認していない",
+      alternative: "ARSAの各世代の針固定方式を調べる" }],
+  });
+  assert.equal(x.valid, true);
+  assert.match(x.text, /council \/ hypothesis/);
+  assert.match(x.text, /各世代/);
+});
+
+test("confirmed user decision remains a legitimate target", () => {
+  const x = jesterAttributionAudit([{
+    id: "U2", origin: "user", speechAct: "decision", excerpt: "この変更を採用すると決定する"
+  }], { noObjection: false, targets: [{
+    claimId: "U2", targetOrigin: "user", asUserCommitment: true,
+    critique: "採用決定は現行の公開規約と衝突する"
+  }] });
+  assert.equal(x.valid, true);
+});
+
+test("malformed reply, fabricated target and true no-objection are distinguished", () => {
+  const c = completeJesterContext.claimProvenance;
+  assert.equal(jesterAttributionAudit(c, "free-form accusation").valid, false);
+  assert.equal(jesterAttributionAudit(c, { noObjection: false, targets: [
+    { claimId: "Z99", targetOrigin: "user", asUserCommitment: true, critique: "fabricated" }
+  ] }).valid, false);
+  assert.equal(jesterAttributionAudit(c, { noObjection: true, targets: [] }).text, "今回は異議なし🤡");
 });
