@@ -2245,3 +2245,13 @@
 - **検証状態**：本番の英独OWNER'S NOTE画像が受領原本と同一SHA-256であること、日本語RESEARCHが `owners-note-ja-20261019.png` を参照することを確認。修正後にlive publication check、CI、再deployを実行する。
 - **関連**：PR #258、merge commit `3906d41c8f0dc6e60273c4e0dd5676912bc1d7d3`、失敗run `39182411053`。
 - **日時根拠**：実行ホストのJST時計で `2026-10-19 12:49:33 +09:00` を確認し、分単位表記を12:50 JSTへ丸めた。
+
+### 2026-10-19 14:46 JST — CMS画像重複によるPages公開停止を解消
+
+- **変更**：完全一致する画像 `public/images/IMG_3179-1.jpeg` を削除し、`src/data/owners-directory.json` 内のHISTORYサムネイル参照を保持した `/images/IMG_3179.jpeg` へ統一。OWNER'S NOTEサムネイル側は既に元画像を参照していたため変更なし。
+- **理由**：GitHub Pages run `39204388326` の `check:images` が両ファイルの完全重複（1,579,951 bytes・Git blob SHA `10f7606cff563f9da49f476b6c997d29e3911a2b`）を検出し失敗。重複削除後のrun `39206144632` は `/history/`、`/en/history/`、`/de/history/` の旧画像参照により `check:links` が失敗。画像と参照を両方整理する必要があった。
+- **旧状態・棄却**：ファイル二重保持と片側削除だけの修復をSUPERSEDED。CMSで設定されたARSAの `published: true`、Catch、Lead、NOTE、画像設定を勝手に戻す案は採用しない。
+- **影響範囲**：重複画像1件の削除、`owners-directory.json` の `historyThumbnail` 1件、変更決定ログ。ARSA個別ページの画像参照や本文は不変更。
+- **検証状態**：GitHub main tree上で保持ファイル1件のみ確認。前回失敗ログの画像重複・参照不整合を確認済み。修正後のdeploy成功・live再取得はこの記録時点では未確認、Actionsで別途検証する。
+- **関連**：コミット `6a2714e599acd46cd46935f1af8bcbcdad12c7ac`、`c830dd5bee242912fec1c54fe9234dc0801727fa`。
+- **日時根拠**：GitHub ActionsログのUTC `2026-10-19T05:45:21Z` はJST `2026-10-19 14:45:21`。直後の修正・記録につき14:46 JSTを作業時刻の近似値として記載。
