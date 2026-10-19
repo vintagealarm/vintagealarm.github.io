@@ -79,9 +79,10 @@ for (const file of files().filter(f => f.endsWith('.html'))) {
   const ogLocale = value('og:locale');
   for (const key of ['og:site_name', 'og:type', 'twitter:card']) value(key);
   const htmlNode = nodes.find(n => n.tagName === 'html');
-  const language = page === '/en/' || page.startsWith('/en/')
+  const previewLocale = page.match(/^\/preview\/watch\/[^/]+\/(en|de)\/$/)?.[1];
+  const language = page === '/en/' || page.startsWith('/en/') || previewLocale === 'en'
     ? { code: 'en', locale: 'en_US', label: 'English' }
-    : page === '/de/' || page.startsWith('/de/')
+    : page === '/de/' || page.startsWith('/de/') || previewLocale === 'de'
       ? { code: 'de', locale: 'de_DE', label: 'German' }
       : { code: 'ja', locale: 'ja_JP', label: 'Japanese' };
   if (!htmlNode || attr(htmlNode, 'lang') !== language.code) fail(`${language.label} page must use html lang="${language.code}"`);

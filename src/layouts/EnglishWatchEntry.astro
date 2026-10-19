@@ -15,16 +15,16 @@ import { applyPierceEnglishResearchCorrection } from '../lib/pierce-factual-corr
 import '../styles/site.css';
 import '../styles/owners-v15.css';
 
-const { watch, entry, research = false } = Astro.props;
+const { watch, entry, research = false, preview = false } = Astro.props;
 const localizedEntry = watch.slug === 'cyma-time-o-vox' ? englishCymaEntry : entry;
 const fullResearch = applyPierceEnglishResearchCorrection(englishFullResearchWithCyma[watch.slug], watch.slug);
 const germanEntry = germanWatchEntriesWithCyma[watch.slug];
 const siteRoot = 'https://vintagealarm.github.io/';
-const englishPath = research ? `en/research/${watch.slug}/` : `en/${watch.slug}/`;
-const japanesePath = research ? `research/${watch.slug}/` : `${watch.slug}/`;
+const englishPath = preview ? `preview/watch/${watch.slug}/en/` : research ? `en/research/${watch.slug}/` : `en/${watch.slug}/`;
+const japanesePath = preview ? `preview/watch/${watch.slug}/` : research ? `research/${watch.slug}/` : `${watch.slug}/`;
 const pageUrl = new URL(englishPath, siteRoot).href;
 const japaneseUrl = new URL(japanesePath, siteRoot).href;
-const germanUrl = germanEntry ? new URL(research ? `de/research/${watch.slug}/` : `de/${watch.slug}/`, siteRoot).href : null;
+const germanUrl = germanEntry ? new URL(preview ? `preview/watch/${watch.slug}/de/` : research ? `de/research/${watch.slug}/` : `de/${watch.slug}/`, siteRoot).href : null;
 const socialImage = watch.specimenGallery?.[0]?.image ?? watch.ownersNote.image;
 const imageUrl = new URL(socialImage.replace(/^\//, ''), siteRoot).href;
 const pageTitle = fullResearch?.title ?? localizedEntry.title;
@@ -48,8 +48,8 @@ const translatedOwnersNote = {
                 : watch.ownersNote.image
 };
 const languageLinks = [
-  { href: research ? `/research/${watch.slug}/` : `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
-  ...(germanEntry ? [{ href: research ? `/de/research/${watch.slug}/` : `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
+  { href: preview ? `/preview/watch/${watch.slug}/` : research ? `/research/${watch.slug}/` : `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
+  ...(germanEntry ? [{ href: preview ? `/preview/watch/${watch.slug}/de/` : research ? `/de/research/${watch.slug}/` : `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
 ];
 const schema = {
   '@context': 'https://schema.org',
@@ -112,11 +112,11 @@ const schema = {
       type="article"
       locale="en_US"
       schema={schema}
+      robots={preview ? 'noindex,nofollow,noarchive' : undefined}
       alternates={[
-        { hreflang: 'en', href: pageUrl },
-        ...(germanUrl ? [{ hreflang: 'de', href: germanUrl }] : []),
-        { hreflang: 'ja', href: japaneseUrl },
-        { hreflang: 'x-default', href: japaneseUrl }
+        ...(!preview ? [{ hreflang: 'en', href: pageUrl }] : []),
+        ...(!preview && germanUrl ? [{ hreflang: 'de', href: germanUrl }] : []),
+        ...(!preview ? [{ hreflang: 'ja', href: japaneseUrl }, { hreflang: 'x-default', href: japaneseUrl }] : [])
       ]}
     />
   </head>

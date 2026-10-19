@@ -13,12 +13,12 @@ import { applyPierceGermanEntryCorrection } from '../lib/pierce-factual-correcti
 import '../styles/site.css';
 import '../styles/owners-v15.css';
 
-const { watch, entry: rawEntry, research = false } = Astro.props;
+const { watch, entry: rawEntry, research = false, preview = false } = Astro.props;
 const entry = applyPierceGermanEntryCorrection(rawEntry, watch.slug);
 const siteRoot = 'https://vintagealarm.github.io/';
-const germanPath = research ? `de/research/${watch.slug}/` : `de/${watch.slug}/`;
-const japanesePath = research ? `research/${watch.slug}/` : `${watch.slug}/`;
-const englishPath = research ? `en/research/${watch.slug}/` : `en/${watch.slug}/`;
+const germanPath = preview ? `preview/watch/${watch.slug}/de/` : research ? `de/research/${watch.slug}/` : `de/${watch.slug}/`;
+const japanesePath = preview ? `preview/watch/${watch.slug}/` : research ? `research/${watch.slug}/` : `${watch.slug}/`;
+const englishPath = preview ? `preview/watch/${watch.slug}/en/` : research ? `en/research/${watch.slug}/` : `en/${watch.slug}/`;
 const pageUrl = new URL(germanPath, siteRoot).href;
 const japaneseUrl = new URL(japanesePath, siteRoot).href;
 const englishUrl = new URL(englishPath, siteRoot).href;
@@ -103,11 +103,9 @@ const schema = {
       type="article"
       locale="de_DE"
       schema={schema}
+      robots={preview ? 'noindex,nofollow,noarchive' : undefined}
       alternates={[
-        { hreflang: 'de', href: pageUrl },
-        { hreflang: 'en', href: englishUrl },
-        { hreflang: 'ja', href: japaneseUrl },
-        { hreflang: 'x-default', href: japaneseUrl }
+        ...(!preview ? [{ hreflang: 'de', href: pageUrl }, { hreflang: 'en', href: englishUrl }, { hreflang: 'ja', href: japaneseUrl }, { hreflang: 'x-default', href: japaneseUrl }] : [])
       ]}
     />
   </head>
@@ -116,8 +114,8 @@ const schema = {
       rightLabel={research ? "RESEARCH" : "OWNER'S NOTE"}
       lang="de"
       languageLinks={[
-        { href: research ? `/research/${watch.slug}/` : `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
-        { href: research ? `/en/research/${watch.slug}/` : `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }
+        { href: preview ? `/preview/watch/${watch.slug}/` : research ? `/research/${watch.slug}/` : `/${watch.slug}/`, label: '日本語', hreflang: 'ja' },
+        { href: preview ? `/preview/watch/${watch.slug}/en/` : research ? `/en/research/${watch.slug}/` : `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }
       ]}
     />
     <main>

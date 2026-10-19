@@ -120,8 +120,14 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     if (!preview.ok) failures.push(`ARSA owner preview unavailable: HTTP ${preview.status}`);
     if (preview.ok && !preview.text.includes('noindex,nofollow,noarchive')) failures.push('ARSA owner preview lost noindex');
     if (preview.ok && !preview.text.includes('④ アラームON/OFF')) failures.push('ARSA owner preview lost corrected guide');
+    if (preview.ok && !preview.text.includes('/preview/watch/arsa-blind-alarm/en/')) failures.push('ARSA owner preview lost EN switch');
+    if (preview.ok && !preview.text.includes('/preview/watch/arsa-blind-alarm/de/')) failures.push('ARSA owner preview lost DE switch');
     if (sitemap.ok && sitemap.text.includes('https://vintagealarm.github.io/preview/watch/arsa-blind-alarm/')) failures.push('ARSA preview leaked into live sitemap');
     for (const locale of ['en', 'de']) {
+      const localizedPreview = await get(`preview/watch/arsa-blind-alarm/${locale}/`);
+      if (!localizedPreview.ok) failures.push(`ARSA ${locale} owner preview unavailable: HTTP ${localizedPreview.status}`);
+      if (localizedPreview.ok && !localizedPreview.text.includes('noindex,nofollow,noarchive')) failures.push(`ARSA ${locale} owner preview lost noindex`);
+      if (localizedPreview.ok && !localizedPreview.text.includes(`/images/arsa-blind-alarm/owners-note-${locale}-20261019.png`)) failures.push(`ARSA ${locale} owner preview lost localized image`);
       for (const rel of [`${locale}/arsa-blind-alarm/`, `${locale}/research/arsa-blind-alarm/`]) {
         const page = await get(rel);
         if (page.ok) failures.push(`${rel}: ARSA WATCH draft / revoked RESEARCH publicly accessible`);

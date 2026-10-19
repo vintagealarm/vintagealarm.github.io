@@ -19,6 +19,11 @@ const germanWatchRoutes = watchStates
 const researchRoutes = researchSettings.published
   ? researchSettings.locales.flatMap((locale) => researchSettings.entries.map((slug) => `${locale === 'ja' ? '' : `${locale}/`}research/${slug}/`))
   : [];
+const arsaPreviewRoutes = [
+  'preview/watch/arsa-blind-alarm/',
+  'preview/watch/arsa-blind-alarm/en/',
+  'preview/watch/arsa-blind-alarm/de/'
+];
 const routes = [
   '',
   'history/',
@@ -42,6 +47,7 @@ const routes = [
   'de/sources/',
   'de/cyma-time-o-vox/chronometre/',
   ...germanWatchRoutes,
+  ...arsaPreviewRoutes,
   'history/smartwatch/'
 ];
 const widths = [320, 390, 768];
@@ -87,6 +93,21 @@ try {
       }
       if (result.brokenImages.length) {
         failures.push(`${width}px ${route || '/'}: broken images: ${result.brokenImages.join(', ')}`);
+      }
+
+      if (arsaPreviewRoutes.includes(route) && width <= 390) {
+        const previewState = await page.evaluate(() => ({
+          lang: document.documentElement.lang,
+          robots: document.querySelector('meta[name="robots"]')?.getAttribute('content') || '',
+          image: document.getElementById('owners-note')?.closest('section')?.querySelector('img')?.getAttribute('src') || '',
+          languageLinks: [...document.querySelectorAll('.section-language-link')].map((link) => link.getAttribute('href') || '')
+        }));
+        const expectedLang = route.endsWith('/en/') ? 'en' : route.endsWith('/de/') ? 'de' : 'ja';
+        const expectedImage = `/images/arsa-blind-alarm/owners-note-${expectedLang}-20261019.png`;
+        if (previewState.lang !== expectedLang) failures.push(`${width}px ${route}: html lang is not ${expectedLang}`);
+        if (previewState.robots !== 'noindex,nofollow,noarchive') failures.push(`${width}px ${route}: preview robots drifted`);
+        if (previewState.image !== expectedImage) failures.push(`${width}px ${route}: localized OWNER'S NOTE image missing (${previewState.image})`);
+        if (previewState.languageLinks.length !== 2) failures.push(`${width}px ${route}: expected two language switches`);
       }
 
       if (['pierce-duofon/', 'en/pierce-duofon/', 'de/pierce-duofon/'].includes(route)) {
@@ -207,7 +228,7 @@ try {
         if (!topState.localizedOwnerLink) failures.push(`${width}px ${route}: localized OWNER'S NOTES link missing`);
       }
 
-      if (englishWatchRoutes.includes(route) && width <= 390) {
+      if ((englishWatchRoutes.includes(route) || route === 'preview/watch/arsa-blind-alarm/en/') && width <= 390) {
         const englishState = await page.evaluate(() => ({
           lang: document.documentElement.lang,
           japaneseLanguageLink: [...document.links].some((link) =>
@@ -242,7 +263,7 @@ try {
         if (!soundState.japaneseLanguageLink) failures.push(`${width}px ${route}: compact Japanese language switch missing`);
       }
 
-      if (germanWatchRoutes.includes(route) && width <= 390) {
+      if ((germanWatchRoutes.includes(route) || route === 'preview/watch/arsa-blind-alarm/de/') && width <= 390) {
         const germanState = await page.evaluate(() => ({
           lang: document.documentElement.lang,
           japaneseLanguageLink: [...document.links].some((link) =>
