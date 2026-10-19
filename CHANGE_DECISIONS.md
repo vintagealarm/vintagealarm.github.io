@@ -2265,3 +2265,12 @@
 - **検証状態**：GitHub main登録と元ファイル存在を確認。Actions build/deploy/live checksは実行後に別途確認する。
 - **関連**：`5b459f191fa92987cdeb5b0987820547424b1312`、`bfe790dbfb55213353ae24b9ef94324adf8e9158`。
 - **日時根拠**：GitHub Actions run `39215874627` の `2026-10-19T07:25:20Z` は `2026-10-19 16:25:20 JST`。
+
+### 2026-10-19 18:24 JST — ARSA時針の確定表記と既存出典リンク・特許標題の限定修正
+- **変更**：ARSA通常WATCH日本語・英語・ドイツ語のDEEP DIVE 03の「接触による時針の動作は未確認／到着後確認」を取り下げ、「掲載個体の時針は指で直接触れても動かない」に同期。Davoine 1970出典を閲覧可能なScribd版（印刷p.102）へ、1967年ARSA hunter出典をEuropa StarのSwisstime記事へ修復し、US365032の出典名を正式標題「Watch」へ訂正。ARSA Research Ledger/Mapにもユーザー確定訂正の起点を記録。
+- **理由**：原提案の取捨選択から逸脱しないこと、ユーザーによる時針の直接接触時不動の最終確定とリンク修復・特許標題の明示指示（U → U採用）。古い出典URLの閲覧性と特許名の正確性を回復する。
+- **旧状態・棄却**：従来は触読針の動作を「未確認／到着後」と記載していた。時針を直接触る場合と分針を意図的に回し続けて時針が連動する場合を混同しない。図解、1915年以降の戦時史料追加、Venus 230機構比較、1886年の新たな説明、OWNER'S NOTE書き換え、追加実機試験はいずれも今回の対象外。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md`、`src/data/watch-locales/arsa-en.json`、`src/data/watch-locales/arsa-de.json`、`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本判断ログに限定。公開設定・写真・音声・ギャラリー・他WATCH・既存ソース番号は不変更。
+- **検証状態**：原本再取得・旧文字列の単一箇所置換・参考URLのWeb検出を実施。PR差分、CI、main再取得、Pages公開照合は別途結果をもって判定する。
+- **関連**：当該チャットのU指示、ARSA Research Ledger/Map、Davoine 1970 p.102、US365032「Watch」、Europa Star Swisstime 1967。
+- **日時根拠**：実行環境の `new Date().toISOString()` = `2026-10-19T09:24:05.222Z` → Asia/Tokyo `2026-10-19 18:24 JST` に変換。

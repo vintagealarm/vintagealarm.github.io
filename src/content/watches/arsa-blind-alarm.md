@@ -96,7 +96,7 @@ deepDive:
       - AS1475は直径25.94mm、高さ5.8mm、17石、18,000振動／時。時刻用とアラーム用にそれぞれ香箱を持つ手巻きアラームムーブメントで、通常は2時側がアラーム、4時側が時計を担当する。専門書には約40時間の持続時間と10〜15秒のアラーム時間が記録されている。
       - 前蓋を開くと、盛り上がった目盛と三本の針へ直接触れられる。太い時分針から現在時刻を読み、独立したアラーム針から設定時刻を確認する。AS1475はセンター秒針に対応するが、このBlind
         Alarmでは触読を妨げる秒針を省いている。
-      - 1957年出願の触覚表示特許US2915874Aは、針へ直接触れる従来方式について、接触で針の設定がずれる問題を挙げている。ARSA掲載個体で同じ不具合が起きるかは未確認であり、触読時の針の保持と操作感は到着後の確認事項とする。
+      - 1957年出願の触覚表示特許US2915874Aは、針へ直接触れる従来方式について、接触で針の設定がずれる問題を挙げている。掲載個体の時針は、指で直接触れても動かない。
       - 1967年のARSA hunter pocket
         watchにも、リューズ上のボタンで前蓋を開く構造が確認されている。リューズ一体型の蓋開閉はBlind
         Alarmで触読に役立つが、ARSAが視覚障害者向けに専用開発した構造とは断定しない。
@@ -183,10 +183,9 @@ sources:
   - Leonhard Beitl, 『Alarm am Arm』(2009), pp.26, 54, 74ほか（ARSA Blind
     Alarm、AFB、Enicar、BEAT、A. Schild）
   - "[Davoine 1970 — A. Reymond SA company
-    advertisement](https://doc.rero.ch/record/323602/files/DAVOINE_1970-2.pdf)（\
+    advertisement](https://fr.scribd.com/document/705289724/DAVOINE-1970-2)（印刷p.102。\
     Montres pour aveugles / Montres bracelet réveil）"
-  - "[US365032 — Watch for the
-    Blind](https://patents.google.com/patent/US365032)（1887年、触覚目盛・触覚針）"
+  - "[US365032 — Watch](https://patents.google.com/patent/US365032)（1887年、触覚目盛・触覚針）"
   - "[Blind Veterans UK — History /
     Archives](https://www.blindveterans.org.uk/about-us/who-we-are/our-history/\
     )（1915年創設、St Dunstan'sの触読時計とリハビリテーション）"
@@ -204,8 +203,8 @@ sources:
   - "[US2915874A — Tactile
     Indicators](https://patents.google.com/patent/US2915874)（1957年出願。針へ直接触れる方式の\
     setting disturbance）"
-  - "[Swisstime — ARSA hunter pocket
-    watch](https://www.swisstime.ch/news/history-of-the-ar-hunter-pocket-watch/\
+  - "[Europa Star / Swisstime — ARSA hunter pocket
+    watch](https://www.europastar.com/swisstime/1004104967-arsa.html\
     )（1967年、リューズ一体型の前蓋開閉ボタン）"
   - "[Uhrforum — ARSA Blindenwecker / Venus 230
     survivor](https://uhrforum.de/threads/vintage-armbandwecker-zeigt-sie-in-bi\
