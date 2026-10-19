@@ -125,6 +125,11 @@ Claim Boardとして、主張、支持根拠、反証、未確認を分ける。
 
 広い依頼では代表例の抜粋を「全体」と呼ばない。時計の遍歴・売買・修理・保有意志を含むならVINTAGE ALARM研究正本に加え `orima1995-create/watchdiary-ios` のCURRENT Issue群まで辿る。SNS / AnalyticsならRouterだけでなく時系列、実投稿、Decision→Evidenceまで辿る。必要正本を取得できない場合は「把握済み」と演じず不足を明示する。
 
+### 発言帰属のfail-closed
+
+正本は `V3.md`「Claim provenance gate」。明示7は従来の文脈フィールドに加え、発言単位の `claimProvenance: [{id, origin, speechAct, excerpt}]` が必須。WorkerはJesterの構造化批判のtarget ID・origin・確定見解扱いを入力と突合する。不正時は `attribution-hold` となり批判しない。
+
+元の問い・可能性の例示をユーザーの持論と捉えず、Council自身が生成した仮説はCouncilとして批判する。旧Workerクライアントの7番入力にはclaimProvenanceの追加が必要で、欠落時はライセンス保留となる。1〜6の形式・番号は維持。構造化ゲートの合格はAIの意味理解の完全保証ではない。
 ## 住民設計
 
 住民は架空の家族構成・年齢・性別を足して人間らしくするのではなく、**認識論的な判断方針**を持つ。
