@@ -2282,5 +2282,5 @@
 - **旧状態・棄却**：9項目が非空文字列であれば無礼許可が発効する構造、task frameを別管理せず批評へ進む運用、直前の明示的移管拒否を続行指示でリセットする解釈を棄却。比較動画だけから33秒維持の効果を断定する逆方向の飛躍も採用しない。
 - **影響範囲**：`council-worker/src/v3.ts`、`council-worker/test/v3.behavior.test.ts`、`council-worker/V3.md`、`council-worker/README.md`、`.codex/MANAGER_CONTROL_PLANE.md`、`.codex/inference-guard-cases.json`、本ログ。Instagram公開本文・WATCH記事・実動画・サイトUIは変更しない。
 - **検証状態**：作業branchで差分反映中。worker test / inference-guard check / decision-log check / PR CI / mainへの反映は実行結果で分離して報告し、未実行はPASSとしない。回帰fixture整合性のPASSは実Chat挙動の自動保証とは呼ばない。
-- **関連**：ユーザーの2026-10-19会話上の訂正、外部比較と音声訂正を残す `measurement/.internal/.virtual/social/instagram-operations.md`、Social `ROUTER.md`、Manager §2.5、branch `fix/council-v3-context-gate-20261019`。
+- **関連**：ユーザーの2026-10-19会話上の訂正、外部比較と音声訂正を残す `measurement/.internal/.virtual/social/instagram-operations.md`、Social `ROUTER.md`、Manager §2.5、branch `fix/council-v3-context-gate-20261019`。対象判断変更commits: `9734349d984b1b743a5587c7c70d813a6b1015a9`、`f57aae889f730bba6f7d745c1213c5ad2e70ee23`、`f8dbac3db3f4f7ccd23f41b39949a2213e61cdea`、`401403a0da2c16a3f3f256df64e9580adfb3e5a2`、`110e3dca067aa4200d047c0ccd78f974405c7cdf`、`347432d3e4407c1242503546524ccc3f3a47d3f1`。
 - **日時根拠**：実行ホストの `TZ=Asia/Tokyo date` で `2026-10-19 19:16:14 JST` を確認。
