@@ -2255,3 +2255,13 @@
 - **検証状態**：GitHub main tree上で保持ファイル1件のみ確認。前回失敗ログの画像重複・参照不整合を確認済み。修正後のdeploy成功・live再取得はこの記録時点では未確認、Actionsで別途検証する。
 - **関連**：コミット `6a2714e599acd46cd46935f1af8bcbcdad12c7ac`、`c830dd5bee242912fec1c54fe9234dc0801727fa`。
 - **日時根拠**：GitHub ActionsログのUTC `2026-10-19T05:45:21Z` はJST `2026-10-19 14:45:21`。直後の修正・記録につき14:46 JSTを作業時刻の近似値として記載。
+
+### 2026-10-19 16:25 JST — ARSA Blind AlarmをHOW THEY RING CASEBACKへ追加
+
+- **変更**：CMS既存音源 `/audio/alarms/arsa-blind-alarm.m4a` と所有個体画像 `/images/IMG_3179.jpeg` を参照する `src/content/how-they-ring/arsa-blind-alarm.md` を新設、CASEBACK分類・掲載ONで登録。日英独で共通使用するギャラリー順序へ `arsa-blind-alarm` を追加。
+- **理由**：ユーザーが画像・音源のCMS登録済み、CASEBACK分類、7本目の日英独公開を明示承認。既存のギャラリーは6本を固定列挙し、ARSAの個体定義がなかった。
+- **旧状態・棄却**：音源をアップロードしただけでは掲載されない状態を修正。根拠のない録音機材・録音距離・加工状態は追加しない。GONG/CASEBACK二分類とほかの個体データは維持。
+- **影響範囲**：HOW THEY RING個体コンテンツ1件、日英独共通の掲載順1件、本判断ログ。ARSA WATCH/OWNER'S NOTE本文、既存画像・音源bytes不変更。
+- **検証状態**：GitHub main登録と元ファイル存在を確認。Actions build/deploy/live checksは実行後に別途確認する。
+- **関連**：`5b459f191fa92987cdeb5b0987820547424b1312`、`bfe790dbfb55213353ae24b9ef94324adf8e9158`。
+- **日時根拠**：GitHub Actions run `39215874627` の `2026-10-19T07:25:20Z` は `2026-10-19 16:25:20 JST`。
