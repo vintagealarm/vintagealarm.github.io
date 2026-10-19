@@ -142,7 +142,7 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
         failures.push(`research/${slug}: HTTP ${research.status}`);
         continue;
       }
-      for (const marker of ['RESEARCH', 'ARSA BLIND ALARM', 'ちなみに、麻酔針は出ない。', '/images/arsa-blind-alarm/draft-placeholder.svg']) {
+      for (const marker of ['RESEARCH', 'ARSA BLIND ALARM', 'ちなみに、麻酔針は出ない。', '/images/arsa-blind-alarm/owners-note-ja-20261019.png']) {
         if (!research.text.includes(marker)) failures.push(`research/${slug}: copied source marker missing: ${marker}`);
       }
       if (!research.text.includes(researchUrl)) failures.push(`research/${slug}: canonical URL missing`);

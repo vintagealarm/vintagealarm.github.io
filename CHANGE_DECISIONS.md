@@ -2213,3 +2213,13 @@
 - **検証状態**：両画像を原寸で目視し、文字欠け・衝突なしを確認。ともに1146×1600。受領原本とGitHub保存後のSHA-256完全一致、Astro build、画像重複gate、生成物の画像hash / 公開状態gateを確認。PR CIはpush後に別判定する。
 - **関連**：PR #258。新EN SHA-256 `4d39a4217227a3fc3722f6b4d8066a71624f060bba4fe57e8075299b6a855a39`、新DE `3815acd36e9dcbbc2fd8d3db2b55679218dab11ee29198a8225ebe26a4b39b67`。旧hashは08:09 JST項目に履歴として保持する。
 - **日時根拠**：実行ホストのJST時計で `2026-10-19 09:22:58 +09:00` を確認し、分単位表記を09:23 JSTへ丸めた。
+
+### 2026-10-19 12:50 JST — ARSA公開後検査を現行OWNER'S NOTE画像へ同期
+
+- **変更**：`scripts/check-live-site.mjs` のARSA RESEARCH画像markerを、失効した `draft-placeholder.svg` から現行の日本語OWNER'S NOTE画像 `owners-note-ja-20261019.png` へ更新する。
+- **理由**：PR #258のPages deployと57件のlive artifact parityは成功し、日英独画像も本番へ反映された一方、live publication checkだけが旧placeholderを要求して失敗したため。
+- **旧状態・棄却**：旧gateは2026-10-19 08:09 JSTの画像差替え前の参照を保持していた。公開ページをplaceholderへ戻す、ARSA通常WATCHを公開する、英独RESEARCHを再公開する変更は行わない。
+- **影響範囲**：本番検査marker 1件と本ログのみ。公開コンテンツ、画像bytes、`published: false`、RESEARCHの日本語限定設定は不変更。
+- **検証状態**：本番の英独OWNER'S NOTE画像が受領原本と同一SHA-256であること、日本語RESEARCHが `owners-note-ja-20261019.png` を参照することを確認。修正後にlive publication check、CI、再deployを実行する。
+- **関連**：PR #258、merge commit `3906d41c8f0dc6e60273c4e0dd5676912bc1d7d3`、失敗run `39182411053`。
+- **日時根拠**：実行ホストのJST時計で `2026-10-19 12:49:33 +09:00` を確認し、分単位表記を12:50 JSTへ丸めた。
