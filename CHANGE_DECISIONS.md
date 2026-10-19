@@ -2202,3 +2202,14 @@
 - **検証状態**：削除前に両ファイルのSHA-256 `4bfe3f6258e1c4442479c4e0391358ce13a411d4754c16455318092a238a97e8`一致を確認。build、画像重複gate、GitHub CIは修正commit後に再実行する。
 - **関連**：PR #252、PR #258、Pages CMS commit `8799faedc65826e646cc744916dd0b6bae2201d8`、`scripts/check-image-duplicates.mjs`。
 - **日時根拠**：実行ホストのJST時計で `2026-10-19 08:18:42 +09:00` を確認。
+
+### 2026-10-19 09:23 JST — ARSA OWNER'S NOTE英独画像を語感修正版へ更新
+
+- **変更**：ARSA英語版NOTEの `built sturdy enough` を `built to withstand direct touch` へ改め、`centre` / `anaesthetic` の英国綴りへ統一。ドイツ語版NOTE末尾を `Eine Narkosenadel kommt dabei nicht zum Vorschein.` へ自然化したGoogle Slidesから、ユーザーが再書き出した `ARSA_EN.png` / `ARSA_DE.png` をGitHub上の同言語OWNER'S NOTE画像へ差し替え、build gateのSHA-256も新画像へ同期する。
+- **理由**：意味・事実・操作説明を変えず、前回画像に残っていた英語の非母語的表現と表記ゆれ、ドイツ語の機械的な言い回しだけを直すため。ユーザーが修正採用、Slides更新、再書き出し画像のGitHub差替えを順に明示した。
+- **起点→判断**：Aが任意の語感調整候補を指摘 → Uが修正を採用し、再書き出し画像を提示してGitHub差替えを指示 → U採用。
+- **旧状態・棄却**：旧EN画像の `built sturdy enough` / `center` / `anesthetic` と旧DE画像の `Narkosenadel fährt dabei nicht heraus` をSUPERSEDEDとする。Lead、操作ガイド、写真、配置、日本語画像、WATCH本文、`published: false` は変更しない。
+- **影響範囲**：`public/images/arsa-blind-alarm/owners-note-en-20261019.png`、`owners-note-de-20261019.png`、`scripts/check-build-output.mjs`、本ログのみ。
+- **検証状態**：両画像を原寸で目視し、文字欠け・衝突なしを確認。ともに1146×1600。受領原本とGitHub保存後のSHA-256完全一致、Astro build、画像重複gate、生成物の画像hash / 公開状態gateを確認。PR CIはpush後に別判定する。
+- **関連**：PR #258。新EN SHA-256 `4d39a4217227a3fc3722f6b4d8066a71624f060bba4fe57e8075299b6a855a39`、新DE `3815acd36e9dcbbc2fd8d3db2b55679218dab11ee29198a8225ebe26a4b39b67`。旧hashは08:09 JST項目に履歴として保持する。
+- **日時根拠**：実行ホストのJST時計で `2026-10-19 09:22:58 +09:00` を確認し、分単位表記を09:23 JSTへ丸めた。

@@ -111,8 +111,8 @@ for (const [lang, route, expectedSha] of [
 const arsaPublished = watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published ?? false;
 for (const [lang, route, expectedSha, sourcePath] of [
   ['ja', 'arsa-blind-alarm/index.html', '897458909bf1ac603b3f6823f6d1b22b47ead2523e289a26fe0be7fbef7b06c9', 'src/content/watches/arsa-blind-alarm.md'],
-  ['en', 'en/arsa-blind-alarm/index.html', '3215b22c50d620e54fe5ebb387add10ab2b48f9eae7c4903fc37cc59cecf1b95', 'src/layouts/EnglishWatchEntry.astro'],
-  ['de', 'de/arsa-blind-alarm/index.html', '4ddc30f3afaba319b4e3125a8ee1396dc4cfe6a253d5a9f5d22626825def4c83', 'src/layouts/GermanWatchEntry.astro']
+  ['en', 'en/arsa-blind-alarm/index.html', '4d39a4217227a3fc3722f6b4d8066a71624f060bba4fe57e8075299b6a855a39', 'src/layouts/EnglishWatchEntry.astro'],
+  ['de', 'de/arsa-blind-alarm/index.html', '3815acd36e9dcbbc2fd8d3db2b55679218dab11ee29198a8225ebe26a4b39b67', 'src/layouts/GermanWatchEntry.astro']
 ]) {
   const assetPath = `images/arsa-blind-alarm/owners-note-${lang}-20261019.png`;
   const builtAsset = path.join(dist, assetPath);
