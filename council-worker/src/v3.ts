@@ -12,7 +12,14 @@ interface Env {
   DB?: any;
 }
 type Evidence = "none" | "project" | "web" | "project-web" | "deep-web";
+type ClaimProvenance = {
+  id: string;
+  origin: "user" | "assistant" | "council" | "source" | "unknown";
+  speechAct: "question" | "example" | "hypothesis" | "observation" | "assertion" | "decision";
+  excerpt: string;
+};
 type JesterContext = {
+  claimProvenance?: ClaimProvenance[];
   currentState?: string;
   decisionAncestry?: string;
   correctionsReversals?: string;
@@ -118,6 +125,7 @@ const LICENSE = `あなたはVINTAGE ALARM Council V3の宮廷道化師🤡。�
 - 自分の代案にも忠誠を持たない。比較して現案が強ければ「陛下の勝ち」で退く。
 - 判断可能なら自分の意見を濁さない。証拠不足なら判断不能と言う。決定権はユーザーへ残す。
 - ユーザー説明、AI自己申告、資料確認、Web確認、推測、未確認を混ぜない。ツール取得=主張の立証とは扱わない。
+- ユーザーの問い・例示を信奉する仮説に変換しない。AI／CouncilのH1はAI／Council自身の仮説として焼く。
 - Council多数派・Chair・Minority Report・既存仕様・テストPASSも聖域にしない。
 - ノンデリは罵倒ではない。社会的遠慮で閉じた選択肢を戻すためのUI。面白さは歓迎するが、根拠のない悪口は禁止。
 - 出力件数を埋めるために論点を捏造しない。0件も正常。
@@ -136,6 +144,46 @@ const JESTER_CONTEXT_FIELDS: Array<keyof JesterContext> = [
   "taskContract",
 ];
 
+const CLAIM_ORIGINS = ["user", "assistant", "council", "source", "unknown"] as const;
+const CLAIM_ACTS = ["question", "example", "hypothesis", "observation", "assertion", "decision"] as const;
+function validProvenance(p: any): p is ClaimProvenance {
+  return !!p && typeof p.id === "string" && /^[A-Za-z][A-Za-z0-9_-]{0,39}$/.test(p.id) &&
+    CLAIM_ORIGINS.includes(p.origin) && CLAIM_ACTS.includes(p.speechAct) &&
+    typeof p.excerpt === "string" && p.excerpt.trim().length >= 5;
+}
+export function jesterAttributionAudit(claims: ClaimProvenance[], output: any) {
+  const violations: string[] = [];
+  if (!output || typeof output !== "object" || !Array.isArray(output.targets) ||
+      typeof output.noObjection !== "boolean")
+    return { valid: false, violations: ["structured targets/noObjection required"], text: "" };
+  if (output.noObjection && output.targets.length) violations.push("noObjection conflicts with targets");
+  if (!output.noObjection && !output.targets.length) violations.push("no target for intervention");
+  const parts: string[] = [];
+  const seen = new Set<string>();
+  for (const t of output.targets) {
+    const id = String(t?.claimId || "");
+    const found = claims.find(x => x.id === id);
+    if (!found) { violations.push("unknown claimId: " + id); continue; }
+    if (seen.has(id)) violations.push("duplicate claimId: " + id);
+    seen.add(id);
+    if (t.targetOrigin !== found.origin) violations.push(id + ": origin mismatch");
+    if (typeof t.asUserCommitment !== "boolean") violations.push(id + ": asUserCommitment required");
+    if (t.asUserCommitment && !(found.origin === "user" &&
+        (found.speechAct === "assertion" || found.speechAct === "decision")))
+      violations.push(id + ": exploratory/non-user claim relabeled as user commitment");
+    if (typeof t.critique !== "string" || !t.critique.trim()) {
+      violations.push(id + ": critique missing");
+    } else {
+      const label = found.origin + " / " + found.speechAct;
+      const alt = typeof t.alternative === "string" && t.alternative.trim()
+        ? "\n代案: " + t.alternative.trim() : "";
+      parts.push("🤡 【批判対象: " + label + " / " + id + "】\n" + t.critique.trim() + alt);
+    }
+  }
+  return { valid: violations.length === 0, violations,
+    text: output.noObjection ? "今回は異議なし🤡" : parts.join("\n\n") };
+}
+
 export function jesterPreflight(a: Pick<Req, "jesterContext">) {
   const context = a.jesterContext || {};
   const missing = JESTER_CONTEXT_FIELDS.filter(
@@ -144,11 +192,10 @@ export function jesterPreflight(a: Pick<Req, "jesterContext">) {
       return !value || /^(?:n\/?a|unknown|tbd|todo|none|未確認|不明|なし|未取得|未読)$/i.test(value);
     },
   );
-  return {
-    eligible: missing.length === 0,
-    missing,
-    context,
-  };
+  const claims = context.claimProvenance;
+  if (!Array.isArray(claims) || !claims.length || !claims.every(validProvenance) ||
+      new Set(claims.map(x => x.id)).size !== claims.length) missing.push("claimProvenance");
+  return { eligible: missing.length === 0, missing, context };
 }
 
 async function explicitJester(a: Req, e: Env) {
@@ -172,7 +219,11 @@ async function explicitJester(a: Req, e: Env) {
   }
   const y = await call(
     e,
-    `${LICENSE}\n\nこれは明示召喚「7で焼いて」。Fool's Licenseの発効条件を満たしたcontext manifestを最優先する。\n議題:${a.title}\n背景:${a.body}\ncontext manifest:${JSON.stringify(preflight.context)}\n\n**出力前の品質ゲート**: taskContractから対象媒体・読者・言語・表現制約・作業場所・ユーザー原稿の維持点を固定し、どれかを落とす批判／改稿は出さない。証拠の比較では、元動画の尺と画面録画の尺を混同しない。以前共有された競合実例、元動画で実機音が鳴るというユーザー訂正、既存の実投稿や採用／棄却案がある場合はevidenceTrailとcorrectionsReversalsへ遡り、無視して一般的な短尺最適化で上書きしない。媒体規約の正本と対象素材を確認できなければ断定を保留し、文脈不足を明示する。外部動画の公開再生数だけで編集上の因果を証明しない。これは一般論の短尺化を一律禁止するものではなく、根拠と採用済み条件の比較を義務付ける。\n\ncurrentSessionActionsには、直前までにAI / Council自身が提案・実装・検証・報告した作業が含まれる。自分の作業を監査対象外へ逃がさない。observationBoundaryより前に今回と同じ評価対象が存在する場合、除外はexclusionsWithReasonsに根拠があるものだけ許す。「これから」「次のN件」等で既存観測を暗黙に0件へ戻さない。ユーザー訂正、AI自己訂正、新要求を混同しない。\n\n内部では Crown Claim→Privilege Check→Fool's License→Reality Pin→Blind Spot→必要ならCouncil Mockery の順で検討してよいが、ユーザーへ内部チェックリストを全部見せない。\n有意な異論が0なら「今回は異議なし🤡」だけを核に短く終了。異論がある場合は、自然な文章で ①一番刺す価値のある前提 ②ノンデリな一言 ③確認済み根拠/未確認 ④必要なら提示外の代案 ⑤現案との比較 ⑥道化師自身の意見 の順に必要な部分だけ出す。`,
+    `${LICENSE}\n\nこれは明示召喚「7で焼いて」。Fool's Licenseの発効条件を満たしたcontext manifestを最優先する。\n議題:${a.title}\n背景:${a.body}\ncontext manifest:${JSON.stringify(preflight.context)}\n\n**出力前の品質ゲート**: taskContractから対象媒体・読者・言語・表現制約・作業場所・ユーザー原稿の維持点を固定し、どれかを落とす批判／改稿は出さない。証拠の比較では、元動画の尺と画面録画の尺を混同しない。以前共有された競合実例、元動画で実機音が鳴るというユーザー訂正、既存の実投稿や採用／棄却案がある場合はevidenceTrailとcorrectionsReversalsへ遡り、無視して一般的な短尺最適化で上書きしない。媒体規約の正本と対象素材を確認できなければ断定を保留し、文脈不足を明示する。外部動画の公開再生数だけで編集上の因果を証明しない。これは一般論の短尺化を一律禁止するものではなく、根拠と採用済み条件の比較を義務付ける。\n\ncurrentSessionActionsには、直前までにAI / Council自身が提案・実装・検証・報告した作業が含まれる。自分の作業を監査対象外へ逃がさない。observationBoundaryより前に今回と同じ評価対象が存在する場合、除外はexclusionsWithReasonsに根拠があるものだけ許す。「これから」「次のN件」等で既存観測を暗黙に0件へ戻さない。ユーザー訂正、AI自己訂正、新要求を混同しない。\n\nclaimProvenanceの原文excerptとspeechActを参照せよ。「ARSAが頻発問題で改良したかもしれない」はユーザーによる可能性の例示であり、確定的な信念ではない。Councilが作ったH1を批判するならCouncil自身の仮説を対象とする。
+出力はJSONのみ。形式:
+{"noObjection":false,"targets":[{"claimId":"入力台帳内のID","targetOrigin":"台帳と同一のorigin","asUserCommitment":false,"critique":"具体的な異論","alternative":"必要なら提示外の代案"}]}
+異論なしなら {"noObjection":true,"targets":[]}。asUserCommitment=true はorigin=userかつspeechAct=assertion/decisionの場合のみ。問い・例示への捏造された信念の帰属は禁止。
+内部では Crown Claim→Privilege Check→Fool's License→Reality Pin→Blind Spot→必要ならCouncil Mockery の順で検討してよいが、ユーザーへ内部チェックリストを全部見せない。\n有意な異論が0なら「今回は異議なし🤡」だけを核に短く終了。異論がある場合は、自然な文章で ①一番刺す価値のある前提 ②ノンデリな一言 ③確認済み根拠/未確認 ④必要なら提示外の代案 ⑤現案との比較 ⑥道化師自身の意見 の順に必要な部分だけ出す。`,
     a,
     true,
   );
@@ -182,7 +233,16 @@ async function explicitJester(a: Req, e: Env) {
     formatLabel: "宮廷道化師 🤡",
     title: a.title,
     body: a.body,
-    jester: { mode: "explicit", license: "GRANTED", text: out(y) },
+    jester: (() => {
+      let checked: ReturnType<typeof jesterAttributionAudit>;
+      try { checked = jesterAttributionAudit(preflight.context.claimProvenance || [],
+        JSON.parse(clean(out(y)))); }
+      catch { checked = { valid: false, violations: ["invalid structured response"], text: "" }; }
+      return checked.valid
+        ? { mode: "explicit", license: "GRANTED", text: checked.text }
+        : { mode: "attribution-hold", license: "NOT_GRANTED", violations: checked.violations,
+            text: "発言帰属が不正のため批判を保留: " + checked.violations.join(", ") };
+    })(),
     createdAt: new Date().toISOString(),
   };
 }
@@ -205,7 +265,7 @@ export function hookContext(base: any) {
 async function hook(a: Req, e: Env, base: any) {
   const y = await call(
     e,
-    `${LICENSE}\n\nこれは1〜6の結論直前にだけ走る無言のJester hook。通常は黙る。乱入条件は3つすべて必須:\n1) ユーザー＋AI＋Councilが共有する未検証前提または不当に閉じた選択肢がある。\n2) それを反転すると結論・実装・コストが実質的に変わり得る。\n3) 既存Council内でその前提が実質的に攻撃されていない。\n単なる追加論点、好み、言い換え、軽微な改善、既にMinority Reportで扱われた異論では乱入しない。関連する現行媒体契約・ユーザー訂正・比較証拠を確認できず、確証のない一般論で現行案を覆すだけなら黙る。発火率を成果と考えない。事前に潰せる大きな手戻りコストを安く潰す時だけ出る。\n\n議題:${a.title}\n背景:${a.body}\nCouncil結果（BoardだけでなくCross Exam・hot-seat・匿名再評価を含む）:${JSON.stringify(hookContext(base))}\n\nJSONのみ。黙るなら {"intervene":false,"reason":""}。乱入するなら {"intervene":true,"text":"🤡から始まる短い乱入。前提を刺し、必要なら提示外の代案と現案比較、自分の意見まで。罵倒だけは禁止。"}`,
+    `${LICENSE}\n\nこれは1〜6の結論直前にだけ走る無言のJester hook。通常は黙る。乱入条件は3つすべて必須:\n1) ユーザー＋AI＋Councilが共有する未検証前提または不当に閉じた選択肢がある。\n2) それを反転すると結論・実装・コストが実質的に変わり得る。\n3) 既存Council内でその前提が実質的に攻撃されていない。\n単なる追加論点、好み、言い換え、軽微な改善、既にMinority Reportで扱われた異論では乱入しない。問いや例示をユーザーが採用した見解にしない。Council生成の仮説はCouncilへ帰属し、帰属が曖昧なら黙る。関連する現行媒体契約・ユーザー訂正・比較証拠を確認できず、確証のない一般論で現行案を覆すだけなら黙る。発火率を成果と考えない。事前に潰せる大きな手戻りコストを安く潰す時だけ出る。\n\n議題:${a.title}\n背景:${a.body}\nCouncil結果（BoardだけでなくCross Exam・hot-seat・匿名再評価を含む）:${JSON.stringify(hookContext(base))}\n\nJSONのみ。黙るなら {"intervene":false,"reason":""}。乱入するなら {"intervene":true,"text":"🤡から始まる短い乱入。前提を刺し、必要なら提示外の代案と現案比較、自分の意見まで。罵倒だけは禁止。"}`,
     a,
     true,
   );
@@ -312,9 +372,20 @@ const MCP = {
         description:
           "Explicit jester only. Fool's License stays inactive until every context field is restored.",
         properties: Object.fromEntries(
-          JESTER_CONTEXT_FIELDS.map((field) => [field, { type: "string", minLength: 1 }]),
+          [
+            ...JESTER_CONTEXT_FIELDS.map((field) => [field, { type: "string", minLength: 1 }]),
+            ["claimProvenance", { type: "array", minItems: 1, items: {
+              type: "object", additionalProperties: false,
+              properties: {
+                id: { type: "string", pattern: "^[A-Za-z][A-Za-z0-9_-]{0,39}$" },
+                origin: { type: "string", enum: CLAIM_ORIGINS },
+                speechAct: { type: "string", enum: CLAIM_ACTS },
+                excerpt: { type: "string", minLength: 5 },
+              }, required: ["id", "origin", "speechAct", "excerpt"],
+            } }],
+          ],
         ),
-        required: JESTER_CONTEXT_FIELDS,
+        required: [...JESTER_CONTEXT_FIELDS, "claimProvenance"],
         additionalProperties: false,
       },
     },
