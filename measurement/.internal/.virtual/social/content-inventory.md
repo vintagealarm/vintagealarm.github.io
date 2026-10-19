@@ -108,7 +108,7 @@ Canonical WATCH: `src/content/watches/cyma-time-o-vox.md`
 | CYM-12 | 1 crown + 2 pushersで横顔はクロノグラフ風だが、役割はalarm control | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | DETAIL+OPERATION | Beitl p.134 + WATCH side gallery + USER_KEEP 2026-10-05; Instagram Edits side-profile Reel 2026-10-07 IG-CYM-002, verified public caption |
 | CYM-13 | 大きなhammerがムーブメントを囲むtone springを叩く発音機構 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_SOURCE | SOUND+MECHANISM | Beitl p.136 + Humbert R.464 + USER_KEEP 2026-10-05 |
 
-| CYM-14 | 6時スモールセコンドの接写・経年18K文字盤の陰影・光の変化 | USED | NO_EXPLICIT_USE_FOUND_2026-10-19 | READY_EXISTING | READY_FROM_USER_VIDEO | DETAIL | Instagram IG-CYM-003, 2026-10-19 video + published text opening |
+| CYM-14 | 6時スモールセコンドの接写・経年18K文字盤の陰影・光の変化 | USED | NO_EXPLICIT_USE_FOUND_2026-10-19 | READY_EXISTING | READY_FROM_SOURCE | DETAIL | Instagram IG-CYM-003, 2026-10-19 video + published text opening |
 | CYM-ON | OWNER'S NOTE全体 | WHOLE_ONLY | NO_EXPLICIT_USE_FOUND_2026-10-03 | OWNER_NOTE_HERO_ONLY | READY_FROM_WATCH | OWNER_NOTE_WHOLE | WATCH `ownersNote` |
 
 ## Pierce Duofon
