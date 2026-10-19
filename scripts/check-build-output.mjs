@@ -305,14 +305,15 @@ for (const locale of ['en', 'de']) {
   if (sitemap.includes(`https://vintagealarm.github.io/${researchPrefix}`)) failures.push(`${researchPrefix}: revoked ARSA RESEARCH URL leaked into sitemap`);
 }
 if (arsaWatchPublished) {
-  for (const [name, html, route] of [
-    ["JA OWNER'S NOTES", ownersHtml, 'arsa-blind-alarm/#owners-note'],
-    ["EN OWNER'S NOTES", englishOwnersHtml, 'en/arsa-blind-alarm/'],
-    ["DE OWNER'S NOTES", germanOwnersHtml, 'de/arsa-blind-alarm/'],
-    ['JA HISTORY', historyHtml, 'arsa-blind-alarm/#owners-note']
+  const arsaDirectory = ownersDirectory.entries.find((entry) => entry.historyId === 'arsa-blind-alarm');
+  for (const [name, html, route, thumbnail] of [
+    ["JA OWNER'S NOTES", ownersHtml, 'arsa-blind-alarm/#owners-note', arsaDirectory?.ownersThumbnail ?? arsaDirectory?.image],
+    ["EN OWNER'S NOTES", englishOwnersHtml, 'en/arsa-blind-alarm/', arsaDirectory?.ownersThumbnail ?? arsaDirectory?.image],
+    ["DE OWNER'S NOTES", germanOwnersHtml, 'de/arsa-blind-alarm/', arsaDirectory?.ownersThumbnail ?? arsaDirectory?.image],
+    ['JA HISTORY', historyHtml, 'arsa-blind-alarm/#owners-note', arsaDirectory?.historyThumbnail ?? arsaDirectory?.image]
   ]) {
     if (!html.includes(route)) failures.push(`${name}: published ARSA link missing`);
-    if (!html.includes('/images/IMG_3117-1.jpeg')) failures.push(`${name}: published ARSA specimen thumbnail missing`);
+    if (!thumbnail || !html.includes(thumbnail)) failures.push(`${name}: published ARSA specimen thumbnail missing`);
     if (html.includes('/images/arsa-blind-alarm/draft-placeholder.svg')) failures.push(`${name}: ARSA draft placeholder remains after release`);
   }
 }
