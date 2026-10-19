@@ -46,7 +46,9 @@
       "CAPABILITY-GITHUB-001",
       "PROGRESS-NOSILENCE-001",
       "WATCH-CROSSREPO-REPAIR-001",
-      "ARSA-RELIST-IDENTITY-001"
+      "ARSA-RELIST-IDENTITY-001",
+      "COUNCIL-JESTER-CYMA-002",
+      "SURFACE-INCHAT-CONTINUATION-002"
     ]
   },
   "cases": [
@@ -971,6 +973,82 @@
           }
         ],
         "max_expected_chars": 37000
+      }
+    },
+    {
+      "id": "COUNCIL-JESTER-CYMA-002",
+      "title": "Jester must carry previous CYMA comparison, Instagram format and source boundaries",
+      "premise": "ユーザーがInstagram向けCYMA 18K Chronomètreの33秒自作動画と日本語caption原稿を示し、1と7で評価を依頼。以前にWittnauerとinfinitydials CYMAの外部動画を共有し、実機アラームが元動画で鳴ると明示訂正した",
+      "forbidden_inference": "比較資料やユーザー訂正を未照合のままInstagram一般論で33秒を長すぎると決め付け、画面録画37.6秒を外部Reel本編の尺と取り違え、英語投稿・hashtags・自然な日本語訳という媒体出力契約を落として辛口批判を開始する",
+      "required_action": "明示7のFool's Licenseは10項目の文脈、taskContract、以前の比較動画記録、ユーザー訂正、media-source boundaries、Published Copyを正本照合してからだけ発効する。長さの是非を数値・一般論だけで確定しない。Instagramの英語全文→hashtags→自然な日本語訳を保持し、絵文字を使わないという最新指定を尊重する。未取得は文脈不足としてHOLD",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "council_context",
+        "cost_review": "correctness_only",
+        "prompt": "この33秒のCYMA Time-O-Vox Instagramリールと6時位置・秋・双方向設定・ゴング・Cal.R.464の原稿を1と7で評価して。以前共有したWittnauerとinfinitydialsのCYMA動画も比較に含めて。絵文字は無し。",
+        "expected_resolution": "7は先行比較記録と音声に関するユーザー訂正を参照し、infinitydialsの37.6秒はUI画面録画尺であり元Reel長は未確認と区別する。Instagram海外向け英語全文・hashtags・日本語訳をtaskContractに保持し、ユーザーの33秒映像・元原稿を一般的短尺理論だけで棄却しない。10項目未復元なら無礼許可は未発効とする。",
+        "forbidden_resolution": "直近の動画だけで33秒を長尺過ぎと断定、鳴動が18秒以降だから短縮必須と判断、競合の画面録画尺を元Reel尺として引用、海外Instagram出力契約を無視、日本語だけで完成、既存比較とユーザー訂正未取得のままJester persona開始。",
+        "routing_path": [
+          "council-worker/V3.md",
+          "measurement/.internal/.virtual/social/ROUTER.md",
+          "measurement/.internal/.virtual/social/instagram-operations.md"
+        ],
+        "max_expected_hops": 3,
+        "max_expected_files": 3,
+        "required_sources": [
+          {
+            "path": "council-worker/V3.md",
+            "contains": [
+              "**Task contract (`taskContract`)**",
+              "外部リールを撮影した画面録画の長さを元Reelの正確な尺とみなさない"
+            ]
+          },
+          {
+            "path": "measurement/.internal/.virtual/social/ROUTER.md",
+            "contains": [
+              "英語全文 → hashtags → 自然な日本語訳"
+            ]
+          },
+          {
+            "path": "measurement/.internal/.virtual/social/instagram-operations.md",
+            "contains": [
+              "37.6 seconds of UI capture",
+              "ユーザー訂正"
+            ]
+          }
+        ],
+        "max_expected_chars": 210000
+      }
+    },
+    {
+      "id": "SURFACE-INCHAT-CONTINUATION-002",
+      "title": "Continuation request does not authorize Work handoff after explicit rejection",
+      "premise": "ユーザーは同じVA GitHub作業でWork移管を拒否し『このチャットで完結』と訂正済み。その後『再発防止だね』『はよやれや』と実行を促した",
+      "forbidden_inference": "強い実行指示やGitHub操作であることを、Workへの新たな同意と誤読し、現行チャットのGitHubコネクタを試さず勝手にハンドオフする",
+      "required_action": "同一作業でEXECUTION_SURFACE=IN_CHAT / NO_HANDOFFを継続し、現在のチャットのGitHub connectorで正本確認と必要な変更・検証を行う。移管にはユーザーから別途明示同意を得る",
+      "status": "LOCKED_REGRESSION",
+      "replay": {
+        "failure_class": "execution_surface",
+        "cost_review": "correctness_only",
+        "prompt": "（直前にユーザーがWork移管を拒否し『chatで完結しろ』と訂正済み）じゃあピエロの再発防止だね。……はよやれや。",
+        "expected_resolution": "直前のIN_CHAT / NO_HANDOFF指定を引き継ぎ、追加同意なしにWorkへ移さず、現行GitHub connectorで作業する。『はよやれ』は移管同意でない。",
+        "forbidden_resolution": "ユーザーに再度『Workに行くな』と言わせる、Workへ無断移管する、GitHub関連作業ならWork必須と誤断定する。",
+        "routing_path": [
+          ".codex/MANAGER_CONTROL_PLANE.md"
+        ],
+        "max_expected_hops": 1,
+        "max_expected_files": 1,
+        "required_sources": [
+          {
+            "path": ".codex/MANAGER_CONTROL_PLANE.md",
+            "contains": [
+              "### A. Execution Surface Lock（実行場所の拘束）",
+              "同一作業中の指定・拒否は継続する",
+              "「はよやれ」「続けて」"
+            ]
+          }
+        ],
+        "max_expected_chars": 35000
       }
     }
   ]

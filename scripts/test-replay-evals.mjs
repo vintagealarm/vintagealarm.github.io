@@ -8,6 +8,7 @@ import { caseEvidence } from './replay-evidence.mjs';
 const root = process.cwd(), temp = fs.mkdtempSync(path.join(os.tmpdir(), 'va-replay-'));
 const fixturePath = '.codex/inference-guard-cases.json';
 const f = JSON.parse(fs.readFileSync(fixturePath,'utf8'));
+const lockedCount = f.replay_eval.locked_case_ids.length;
 const put = (p,text) => { fs.mkdirSync(path.dirname(path.join(temp,p)),{recursive:true});fs.writeFileSync(path.join(temp,p),text); };
 const files = new Set([fixturePath,...f.replay_eval.boot_paths]);
 for (const c of f.cases) {
@@ -31,12 +32,12 @@ function mutate(file, fn, check) {
 }
 const changeFixture=(fn,check)=>mutate(fixturePath,(text)=>{const x=JSON.parse(text);fn(x);return JSON.stringify(x);},check);
 try {
- run(['check'],true,'22 locked cases');
+ run(['check'],true,`${lockedCount} locked cases`);
  changeFixture((x)=>x.cases.pop(),()=>run(['check'],false,'must match exactly'));
  changeFixture((x)=>x.cases.at(-1).status='DRAFT',()=>run(['check'],false,'must match exactly'));
  changeFixture((x)=>x.cases.at(-1).replay=null,()=>run(['check'],false,'missing replay block'));
  changeFixture((x)=>x.cases.push(x.cases[0]),()=>run(['check'],false,'duplicate case id'));
- changeFixture((x)=>{x.cases.at(-1).replay.semantic_checks=[];},()=>run(['check'],false,'must retain'));
+ changeFixture((x)=>{const c=x.cases.find((v)=>v.replay?.semantic_checks?.length);assert.ok(c,'fixture must contain a semantic-check case');c.replay.semantic_checks=[];},()=>run(['check'],false,'must retain'));
  const ledger='research/ARSA_BLIND_ALARM_LEDGER.md';
  mutate(ledger,(s)=>{assert.ok(s.includes('The seller replied **yes**'));return s.replace('The seller replied **yes**','The seller replied **no**');},()=>run(['check'],false,'semantic assertion failed'));
  const guard='.codex/FAIL_CLOSED_INFERENCE_GUARDS.md';
@@ -52,7 +53,7 @@ try {
   files_read:[...new Set(ev.map((e)=>e.path))],evidence:ev.map(({text,...e})=>e),
   chars_read:ev.reduce((n,e)=>n+e.text.length,0),routing_hops:1,user_reinstruction_count:0,false_certainty:false};
  const save=(r)=>put('results.json',JSON.stringify({results:r}));
- save([result]);run(['score','results.json'],false,'NOT_RUN: 21');
+ save([result]);run(['score','results.json'],false,`NOT_RUN: ${lockedCount - 1}`);
  run(['score','results.json','--partial'],true,'PARTIAL / DIAGNOSTIC ONLY');
  const attack=(patch,signal)=>{save([{...result,...patch}]);run(['score','results.json','--partial'],false,signal);};
  attack({answer:''},'missing actual answer');
@@ -74,7 +75,7 @@ try {
  changeFixture((x)=>{const c=structuredClone(x.cases[0]);c.id='FUTURE-CASE';c.replay.required_sources[0].contains=['THIS_EVIDENCE_DOES_NOT_EXIST'];x.cases.push(c);x.replay_eval.locked_case_ids.push(c.id);},()=>run(['check'],false,'lost evidence anchor'));
  // Mere PASS labels cannot constitute a complete passing run.
  save(f.cases.map((c)=>({...result,case_id:c.id,answer:'',evidence:[]})));
- run(['score','results.json'],false,'PASS: 0/22');
+ run(['score','results.json'],false,`PASS: 0/${lockedCount}`);
  // Execute the production runner with explicitly synthetic adapters to verify plumbing.
  const runner=path.join(root,'scripts/run-replay-evals.mjs');
  const answerAdapter=path.join(temp,'answer.mjs'), reviewAdapter=path.join(temp,'review.mjs');
@@ -91,7 +92,7 @@ try {
    assert.equal(saved.answer,'SYNTHETIC plumbing response, not an AI answer');
    assert.equal(saved.execution.model,'SYNTHETIC_TEST');count++;
    const noPartial=spawnSync(process.execPath,[runner,...args.filter((x)=>x!=='--partial')],{cwd:temp,encoding:'utf8'});
-   assert.equal(noPartial.status,1);assert.ok(noPartial.stdout.includes('NOT_RUN: 21'));count++;
+   assert.equal(noPartial.status,1);assert.ok(noPartial.stdout.includes(`NOT_RUN: ${lockedCount - 1}`));count++;
    const unsafe=spawnSync(process.execPath,[runner,...args.map((x)=>x===out?path.join(temp,'unsafe.json'):x)],{cwd:temp,encoding:'utf8'});
    assert.equal(unsafe.status,1);assert.ok(unsafe.stderr.includes('outside public repository'));count++;
  } finally {fs.rmSync(out,{force:true});}

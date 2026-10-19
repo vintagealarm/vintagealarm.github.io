@@ -99,7 +99,8 @@ const completeJesterContext = {
   adjacentConsequences: "サイト・運用・他ルールへの影響を確認",
   currentSessionActions: "直前のAI提案とPR実装を監査対象へ含めた",
   observationBoundary: "今回の連続作業の開始点から現在まで",
-  exclusionsWithReasons: "除外なし",
+  exclusionsWithReasons: "除外なし（今回の連続作業すべてを対象にする）",
+  taskContract: "媒体・読者・言語・出力形式・原稿保持・作業場所の契約を再確認済み",
 };
 
 test("Fool's License stays inactive when current-session self-audit is missing", () => {
@@ -125,4 +126,24 @@ test("Fool's License activates only after the complete context manifest", () => 
   const preflight = jesterPreflight({ jesterContext: completeJesterContext });
   assert.equal(preflight.eligible, true);
   assert.deepEqual(preflight.missing, []);
+});
+
+
+test("Fool's License requires the task contract even when the nine older fields are filled", () => {
+  const { taskContract: _omitted, ...context } = completeJesterContext;
+  const result = jesterPreflight({ jesterContext: context });
+  assert.equal(result.eligible, false);
+  assert.deepEqual(result.missing, ["taskContract"]);
+});
+
+test("placeholder context is not accepted as restored evidence", () => {
+  const result = jesterPreflight({
+    jesterContext: {
+      ...completeJesterContext,
+      evidenceTrail: "未確認",
+      correctionsReversals: "TBD",
+    },
+  });
+  assert.equal(result.eligible, false);
+  assert.deepEqual(result.missing, ["correctionsReversals", "evidenceTrail"]);
 });

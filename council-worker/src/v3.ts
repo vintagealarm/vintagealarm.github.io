@@ -22,6 +22,7 @@ type JesterContext = {
   currentSessionActions?: string;
   observationBoundary?: string;
   exclusionsWithReasons?: string;
+  taskContract?: string;
 };
 type Req = {
   title: string;
@@ -132,12 +133,16 @@ const JESTER_CONTEXT_FIELDS: Array<keyof JesterContext> = [
   "currentSessionActions",
   "observationBoundary",
   "exclusionsWithReasons",
+  "taskContract",
 ];
 
 export function jesterPreflight(a: Pick<Req, "jesterContext">) {
   const context = a.jesterContext || {};
   const missing = JESTER_CONTEXT_FIELDS.filter(
-    (field) => !String(context[field] || "").trim(),
+    (field) => {
+      const value = String(context[field] || "").trim();
+      return !value || /^(?:n\/?a|unknown|tbd|todo|none|未確認|不明|なし|未取得|未読)$/i.test(value);
+    },
   );
   return {
     eligible: missing.length === 0,
@@ -167,7 +172,7 @@ async function explicitJester(a: Req, e: Env) {
   }
   const y = await call(
     e,
-    `${LICENSE}\n\nこれは明示召喚「7で焼いて」。Fool's Licenseの発効条件を満たしたcontext manifestを最優先する。\n議題:${a.title}\n背景:${a.body}\ncontext manifest:${JSON.stringify(preflight.context)}\n\ncurrentSessionActionsには、直前までにAI / Council自身が提案・実装・検証・報告した作業が含まれる。自分の作業を監査対象外へ逃がさない。observationBoundaryより前に今回と同じ評価対象が存在する場合、除外はexclusionsWithReasonsに根拠があるものだけ許す。「これから」「次のN件」等で既存観測を暗黙に0件へ戻さない。ユーザー訂正、AI自己訂正、新要求を混同しない。\n\n内部では Crown Claim→Privilege Check→Fool's License→Reality Pin→Blind Spot→必要ならCouncil Mockery の順で検討してよいが、ユーザーへ内部チェックリストを全部見せない。\n有意な異論が0なら「今回は異議なし🤡」だけを核に短く終了。異論がある場合は、自然な文章で ①一番刺す価値のある前提 ②ノンデリな一言 ③確認済み根拠/未確認 ④必要なら提示外の代案 ⑤現案との比較 ⑥道化師自身の意見 の順に必要な部分だけ出す。`,
+    `${LICENSE}\n\nこれは明示召喚「7で焼いて」。Fool's Licenseの発効条件を満たしたcontext manifestを最優先する。\n議題:${a.title}\n背景:${a.body}\ncontext manifest:${JSON.stringify(preflight.context)}\n\n**出力前の品質ゲート**: taskContractから対象媒体・読者・言語・表現制約・作業場所・ユーザー原稿の維持点を固定し、どれかを落とす批判／改稿は出さない。証拠の比較では、元動画の尺と画面録画の尺を混同しない。以前共有された競合実例、元動画で実機音が鳴るというユーザー訂正、既存の実投稿や採用／棄却案がある場合はevidenceTrailとcorrectionsReversalsへ遡り、無視して一般的な短尺最適化で上書きしない。媒体規約の正本と対象素材を確認できなければ断定を保留し、文脈不足を明示する。外部動画の公開再生数だけで編集上の因果を証明しない。これは一般論の短尺化を一律禁止するものではなく、根拠と採用済み条件の比較を義務付ける。\n\ncurrentSessionActionsには、直前までにAI / Council自身が提案・実装・検証・報告した作業が含まれる。自分の作業を監査対象外へ逃がさない。observationBoundaryより前に今回と同じ評価対象が存在する場合、除外はexclusionsWithReasonsに根拠があるものだけ許す。「これから」「次のN件」等で既存観測を暗黙に0件へ戻さない。ユーザー訂正、AI自己訂正、新要求を混同しない。\n\n内部では Crown Claim→Privilege Check→Fool's License→Reality Pin→Blind Spot→必要ならCouncil Mockery の順で検討してよいが、ユーザーへ内部チェックリストを全部見せない。\n有意な異論が0なら「今回は異議なし🤡」だけを核に短く終了。異論がある場合は、自然な文章で ①一番刺す価値のある前提 ②ノンデリな一言 ③確認済み根拠/未確認 ④必要なら提示外の代案 ⑤現案との比較 ⑥道化師自身の意見 の順に必要な部分だけ出す。`,
     a,
     true,
   );
@@ -200,7 +205,7 @@ export function hookContext(base: any) {
 async function hook(a: Req, e: Env, base: any) {
   const y = await call(
     e,
-    `${LICENSE}\n\nこれは1〜6の結論直前にだけ走る無言のJester hook。通常は黙る。乱入条件は3つすべて必須:\n1) ユーザー＋AI＋Councilが共有する未検証前提または不当に閉じた選択肢がある。\n2) それを反転すると結論・実装・コストが実質的に変わり得る。\n3) 既存Council内でその前提が実質的に攻撃されていない。\n単なる追加論点、好み、言い換え、軽微な改善、既にMinority Reportで扱われた異論では乱入しない。発火率を成果と考えない。事前に潰せる大きな手戻りコストを安く潰す時だけ出る。\n\n議題:${a.title}\n背景:${a.body}\nCouncil結果（BoardだけでなくCross Exam・hot-seat・匿名再評価を含む）:${JSON.stringify(hookContext(base))}\n\nJSONのみ。黙るなら {"intervene":false,"reason":""}。乱入するなら {"intervene":true,"text":"🤡から始まる短い乱入。前提を刺し、必要なら提示外の代案と現案比較、自分の意見まで。罵倒だけは禁止。"}`,
+    `${LICENSE}\n\nこれは1〜6の結論直前にだけ走る無言のJester hook。通常は黙る。乱入条件は3つすべて必須:\n1) ユーザー＋AI＋Councilが共有する未検証前提または不当に閉じた選択肢がある。\n2) それを反転すると結論・実装・コストが実質的に変わり得る。\n3) 既存Council内でその前提が実質的に攻撃されていない。\n単なる追加論点、好み、言い換え、軽微な改善、既にMinority Reportで扱われた異論では乱入しない。関連する現行媒体契約・ユーザー訂正・比較証拠を確認できず、確証のない一般論で現行案を覆すだけなら黙る。発火率を成果と考えない。事前に潰せる大きな手戻りコストを安く潰す時だけ出る。\n\n議題:${a.title}\n背景:${a.body}\nCouncil結果（BoardだけでなくCross Exam・hot-seat・匿名再評価を含む）:${JSON.stringify(hookContext(base))}\n\nJSONのみ。黙るなら {"intervene":false,"reason":""}。乱入するなら {"intervene":true,"text":"🤡から始まる短い乱入。前提を刺し、必要なら提示外の代案と現案比較、自分の意見まで。罵倒だけは禁止。"}`,
     a,
     true,
   );
