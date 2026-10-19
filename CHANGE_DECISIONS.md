@@ -2302,5 +2302,5 @@
 - **旧状態・棄却**：これまで10項目のcontext非空ゲートだけで、誰がどの発言行為をしたかの検査がなく、自由文の道化師が自作仮説をUへ付け替えられた。単に口調を緩める、全批判を禁止する、形式1/7の人格を廃止する代案は採用しない。
 - **影響範囲**：`council-worker/V3.md`、`council-worker/README.md`、`council-worker/src/v3.ts`、`council-worker/test/v3.behavior.test.ts`、本ログのみ。明示7の外部Worker呼出し入力にはclaimProvenanceの移行が必要。サイト本文やARSA研究・所有台帳は不変更。既存open PR #250の第三道化師機能も保全し、本PRとの差分競合は別途解消する。
 - **検証状態**：ARSAの探索例示をユーザー信念として扱う回答、Council生成H1のユーザー誤帰属、欠落・不正入力、正当なCouncil自身への批判、U明示決定への批判を回帰テスト化。テストとCI・差分・公開の結果は別途確認する。構造化情報の照合だけでAI言語理解の完全性を保証しない。
-- **関連**：本会話のU訂正、`council-worker/V3.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、既存open PR #250。
+- **関連**：本会話のU訂正、`council-worker/V3.md`、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`、既存open PR #250。実装commit `7bcf793dcc5717fe9b52762e6f601df0837f4db8`、回帰test commit `5619b6711c66349eec9f985ae34fd1deb0a7ad4f`、正本文書commit `6b6e075f3fd7cbf25f20178b8d8ab1e041ad1a46`、README commit `5cd7024f41626a98c8eaa6f7541098ab00904bc0`。
 - **日時根拠**：ホスト計測 `2026-10-19T12:43:42Z` → `2026-10-19 21:43 JST`。
