@@ -2295,3 +2295,12 @@
 - **検証状態**: main上で当該5ファイルと `IG-CYM-003` 件数、差分を再取得確認する。ローカル `check:instagram-insights`、`check:social-inventory`、`instagram:report` は実行可否と結果を別報告。公開サイトのdeployは対象外。
 - **関連**: `IG-CYM-003`, `CYM-14`, `CYM-09`, screenshots `IMG_3199.jpeg`–`IMG_3206.png`, user MP4 `A11CE39E-6AF8-443F-8A56-B2EDAED0E3E2(1).mp4`。
 - **日時根拠**: ホストコマンド `TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M JST'` による2026-10-19 19:46 JST確認。Insightsはスクショ画面時刻19:04–19:05、17時頃公開はユーザー概算。
+
+### 2026-10-19 22:03 JST — 三代目宮廷道化師の退役・原因墓碑・四代目候補の検討
+- **変更**：ユーザーの「処刑で」を第三代の未マージ設計経路の退役として扱い、第三代PR #250・#264を履歴保持のままCLOSED。初代・二代目の墓碑は未統合PR #250の原文から既存研究文書へ移管し、第三代の原因を追記。四代目は探索例示の帰属保持・AI自身の調査漏れ監査を軸にした未任命候補として整理。
+- **理由**：Uの2026-10-19指示。ARSAのソクラテス式調査でUが可能性を例示したのに、形式1が生成した仮説を形式7がUの確信として扱い誤帰属した。第三代PRは構造化済み入力の形式検査を行うが、誤帰属の意味分類・探索漏れの実AI発見は検証していない。U → U退役判断。四代目はA提案 → U未決。
+- **旧状態・棄却**：PR #250の重大目的逸脱gate、#264の形式的帰属gateを第三代として統合する直前案は棄却。CI合格を実Councilの信頼性の根拠にすること、現行Council 1〜6を停止すること、履歴branch削除、旧三代目の名称変更だけで四代目認定することは行わない。
+- **影響範囲**：PR #250/#264のstate（CLOSED / unmerged）、`research/COUNCIL_V3_COURT_JESTER_DESIGN.md`の墓碑と四代目設計候補、本履歴記録。公開WATCH・ARSA本文・Cloudflare Worker・current mainのCouncilコード・メニューには変更しない。
+- **検証状態**：第三代の実装・テストと事故会話の因果は区別して監査。PR閉鎖結果はGitHub再取得で確認し、候補文書の差分・decision gateはPR CIで確認する。四代目の実モデルReplayや正式任命はNOT_RUN / NOT_DECIDED。
+- **関連**：PR #250 `2abae6a4ecffd8a86b52c4feb65a4a5fac864dd1`、PR #264 `45af72668054050739f1580e7436c3d7c87071a7`、本会話のU指示、`council-worker/src/third-jester-gate.mjs`、`council-worker/src/v3.ts`。
+- **日時根拠**：実行時UTC `2026-10-19T13:03:25.784Z` をAsia/Tokyoへ変換し `2026-10-19 22:03 JST` と確認。
