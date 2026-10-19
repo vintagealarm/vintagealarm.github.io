@@ -74,7 +74,7 @@ VINTAGE ALARMは、機械式アラーム腕時計の歴史・実機・音・一�
 - WATCH末尾「次の一本」の正本は `src/data/watch-recommendations.ts`
 - WATCH研究メタデータ / 修正履歴の正本は `src/data/watch-research/` と `src/data/watch-research.ts`
 - RESEARCH表示は `src/data/research-settings.json` の `published` で公開可否、`locales` で公開言語を制御する
-- **RESEARCH公開対象は日本語のみ。** 第一号ARSA Blind Alarmは `/research/arsa-blind-alarm/` で表示する。2026-10-18に誤って公開したEN/DE RESEARCH routeは公開対象から撤回した。**ARSA WATCHはJA/EN/DEとも下書き**で、通常WATCH用のJA `src/content/watches/arsa-blind-alarm.md` にある `published: false` が共通release gate。EN/DE翻訳は `src/data/watch-locales/arsa-en.json` / `arsa-de.json` のPages CMS editable dataを参照する。公開WATCH routeは3言語すべて生成しない。スライド・画像・他WATCHは不変。
+- **RESEARCH公開対象は日本語のみ。** 第一号ARSA Blind Alarmは `/research/arsa-blind-alarm/` で表示する。2026-10-18に誤って公開したEN/DE RESEARCH routeは公開対象から撤回した。**ARSA WATCHはJA/EN/DEとも下書き**で、通常WATCH用のJA `src/content/watches/arsa-blind-alarm.md` にある `published: false` が共通release gate。EN/DE翻訳は `src/data/watch-locales/arsa-en.json` / `arsa-de.json` のPages CMS editable dataを参照する。通常の公開WATCH routeは3言語すべて生成しない。一方、ユーザー確認用の `noindex,nofollow,noarchive` プレビューはJA `/preview/watch/arsa-blind-alarm/`、EN `/preview/watch/arsa-blind-alarm/en/`、DE `/preview/watch/arsa-blind-alarm/de/` を生成し、各言語の完成OWNER'S NOTE画像と相互言語切替を表示する。sitemapには載せない。スライド・画像・他WATCHは不変。
 - 視聴者画面には制作・編集・公開状態のメタ説明を出さない。認証付きプレビューも同様で、保護は認証と `noindex` で行う
 - HOW THEY RING上段の代表機はHISTORY正本の著名機を使う。現行の所有・掲載個体一覧を代表機として転記しない
 - HOW THEY RINGの現行分類は **GONG / CASEBACK の2種類だけ**。詳細機構を第三・第四カテゴリへ増やさない。

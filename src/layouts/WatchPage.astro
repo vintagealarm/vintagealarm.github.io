@@ -58,10 +58,17 @@ const alternates = preview ? [] : [
   ...(germanUrl ? [{ hreflang: 'de', href: germanUrl }] : []),
   { hreflang: 'x-default', href: pageUrl }
 ];
-const languageLinks = preview ? [] : [
-  ...(englishUrl ? [{ href: research ? `/en/research/${watch.slug}/` : `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }] : []),
-  ...(germanUrl ? [{ href: research ? `/de/research/${watch.slug}/` : `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
-];
+const languageLinks = preview
+  ? watch.slug === 'arsa-blind-alarm'
+    ? [
+        { href: `/preview/watch/${watch.slug}/en/`, label: 'EN', hreflang: 'en' },
+        { href: `/preview/watch/${watch.slug}/de/`, label: 'DE', hreflang: 'de' }
+      ]
+    : []
+  : [
+      ...(englishUrl ? [{ href: research ? `/en/research/${watch.slug}/` : `/en/${watch.slug}/`, label: 'EN', hreflang: 'en' }] : []),
+      ...(germanUrl ? [{ href: research ? `/de/research/${watch.slug}/` : `/de/${watch.slug}/`, label: 'DE', hreflang: 'de' }] : [])
+    ];
 const researchRecord = watchResearchRecords[watch.slug];
 const dateModified = latestDate(
   getGitLastmod(`src/content/watches/${watch.slug}.md`),

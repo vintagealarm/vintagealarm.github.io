@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-19 13:23 JST — ARSA英独OWNER'S NOTEを言語別プレビューとして実表示
+
+- **変更**：ARSA通常WATCHの `published: false` を維持したまま、英語 `/preview/watch/arsa-blind-alarm/en/` とドイツ語 `/preview/watch/arsa-blind-alarm/de/` の静的プレビューを追加する。既存日本語プレビューを含む3ページへ相互言語切替を設け、各言語の完成PNGをOWNER'S NOTE欄へ表示する。3ページとも `noindex,nofollow,noarchive`、sitemap非掲載とし、build・SEO・mobile layout・live検査で画像参照、言語、切替、非公開通常routeを回帰確認する。
+- **理由**：PR #258では英独PNGを公開資産へ登録し、通常WATCHが公開された場合のレイアウト参照だけを配線したが、ARSAは下書きのため `/en/arsa-blind-alarm/` と `/de/arsa-blind-alarm/` が生成されず、英独OWNER'S NOTEを実際に閲覧できるページがなかった。ユーザーの「英語とドイツ語のオーナーズノート実装出来てない」という指摘に基づく訂正。
+- **旧状態・棄却**：画像ファイルへ直接アクセスできること、または非生成route用レイアウトへ参照を書いたことを「実装済み」と扱う状態を棄却する。通常WATCHを無断で `published: true` にする、撤回済みEN/DE RESEARCHを再公開する、プレビューをsitemapへ載せる対応は行わない。
+- **影響範囲**：ARSA固有のJA/EN/DEプレビューroute、英独WatchEntryのpreview mode、日本語プレビューの言語切替、build/SEO/layout/live gate、PROJECT_STATE、本ログ。OWNER'S NOTE画像bytes・本文・翻訳・通常WATCH公開flag・日本語RESEARCH・他WATCHは変更しない。
+- **検証状態**：branchで実装。Astro build、生成HTML、mobile layout、品質gate、PR CI、main merge、Pages deploy、live 3言語プレビューと通常英独route 404を順に確認し、未実行段階を合格扱いしない。
+- **関連**：PR #258、PR #259、main `03a5084bfdd1dcc4ac3eb3dd792eefb62b03a363`、branch `fix/arsa-localized-owner-previews-20261019`。
+- **日時根拠**：実行ホストのJST時計で `2026-10-19 13:23:00 +09:00` を確認。
+
 ### 2026-10-18 21:27 JST — ARSA WATCHオーナー閲覧プレビューを復旧（通常公開とは別扱い）
 
 - **変更**：既存の `/preview/watch/arsa-blind-alarm/` に限り、`published: false` のARSAでも生成する例外を復元。build/live検査はプレビューの存在・`noindex,nofollow,noarchive`・修正済み操作説明④・sitemap非掲載を確認する条件に修正する。他の未公開WATCHを一括生成しない。

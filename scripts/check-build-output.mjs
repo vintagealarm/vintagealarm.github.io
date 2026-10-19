@@ -106,8 +106,8 @@ for (const [lang, route, expectedSha] of [
   }
 }
 // ARSA Blind Alarm OWNER'S NOTE: preserve all three uploaded PNGs byte-for-byte.
-// While the normal WATCH routes remain unpublished, verify the Japanese preview and
-// the English/German layout wiring; once published, verify each generated route too.
+// While the normal WATCH routes remain unpublished, verify all three localized previews;
+// once published, verify each generated route instead.
 const arsaPublished = watches.find((watch) => watch.slug === 'arsa-blind-alarm')?.published ?? false;
 for (const [lang, route, expectedSha, sourcePath] of [
   ['ja', 'arsa-blind-alarm/index.html', '897458909bf1ac603b3f6823f6d1b22b47ead2523e289a26fe0be7fbef7b06c9', 'src/content/watches/arsa-blind-alarm.md'],
@@ -124,11 +124,17 @@ for (const [lang, route, expectedSha, sourcePath] of [
   }
   const source = fs.readFileSync(path.join(root, sourcePath), 'utf8');
   if (!source.includes(`/${assetPath}`)) failures.push(`ARSA ${lang}: source does not reference correct language PNG`);
-  if (arsaPublished) {
-    const htmlPath = path.join(dist, route);
-    if (!fs.existsSync(htmlPath) || !fs.readFileSync(htmlPath, 'utf8').includes(`/${assetPath}`)) {
-      failures.push(`ARSA ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
-    }
+  const renderedRoute = arsaPublished
+    ? route
+    : lang === 'ja'
+      ? 'preview/watch/arsa-blind-alarm/index.html'
+      : `preview/watch/arsa-blind-alarm/${lang}/index.html`;
+  const htmlPath = path.join(dist, renderedRoute);
+  if (!fs.existsSync(htmlPath) || !fs.readFileSync(htmlPath, 'utf8').includes(`/${assetPath}`)) {
+    failures.push(`ARSA ${lang}: OWNER'S NOTE page does not reference correct language PNG`);
+  }
+  if (!arsaPublished && fs.existsSync(htmlPath) && !fs.readFileSync(htmlPath, 'utf8').includes('noindex,nofollow,noarchive')) {
+    failures.push(`ARSA ${lang}: localized preview lost search-engine exclusion`);
   }
 }
 const mustExist = [
@@ -158,6 +164,8 @@ for (const watch of watches) {
     if (!previewHtml.includes('noindex,nofollow,noarchive')) failures.push('ARSA preview lost search-engine exclusion');
     if (!previewHtml.includes('④ アラームON/OFF')) failures.push('ARSA preview lost corrected guide');
     if (!previewHtml.includes('/images/arsa-blind-alarm/owners-note-ja-20261019.png')) failures.push('ARSA preview does not reference the Japanese OWNER\'S NOTE PNG');
+    if (!previewHtml.includes('/preview/watch/arsa-blind-alarm/en/')) failures.push('ARSA preview lost EN language switch');
+    if (!previewHtml.includes('/preview/watch/arsa-blind-alarm/de/')) failures.push('ARSA preview lost DE language switch');
   }
 }
 
