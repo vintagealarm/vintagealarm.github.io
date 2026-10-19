@@ -125,6 +125,14 @@ Claim Boardとして、主張、支持根拠、反証、未確認を分ける。
 
 広い依頼では代表例の抜粋を「全体」と呼ばない。時計の遍歴・売買・修理・保有意志を含むならVINTAGE ALARM研究正本に加え `orima1995-create/watchdiary-ios` のCURRENT Issue群まで辿る。SNS / AnalyticsならRouterだけでなく時系列、実投稿、Decision→Evidenceまで辿る。必要正本を取得できない場合は「把握済み」と演じず不足を明示する。
 
+## 四代目の実行条件（2026-10-19）
+
+現行7は四代目「問いを守り、盲点を暴く道化師」。正本 `V3.md` の四代目CURRENTを参照する。V2形式1〜6と7択は維持。
+
+Workerの `src/v3.ts` が外部API互換entrypoint、`src/fourth-jester.mjs` が批判対象の原文と探索漏れの照合。明示7の任意の追加文脈は `jesterContext.originalUserUtterance`（ユーザー原文）、`criticizedAnswer`（AI応答）、`priorCouncilText`（Council議論）。原文が無い場合はユーザーの信念を批判しない。対象は `targets[]`、未探索は `blindSpots[]` として表示、検証不能なら誤った批判を表示せずHOLD。通常のChatGPT内Councilでは元発言と正本を読み、語用的な誤帰属を防ぐ。単体・mockテストでは実モデルの成功を保証しない。
+
+GitHub main実装・Cloudflare deploy・モデルAPI実稼働は別の状態。外部Worker未接続でもChatGPT内Councilの実行を止めない。
+
 ## 住民設計
 
 住民は架空の家族構成・年齢・性別を足して人間らしくするのではなく、**認識論的な判断方針**を持つ。

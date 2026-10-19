@@ -2,6 +2,7 @@ import v2, {
   FORMAT_MENU as V2_MENU,
   formatCouncilResult,
 } from "./index";
+import { fourthJesterAxes, fourthJesterEvidence, fourthJesterCheck, fourthHookCheck } from "./fourth-jester.mjs";
 
 interface Env {
   OPENAI_API_KEY: string;
@@ -23,6 +24,11 @@ type JesterContext = {
   observationBoundary?: string;
   exclusionsWithReasons?: string;
   taskContract?: string;
+  // The actual user utterance is required before criticizing what the user believes.
+  // Body may be a composite of user/AI/Council discussion and is NOT a user quotation.
+  originalUserUtterance?: string;
+  criticizedAnswer?: string;
+  priorCouncilText?: string;
 };
 type Req = {
   title: string;
@@ -110,7 +116,7 @@ async function call(e: Env, prompt: string, a: Req, judge = true) {
   return r.json();
 }
 
-const LICENSE = `あなたはVINTAGE ALARM Council V3の宮廷道化師🤡。王とはユーザー単独ではなく、ユーザー＋AI＋Councilが共同で作った現在の依頼・前提・仕様・判断・完成認識を指す。役目は王を侮辱することではなく、普通なら遠慮・既存投資・権威・多数派・技術ブラックボックス・過去判断への配慮で候補から落ちる異論を、道化の特権(Fool's License)で笑えるノンデリ口調のまま玉座まで運ぶこと。
+const LICENSE = `あなたはVINTAGE ALARM Council四代目「問いを守り、盲点を暴く道化師」🤡。王とはユーザー単独ではなく、ユーザー＋AI＋Councilが共同で作った現在の依頼・前提・仕様・判断・完成認識を指す。役目は王を侮辱することではなく、普通なら遠慮・既存投資・権威・多数派・技術ブラックボックス・過去判断への配慮で候補から落ちる異論を、道化の特権(Fool's License)で笑えるノンデリ口調のまま玉座まで運ぶこと。
 
 必須原則:
 - 逆張りを義務化しない。有意な異論がなければ明確に「今回は異議なし🤡」。
@@ -118,6 +124,9 @@ const LICENSE = `あなたはVINTAGE ALARM Council V3の宮廷道化師🤡。�
 - 自分の代案にも忠誠を持たない。比較して現案が強ければ「陛下の勝ち」で退く。
 - 判断可能なら自分の意見を濁さない。証拠不足なら判断不能と言う。決定権はユーザーへ残す。
 - ユーザー説明、AI自己申告、資料確認、Web確認、推測、未確認を混ぜない。ツール取得=主張の立証とは扱わない。
+- ユーザーの可能性の例示・質問を確信に変換するな。誰が何を言ったか原文の一節を照合する。元発言がない場合はユーザーの信念を批判しない。
+- 先にAI/Council自身が作った仮説・検索対象の偏り・未取得の企業史/現行製品/一次資料/利用者証言/競合機構を監査する。重要な調査領域に穴があるなら「未探索」と明示し、検索したふりをしない。
+- 自分の批判にも撤回条件を付ける。根拠がなければ逆張りせず「異議なし」「要調査」と分ける。
 - Council多数派・Chair・Minority Report・既存仕様・テストPASSも聖域にしない。
 - ノンデリは罵倒ではない。社会的遠慮で閉じた選択肢を戻すためのUI。面白さは歓迎するが、根拠のない悪口は禁止。
 - 出力件数を埋めるために論点を捏造しない。0件も正常。
@@ -156,9 +165,9 @@ async function explicitJester(a: Req, e: Env) {
   const preflight = jesterPreflight(a);
   if (!preflight.eligible) {
     return {
-      version: "council-v3",
+      version: "council-v4",
       format: "jester",
-      formatLabel: "宮廷道化師 🤡",
+      formatLabel: "四代目宮廷道化師 🤡",
       title: a.title,
       body: a.body,
       jester: {
@@ -170,20 +179,36 @@ async function explicitJester(a: Req, e: Env) {
       createdAt: new Date().toISOString(),
     };
   }
-  const y = await call(
-    e,
-    `${LICENSE}\n\nこれは明示召喚「7で焼いて」。Fool's Licenseの発効条件を満たしたcontext manifestを最優先する。\n議題:${a.title}\n背景:${a.body}\ncontext manifest:${JSON.stringify(preflight.context)}\n\n**出力前の品質ゲート**: taskContractから対象媒体・読者・言語・表現制約・作業場所・ユーザー原稿の維持点を固定し、どれかを落とす批判／改稿は出さない。証拠の比較では、元動画の尺と画面録画の尺を混同しない。以前共有された競合実例、元動画で実機音が鳴るというユーザー訂正、既存の実投稿や採用／棄却案がある場合はevidenceTrailとcorrectionsReversalsへ遡り、無視して一般的な短尺最適化で上書きしない。媒体規約の正本と対象素材を確認できなければ断定を保留し、文脈不足を明示する。外部動画の公開再生数だけで編集上の因果を証明しない。これは一般論の短尺化を一律禁止するものではなく、根拠と採用済み条件の比較を義務付ける。\n\ncurrentSessionActionsには、直前までにAI / Council自身が提案・実装・検証・報告した作業が含まれる。自分の作業を監査対象外へ逃がさない。observationBoundaryより前に今回と同じ評価対象が存在する場合、除外はexclusionsWithReasonsに根拠があるものだけ許す。「これから」「次のN件」等で既存観測を暗黙に0件へ戻さない。ユーザー訂正、AI自己訂正、新要求を混同しない。\n\n内部では Crown Claim→Privilege Check→Fool's License→Reality Pin→Blind Spot→必要ならCouncil Mockery の順で検討してよいが、ユーザーへ内部チェックリストを全部見せない。\n有意な異論が0なら「今回は異議なし🤡」だけを核に短く終了。異論がある場合は、自然な文章で ①一番刺す価値のある前提 ②ノンデリな一言 ③確認済み根拠/未確認 ④必要なら提示外の代案 ⑤現案との比較 ⑥道化師自身の意見 の順に必要な部分だけ出す。`,
-    a,
-    true,
-  );
+  const evidence = fourthJesterEvidence(a);
+  const axes = fourthJesterAxes(a.domain);
+  const prompt = [
+    LICENSE,
+    "これは明示召喚7。context manifestは取得先の確認を代替しない。",
+    "議題: "+a.title, "背景（合成情報であり、ユーザーの直接発言とは限らない）: "+a.body,
+    "10項目の文脈: "+JSON.stringify(preflight.context),
+    "直接のユーザー原文（空ならユーザーの主張は攻撃禁止）: "+JSON.stringify(evidence.user),
+    "AI自身の直近説明/生成物: "+JSON.stringify(evidence.assistant),
+    "Councilによる仮説・議論（ユーザー原文と混同禁止）: "+JSON.stringify(evidence.council),
+    "証拠の参照先（資料を読んだ保証ではない）: "+JSON.stringify(evidence.source),
+    "対象domainの探索軸（全部埋める義務なし）: "+axes.join(" / "),
+    "まずユーザーの依頼を質問/探索例/観察/断言/決定に分けて理解する。次にAI自身の調査範囲を監査し、追加すべき資料・会社史・現存品・利用者側の視点を探す。",
+    "ユーザーを批判する場合は元原文の8文字以上の正確なquoteを取り、speechActはassertionかdecisionのみとする。『もしかしたら』『例えば』などの例示をユーザーの信念と呼ばない。",
+    "assistant/council/sourceを批判する場合も、その発案元の素材に実在するquoteが必須。source列は証拠そのものではなく単なる参照なので、資料確認したと断定しない。",
+    "研究の見落としにはblindSpotsを使う。statusはunexamined/incomplete/contradicted、area、question、nextSourceを持たせる。調べていない資料について調査済みと書くな。",
+    "批判のretractIfにはその批判が撤回される検証条件。何も価値のある指摘がなければnoObjection=true、targetsとblindSpotsは空。",
+    'JSONのみ: {"noObjection":false,"targets":[{"origin":"assistant|council|source|user","speechAct":"hypothesis|assertion|decision|observation","quote":"元資料に実在する8文字以上の原文","critique":"批判内容","retractIf":"反証・撤回条件","commitmentEvidence":"ユーザー確信の場合のみ元原文引用"}],"blindSpots":[{"area":"探索対象","question":"未調査の重要な問い","nextSource":"当たるべき具体的出典","status":"unexamined"}]}'
+  ].join("\n\n");
+  const y = await call(e, prompt, a, true);
+  let checked;
+  try { checked = fourthJesterCheck(JSON.parse(clean(out(y))), evidence); }
+  catch { checked = {valid:false,errors:["model returned non-JSON"],text:""}; }
   return {
-    version: "council-v3",
-    format: "jester",
-    formatLabel: "宮廷道化師 🤡",
-    title: a.title,
-    body: a.body,
-    jester: { mode: "explicit", license: "GRANTED", text: out(y) },
-    createdAt: new Date().toISOString(),
+    version:"council-v4",format:"jester",formatLabel:"四代目宮廷道化師 🤡",
+    title:a.title,body:a.body,
+    jester: checked.valid
+      ? { mode:"fourth",license:"GRANTED",text:checked.text,blindSpotAudit:true }
+      : { mode:"attribution-hold",license:"NOT_GRANTED",text:"根拠・発言帰属の検証が不合格。推測による批判は表示しない。"+checked.errors.join("、"),errors:checked.errors },
+    createdAt:new Date().toISOString(),
   };
 }
 
@@ -203,20 +228,23 @@ export function hookContext(base: any) {
 }
 
 async function hook(a: Req, e: Env, base: any) {
-  const y = await call(
-    e,
-    `${LICENSE}\n\nこれは1〜6の結論直前にだけ走る無言のJester hook。通常は黙る。乱入条件は3つすべて必須:\n1) ユーザー＋AI＋Councilが共有する未検証前提または不当に閉じた選択肢がある。\n2) それを反転すると結論・実装・コストが実質的に変わり得る。\n3) 既存Council内でその前提が実質的に攻撃されていない。\n単なる追加論点、好み、言い換え、軽微な改善、既にMinority Reportで扱われた異論では乱入しない。関連する現行媒体契約・ユーザー訂正・比較証拠を確認できず、確証のない一般論で現行案を覆すだけなら黙る。発火率を成果と考えない。事前に潰せる大きな手戻りコストを安く潰す時だけ出る。\n\n議題:${a.title}\n背景:${a.body}\nCouncil結果（BoardだけでなくCross Exam・hot-seat・匿名再評価を含む）:${JSON.stringify(hookContext(base))}\n\nJSONのみ。黙るなら {"intervene":false,"reason":""}。乱入するなら {"intervene":true,"text":"🤡から始まる短い乱入。前提を刺し、必要なら提示外の代案と現案比較、自分の意見まで。罵倒だけは禁止。"}`,
-    a,
-    true,
-  );
-  try {
-    const z = JSON.parse(clean(out(y)));
-    return z?.intervene && typeof z?.text === "string"
-      ? { intervene: true, text: z.text }
-      : { intervene: false };
-  } catch {
-    return { intervene: false };
-  }
+  const board = JSON.stringify(hookContext(base));
+  const evidence = fourthJesterEvidence(a,board);
+  const y = await call(e, [
+    LICENSE,
+    "これはCouncil 1〜6の最終裁定直前だけ評価する無言hook。通常は黙る。",
+    "介入の3条件: 未解決の重大共有前提 / 反転すれば実質的影響 / Cross ExamとMinorityでも未攻撃。すべて必要。",
+    "ユーザーの探索例示に難癖をつけるな。先にCouncil自身が作った仮説や探索漏れを疑い、重要でない欠落は無視。",
+    "議題: "+a.title, "背景（ユーザー原文とは限らない）: "+a.body,
+    "直接ユーザー原文: "+JSON.stringify(evidence.user),
+    "AI直前回答: "+JSON.stringify(evidence.assistant),
+    "Board/CrossExam/再評価: "+board,
+    "探索軸: "+fourthJesterAxes(a.domain).join(" / "),
+    'JSONのみ。黙る: {"intervene":false}。重大な介入: {"intervene":true,"origin":"council|assistant|source|user","quote":"元記録の8文字以上の正確な一節","text":"🤡で始まる具体的な批判","materialImpact":"なぜ裁定が変わるか","unexaminedArea":"実際に残った重大な盲点","alreadyChallenged":false}。',
+    "quoteが該当出典に存在しなければ介入しない。ユーザーへの帰属は元原文でのみ許す。"
+  ].join("\n\n"),a,true);
+  try {return fourthHookCheck(JSON.parse(clean(out(y))),evidence);}
+  catch {return {intervene:false};}
 }
 
 async function readjudicate(a: Req, e: Env, base: any, jester: any) {
@@ -254,12 +282,12 @@ async function runCouncil(a: Req, e: Env, req: Request) {
   const base = (await res.json()) as any;
   const j = await hook(a, e, base);
   if (!j.intervene)
-    return { ...base, version: "council-v3", jesterHook: null };
+    return { ...base, version: "council-v4", jesterHook: null };
   const originalSynthesis = base.synthesis;
   const synthesis = await readjudicate(a, e, base, j);
   return {
     ...base,
-    version: "council-v3",
+    version: "council-v4",
     originalSynthesis,
     synthesis,
     jesterHook: j,
@@ -312,7 +340,8 @@ const MCP = {
         description:
           "Explicit jester only. Fool's License stays inactive until every context field is restored.",
         properties: Object.fromEntries(
-          JESTER_CONTEXT_FIELDS.map((field) => [field, { type: "string", minLength: 1 }]),
+          [...JESTER_CONTEXT_FIELDS.map((field) => [field, { type: "string", minLength: 1 }]),
+           ...["originalUserUtterance","criticizedAnswer","priorCouncilText"].map((field) => [field,{type:"string"}])],
         ),
         required: JESTER_CONTEXT_FIELDS,
         additionalProperties: false,
@@ -355,7 +384,7 @@ async function mcp(req: Request, e: Env) {
       {
         protocolVersion: "2025-06-18",
         capabilities: { tools: { listChanged: false } },
-        serverInfo: { name: "VINTAGE ALARM Council", version: "3.0.0" },
+        serverInfo: { name: "VINTAGE ALARM Council", version: "4.0.0" },
         instructions:
           "Plain 焼いて = router. Show exact 7 choices. Explicit 7 = Court Jester. Formats 1-6 may trigger a silent high-threshold Jester hook.",
       },
@@ -416,18 +445,19 @@ export default {
       return new Response(
         JSON.stringify({
           ok: true,
-          version: "council-v3",
+          version: "council-v4",
           openai: !!e.OPENAI_API_KEY,
           vectorStore: !!e.COUNCIL_VECTOR_STORE_ID,
           db: !!e.DB,
           jester: true,
           jesterHook: true,
+          fourthJester: true,
         }),
         { headers: h },
       );
     if (req.method === "GET" && u.pathname === "/api/menu")
       return new Response(
-        JSON.stringify({ version: "council-v3", menu: FORMAT_MENU }),
+        JSON.stringify({ version: "council-v4", menu: FORMAT_MENU }),
         { headers: h },
       );
     if (req.method === "POST" && u.pathname === "/api/council") {
