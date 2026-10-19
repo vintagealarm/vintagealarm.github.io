@@ -276,9 +276,10 @@ requireText(state, '公開本数と対象一覧をこのStateへ固定しない'
 const arsa = watchStates.find((watch) => watch.slug === 'arsa-blind-alarm');
 if (!arsa) fail('ARSA Blind Alarm WATCH state is missing');
 if (arsa && !arsa.published) requireText(state, 'ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT', 'PROJECT_STATE ARSA unpublished CURRENT');
+if (arsa?.published) requireText(state, 'ARSA Blind Alarmは `published: true` がユーザー意図のCURRENT', 'PROJECT_STATE ARSA published CURRENT');
 if (arsa?.published && state.includes('ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT')) fail('PROJECT_STATE says ARSA is unpublished while frontmatter is published');
 
-// ARSA WATCH uses one JA publication gate and CMS-managed EN/DE draft sources.
+// ARSA WATCH uses one JA publication gate and CMS-managed EN/DE localized sources.
 const arsaEn = JSON.parse(read('src/data/watch-locales/arsa-en.json'));
 const arsaDe = JSON.parse(read('src/data/watch-locales/arsa-de.json'));
 const cms = read('.pages.yml');
@@ -286,8 +287,8 @@ const englishEntry = read('src/data/en-watch-entry.ts');
 const englishResearch = read('src/data/en-watch-full-research.ts');
 const germanEntry = read('src/data/de-watch-entry.ts');
 for (const [locale, entry] of [['en', arsaEn.entry], ['de', arsaDe.entry]]) {
-  if (entry.slug !== 'arsa-blind-alarm') fail(`ARSA ${locale} CMS draft slug drift`);
-  if (entry.ownersNote?.guide?.length !== 4) fail(`ARSA ${locale} draft guide must have four steps`);
+  if (entry.slug !== 'arsa-blind-alarm') fail(`ARSA ${locale} CMS localized slug drift`);
+  if (entry.ownersNote?.guide?.length !== 4) fail(`ARSA ${locale} localized guide must have four steps`);
   const last = entry.ownersNote?.guide?.[3] || '';
   if (locale === 'en' && !(last.includes('ON') && last.includes('OFF') && last.includes('pull out') && last.includes('push it in'))) fail('ARSA EN ON/OFF drift');
   if (locale === 'de' && !(last.includes('EIN') && last.includes('AUS') && last.includes('herausziehen') && last.includes('hineindrücken'))) fail('ARSA DE ON/OFF drift');
@@ -299,7 +300,6 @@ for (const [label, needle] of [['ARSA EN CMS', 'path: src/data/watch-locales/ars
 requireText(englishEntry, "'arsa-blind-alarm': arsaEn.entry", 'EN WATCH reads CMS canonical');
 requireText(englishResearch, "'arsa-blind-alarm': arsaEn.research", 'EN full research reads CMS canonical');
 requireText(germanEntry, "'arsa-blind-alarm': arsaDe.entry", 'DE WATCH reads CMS canonical');
-if (arsa?.published) fail('ARSA WATCH JA EN DE drafts must stay unpublished until an explicit release');
 for (const locale of ['en', 'de']) {
   if ((researchSettings.locales ?? []).includes(locale)) fail(`ARSA ${locale} RESEARCH release revoked by user WATCH instruction`);
   if (llms.includes(`https://vintagealarm.github.io/${locale}/research/arsa-blind-alarm/`)) fail(`Unrequested ${locale} RESEARCH advertised in llms`);
@@ -320,10 +320,6 @@ if (researchSettings.published) {
   }
   requireText(state, '**RESEARCH公開対象は日本語のみ。**', 'PROJECT_STATE RESEARCH locale CURRENT');
 }
-if (researchSettings.published && researchEntries.includes('arsa-blind-alarm') && arsa?.published) {
-  fail('ARSA RESEARCH release must not silently republish the normal ARSA WATCH route');
-}
-
 requireText(state, 'measurement target 5本', 'PROJECT_STATE measurement target');
 requireText(aio, 'measurement target 5 WATCH', 'AIO measurement target');
 if (aio.includes('公開済み5 WATCH')) {

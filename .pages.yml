@@ -177,7 +177,7 @@ content:
         list: true
 
   - name: arsaWatchEn
-    label: "ARSA WATCH — English draft"
+    label: "ARSA WATCH — English"
     type: file
     path: src/data/watch-locales/arsa-en.json
     format: json
@@ -331,7 +331,7 @@ content:
                 type: string
 
   - name: arsaWatchDe
-    label: "ARSA WATCH — Deutsch Entwurf"
+    label: "ARSA WATCH — Deutsch"
     type: file
     path: src/data/watch-locales/arsa-de.json
     format: json

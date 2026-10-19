@@ -15,6 +15,18 @@
 
 ---
 
+### 2026-10-19 14:01 JST — ARSA通常WATCHをJA / EN / DEで正式公開
+
+- **変更**：ARSA Blind Alarmの共通release flagを `published: true` へ変更し、通常WATCHをJA `/arsa-blind-alarm/`、EN `/en/arsa-blind-alarm/`、DE `/de/arsa-blind-alarm/` で公開する。3言語をOWNER'S NOTES一覧・HISTORY所有個体レール・sitemap・llmsへ接続する。一覧用の旧draft placeholderは掲載個体の正面写真 `IMG_3117-1.jpeg` へ置換し、`IMG_3118.jpeg` をfallbackにする。既存の3言語プレビューは `noindex` の確認用URLとして維持する。通常WATCHと同一正本を読む日本語RESEARCHは本文を維持し、検索説明だけを調査ページ用へ分ける。
+- **理由**：ユーザーが2026-10-19に「公開してよいです」と明示した。直前にJA / EN / DEの完成OWNER'S NOTE画像、通常WATCH本文、言語別プレビュー、モバイル表示、公開検査を確認済みで、従来の「明示的な再公開指示待ち」というrelease条件が満たされた。
+- **REVERSAL TARGET**：2026-10-06以降の「ARSA `published: false` がCURRENT」「通常WATCHは明示的な新しい公開指示があるまで生成しない」という状態。
+- **NEW EVIDENCE**：本会話のユーザー明示指示「公開してよいです」。公開本数を合わせるためのAI判断ではなく、公開権限そのものの更新として扱う。
+- **旧状態・棄却**：ARSA通常WATCHのJA / EN / DE非公開状態と、OWNER'S NOTES / HISTORYに残る `draft-placeholder.svg` を終了する。これをEN / DE RESEARCHの再公開許可へ拡張せず、`/en/research/arsa-blind-alarm/` と `/de/research/arsa-blind-alarm/` は撤回状態を維持する。PR #235のHOLD差分や未承認の第三者画像は取り込まない。
+- **影響範囲**：ARSA frontmatter、OWNER'S NOTES / HISTORY用サムネイル、JA / EN / DE通常route、Pages CMS表示名、llms、PROJECT_STATE、通常WATCHとRESEARCHの検索説明分離、公開・live・推論回帰gate、本ログ。OWNER'S NOTE画像bytes・本文・翻訳・日本語RESEARCH本文・HOW THEY RING・他WATCHは変更しない。
+- **検証状態**：branchでrelease変更を実装。Astro build、品質gate、JA / EN / DE生成HTML、一覧・HISTORY、SEO、320 / 390 / 768px、PR CI、main merge、Pages deploy、live route・sitemap・EN / DE RESEARCH 404を順に確認し、live確認前をDEPLOYEDと呼ばない。
+- **関連**：直前のlocalized preview PR #260、release branch `feat/arsa-watch-public-20261019`、HOLD PR #235（非採用）。
+- **日時根拠**：実行ホストのJST時計で `2026-10-19 14:01:43 +09:00` を確認。
+
 ### 2026-10-19 13:23 JST — ARSA英独OWNER'S NOTEを言語別プレビューとして実表示
 
 - **変更**：ARSA通常WATCHの `published: false` を維持したまま、英語 `/preview/watch/arsa-blind-alarm/en/` とドイツ語 `/preview/watch/arsa-blind-alarm/de/` の静的プレビューを追加する。既存日本語プレビューを含む3ページへ相互言語切替を設け、各言語の完成PNGをOWNER'S NOTE欄へ表示する。3ページとも `noindex,nofollow,noarchive`、sitemap非掲載とし、build・SEO・mobile layout・live検査で画像参照、言語、切替、非公開通常routeを回帰確認する。

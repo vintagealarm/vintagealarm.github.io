@@ -68,6 +68,8 @@ const cymaLocalizationSource = await fs.readFile('src/data/cyma-localizations.ts
 for (const slug of fullResearchSlugs) {
   const registered = slug === 'cyma-time-o-vox'
     ? cymaLocalizationSource.includes('englishCymaFullResearch')
+    : slug === 'arsa-blind-alarm'
+      ? englishFullResearchSource.includes("'arsa-blind-alarm': arsaEn.research")
     : englishFullResearchSource.includes(`'${slug}': {`);
   if (!registered) failures.push(`en: ${slug} is published but is not registered as FULL RESEARCH`);
 }

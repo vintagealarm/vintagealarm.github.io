@@ -4,7 +4,7 @@ import WatchPage from '../../../../layouts/WatchPage.astro';
 
 export async function getStaticPaths() {
   const watches = await getCollection('watches');
-  // Keep the established ARSA owner-facing preview available while its normal WATCH remains unpublished.
+  // Keep the established ARSA owner-facing preview available independently of the normal WATCH release state.
   return watches.filter((item) => item.data.published || item.data.slug === 'arsa-blind-alarm').map((item) => ({
     params: { slug: item.data.slug },
     props: { watch: item.data }

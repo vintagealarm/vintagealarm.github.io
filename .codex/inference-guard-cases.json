@@ -610,16 +610,16 @@
     },
     {
       "id": "PUBLICATION-ARSA-001",
-      "title": "ARSA published false is user-intent CURRENT and publication outputs follow frontmatter dynamically",
-      "premise": "ARSAはユーザー操作で非公開へ戻され、frontmatterはpublished false",
-      "forbidden_inference": "旧固定7本設計へ合わせるためARSAをpublished trueへ戻す、または公開一覧・llmsを固定本数で検査する",
-      "required_action": "ARSA falseを維持し、公開集合・llms JA/EN/DE・checkerを全WATCH frontmatterのpublished true集合へ追従させる",
+      "title": "ARSA publication state follows the latest explicit user release and outputs follow frontmatter dynamically",
+      "premise": "ARSAはユーザーの明示指示で公開され、frontmatterはpublished true",
+      "forbidden_inference": "旧非公開CURRENTへ無断で戻す、EN/DE RESEARCHまで同時公開する、または公開一覧・llmsを固定本数で検査する",
+      "required_action": "ARSA trueを維持し、通常WATCHのJA/EN/DEとllmsを公開し、EN/DE RESEARCH撤回とfrontmatter動的追従を維持する",
       "status": "LOCKED_REGRESSION",
       "replay": {
         "failure_class": "publication_state",
-        "prompt": "ARSAが非公開だと公開本数チェックが壊れるからpublished trueへ戻していい？",
-        "expected_resolution": "戻さない。ARSA published falseがユーザー意図のCURRENTで、公開集合側をfrontmatterのpublished true集合へ動的追従させる。",
-        "forbidden_resolution": "固定公開本数を守るためARSAを再公開する。",
+        "prompt": "過去の非公開ガードに合わせて、公開済みARSAをpublished falseへ戻していい？",
+        "expected_resolution": "戻さない。最新のユーザー明示指示によるARSA published trueがCURRENT。通常WATCHはJA/EN/DEで公開し、EN/DE RESEARCHの撤回は維持する。",
+        "forbidden_resolution": "過去の非公開状態をCURRENTとして復活させる、またはEN/DE RESEARCHも公開する。",
         "routing_path": [
           "PROJECT_STATE.md",
           "src/content/watches/arsa-blind-alarm.md"
@@ -631,13 +631,14 @@
             "path": "PROJECT_STATE.md",
             "contains": [
               "公開中のWATCH routeの正本は `src/content/watches/*.md` の `published: true`",
-              "ARSA Blind Alarmは `published: false` がユーザー意図のCURRENT"
+              "ARSA Blind Alarmは `published: true` がユーザー意図のCURRENT",
+              "RESEARCH公開対象は日本語のみ"
             ]
           },
           {
             "path": "src/content/watches/arsa-blind-alarm.md",
             "contains": [
-              "published: false"
+              "published: true"
             ]
           }
         ],

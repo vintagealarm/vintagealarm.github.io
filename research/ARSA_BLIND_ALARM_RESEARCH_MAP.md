@@ -9,6 +9,7 @@
 
 ## CURRENT — specimen / relist / negotiation
 
+- **WATCH publication: USER_APPROVED / JA・EN・DE RELEASE.** 2026-10-19の明示指示「公開してよいです」により、通常WATCHの共通frontmatterは `published: true`。日本語RESEARCHは公開継続、EN / DE RESEARCHは撤回状態を維持する。
 - **Relist continuity: SELLER_CONFIRMED / USER_CONFIRMED INTERPRETATION.** Ledger `2026-10-02 — seller reply after relist` の範囲で同じ個体の単純再出品を維持する。
 - **ID_MAPPING_HOLD:** 比較対象 `387444467772` と購入品 `206595337301` の対応は未立証。継続性の確認と、この2番号の同定は別判断。
 - **Geography: USER_REPORTED.** エジプトはユーザー申告。セラー住所・都市の独立確認ではない。
@@ -169,7 +170,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
   - `設定した時刻になれば、`
   - `今度は耳の出番。`
 - **NOTE FINAL / USER-origin**: 現行 `src/content/watches/arsa-blind-alarm.md` の7行稿を維持する。
-- **Public FINAL status**: 上記Catch / Lead / NOTEをcanonical sourceへ反映する。日本語RESEARCH routeは同じsourceを読む。ARSA通常WATCHの `published: false` は維持する。
+- **Public FINAL status**: 上記Catch / Lead / NOTEをcanonical sourceへ反映する。日本語RESEARCH routeは同じsourceを読む。ARSA通常WATCHは2026-10-19のユーザー明示指示によりJA / EN / DEで `published: true`。
 - **Ancestry**: Catch / Leadは2026-10-03 12:52 JSTにユーザー原文としてWORKINGへ固定。NOTEは2026-10-06 09:16 JSTにユーザー確定稿へ更新。2026-10-07 09:08 JST、ユーザーが監査結果を「全採用」とし、Catch / Subの公開反映を明示したためFINALへ昇格。
 - **Reality rule**: 到着後の触覚操作・音・ケース確認は個体事実の追加検証として継続するが、今回のCatch / Lead / NOTEのFINAL化を再び自動で保留へ戻す条件にはしない。新証拠で本文事実が変わる場合だけ通常のreversal gateを通す。
 
@@ -503,7 +504,7 @@ Current state:
 - do not keep this as an active purchase-risk item unless contradictory evidence appears
 
 
-**2026-10-16 UPDATED, owner-opened movement photos:** `IMG_3104.jpeg`, `IMG_3102.jpeg`, `IMG_3103.jpeg`, `IMG_3105(1).jpeg` received for VA display consideration. Oblique fourth photograph reveals a non-standard, thin metallic-looking element near the alarm click/wheel area. User reports it is a makeshift thin iron rod substituted for the click (「コハゼの代わりにほっそい鉄の棒」). *Exact material, attachment, component identity, original 7426/7436 status and 57426 condition require physical confirmation.* Prior hypothesis of a **mere missing 57426 screw is no longer sufficient as the full working description**. More serious possibility of makeshift winding-retention intervention is now OPEN for Mori-san diagnosis; stop further operation until inspected. Earlier audible alarm is not proof of healthy original click assembly. Ledger has detailed image observations; do not publish accusatory statements as findings or change `published:false` without explicit instruction.
+**2026-10-16 UPDATED, owner-opened movement photos:** `IMG_3104.jpeg`, `IMG_3102.jpeg`, `IMG_3103.jpeg`, `IMG_3105(1).jpeg` received for VA display consideration. Oblique fourth photograph reveals a non-standard, thin metallic-looking element near the alarm click/wheel area. User reports it is a makeshift thin iron rod substituted for the click (「コハゼの代わりにほっそい鉄の棒」). *Exact material, attachment, component identity, original 7426/7436 status and 57426 condition require physical confirmation.* Prior hypothesis of a **mere missing 57426 screw is no longer sufficient as the full working description**. More serious possibility of makeshift winding-retention intervention is now OPEN for Mori-san diagnosis; stop further operation until inspected. Earlier audible alarm is not proof of healthy original click assembly. Ledger has detailed image observations; do not publish accusatory statements as findings. The publication flag was later changed only after the explicit 2026-10-19 release instruction recorded in CURRENT above.
 
 **2026-10-16 MOVEMENT RETENTION OPEN/HIGH PRIORITY:** User-provided `IMG_3109.jpeg` marks three candidate holes near movement rim; `IMG_3108.mp4` (~3.87 s) shows watch being handled, and user independently reports movement rattles/has play inside case (「パカパカ」). No image-only proof that all three positions are case retaining screw holes. Need Mori-san to confirm the case/movement clamp, screw, spacer/ring arrangement and actual motion relative to case; do not assert particular missing clamp before inspection. This concern has greater handling urgency than the previous uncertain pull-crown resistance, since actual play can stress winding/setting stems. **Stop further winding, crown or shake tests.** Existing click-area thin wire suspicion is separate. Ledger contains the detailed evidence classification.
 
@@ -579,7 +580,7 @@ Do not rephrase this as "WHO approved ARSA" or "blind users found ARSA excellent
 
 **Other v1 gates:** hands-on operation, sound and touch checks after arrival; media permissions; source-to-visual mapping; visual mobile/desktop check; citation/build/layout validation; explicit publication authority and live parity. Manufacturer reply and further archive discovery are useful but not mandatory for a documented first release.
 
-**Scope:** PR #235 stays draft. Do not merge unapproved visuals; do not change existing RESEARCH public status or the separate WATCH `published: false`. Keep #214 / #232 intact.
+**Scope:** PR #235 stays draft. Do not merge unapproved visuals. The 2026-10-19 normal WATCH release does not authorize the rights-held or unapproved visuals remaining in #235. Keep #214 / #232 intact.
 
 
 **SUPERSEDED (refund sending status only) — 2026-10-16 PART-ONLY PROCUREMENT + REFUND PLAN:** Owner selected 60% as initial partial-refund ask (historical: not yet sent/accepted at that point; sending status superseded by CURRENT above; acceptance remains unconfirmed). AS1475 separate alarm click screw 57426 appears in eBay item 275186748488 variant selector, nominal USD7.99 plus displayed USD10.29 shipping; German Heß source indexes NOS 7426 click and 7436 spring but their prices are unverified. eBay 235537615409 has generic parts USD9.99, not proof it stocks 7426 or 7436. Seller return-cost motivation and acceptance probability not proven. Separate click fix from movement case retention and tactile minute-hand issue. Ledger holds URLs and FX snapshot. Public anecdotal 50% refund is not comparable transaction precedent or entitlement.

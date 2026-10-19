@@ -36,7 +36,7 @@ const defaultPageTitle = watch.slug === 'pierce-duofon'
           ? 'Westclox Watchlarm｜W5・0石・プッシャー式アラーム｜VINTAGE ALARM'
           : `${watch.brand} ${watch.model}｜VINTAGE ALARM`;
 const pageTitle = research ? `${watch.brand} ${watch.model}｜RESEARCH｜VINTAGE ALARM` : defaultPageTitle;
-const description = watch.slug === 'cyma-time-o-vox'
+const watchDescription = watch.slug === 'cyma-time-o-vox'
   ? 'Cyma Time-O-Vox 18K Chronomètre。Cal.R.464、1香箱、2プッシャー、透かしラグ。OWNER\'S NOTE、SPEC、R.464機構とケース仕様のDEEP DIVEを掲載。'
   : watch.slug === 'basis-alarm'
     ? 'Basis AlarmとBaumgartner BFG 90。一本の巻真から同じ方向に2香箱を巻く構造、滑りクラッチ、2つの巻上げ表示窓を、実機音と資料から追う。'
@@ -45,6 +45,9 @@ const description = watch.slug === 'cyma-time-o-vox'
       : watch.slug === 'westclox-watchlarm'
         ? 'Westclox Watchlarm W5。0石、1香箱、2時位置プッシャー式アラーム設定、9時位置ON/OFF。掲載個体の実測と資料差を含めて構造を追う。'
         : `${watch.brand} ${watch.model}。${watch.spec.caliber}、${watch.spec.barrels}、${watch.spec.acoustic}。OWNER'S NOTE、SPEC、${watch.video ? '実機鳴動、' : ''}資料に基づくDEEP DIVEを掲載。`;
+const description = research
+  ? `${watch.brand} ${watch.model}の資料・実機・機構・出典をまとめた調査ページ。`
+  : watchDescription;
 const pagePath = preview ? `preview/watch/${watch.slug}/` : research ? `research/${watch.slug}/` : `${watch.slug}/`;
 const pageUrl = new URL(pagePath, siteRoot).href;
 const imageUrl = new URL(watch.ownersNote.image.replace(/^\//, ''), siteRoot).href;
