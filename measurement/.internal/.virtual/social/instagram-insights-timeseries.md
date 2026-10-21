@@ -1502,7 +1502,7 @@
 - followers: 3.2%
 - non_followers: 96.8%
 - age: 13–17 1.6% / 18–24 35.5% / 25–34 44.5% / 35–44 11.9% / 45–54 3.2% / 55–64 1.8% / 65+ 1.4%
-- age_18_34_combined: 80.0% (35.5 + 44.5)
+- age_18_34_combined: 80.0%
 - countries: India 48.4% / Turkey 9.3% / United States 4.1% / Germany 2.0% / Italy 1.8% (five listed)
 - gender: unknown (not shown)
 - top_source_reels_tab_pct: 76.5
@@ -1515,7 +1515,7 @@
 - normal_reel_graph_note: purple cumulative-view curve near 1,917 at 11h appears above dashed gray account typical-Reel line in the displayed region; visual qualitative comparison, not proof of a stable outperformance.
 - source_status: CANONICAL_LOG_SCREENSHOT
 - screenshot_evidence: IMG_3236.jpeg; IMG_3237.png; IMG_3238.png; IMG_3239.png; IMG_3240.png; IMG_3241.png; IMG_3242.png; IMG_3243.png
-- note: Same Citizen × ARSA Reel as the 16:54 snapshot, not a new post. 16:54 Insights showed 1,168 views/764 viewers and 1 link click; this observation is later and shows 1,917/1,444 and 2 link clicks. Relative-age display does not establish exact publish minute. Instagram source distribution Reels tab + Explore = 94.8% of displayed view sources; this supports recommendation-surface distribution, NOT a proven causal contribution from the older TIME66 Basis reuse or its Modern De Luxe repost. Post-page plane icon shows 4 while Insights share count is '--'; preserve separately.
+- note: Same Citizen × ARSA Reel as the 16:54 snapshot, not a new post. 16:54 Insights showed 1,168 views/764 viewers and 1 link click; this observation is later and shows 1,917/1,444 and 2 link clicks. Relative-age display does not establish exact publish minute. Instagram source distribution Reels tab + Explore = 94.8% of displayed view sources; this supports recommendation-surface distribution, NOT proof that the third-party Wittnauer 10WA feature by `little_unnecessary_machines` caused this Reel's distribution; see instagram-operations.md for attribution limitations. Post-page plane icon shows 4 while Insights share count is '--'; preserve separately.
 
 ---
 
