@@ -2323,3 +2323,12 @@
 - **検証状態**：PR品質チェック後の本番deployとライブ検査結果で判定。
 - **関連**：PR #265、commit bf37e11661f69e6dc6a7d45573fdaccdc71a770d、Deploy run #39269081085。
 - **日時根拠**：UTC 2026-10-19T14:33:59.632Z → JST 2026-10-19 23:33 JST。
+
+### 2026-10-21 22:39 JST — Citizen×ARSA 22:26観測追加とWittnauer紹介の参照先訂正
+- **変更**：`IG-CIT-ARS-001`の2026-10-21 22:25–22:26 JST、8枚のユーザー提供Instagram画像の数値を、既存16:54観測を保持して`instagram-insights-timeseries.md`へ追加。元の追記にあったpercent形式違反を是正し、`instagram-operations.md`に最新Citizen×ARSAの伸長と10月14日`little_unnecessary_machines`によるWittnauer 10WA紹介の間の関係を、未確定の波及仮説として記録。
+- **起点**：ユーザーの「例の紹介で伸びたのかな」に対し、AIが以前のTIME66のBasis話と誤認した。その後、ユーザーがWittnauer紹介の件だと明示してGitHub現行正本の確認を要求。**USER訂正 → AIが調査・訂正**。当該外部アカウントおよび投稿の正本は`instagram-operations.md`の2026-10-14 22:49–23:00項目。
+- **採否と理由**：最新のVA投稿は10月21日公開`IG-CIT-ARS-001` Citizen Alarm×ARSA Blind Alarmであると確認。1,917 views、1,444 viewers、非フォロワー96.8%、Reelsタブ76.5%、発見18.3%。前回16:54からの増加は確認可能だが、Wittnauerを扱った第三者投稿からの視聴経路を示す直接証拠はないため**外部紹介による伸長の因果をHOLD**。TIME66を今回のユーザーの意図した参照先とする旧解釈を棄却。
+- **影響範囲**：`instagram-insights-timeseries.md`の当該観測の1スナップショット、`instagram-operations.md`の分析記録、本判断履歴のみ。既存16:54の観測、Published Copy、Content Inventory、WATCH、現行SNS方針は不変。
+- **検証状態**：当初追記commit `e40287c6`のCIはpercent形式違反でFAIL（実測値の合計計算メモがfield内に混入）。修正commit `eaf2fd5c`で形式と原因誤認を修正。main再取得・時系列検証・CI・レポートの完了/未完了はそれぞれ独立して確認する。
+- **関連**：`IG-CIT-ARS-001`、`IMG_3236.jpeg`～`IMG_3243.png`、`little_unnecessary_machines`外部Wittnauer 10WAの10月14日観測、`IG-MDL-001`への`Incredible!`コメント。
+- **日時根拠**：作業ホスト`TZ=Asia/Tokyo date`実測2026-10-21 22:39:07 JST。
