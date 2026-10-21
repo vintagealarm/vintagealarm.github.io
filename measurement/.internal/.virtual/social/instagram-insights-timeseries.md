@@ -1467,6 +1467,56 @@
 - screenshot_evidence: IMG_3225.jpeg; IMG_3226.png; IMG_3227.png; IMG_3228.png; IMG_3229.png; IMG_3230.png; IMG_3231.png; IMG_3232.png
 - note: The separate own-post UI at 16:54 displays 983 views and 23 likes, while the Insights UI at 16:54 displays 1168 views and 24 likes. These are different UI surfaces in the same capture set, **not** a verified sequential 983→1168 growth series. Save count and follow count come from Insights. The separate share counter `--` is unknown despite displayed share rate 0.4%; do not substitute 0. Percent rates are platform UI figures, not independently recomputed from views. Gender and actual publish minute not shown.
 
+
+### Snapshot — 2026-10-21 22:25–22:26 JST — Citizen × ARSA
+- observed_at_jst: 2026-10-21 22:25–22:26 (post page at 22:25, Insights at 22:26)
+- content_id: IG-CIT-ARS-001
+- published_at_jst: unknown (publication date 2026-10-21)
+- age_of_post_display: 11時間前 (own-post page)
+- elapsed_since_publish: unknown (Instagram rounded relative time)
+- reel_duration: approximately 9s (retention graph 0:00–0:09)
+- views: 1917 (Reel Insights overview; own-post eye count also 1,917)
+- viewers: 1444
+- average_watch_time: 5s
+- likes: 38
+- comments: 0
+- reposts: 0
+- shares: UI `--` (count unknown; separately visible post-page send icon 4)
+- post_page_send_icon_count: 4 (separate UI, not silently reconciled with unavailable Insights shares)
+- saves: 7
+- follows: 2
+- profile_accesses: 11
+- bio_link_clicks: 2
+- skip_rate: 46.2%
+- skip_rate_ui_evaluation: 低
+- share_rate: 0.3%
+- share_rate_ui_evaluation: 高
+- like_rate: 2.6%
+- like_rate_ui_evaluation: 低
+- save_rate: 0.5%
+- save_rate_ui_evaluation: 低
+- repost_rate: 0.0%
+- repost_rate_ui_evaluation: 低
+- comment_rate: 0.0%
+- comment_rate_ui_evaluation: 通常
+- followers: 3.2%
+- non_followers: 96.8%
+- age: 13–17 1.6% / 18–24 35.5% / 25–34 44.5% / 35–44 11.9% / 45–54 3.2% / 55–64 1.8% / 65+ 1.4%
+- age_18_34_combined: 80.0% (35.5 + 44.5)
+- countries: India 48.4% / Turkey 9.3% / United States 4.1% / Germany 2.0% / Italy 1.8% (five listed)
+- gender: unknown (not shown)
+- top_source_reels_tab_pct: 76.5
+- top_source_explore_pct: 18.3
+- top_source_feed_pct: 3.7
+- top_source_profile_pct: 0.9
+- top_source_stories_pct: unknown (not shown)
+- retention_curve_observation: 0:00 near 100%, declining toward roughly 20% at 0:09 (visual estimate; intermediate and final points not numerically reported)
+- like_timing_graph: peaks near opening and early-middle seconds; exact per-second rates not labeled
+- normal_reel_graph_note: purple cumulative-view curve near 1,917 at 11h appears above dashed gray account typical-Reel line in the displayed region; visual qualitative comparison, not proof of a stable outperformance.
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3236.jpeg; IMG_3237.png; IMG_3238.png; IMG_3239.png; IMG_3240.png; IMG_3241.png; IMG_3242.png; IMG_3243.png
+- note: Same Citizen × ARSA Reel as the 16:54 snapshot, not a new post. 16:54 Insights showed 1,168 views/764 viewers and 1 link click; this observation is later and shows 1,917/1,444 and 2 link clicks. Relative-age display does not establish exact publish minute. Instagram source distribution Reels tab + Explore = 94.8% of displayed view sources; this supports recommendation-surface distribution, NOT a proven causal contribution from the older TIME66 Basis reuse or its Modern De Luxe repost. Post-page plane icon shows 4 while Insights share count is '--'; preserve separately.
+
 ---
 
 
