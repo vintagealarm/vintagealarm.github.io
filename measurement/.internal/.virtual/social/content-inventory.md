@@ -168,7 +168,7 @@ Canonical WATCH: `src/content/watches/citizen-alarm.md`
 | CIT-01 | 国産初1958／2 crowns／2 barrels／中央ディスク／caseback hammer／系譜 | USED | POST_EXISTS_ANGLE_UNKNOWN | READY_EXISTING | READY_FROM_WATCH | HISTORY | Published copy first Reel + WATCH |
 | CIT-02 | 4時リューズ＝時計側、2時リューズ＝アラーム側 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | OPERATION | WATCH guide + Gallery side |
 | CIT-03 | 掲載個体ムーブメント刻印 `CITIZEN / 17 JEWELS / 3 ADJ` | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | WATCH spec + Gallery `IMG_2476.jpeg` |
-| CIT-04 | Cal.980とAS1475の近似／Beitlのライセンス生産可能性 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | RESEARCH | WATCH Deep 02 |
+| CIT-04 | Cal.980とAS1475の近似／Beitlのライセンス生産可能性 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | RESEARCH | WATCH Deep 02 + IG-CIT-ARS-001 published 2026-10-21: literature-based AS1475 lineage used, licensing possibility not asserted |
 | CIT-05 | 初期型の二重裏蓋：内側で生じた音を外側の穴から逃がす | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 + Gallery casebacks |
 | CIT-06 | 同じCal.980で中央ディスク式と4針式が同時期に存在 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | COMPARISON | WATCH Deep 03 |
 | CIT-07 | 「JLCからクレーム」伝説はCitizen公式／Beitl／Horlbeckで裏付け未確認 | HOLD | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | OPEN_QUESTION | RESEARCH | WATCH Deep 03 |
@@ -298,6 +298,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 
 | MR-PIE-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | PIE-07 | PIE-05,PIE-06 | PIE:WECKER-SIGNAL-SWITCH-VIDEO | published 2026-10-05 around 08:30 JST; exact copy in instagram-published-copy; first-hour Insights in instagram-insights-timeseries |
 | IG-WIT-CYM-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | WIT-01 | CYM-01 | IG:WIT-CYM-GONG-SOUND-COMPARISON-20261009 | 2026-10-09 11:53 Instagram Insights + Reel thumbnail; cross-watch audio comparison / CYMA starts at 0:18 by user description; exact posted caption and hashtags not yet screenshot-verified; insights-timeseries + published-copy status entry |
+| IG-CIT-ARS-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | CIT-04 | ARS-01 | SOCIAL:IG-CIT-ARS-001-PUBLISHED-REEL | 2026-10-21 16:54 screenshot IMG_3225–IMG_3232; published caption verified in published-copy; 9s according to retention axis; precise publish minute and exact uploaded final source-file path unknown; Insights timeseries initial snapshot |
 
 現在の新規active reservationは0件。MR-PIE-001は2026-10-05にPUBLISHEDへ移行。
 

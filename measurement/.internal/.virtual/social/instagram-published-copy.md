@@ -445,3 +445,39 @@ Why? ARSA was making tactile watches for blind and visually impaired people in t
 - **Creative direction corroborated by published opening**: `Never touch a watch's dial or hands` (watchmaking handling taboo) → this ARSA is designed for direct tactile reading → opening cover / tactile markers / blind and visually impaired context. Any later alarm punchline, caliber line, CTA or hashtags remain pending full-caption evidence.
 - **Publication status**: Instagram published; does NOT release or authorize publication of ARSA WATCH page, RESEARCH modifications, or rights-sensitive photos.
 - **Metrics**: stored only in `instagram-insights-timeseries.md` as `IG-ARS-001` observation on 2026-10-17 14:12–14:13 JST.
+
+
+---
+
+## Citizen × ARSA — comparison Reel, published 2026-10-21
+
+### Published caption — full screenshot verified 2026-10-21 16:54 JST
+
+- **Content ID:** `IG-CIT-ARS-001`.
+- **Publication evidence:** `IMG_3225.jpeg` own-post view shows posted `6時間前` as of 16:54 JST on 2026-10-21. Publication date 2026-10-21; exact minute unknown. Screenshot confirms public Reel, complete untruncated caption and all five hashtags. Exact URL not supplied.
+- **Format:** approximately 9-second Reel according to screenshot Insights retention axis `0:00–0:09`. This is the published length indicated by the Instagram UI, not a claim that prior 14.63s edit preview was the final uploaded asset.
+
+```text
+Two mechanical alarm wristwatches, both said to sound like cicadas. But listen closely, and they don't sound quite the same. 🔔
+
+According to specialist literature, the Citizen Alarm's movement is based on the A. Schild AS1475. This ARSA Blind Alarm houses an AS1475.
+
+Both have that distinctive cicada-like buzz, yet each has a character of its own.
+
+Play the two recordings simultaneously, and those differences come into sharper focus.
+
+Listen to the actual recordings on HOW THEY RING — link in bio.
+
+#Citizen #ARSA #AlarmWatch #VintageWatch #horology
+```
+
+### Final creative selection / provenance
+
+- **U-origin premise:** Two mechanical alarm wristwatches (Citizen Alarm and ARSA Blind Alarm), cicada-like but different sounds, comparative link through the documented AS1475 background, simultaneous playback invitation and profile landing on English HOW THEY RING. The user proposed and revised the original Japanese working draft, recorded in `instagram-operations.md` 2026-10-21 09:37 and 11:15.
+- **A-origin refinement:** The English formulation (`both said to sound like cicadas`, `based on`, `houses`, `differences come into sharper focus`) was a prior AI-proposed English candidate. The user's published screen confirms the precise candidate was used, with the bell emoji 🔔 and the same five hashtags. **Origin → decision:** U-origin comparison topic + A-proposed English rendering → adopted in U-published post, verified from screenshot. Do not retroactively claim that AI originated the concept.
+- **Adopted hook / comparison:** `Two mechanical alarm wristwatches, both said to sound like cicadas`; listener is invited to hear distinct sound signatures via simultaneous playback.
+- **Evidence boundary:** Caption says Citizen movement is *based on* AS1475 according to specialist literature, and the pictured ARSA houses an AS1475. It does **not** assert Citizen contains the identical AS1475 movement or that licensing is established.
+- **CTA:** `HOW THEY RING — link in bio`; existing canonical funnel is Reel → Instagram profile → `/en/how-they-ring/` (the landing page), then optional WATCH / OWNER'S NOTE / research. No URL in posted caption.
+- **Sound demonstration evidence:** Post screenshot includes HOW THEY RING audio-player frame (ARSA row). Earlier prepublication edit videos documented the two-player operation; actual posted Reel's entire visual/audio sequence is **not** fully verifiable from this single still. Do not claim the screenshot verifies continuous overlap or an exact audiovisual editing sequence.
+- **No specifically rejected directions inferred:** Only choices visible in the full published caption are treated as adopted; reasons for omitted lines or shots remain unverified.
+- **Insights:** Observed separately in `instagram-insights-timeseries.md` under `IG-CIT-ARS-001`; not duplicated here.
