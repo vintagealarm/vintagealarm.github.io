@@ -2332,3 +2332,11 @@
 - **検証状態**：当初追記commit `e40287c6`のCIはpercent形式違反でFAIL（実測値の合計計算メモがfield内に混入）。修正commit `eaf2fd5c`で形式と原因誤認を修正。main再取得・時系列検証・CI・レポートの完了/未完了はそれぞれ独立して確認する。
 - **関連**：`IG-CIT-ARS-001`、`IMG_3236.jpeg`～`IMG_3243.png`、`little_unnecessary_machines`外部Wittnauer 10WAの10月14日観測、`IG-MDL-001`への`Incredible!`コメント。
 - **日時根拠**：作業ホスト`TZ=Asia/Tokyo date`実測2026-10-21 22:39:07 JST。
+
+
+### 2026-10-21 — External creator mention correction
+- Change: The operations log now records IMG_3233(1).jpeg, a side-by-side Wittnauer 10WA and Citizen Alarm comparison from little_unnecessary_machines which explicitly recommends @vintagealarm in the caption.
+- Reason: The assistant had conflated this feature with an older separate Wittnauer post and TIME66 Basis, overlooking a direct tagged mention.
+- Rejected: Treating a tagged creator recommendation as absent, or claiming a proven causal contribution to 749 additional views of IG-CIT-ARS-001 without a measured visitor path.
+- Scope: operations observation and this decision history, not VA Insights or published pages.
+- Verification: reread main and diff pending. Date grounded in the 2026-10-21 user conversation; screenshot clock shows 18:34 but post timestamp is unverified.
