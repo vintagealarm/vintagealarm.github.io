@@ -2388,3 +2388,14 @@ collectit et wearit
 - **Origin attribution**: U reported the slowdown and questioned CYMA popularity; A advanced and explicitly qualified the presentation-vs-audience hypothesis (A → provisional A analysis; U approval absent).
 - **Scope**: SNS operations evidence + time-series only. Existing publishing frequency, funnel, published caption and site unaffected.
 
+## 2026-10-21 09:37 JST — Citizen × ARSA sound-comparison video (working draft)
+
+- **Status**: USER_PROPOSED / WORKING / not published; no final approved copy. Uploaded source video `595661AA-E18A-45E1-88CE-40AF6A6D37E3.mp4` is 14.63 seconds, 512×910 H.264 with AAC audio. Conversation attachment only, not stored in GitHub.
+- **User-origin Japanese working copy, verbatim**: 「シチズンアラームAs1475ベースと言われています。両者共に蝉の鳴き声と言われる音ですが、実はそれぞれ個性があります。同時再生で聴き比べてみて下さい。https://vintagealarm.github.io/en/how-they-ring/ みたいな感じでどうですかね」
+- **Verified media beats**: 0–2 seconds Citizen Alarm watch with SOUND ON graphic and audio; 2–4 seconds ARSA Blind Alarm with hinged front opened; 4–7 seconds HOW THEY RING site view and CASEBACK scroll; ~8–10 seconds Citizen player; ~11–13 seconds ARSA player lower on the page. Site explicitly says multiple recordings may be played at same time. Video does not unambiguously show two simultaneously playing controls; the site scroll includes an approximately 4–7 second silent interval.
+- **Source boundary**: ARSA Blind Alarm uses A. Schild AS1475 (current WATCH). Watch reference cited there describes Citizen alarm caliber lineage as based on AS1475; any licensing claim is not proven. Citizen 980 caliber is identified from same-type documentation rather than individually confirmed inside photographed Citizen. Cicada metaphor comes from USER wording.
+- **User's retained creative premise**: Citizen Alarm vs ARSA Blind Alarm, related AS1475 history as reported, both cicada-like but distinct tones, invite listeners to compare on existing English HOW THEY RING. Separate user proposal from AI provisional refinements.
+- **A assessment (not user-approved)**: Add two model labels immediately; remove prolonged silent scrolling if possible; consider showing active playback of both players together because simultaneous demonstration is not unambiguous in the captured Reel. Instagram caption links are not a clickable destination; use current Reel → profile → /en/how-they-ring/ funnel. Do not claim same movement or confirmed licensing.
+- **Evidence owners consulted**: Social Router, content-inventory.md, instagram-published-copy.md, current Citizen and ARSA WATCH source, how-they-ring audio frontmatter. This is not an already published caption, Insights measurement, final assignment or site update.
+- **Next action**: Give English candidate and Japanese translation; await explicit adoption before committing to content-inventory assignment or published copy.
+
