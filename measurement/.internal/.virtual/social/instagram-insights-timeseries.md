@@ -1413,6 +1413,60 @@
 - source_status: CANONICAL_LOG_SCREENSHOT
 - note: 2026-10-02 06:29–06:30 JSTのユーザー提供Instagram Insightsスクリーンショット6枚から確認。共有数は画面上 `--` のため数値化しない。bio link clickとgenderは未表示のため補完しない。Meta UI上の評価は skip rate「低」、share rate「低」、like rate「通常」、save rate「低」、repost rate「低」、comment rate「高」。閲覧数推移グラフでは本Reelが約1,400付近で伸びが鈍化し、通常のReel動画の比較線を下回る表示。
 
+
+## Comparative Reel evidence — Citizen × ARSA (2026-10-21)
+
+## Publication evidence
+- content_id: IG-CIT-ARS-001
+- published_date_jst: 2026-10-21
+- published_time_jst: unknown (post page at 16:54 JST displays `6時間前`; no reverse calculation from platform-rounded age)
+- format: Instagram Reel
+- reel_duration: approximately 9 seconds (Instagram retention graph 0:00–0:09)
+- source_status: CANONICAL_LOG_SCREENSHOT
+- publication_screenshot: IMG_3225.jpeg
+- caption_full_text: screenshot verified; see instagram-published-copy.md
+
+### Snapshot — 2026-10-21 16:54 JST — Citizen × ARSA
+- observed_at_jst: 2026-10-21 16:54
+- content_id: IG-CIT-ARS-001
+- published_at_jst: unknown (publication date 2026-10-21)
+- age_of_post_display: `6時間前`
+- elapsed_since_publish: unknown (Instagram relative clock only)
+- reel_duration: approximately 9s (axis `0:00–0:09`)
+- views: 1168
+- viewers: 764
+- average_watch_time: 5s
+- likes: 24
+- comments: 0
+- reposts: 0
+- shares: UI `--` (count unknown; share_rate shown separately)
+- saves: 3
+- follows: 1
+- profile_accesses: 5
+- bio_link_clicks: 1 (Instagram `自己紹介のリンククリック`)
+- skip_rate: 37.0%
+- share_rate: 0.4%
+- like_rate: 2.7%
+- save_rate: 0.3%
+- repost_rate: 0.0%
+- comment_rate: 0.0%
+- followers: 3.9%
+- non_followers: 96.1%
+- age: 13–17 1.9% / 18–24 36.9% / 25–34 43.8% / 35–44 11.7% / 45–54 2.7% / 55–64 1.2% / 65+ 1.7%
+- age_18_34_combined: 80.7%
+- countries: India 49.8% / Turkey 9.3% / United States 7.4% / Mexico 1.8% / South Korea 1.6% (five visibly listed)
+- top_source_reels_tab_pct: 76.9
+- top_source_explore_pct: 15.9
+- top_source_feed_pct: 6.1
+- top_source_profile_pct: 0.6
+- top_source_stories_pct: unknown (not shown)
+- retention_curve_observation: displayed curve drops across the first seconds, continues downward to a low tail at 9 seconds; individual timepoint percentages are not numerically readable
+- normal_reel_graph_note: Reel's purple cumulative-view line is below dashed gray `あなたの通常のリール動画` comparison near the screenshot's displayed ~6-hour period. Do not infer exact typical-view count from graph.
+- like_timing_graph: early and mid-video peaks visible but exact per-second counts cannot be read
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3225.jpeg; IMG_3226.png; IMG_3227.png; IMG_3228.png; IMG_3229.png; IMG_3230.png; IMG_3231.png; IMG_3232.png
+- note: The separate own-post UI at 16:54 displays 983 views and 23 likes, while the Insights UI at 16:54 displays 1168 views and 24 likes. These are different UI surfaces in the same capture set, **not** a verified sequential 983→1168 growth series. Save count and follow count come from Insights. The separate share counter `--` is unknown despite displayed share rate 0.4%; do not substitute 0. Percent rates are platform UI figures, not independently recomputed from views. Gender and actual publish minute not shown.
+
 ---
 
 
@@ -1666,60 +1720,6 @@
 - screenshot_evidence: IMG_3160.jpeg; IMG_3161.png; IMG_3162.png; IMG_3163.png; IMG_3164.png; IMG_3165.png; IMG_3166.png; IMG_3167.png
 - note: The separate own-post screen at 00:24 displays 1537 views and 41 likes, while Insights at 00:24–00:25 displays 1605 views and 42 likes; preserve these as different UI surfaces, not time-sequenced growth. Post UI labels publication as `11時間前` and user reported 13:20 previous day. Percent rates are the Instagram-displayed metrics, not recalculations from gross view counts; unknown shares must not be entered as zero.
 
-
-
-# Citizen × ARSA — simultaneous sound comparison
-
-## Publication evidence
-- content_id: IG-CIT-ARS-001
-- published_date_jst: 2026-10-21
-- published_time_jst: unknown (post page at 16:54 JST displays `6時間前`; no reverse calculation from platform-rounded age)
-- format: Instagram Reel
-- reel_duration: approximately 9 seconds (Instagram retention graph 0:00–0:09)
-- source_status: CANONICAL_LOG_SCREENSHOT
-- publication_screenshot: IMG_3225.jpeg
-- caption_full_text: screenshot verified; see instagram-published-copy.md
-
-### Snapshot — 2026-10-21 16:54 JST — Citizen × ARSA
-- observed_at_jst: 2026-10-21 16:54
-- content_id: IG-CIT-ARS-001
-- published_at_jst: unknown (publication date 2026-10-21)
-- age_of_post_display: `6時間前`
-- elapsed_since_publish: unknown (Instagram relative clock only)
-- reel_duration: approximately 9s (axis `0:00–0:09`)
-- views: 1168
-- viewers: 764
-- average_watch_time: 5s
-- likes: 24
-- comments: 0
-- reposts: 0
-- shares: UI `--` (count unknown; share_rate shown separately)
-- saves: 3
-- follows: 1
-- profile_accesses: 5
-- bio_link_clicks: 1 (Instagram `自己紹介のリンククリック`)
-- skip_rate: 37.0%
-- share_rate: 0.4%
-- like_rate: 2.7%
-- save_rate: 0.3%
-- repost_rate: 0.0%
-- comment_rate: 0.0%
-- followers: 3.9%
-- non_followers: 96.1%
-- age: 13–17 1.9% / 18–24 36.9% / 25–34 43.8% / 35–44 11.7% / 45–54 2.7% / 55–64 1.2% / 65+ 1.7%
-- age_18_34_combined: 80.7%
-- countries: India 49.8% / Turkey 9.3% / United States 7.4% / Mexico 1.8% / South Korea 1.6% (five visibly listed)
-- top_source_reels_tab_pct: 76.9
-- top_source_explore_pct: 15.9
-- top_source_feed_pct: 6.1
-- top_source_profile_pct: 0.6
-- top_source_stories_pct: unknown (not shown)
-- retention_curve_observation: displayed curve drops across the first seconds, continues downward to a low tail at 9 seconds; individual timepoint percentages are not numerically readable
-- normal_reel_graph_note: Reel's purple cumulative-view line is below dashed gray `あなたの通常のリール動画` comparison near the screenshot's displayed ~6-hour period. Do not infer exact typical-view count from graph.
-- like_timing_graph: early and mid-video peaks visible but exact per-second counts cannot be read
-- source_status: CANONICAL_LOG_SCREENSHOT
-- screenshot_evidence: IMG_3225.jpeg; IMG_3226.png; IMG_3227.png; IMG_3228.png; IMG_3229.png; IMG_3230.png; IMG_3231.png; IMG_3232.png
-- note: The separate own-post UI at 16:54 displays 983 views and 23 likes, while the Insights UI at 16:54 displays 1168 views and 24 likes. These are different UI surfaces in the same capture set, **not** a verified sequential 983→1168 growth series. Save count and follow count come from Insights. The separate share counter `--` is unknown despite displayed share rate 0.4%; do not substitute 0. Percent rates are platform UI figures, not independently recomputed from views. Gender and actual publish minute not shown.
 
 
 ---
