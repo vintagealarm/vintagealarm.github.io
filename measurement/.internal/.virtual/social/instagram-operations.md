@@ -2400,3 +2400,39 @@ collectit et wearit
 - **Follow-up media / clarification (2026-10-21 09:44 JST)**: User provided new 6.20s iPhone screen recording `ScreenRecording_10-21-2026 09-41-48_1.mp4` of English HOW THEY RING CASEBACK section: Citizen Alarm player begins playback, user scrolls to ARSA Blind Alarm, then ARSA player starts. The site explicitly allows multi-track playback. This shows the intended two-player operation clearly enough; the AI's earlier concern that the video did not show how to trigger both was insufficiently qualified. Audio recording contains quiet intervals; do not claim verified continuous sonic overlap based solely on this clip. This is clarification/review of working material, not a new post or final user adoption.
 - **Next action**: Give English candidate and Japanese translation; await explicit adoption before committing to content-inventory assignment or published copy.
 
+
+## 2026-10-21 11:15 JST — Citizen × ARSA comparative caption: user revision and English candidate
+
+- **Status**: USER_REVISED_WORKING / NOT_PUBLISHED / NOT_USER_FINAL_APPROVED. User wrote new Japanese text after reviewing earlier comparison idea. User then requested GitHub persistence. This request is to record the working material, not to declare the Instagram post published or confirm all AI wording.
+- **Origin**: U → working draft. The cicada analogy, Citizen-AS1475/ARSA relation, simultaneous listening as the payoff, and profile HOW THEY RING CTA all originate in the user's draft. A → language refinement and English rendering proposed, not user-approved.
+
+### User's latest Japanese draft — verbatim (working)
+```text
+どちらも蝉の鳴き声にたとえられる、2本の機械式アラーム腕時計。
+でも、聴いてみると鳴り方は少し違います。🔔
+専門書では、シチズンアラームのムーブメントはA. Schild AS1475を基にしたものと説明されています。今回のARSA Blind Alarmには、そのAS1475が搭載されています。
+どちらも蝉のような独特の響き。
+でも、それぞれに違う個性があります。
+その違いは2本の録音を同時再生で初めて輪郭が得られるでしょう。
+実機の録音は、プロフィールのリンク先「HOW THEY RING」で聴き比べられます。
+```
+
+- **AI proposal, not accepted**: Replace the sixth sentence with 「2本の録音を同時に鳴らすと、その違いがいっそう鮮明になります。」 Avoid implying the differences literally cannot be heard separately.
+
+### AI English candidate — proposed, not published
+```text
+Two mechanical alarm wristwatches, both said to sound like cicadas. But listen closely, and they don't sound quite the same. 🔔
+
+According to specialist literature, the Citizen Alarm's movement is based on the A. Schild AS1475. This ARSA Blind Alarm houses an AS1475.
+
+Both have that distinctive cicada-like buzz, yet each has a character of its own.
+
+Play the two recordings simultaneously, and those differences come into sharper focus.
+
+Listen to the actual recordings on HOW THEY RING — link in bio.
+
+#Citizen #ARSA #AlarmWatch #VintageWatch #horology
+```
+
+- **Evidence boundary**: Both references and audio comparison follow 2026-10-21 09:37/09:44 working-media notes above; no licensed-production or same-caliber claim for Citizen. User has not shown a published-post screenshot or approved final English copy.
+- **Canonical handling**: This is a draft/correction in instagram-operations.md, not a published caption. Do not update instagram-published-copy.md or create a confirmed inventory assignment without separate evidence/approval. No public site changes.
