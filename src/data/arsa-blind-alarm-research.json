@@ -95,48 +95,18 @@
     },
     {
       "number": "03",
-      "title": "針を触らず、磁力で球を追わせる",
+      "title": "EnicarとBEAT：針の触覚符号と開閉ボタン",
       "paragraphs": [
-        "1957年8月26日に出願されたEdgar A. Ferguson Jr.の米国特許US2915874Aは、当時の触読時計では時刻を知るために指で針へ直接触れ、その際に針の位置が動いて時刻表示を狂わせる問題があると記す。",
-        "提案されたのは、時計内部の通常の時針・分針に磁気的な指向部を取り付け、外側に置いた二つの強磁性球をそれぞれ追従させる構造だ。触るのは針ではなく、時と分に対応する二つの球。指先で球を動かしても、手を離せば磁力で正しい角度へ戻る。",
-        "時計の針を指でなぞるARSAと、針を触らず球を読むFergusonの方式。同じ直接接触の課題に対して、読ませる部品が異なる。特許は設計提案を示す資料で、Ferguson方式の量産やARSAとの技術的な関係を示す資料ではない。"
+        "1964年ローザンヌ向けEnicar特別個体では、時針約2.9mm、分針約1.6mm、アラーム針約0.7mmと針幅を変え、アラーム針の先端に四本の隆起を設けている。二つのリューズも指先で区別できる形だ。これはこの特別個体に関するHorlbeckの記述である。",
+        "BEAT／Friedli-Frèresは、前蓋を開けるボタンを6時位置に独立して置いた。Beitl掲載例では隆起した時刻目盛と白い触読針が見えるが、各針の細かな触覚符号までは資料から確定できない。",
+        "BeitlにはAFB印付きARSA系やA. Schild自身のAS1475触読アラーム試作機も記録されている。図解の中心は、針や操作部を資料で比較できるARSA・1964年Enicar・BEATの三例とする。"
       ],
       "sourceRefs": [
-        "FERGUSON"
-      ],
-      "designComparison": [
-        {
-          "type": "ARSA Blind Alarm",
-          "timeReading": "時針・分針へ直接触れる",
-          "alarmSettingReadback": "独立したアラーム針を直接触れる",
-          "contactResponse": "掲載個体の分針は軽い接触で変位"
-        },
-        {
-          "type": "Ferguson US2915874A",
-          "timeReading": "磁力で針を追う二つの球に触れる",
-          "alarmSettingReadback": "特許の腕時計実施例ではアラーム機構を示していない",
-          "contactResponse": "球が移動しても磁力で元の位置へ戻る設計"
-        }
-      ],
-      "figureRefs": [
-        "FIG-FERGUSON"
-      ]
-    },
-    {
-      "number": "04",
-      "title": "同じAS1475、異なる開け方と触り分け",
-      "paragraphs": [
-        "ARSAだけが触読アラームを作っていたわけではない。専門書にはEnicar、BEAT／Friedli-Frères、A. Schildのプロトタイプが記載され、共通するAS1475の上で蓋の開放位置や針の区別のさせ方が変わる。",
-        "1964年のローザンヌ向けEnicar特別個体では、時・分・アラーム針の幅を変え、アラーム針の先端に四本の隆起を設けた。BEATは蓋開放ボタンをリューズ中央ではなく6時位置へ置いている。",
-        "Beitlが約1960年のAFB印付き個体についてARSA製の同型と記す例は、別の設計会社として数えない。1970年頃のafB De LuxeはAS1930搭載の後年例として記録されるが、製造元は特定されていない。"
-      ],
-      "sourceRefs": [
-        "B54",
-        "B74",
-        "B91",
         "H222",
         "H223",
-        "MAP"
+        "B91",
+        "B54",
+        "B74"
       ],
       "comparisonRows": [
         {
@@ -183,9 +153,37 @@
         }
       ],
       "figureRefs": [
-        "FIG-ARSA",
         "FIG-ENICAR",
         "FIG-BEAT"
+      ]
+    },
+    {
+      "number": "04",
+      "title": "Fergusonの別方式：触れるのは針ではなく球",
+      "paragraphs": [
+        "1957年8月26日に出願されたEdgar A. Ferguson Jr.の米国特許US2915874Aは、当時の触読時計では時刻を知るために指で針へ直接触れ、その際に針の位置が動いて時刻表示を狂わせる問題があると記す。",
+        "提案されたのは、時計内部の通常の時針・分針に磁気的な指向部を取り付け、外側に置いた二つの強磁性球をそれぞれ追従させる構造だ。触るのは針ではなく、時と分に対応する二つの球。指先で球を動かしても、手を離せば磁力で正しい角度へ戻る。",
+        "ARSA・Enicar・BEATでは露出した針そのものに触れる。Ferguson案では針に磁力で追従する球を触る。同じ時刻を指先で読むために、触れる部品を別のものにした構造である。"
+      ],
+      "sourceRefs": [
+        "FERGUSON"
+      ],
+      "designComparison": [
+        {
+          "type": "ARSA Blind Alarm",
+          "timeReading": "時針・分針へ直接触れる",
+          "alarmSettingReadback": "独立したアラーム針を直接触れる",
+          "contactResponse": "掲載個体の分針は軽い接触で変位"
+        },
+        {
+          "type": "Ferguson US2915874A",
+          "timeReading": "磁力で針を追う二つの球に触れる",
+          "alarmSettingReadback": "特許の腕時計実施例ではアラーム機構を示していない",
+          "contactResponse": "球が移動しても磁力で元の位置へ戻る設計"
+        }
+      ],
+      "figureRefs": [
+        "FIG-FERGUSON"
       ]
     },
     {
@@ -353,7 +351,7 @@
       "url": null
     }
   ],
-  "editorialStatus": "DRAFT VISUAL-FIRST; 2026-10-12 figure-design authority restored; rights and mock approvals pending; no publication flags changed.",
+  "editorialStatus": "VISUAL-FIRST-DRAFT-REVISION — 2026-10-12 illustration brief restored; media/rights/design review open; no public changes",
   "visualEditorial": {
     "priority": "FIGURE_FIRST",
     "coreFigures": [
@@ -413,5 +411,18 @@
       "専門書を並べたアーカイブ型"
     ],
     "rightsGate": "原本写真と書籍画像は無許可公開しない。10月12日の図解案で棄却した創作SVGを復活させない"
+  },
+  "redditFieldStudy": {
+    "primaryAudience": "blind / low-vision tactile-watch users, past users, family members or teachers reporting first-hand observations",
+    "focus": "実際に指で読む使用経験・良かった点／困った点の収集",
+    "questions": [
+      "どの触覚点で文字盤の向きをつかむか",
+      "時・分・アラーム針を指先でどう識別するか",
+      "指で時刻を読む際に針が動いて困ったことはあるか",
+      "前蓋の開閉や時刻合わせはどこが扱いやすいか",
+      "普段使う時計を選ぶとき何を重視するか"
+    ],
+    "ethics": "回答は任意。針を指で押す・無理に動かす新規試験を依頼しない。体験談は個人の経験として取り扱い、ARSA全体へ一般化しない。",
+    "watchuseekSeparation": "WatchUSeekは機種の現存個体・写真・修理仕様の収集を主目的とし、Redditの実使用者体験調査と役割分離。"
   }
 }
