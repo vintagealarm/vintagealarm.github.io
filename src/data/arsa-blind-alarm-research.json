@@ -3,16 +3,17 @@
   "slug": "arsa-blind-alarm",
   "articleKind": "independent-research",
   "title": "ARSA BLIND ALARM — 触読アラームの構造と現存資料",
-  "heading": "触れる針が、動いてしまう。",
+  "heading": "ARSA・Enicar・BEAT：指先へどう伝えたか",
   "lead": [
-    "ARSA Blind Alarmは、前蓋を開けて時針・分針・アラーム針を指で読む機械式アラーム腕時計だ。ところが掲載個体の分針は、軽く触れるだけで動いてしまう。",
-    "1957年の別の特許には、針に触れると時刻表示が乱れるという問題と、針の代わりに磁力で追従する球を触る解決案が記されていた。専門書の構造記述、現存する類似機、掲載個体の観察から、触読アラームの設計を追う。"
+    "ARSA、Enicar、BEATは、同じAS1475を用いながら、触覚目盛、針の識別、前蓋の開け方をそれぞれ異なる形で作っていた。",
+    "実物と専門書に基づく三者の図解を中心に、各社の触読方法を見比べる。1957年のFerguson磁気球特許と掲載個体の分針の挙動は、その次に置く比較研究である。"
   ],
   "sections": [
     {
       "number": "01",
-      "title": "ARSAが作った触読アラーム",
+      "title": "資料に残る触読方式を見比べる",
       "paragraphs": [
+        "図解ではARSA、1964年Enicar特別個体、BEATの順に、実際に触れる目盛・針・前蓋開放部を比べる。ARSAは現物写真、Enicarは針幅と先端の隆起、BEATは6時の開閉ボタンをそれぞれ原資料から示す。",
         "Beitl『Alarm am Arm』は、ARSAが1956年頃にA. Schild AS1475搭載の触読アラーム腕時計を製造したと記す。同書に掲載された1958年の例は、触覚点を備えた文字盤、太い時分針、独立したアラーム針、開閉式前蓋を持つ。秒針は設けられていない。",
         "2時側のリューズはアラーム用、4時側は時計用。前蓋を開くボタンは4時位置の時計用リューズ中央に組み込まれ、指先で現在時刻とアラーム設定時刻を確かめられる。",
         "ARSAの企業史には1950年代初頭の盲人用時計の開発が記録されている。1970年の同社広告には盲人用時計とアラーム腕時計が別々の製造品目として並ぶ。これらはARSAの製品領域を示す資料であり、Blind Alarmの製造年を広告から確定するものではない。"
@@ -48,6 +49,11 @@
             "DAV1970"
           ]
         }
+      ],
+      "figureRefs": [
+        "FIG-ARSA",
+        "FIG-ENICAR",
+        "FIG-BEAT"
       ]
     },
     {
@@ -82,7 +88,10 @@
           "raisedDots": 1
         }
       ],
-      "evidenceBoundary": "目盛の点数と針の外観は掲載個体の写真観察。針ごとの触覚的な識別しやすさは視覚障害のある使用者による利用試験の結果ではない。"
+      "evidenceBoundary": "目盛の点数と針の外観は掲載個体の写真観察。針ごとの触覚的な識別しやすさは視覚障害のある使用者による利用試験の結果ではない。",
+      "figureRefs": [
+        "FIG-ARSA"
+      ]
     },
     {
       "number": "03",
@@ -108,6 +117,9 @@
           "alarmSettingReadback": "特許の腕時計実施例ではアラーム機構を示していない",
           "contactResponse": "球が移動しても磁力で元の位置へ戻る設計"
         }
+      ],
+      "figureRefs": [
+        "FIG-FERGUSON"
       ]
     },
     {
@@ -169,6 +181,11 @@
           "tactileDetail": "触覚目盛・中央アラーム針",
           "evidence": "後年の競売掲載記録。製造元未確認"
         }
+      ],
+      "figureRefs": [
+        "FIG-ARSA",
+        "FIG-ENICAR",
+        "FIG-BEAT"
       ]
     },
     {
@@ -205,6 +222,11 @@
           "result": "録音あり",
           "evidence": "2026-10-16音声確認"
         }
+      ],
+      "figureRefs": [
+        "FIG-ARSA",
+        "FIG-ENICAR",
+        "FIG-BEAT"
       ]
     },
     {
@@ -228,6 +250,11 @@
         "AS1475型ARSAの別現存個体：文字盤・針・前蓋ボタン・ムーブメント・裏蓋内外の写真",
         "Venus 230搭載ARSAの当時の資料、または銘記を確認できる別個体",
         "触読用分針の固定方式と安全な接触抵抗に関する当時の技術資料"
+      ],
+      "figureRefs": [
+        "FIG-ARSA",
+        "FIG-ENICAR",
+        "FIG-BEAT"
       ]
     }
   ],
@@ -326,5 +353,65 @@
       "url": null
     }
   ],
-  "editorialStatus": "DRAFT_CONTENT_ONLY — independent research article manuscript; no public route or publication flag changed."
+  "editorialStatus": "DRAFT VISUAL-FIRST; 2026-10-12 figure-design authority restored; rights and mock approvals pending; no publication flags changed.",
+  "visualEditorial": {
+    "priority": "FIGURE_FIRST",
+    "coreFigures": [
+      {
+        "id": "FIG-ARSA",
+        "watch": "ARSA",
+        "source": "掲載個体の実物写真",
+        "annotations": [
+          "12時縦3点・9時横2点・3時/6時各1点",
+          "3本の針",
+          "4時リューズ中央の蓋開放ボタン"
+        ],
+        "guard": "販売者画像は権利確認中。架空のARSA線画に置き換えない"
+      },
+      {
+        "id": "FIG-ENICAR",
+        "watch": "Enicar 1964 Lausanne",
+        "source": "Horlbeck印刷pp.222–223",
+        "annotations": [
+          "時針約2.9mm・分針約1.6mm・アラーム針約0.7mm",
+          "アラーム針先端の4隆起",
+          "触って区別できるリューズ"
+        ],
+        "guard": "この特別個体の部分構造のみ。未確認の文字盤全体を作画しない"
+      },
+      {
+        "id": "FIG-BEAT",
+        "watch": "BEAT / Friedli-Frères",
+        "source": "Beitl印刷p.91 Fig.1",
+        "annotations": [
+          "6時位置の独立開放ボタン",
+          "隆起した時刻目盛・白い触読針"
+        ],
+        "guard": "針の細部符号や点数を創作しない"
+      },
+      {
+        "id": "FIG-FERGUSON",
+        "watch": "US2915874A",
+        "source": "Ferguson特許 Fig.1–4",
+        "annotations": [
+          "針へ直接触れる触読方式との比較",
+          "磁気追従する2個の球",
+          "接触後の磁気復帰"
+        ],
+        "guard": "構想特許を実売商品として描かない"
+      }
+    ],
+    "comparisonAxes": [
+      "目盛の形・配置",
+      "時針/分針/アラーム針の判別",
+      "蓋の開け方",
+      "時刻・アラーム時刻の読み取り"
+    ],
+    "layoutCandidates": [
+      "写真主導の縦比較",
+      "部品別の証拠マトリクス",
+      "専門書を並べたアーカイブ型"
+    ],
+    "rightsGate": "原本写真と書籍画像は無許可公開しない。10月12日の図解案で棄却した創作SVGを復活させない"
+  }
 }
