@@ -114,14 +114,16 @@
           "Alarm am Arm schreibt, dass ARSA um 1956 eine Blind Alarm mit dem A. Schild AS 1475 fertigte. Das dort abgebildete Exemplar von 1958 besitzt ein Zifferblatt mit Tastpunkten, ausreichend robuste Stunden- und Minutenzeiger für direkte Berührung, keinen Sekundenzeiger und einen Öffner des Vorderdeckels in der Mitte der Krone bei 4 Uhr.[3]",
           "Das AS 1475 misst 25,94 mm im Durchmesser und 5,8 mm in der Höhe, besitzt 17 Steine und läuft mit 18.000 Halbschwingungen pro Stunde. Es ist ein Handaufzugswerk mit getrennten Federhäusern für Uhr und Alarm; gewöhnlich bedient die Seite bei 2 Uhr den Alarm und die Seite bei 4 Uhr die Uhr. Die Fachliteratur nennt etwa 40 Stunden Gangdauer und 10–15 Sekunden Alarmdauer.[10]",
           "Nach dem Öffnen des Vorderdeckels sind die erhabenen Marken und drei Zeiger direkt zugänglich. Die breiten Stunden- und Minutenzeiger zeigen die aktuelle Zeit, der separate Alarmzeiger die eingestellte Alarmzeit. Obwohl das AS 1475 eine Zentralsekunde unterstützt, fehlt bei dieser Blind Alarm der Sekundenzeiger, der das tastende Ablesen stören würde.[3][10]",
-          "Das 1957 angemeldete Tastanzeige-Patent US2915874A nennt bei älteren Systemen das Problem, dass eine Berührung die Zeigerstellung verändern kann. Der Stundenzeiger des hier gezeigten Exemplars lässt sich durch direkte Berührung nicht bewegen.[11]",
-          "Auch eine ARSA Hunter-Taschenuhr von 1967 besitzt einen Vorderdeckel, der über einen Knopf auf der Krone geöffnet wird. Ein kronenintegrierter Öffner unterstützt bei der Blind Alarm das tastende Ablesen, doch lässt sich nicht belegen, dass ARSA diese Konstruktion eigens für blinde Menschen entwickelte.[12]"
+          "Das 1957 angemeldete US-Patent US2915874A beschreibt das Problem, dass beim direkten Ertasten der Uhrzeiger die angezeigte Zeit verstellt werden kann. Vorgeschlagen werden zwei außen tastbare Kugeln, die den im Inneren liegenden Stunden- und Minutenzeigern magnetisch folgen. So lässt sich die Uhrzeit ablesen, ohne die Zeiger zu berühren. Wird eine Kugel durch Berührung verschoben, bringt die Magnetkraft sie wieder an die richtige Stelle zurück.[11]",
+          "Bei der ARSA Blind Alarm werden dagegen die Zeiger selbst ertastet. Am hier gezeigten Exemplar lässt sich der Stundenzeiger durch direktes Berühren nicht bewegen, während der Minutenzeiger schon bei leichter Berührung nachgibt und sich dadurch die angezeigte Zeit verstellt. Wird der Minutenzeiger weitergedreht, bewegt sich auch der Stundenzeiger entsprechend dem Übersetzungsverhältnis. Warum sich der Minutenzeiger schon bei leichter Berührung bewegen lässt, ist noch nicht geklärt.",
+          "Auch eine ARSA Hunter-Taschenuhr von 1967 besitzt einen Vorderdeckel, der über einen Knopf auf der Krone geöffnet wird.[12]"
         ],
         "citationRefs": [
           "3",
           "10",
           "3,10",
           "11",
+          "",
           "12"
         ]
       },
