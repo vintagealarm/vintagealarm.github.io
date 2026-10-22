@@ -119,7 +119,9 @@
         "Beitlが約1960年のAFB印付き個体についてARSA製の同型と記す例は、別の設計会社として数えない。1970年頃のafB De LuxeはAS1930搭載の後年例として記録されるが、製造元は特定されていない。"
       ],
       "sourceRefs": [
+        "B54",
         "B74",
+        "B91",
         "H222",
         "H223",
         "MAP"
@@ -137,28 +139,28 @@
           "caliber": "AS1475",
           "opening": "4時側リューズ中央のボタン",
           "tactileDetail": "BeitlはARSA自身のモデルと同型と記す",
-          "evidence": "Beitlの約1960年掲載例"
+          "evidence": "Beitl『Alarm am Arm』印刷p.54"
         },
         {
           "name": "Enicar（1964年特別個体）",
           "caliber": "AS1475",
           "opening": "4時側リューズ中央のボタン",
           "tactileDetail": "3針の幅に差、アラーム針先端に4本の隆起",
-          "evidence": "Horlbeck p.223"
+          "evidence": "Horlbeck『The Alarm Wrist Watch』印刷pp.222–223"
         },
         {
           "name": "BEAT / Friedli-Frères",
           "caliber": "AS1475",
           "opening": "6時位置の独立ボタン",
           "tactileDetail": "触覚目盛と白い触読針",
-          "evidence": "Beitl"
+          "evidence": "Beitl『Alarm am Arm』印刷p.91"
         },
         {
           "name": "A. Schild 試作機",
           "caliber": "AS1475",
           "opening": "資料で形状未確定",
           "tactileDetail": "触読アラーム試作機の存在を記録",
-          "evidence": "Beitl"
+          "evidence": "Beitl『Alarm am Arm』印刷p.74"
         },
         {
           "name": "afB De Luxe（後年の例）",
@@ -260,6 +262,18 @@
     {
       "id": "B74",
       "label": "Leonhard Beitl, Alarm am Arm, 印刷p.74（1958年ARSA Blind Alarm掲載例）",
+      "kind": "専門書",
+      "url": null
+    },
+    {
+      "id": "B54",
+      "label": "Leonhard Beitl, Alarm am Arm, 印刷p.54（AFB印付きARSA系）",
+      "kind": "専門書",
+      "url": null
+    },
+    {
+      "id": "B91",
+      "label": "Leonhard Beitl, Alarm am Arm, 印刷p.91（BEAT / Friedli-Frères）",
       "kind": "専門書",
       "url": null
     },
