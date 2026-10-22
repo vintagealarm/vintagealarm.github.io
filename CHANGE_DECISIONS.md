@@ -2340,3 +2340,14 @@
 - Rejected: Treating a tagged creator recommendation as absent, or claiming a proven causal contribution to 749 additional views of IG-CIT-ARS-001 without a measured visitor path.
 - Scope: operations observation and this decision history, not VA Insights or published pages.
 - Verification: reread main and diff pending. Date grounded in the 2026-10-21 user conversation; screenshot clock shows 18:34 but post timestamp is unverified.
+
+
+### 2026-10-22 20:45 JST — ARSA独立RESEARCHのCYMA型原稿化（公開変更なし）
+- **変更**：ARSA独立研究特集の原稿を `src/data/arsa-blind-alarm-research.json` に作成。文献が示す設計、触覚インターフェース、1957年Ferguson磁気球方式、AS1475採用各社の比較、掲載個体の接触変位、未回収資料を6章で構成。冒頭は掲載個体の分針接触変位を問題として据え、US2915874Aの技術的回答と明確に区別する。CYMA Chronomètreの独立研究が用いる資料・観測・未解決の構造を参考にした。
+- **理由**：ユーザーが「さっきの別の特集」が消えたことを指摘し、CYMA Chronomètre研究のような独立研究記事への改稿を指示。既存 `src/pages/research/[slug]/index.astro` は `WatchPage.astro` を `research=true` で描画しており、WATCH本文の複写で独立した研究本文ではなかった。現行 `src/data/research-settings.json` は `published: false` で、routeは生成対象外だった。
+- **旧状態・棄却**：通常WATCH / OWNER'S NOTE / 5章DEEP DIVEをそのままRESEARCHへ重複表示する旧構成を、独立研究の内容としては棄却。触読時計の戦時前史の再掲や、資料にないARSAの開発意図・Ferguson製品化・工場規格を本文へ追加しない。Uが原稿先行を指定しており、デザインやroute生成はこの変更では手を付けない。
+- **影響範囲**：新しい独立研究記事のデータ原稿1件と本変更記録のみ。既存研究Map / Ledger / WATCH / OWNER'S NOTE / 英独版 / RESEARCH公開設定 / CYMA / 他PRは不変更。
+- **起点・帰属**：UがCYMA式の別特集化と先行改稿を指示 → Aが既存文献と実機観察正本に沿って原稿を構成。公開可否と本文採否はUの明示確認と別に扱う。
+- **検証状態**：GitHub draft branchへのファイル作成を確認。JSON構造と参照ID照合、他差分の監査は別途実行。正式build/CI、独立ページのレンダリングとlive公開は未実行。公開済みとは扱わない。
+- **関連**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、`src/data/cyma-chronometre-research.json`、US2915874A、作業branch `draft/arsa-independent-research-20261022`。先行のWATCH差分は別branch `fix/arsa-ferguson-ball-tactile-copy-20261022` に保持。
+- **日時根拠**：実行ホストUTC `2026-10-22T11:45:20Z` → JST `2026-10-22 20:45 JST`。
