@@ -2351,3 +2351,13 @@
 - **検証状態**：GitHub draft branchでファイル再取得、6章構成・段落の空欄なし・参照IDの存在と重複なしを確認。Beitl原本印刷p.26/54/74/91・Horlbeck原本印刷pp.222–223の記述を追加点検。変更対象は原稿と本ログのみ。正式build/CI、独立ページのレンダリングとlive公開は未実行。公開済みとは扱わない。
 - **関連**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、`src/data/cyma-chronometre-research.json`、US2915874A、作業branch `draft/arsa-independent-research-20261022`。原稿commit `52e98a4084462d6946f37dcc4295d69f30c99717`、Beitl印刷p.54・91の出典精密化commit `a8b264b10725bffcff999a7deea6c7039a4cc0dc`、変更記録commit `64f98ffe7f40174459ff2d1c47c4b9d111d63717`。先行のWATCH修正は別PR #267でmainへ統合。
 - **日時根拠**：実行ホストUTC `2026-10-22T11:45:20Z` → JST `2026-10-22 20:45 JST`。
+
+
+### 2026-10-22 23:04 JST — ARSA RESEARCH原稿を触読方式の図解比較へ戻す（前回誤解の訂正）
+- **変更**：ARSA独立RESEARCH原稿の冒頭をARSA/Enicar/BEAT各社の触覚符号・針・蓋開閉の比較へ改稿し、四つの出典対応図版仕様（ARSA実物写真／Enicar 1964特別個体の針幅と4隆起／BEATの6時オープナー／Ferguson磁気球方式）を追加。本文も比較図解 → Ferguson別案 → 掲載個体の接触変位という順序へ修正。Reddit向けに触読時計の実使用者から収集する操作体験の質問軸を加えた。
+- **理由**：ユーザーの訂正「前の各触読の図解とかで作りたいっていう話」「Redditは触っていてどうかの収集」。旧草稿は10月7日／10月12日に既に合意された比較図解構想を落とし、単なる分針不具合中心の文章研究へ置き換えていた。Uによる既存仕様の復元・訂正 → Aによる草稿再編集。
+- **旧状態・棄却**：分針変位を独立RESEARCHの中心主題にした前回構成、出典のない時計線画、BEATの未確認の触覚符号の作画、過去PR #235で棄却されたSVG triptych再利用を棄却。試作3レイアウトは私的素材であり、ユーザーの図版承認を受けたと扱わない。
+- **影響範囲**：draft branch `src/data/arsa-blind-alarm-research.json` と本Decisionのみ。通常WATCH・OWNER'S NOTE・研究Map / Ledger・サイト公開設定・既存PR・その他watchは変更しない。原本や販売者写真の公開権利も未承認のまま。
+- **検証状態**：GitHub作業branch上の構成稿はcommit `b2c5a1df8aa54e5067deec1244da2230ab49efc9` および `da61e29a05b9689aff0ddf7cc8cf27c5314bca43` に反映。図版自体の制作・表示実装・視覚校閲・CI・公開デプロイは未実施。SNS実投稿も未実施。
+- **関連**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md` §14（2026-10-12図版デザインゲート）、未マージPR #235、Beitl印刷p.74 / 91、Horlbeck印刷pp.222–223、Ferguson US2915874A、ユーザーの今回の訂正。
+- **日時根拠**：作業ホスト `TZ=UTC date` `2026-10-22T14:04:42Z` → JST `2026-10-22 23:04 JST`。
