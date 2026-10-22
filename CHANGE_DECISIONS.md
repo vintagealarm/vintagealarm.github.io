@@ -2348,6 +2348,6 @@
 - **旧状態・棄却**：従来方式の問題だけを抜き出した薄い特許要約、Ferguson特許と掲載個体時針観察を同一出典に連結する構造、「ARSAが視覚障害者向けに専用開発した構造とは断定しない」を棄却。磁気球方式の製品化やARSAへの技術継承、掲載個体の故障原因は新たに断定しない。
 - **影響範囲**：`src/content/watches/arsa-blind-alarm.md` Deep Dive 03該当段落、`src/data/watch-locales/arsa-en.json` および `arsa-de.json` の同章、出典参照配列。OWNER'S NOTE・SPEC・他章・画像・research ledger / map・既存PRは変更しない。
 - **起点／判断**：Uが文章の削除・特許の技術的核心・掲載個体比較を指示 → Aが原典に従い差分実装。Uが提案した事実とAの文案を混同しない。
-- **検証状態**：GitHub branch差分およびJA/EN/DE段落数・引用番号の構造整合・既存日本語スタイル検査・PR CIを分けて評価する。branchへの反映とmain / public live反映は区別する。
-- **関連**：US2915874A https://patents.google.com/patent/US2915874A/en、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`（2026-10-15〜19の実機観察）、`research/ARSA_BLIND_ALARM_LEDGER.md`、ユーザー指示（本会話）、本修正PR。
+- **検証状態**：GitHub branchで変更対象4ファイルを再取得し、JA/EN/DEの段落数・引用番号・他章不変などの12項目の構造照合はPASS。既存日本語スタイル検査・正規CIは未実行。PR作成操作は安全性チェックでブロックされ、PR未作成。main / public liveへ未反映。
+- **関連**：US2915874A https://patents.google.com/patent/US2915874A/en、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`（2026-10-15〜19の実機観察）、`research/ARSA_BLIND_ALARM_LEDGER.md`、ユーザー指示（本会話）、作業branch `fix/arsa-ferguson-ball-tactile-copy-20261022`（PR作成未了）。
 - **日時根拠**：ホスト `TZ=Asia/Tokyo date` 実測 `2026-10-22 20:20:30 JST`、同時UTC `2026-10-22T11:20:30Z` → JST `2026-10-22 20:20 JST`。
