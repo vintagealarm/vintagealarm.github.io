@@ -2351,3 +2351,13 @@
 - **検証状態**：GitHub branchで変更対象4ファイルを再取得し、JA/EN/DEの段落数・引用番号・他章不変などの12項目の構造照合はPASS。既存日本語スタイル検査・正規CIは未実行。PR作成操作は安全性チェックでブロックされ、PR未作成。main / public liveへ未反映。
 - **関連**：US2915874A https://patents.google.com/patent/US2915874A/en、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`（2026-10-15〜19の実機観察）、`research/ARSA_BLIND_ALARM_LEDGER.md`、ユーザー指示（本会話）、作業branch `fix/arsa-ferguson-ball-tactile-copy-20261022`（PR作成未了）。
 - **日時根拠**：ホスト `TZ=Asia/Tokyo date` 実測 `2026-10-22 20:20:30 JST`、同時UTC `2026-10-22T11:20:30Z` → JST `2026-10-22 20:20 JST`。
+
+
+### 2026-10-22 20:47 JST — ARSA特許・触読比較PR作成成功の追記
+- **変更**：前回作業時に安全性チェックで拒否されていたPR作成を、本日のユーザーによる公開許可の後に再実行し、PR #267を作成した。
+- **理由**：ユーザーの「先に公開していい」という明示許可を受けた。旧記録の「PR未作成」は当時の経過として保持し、現在のPR状態はこの追記で更新する。
+- **旧状態・棄却**：旧PR作成不可という直前の状態をCURRENTとして扱わない。PR作成はmain反映やデプロイ完了を意味しない。
+- **影響範囲**：本変更記録のみ。ARSA本文は既存の対象限定差分のまま。
+- **検証状態**：PR #267作成はGitHub API応答で確認済み。CI / merge / liveは個別照合する。
+- **関連**：https://github.com/vintagealarm/vintagealarm.github.io/pull/267
+- **日時根拠**：PR作成UTC `2026-10-22T11:46:31Z` → JST `2026-10-22 20:46 JST`。追記時刻は20:47 JST。
