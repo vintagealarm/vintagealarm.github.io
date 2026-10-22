@@ -2340,3 +2340,24 @@
 - Rejected: Treating a tagged creator recommendation as absent, or claiming a proven causal contribution to 749 additional views of IG-CIT-ARS-001 without a measured visitor path.
 - Scope: operations observation and this decision history, not VA Insights or published pages.
 - Verification: reread main and diff pending. Date grounded in the 2026-10-21 user conversation; screenshot clock shows 18:34 but post timestamp is unverified.
+
+
+### 2026-10-22 20:20 JST — ARSA DEEP DIVE 03: Ferguson触読球方式と掲載個体の観察を分離
+- **変更**：第3章のUS2915874A解説を、従来の直接触読による時刻表示の乱れから、時分針に磁気追従する触読用2球・触れて動いても戻る構造まで拡張。掲載ARSA個体の時針不動／軽い接触で分針変位／分針操作時の時針連動／原因未診断を、特許とは別の独立段落へ置く。1967年ハンター懐中時計の段落は比較事実のみ残し、誰も主張していない専用開発への否定文を削除。公開中のJA / EN / DEの文章と段落別出典配列を同期。
+- **理由**：ユーザーが特許本文の核心である「針に代わり磁気追従する球を触る方式」の欠落、および掲載個体の直接観察を特許出典へ紐づけた誤引用を指摘。無意味な予防線も明示的に削除指示。
+- **旧状態・棄却**：従来方式の問題だけを抜き出した薄い特許要約、Ferguson特許と掲載個体時針観察を同一出典に連結する構造、「ARSAが視覚障害者向けに専用開発した構造とは断定しない」を棄却。磁気球方式の製品化やARSAへの技術継承、掲載個体の故障原因は新たに断定しない。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` Deep Dive 03該当段落、`src/data/watch-locales/arsa-en.json` および `arsa-de.json` の同章、出典参照配列。OWNER'S NOTE・SPEC・他章・画像・research ledger / map・既存PRは変更しない。
+- **起点／判断**：Uが文章の削除・特許の技術的核心・掲載個体比較を指示 → Aが原典に従い差分実装。Uが提案した事実とAの文案を混同しない。
+- **検証状態**：GitHub branchで変更対象4ファイルを再取得し、JA/EN/DEの段落数・引用番号・他章不変などの12項目の構造照合はPASS。既存日本語スタイル検査・正規CIは未実行。PR作成操作は安全性チェックでブロックされ、PR未作成。main / public liveへ未反映。
+- **関連**：US2915874A https://patents.google.com/patent/US2915874A/en、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`（2026-10-15〜19の実機観察）、`research/ARSA_BLIND_ALARM_LEDGER.md`、ユーザー指示（本会話）、作業branch `fix/arsa-ferguson-ball-tactile-copy-20261022`。修正commit `f579c2914908b9649a1866106843637b0061fd88`、`e87780cb584e38d3f945db145a60f5689c488f12`、`7490e8adc16210c9f1d305aa80cbb52a591ef68c`、判断履歴commit `7335b0e1993e9e3066d372c12cf722429e8808f5`、`74c35b61ebe72619ebb9e20cf915032840ed58e9`、PR #267。
+- **日時根拠**：ホスト `TZ=Asia/Tokyo date` 実測 `2026-10-22 20:20:30 JST`、同時UTC `2026-10-22T11:20:30Z` → JST `2026-10-22 20:20 JST`。
+
+
+### 2026-10-22 20:47 JST — ARSA特許・触読比較PR作成成功の追記
+- **変更**：前回作業時に安全性チェックで拒否されていたPR作成を、本日のユーザーによる公開許可の後に再実行し、PR #267を作成した。
+- **理由**：ユーザーの「先に公開していい」という明示許可を受けた。旧記録の「PR未作成」は当時の経過として保持し、現在のPR状態はこの追記で更新する。
+- **旧状態・棄却**：旧PR作成不可という直前の状態をCURRENTとして扱わない。PR作成はmain反映やデプロイ完了を意味しない。
+- **影響範囲**：本変更記録のみ。ARSA本文は既存の対象限定差分のまま。
+- **検証状態**：PR #267作成はGitHub API応答で確認済み。CI / merge / liveは個別照合する。
+- **関連**：https://github.com/vintagealarm/vintagealarm.github.io/pull/267
+- **日時根拠**：PR作成UTC `2026-10-22T11:46:31Z` → JST `2026-10-22 20:46 JST`。追記時刻は20:47 JST。
