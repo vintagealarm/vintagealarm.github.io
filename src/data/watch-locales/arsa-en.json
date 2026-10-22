@@ -118,14 +118,16 @@
           "Alarm am Arm states that ARSA was making a Blind Alarm with the A. Schild AS 1475 by about 1956. The 1958 example illustrated in the book has a dial with tactile dots, hour and minute hands made robust enough to touch directly, no seconds hand, and an opener for the front cover built into the centre of the crown at 4 o’clock.[3]",
           "The AS 1475 measures 25.94 mm in diameter and 5.8 mm in height, has 17 jewels and runs at 18,000 vibrations per hour. It is a manually wound alarm movement with separate barrels for timekeeping and alarm; normally the 2 o’clock side operates the alarm and the 4 o’clock side the watch. Specialist literature records about 40 hours of running time and an alarm duration of 10–15 seconds.[10]",
           "Opening the front cover gives direct access to the raised markers and three hands. The broad hour and minute hands give the current time, while the separate alarm hand gives the set alarm time. Although the AS 1475 supports centre seconds, this Blind Alarm omits the seconds hand that would interfere with tactile reading.[3][10]",
-          "Tactile-display patent US2915874A, filed in 1957, identifies a problem in earlier systems where touching the hands could disturb their setting. The hour hand on the specimen shown here does not move when touched directly.[11]",
-          "An ARSA hunter pocket watch from 1967 also has a front cover opened by a button on the crown. A crown-integrated opener assists tactile reading on the Blind Alarm, but the evidence does not establish that ARSA developed the structure specifically for blind users.[12]"
+          "Tactile-indicator patent US2915874A, filed in 1957, describes how directly touching a watch’s hands can disturb the displayed time. It proposes two balls on the outer surface that magnetically follow the hour and minute hands inside the watch, allowing the time to be read without touching the hands. If a ball is moved by touch, magnetic force returns it to its correct position.[11]",
+          "The ARSA Blind Alarm is read by touching the hands themselves. On the specimen shown here, the hour hand does not move when touched directly, but light contact moves the minute hand and shifts the displayed time. Continuing to turn the minute hand also moves the hour hand according to the gear ratio. The cause of the minute hand moving under light contact has not yet been determined.",
+          "An ARSA hunter pocket watch from 1967 also has a front cover opened by a button on the crown.[12]"
         ],
         "citationRefs": [
           "3",
           "10",
           "3,10",
           "11",
+          "",
           "12"
         ]
       },
