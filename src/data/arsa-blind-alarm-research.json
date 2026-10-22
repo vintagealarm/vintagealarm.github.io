@@ -1,0 +1,316 @@
+{
+  "published": false,
+  "slug": "arsa-blind-alarm",
+  "articleKind": "independent-research",
+  "title": "ARSA BLIND ALARM — 触読アラームの構造と現存資料",
+  "heading": "触れる針が、動いてしまう。",
+  "lead": [
+    "ARSA Blind Alarmは、前蓋を開けて時針・分針・アラーム針を指で読む機械式アラーム腕時計だ。ところが掲載個体の分針は、軽く触れるだけで動いてしまう。",
+    "1957年の別の特許には、針に触れると時刻表示が乱れるという問題と、針の代わりに磁力で追従する球を触る解決案が記されていた。専門書の構造記述、現存する類似機、掲載個体の観察から、触読アラームの設計を追う。"
+  ],
+  "sections": [
+    {
+      "number": "01",
+      "title": "ARSAが作った触読アラーム",
+      "paragraphs": [
+        "Beitl『Alarm am Arm』は、ARSAが1956年頃にA. Schild AS1475搭載の触読アラーム腕時計を製造したと記す。同書に掲載された1958年の例は、触覚点を備えた文字盤、太い時分針、独立したアラーム針、開閉式前蓋を持つ。秒針は設けられていない。",
+        "2時側のリューズはアラーム用、4時側は時計用。前蓋を開くボタンは4時位置の時計用リューズ中央に組み込まれ、指先で現在時刻とアラーム設定時刻を確かめられる。",
+        "ARSAの企業史には1950年代初頭の盲人用時計の開発が記録されている。1970年の同社広告には盲人用時計とアラーム腕時計が別々の製造品目として並ぶ。これらはARSAの製品領域を示す資料であり、Blind Alarmの製造年を広告から確定するものではない。"
+      ],
+      "sourceRefs": [
+        "B26",
+        "B74",
+        "DIJU",
+        "DAV1970"
+      ],
+      "evidence": [
+        {
+          "label": "1956年頃",
+          "heading": "Blind Alarmの製造に関する専門書記述",
+          "body": "Beitl『Alarm am Arm』印刷p.26。初出広告や工場台帳の確認日付ではない。",
+          "sourceRefs": [
+            "B26"
+          ]
+        },
+        {
+          "label": "1958年",
+          "heading": "AS1475搭載の掲載個体",
+          "body": "同書印刷p.74。著者が1958年として示す個体で、現在VAに掲載する別の個体の製造年を意味しない。",
+          "sourceRefs": [
+            "B74"
+          ]
+        },
+        {
+          "label": "1970年",
+          "heading": "ARSA社の企業広告",
+          "body": "Davoine印刷p.102。製品群に盲人用時計とアラーム腕時計の記載がある。",
+          "sourceRefs": [
+            "DAV1970"
+          ]
+        }
+      ]
+    },
+    {
+      "number": "02",
+      "title": "指先に与えた情報",
+      "paragraphs": [
+        "触読には二つの情報が必要になる。現在時刻を知るための時針と分針、そして音を鳴らす時刻を確かめるためのアラーム針である。ARSAでは、盛り上がった時刻目盛と三本の針を前蓋の内側に収め、蓋を開けて直接触れる。",
+        "掲載個体の正面写真では、12時位置に縦に並ぶ3点、9時位置に横に並ぶ2点、3時・6時位置にはそれぞれ1点の隆起を確認できる。これは当該個体の写真で読める配置であり、ARSA全製品の共通規格として数えているわけではない。",
+        "AS1475はセンター秒針に対応するが、ARSAの触読アラームには秒針がない。専門書は触読時の干渉や、接触によって運針を妨げる問題を秒針省略の理由として挙げている。"
+      ],
+      "sourceRefs": [
+        "B26",
+        "B74",
+        "H222",
+        "OBS"
+      ],
+      "specimenMarkers": [
+        {
+          "position": "12時",
+          "raisedDots": 3
+        },
+        {
+          "position": "9時",
+          "raisedDots": 2
+        },
+        {
+          "position": "3時",
+          "raisedDots": 1
+        },
+        {
+          "position": "6時",
+          "raisedDots": 1
+        }
+      ],
+      "evidenceBoundary": "目盛の点数と針の外観は掲載個体の写真観察。針ごとの触覚的な識別しやすさは視覚障害のある使用者による利用試験の結果ではない。"
+    },
+    {
+      "number": "03",
+      "title": "針を触らず、磁力で球を追わせる",
+      "paragraphs": [
+        "1957年8月26日に出願されたEdgar A. Ferguson Jr.の米国特許US2915874Aは、当時の触読時計では時刻を知るために指で針へ直接触れ、その際に針の位置が動いて時刻表示を狂わせる問題があると記す。",
+        "提案されたのは、時計内部の通常の時針・分針に磁気的な指向部を取り付け、外側に置いた二つの強磁性球をそれぞれ追従させる構造だ。触るのは針ではなく、時と分に対応する二つの球。指先で球を動かしても、手を離せば磁力で正しい角度へ戻る。",
+        "時計の針を指でなぞるARSAと、針を触らず球を読むFergusonの方式。同じ直接接触の課題に対して、読ませる部品が異なる。特許は設計提案を示す資料で、Ferguson方式の量産やARSAとの技術的な関係を示す資料ではない。"
+      ],
+      "sourceRefs": [
+        "FERGUSON"
+      ],
+      "designComparison": [
+        {
+          "type": "ARSA Blind Alarm",
+          "timeReading": "時針・分針へ直接触れる",
+          "alarmSettingReadback": "独立したアラーム針を直接触れる",
+          "contactResponse": "掲載個体の分針は軽い接触で変位"
+        },
+        {
+          "type": "Ferguson US2915874A",
+          "timeReading": "磁力で針を追う二つの球に触れる",
+          "alarmSettingReadback": "特許の腕時計実施例ではアラーム機構を示していない",
+          "contactResponse": "球が移動しても磁力で元の位置へ戻る設計"
+        }
+      ]
+    },
+    {
+      "number": "04",
+      "title": "同じAS1475、異なる開け方と触り分け",
+      "paragraphs": [
+        "ARSAだけが触読アラームを作っていたわけではない。専門書にはEnicar、BEAT／Friedli-Frères、A. Schildのプロトタイプが記載され、共通するAS1475の上で蓋の開放位置や針の区別のさせ方が変わる。",
+        "1964年のローザンヌ向けEnicar特別個体では、時・分・アラーム針の幅を変え、アラーム針の先端に四本の隆起を設けた。BEATは蓋開放ボタンをリューズ中央ではなく6時位置へ置いている。",
+        "Beitlが約1960年のAFB印付き個体についてARSA製の同型と記す例は、別の設計会社として数えない。1970年頃のafB De LuxeはAS1930搭載の後年例として記録されるが、製造元は特定されていない。"
+      ],
+      "sourceRefs": [
+        "B74",
+        "H222",
+        "H223",
+        "MAP"
+      ],
+      "comparisonRows": [
+        {
+          "name": "ARSA Blind Alarm",
+          "caliber": "AS1475",
+          "opening": "4時側リューズ中央のボタン",
+          "tactileDetail": "触覚点・太い時分針・独立アラーム針",
+          "evidence": "Beitl pp.26,74"
+        },
+        {
+          "name": "AFB印付きARSA系",
+          "caliber": "AS1475",
+          "opening": "4時側リューズ中央のボタン",
+          "tactileDetail": "BeitlはARSA自身のモデルと同型と記す",
+          "evidence": "Beitlの約1960年掲載例"
+        },
+        {
+          "name": "Enicar（1964年特別個体）",
+          "caliber": "AS1475",
+          "opening": "4時側リューズ中央のボタン",
+          "tactileDetail": "3針の幅に差、アラーム針先端に4本の隆起",
+          "evidence": "Horlbeck p.223"
+        },
+        {
+          "name": "BEAT / Friedli-Frères",
+          "caliber": "AS1475",
+          "opening": "6時位置の独立ボタン",
+          "tactileDetail": "触覚目盛と白い触読針",
+          "evidence": "Beitl"
+        },
+        {
+          "name": "A. Schild 試作機",
+          "caliber": "AS1475",
+          "opening": "資料で形状未確定",
+          "tactileDetail": "触読アラーム試作機の存在を記録",
+          "evidence": "Beitl"
+        },
+        {
+          "name": "afB De Luxe（後年の例）",
+          "caliber": "AS1930",
+          "opening": "開閉式前蓋",
+          "tactileDetail": "触覚目盛・中央アラーム針",
+          "evidence": "後年の競売掲載記録。製造元未確認"
+        }
+      ]
+    },
+    {
+      "number": "05",
+      "title": "掲載個体を触って分かったこと",
+      "paragraphs": [
+        "VA掲載個体の分針は、軽く触れるだけで動いて表示時刻がずれる。2026年10月15日の動画では、指の接触中に分針が12時付近から3時方向へ大きく変位する様子を確認した。",
+        "時針に直接触れても時針は動かない。一方、分針を指で意図的に回し続けると、時針も歯車比に従って動き、時計用リューズも連動するとの観察がある。直接時針へ触れる場合と、分針側から針回し系を動かす場合は異なる。",
+        "この個体では、時刻を読み取るための接触そのものが表示を変えてしまう。筒カナの保持摩擦や針の取り付けは点検対象だが、原因はまだ診断されていない。これ以上針を指で動かす試験は行わず、時計師による確認を優先する。",
+        "別動画ではアラームの鳴動音も記録されている。アラームが鳴ることと、分針を触っても表示が動かないことは別の動作確認である。"
+      ],
+      "sourceRefs": [
+        "OBS",
+        "MAP"
+      ],
+      "observed": [
+        {
+          "name": "時針を直接触る",
+          "result": "動かない",
+          "evidence": "掲載個体のユーザー観察"
+        },
+        {
+          "name": "分針へ軽く触る",
+          "result": "動く・時刻表示がずれる",
+          "evidence": "ユーザー観察＋2026-10-15動画"
+        },
+        {
+          "name": "分針を意図的に回し続ける",
+          "result": "時針が歯車比で連動。リューズの連動もユーザー報告",
+          "evidence": "2026-10-16訂正・動画観察"
+        },
+        {
+          "name": "アラーム鳴動",
+          "result": "録音あり",
+          "evidence": "2026-10-16音声確認"
+        }
+      ]
+    },
+    {
+      "number": "06",
+      "title": "まだ見つかっていないもの",
+      "paragraphs": [
+        "1950年代のARSA Blind Alarm本人を製品名で示す当時の広告、カタログ、価格表はまだ確認できていない。1956年頃という年代は、現段階では専門書の記述が中心となる。",
+        "Beitlは約1960年のAFB印付きAS1475触読アラームをARSAへの発注品として紹介している。しかし、AFBとARSAの当時の発注書やモデル指定資料は回収できていない。",
+        "2016年のUhrforumには、Venus 230搭載のARSA Blindenweckerとして紹介された現存個体がある。AS1475型とは前蓋を開くボタンの位置も異なる。投稿写真と投稿者の説明は調査の手掛かりになるが、製造年代・型式を示す同時代資料は未確認だ。",
+        "メーカー広告・部品表・修理書、別個体の針とリューズの動き、AFBが発注した時計の原記録が得られれば、現段階の比較をさらに具体化できる。"
+      ],
+      "sourceRefs": [
+        "B26",
+        "B74",
+        "UHRFORUM",
+        "MAP"
+      ],
+      "neededEvidence": [
+        "ARSA Blind Alarm本人の1950〜60年代の広告・カタログ・取扱説明書",
+        "AFBがARSAへ委託した時計に関する原資料または社内品番",
+        "AS1475型ARSAの別現存個体：文字盤・針・前蓋ボタン・ムーブメント・裏蓋内外の写真",
+        "Venus 230搭載ARSAの当時の資料、または銘記を確認できる別個体",
+        "触読用分針の固定方式と安全な接触抵抗に関する当時の技術資料"
+      ]
+    }
+  ],
+  "conclusion": {
+    "title": "ここまでで分かったこと",
+    "items": [
+      {
+        "label": "文献",
+        "text": "1950年代のARSA Blind AlarmにはAS1475を用い、蓋を開いて時刻とアラーム時刻を針から直接読む実装が記録されている。"
+      },
+      {
+        "label": "比較",
+        "text": "EnicarやBEATでも触読アラームが作られた。共通するムーブメントの周囲で、針の形や蓋の開放機構が異なる。"
+      },
+      {
+        "label": "掲載個体",
+        "text": "時針への直接接触では動かないが、分針は軽い接触で動く。1957年のFerguson特許には、これと比較できる別の触読方式が提案されている。"
+      },
+      {
+        "label": "未解決",
+        "text": "分針の保持力が低い原因、ARSA Blind Alarmのモデル変遷、AFBとの当時の取引原資料は未確定。"
+      }
+    ]
+  },
+  "references": [
+    {
+      "id": "B26",
+      "label": "Leonhard Beitl, Alarm am Arm, 印刷p.26",
+      "kind": "専門書",
+      "url": null
+    },
+    {
+      "id": "B74",
+      "label": "Leonhard Beitl, Alarm am Arm, 印刷p.74（1958年ARSA Blind Alarm掲載例）",
+      "kind": "専門書",
+      "url": null
+    },
+    {
+      "id": "H222",
+      "label": "Michael Philip Horlbeck, The Alarm Wrist Watch, 印刷p.222",
+      "kind": "専門書",
+      "url": null
+    },
+    {
+      "id": "H223",
+      "label": "Michael Philip Horlbeck, The Alarm Wrist Watch, 印刷p.223（Enicar特別個体）",
+      "kind": "専門書",
+      "url": null
+    },
+    {
+      "id": "DIJU",
+      "label": "Dictionnaire du Jura — A. Reymond SA / ARSA",
+      "kind": "企業史",
+      "url": "https://diju.ch/f/notices/detail/8205"
+    },
+    {
+      "id": "DAV1970",
+      "label": "Davoine 1970, A. Reymond S.A.広告, 印刷p.102",
+      "kind": "当時の広告",
+      "url": "https://fr.scribd.com/document/705289724/DAVOINE-1970-2"
+    },
+    {
+      "id": "FERGUSON",
+      "label": "Edgar A. Ferguson Jr., US2915874A, Tactile Indicators（1957年出願、1959年登録）",
+      "kind": "同時代特許",
+      "url": "https://patents.google.com/patent/US2915874A/en"
+    },
+    {
+      "id": "UHRFORUM",
+      "label": "Uhrforum — ARSA Blindenwecker（2016年の現存個体投稿）",
+      "kind": "現存個体の第三者報告",
+      "url": "https://uhrforum.de/threads/vintage-armbandwecker-zeigt-sie-in-bild-und-ton.16190/page-25"
+    },
+    {
+      "id": "OBS",
+      "label": "VA掲載個体の実機写真・動画・ユーザー確認（2026年10月15〜19日）",
+      "kind": "掲載個体観察",
+      "url": null
+    },
+    {
+      "id": "MAP",
+      "label": "ARSA Blind Alarm Research Map / Ledger",
+      "kind": "研究台帳",
+      "url": null
+    }
+  ],
+  "editorialStatus": "DRAFT_CONTENT_ONLY — independent research article manuscript; no public route or publication flag changed."
+}
