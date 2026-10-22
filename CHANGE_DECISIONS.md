@@ -2340,3 +2340,14 @@
 - Rejected: Treating a tagged creator recommendation as absent, or claiming a proven causal contribution to 749 additional views of IG-CIT-ARS-001 without a measured visitor path.
 - Scope: operations observation and this decision history, not VA Insights or published pages.
 - Verification: reread main and diff pending. Date grounded in the 2026-10-21 user conversation; screenshot clock shows 18:34 but post timestamp is unverified.
+
+
+### 2026-10-22 20:20 JST — ARSA DEEP DIVE 03: Ferguson触読球方式と掲載個体の観察を分離
+- **変更**：第3章のUS2915874A解説を、従来の直接触読による時刻表示の乱れから、時分針に磁気追従する触読用2球・触れて動いても戻る構造まで拡張。掲載ARSA個体の時針不動／軽い接触で分針変位／分針操作時の時針連動／原因未診断を、特許とは別の独立段落へ置く。1967年ハンター懐中時計の段落は比較事実のみ残し、誰も主張していない専用開発への否定文を削除。公開中のJA / EN / DEの文章と段落別出典配列を同期。
+- **理由**：ユーザーが特許本文の核心である「針に代わり磁気追従する球を触る方式」の欠落、および掲載個体の直接観察を特許出典へ紐づけた誤引用を指摘。無意味な予防線も明示的に削除指示。
+- **旧状態・棄却**：従来方式の問題だけを抜き出した薄い特許要約、Ferguson特許と掲載個体時針観察を同一出典に連結する構造、「ARSAが視覚障害者向けに専用開発した構造とは断定しない」を棄却。磁気球方式の製品化やARSAへの技術継承、掲載個体の故障原因は新たに断定しない。
+- **影響範囲**：`src/content/watches/arsa-blind-alarm.md` Deep Dive 03該当段落、`src/data/watch-locales/arsa-en.json` および `arsa-de.json` の同章、出典参照配列。OWNER'S NOTE・SPEC・他章・画像・research ledger / map・既存PRは変更しない。
+- **起点／判断**：Uが文章の削除・特許の技術的核心・掲載個体比較を指示 → Aが原典に従い差分実装。Uが提案した事実とAの文案を混同しない。
+- **検証状態**：GitHub branch差分およびJA/EN/DE段落数・引用番号の構造整合・既存日本語スタイル検査・PR CIを分けて評価する。branchへの反映とmain / public live反映は区別する。
+- **関連**：US2915874A https://patents.google.com/patent/US2915874A/en、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`（2026-10-15〜19の実機観察）、`research/ARSA_BLIND_ALARM_LEDGER.md`、ユーザー指示（本会話）、本修正PR。
+- **日時根拠**：ホスト `TZ=Asia/Tokyo date` 実測 `2026-10-22 20:20:30 JST`、同時UTC `2026-10-22T11:20:30Z` → JST `2026-10-22 20:20 JST`。
