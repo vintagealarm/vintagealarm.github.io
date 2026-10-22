@@ -2348,6 +2348,6 @@
 - **旧状態・棄却**：通常WATCH / OWNER'S NOTE / 5章DEEP DIVEをそのままRESEARCHへ重複表示する旧構成を、独立研究の内容としては棄却。触読時計の戦時前史の再掲や、資料にないARSAの開発意図・Ferguson製品化・工場規格を本文へ追加しない。Uが原稿先行を指定しており、デザインやroute生成はこの変更では手を付けない。
 - **影響範囲**：新しい独立研究記事のデータ原稿1件と本変更記録のみ。既存研究Map / Ledger / WATCH / OWNER'S NOTE / 英独版 / RESEARCH公開設定 / CYMA / 他PRは不変更。
 - **起点・帰属**：UがCYMA式の別特集化と先行改稿を指示 → Aが既存文献と実機観察正本に沿って原稿を構成。公開可否と本文採否はUの明示確認と別に扱う。
-- **検証状態**：GitHub draft branchへのファイル作成を確認。JSON構造と参照ID照合、他差分の監査は別途実行。正式build/CI、独立ページのレンダリングとlive公開は未実行。公開済みとは扱わない。
-- **関連**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、`src/data/cyma-chronometre-research.json`、US2915874A、作業branch `draft/arsa-independent-research-20261022`。先行のWATCH差分は別branch `fix/arsa-ferguson-ball-tactile-copy-20261022` に保持。
+- **検証状態**：GitHub draft branchでファイル再取得、6章構成・段落の空欄なし・参照IDの存在と重複なしを確認。Beitl原本印刷p.26/54/74/91・Horlbeck原本印刷pp.222–223の記述を追加点検。変更対象は原稿と本ログのみ。正式build/CI、独立ページのレンダリングとlive公開は未実行。公開済みとは扱わない。
+- **関連**：`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、`research/ARSA_BLIND_ALARM_LEDGER.md`、`src/data/cyma-chronometre-research.json`、US2915874A、作業branch `draft/arsa-independent-research-20261022`。原稿commit `52e98a4084462d6946f37dcc4295d69f30c99717`、Beitl印刷p.54・91の出典精密化commit `a8b264b10725bffcff999a7deea6c7039a4cc0dc`、変更記録commit `64f98ffe7f40174459ff2d1c47c4b9d111d63717`。先行のWATCH修正は別PR #267でmainへ統合。
 - **日時根拠**：実行ホストUTC `2026-10-22T11:45:20Z` → JST `2026-10-22 20:45 JST`。
