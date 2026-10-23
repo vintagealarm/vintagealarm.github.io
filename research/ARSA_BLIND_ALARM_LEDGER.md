@@ -5,6 +5,9 @@
 **現在位置・切った仮説・優先タスクの運用正本:** `research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`  
 このLEDGERは詳細な証拠・出典・逐次履歴を保持し、MAPは現在状態と次アクションだけを整理する。
 
+**CURRENT historical-source correction — 2026-10-23 registration:** Davoine 1945 printed p.577 / viewer 595 and 1947 printed p.565 / viewer 593 explicitly advertise A. Reymond / ARSA blind pocket and wrist watches. Do not treat the DIJU early-1950s development statement as the beginning of all ARSA blind-watch activity. These are **not Blind Alarm product ads**. Full source/page/file register and bounded negative results: research-log entry `2026-10-23 — Public-source research ingress: Davoine 1945–1963, APH 1969, CH617309` below. Historical log entries remain dated evidence, not competing CURRENT.
+
+
 調査は二本立てで並行する。
 
 - **Track A — ARSA / Blind Alarm本線**: 今回個体の同定、ARSA–AFB–A. Schild–Enicar–BEATの系譜、AS 1475、ケース／開閉機構、現存個体、故障、購入判断。
@@ -495,6 +498,12 @@ Those causal links remain **OPEN** until documentary evidence is found.
 - Seiko Museum Ginza — 1939 watch for blind users
   - https://museum.seiko.co.jp/en/collections/watch_previousterm/collect044/
   - https://museum.seiko.co.jp/collections/watch_previousterm/collect044/
+
+### Public-source additions registered 2026-10-23
+
+- **Davoine ARSA company ads, original scans:** 1945 p.577 / viewer 595; 1947 p.565 / viewer 593; 1954 p.591 / viewer 607; 1956 p.603 / viewer 623; 1958 p.571 / viewer 593; 1963 p.124 / viewer 140. Source URLs and interpretation limits are in the dated ingress below. These document blind-watch business, not a Blind Alarm introduction.
+- **APH, Educational Aids for Visually Handicapped, February 1969, ED030242:** https://files.eric.ed.gov/fulltext/ED030242.pdf — printed p.11 / PDF p.19, LeJour A31600; supplier abbreviation PDF p.6. PDF binary verified locally: 28 pages; SHA-256 and retention status below.
+- **Ebauches / René Besson, CH617309GA3:** https://worldwide.espacenet.com/patent/search/family/004229374/publication/CH617309GA3?q=pn%3DCH617309GA3 — application 1978-03-02, publication 1980-05-30; original document pp.3–7 inspected. Original page images read; PDF binary not obtained. Proposal evidence, not proof of product adoption or an ARSA relationship.
 
 ### User evidence
 
@@ -3796,3 +3805,71 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 **SOURCE / LINK CORRECTIONS (no historical claim upgrade):** Davoine 1970 A. Reymond advertisement is available via https://fr.scribd.com/document/705289724/DAVOINE-1970-2 (printed **p.102**, company-level advertising for `Montres pour aveugles` and `Montres bracelet réveil`, *not* an ad for the specific Blind Alarm). The 1967 Swiss Watch Fair ARSA hunter pocket-watch item is accessible via Europa Star's Swisstime archive: https://www.europastar.com/swisstime/1004104967-arsa.html. US365032's formal patent title is **Watch**, not the descriptive label `Watch for the Blind`; citation label corrected without asserting it was the earliest tactile watch invention. These references were already present in the research canon; the correction is to the public link/title, not newly discovered model evidence.
 
 **ATTRIBUTION / SCOPE:** User's direct confirmation and explicit editorial limitation → USER_CONFIRMED; Davoine print page identified via referenced 1970 reproduction; original patent and Europa Star archival item checked. Public JA/EN/DE ARSA deep dive sentence and source entries only. Historical ledger entries are retained as chronological evidence, not deleted or silently relabelled. All other proposed additions (tactile marker drawing, WWI sources, Venus 230 comparison, additional experimentation) excluded.
+
+### 2026-10-23 — Public-source research ingress: Davoine 1945–1963, APH 1969, CH617309
+
+**REGISTRATION / PROVENANCE:** Registered at 2026-10-23 23:55 JST following the user's explicit request to register the research results and PDFs so other research does not diverge. Original research was conducted in this chat on 2026-10-21 using the connected in-app browser, original scans and a downloaded PDF. Registration date is not the discovery date. A discovered and inspected the sources; U authorized registration, not every historical interpretation or publication. Earlier research-only instructions prohibited repository mutation; that restriction is now superseded only for this research registration. No public WATCH copy, OWNER'S NOTE, translation, media rights or publication flags are changed.
+
+#### A. Period ARSA company advertising — original page images read
+
+| Year / publication | Printed page | Viewer page / scan total | Exact source record | Evidence and limit |
+|---|---|---|---|---|
+| Indicateur Davoine 1945 | 577 | 595 / 852 | https://watchlibrary.org/en/details/BLCDF-DAVOINE_1945_595?searchQuery=arsa | A. REYMOND S.A., TRAMELAN-SUISSE / ARSA; explicit blind pocket and wrist watches; cover also visually checked as 1945. Reopened at registration. |
+| Indicateur Davoine 1947 | 565 | 593 / 964 | https://watchlibrary.org/en/details/BLCDF-DAVOINE_1947_593?searchQuery=arsa | Same explicit blind pocket / wrist watch specialty; independent dated advertisement within the same directory series. |
+| Indicateur Davoine 1954 | 591 | 607 / 960 | https://watchlibrary.org/en/details/BLCDF-DAVOINE_1954_607?searchQuery=arsa | Blind watches listed as a company specialty. |
+| Indicateur Davoine 1956 | 603 | 623 / 924 | https://watchlibrary.org/en/details/BLCDF-DAVOINE_1956_623?searchQuery=arsa | Blind watches listed; do not substitute this company ad for the ordinary Alertic alarm ad or a Blind Alarm model ad. |
+| Indicateur Davoine 1958 | 571 | 593 / 896 | https://watchlibrary.org/en/details/BLCDF-DAVOINE_1958_593?searchQuery=arsa | Blind-watch business evidence; distinct from the JSH 1958 p.120 anniversary company ad. |
+| Indicateur Davoine 1963 | 124 | 140 / 690 | https://watchlibrary.org/en/details/BLCDF-DAVOINE_1963_140?searchQuery=arsa | Blind-watch specialty; model-level Blind Alarm identification absent. |
+
+1945 and 1947 both state **“Montres pour aveugles, de poche et bracelets.”** (blind watches, pocket and wrist). This is a manufacturer/company advertising statement about its product range. The pictured watches do not establish the tactile alarm model, hand coding, case supplier or actual in-house manufacture of every component.
+
+**DIRECTLY SUPPORTED:** ARSA advertised blind pocket and wrist watches **by 1945** and did so again in 1947. This is the earliest directly inspected ARSA blind-watch company advertisement in this chat's sampled material, **not a claim to the earliest advertisement anywhere or an introduction date**. The later sampled years add dated business evidence, not proof of uninterrupted annual manufacture or a single continuous model.
+
+**REVERSAL TARGET:** The use of DIJU's early-1950s blind/Braille-watch development statement as the start of all ARSA blind-watch activity (Map §§3.2–3.3 and the former ledger research consequence).
+**NEW EVIDENCE:** The 1945 p.577 and 1947 p.565 company ads read in original scans.
+**CURRENT INTERPRETATION:** Retain DIJU's reported wording as a secondary-source statement, but it cannot define the beginning of the entire blind-watch business. Whether DIJU meant a particular new line/design, or whether its chronology needs correction, remains OPEN. The 1973 product-list statement remains separately supported. Blind Alarm circa 1956 and the Beitl illustrated specimen dated 1958 remain specialist-source claims; these ads neither revise them nor prove alarm production in 1945.
+
+**Excluded early hit:** Revue internationale de l'horlogerie 1934, no.21, viewer p.4 (printed pp.244–245), stable record URL not retained in this chat; identify by issue and viewer page — an ARSA company article and a separate **RE VUE** blind-watch advertisement share the spread. Do not attribute the latter to ARSA. This was a co-occurrence false positive, not an ARSA 1934 blind-watch discovery.
+
+**File state:** All six ads were inspected as browser page images. Complete Davoine PDFs were **not** downloaded/retained in this pass; viewer page numbers are not PDF page numbers. Record URLs above are the remote originals. No third-party ad scan is registered as licensed public site media.
+
+#### B. APH 1969 catalog — original PDF retained and identified
+
+- **Title / publisher:** Educational Aids for Visually Handicapped, Instructional Materials Reference Center, American Printing House for the Blind, **February 1969**; edited by Frank L. Franks. ERIC ID **ED030242 / EC003930**. Publisher/date checked on PDF pp.2–3; ERIC cover p.1 describes the original as 27p.; the actual distributed PDF has **28 pages**, including ERIC front matter.
+- **Original PDF:** https://files.eric.ed.gov/fulltext/ED030242.pdf
+- **Printed p.11 / PDF p.19:** LeJour Braille Watch **A31600**, 17-jewel, pop-open crystal, hardened-steel hands advertised as resisting movement/bending when touched. This is a contemporary product-description claim, not an independently measured performance result.
+- **Supplier separation:** A31600 says **SOURCE: CONTIME**; PDF p.6, abbreviation list, expands this to **Continental Time Company**. The separate **AFB Braille Watches A31400** entry on p.11 says SOURCE: AFB. Do not turn LeJour's entry into an AFB-supplied or ARSA product. The LeJour price is dated **1966** within a 1969 catalog; it is not a launch-year statement.
+- **File registration:** `ED030242.pdf`; **2,013,422 bytes; 28 PDF pages**; SHA-256 `a9d17b9c688f31d979ae4d3c7a05eabd412978d7024585c7a36fa02d9fb47039`. Downloaded binary present at registration; hash, page count, front matter and target-page text rechecked. A byte-identical working copy is retained as `output/ARSA-ED030242.pdf` in this chat's workspace, not as a new research authority or a public GitHub attachment. Canonical retrieval locator remains the original PDF URL plus this fingerprint.
+- **Viewing status:** Target printed p.11 was visually checked in the earlier pass; registration rechecks the stored PDF text. OCR has errors; full-file matches such as `MAGNABARSA23900` / `CALENDARSA30700` are joined words and product IDs, not ARSA brand evidence. No claim of exhaustive exclusion from every un-OCRed illustration.
+- **Classification:** Known starting point independently checked, not a newly discovered LeJour product. Useful for the recognized hand-disturbance problem and stated product response; it does **not** disclose the holding mechanism or prove adoption of Ferguson/ARSA technology.
+
+#### C. CH617309 — description, claims and drawings read beyond the abstract
+
+- **Original viewer / document:** https://worldwide.espacenet.com/patent/search/family/004229374/publication/CH617309GA3?q=pn%3DCH617309GA3
+- **Bibliographic cross-reference:** https://patents.google.com/patent/CH617309GA3/en
+- **Original identifier:** CH 617309 G A3; application **2250/78**, **1978-03-02**; publication **1980-05-30**; applicant **Ebauches S.A., Neuchâtel**; inventor **René Besson, Neuchâtel**. Confirmed in Espacenet metadata and original p.1. This is an application publication, not by itself proof of grant or manufacture.
+- **Inspected original pages:** p.1 title/bibliography; p.3 claims and opening description; pp.4–5 operation; pp.6–7 mechanical and electrical drawings (viewer has seven pages). Original p.3 describes touch stopping the hands and causing time error. Claim 1 interrupts the motor input while the cover is open, counts the elapsed drive pulses, then sends accumulated pulses at higher frequency on closure. Claim 2 specifies an irreversible transmission, so stopping the hands does not act on the motor. Drawings and detailed embodiment were actually opened, not inferred from a search snippet.
+- **Evidence separation:** problem recognition = original description; proposed responses = claims / embodiment; product adoption = **UNCONFIRMED**. No ARSA/AFB relationship or retroactive 1950s design attribution is established. Comparison only; filing is in the 1970s, publication in 1980.
+- **File state:** Original page images read in Espacenet. **No patent PDF binary retained.** Earlier direct Google-hosted PDF access failed; the official viewer resolved original-image access, not the PDF-file acquisition. Do not say this patent PDF was uploaded or archived locally.
+- **Remaining lead:** p.3 cites Swiss patent **589315**. That original was not recovered/verified in this pass and is not a verified additional patent source. Stop rather than repeating ambiguous numeric web searches.
+
+#### D. Bounded negative / access log — not proof of corpus-wide absence
+
+| Source and inspected range | Result / status |
+|---|---|
+| JSH 1958 annual, 822-page viewer; `aveugles` search six hits; page images at viewer 325 (print322–323), 328 (print326–327), 335 (print332–333); https://watchlibrary.org/details/MIH-JSH_1958_423 | Read these hit spreads. H. Moser / general blind-watch material, not ARSA Blind Alarm. Record URL opens the annual, not necessarily the cited hit page. This does not certify all 822 pages visually inspected or no other articles anywhere. Existing p.120 anniversary-ad exclusion remains. |
+| RIH 1956 no.3, viewer116 / print48–49; https://watchlibrary.org/en/details/MIH-RIH_1956_03_116?searchQuery=aveugles | General blind-watch context; no model identification of ARSA Blind Alarm at inspected spread. |
+| Europa Star Asia 1956 no.33, viewer115 / print110–111; https://watchlibrary.org/en/details/ES-ASIA_033_1956_001_115?searchQuery=blind%20alarm | H. Moser catalog lists blind wristwatches and alarm watches; not proof of a combined tactile alarm. |
+| Europa Star Europe 1962 no.14, viewer98 / print98–99; https://watchlibrary.org/details/ES-EUROPE_014_1962_001_98?searchQuery=blindenwecker | Classified buying request for Blindenwecker; maker and wristwatch form not established. |
+| 1962 advertisement collection, viewer21; https://watchlibrary.org/en/details/CH_VA_1962_21?searchQuery=arsa | ARSA blind-watch ad near another firm's réveil material; not a combined ARSA Blind Alarm ad. Printed-page identification not fixed. |
+| Europa Star Asia 1958 no.48, viewer67; stable record URL not retained in this chat | Camy alarm / buyer request material, not ARSA Blind Alarm. Printed-page identification not fixed. |
+| APH/AFB public collection, https://thedotexperience.pastperfectonline.com/Search | ARSA keyword zero; `alarm` 16 results / two result pages and `watch` 66 / five result pages browsed in the earlier pass. Lists were browsed, not every object image or hidden record. No direct AFB→ARSA order record found within that range. |
+| AFB Catalog 1967, https://thedotexperience.pastperfectonline.com/library/EBFB136C-D7B7-4240-8452-034460514918 | Catalog record concerns publications/films/radio/posters (14pp.), not a recovered aids-and-appliances watch catalog. Metadata does not prove a supplier relationship. |
+| NFB-focused searches (`ARSA`; alarm/watch/1960), Internet Archive AFB catalog and aids/appliances searches | No direct ARSA transaction document recovered; IA aids/appliances query led to Newsletter vols.1–9, not verified 1955–65 product catalogs. Search-result limitation, not archival absence. |
+| 1948 ARSA / André Marcel, https://books.google.com/books/about/ARSA.html?id=OxGGXwAACAAJ ; https://collections.m-ici.ch/detail.aspx?ID=38762 | 35-page publication metadata only; online full text not read. Physical accessibility is not online availability. |
+| 1973 company bundle, https://collections.m-ici.ch/archivplansuche.aspx?ID=38766 | Public archive descriptions checked; component texts not available/read online in the pass. No contact or retrieval request made. |
+| Gallica | Home page accessible; attempted search timed out. Route incomplete; not a negative search conclusion. |
+
+**Priority outcome:** P1 model-specific 1954–63 primary ad/instructions still OPEN, despite strengthened company history; P2 new material does not fix comparative hand coding/case supplier; P3 original patent evidence strengthened without product-adoption proof; P4 Beitl's ca.1960 commission remains a specialist statement without independent order evidence; P5 1948/1973 full-text boundary unchanged. Same AS1475 is not evidence of common case maker or design origin. No outside contact, payment, new specimen test or public copy change.
+
+**SYNC / active work:** Main registration is this source-ingress change only. Open PR #268 (`docs/arsa-reddit-hand-only-20261023`, head observed `79f26841daca0552f3f5fdc83fb015bcae31e816`) separately records the user's hand-only Reddit scope; it was OPEN / UNMERGED when checked and was not imported or overwritten here. PR #235 remains a separate HOLD. Do not report either draft/branch content as main or deployed.

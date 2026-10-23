@@ -2361,3 +2361,13 @@
 - **検証状態**：PR #267作成はGitHub API応答で確認済み。CI / merge / liveは個別照合する。
 - **関連**：https://github.com/vintagealarm/vintagealarm.github.io/pull/267
 - **日時根拠**：PR作成UTC `2026-10-22T11:46:31Z` → JST `2026-10-22 20:46 JST`。追記時刻は20:47 JST。
+
+### 2026-10-23 23:55 JST — ARSA公開資料調査の未登録結果とPDF識別情報を研究正本へ登録
+
+- **変更**：Research LedgerのSource registerと研究ログへ、Davoine1945–1963の6広告、APH1969カタログPDF、CH617309原本、探索範囲とアクセス限界を登録。MapのCURRENTと会社史解釈を同期。APHの取得済みPDFは28ページ・2,013,422bytes・SHA-256で同定し、元URLと作業用保持状態を記録する。
+- **理由**：Uが「ここまでの研究結果及びPDFとうの登録」「研究に食い違い」と保存を明示要求。2026-10-21の調査時はGitHub編集禁止だったためチャットのみとなっていた証拠を、今回の限定的な登録権限で正本へ同期する。A発見 → U登録指示 → A資料照合・解釈修正。
+- **旧状態・棄却**：DIJUの1950年代初頭開発を盲人用時計事業全体の起点へ拡張する解釈を、1945・1947年のARSA広告をNEW EVIDENCEとして撤回。DIJU自体の記述、Blind Alarm約1956という専門書記載、1958掲載個体の日付は保持する。画像閲覧をPDF取得済み、特許提案を市販採用済み、離れた年の広告を連続生産証明とする扱いは棄却。
+- **影響範囲**：`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、本履歴の3文書。公開WATCH・OWNER'S NOTE・翻訳・公開flag・個人台帳・第三者画像の再配布は対象外。open PR #268 / #235の未統合差分は保持し、自動mergeしない。
+- **検証状態**：1945原画像再照合、既存APH PDFのページ数・対象本文・SHA-256確認。diff、decision-log / project-consistency / inference-guardはPASS。Astro buildは共有依存7.3.3で成功（lock7.2.9の厳密再現ではない）。evidence-regressionは変更対象外のInstagram台帳で8件のsnapshot未検出によりFAILし、全gate合格とはしない。main再取得で登録内容を確認する。PDF本体の公開GitHub upload、広告全文PDF取得、特許PDF取得を実施済みとはしない。
+- **関連**：本チャット2026-10-21調査報告と2026-10-23登録指示、Ledger同日Public-source research ingress、Map CURRENT public-source ingress、main基点 `fa98094a5effea6ee1f8318eadbf5012f08da77b`、別作業PR #268。
+- **日時根拠**：実行時UTC時計をAsia/Tokyoへ変換して確認した `2026-10-23 23:55 JST`。調査日と登録日を区別し、前回の会話表示時刻から新規の分単位時刻を復元しない。

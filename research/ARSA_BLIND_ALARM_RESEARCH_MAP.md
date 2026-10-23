@@ -7,6 +7,15 @@
 - 新証拠が出たらまずLEDGERへ記録し、**優先順位・仮説状態・タスク状態が変わる場合だけこのMAPを更新する**
 - 会話やMemoryから現在状態を補完しない。毎回GitHub `main` のLEDGER + MAPを確認する
 
+## CURRENT — public-source ingress registered 2026-10-23
+
+- **登録先:** 詳細・原本URL・印刷/ビューア/PDFページ・取得ファイル識別・否定探索範囲はLedgerの `2026-10-23 — Public-source research ingress: Davoine 1945–1963, APH 1969, CH617309`。会話だけにある未登録結果として再探索しない。
+- **更新された事実:** ARSAは少なくとも1945年に盲人用の懐中時計・腕時計を会社広告へ掲載。これは発売年でもBlind Alarmの証拠でもない。DIJUの1950年代初頭記載を事業全体の開始へ拡張する旧解釈を撤回。
+- **P3比較資料:** APH1969 LeJour A31600（print11/PDF19、供給元CONTIME）とCH617309（1978出願/1980公開、原本pp.3–7）。針保持の製品説明／特許の提案方式／市販採用を区別し、1950年代ARSAへ遡及しない。
+- **PDF状態:** APH `ED030242.pdf`は28ページの取得済みbinaryをサイズ・SHA-256付きでLedger登録、作業用コピーをworkspace `output/ARSA-ED030242.pdf`へ保持。DavoineとCH617309は原画像閲覧済みだがPDF binary未取得。公開GitHubへのPDF本体uploadとは区別。
+- **変わらないOPEN:** 1954–63 Blind Alarm本人の当時資料、AFB→ARSA発注の独立文書、1948/1973会社資料のオンライン本文。AS1475共通をケースメーカー／設計系譜の証拠にしない。
+- **作業境界:** 公開WATCH本文・翻訳・公開flag・個人時計台帳は対象外。別のopen PR #268はReddit質問範囲の記録で未merge、今回のmain登録へ未統合内容を自動採用しない。
+
 ## CURRENT — specimen / relist / negotiation
 
 - **WATCH publication: USER_APPROVED / JA・EN・DE RELEASE.** 2026-10-19の明示指示「公開してよいです」により、通常WATCHの共通frontmatterは `published: true`。日本語RESEARCHは公開継続、EN / DE RESEARCHは撤回状態を維持する。
@@ -139,7 +148,7 @@ ARSAをAS1475史へ戻して終える。
 - BEAT / Friedli-FrèresにもAS1475 Blind Alarm、ただし開閉操作は6時
 - A. SchildにAS1475 Blind Alarm prototype
 - HorlbeckのEnicar 1964特別個体でも、触って時刻とアラーム時刻を読む設計を確認
-- DIJUの企業史では、ARSAのblind / Braille watchは**1950年代初頭に開発**され、**1973年にもARSAの製造品目として「montres pour aveugles」**が明記される
+- **一次広告を優先（2026-10-23登録）:** Davoine **1945 p.577 / viewer595**、**1947 p.565 / viewer593**でARSAの盲人用懐中時計・腕時計を明記。DIJUの「1950年代初頭にblind / Braille watchを開発」は資料記載として保持するが、盲人用時計事業全体の開始年には使わない。特定の新製品系統を指すかは未解決。DIJUの**1973年製造品目「montres pour aveugles」**は別に保持。出典・解釈限界はLedger同日Public-source research ingress
 - AFBの一般向け時計流通は1926年に引き継がれ、1972年にはbrailled pocket / wrist watchを30種類扱っていた。これは1943–1963年の戦盲軍人向けgift programとは別系統として扱う
 - auction-catalog survivorとして、**afB De Luxe Alarm / AS 1930 / ca.1970 / 33 mm**が確認できる。ただし製造者は未同定で、ARSA連続系列とは扱わない
 
@@ -151,7 +160,7 @@ ARSAをAS1475史へ戻して終える。
 
 これは**現在の最有力解釈**。加えて、Davoine 1969ではA. Reymondが「Montres pour aveugles」を企業specialtyとして掲げ、1970年広告では同じspecialty欄に「Montres pour aveugles」と「Montres bracelet réveil」が同時掲載されることを確認した。したがって、**ARSA社内で盲人用時計と腕時計アラームの両製品能力が並存していたことはperiod trade sourceで補強済み**。
 
-さらにDIJUでは、ARSAが1950年代初頭にblind / Braille watchを開発し、1973年にも「montres pour aveugles」を製造品目としていたことが確認できる。したがって**ARSAの触覚時計系統は1950年代の一過性企画ではなく、少なくとも1973年まで企業の製品領域として継続していた**と扱える。
+会社の盲人用時計事業は、Davoine **1945・1947年の当時広告**で既に確認できる。1954・1956・1958・1963年の追加広告にも盲人用時計の取扱記載を確認した。DIJUの「1950年代初頭に開発」という記述は保持するが、事業全体の起点とする旧解釈は撤回し、その記述が指す製品系統はOPENとする。1973年にも製造品目へ掲載されたというDIJUの記録は別に保持する。**離れた年の広告・製品記録は、その間の毎年の連続生産や同一モデルの継続を証明しない。1945年広告もBlind Alarm本人の証拠ではない。**
 
 一方、「その二系統を意図的に統合してBlind Alarmを開発した」という因果そのものを述べる一次資料はまだない。また、ca.1970のafB De Luxe Alarm / AS1930 survivorはAFB系触覚アラームの後続例だが、製造者未同定のためARSAの後継機とはしない。
 
@@ -212,6 +221,7 @@ AFBの1943–45年戦盲軍人向けprogramについては、AFB自身の制度�
    - 1969 / 1970 Davoineで`Montres pour aveugles`、1970にはさらに`Montres bracelet réveil`を同じA. Reymond社広告で確認
    - 1960sにはTramelan最大級の雇用主、1972 merger後も1973にblind watchesを製造品目として確認
    - **サイト用の主眼:** ARSAは「盲人用時計だけの会社」ではなく、finished watchesを広く作る大規模メーカーの中に tactile watch と alarm watch の両系統があった
+   - **追加一次資料登録済み:** Davoine 1945 / 1947 / 1954 / 1956 / 1958 / 1963の会社広告を原画像で確認。盲人用時計の取扱いは少なくとも1945年。ただしBlind Alarm本人の当時広告は未回収。
    - **残る一次資料穴:** 1948 company brochure本文、1973 75周年資料本文、1954–55 alarm introductionのperiod primary
    - **1958 JSH No.2:** p.120のA. Reymond S.A. 60周年全面広告を実見済み。Blind Alarm / blind-watch / réveil / AS1475記載は確認できない。以前「別の60周年記事がある」としていた解釈は、2026-10-07のユーザー実見で別記事なしと訂正し、探索対象から外した。p.120以外の全822ページ不掲載までは証明しない
 2. **需要背景 — DEEP DIVE ② PASS 1 COMPLETE 2026-10-03**
