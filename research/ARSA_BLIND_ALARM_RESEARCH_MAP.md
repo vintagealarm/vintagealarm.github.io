@@ -7,6 +7,15 @@
 - 新証拠が出たらまずLEDGERへ記録し、**優先順位・仮説状態・タスク状態が変わる場合だけこのMAPを更新する**
 - 会話やMemoryから現在状態を補完しない。毎回GitHub `main` のLEDGER + MAPを確認する
 
+## CURRENT — hands / lived operation evidence, 2026-10-24
+
+- **詳細owner:** Ledger `2026-10-24 — Hands and lived operation: learning, contact disturbance, Citizen manual, Reymond CH589315`。新しい本人記録・原本・ファイル識別を保存済み。
+- **今回追加:** Schroederの時分針識別の学習回想（1992講演／1996掲載）、Lewisの実演中の針変位と約10分の会議遅刻（2004）、通常針の方がBradleyより探しやすいという公開コメント1件（2026）。個別体験でありARSA評価・代表的統計ではない。
+- **圧力の境界:** Citizen6029公式説明書 print3/PDF4 は軽い接触を指定し、強い圧力による位置ずれ／変形を区別。触読針がどんな力でも動かないという一般化をしない。同時にARSA個体の軽接触変位を正常とする逆推論は禁止、原因未診断・追加接触試験HOLDを維持。
+- **特許lead解消:** CH589315B5 `Montre pour aveugle`、権利者Manufacture d'Horlogerie A. Reymond S.A.、Willy Schaer、1975優先日／1976付与／1977公表。原本3画像を保存・実見。発明はスライド保護蓋で、針保持／アラームの発明ではない。前日の「589315本文未確認」はこの項目に限り解消し、1950年代ARSA factory design document未回収は維持。
+- **既知事項補強:** Horlbeck print222–223 / Project PDF216–217の本文・図版を再確認。1964特別個体の針幅と4筋を保持するが、重なり時の識別成績までは分からない。AFB2019 Bradleyレビューは既登録資料の本人経験部分を再読、新発見扱いにしない。
+- **残るOPEN:** ARSAの3針重なり時の触り分け、alarm設定の実使用read-back、定量的保持力、当時の直接使用者記録。公開WATCH・個人台帳・PR #268の投稿範囲は変更しない。外部投稿・問い合わせは未実施。
+
 ## CURRENT — public-source ingress registered 2026-10-23
 
 - **登録先:** 詳細・原本URL・印刷/ビューア/PDFページ・取得ファイル識別・否定探索範囲はLedgerの `2026-10-23 — Public-source research ingress: Davoine 1945–1963, APH 1969, CH617309`。会話だけにある未登録結果として再探索しない。

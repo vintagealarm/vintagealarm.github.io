@@ -2371,3 +2371,13 @@
 - **検証状態**：1945原画像再照合、既存APH PDFのページ数・対象本文・SHA-256確認。diff、decision-log / project-consistency / inference-guardはPASS。Astro buildは共有依存7.3.3で成功（lock7.2.9の厳密再現ではない）。evidence-regressionは変更対象外のInstagram台帳で8件のsnapshot未検出によりFAILし、全gate合格とはしない。main再取得で登録内容を確認する。PDF本体の公開GitHub upload、広告全文PDF取得、特許PDF取得を実施済みとはしない。
 - **関連**：本チャット2026-10-21調査報告と2026-10-23登録指示、Ledger同日Public-source research ingress、Map CURRENT public-source ingress、main基点 `fa98094a5effea6ee1f8318eadbf5012f08da77b`、別作業PR #268。
 - **日時根拠**：実行時UTC時計をAsia/Tokyoへ変換して確認した `2026-10-23 23:55 JST`。調査日と登録日を区別し、前回の会話表示時刻から新規の分単位時刻を復元しない。
+
+### 2026-10-24 06:28 JST — ARSAの針・操作感調査を使用者記録と原本へ分解して登録
+
+- **変更**：LedgerへNFB1996/2004本人記録、公開Redditコメント1件、Citizen6029公式PDF、Reymond CH589315B5原本3画像とその識別情報を登録。Mapの針研究CURRENTを同期。Horlbeck print222–223 / PDF216–217と既知AFB2019レビューは補強として区別。
+- **理由**：Uが直前の登録後に「引き続き未解決を解決できるように実際の操作感と針についてほっていこう」と同じ研究の継続を指示。前ターンの正本登録範囲を継続し、新証拠をチャットだけへ残さない。A資料探索 → A原典照合・限定的解釈、公開本文化の採用は未決。
+- **旧状態・棄却**：CH589315の原本未確認を、特許庁内検索と原本3画像により当該項目だけ解消。元の未取得記録は日付付き履歴として保持。触読針は絶対に動かないという一般化も、強接触の注意書きを根拠にARSA軽接触変位を正常扱いする逆推論も採らない。3針重なり・保持力・製品採用は未解決を維持。
+- **影響範囲**：研究Ledger、Map、本履歴の3文書。PDFと原画像は既存workspace outputへbyte-identical保存。公開WATCH・OWNER'S NOTE・翻訳・公開flag・個人時計台帳・未merge PRは対象外。連絡・投稿・所有時計への操作を行わない。
+- **検証状態**：公開原文、公式PDF print3/PDF4、特許表紙/説明/請求項/原図、書籍図版を実見。保存物のサイズ・SHA-256、diff、decision-log / project-consistency / inference-guardとmain再取得を照合する。発明の存在を市販採用や1950年代ARSAの構造解明としない。
+- **関連**：Ledger同日Hands and lived operation節、Map CURRENT hands / lived operation、前回main `a9a2da4c9214420a4f8e9a467d9831694bbd465a`、別作業PR #268。
+- **日時根拠**：実行時のUTC時計をAsia/Tokyoへ変換し `2026-10-24 06:28 JST` を確認。資料の発表年・回想された時期・調査登録日を分離する。

@@ -3873,3 +3873,73 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 **Priority outcome:** P1 model-specific 1954–63 primary ad/instructions still OPEN, despite strengthened company history; P2 new material does not fix comparative hand coding/case supplier; P3 original patent evidence strengthened without product-adoption proof; P4 Beitl's ca.1960 commission remains a specialist statement without independent order evidence; P5 1948/1973 full-text boundary unchanged. Same AS1475 is not evidence of common case maker or design origin. No outside contact, payment, new specimen test or public copy change.
 
 **SYNC / active work:** Main registration is this source-ingress change only. Open PR #268 (`docs/arsa-reddit-hand-only-20261023`, head observed `79f26841daca0552f3f5fdc83fb015bcae31e816`) separately records the user's hand-only Reddit scope; it was OPEN / UNMERGED when checked and was not imported or overwritten here. PR #235 remains a separate HOLD. Do not report either draft/branch content as main or deployed.
+
+### 2026-10-24 — Hands and lived operation: learning, contact disturbance, Citizen manual, Reymond CH589315
+
+**INGRESS / AUTHORITY:** U requested continuing the unresolved research on actual operating feel and hands after explicitly requesting canonical registration in the preceding turn. This continues that same evidence-registration scope, not public WATCH editing or authority to contact users. A located and read new sources; interpretations remain source-limited, not U-approved product conclusions. Registered 2026-10-24 06:28 JST. Fresh main Map/Ledger and active PRs checked. PR #268's hand-only Reddit question scope is respected: only existing public comments were read, **no post/message/contact**. No specimen contact test or personal watchdiary change.
+
+#### 1. New first-person evidence — learning to distinguish hour and minute hands
+
+- **Fredric F. Schroeder, “Braille Today and Tomorrow,” Future Reflections, Winter 1996, vol.15 no.1**: https://nfb.org/braille-today-and-tomorrow . The page explicitly identifies the text as an excerpt from a **1992-03-14 address**, not a 1996 experiment or an event precisely dated by this research.
+- **Original full text read. Locator:** paragraph beginning `After becoming totally blind`, following the account of gradual sight loss and before the 1974 convention recollection. HTML is unpaginated; no invented print page.
+- **First-person report:** A hospital social worker brought him a Braille watch; initially he found hour/minute discrimination extremely difficult, but reports learning to read it quickly and accurately in a short time. The exact time spent learning, watch maker/model, tactile technique and hand forces are unstated.
+- **New contribution:** Direct user evidence for initial discrimination difficulty followed by learning. It supports separating interface geometry from experience/practice. It does **not** prove every user learns quickly, that an inaccessible design is solved by practice, or anything about a three-hand ARSA alarm.
+
+#### 2. New first-person evidence — accidental movement with a real consequence
+
+- **Anil Lewis, “Federationists Feeling Peachy Keen in Atlanta,” Braille Monitor, August/September 2004**: https://nfb.org/images/nfb/publications/bm/bm04/bm0408/bm040803.htm . Issue contents linked from the article: `bm0408tc.htm` on the same path.
+- **Original full article read. Locator:** paragraph beginning `I demonstrated what I believe to be the advantages of the Braille watch`, after the account of meeting a young Braille reader and before the hospitality-suite paragraph. Unpaginated HTML.
+- **First-person report:** During a Braille-watch demonstration the hands could be accidentally moved; he attributes being about **ten minutes late for the board meeting** to his demonstration. This reports lateness, **not an instrumentally measured ten-minute displacement of the hands**. The maker, force, precise hand and mechanism are not identified.
+- **New contribution:** Real-use consequence evidence beyond a patent's problem statement or a manufacturer's promise. It supports the relevance of accidental setting disturbance in tactile watches generally, but gives neither a prevalence/failure rate nor proof of ordinary gentle-contact behavior in ARSA. The author's advice within the anecdote is recorded as his statement, not a request to the owner to perform another test.
+
+#### 3. New comparative user report — searching for conventional hands versus separated balls
+
+- **Public comment by Comacrin**, https://www.reddit.com/r/Blind/comments/1shqpxw/comment/ofktzrf/ , in `Eone Bradley Timepiece`: https://www.reddit.com/r/Blind/comments/1shqpxw/eone_bradley_timepiece/ . Full thread and comment read without login/posting. DOM absolute comment timestamp **2026-04-11T14:46:55.632Z**; use this rather than the relative “7 months” UI label.
+- **Reported experience:** The commenter disliked locating both Bradley bearings each time, reported needing at least two fingers, and found locating both hands on a conventional tactile watch faster. This is **one anonymous user's comparative report**, not a requirement imposed by the manufacturer, a timed trial or verified disability/model information. Other thread durability comments do not diagnose hand retention and are not imported as evidence.
+- **New contribution:** Separating indicators may avoid a hand-contact problem but add a different search/motor task. Combined with the positive, already-known Deborah Kendrick 2019 Bradley review, it shows **contrasting individual experiences**, not proof that traditional hands are universally superior. Exact grip, one-hand reading, hand overlap and alarm-pointer recognition remain OPEN.
+
+#### 4. New manufacturer manual — gentle contact versus excessive pressure
+
+- **Citizen official Cal.6029 Japanese support**: https://citizen.jp/support/guide/html/6029/6029.html ; official PDF https://citizen.jp/support/manual/6029d.pdf . The support page and its actual PDF link were opened in the browser; the PDF was downloaded using that link.
+- **Original PDF read and visually checked:** **printed p.3 / PDF p.4 of 9**, `ご使用方法` / `2. 時刻の読み方` and the adjacent caution box. No issue/revision year was independently established; record as the official manual current at access, **not a 1960 or 1970s source**. The 2020 product page identifies AC2200-55E as Cal.6029, but does not date every version of this manual.
+- **Manufacturer statement:** Short hand = hour, long = minute. Touch lightly; strong pressure can displace or deform hands and prevent correct reading. This explicitly separates **position disturbance** from **physical deformation**. No numeric force/torque, brake, clutch or torque threshold is provided in the inspected manual.
+- **New contribution:** A real, specified tactile-watch product can still carry pressure-dependent limitations. Reject the overclaim that tactile hands can never be moved or damaged by any finger force. **Do not reverse this into “ARSA's light-contact displacement is normal.”** The movement, model and conditions differ; the actual ARSA cause remains undiagnosed and additional contact tests remain HOLD.
+- **Complementary manufacturer page read:** https://www.citizenwatch-global.com/touchtimewatch/index.html , `PRODUCT / Enhanced legibility` identifies an arrow-shaped hour-hand tip; `STORY` reports input from students/staff. This is a manufacturer design account, not a controlled usability result. It does not disclose the retention mechanism. Treat brand “first” claims as that page's claims, not adopted cross-brand history.
+
+#### 5. Newly resolved primary-source lead — A. Reymond CH589315B5
+
+- **Official locator:** https://worldwide.espacenet.com/patent/search?q=pn%3DCH589315B5 . Recovered by the **patent office's internal publication-number search** (`pn=CH589315`), after general web search was unproductive. This is a different successful path from repeating ambiguous numeric searches.
+- **Title page / original viewer p.1:** `Montre pour aveugle`; titulaire **Manufacture d'Horlogerie A. Reymond S.A., Tramelan**; inventor **Willy Schaer, Le Landeron**; priority **22 January 1975, 18h**; `Brevet délivré` **31 December 1976**; `Exposé d'invention publié` **30 April 1977**; `Conforme au mémoire exposé` **30 June 1977**. The Espacenet/Google metadata indexes **CH589315B5 / CH77375A**, application 1975-01-22 and publication 1977-06-30. Preserve these **different labeled dates** rather than silently using June 30 for all publication/grant events. Google cross-reference https://patents.google.com/patent/CH589315B5/fr supplied metadata only, no usable text/PDF.
+- **Original viewer p.2 = printed columns 1–2:** Full saved image inspected. It describes conventional hinged covers as delicate and vulnerable when open and makes claims about closure/sealing and a normal-looking watch. The claimed invention is a **protective cover translating along two guides**, exposing the dial for tactile time reading; subsidiary claims include transparent glass, a travel stop, seals and internal/external guide arrangements. These are the applicant's reasons and patent proposals, **not field failure statistics for the 1950s ARSA hinge**.
+- **Original viewer p.3:** Drawing sheet saved and inspected. Figure1 cross-section and remaining views support the sliding-cover layout. The original text describes direct touching of hands/raised indices; **no hand-position locking, alarm pointer, quantified contact force or alarm mechanism is disclosed in the inspected description/claims/drawing**.
+- **New contribution / limit:** This is a direct **A. Reymond design document**, upgrading that particular 1975/1977 lead from UNVERIFIED to ORIGINAL-READ. It is **not** the missing 1950s Blind Alarm specification, not proof of this system's market adoption, and not a historical tactile-alarm ancestor claim. The original-file title does not name Blind Alarm.
+- **Connection to already-read CH617309:** Its original p.3 cites Swiss patent589315 as prior tactile-watch art. Citation gives a documentary connection between the texts, **not proof of shared manufacturing, licensing, case supplier or a commercial collaboration**. CH617309's stop/count/fast-forward proposal remains distinct from CH589315's sliding protective cover.
+
+#### 6. Specialist-book recheck — three tactile identities, still not a user trial
+
+- **Michael Philip Horlbeck, The Alarm Wristwatch, printed pp.222–223 = local Project PDF pp.216–217** (`sources/The  Alarm Wrist Watch.pdf`). Both page images and text rechecked. This **independently reinforces an existing finding**, not a new Enicar discovery. Page222 gives minute width almost1.6mm, hour2.9mm, alarm0.7mm with four ridges at its end. Page223 associates the illustrated special model with Lausanne1964 and explicitly notes the lack of an Enicar signature and identification through its characteristic base. Keep this attribution as Horlbeck's, not a newly read manufacturer mark.
+- The text supports planned tactile discrimination of three hands and alarm-time read-back. It does **not** measure recognition speed/errors when hands overlap, touch force, or the subject ARSA's holding behavior. Do not generalize this special model's dimensions/ridges to all Enicar or ARSA watches.
+- **Already-known AFB source reread:** Deborah Kendrick, AccessWorld20(1), January2019, https://afb.org/aw/20/1/14989 , `Meeting the Bradley` and `Using the Bradley Timepiece`. Previously registered for terminology. Her personal history of hinged-crystal watches and positive acclimation report are now separated as user testimony; no newly discovered source claim.
+
+#### 7. Retained files and what remains unanswered
+
+These are byte-identical local working copies under this chat's existing `output/`, **not a new canonical source database or public GitHub media**. Source URLs and the evidence record above remain the retrieval authority. The patent comprises original **PNG page images**, not a downloaded patent PDF or a reconstructed original PDF. No book scans are uploaded publicly.
+
+| Working filename | Bytes | SHA-256 | Contents |
+|---|---:|---|---|
+| `ARSA-comparator-Citizen-6029d.pdf` | 284894 | `9ee9a388bbcba8c3d12e6217e45680a7bc2a2259269ac34cefefff65350472b8` | Citizen official manual; 9 PDF pages; printed p.3 / PDF p.4 |
+| `ARSA-CH589315B5-original-page1.png` | 37334 | `fe89f2d517c0edd24f508280ff983984aacce84555655a91414ae9941d29ad25` | Espacenet original viewer p.1, title/bibliography |
+| `ARSA-CH589315B5-original-page2.png` | 119757 | `48df1772b30dd26484e9f78abb91eda3ed9439dbd4e49fafa143f35193cae5f6` | Espacenet original viewer p.2, printed columns 1–2, description and claims |
+| `ARSA-CH589315B5-original-page3.png` | 40481 | `947a0594dfe5c43de4be9f715e9c73cdfee722b6fa1401cf7c54d5f327f4371b` | Espacenet original viewer p.3, drawing sheet |
+
+**Updated question board:**
+| Question | What this pass adds | Remaining boundary |
+|---|---|---|
+| Can H/M be learned by touch? | Schroeder reports initial difficulty and subsequent accurate rapid reading | One user, unnamed watch, no quantified learning curve; not proof for ARSA/alarm hand |
+| Does touching ever change the indication? | Lewis's lived episode plus Citizen's explicit pressure caution | Frequency and normal-force threshold for ARSA unresolved |
+| Are strong hands the same as strong retention? | Citizen distinguishes displacement/deformation; APH promise is still product copy | Hardness, fit/retaining friction, train backdrive and stopped-time error must not be collapsed into one diagnosis |
+| Are separated tactile indicators always easier? | Contrary Bradley reports add a search/motor-task tradeoff | User preferences vary; neither is a timed comparison |
+| Does ARSA have a relevant factory patent? | A. Reymond CH589315 original recovered | Later cover patent, not the missing 1950s hand-retention design |
+| Can three overlapping hands / alarm-time setting be read reliably? | Specialist design evidence rechecked only | No ARSA wearer test or direct contemporaneous instructional/field evidence recovered |
+
+**Next high-value evidence:** existing published accounts/manuals explicitly describing tactile alarm-hand identification or overlap; ARSA period instructions/service/design material specifying holding provisions. No questionnaire posted, no institutions contacted, no further owner manipulation requested. Broad searches for a generic single “tactile-hand standard” remain inappropriate. Patent and product claims are not substituted for actual user findings.
