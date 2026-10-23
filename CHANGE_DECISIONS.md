@@ -2401,3 +2401,13 @@
 - **検証状態**：原説明と該当forum全投稿、特許原本6画像を実見。main比較基点026cb8fでURL／番号の重複を点検。diffとdecision-log / project-consistency / inference-guard、登録後main再取得を照合する。Google PDF取得timeoutとWatchUSeekサイト安全制限を明記し、迂回しない。
 - **関連**：Ledger同日Focused hands follow-up、Map hands CURRENT、https://www.youtube.com/watch?v=ybSNBY1_VcA 、https://worldwide.espacenet.com/patent/search?q=pn%3DUS3438195A 。
 - **日時根拠**：実行時UTCをTokyo Standard Timeへ変換して2026-10-24 06:46 JSTを確認。研究日の基準であり原資料年代や動画コメントの未確認日時を代用しない。
+
+### 2026-10-24 07:23 JST — ARSA候補の原画像回収とAS1475当時資料を限定登録
+
+- **変更**：LedgerにEbauches1955 AS1475技術資料の4頁版／2頁版の実読範囲、既知2015/2019forum原画像10枚のURLとSHA-256、Watch Library検索範囲とAFB停止状態を記録。Mapに番号同定のHOLDと核心OPENを同期。
+- **理由／起点**：Uの候補洗い出し要求に続く「じゃあがんばってどうぞ」で公開資料の回収を実行。先行する研究登録指示を継続し、今回の証拠をチャットだけへ残さない。Aによる原資料回収であり、U起点の針・操作感の問いと区別。
+- **旧状態・棄却**：既知forumや既登録52820そのものを新発見としない。軸方向の自由度を回転保持力と混同せず、ARSA工場仕様・触読性能・AFB納入・Venus230内部確認へ昇格しない。比較写真の同番号らしさは番号の意味や共通ケースメーカーを証明しない。
+- **影響範囲**：研究Ledger、Map、本履歴のみ。原画像は既存workspace outputへbyte-identical保存し公開uploadしない。公開WATCH・翻訳・個人時計台帳・未merge PR・問い合わせ・投稿・所有時計操作は対象外。
+- **検証状態**：資料ページ画像と現存品原画像を実見、main eae0ee1で既知論点／URLを照合。diff、decision-log / project-consistency / inference-guardと登録後mainの3ファイルSHAを確認する。PDF binaryは未取得、1963誌面本文未判読、AFBはアクセス不能として保持。
+- **関連**：Ledger Candidate recovery、Map hands CURRENT、https://www.scribd.com/doc/283583519/AS-1475-technical-communication-Ebauches 、https://uhrforum.de/threads/der-weihnachtswecker.418769/ 。
+- **日時根拠**：UTCをTokyo Standard Timeへ変換し2026-10-24 07:23 JSTを確認。原資料の1955年、forum投稿年、調査登録日を区別。

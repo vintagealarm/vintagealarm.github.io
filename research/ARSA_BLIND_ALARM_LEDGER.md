@@ -4039,3 +4039,57 @@ Byte-identical local original-image copies retained under workspace `output/ARSA
 - Original six-page Cochin images were recovered from EPO after Google PDF access timed out; tiny Google drawing thumbnail was unsuitable and excluded from evidence-quality original archive. No new original PDF binary obtained in this follow-up. Other previously saved PDFs remain registered in preceding entries.
 
 **CURRENT conclusion:** A establishes that an identifiable owner publicly described ARSA's firm hand attachment; B supplies a non-model-specific construction lead. Neither verifies factory friction design, normal force, or genuine blind read-back. Keep **overlap/read-back/retention OPEN** and specimen cause undiagnosed. Refrain from further generic tactile-watch collection unless a source can change a named OPEN item. Formal ARSA instructions, service sheet or direct identified wearer testimony remain admissible targets; no inquiry/post or additional specimen test implied.
+
+### 2026-10-24 — Candidate recovery: AS1475 period technical communication and original survivor photographs
+
+**Scope / novelty baseline:** Compared with main `eae0ee1d9257debef77f549fb844f747c7c574fd`. The 2015/2019 forum leads and general hand-shape / retention questions were already known. This entry records newly inspected original attachments and a newly added period platform document, not discovery of these watch types. Search for the technical-document URLs and attachment IDs found no prior ledger entry; `52820` was already provisionally recorded on 2026-10-15. No contact, payment, signup, external post or owner-watch operation. Research registration only; no public WATCH or media change.
+
+**1. Ebauches S.A. / A. Schild, AS1475 ALERTIC technical communication, copyright 1955.**
+
+- Public facsimile viewer: https://www.scribd.com/doc/283583519/AS-1475-technical-communication-Ebauches — **4 viewer pages**, printed page numbers not established; not a downloaded PDF binary. The viewer's normal ad-skip control exposed the remaining preview without login or payment. Actual page images were inspected: p.1 publisher/copyright/caliber heading; p.2 exploded dial-side mechanism; p.3 disassembly, assembly, hand fitting and upper stem-functions section; p.4 parts-name table and upper parts illustrations. **Not a claim to have transcribed every line or inspected all lower portions of all pages.**
+- p.1 explicitly shows Ebauches S.A., Neuchatel, Switzerland; A. Schild S.A., Grenchen; 11½''' 1475 ALERTIC, 25.60 mm; copyright 1955. It describes a lever movement with direct sweep seconds, alarm and two barrels. This is a maker/publisher period document surviving through a third-party scan, not a present-day manufacturer's statement.
+- **p.3, “Fitting the hands”:** alarm hand fitted before the hour hand; the hour hand is to move freely axially along the hand axis. Minute and seconds hands are described as fitted in the usual manner. This gives an actual period platform-level hand-stack / axial-clearance reference. It does **not** specify tactile reading force, minute-hand rotational holding torque, a tactile anti-slip lock, ARSA's special hand fittings, or production adoption of any tactile modification. Axial freedom and resistance to contact-induced angular displacement are different questions. Do not turn this into repair instructions or a diagnosis of the user's specimen.
+- p.2 drawing / p.4 table identify 245 cannon pinion, 255 hour wheel, 260 minute wheel, 7151 unlocking-wheel holder, 7288 unlocking wheel, 7290 alarm wheel, 7296 intermediate alarm-setting wheel. A parts designation or exploded diagram alone does not prove the tactile retention arrangement.
+- Independently viewable **2-page parts-sheet format**: https://master-watch-parts.com/en/technical-documents/as/1475-alertic/ . Actual p.1 heading/copyright and p.2 parts table/exploded layout read in browser. Do not equate its page numbers with the four-page technical communication. Site disallows permanent storage/reproduction; no file downloaded or mirrored.
+- Additional PDF lead: http://roamer-watches.info/valjoux/1475.pdf . Browser PDF remained blank / normal download canceled; HTTPS produced certificate-name mismatch. **Not obtained or page-confirmed through this route**; search metadata is not inspection of a second PDF copy. No certificate bypass.
+- **Research consequence:** New period documentation of the common platform, but **factory retention for ARSA Blind Alarm remains OPEN**. AS1475 identity is not evidence of common case supplier or design origin. A 1955 document date is not the launch date of a tactile ARSA.
+
+**2. 2015 ARSA ALERTIC: four original attachment images recovered, not a newly discovered model.**
+
+- Parent: https://uhrforum.de/threads/mechanische-blindenuhr-mit-wecker.242195/ — seller `melodie`, 2015-12-22. Contemporary-to-sale survivor photographs / seller testimony, **not 1950s advertising**. No printed/PDF page; identify the dated post and attachment.
+- Closed dial: https://uhrforum.de/attachments/20151222_111246-1-jpg.1265080/
+- Open lid: https://uhrforum.de/attachments/20151222_111235-1-jpg.1265084/
+- Oblique controls: https://uhrforum.de/attachments/20151222_111310-1-jpg.1265087/
+- Exterior back: https://uhrforum.de/attachments/20151222_111302-1-jpg.1265088/
+- **IMAGE-CONFIRMED:** ARSA / ALERTIC dial; visibly distinct short broad gold-colored hand, longer slimmer gold-colored hand and dark narrow third pointer. On this photographed dial, 12 has three raised points, 3/6/9 two; hinge about 9; separate pusher about 2 and crowns about 3/5. Back says FOND ACIER INOXYDABLE; exact small number not relied upon. These are exterior observations, not measured tactile performance, factory originality, case composition throughout, or operative proof that every control works.
+- No interior movement photograph among these four. The Venus230 attribution remains attributed to the source, not independently movement-stamp-confirmed here. Do not import this marker scheme or separate opener into the user's different AS1475 specimen.
+
+**3. 2019 comparison post: six original images, and limits on name/number identification.**
+
+- Parent: https://uhrforum.de/threads/der-weihnachtswecker.418769/ — post #5, `Weckerfreund`, 2019-12-25. Modern collector post, not period factory documentation.
+- Filename-labelled `AFoB Enicar` pair: https://uhrforum.de/attachments/afob-enicar-1-jpg.2811396/ and https://uhrforum.de/attachments/afob-enicar-2-jpg.2811405/ . Actual face/back inspected. No Enicar dial signature or full AFB name is visibly established from this pair. The filename / collector identification is not a factory stamp or independent AFB procurement record. Back perimeter includes STAINLESS STEEL BACK / SWISS MADE; other tiny marks not used for attribution.
+- White ARSA pair: https://uhrforum.de/attachments/arsa-blind-weiss-1-jpg.2811409/ and https://uhrforum.de/attachments/arsa-blind-weiss-2-jpg.2811410/ . Face reads ARSA / ALARM / 17 JEWELS; short broad dark pointer, long dark pointer and slim metallic patterned third pointer are visibly different. Surface pattern visible through glass is not proof of ridge count, relief height or touch distinguishability. Back clearly reads **FOND ACIER INOXYDABLE / 52820**.
+- Gold-colored unsigned comparison pair: https://uhrforum.de/attachments/blinde-gold-1-jpg.2811419/ and https://uhrforum.de/attachments/blinde-gold-2-jpg.2811423/ . Back has different handwritten engraving and also appears to read **52820**, with the same French material wording. The record therefore does **not** justify treating that number as an individual-watch identifier. It does not establish what the number actually denotes, a shared case maker, or interchangeability; later part replacement / pairing history is unknown.
+- **Novelty limit:** The user's 2026-10-15 photo already had provisional `52820`; this independent photograph does not confirm the transcription on that different user image, receipt, identity mapping, or common manufacture. What changes is the availability of a clear comparator and a reason to keep the number's function unresolved. No change to the personal-watch ledger.
+
+**4. Bounded archive search / access constraints this session.**
+
+- Watch Library actual site search: `"blind alarm"` returned one known Asia1956 no.33 viewer115 H.Moser false match; no new ARSA evidence. `Blindenarmbandwecker` and `réveil pour aveugles` returned zero in their respective site queries. `Blindenwecker` returned nine records: FH-AH1947 viewer150, FH-AH1948 viewer138; Europa Star Europe1962 no.14 viewer98, no.15 viewer102, no.16 viewer76, no.17 viewer84, no.18 viewer91, no.19 viewer86; 1963 no.20 viewer106. This is query-bounded OCR retrieval, **not full-volume negative verification**.
+- 1963 candidate actually opened: https://watchlibrary.org/details/ES-EUROPE_020_1963_001_106?searchQuery=blindenwecker . Mirador displayed page106 of122 and a one-word search hit. Its displayed spread could not be read sufficiently to classify the item in this session; **body/printed pagination UNCONFIRMED**, do not call it a Blind Alarm advertisement or a confirmed classified ad. Other newly listed records were not all opened and page-read.
+- APH/AFB public collection https://thedotexperience.pastperfectonline.com/ showed **“The service is unavailable.”**; `/Search` timed out. No fresh individual AFB record inspection was possible. Record as ACCESS UNAVAILABLE, not zero relevant holdings, not independent corroboration of the circa1960 ARSA order.
+- Still no new evidence for a 1954–1963 ARSA Blind Alarm original advertisement/manual, blind user's ARSA alarm read-back, three-hand overlap performance, specified tactile retention force, independent AFB order, or online text of 1948/1973 company histories. The last two company-history items were not newly reopened in this focused session.
+
+**Local evidence custody:** The ten attachments were downloaded through their actual browser-visible images and copied byte-identically to the existing workspace `output/`; no public image upload or redistribution license assumed. The two technical-document viewers were read, **PDF binaries not obtained**. Workspace root: `C:/Users/rima0/.codex/.chatgpt-projects/g-p-6a9d68cecd24819187d1ed4fa85ed6b4/`.
+
+| Local output filename | Bytes | SHA-256 |
+|---|---:|---|
+| ARSA-alertic-2015-1265080.jpg | 169832 | 1a686f00176d79965c60d12f491eddf3988d82d68c941ab7caac30413f66ead5 |
+| ARSA-alertic-2015-1265084.jpg | 251811 | bbf565794fe9130ae3c9046f68078f1d4cc85b53c291a2f67ba291c131848304 |
+| ARSA-alertic-2015-1265087.jpg | 223805 | 3b7c4d6819ea62309fde23d7ec9e331a01b48bc7341d779064e7a8743422b67b |
+| ARSA-alertic-2015-1265088.jpg | 350253 | 4b313614d5d24355c75b853703219723cdeac7e9a098afb23ac460ce6ba6005d |
+| Tactile-comparison-2019-2811396.jpg | 219278 | 15dcbb0213fc9f8a25db848d49739a7b08cdea703a99de395bc89709b1834d29 |
+| Tactile-comparison-2019-2811405.jpg | 969122 | f2d4e38be7010a44c49f43f27aa74682613f6d76885aee044c013c18a98a03f2 |
+| ARSA-white-2019-2811409.jpg | 223474 | 5f171c562c6a0fdee742cf6d13fe2c9b41bb53d2cbc2871e5810b7decd88920d |
+| ARSA-white-2019-2811410.jpg | 1040083 | abbfa3711b1c0632b6ffb5dae64dd0183af69a8827261fea37870a96de1a2298 |
+| Tactile-gold-2019-2811419.jpg | 197982 | 797599b0dda81353245d43e49a25548f526952fd11a93e4aa37b0c9548ecabf7 |
+| Tactile-gold-2019-2811423.jpg | 1076906 | 9bf0fb0d65a7045a25db4105cc705ffe9a7fadaf432263bd923a56c3a10a6643 |

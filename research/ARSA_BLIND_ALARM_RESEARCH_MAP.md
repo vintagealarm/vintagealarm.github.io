@@ -9,6 +9,8 @@
 
 ## CURRENT — hands / lived operation evidence, 2026-10-24
 
+**CANDIDATE RECOVERY — 2026-10-24:** Ledger `Candidate recovery: AS1475 period technical communication and original survivor photographs` に、Ebauches1955 AS1475技術資料の実読ページ、既知forum原画像10枚とSHA-256、Watch Libraryの検索範囲を登録。4頁版viewer p.3の針取付け／軸方向自由度は共通platform資料で、ARSAの触読保持仕様ではない。2019白ARSA裏蓋は52820明瞭、別の金色比較品も同番号に見え、個体識別子・ケース供給元とする根拠は未回収。AFoB Enicarという画像名をメーカー刻印と扱わない。AFB公開collectionはサービス停止。1963no.20 viewer106は本文未判読のleadとして残す。**核心OPENを維持し、一般論の新発見扱い・番号だけの個体同定をしない。**
+
 **FOCUSED FOLLOW-UP — 2026-10-24:** Ledger末尾 `Focused hands follow-up: collector claims, patent sweep and bounded non-results` に、2012年ARSA AS1475所有者動画の展開説明、2015年forumの強化針／Zeigerfutter経験談、特許検索35件全4ページとReymond候補16件全2ページの確認範囲を登録。動画の「針は軸に固定」は所有者の主張で、正常保持力・内部構造の実証ではない。Cochin US3438195A原本6画像を保存・実見したが、通常針を操作回数計数へ置換する別案でARSA採用証拠なし。**3針重なり／盲人本人のalarm read-back／factory retentionは引き続きOPEN。** WatchUSeek本文はサイト安全制限でACCESS BLOCKED、迂回しない。これらを核心解決／独立工場証拠へ昇格しない。
 
 **NOVELTY AUDIT / USER CORRECTION — 2026-10-24:** 直前の調査で**ARSAの核心の未解決は解消していない**。接触による針のずれ／変形はFerguson・Seiko等で、習熟の影響はSeiko2021で既登録。NFB2記事・Citizen説明書は**新規追加資料による既知論点の補強**、Reddit1コメントは非ARSAの個別経験。Enicar針幅／4筋とAFB2019は**既知資料の再確認**。CH589315は**既知候補の原本回収**で、解けたのは本文未確認だけ（主題は保護蓋）。「新しい資料を読んだ」を「新しいARSA史実／使用性の解明」へ昇格しない。詳細と追記前main照合はLedger末尾Novelty audit。
