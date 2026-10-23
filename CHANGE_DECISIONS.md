@@ -2391,3 +2391,13 @@
 - **検証状態**：追記前commitのresearch/src/decisionを名称・URL・論点で検索し、既知Ferguson/Seiko/Enicar/AFB記述と比較。diff、decision-log / project-consistency / inference-guard、main再取得で分類訂正を確認する。全文献・全過去チャットに対する新規性を保証しない。
 - **関連**：Uの本訂正、直前commit `06dc15d797e2d8d64fceea03597e474a604cd9a9`、比較基点 `a9a2da4c9214420a4f8e9a467d9831694bbd465a`、Ledger Novelty audit、Map hands CURRENT。
 - **日時根拠**：UTC時計をAsia/Tokyoへ変換して `2026-10-24 06:34 JST` を確認。比較基点と登録時刻、元資料の年を混同しない。
+
+### 2026-10-24 06:46 JST — ARSA針の限定追跡を原説明・特許・否定探索範囲へ分けて登録
+
+- **変更**：LedgerへARSA所有者2012動画の原説明、2015forum経験談、Cochin US3438195A原本6画像のページ／列対応・SHA-256、原文を読んだ候補と未読候補、35件4ページ／16件2ページの探索範囲を登録。Mapに核心OPEN維持とアクセス制約を同期。
+- **理由／起点**：Uが既知の新発見扱いを訂正した後「てっていてきに」と調査継続を指示。前の明示的研究登録要求の範囲を継続し、チャットだけの新証拠を残さない。Aによる出典追加とU起点の針識別という問いを混同しない。
+- **旧状態・棄却**：所有者の固定針説明やforumの強化取付け部を、ARSAの工場仕様／定量保持力／実機正常の証明にしない。Cochin別方式の特許やRuedin保護蓋特許をARSA設計起源・ケース供給元へ接続しない。3針重なり・盲人本人read-back・factory retentionは未解決。新規文献と核心解決を区別。
+- **影響範囲**：研究Ledger、Map、本履歴のみ。公開WATCH・翻訳・個人時計台帳・未merge PR・連絡・投稿・所有時計操作は対象外。原画像は既存workspace outputへ保持し、公開GitHubへ本体uploadしない。
+- **検証状態**：原説明と該当forum全投稿、特許原本6画像を実見。main比較基点026cb8fでURL／番号の重複を点検。diffとdecision-log / project-consistency / inference-guard、登録後main再取得を照合する。Google PDF取得timeoutとWatchUSeekサイト安全制限を明記し、迂回しない。
+- **関連**：Ledger同日Focused hands follow-up、Map hands CURRENT、https://www.youtube.com/watch?v=ybSNBY1_VcA 、https://worldwide.espacenet.com/patent/search?q=pn%3DUS3438195A 。
+- **日時根拠**：実行時UTCをTokyo Standard Timeへ変換して2026-10-24 06:46 JSTを確認。研究日の基準であり原資料年代や動画コメントの未確認日時を代用しない。

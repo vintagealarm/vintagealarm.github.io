@@ -9,6 +9,8 @@
 
 ## CURRENT — hands / lived operation evidence, 2026-10-24
 
+**FOCUSED FOLLOW-UP — 2026-10-24:** Ledger末尾 `Focused hands follow-up: collector claims, patent sweep and bounded non-results` に、2012年ARSA AS1475所有者動画の展開説明、2015年forumの強化針／Zeigerfutter経験談、特許検索35件全4ページとReymond候補16件全2ページの確認範囲を登録。動画の「針は軸に固定」は所有者の主張で、正常保持力・内部構造の実証ではない。Cochin US3438195A原本6画像を保存・実見したが、通常針を操作回数計数へ置換する別案でARSA採用証拠なし。**3針重なり／盲人本人のalarm read-back／factory retentionは引き続きOPEN。** WatchUSeek本文はサイト安全制限でACCESS BLOCKED、迂回しない。これらを核心解決／独立工場証拠へ昇格しない。
+
 **NOVELTY AUDIT / USER CORRECTION — 2026-10-24:** 直前の調査で**ARSAの核心の未解決は解消していない**。接触による針のずれ／変形はFerguson・Seiko等で、習熟の影響はSeiko2021で既登録。NFB2記事・Citizen説明書は**新規追加資料による既知論点の補強**、Reddit1コメントは非ARSAの個別経験。Enicar針幅／4筋とAFB2019は**既知資料の再確認**。CH589315は**既知候補の原本回収**で、解けたのは本文未確認だけ（主題は保護蓋）。「新しい資料を読んだ」を「新しいARSA史実／使用性の解明」へ昇格しない。詳細と追記前main照合はLedger末尾Novelty audit。
 
 **次の探索対象:** ARSA固有の3針重なり時の識別、alarm設定・read-backの直接使用記録、保持構造／正常接触抵抗を述べる当時資料。このどれを更新するか示せない一般的触読時計の記事収集は補助止まり。針の質感・切り欠きに注目した起点はU（Ledger2026-10-03）、追加出典探索と混同しない。

@@ -472,6 +472,8 @@ Those causal links remain **OPEN** until documentary evidence is found.
 
 ### Project specialist books
 
+For the 2026-10-24 focused hands follow-up, source URLs, exact posts, original-image page mapping and file hashes are registered in the research-log entry **Focused hands follow-up: collector claims, patent sweep and bounded non-results** below. Collector descriptions are not factory specifications or blind-wearer testimony.
+
 - Michael Beitl, Alarm am Arm
   - historical ARSA Blind Alarm passage around printed p.26 / PDF p.23
   - AFB entry around printed p.54 / PDF p.50
@@ -3971,3 +3973,69 @@ These are byte-identical local working copies under this chat's existing `output
 3. Still OPEN: **ARSA-specific tactile distinction when three hands overlap; real users' alarm-setting/read-back experience; factory holding provisions or specified normal contact resistance**. Keep the subject specimen's previously recorded observation and undiagnosed cause distinct.
 4. Still OPEN: contemporaneous ARSA instructions/technical documents or clearly identified direct wearer testimony. A newly read company advertisement, unrelated cover patent or modern general-watch story does not close these questions.
 5. Next admissible gain must identify which OPEN row changes and how. Re-reading known books or generic modern watches is verification/context, not the next discovery target. No new specimen test, external post/contact or public copy change is authorized by this reclassification.
+
+### 2026-10-24 — Focused hands follow-up: collector claims, patent sweep and bounded non-results
+
+**Baseline / scope:** Fresh main PROJECT → AGENTS → PROJECT_STATE → Map/Ledger boot; novelty compared with main `026cb8f9bec1d59d10bb78ada31f1055aad3a099`. U requested thorough continuation after the novelty correction. Research-only registration continues the preceding explicit registration request. No external contact/post, purchase, specimen operation or public WATCH change. Open PRs #268/#248/#235 inspected; no unmerged material adopted.
+
+**Outcome:** Additional ARSA-specific owner description recovered, but **none of the three core OPEN rows is closed**: overlap discrimination, blind users' alarm-setting/read-back experience, factory hand retention/normal touch resistance. Additional comparison patents below are not ARSA technical ancestry or product-adoption evidence.
+
+#### A. ARSA AS1475 owner video — newly registered survivor description, not factory manual
+
+- Source: Armbandwecker, **ARSA Wrist Alarm Braille Blinds Watch Wristalarm Blindenuhr Armbandwecker für Blinde**, published **2012-03-12**; https://www.youtube.com/watch?v=ybSNBY1_VcA . Original page, expanded English/German description and visible comments read; playback and frames at 0:00, 0:05, 0:25 and 0:29 inspected. Not a 1950s publication; no print/PDF pages.
+- Owner calls the watch NOS and the movement a normal AS1475; says the hands are firmly connected to their arbors, and current time and alarm setting can be felt on the robust hands. Short original German wording: **“Die Zeiger sind fest mit den Wellen verbunden.”** These are the uploader's claims, not independently measured retention or an internal inspection.
+- The uploader supplies his own operating description, headed `Operation manual` / `Bedienung`: separate time/alarm crowns and lower-crown cover release. **That heading does not identify a recovered manufacturer's instruction leaflet.** Existing book evidence already describes this control architecture and tactile read-back; added value is a named public owner's corroborating account.
+- Visible 0:05 frame shows the open dial and hands; at 0:25 a finger extends over and partly obscures the dial/hand region. This does **not** establish which hand is touched, applied force, absence of displacement, successful blind reading, or an overlap test. Hand shape can be viewed, but surface texture and exact three-hand identification must not be inferred from these low-resolution views.
+- A visible uploader reply (page displays only relative age, about 13 years) calls this type late-1970s. This is unsupported owner dating, not grounds to revise the specialist-book ca.1956 chronology or date the depicted survivor to 1958. Uploader recommends Horlbeck/Beitl, so **literary independence is unproven**.
+
+#### B. Retention explanation in a 2015 technical forum — source-level experience claim
+
+- **welche Uhrwerke in Blindenuhr?**, https://uhrforum.de/threads/welche-uhrwerke-in-blindenuhr.203294/ ; **2015-02-01, posts #1–#7**, all original text read. Google snippet dated a different event; original post dates take precedence.
+- Post **#3**, `wecker`, signed Thomas: from his experience with alarm wristwatches for visually impaired people, movements and hand arbors are unchanged; seconds hands generally omitted, remaining hands stronger, with stronger **Zeigerfutter** (hand attachment/hub). Post #2 merely says stronger hands. **No maker, caliber, examined sample count, drawing or friction value is specified.** This is a useful construction lead, not an ARSA factory fact.
+- Post #6 shows an ARSA with claimed Unitas199, separate non-alarm example. Do not attach its movement identity to #3's alarm-watch statement. Post #7's wear/sensitivity generalizations are anecdotal, not user-study findings.
+- Research implication: distinguish (i) hand-to-arbor attachment, (ii) setting-train friction/retention, and (iii) bending resistance. An assertion about stronger hand hubs does not answer the specimen's whole-train turning or specify normal touch force. This is an analytical distinction, not a newly discovered ARSA mechanism.
+
+#### C. Other survivor routes checked and bounded
+
+| Original source actually read | Finding / limitation |
+|---|---|
+| **Der Weihnachtswecker**, 2019-12-24 #1 and 2019-12-25 #5; https://uhrforum.de/threads/der-weihnachtswecker.418769/ ; whole 5-post thread read | Owner's Sinn AS1930 description plus ARSA comparison photographs and a link to an earlier ARSA sale. #5 explicitly says he can see well. His ARSA manufacture attribution rests on apparent matching cases; not maker/order evidence and not blind-wearer testimony. Same AS platform or apparent casing does not establish case supplier. |
+| **Mechanische Blindenuhr mit Wecker**, 2015-12-22 #1; https://uhrforum.de/threads/mechanische-blindenuhr-mit-wecker.242195/ | Seller calls it ARSA ALERTIC and provides 4 attachment links. Text read; attachment interiors not inspected in this pass. No factory document or blind-use account. Linked from 2019 owner's Venus230 discussion, so **not an independent production lineage**. |
+| **ARSA Venus 230 Alarm Watch Braille Blindenwecker Armbandwecker**, 2016-01-01; https://www.youtube.com/watch?v=n7DcE9uNSCg | Expanded original description read, controls and Venus230 claimed by same uploader as A. Existing Venus230 survivor lead in Ledger already covers architecture. Video content not fully inspected; no new authenticated factory model, date or independent user result. |
+| **Blindenuhr - die dritte! (ARSA)**, 2010-07-28 #1, reply 2010-07-29 #2; https://uhrforum.de/threads/blindenuhr-die-dritte-arsa.53465/ | Original two-post thread read: owner describes 25mm ladies' non-alarm ETA2670 example, estimates ca.1975 and says small size requires good touch. This is not an AS1475 three-hand reading trial; history paragraph overlaps known retrospective material. |
+
+#### D. Newly registered comparison patent — Cochin, original six pages recovered
+
+- **Solomon Cochin, US3438195A, Blind man's timepiece**, filed **1966-06-16**, published/granted **1969-04-15**. Text: https://patents.google.com/patent/US3438195A/en ; original: https://worldwide.espacenet.com/patent/search?q=pn%3DUS3438195A . Original-document viewer **6 pages**, all six original images saved and visually inspected. **Images, not a recovered PDF binary**; Google PDF link attempt timed out.
+- Mapping: viewer **1–2 = drawing sheets 1–2**, Figs.1–8; viewer **3 = printed columns1–2**, abstract and principle; viewer **4 = columns3–4**, mechanism; viewer **5 = columns5–6**, operation/setting and claims; viewer **6 = columns7–8**, remaining claims and reference. Column numbers are **not printed page numbers**.
+- Conventional H/M hands are replaced with a mechanism whose lever strokes/notches are counted. Preferred wheel has48 notches, each15minutes, four per full hourly stroke. Column5 explicitly gives **5:15 = five full strokes and one notch**; setting-stem flat and three notches encode quarter-hour rotation positions (Fig.8). This describes a proposed read/set interface, not a hand-lock adaptation to ARSA.
+- No ARSA, Enicar, BEAT, AFB or AS1475 association, production/adoption record or user-performance measurement recovered. Its stated simplicity/low cost/reliability are applicant assertions. It does not expressly establish direct-hand disturbance as its motivating problem; do not transfer Ferguson's problem statement to this patent.
+- Original column8 cites **Arthur Mayer US2785530 (1957)**. Followed to https://patents.google.com/patent/US2785530A/en and read description: **Disk time indicating device**, filed1955-03-28, published1957-03-19, contrasting interleaved display discs. No ARSA hand retention found; stop this citation branch. Its original PDF/figures not inspected.
+
+Byte-identical local original-image copies retained under workspace `output/ARSA-comparator-US3438195A-original-pageN.png`, N1–6. No copyrighted image upload to public GitHub.
+
+| Viewer page | Bytes | SHA-256 |
+|---|---:|---|
+| 1 | 68869 | 51b693a078170ac6ec8d70a697ed416ab8c1b4987742e2f88957c77b44438126 |
+| 2 | 56559 | d0137b09ba488318e54c2137d9985a0eee23e273623540bec1f42e49ecc46662 |
+| 3 | 204529 | a745edcfe4e21e25caddacb55344f83ec6ccf2a213a65c2e274f6bc4755d106c |
+| 4 | 212192 | 851089ff0f1a8a79bb2dc90bf8c2e106e440ad35e9ba404321a5416d07c4cbdb |
+| 5 | 212252 | 7d96a5850a85eaca0e5b0e0b7dd24a32565d07387c329ab1fa7dc6b1a55d6d61 |
+| 6 | 49691 | 7c2552cf500d365315d701d97cbda0f85cdf9fe415124cec0793c886c5686f74 |
+
+#### E. Candidates read but not promoted into ARSA answers
+
+- **US3648647A**, Robert D.Joy / J-Tec Associates, **Touch sensitive indicators**, filed1970-08-14, published1972-03-14: https://patents.google.com/patent/US3648647A/en . Original-text transcription, background/embodiments/claims read; native PDF/figures not inspected. Cam extends radial rods to convey timer setting, claim2/5 detent maintains knob positions. Background discusses sensory/cognitive difficulty, especially divers. Not an ARSA wristwatch hand-retention document, adoption or quantified reading study. Do not elevate knob detent to an ARSA hand brake.
+- **CH386933A**, Paul Gogniat / Georges Ruedin S.A., **Montre-bracelet à couvercle de protection**, filed1963-02-09, published1964-09-30: https://patents.google.com/patent/CH386933A/fr . Original French text transcription and claims read; scan not inspected. Cover hinged at lug ends, with concealed arms; final description optionally specifies no glass and special tactile hands/dial. No alarm/ARSA linkage or hand-retention details. It identifies an alternative cover proposal, **not the maker of ARSA's case**.
+- **FR1048582A**, Paul Charles, 1951 filing/1953 publication: https://patents.google.com/patent/FR1048582A/en ; metadata only available on inspected page, no description/PDF shown. Not counted as a read technical original or a solved lead.
+
+#### F. Reproducible search bounds and access limits
+
+- In-app browser public Google Patents search **G04B25/02**, priority **1950-01-01 to before1980-01-01**, displayed **35 results**; **all4 result pages (10+10+10+5) inspected**, not all35 full documents. https://patents.google.com/?q=G04B25%2f02&before=priority:19800101&after=priority:19500101 . Recovered known Ferguson/CH617309 and above candidates; much of the list concerned silent alarms. A single classification/translation index is incomplete; does not prove no ARSA patent exists.
+- Same period, `"aveugles" "aiguilles"` site search, all4 displayed candidates inspected at result level; only CH386933 selected for full text. `"blind" "hands"` with G04B25/02 yielded4 candidates, Cochin/Joy read and known Ferguson distinguished.
+- Assignee **Reymond** + query **G04B**, priority1940–1979: **16 displayed results, both pages inspected**; mainly Fernand/Paul/Maurice Reymond names. These are not automatically Auguste Reymond. Exact assignee `Manufacture d'Horlogerie A. Reymond` returned0 even though CH589315 is already known from EPO, demonstrating **name/index limitations**, not absence of corporate patents. https://patents.google.com/?assignee=Reymond&q=G04B&before=priority:19800101&after=priority:19400101 . Broad Reymond121 and watch/blind883 result sets were abandoned after first-page noise, not exhaustively searched.
+- Web queries inspected first-page results for ARSA+blind+hands; Blindenwecker+Zeiger; ARSA+Blinden+Zeiger; Reymond+aveugles+aiguilles; ARSA+alarm+instructions/manual/feel; ARSA+Weckzeiger; ARSA+aiguilles+réveil; ARSA+blind+overlap; ARSA+Blindenuhr+ertasten. English/German/French variants yielded the owner sources above, already-known modern ARSA material, sales and unrelated ARSA acronym hits. No 1954–1963 ARSA Blind Alarm manufacturer leaflet or blind user's overlapping-three-hand reading report recovered. Search-engine snippets and apparent Instagram repetitions of VA wording were excluded as independent evidence.
+- **ACCESS BLOCKED:** https://www.watchuseek.com/threads/braille-watches-for-the-visually-impaired.2310770/ . Page observation rejected by browser site-safety gate. No bypass via another surface or indirect fetch; search snippets do not count as article inspection. Other WatchUSeek result titles were not treated as read evidence.
+- Original six-page Cochin images were recovered from EPO after Google PDF access timed out; tiny Google drawing thumbnail was unsuitable and excluded from evidence-quality original archive. No new original PDF binary obtained in this follow-up. Other previously saved PDFs remain registered in preceding entries.
+
+**CURRENT conclusion:** A establishes that an identifiable owner publicly described ARSA's firm hand attachment; B supplies a non-model-specific construction lead. Neither verifies factory friction design, normal force, or genuine blind read-back. Keep **overlap/read-back/retention OPEN** and specimen cause undiagnosed. Refrain from further generic tactile-watch collection unless a source can change a named OPEN item. Formal ARSA instructions, service sheet or direct identified wearer testimony remain admissible targets; no inquiry/post or additional specimen test implied.
