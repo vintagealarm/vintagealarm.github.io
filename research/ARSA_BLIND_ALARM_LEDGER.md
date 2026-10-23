@@ -3796,3 +3796,13 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 **SOURCE / LINK CORRECTIONS (no historical claim upgrade):** Davoine 1970 A. Reymond advertisement is available via https://fr.scribd.com/document/705289724/DAVOINE-1970-2 (printed **p.102**, company-level advertising for `Montres pour aveugles` and `Montres bracelet réveil`, *not* an ad for the specific Blind Alarm). The 1967 Swiss Watch Fair ARSA hunter pocket-watch item is accessible via Europa Star's Swisstime archive: https://www.europastar.com/swisstime/1004104967-arsa.html. US365032's formal patent title is **Watch**, not the descriptive label `Watch for the Blind`; citation label corrected without asserting it was the earliest tactile watch invention. These references were already present in the research canon; the correction is to the public link/title, not newly discovered model evidence.
 
 **ATTRIBUTION / SCOPE:** User's direct confirmation and explicit editorial limitation → USER_CONFIRMED; Davoine print page identified via referenced 1970 reproduction; original patent and Europa Star archival item checked. Public JA/EN/DE ARSA deep dive sentence and source entries only. Historical ledger entries are retained as chronological evidence, not deleted or silently relabelled. All other proposed additions (tactile marker drawing, WWI sources, Venus 230 comparison, additional experimentation) excluded.
+
+
+### 2026-10-23 — Reddit実使用者調査の質問対象を「針」に限定（USER_CORRECTION / SCOPE）
+**INGRESS:** ユーザー明示訂正「針だけでいいんですがReddit」、続いて「一旦それも再記憶して」。投稿実行ではなく、後日の質問対象を確定する研究方針の保存指示。
+
+**REDDIT CURRENT — HANDS ONLY:** 触読時計を実際に使う／使った人が、時針・分針、アラーム時計の場合はアラーム針に直接触れた際の感触、指先での識別、針が動いて表示がずれる経験を問う。実使用者の自己申告を各人の体験として扱い、ARSA全機種の挙動へ一般化しない。動作確認のために時計を新たに押したり強く触れたりする実験は依頼しない。
+
+**REDDIT EXCLUDED:** 触覚点・文字盤の点配置、前蓋や開閉、リューズ、時計選び、アラーム音、修理・型式・製造年代は、このReddit質問では聞かない。これらは別の史料・現存個体・機構比較の研究から消すという意味ではない。WatchUSeekの現存個体・史料探索とは別ルート。
+
+**ATTRIBUTION:** Uが収集範囲を針のみに訂正 → Uが後日の再利用可能な記録を明示要求。Aは記録・出典照合のみ。Reddit投稿・実回答・人間による使用実験は未実施。
