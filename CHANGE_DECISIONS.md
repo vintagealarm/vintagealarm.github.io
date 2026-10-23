@@ -2361,3 +2361,13 @@
 - **検証状態**：PR #267作成はGitHub API応答で確認済み。CI / merge / liveは個別照合する。
 - **関連**：https://github.com/vintagealarm/vintagealarm.github.io/pull/267
 - **日時根拠**：PR作成UTC `2026-10-22T11:46:31Z` → JST `2026-10-22 20:46 JST`。追記時刻は20:47 JST。
+
+
+### 2026-10-23 21:01 JST — Reddit実使用者調査を針の触読経験のみに限定
+- **変更**：ARSA研究Ledgerへユーザー訂正を詳細記録し、Research MapへReddit CURRENT質問範囲を追記。時針／分針／経験があればアラーム針の触り分け、直接触れたときの感触、接触で針がずれる経験だけを尋ねる。
+- **理由**：Uから「針だけでいいんですがReddit」と明示訂正、続いて再記憶の指示。旧広範囲の質問候補はユーザー意図と異なる。
+- **旧状態・棄却**：Redditで目盛の点・蓋・リューズ・時計の選び方まで聞く前回案を棄却。別のARSA／Enicar／BEAT図解研究およびWatchUSeek史料探索へ範囲限定を伝染させない。
+- **影響範囲**：非公開研究正本2件と本履歴のみ。公開WATCH / OWNER'S NOTE / draft独立特集 / SNS投稿 / 公開設定 / 既存PRには変更なし。
+- **検証状態**：ブランチ反映後にdiffと再取得で確認。Reddit実投稿は未実施。
+- **関連**：`research/ARSA_BLIND_ALARM_LEDGER.md`、`research/ARSA_BLIND_ALARM_RESEARCH_MAP.md`、ユーザーの当該チャット訂正、作業branch `docs/arsa-reddit-hand-only-20261023`。
+- **日時根拠**：ホストUTC `2026-10-23T12:00:56Z` → JST `2026-10-23 21:00 JST`、書込作業は21:01 JST。

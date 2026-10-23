@@ -585,3 +585,11 @@ Do not rephrase this as "WHO approved ARSA" or "blind users found ARSA excellent
 
 
 **SUPERSEDED (refund sending status only) — 2026-10-16 PART-ONLY PROCUREMENT + REFUND PLAN:** Owner selected 60% as initial partial-refund ask (historical: not yet sent/accepted at that point; sending status superseded by CURRENT above; acceptance remains unconfirmed). AS1475 separate alarm click screw 57426 appears in eBay item 275186748488 variant selector, nominal USD7.99 plus displayed USD10.29 shipping; German Heß source indexes NOS 7426 click and 7436 spring but their prices are unverified. eBay 235537615409 has generic parts USD9.99, not proof it stocks 7426 or 7436. Seller return-cost motivation and acceptance probability not proven. Separate click fix from movement case retention and tactile minute-hand issue. Ledger holds URLs and FX snapshot. Public anecdotal 50% refund is not comparable transaction precedent or entitlement.
+
+
+## 15. 2026-10-23 — Reddit質問のCURRENTは「針の触読経験のみ」
+
+- **USER_CONFIRMED / scope owner:** U発言「針だけでいいんですがReddit」→「一旦それも再記憶して」。後日Redditで聞くのは実際に触読時計を使った人の**針の感触・針同士の区別・接触による針の変位や時刻表示のずれ**だけ。アラーム針は経験者がいる場合に限る。
+- **質問対象外:** 文字盤の触覚点、前蓋、リューズ、使用機種選び、音、時計の修理や資料探索をReddit質問へ混ぜない。新たな強接触試験は頼まず、経験者の既往体験に限る。
+- **役割境界:** WatchUSeekは古いARSA触読アラームの現存個体・技術・写真・史料の探索。図解特集のARSA/Enicar/BEATの目盛・針・前蓋の比較対象はこのReddit質問範囲の限定では削除・変更しない。
+- **状態:** Reddit実投稿NOT_POSTED。研究Ledger末尾の同日訂正が詳細記録。前回の広いReddit質問候補（目盛・蓋等）はREJECTED FOR REDDITのみで、一般研究の課題から削除した扱いではない。
