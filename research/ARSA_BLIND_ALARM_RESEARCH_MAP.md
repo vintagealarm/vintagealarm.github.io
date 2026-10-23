@@ -9,6 +9,10 @@
 
 ## CURRENT — hands / lived operation evidence, 2026-10-24
 
+**NOVELTY AUDIT / USER CORRECTION — 2026-10-24:** 直前の調査で**ARSAの核心の未解決は解消していない**。接触による針のずれ／変形はFerguson・Seiko等で、習熟の影響はSeiko2021で既登録。NFB2記事・Citizen説明書は**新規追加資料による既知論点の補強**、Reddit1コメントは非ARSAの個別経験。Enicar針幅／4筋とAFB2019は**既知資料の再確認**。CH589315は**既知候補の原本回収**で、解けたのは本文未確認だけ（主題は保護蓋）。「新しい資料を読んだ」を「新しいARSA史実／使用性の解明」へ昇格しない。詳細と追記前main照合はLedger末尾Novelty audit。
+
+**次の探索対象:** ARSA固有の3針重なり時の識別、alarm設定・read-backの直接使用記録、保持構造／正常接触抵抗を述べる当時資料。このどれを更新するか示せない一般的触読時計の記事収集は補助止まり。針の質感・切り欠きに注目した起点はU（Ledger2026-10-03）、追加出典探索と混同しない。
+
 - **詳細owner:** Ledger `2026-10-24 — Hands and lived operation: learning, contact disturbance, Citizen manual, Reymond CH589315`。新しい本人記録・原本・ファイル識別を保存済み。
 - **今回追加:** Schroederの時分針識別の学習回想（1992講演／1996掲載）、Lewisの実演中の針変位と約10分の会議遅刻（2004）、通常針の方がBradleyより探しやすいという公開コメント1件（2026）。個別体験でありARSA評価・代表的統計ではない。
 - **圧力の境界:** Citizen6029公式説明書 print3/PDF4 は軽い接触を指定し、強い圧力による位置ずれ／変形を区別。触読針がどんな力でも動かないという一般化をしない。同時にARSA個体の軽接触変位を正常とする逆推論は禁止、原因未診断・追加接触試験HOLDを維持。

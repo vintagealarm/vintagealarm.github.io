@@ -2381,3 +2381,13 @@
 - **検証状態**：公開原文、公式PDF print3/PDF4、特許表紙/説明/請求項/原図、書籍図版を実見。保存物のサイズ・SHA-256、diff、decision-log / project-consistency / inference-guardとmain再取得を照合する。発明の存在を市販採用や1950年代ARSAの構造解明としない。
 - **関連**：Ledger同日Hands and lived operation節、Map CURRENT hands / lived operation、前回main `a9a2da4c9214420a4f8e9a467d9831694bbd465a`、別作業PR #268。
 - **日時根拠**：実行時のUTC時計をAsia/Tokyoへ変換し `2026-10-24 06:28 JST` を確認。資料の発表年・回想された時期・調査登録日を分離する。
+
+### 2026-10-24 06:34 JST — 針研究の新規性を追記前mainで再監査し既知補強と未解決を分離
+
+- **変更**：Ledgerに追記前main `a9a2da4`との比較表を記録し、直前節の見出しを既知論点の追加資料／原本回収と区別する表現へ訂正。Map CURRENTに新規性監査とARSA固有の未解決だけを次対象として固定。
+- **理由**：UがGitHubを参照していないのではないか、既存事項を新発見のように言っていないかと指摘し、再整理を要求。AはGitHub取得の事実と、既存の主張単位の突合が不十分だったことを分けて確認。
+- **旧状態・棄却**：資料の追加をARSAの核心解決のように前面化する報告を訂正。接触ずれ／変形・習熟は既知、NFB/Citizenは補強、Enicar/AFB2019は再確認、589315は既知lead原本回収。新しい原文の存在や保存結果は撤回せず、原典内容を誤りとする扱いもしない。
+- **影響範囲**：研究Ledger、Map、本履歴のみ。公開WATCH、他研究、個人時計台帳、資料本体、既存PRは対象外。新しいWeb探索・連絡・所有時計操作は行わない。
+- **検証状態**：追記前commitのresearch/src/decisionを名称・URL・論点で検索し、既知Ferguson/Seiko/Enicar/AFB記述と比較。diff、decision-log / project-consistency / inference-guard、main再取得で分類訂正を確認する。全文献・全過去チャットに対する新規性を保証しない。
+- **関連**：Uの本訂正、直前commit `06dc15d797e2d8d64fceea03597e474a604cd9a9`、比較基点 `a9a2da4c9214420a4f8e9a467d9831694bbd465a`、Ledger Novelty audit、Map hands CURRENT。
+- **日時根拠**：UTC時計をAsia/Tokyoへ変換して `2026-10-24 06:34 JST` を確認。比較基点と登録時刻、元資料の年を混同しない。

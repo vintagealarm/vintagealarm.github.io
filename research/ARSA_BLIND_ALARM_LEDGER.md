@@ -3878,27 +3878,27 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 
 **INGRESS / AUTHORITY:** U requested continuing the unresolved research on actual operating feel and hands after explicitly requesting canonical registration in the preceding turn. This continues that same evidence-registration scope, not public WATCH editing or authority to contact users. A located and read new sources; interpretations remain source-limited, not U-approved product conclusions. Registered 2026-10-24 06:28 JST. Fresh main Map/Ledger and active PRs checked. PR #268's hand-only Reddit question scope is respected: only existing public comments were read, **no post/message/contact**. No specimen contact test or personal watchdiary change.
 
-#### 1. New first-person evidence — learning to distinguish hour and minute hands
+#### 1. Additional first-person source — corroboration of the known learning issue
 
 - **Fredric F. Schroeder, “Braille Today and Tomorrow,” Future Reflections, Winter 1996, vol.15 no.1**: https://nfb.org/braille-today-and-tomorrow . The page explicitly identifies the text as an excerpt from a **1992-03-14 address**, not a 1996 experiment or an event precisely dated by this research.
 - **Original full text read. Locator:** paragraph beginning `After becoming totally blind`, following the account of gradual sight loss and before the 1974 convention recollection. HTML is unpaginated; no invented print page.
 - **First-person report:** A hospital social worker brought him a Braille watch; initially he found hour/minute discrimination extremely difficult, but reports learning to read it quickly and accurately in a short time. The exact time spent learning, watch maker/model, tactile technique and hand forces are unstated.
 - **New contribution:** Direct user evidence for initial discrimination difficulty followed by learning. It supports separating interface geometry from experience/practice. It does **not** prove every user learns quickly, that an inaccessible design is solved by practice, or anything about a three-hand ARSA alarm.
 
-#### 2. New first-person evidence — accidental movement with a real consequence
+#### 2. Additional first-person source — corroboration of known contact disturbance
 
 - **Anil Lewis, “Federationists Feeling Peachy Keen in Atlanta,” Braille Monitor, August/September 2004**: https://nfb.org/images/nfb/publications/bm/bm04/bm0408/bm040803.htm . Issue contents linked from the article: `bm0408tc.htm` on the same path.
 - **Original full article read. Locator:** paragraph beginning `I demonstrated what I believe to be the advantages of the Braille watch`, after the account of meeting a young Braille reader and before the hospitality-suite paragraph. Unpaginated HTML.
 - **First-person report:** During a Braille-watch demonstration the hands could be accidentally moved; he attributes being about **ten minutes late for the board meeting** to his demonstration. This reports lateness, **not an instrumentally measured ten-minute displacement of the hands**. The maker, force, precise hand and mechanism are not identified.
 - **New contribution:** Real-use consequence evidence beyond a patent's problem statement or a manufacturer's promise. It supports the relevance of accidental setting disturbance in tactile watches generally, but gives neither a prevalence/failure rate nor proof of ordinary gentle-contact behavior in ARSA. The author's advice within the anecdote is recorded as his statement, not a request to the owner to perform another test.
 
-#### 3. New comparative user report — searching for conventional hands versus separated balls
+#### 3. Additional comparative user report — one non-ARSA experience, no core resolution
 
 - **Public comment by Comacrin**, https://www.reddit.com/r/Blind/comments/1shqpxw/comment/ofktzrf/ , in `Eone Bradley Timepiece`: https://www.reddit.com/r/Blind/comments/1shqpxw/eone_bradley_timepiece/ . Full thread and comment read without login/posting. DOM absolute comment timestamp **2026-04-11T14:46:55.632Z**; use this rather than the relative “7 months” UI label.
 - **Reported experience:** The commenter disliked locating both Bradley bearings each time, reported needing at least two fingers, and found locating both hands on a conventional tactile watch faster. This is **one anonymous user's comparative report**, not a requirement imposed by the manufacturer, a timed trial or verified disability/model information. Other thread durability comments do not diagnose hand retention and are not imported as evidence.
 - **New contribution:** Separating indicators may avoid a hand-contact problem but add a different search/motor task. Combined with the positive, already-known Deborah Kendrick 2019 Bradley review, it shows **contrasting individual experiences**, not proof that traditional hands are universally superior. Exact grip, one-hand reading, hand overlap and alarm-pointer recognition remain OPEN.
 
-#### 4. New manufacturer manual — gentle contact versus excessive pressure
+#### 4. Newly inspected manual — corroboration of the known pressure-dependent limitation
 
 - **Citizen official Cal.6029 Japanese support**: https://citizen.jp/support/guide/html/6029/6029.html ; official PDF https://citizen.jp/support/manual/6029d.pdf . The support page and its actual PDF link were opened in the browser; the PDF was downloaded using that link.
 - **Original PDF read and visually checked:** **printed p.3 / PDF p.4 of 9**, `ご使用方法` / `2. 時刻の読み方` and the adjacent caution box. No issue/revision year was independently established; record as the official manual current at access, **not a 1960 or 1970s source**. The 2020 product page identifies AC2200-55E as Cal.6029, but does not date every version of this manual.
@@ -3906,7 +3906,7 @@ The user reports that there is **no separate A. Reymond 60th-anniversary article
 - **New contribution:** A real, specified tactile-watch product can still carry pressure-dependent limitations. Reject the overclaim that tactile hands can never be moved or damaged by any finger force. **Do not reverse this into “ARSA's light-contact displacement is normal.”** The movement, model and conditions differ; the actual ARSA cause remains undiagnosed and additional contact tests remain HOLD.
 - **Complementary manufacturer page read:** https://www.citizenwatch-global.com/touchtimewatch/index.html , `PRODUCT / Enhanced legibility` identifies an arrow-shaped hour-hand tip; `STORY` reports input from students/staff. This is a manufacturer design account, not a controlled usability result. It does not disclose the retention mechanism. Treat brand “first” claims as that page's claims, not adopted cross-brand history.
 
-#### 5. Newly resolved primary-source lead — A. Reymond CH589315B5
+#### 5. Previously registered patent lead — original recovered; cover design only
 
 - **Official locator:** https://worldwide.espacenet.com/patent/search?q=pn%3DCH589315B5 . Recovered by the **patent office's internal publication-number search** (`pn=CH589315`), after general web search was unproductive. This is a different successful path from repeating ambiguous numeric searches.
 - **Title page / original viewer p.1:** `Montre pour aveugle`; titulaire **Manufacture d'Horlogerie A. Reymond S.A., Tramelan**; inventor **Willy Schaer, Le Landeron**; priority **22 January 1975, 18h**; `Brevet délivré` **31 December 1976**; `Exposé d'invention publié` **30 April 1977**; `Conforme au mémoire exposé` **30 June 1977**. The Espacenet/Google metadata indexes **CH589315B5 / CH77375A**, application 1975-01-22 and publication 1977-06-30. Preserve these **different labeled dates** rather than silently using June 30 for all publication/grant events. Google cross-reference https://patents.google.com/patent/CH589315B5/fr supplied metadata only, no usable text/PDF.
@@ -3943,3 +3943,31 @@ These are byte-identical local working copies under this chat's existing `output
 | Can three overlapping hands / alarm-time setting be read reliably? | Specialist design evidence rechecked only | No ARSA wearer test or direct contemporaneous instructional/field evidence recovered |
 
 **Next high-value evidence:** existing published accounts/manuals explicitly describing tactile alarm-hand identification or overlap; ARSA period instructions/service/design material specifying holding provisions. No questionnaire posted, no institutions contacted, no further owner manipulation requested. Broad searches for a generic single “tactile-hand standard” remain inappropriate. Patent and product claims are not substituted for actual user findings.
+
+### 2026-10-24 — Novelty audit after user correction: new source is not a newly solved ARSA question
+
+**ORIGIN / CORRECTION:** U challenged the report for presenting existing research as new findings and requested GitHub-based reorganization before further work. A checked fresh PROJECT/AGENTS/STATE, main Map/Ledger, the actual source-ingress diff, and the pre-ingress baseline **a9a2da4c9214420a4f8e9a467d9831694bbd465a**, rather than citing the newly appended log as evidence of its own novelty. Audit registered 2026-10-24 06:34 JST. This corrects evidence classification and reporting; it does not delete valid source observations or silently rewrite their discovery dates.
+
+**Finding:** GitHub was retrieved in the previous turn, but claim-level comparison against existing research was insufficient. Contact disturbance and learning were already known. New references were useful corroboration, while the closing report gave them too much prominence relative to unchanged ARSA-specific unknowns. The previous pass **resolved none of the central hand-retention / three-hand-overlap / actual tactile-alarm-use questions**.
+
+| Item from previous pass | Evidence already in the pre-ingress baseline | Correct classification of the previous pass | ARSA core question resolved? |
+|---|---|---|---|
+| Enicar special model's widths / four alarm-hand ridges / tactile read-back | Ledger lines1666ff., 2262ff., 3154ff.; Map comparison matrix; 2026-10-03 hand-coding entry | **EXISTING FINDING / RECHECK ONLY**; precise local PDF216–217 locator added | No |
+| Touch can disturb the displayed time / bend hands | Ledger lines595–612, Ferguson US2915874 / DE1147393; Seiko2021 record at line3562; specimen observations separately registered | **EXISTING RESEARCH QUESTION / PREVIOUSLY SUPPORTED FACT** | No |
+| Practice/learning can affect tactile reading | Seiko2021 interview and 2026-10-11 issue matrix, including line3562 and the overlap/skill row | **EXISTING ISSUE**; Schroeder is an additional first-person example, not discovery of the learning effect | No |
+| NFB Schroeder1996 / Lewis2004 articles | Exact titles/authors/URLs not found in research/src/decision files at the stated baseline | **NEW-TO-REGISTER SOURCES / CORROBORATION OF KNOWN ISSUES**, not ARSA model evidence | No |
+| Citizen6029 manual | Exact model/manual reference not found at that baseline; the contact disturbance/bending problem already supported elsewhere | **ADDITIONAL MANUFACTURER DOCUMENT / KNOWN-ISSUE REINFORCEMENT**; do not count it as a new ARSA conclusion | No |
+| Comacrin's Bradley comparison comment | Exact thread/comment not found at that baseline | **ADDITIONAL ANONYMOUS EXPERIENCE**; non-ARSA, no measured comparison; secondary priority for this research | No |
+| CH589315B5 | Ledger baseline line3854 already identifies589315 as a cited but unread lead | **PREVIOUSLY KNOWN LEAD / ORIGINAL-ACCESS UPGRADE**; first inspected original now identifies A.Reymond and the sliding cover | Only that lead's unread status; no hand-retention resolution |
+| AFB2019 Bradley article | Ledger baseline line1657 already cites https://afb.org/aw/20/1/14989 | **EXISTING SOURCE / READING A DIFFERENT PASSAGE**, not a new source discovery | No |
+
+**Scope of the comparison:** The line numbers refer to the pinned **pre-ingress commit**, not to the shifting current file. Absence of an exact reference in these baseline files is not proof that nobody in another conversation or historical branch had seen it. Open PR #268 is a separate hands-only Reddit scope record, not an imported new user-test result. No arbitrary branch-wide search or undocumented global novelty claim.
+
+**Attribution preserved:** The hand-shape/texture/notch research axis originated with U and was already explicitly credited in the Ledger's 2026-10-03 hand-coding entry. A's additional source retrieval does not make that question or framework A's invention.
+
+**Reorganized CURRENT / research priority:**
+1. Known: differentiated hands and tactile alarm-time read-back are described by specialist books; Enicar1964 widths/ridges are already fixed. Do not re-present these as new discoveries.
+2. Known: contact disturbance/bending is a recognized design problem, and reported reading performance can depend on practice. Additional generic modern examples do not resolve ARSA behavior.
+3. Still OPEN: **ARSA-specific tactile distinction when three hands overlap; real users' alarm-setting/read-back experience; factory holding provisions or specified normal contact resistance**. Keep the subject specimen's previously recorded observation and undiagnosed cause distinct.
+4. Still OPEN: contemporaneous ARSA instructions/technical documents or clearly identified direct wearer testimony. A newly read company advertisement, unrelated cover patent or modern general-watch story does not close these questions.
+5. Next admissible gain must identify which OPEN row changes and how. Re-reading known books or generic modern watches is verification/context, not the next discovery target. No new specimen test, external post/contact or public copy change is authorized by this reclassification.
