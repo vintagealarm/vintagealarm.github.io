@@ -2485,3 +2485,12 @@ Listen to the actual recordings on HOW THEY RING — link in bio.
 - **Visual curve**: retention graph appears around 75% after initial seconds, stays near that until approximately 15 seconds, falls toward 50% by approximately 16 seconds; these are visual estimates, not instrumented exact time-point data. Main lesson candidate is continued viewing into explanation; benchmark and extrapolation remain OPEN.
 - **Unconfirmed**: published minute; share count `--` despite share rate 0.0%; external referrer and individual viewer identity; exact profile click/bio attribution; distribution after the screenshot.
 - **Status**: second historical snapshot, no video edits, publication action or site changes.
+
+## 2026-10-28 00:35–00:36 JST — Basis IG-BAS-003 third early Insights, non-follower discovery
+
+- **Evidence**: Seven user screenshots `IMG_3282.png`, `IMG_3283(1).png` through `IMG_3288(1).png`, device clock 00:35–00:36 JST. Third historical snapshot for the same `IG-BAS-003`, after 23:58–23:59 and 00:11–00:12.
+- **Observed**: 455 views / 107 viewers / average 9s / 15 likes / 1 save / 1 profile access / 0 new follows; displayed skip 11.4%, non-followers 93.4%. Reels tab 76.9%, Explore 12.7%, Feed 9.7% from displayed source rows.
+- **Observed progression (not equal elapsed windows)**: Prior 00:11–00:12 107 views / 63 viewers / 13s / 6 likes / 0 saves / 91.8% non-followers -> 455 / 107 / 9s / 15 / 1 / 93.4%. View count rises faster than unique viewers at later observation: views and people are not interchangeable. Feed 100% at the earlier small sample shifted toward Reels/Explore discovery. This is distribution evidence, not proof of viral trajectory or site-link clicks.
+- **Audience**: Instagram displays 18–24 = 44.0%, 25–34 = 41.8% (85.8% combined of displayed brackets); largest country in displayed top five India 31.3%, followed by US 9.7%, Germany 9%, Spain 3.7%, Turkey 3%. No universal audience conclusion from first hour.
+- **Watch-time caveat**: Average decreases from 13s to 9s; current 20s curve falls toward roughly 20% near end. Curve is approximate graphical read, not precise per-second telemetry. This does not erase very low platform-classified skip 11.4%.
+- **Open**: No evidence of bio clicks or VA Analytics attribution; profile access 1 but follow 0. Instagram share count remains unknown (`--`).
