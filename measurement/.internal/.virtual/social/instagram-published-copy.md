@@ -277,6 +277,37 @@ Take a look at the second and third photos. It’s such a simple, wonderfully ha
 
 ---
 
+### Third post — slipping clutch / winding stop — published screenshot 2026-10-27
+
+- **Content ID**: `IG-BAS-003`.
+- **Evidence**: User-provided Instagram post screenshot `IMG_3274.jpeg` and Insights screenshots `IMG_3273.png`, `IMG_3272.png`; screen clock 23:58–23:59 JST on 2026-10-27, post age displayed `26分前`. Precise publication minute is not independently verified (approximately 23:33 JST inferred only from UI age).
+- **Format**: REEL. User-provided preparation files `7383EF1E-6C53-46AA-BF05-512773FFF03D.mp4` / `57FC05E0-1F58-4410-A3C0-3E29864DB639.mp4`; the uploaded post screenshot confirms the published visual/text, but binary identity with either draft video is unverified. Actual post URL unknown.
+- **Account**: `vintagealarm`.
+- **Full visible published caption**:
+
+```text
+Most watches would have you stop winding here. This one lets you keep going. 🔔
+
+You’ve seen these two windows before — 1 o’clock for the timekeeping side, 5 for the alarm. Last time, I showed them spinning. This time, watch them stop.
+
+Each disc turns while its barrel is being wound. When a barrel is full, its disc stops — but the crown can keep turning. A slipping clutch lets the fully wound side slip while the other barrel continues winding. Same crown, same direction, two barrels.
+
+In the video, the 5 o’clock indicator stops because the alarm barrel is fully wound. After the alarm rings, it can be wound again — and the disc starts spinning again.
+
+These aren’t power-reserve indicators. They show which barrel is fully wound and which can still be wound.
+
+The alarm rings through a bell at the base of the case. Full owner’s notes and how it rings — link in bio.
+
+#vintagewatch #alarmwatch #mechanicalwatch
+#basisalarm
+```
+
+- **Creative choice visible**: Opening stop-winding paradox; explicit callback to first Basis Reel showing window movement; now demonstrates 5-o’clock alarm winding indicator stop at fully wound, mechanical slipping clutch permitting remaining timekeeping winding, and alarm discharge enabling the 5-o’clock disc to turn again. Separates indicators from power reserve; CTA `link in bio` goes to the existing profile landing page `/en/how-they-ring/`.
+- **Collision / difference**: First Basis Reel `IG-BAS-001` already showed spinning winding windows/fidget/dual barrels; second `IG-BAS-002` showed bezel-to-alarm-hand connection. This third Reel specifically addresses winding resistance/full-wind and re-winding after audible alarm, not the same first-use hook.
+- **Scope of evidence**: Screenshot confirms the final caption and post state. It does not verify precise publication timestamp, reel URL, or actual audio of Instagram-served video. Comments, exact skip denominator, and engagement interpretation are held separately in Insights.
+
+---
+
 ## Westclox Watchlarm W5
 
 ### Published caption — screenshot verified 2026-09-30
