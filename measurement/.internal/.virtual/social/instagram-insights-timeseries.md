@@ -1774,6 +1774,42 @@
 
 ---
 
+# Basis Alarm (BFG90) — IG-BAS-003 (slipping clutch / winding stop Reel)
+
+## Publication evidence
+- published_date_jst: 2026-10-27 (user screenshot shows `26分前` at 23:59 JST)
+- published_at_jst: unknown exact minute (approximately 23:33 inferred from rounded UI display; not a verified timestamp)
+- media: Instagram Reel, Basis Alarm BFG90 winding windows / sliding clutch; not `IG-BAS-001` nor `IG-BAS-002`
+- evidence: IMG_3274.jpeg; IMG_3273.png; IMG_3272.png
+
+### Snapshot — 2026-10-27 23:58–23:59 JST
+- content_id: IG-BAS-003
+- observed_at_jst: 2026-10-27 23:58–23:59
+- published_at_jst: unknown exact minute
+- elapsed_since_publish: UI displays `26分前` on the 23:59 publication view; do not infer minute-precise duration
+- views: 10
+- viewers: 4
+- likes: 3
+- comments: 0
+- reposts: 0
+- shares: unknown (Insights shows `--`)
+- saves: 0
+- follows: 0
+- average_watch_time: unknown (Insights shows `--`)
+- skip_rate: 0.0% (platform displayed, provisional; initial very small sample)
+- followers: 30%
+- non_followers: 70%
+- age: unavailable (Instagram displays insufficient actions <100)
+- countries: unavailable (Instagram displays insufficient actions <100)
+- gender: unavailable (Instagram displays insufficient actions <100)
+- viewing_trend: processing at screenshot; graph not yet available
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3274.jpeg; IMG_3273.png; IMG_3272.png
+- note: 3 likes on 10 views, 4 unique viewers; percentages are platform-displayed, not inferred distribution among four. Post screenshot shows `26分前`; precise publish minute not confirmed. Share `--` is unknown, not zero. One visibly named liker `little_unnecessary_machines`; no inferred referrer or referral causation.
+
+
+---
+
 ## 2. Cross-source reconciliation / rejected values
 
 - CYMA `2026-09-28 17:41頃 / viewers 1,406 / age 45–54 10.3 / 65+ 5.4` は旧復旧案由来で、main正本の17:49–17:50 snapshot（viewers 1,408 / age 45–54 10.2 / 65+ 5.5）と矛盾するため棄却。
