@@ -2476,3 +2476,12 @@ Listen to the actual recordings on HOW THEY RING — link in bio.
 - **Initial result**: 10 views, 4 viewers, 3 likes, 70% non-follower, 0.0% displayed skip rate. 0 comments, 0 reposts, 0 saves, 0 follows; shares and watch time show `--` and remain unknown.
 - **Interpretation / falsifier**: Early non-follower distribution was observed, not a proven viral start or strong hook. Revisit at comparable elapsed windows when views / skip / saves / profile visits update. Do not compare 26-min sample with 24h first-Basis outcome as same-age data.
 - **Status**: PUBLISHED / early OBSERVED; publication minute, actual posted Reel URL and media byte identity unverified.
+
+## 2026-10-28 00:11–00:12 JST — Basis IG-BAS-003 second early Insights
+
+- **Evidence / timing**: Six user screenshots `IMG_3275.jpeg` through `IMG_3280.png`, device time 00:11–00:12 JST on 2026-10-28; separate earlier 23:58–23:59 snapshot remains intact.
+- **Observed**: Insights 107 views, 63 viewers, average watch time 13 seconds, 6 likes, skip rate 2.2%, like rate 6.5% and non-followers 91.8%. Post surface displays 116 views at 00:11, not equated to Insights' 107. Source: feed 100.0% of displayed sources.
+- **Comparison within same Reel**: prior Insights 10 views / 4 viewers / 3 likes / non-followers 70% -> 107 / 63 / 6 / 91.8%. Increased sampled observations, not attribution to a change or guaranteed organic breakout.
+- **Visual curve**: retention graph appears around 75% after initial seconds, stays near that until approximately 15 seconds, falls toward 50% by approximately 16 seconds; these are visual estimates, not instrumented exact time-point data. Main lesson candidate is continued viewing into explanation; benchmark and extrapolation remain OPEN.
+- **Unconfirmed**: published minute; share count `--` despite share rate 0.0%; external referrer and individual viewer identity; exact profile click/bio attribution; distribution after the screenshot.
+- **Status**: second historical snapshot, no video edits, publication action or site changes.
