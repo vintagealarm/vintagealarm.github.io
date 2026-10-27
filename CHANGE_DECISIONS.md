@@ -2411,3 +2411,13 @@
 - **検証状態**：資料ページ画像と現存品原画像を実見、main eae0ee1で既知論点／URLを照合。diff、decision-log / project-consistency / inference-guardと登録後mainの3ファイルSHAを確認する。PDF binaryは未取得、1963誌面本文未判読、AFBはアクセス不能として保持。
 - **関連**：Ledger Candidate recovery、Map hands CURRENT、https://www.scribd.com/doc/283583519/AS-1475-technical-communication-Ebauches 、https://uhrforum.de/threads/der-weihnachtswecker.418769/ 。
 - **日時根拠**：UTCをTokyo Standard Timeへ変換し2026-10-24 07:23 JSTを確認。原資料の1955年、forum投稿年、調査登録日を区別。
+
+### 2026-10-28 00:05 JST — Basis Instagram third Reel published copy and initial Insights ingress
+
+- **変更**：`IG-BAS-003` を既存Social正本へ新規登録。投稿全文を published-copy、初回23:58–23:59 JST snapshotを insights-timeseries、再利用状態・PUBLISHED assignmentを content-inventory、根拠と評価を operations へ記録。
+- **理由**：ユーザーが動画／最終キャプション／公開画面／Insights3画面を提供し、GitHubへ正規記録するよう明示。既存2投稿へ数値を混ぜない。
+- **旧状態・棄却**：未登録の投稿。過去初回Reelのfidget hookへ戻さず、満巻きの5時アラーム側→鳴動→再巻上げという動画内の因果を維持。スクショの `--` を0とせず、投稿時刻を26分表示から厳密確定しない。
+- **影響範囲**：上記Social 4正本と本決定履歴のみ。Instagramの既存投稿、映像、VA公開サイト、分析実装は変更しない。
+- **検証状態**：GitHub書込みと再取得・diffを要検査。npm validators はGitHub connectorのみの環境では未実行として分離。
+- **関連**：user files `IMG_3274.jpeg`, `IMG_3273.png`, `IMG_3272.png`; `IG-BAS-003` / `BAS-03` / `BAS-04`.
+- **日時根拠**：実行ホスト `TZ=Asia/Tokyo date` = 2026-10-28 00:05:26 JST。投稿画面23:58–23:59 JST（2026-10-27）とは別。
