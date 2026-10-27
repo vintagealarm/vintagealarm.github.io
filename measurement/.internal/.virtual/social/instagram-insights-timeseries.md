@@ -1810,6 +1810,42 @@
 
 ---
 
+### Snapshot — 2026-10-28 00:11–00:12 JST
+- content_id: IG-BAS-003
+- observed_at_jst: 2026-10-28 00:11–00:12
+- published_at_jst: unknown exact minute; user publication screenshot 2026-10-27 23:59 UI `26分前`
+- elapsed_since_publish: unknown exact (approximately 38–39 minutes after prior UI age, not minute-confirmed)
+- views: 107 (Insights Overview at 00:11)
+- viewers: 63
+- average_watch_time: 13s
+- likes: 6
+- comments: 0
+- reposts: 0
+- shares: unknown (Insights shows `--`; share rate displayed 0.0%)
+- saves: 0
+- follows: 0
+- skip_rate: 2.2% (platform displayed)
+- share_rate: 0.0% (platform displayed)
+- like_rate: 6.5% (platform displayed; denominator internal to platform)
+- save_rate: 0.0% (platform displayed)
+- repost_rate: 0.0% (platform displayed)
+- comment_rate: 0.0% (platform displayed)
+- followers: 8.2%
+- non_followers: 91.8%
+- top_source_feed_pct: 100.0 (listed source)
+- age: unavailable (Instagram shows insufficient actions for breakdown)
+- countries: unavailable (Instagram shows insufficient actions for breakdown)
+- gender: unavailable (Instagram shows insufficient actions for breakdown)
+- retention_curve_observation: approximate curve from screenshot: starts near 100%, falls to around 75% in early seconds, remains near 75% until about 15 seconds, falls toward 50% by ~16 seconds, around 50% through 20 seconds. Visual approximation only; not exact numeric retention observations.
+- views_trend_observation: early rise in purple series vs gray dashed normal Reel benchmark; no precise comparison quantification from visual plot.
+- separate_post_surface_views: 116 (Instagram post UI at 00:11, differs from Insights views 107; not counted as later growth)
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3275.jpeg; IMG_3276.png; IMG_3277.png; IMG_3278.png; IMG_3279.png; IMG_3280.png
+- note: Observation screens 00:11–00:12 are one snapshot. 116 in post UI and 107 in Insights at about the same clock time are different UI surfaces; keep both and do not invent a time sequence. Non-follower exposure is platform reported, not proof of specific outbound link sources; 0.0% skip at previous early screenshot is not overwritten.
+
+
+---
+
 ## 2. Cross-source reconciliation / rejected values
 
 - CYMA `2026-09-28 17:41頃 / viewers 1,406 / age 45–54 10.3 / 65+ 5.4` は旧復旧案由来で、main正本の17:49–17:50 snapshot（viewers 1,408 / age 45–54 10.2 / 65+ 5.5）と矛盾するため棄却。
