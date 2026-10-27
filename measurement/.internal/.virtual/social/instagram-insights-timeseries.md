@@ -1846,6 +1846,44 @@
 
 ---
 
+### Snapshot — 2026-10-28 00:35–00:36 JST
+- content_id: IG-BAS-003
+- observed_at_jst: 2026-10-28 00:35–00:36
+- published_at_jst: unknown exact minute; earlier post screenshot 2026-10-27 23:59 displays `26分前`
+- elapsed_since_publish: unknown exact; approximately 62–63 minutes based on earlier rounded UI age (not an exact publication-time calculation)
+- views: 455
+- viewers: 107
+- average_watch_time: 9s
+- likes: 15
+- comments: 0
+- reposts: 0
+- shares: unknown (Insights shows `--`; share_rate 0.0% displayed)
+- saves: 1
+- follows: 0
+- profile_accesses: 1
+- skip_rate: 11.4% (platform displayed `低`)
+- share_rate: 0.0% (platform displayed)
+- like_rate: 4.2% (platform displayed `通常`)
+- save_rate: 0.3% (platform displayed)
+- repost_rate: 0.0% (platform displayed)
+- comment_rate: 0.0% (platform displayed)
+- followers: 6.6%
+- non_followers: 93.4%
+- top_source_reels_tab_pct: 76.9
+- top_source_explore_pct: 12.7
+- top_source_feed_pct: 9.7
+- age: 13–17 3.0% / 18–24 44.0% / 25–34 41.8% / 35–44 6.7% / 45–54 3.0% / 55–64 0.7% / 65+ 0.7% (Instagram displayed, rounding may not sum exactly)
+- age_18_34_combined: 85.8% (sum of displayed age brackets, not independent platform field)
+- countries: India 31.3% / United States 9.7% / Germany 9.0% / Spain 3.7% / Turkey 3.0% (displayed top five only)
+- retention_curve_observation: current screenshot curve descends approximately from 100% at start toward ~50% by ~6–7s, near ~20% at 18–20s. Visual estimate only, not exact points. Earlier 00:11 snapshot displayed a different, smaller-sample curve; do not treat curve change as viewer-cohort controlled comparison.
+- views_trend_observation: current purple Reel curve reaches roughly 455 within about first 60 minutes and is visibly above gray dashed usual-Reels comparison at that point; comparator exact numeric values not extracted.
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3282.png; IMG_3283(1).png; IMG_3284(1).png; IMG_3285(1).png; IMG_3286(1).png; IMG_3287(1).png; IMG_3288(1).png
+- note: One grouped observation covering 00:35–00:36 JST; Instagram displays feed/reels/explore distribution of views, not the identity or source of individual visitors. The 0.0% share rate is not evidence that hidden count `--` equals 0; no precise published minute inferred.
+
+
+---
+
 ## 2. Cross-source reconciliation / rejected values
 
 - CYMA `2026-09-28 17:41頃 / viewers 1,406 / age 45–54 10.3 / 65+ 5.4` は旧復旧案由来で、main正本の17:49–17:50 snapshot（viewers 1,408 / age 45–54 10.2 / 65+ 5.5）と矛盾するため棄却。
