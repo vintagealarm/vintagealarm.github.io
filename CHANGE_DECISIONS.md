@@ -2421,3 +2421,13 @@
 - **検証状態**：GitHub書込みと再取得・diffを要検査。npm validators はGitHub connectorのみの環境では未実行として分離。
 - **関連**：user files `IMG_3274.jpeg`, `IMG_3273.png`, `IMG_3272.png`; `IG-BAS-003` / `BAS-03` / `BAS-04`.
 - **日時根拠**：実行ホスト `TZ=Asia/Tokyo date` = 2026-10-28 00:05:26 JST。投稿画面23:58–23:59 JST（2026-10-27）とは別。
+
+### 2026-10-28 00:12 JST — Append second early Basis IG-BAS-003 Insights observation
+
+- **変更**：Instagram時系列正本へ `IG-BAS-003` の2026-10-28 00:11–00:12 JSTスナップショットを追記し、SNS operationsへ同一投稿内比較を追加。
+- **理由**：ユーザーが新たな6枚のInstagram画面を提供。前回10再生の初回記録とは別時刻の実測として、再生数・閲覧者・平均再生時間・反応率・非フォロワー比率・流入画面・維持曲線を保存するため。
+- **旧状態・棄却**：初回23:58–23:59の値は上書きしない。投稿画面116とInsights107を同値や時系列成長とみなさない。シェア数 `--` は0に補完せず、グラフの曲線位置を厳密な実測値として転記しない。
+- **影響範囲**：`instagram-insights-timeseries.md`、`instagram-operations.md`、`CHANGE_DECISIONS.md`。投稿本文、動画、サイト、その他SNS記録は変更しない。
+- **検証状態**：commit / diff / GitHub main再取得、CIのSNS validatorsを確認して確定。未検査は未検査と扱う。
+- **関連**：`IG-BAS-003`; IMG_3275.jpeg〜IMG_3280.png; PR #269 (first snapshot).
+- **日時根拠**：画像ステータスバー00:11〜00:12、直近会話の2026-10-27 23:59から日付繰上りした2026-10-28 JST。正確な投稿分はInstagramの丸め表示から断定しない。
