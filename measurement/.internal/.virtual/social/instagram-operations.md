@@ -2467,3 +2467,12 @@ Listen to the actual recordings on HOW THEY RING — link in bio.
 - Crucial direct creator recommendation in the caption: "Check out vintage alarm watch enthusiast @vintagealarm for more deep dives into these incredible complications!" This is an actual caption mention of VA, not the earlier Wittnauer-only post and not TIME66's Basis video.
 - Context: VA Citizen × ARSA Reel IG-CIT-ARS-001 had 1,168 views at 16:54 and 1,917 at 22:26 on 2026-10-21. A visible third-party mention provides a plausible path for exposure to the VA account. External publication time, viewer paths, and any portion of the growth caused by the mention are unverified.
 - User directly corrected prior assistant's wrong referent. Source is user screenshot, not independent platform inspection; third-party technical claims remain externally authored.
+
+## 2026-10-28 00:05 JST — Basis Alarm IG-BAS-003 published / first 26-min screen
+
+- **Decision**: User published Basis third Instagram Reel, moving from `IG-BAS-001`'s winding-window motion to the apparently winding-stopped BFG90 behavior; `IG-BAS-003` is a distinct post and time series.
+- **Origin**: User-supplied two video versions and explicit correction: 5-o’clock indicator corresponds to the alarm barrel and is fully wound initially; during 9–15 s the alarm sounds and consumes stored alarm energy, allowing that indicator to spin again on re-winding. On-camera text remains as posted at user direction. Do not rewrite media or re-interpret 9–15 s as the other indicator spinning.
+- **Evidence**: Post and Insights screenshots `IMG_3274.jpeg`, `IMG_3273.png`, `IMG_3272.png`, observation 2026-10-27 23:58–23:59 JST; UI `26分前`. Full copy in `instagram-published-copy.md`, initial metrics in `instagram-insights-timeseries.md`.
+- **Initial result**: 10 views, 4 viewers, 3 likes, 70% non-follower, 0.0% displayed skip rate. 0 comments, 0 reposts, 0 saves, 0 follows; shares and watch time show `--` and remain unknown.
+- **Interpretation / falsifier**: Early non-follower distribution was observed, not a proven viral start or strong hook. Revisit at comparable elapsed windows when views / skip / saves / profile visits update. Do not compare 26-min sample with 24h first-Basis outcome as same-age data.
+- **Status**: PUBLISHED / early OBSERVED; publication minute, actual posted Reel URL and media byte identity unverified.
