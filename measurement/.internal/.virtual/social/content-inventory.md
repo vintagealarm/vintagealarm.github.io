@@ -136,8 +136,8 @@ Canonical WATCH: `src/content/watches/basis-alarm.md`
 |---|---|---|---|---|---|---|---|
 | BAS-01 | 巻上げ窓＋fidget toy＋2香箱＋ベゼル＋9時slider | USED | YT_USED_VERIFIED | READY_EXISTING | READY_FROM_WATCH | OPERATION | Published copy + operations YouTube `MWoqA4L2wdM` |
 | BAS-02 | 1本のリューズを同方向へ回して2香箱を巻く | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SHOOT | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 |
-| BAS-03 | 片側満巻き後、その側だけ滑らせる滑りクラッチ | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 + mechanism image |
-| BAS-04 | 1時／5時窓はパワーリザーブではなく、巻上げ状態表示 | PARTIAL | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | RESEARCH | WATCH Deep 03 |
+| BAS-03 | 片側満巻き後、その側だけ滑らせる滑りクラッチ | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | MECHANISM | WATCH Deep 02 + mechanism image |
+| BAS-04 | 1時／5時窓はパワーリザーブではなく、巻上げ状態表示 | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | RESEARCH | WATCH Deep 03 |
 | BAS-05 | アラーム針がベゼルへ直接つながる | USED | NO_EXPLICIT_USE_FOUND_2026-10-03 | READY_EXISTING | READY_FROM_WATCH | DETAIL | Gallery `IMG_9196.jpeg` + published 2026-10-12 carousel `IG-BAS-002` |
 | BAS-06 | 同じBFG90がBasis / Lantex / Sheffield / Simplon / Tior等へ展開 | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | COMPARISON | WATCH Deep 04 |
 | BAS-07 | BFG90→BFG902で外に出ていたベゼル／sliderが整理される | CANDIDATE_NOT_IN_IG_TEXT | NO_EXPLICIT_USE_FOUND_2026-10-03 | NEEDS_SOURCE_ASSET | RECHECK_SOURCE | COMPARISON | WATCH Deep 05 |
@@ -288,6 +288,7 @@ PLANNED / SHOT / EDITED / SCHEDULED はactive lock。同じassetと同じ物理m
 | IG-PIE-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | PIE-01 | — | SOCIAL:IG-PIE-FIRST-REEL | published-copy |
 | IG-BAS-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | BAS-01 | — | SOCIAL:IG-BAS-FIRST-REEL | published-copy |
 | IG-BAS-002 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | STATIC_CAROUSEL | BAS-05 | BAS-01 | USER:IMG_8890.jpeg;USER:IMG_9196.jpeg;USER:IMG_9197.jpeg;USER:IMG_9199.jpeg | 2026-10-12 ~08:25 JST screenshot `IMG_3014.jpeg` confirms full caption, 4-photo carousel; exact publish time and Insights unknown; published-copy |
+| IG-BAS-003 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | REEL | BAS-03 | BAS-02,BAS-04 | USER:57FC05E0-1F58-4410-A3C0-3E29864DB639.mp4 | Published 2026-10-27; screenshot 23:59 JST `26分前`, exact minute unknown; final caption verified IMG_3274.jpeg; Insights IMG_3273.png / IMG_3272.png; posted media byte identity unverified |
 | IG-MDL-001 | INSTAGRAM | PUBLISHED | USER_CONFIRMED | MIXED_CAROUSEL | MDL-01 | — | USER:IMG_9734(1).mp4;USER:IMG_9735(1).jpeg | 2026-10-14 21:00 JST screenshot `IMG_3047.jpeg` / displayed 46 seconds ago; first slide video, second three-watch size comparison; full caption and 4 hashtags recorded in published-copy; Insights pending |
 | IG-WES-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | WES-01 | — | SOCIAL:IG-WES-FIRST-REEL | published-copy |
 | IG-CIT-001 | INSTAGRAM | PUBLISHED | LEGACY_VERIFIED | REEL | CIT-01 | — | SOCIAL:IG-CIT-FIRST-REEL | published-copy |
