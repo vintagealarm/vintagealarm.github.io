@@ -1259,6 +1259,149 @@
 - source_status: CANONICAL_LOG_SCREENSHOT
 - note: ユーザー提供2026-10-13 08:33 JSTの投稿画面・Post Insightsスクリーンショット計5枚。Audience follower 98.4% / non-follower 1.6%はUI表示値。画像別いいね数はカルーセル画像のUI帰属表示であり、閲覧・スワイプ人数の証拠ではない。共有とプロフィールアクセスは `--` のため0にしない。
 
+## IG-BAS-003 (slipping clutch / winding stop Reel)
+
+### Publication evidence
+- published_date_jst: 2026-10-27 (user screenshot shows `26分前` at 23:59 JST)
+- published_at_jst: unknown exact minute (approximately 23:33 inferred from rounded UI display; not a verified timestamp)
+- media: Instagram Reel, Basis Alarm BFG90 winding windows / sliding clutch; not `IG-BAS-001` nor `IG-BAS-002`
+- evidence: IMG_3274.jpeg; IMG_3273.png; IMG_3272.png
+
+### Snapshot — 2026-10-27 23:58–23:59 JST
+- content_id: IG-BAS-003
+- observed_at_jst: 2026-10-27 23:58–23:59
+- published_at_jst: unknown exact minute
+- elapsed_since_publish: UI displays `26分前` on the 23:59 publication view; do not infer minute-precise duration
+- views: 10
+- viewers: 4
+- likes: 3
+- comments: 0
+- reposts: 0
+- shares: unknown (Insights shows `--`)
+- saves: 0
+- follows: 0
+- average_watch_time: unknown (Insights shows `--`)
+- skip_rate: 0.0%
+- followers: 30%
+- non_followers: 70%
+- age: unavailable (Instagram displays insufficient actions <100)
+- countries: unavailable (Instagram displays insufficient actions <100)
+- gender: unavailable (Instagram displays insufficient actions <100)
+- viewing_trend: processing at screenshot; graph not yet available
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3274.jpeg; IMG_3273.png; IMG_3272.png
+- note: 3 likes on 10 views, 4 unique viewers; percentages are platform-displayed, not inferred distribution among four. Post screenshot shows `26分前`; precise publish minute not confirmed. Share `--` is unknown, not zero. One visibly named liker `little_unnecessary_machines`; no inferred referrer or referral causation.
+
+### Snapshot — 2026-10-28 00:11–00:12 JST
+- content_id: IG-BAS-003
+- observed_at_jst: 2026-10-28 00:11–00:12
+- published_at_jst: unknown exact minute; user publication screenshot 2026-10-27 23:59 UI `26分前`
+- elapsed_since_publish: unknown exact (approximately 38–39 minutes after prior UI age, not minute-confirmed)
+- views: 107 (Insights Overview at 00:11)
+- viewers: 63
+- average_watch_time: 13s
+- likes: 6
+- comments: 0
+- reposts: 0
+- shares: unknown (Insights shows `--`; share rate displayed 0.0%)
+- saves: 0
+- follows: 0
+- skip_rate: 2.2%
+- share_rate: 0.0%
+- like_rate: 6.5%
+- save_rate: 0.0%
+- repost_rate: 0.0%
+- comment_rate: 0.0%
+- followers: 8.2%
+- non_followers: 91.8%
+- top_source_feed_pct: 100.0 (listed source)
+- age: unavailable (Instagram shows insufficient actions for breakdown)
+- countries: unavailable (Instagram shows insufficient actions for breakdown)
+- gender: unavailable (Instagram shows insufficient actions for breakdown)
+- retention_curve_observation: approximate curve from screenshot: starts near 100%, falls to around 75% in early seconds, remains near 75% until about 15 seconds, falls toward 50% by ~16 seconds, around 50% through 20 seconds. Visual approximation only; not exact numeric retention observations.
+- views_trend_observation: early rise in purple series vs gray dashed normal Reel benchmark; no precise comparison quantification from visual plot.
+- separate_post_surface_views: 116 (Instagram post UI at 00:11, differs from Insights views 107; not counted as later growth)
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3275.jpeg; IMG_3276.png; IMG_3277.png; IMG_3278.png; IMG_3279.png; IMG_3280.png
+- note: Observation screens 00:11–00:12 are one snapshot. 116 in post UI and 107 in Insights at about the same clock time are different UI surfaces; keep both and do not invent a time sequence. Non-follower exposure is platform reported, not proof of specific outbound link sources; 0.0% skip at previous early screenshot is not overwritten.
+
+### Snapshot — 2026-10-28 00:35–00:36 JST
+- content_id: IG-BAS-003
+- observed_at_jst: 2026-10-28 00:35–00:36
+- published_at_jst: unknown exact minute; earlier post screenshot 2026-10-27 23:59 displays `26分前`
+- elapsed_since_publish: unknown exact; approximately 62–63 minutes based on earlier rounded UI age (not an exact publication-time calculation)
+- views: 455
+- viewers: 107
+- average_watch_time: 9s
+- likes: 15
+- comments: 0
+- reposts: 0
+- shares: unknown (Insights shows `--`; share_rate 0.0% displayed)
+- saves: 1
+- follows: 0
+- profile_accesses: 1
+- skip_rate: 11.4%
+- share_rate: 0.0%
+- like_rate: 4.2%
+- save_rate: 0.3%
+- repost_rate: 0.0%
+- comment_rate: 0.0%
+- followers: 6.6%
+- non_followers: 93.4%
+- top_source_reels_tab_pct: 76.9
+- top_source_explore_pct: 12.7
+- top_source_feed_pct: 9.7
+- age: 13–17 3.0% / 18–24 44.0% / 25–34 41.8% / 35–44 6.7% / 45–54 3.0% / 55–64 0.7% / 65+ 0.7% (Instagram displayed, rounding may not sum exactly)
+- age_18_34_combined: 85.8%
+- countries: India 31.3% / United States 9.7% / Germany 9.0% / Spain 3.7% / Turkey 3.0% (displayed top five only)
+- retention_curve_observation: current screenshot curve descends approximately from 100% at start toward ~50% by ~6–7s, near ~20% at 18–20s. Visual estimate only, not exact points. Earlier 00:11 snapshot displayed a different, smaller-sample curve; do not treat curve change as viewer-cohort controlled comparison.
+- views_trend_observation: current purple Reel curve reaches roughly 455 within about first 60 minutes and is visibly above gray dashed usual-Reels comparison at that point; comparator exact numeric values not extracted.
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3282.png; IMG_3283(1).png; IMG_3284(1).png; IMG_3285(1).png; IMG_3286(1).png; IMG_3287(1).png; IMG_3288(1).png
+- note: One grouped observation covering 00:35–00:36 JST; Instagram displays feed/reels/explore distribution of views, not the identity or source of individual visitors. The 0.0% share rate is not evidence that hidden count `--` equals 0; no precise published minute inferred.
+
+
+### Snapshot — 2026-10-28 08:36–08:37 JST
+- content_id: IG-BAS-003
+- observed_at_jst: 2026-10-28 08:36–08:37 (device clock on user screenshot; independent capture timestamp unknown)
+- published_at_jst: unknown exact minute (post UI says `9時間前`; previous 2026-10-27 23:59 screenshot says `26分前`)
+- elapsed_since_publish: approximately 9h based on rounded Instagram UI; exact unknown
+- reel_duration: approximately 20s (retention graph axis 0:00–0:20)
+- views: 3412
+- viewers: 2797
+- average_watch_time: 10s
+- likes: 54
+- comments: 1
+- reposts: 1
+- shares: unknown (Insights `--`)
+- separate_post_surface_sends_display: 6 (paper-plane icon on post; not equated to Insights shares)
+- saves: 9
+- follows: 4
+- profile_accesses: 12
+- bio_link_clicks: 1
+- skip_rate: 34.3%
+- share_rate: 0.2%
+- like_rate: 2.0%
+- save_rate: 0.3%
+- repost_rate: 0.0%
+- comment_rate: 0.0%
+- followers: 2.1%
+- non_followers: 97.9%
+- top_source_reels_tab_pct: 74.0
+- top_source_explore_pct: 20.3
+- top_source_feed_pct: 4.2
+- top_source_stories_pct: 1.0
+- top_source_profile_pct: 0.1
+- age: 13–17 2.4% / 18–24 29.6% / 25–34 41.6% / 35–44 14.5% / 45–54 5.8% / 55–64 4.0% / 65+ 2.1%
+- age_18_34_combined: 71.2%
+- countries: India 30.9% / Turkey 7.2% / United States 5.8% / Germany 5.3% / France 5.3% (top five shown)
+- retention_curve_observation: visually about 50% around 5s and roughly 15% near 20s; graphical estimates, not sampled exact values.
+- views_trend_observation: early rapid rise, later clear flattening within the 9h displayed trend; above gray dashed `あなたの通常のリール動画` at latest point. No exact intermediate counts inferred.
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3290.jpeg; IMG_3291.png; IMG_3292.png; IMG_3293.png; IMG_3294.png; IMG_3295.png; IMG_3296.png; IMG_3297.png
+- note: One grouped user-supplied observation. Views vs unique viewers, own-post sends vs Insights hidden shares, and displayed percentage metrics remain distinct. Publication minute unconfirmed.
+
+
 ---
 
 # Westclox Watchlarm W5
@@ -1774,153 +1917,6 @@
 
 ---
 
-# Basis Alarm (BFG90) — IG-BAS-003 (slipping clutch / winding stop Reel)
-
-## Publication evidence
-- published_date_jst: 2026-10-27 (user screenshot shows `26分前` at 23:59 JST)
-- published_at_jst: unknown exact minute (approximately 23:33 inferred from rounded UI display; not a verified timestamp)
-- media: Instagram Reel, Basis Alarm BFG90 winding windows / sliding clutch; not `IG-BAS-001` nor `IG-BAS-002`
-- evidence: IMG_3274.jpeg; IMG_3273.png; IMG_3272.png
-
-### Snapshot — 2026-10-27 23:58–23:59 JST
-- content_id: IG-BAS-003
-- observed_at_jst: 2026-10-27 23:58–23:59
-- published_at_jst: unknown exact minute
-- elapsed_since_publish: UI displays `26分前` on the 23:59 publication view; do not infer minute-precise duration
-- views: 10
-- viewers: 4
-- likes: 3
-- comments: 0
-- reposts: 0
-- shares: unknown (Insights shows `--`)
-- saves: 0
-- follows: 0
-- average_watch_time: unknown (Insights shows `--`)
-- skip_rate: 0.0% (platform displayed, provisional; initial very small sample)
-- followers: 30%
-- non_followers: 70%
-- age: unavailable (Instagram displays insufficient actions <100)
-- countries: unavailable (Instagram displays insufficient actions <100)
-- gender: unavailable (Instagram displays insufficient actions <100)
-- viewing_trend: processing at screenshot; graph not yet available
-- source_status: CANONICAL_LOG_SCREENSHOT
-- screenshot_evidence: IMG_3274.jpeg; IMG_3273.png; IMG_3272.png
-- note: 3 likes on 10 views, 4 unique viewers; percentages are platform-displayed, not inferred distribution among four. Post screenshot shows `26分前`; precise publish minute not confirmed. Share `--` is unknown, not zero. One visibly named liker `little_unnecessary_machines`; no inferred referrer or referral causation.
-
-
----
-
-### Snapshot — 2026-10-28 00:11–00:12 JST
-- content_id: IG-BAS-003
-- observed_at_jst: 2026-10-28 00:11–00:12
-- published_at_jst: unknown exact minute; user publication screenshot 2026-10-27 23:59 UI `26分前`
-- elapsed_since_publish: unknown exact (approximately 38–39 minutes after prior UI age, not minute-confirmed)
-- views: 107 (Insights Overview at 00:11)
-- viewers: 63
-- average_watch_time: 13s
-- likes: 6
-- comments: 0
-- reposts: 0
-- shares: unknown (Insights shows `--`; share rate displayed 0.0%)
-- saves: 0
-- follows: 0
-- skip_rate: 2.2% (platform displayed)
-- share_rate: 0.0% (platform displayed)
-- like_rate: 6.5% (platform displayed; denominator internal to platform)
-- save_rate: 0.0% (platform displayed)
-- repost_rate: 0.0% (platform displayed)
-- comment_rate: 0.0% (platform displayed)
-- followers: 8.2%
-- non_followers: 91.8%
-- top_source_feed_pct: 100.0 (listed source)
-- age: unavailable (Instagram shows insufficient actions for breakdown)
-- countries: unavailable (Instagram shows insufficient actions for breakdown)
-- gender: unavailable (Instagram shows insufficient actions for breakdown)
-- retention_curve_observation: approximate curve from screenshot: starts near 100%, falls to around 75% in early seconds, remains near 75% until about 15 seconds, falls toward 50% by ~16 seconds, around 50% through 20 seconds. Visual approximation only; not exact numeric retention observations.
-- views_trend_observation: early rise in purple series vs gray dashed normal Reel benchmark; no precise comparison quantification from visual plot.
-- separate_post_surface_views: 116 (Instagram post UI at 00:11, differs from Insights views 107; not counted as later growth)
-- source_status: CANONICAL_LOG_SCREENSHOT
-- screenshot_evidence: IMG_3275.jpeg; IMG_3276.png; IMG_3277.png; IMG_3278.png; IMG_3279.png; IMG_3280.png
-- note: Observation screens 00:11–00:12 are one snapshot. 116 in post UI and 107 in Insights at about the same clock time are different UI surfaces; keep both and do not invent a time sequence. Non-follower exposure is platform reported, not proof of specific outbound link sources; 0.0% skip at previous early screenshot is not overwritten.
-
-
----
-
-### Snapshot — 2026-10-28 00:35–00:36 JST
-- content_id: IG-BAS-003
-- observed_at_jst: 2026-10-28 00:35–00:36
-- published_at_jst: unknown exact minute; earlier post screenshot 2026-10-27 23:59 displays `26分前`
-- elapsed_since_publish: unknown exact; approximately 62–63 minutes based on earlier rounded UI age (not an exact publication-time calculation)
-- views: 455
-- viewers: 107
-- average_watch_time: 9s
-- likes: 15
-- comments: 0
-- reposts: 0
-- shares: unknown (Insights shows `--`; share_rate 0.0% displayed)
-- saves: 1
-- follows: 0
-- profile_accesses: 1
-- skip_rate: 11.4% (platform displayed `低`)
-- share_rate: 0.0% (platform displayed)
-- like_rate: 4.2% (platform displayed `通常`)
-- save_rate: 0.3% (platform displayed)
-- repost_rate: 0.0% (platform displayed)
-- comment_rate: 0.0% (platform displayed)
-- followers: 6.6%
-- non_followers: 93.4%
-- top_source_reels_tab_pct: 76.9
-- top_source_explore_pct: 12.7
-- top_source_feed_pct: 9.7
-- age: 13–17 3.0% / 18–24 44.0% / 25–34 41.8% / 35–44 6.7% / 45–54 3.0% / 55–64 0.7% / 65+ 0.7% (Instagram displayed, rounding may not sum exactly)
-- age_18_34_combined: 85.8% (sum of displayed age brackets, not independent platform field)
-- countries: India 31.3% / United States 9.7% / Germany 9.0% / Spain 3.7% / Turkey 3.0% (displayed top five only)
-- retention_curve_observation: current screenshot curve descends approximately from 100% at start toward ~50% by ~6–7s, near ~20% at 18–20s. Visual estimate only, not exact points. Earlier 00:11 snapshot displayed a different, smaller-sample curve; do not treat curve change as viewer-cohort controlled comparison.
-- views_trend_observation: current purple Reel curve reaches roughly 455 within about first 60 minutes and is visibly above gray dashed usual-Reels comparison at that point; comparator exact numeric values not extracted.
-- source_status: CANONICAL_LOG_SCREENSHOT
-- screenshot_evidence: IMG_3282.png; IMG_3283(1).png; IMG_3284(1).png; IMG_3285(1).png; IMG_3286(1).png; IMG_3287(1).png; IMG_3288(1).png
-- note: One grouped observation covering 00:35–00:36 JST; Instagram displays feed/reels/explore distribution of views, not the identity or source of individual visitors. The 0.0% share rate is not evidence that hidden count `--` equals 0; no precise published minute inferred.
-
-
-### Snapshot — 2026-10-28 08:36–08:37 JST
-- content_id: IG-BAS-003
-- observed_at_jst: 2026-10-28 08:36–08:37 (device clock on user screenshot; independent capture timestamp unknown)
-- published_at_jst: unknown exact minute (post UI says `9時間前`; previous 2026-10-27 23:59 screenshot says `26分前`)
-- elapsed_since_publish: approximately 9h based on rounded Instagram UI; exact unknown
-- reel_duration: approximately 20s (retention graph axis 0:00–0:20)
-- views: 3412
-- viewers: 2797
-- average_watch_time: 10s
-- likes: 54
-- comments: 1
-- reposts: 1
-- shares: unknown (Insights `--`)
-- separate_post_surface_sends_display: 6 (paper-plane icon on post; not equated to Insights shares)
-- saves: 9
-- follows: 4
-- profile_accesses: 12
-- bio_link_clicks: 1
-- skip_rate: 34.3% (platform `低`)
-- share_rate: 0.2% (platform `低`; underlying Insights count unknown)
-- like_rate: 2.0% (platform `低`)
-- save_rate: 0.3% (platform `低`)
-- repost_rate: 0.0% (platform `低`)
-- comment_rate: 0.0% (platform `低`)
-- followers: 2.1%
-- non_followers: 97.9%
-- top_source_reels_tab_pct: 74.0
-- top_source_explore_pct: 20.3
-- top_source_feed_pct: 4.2
-- top_source_stories_pct: 1.0
-- top_source_profile_pct: 0.1
-- age: 13–17 2.4% / 18–24 29.6% / 25–34 41.6% / 35–44 14.5% / 45–54 5.8% / 55–64 4.0% / 65+ 2.1%
-- age_18_34_combined: 71.2% (sum of 18–24 and 25–34, not an independent platform field)
-- countries: India 30.9% / Turkey 7.2% / United States 5.8% / Germany 5.3% / France 5.3% (top five shown)
-- retention_curve_observation: visually about 50% around 5s and roughly 15% near 20s; graphical estimates, not sampled exact values.
-- views_trend_observation: early rapid rise, later clear flattening within the 9h displayed trend; above gray dashed `あなたの通常のリール動画` at latest point. No exact intermediate counts inferred.
-- source_status: CANONICAL_LOG_SCREENSHOT
-- screenshot_evidence: IMG_3290.jpeg; IMG_3291.png; IMG_3292.png; IMG_3293.png; IMG_3294.png; IMG_3295.png; IMG_3296.png; IMG_3297.png
-- note: One grouped user-supplied observation. Views vs unique viewers, own-post sends vs Insights hidden shares, and displayed percentage metrics remain distinct. Publication minute unconfirmed.
 
 
 ---
