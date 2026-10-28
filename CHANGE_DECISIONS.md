@@ -2441,3 +2441,14 @@
 - **検証状態**：GitHub commit、diff、CI正本validators、main再取得で確認。検査未実施の箇所はPASS扱いしない。
 - **関連**：`IG-BAS-003`、IMG_3282.png〜IMG_3288(1).png、PR #269／#270。
 - **日時根拠**：ユーザー画像の端末表示2026-10-28 00:35–00:36 JSTおよびこの応答のユーザー現地時刻00:37 JST。投稿日時の分単位は未確定。
+
+
+### 2026-10-28 09:12 JST — Basis third Reel morning Insights and report-parser integration
+
+- **変更**：Basis Instagram第3弾 `IG-BAS-003` に、端末時刻08:36–08:37 JSTの8枚のInsightsを時系列正本へ新規追記し、operationsへ約9時間時点の観測と限定的評価を登録。加えて、既存の第3弾独立見出しが `scripts/instagram-insights-timeseries.mjs` の `watchOrder` に認識されずレポートから脱落する不整合を修復し、同一正本内の既存Basis見出し下へ4観測を統合。区切り線で `currentWatch` が解除されないようスナップショット間の区切りを正規化し、割合fieldの注記は既存note/operationsで保持して数値fieldをvalidator互換にした。
+- **理由**：3,412 views / 2,797 viewers / 10秒 / 54 likes / 9 saves / 4 followsなどを長期時系列と自動reportで使える形にするため。書込後の独立parser再点検で、以前からある第3弾見出しと区切り線の不整合を発見した。
+- **旧状態・棄却**：別見出しで記録はあったが解析スクリプトが対象外とする状態を棄却。新sidecarや時計別臨時ログは設けない。初回・第2回・第3回の旧観測値を上書きせず保持。share UIの `--` と投稿画面の送信アイコン6を合算・置換せず、約9時間の減速から最終到達値を決めつけない。
+- **影響範囲**：`measurement/.internal/.virtual/social/instagram-insights-timeseries.md`、`instagram-operations.md`、本変更履歴。公開SNS投稿・本文、VAサイト、Worker、集計スクリプト本体の変更なし。
+- **検証状態**：GitHub mainへの書込と正本再取得は確認済み。集計スクリプトと同じ節・field/時刻・割合のロジックを入力全件に当てた手元再検証はerrors 0、Basis最新4観測がparser対象になることを確認。実際の `npm run check:instagram-insights` / `npm run instagram:report` のプロセス実行は未実施でありPASSと呼ばない。
+- **関連**：`IG-BAS-003`、`IMG_3290.jpeg`〜`IMG_3297.png`、commit `464e9051a9578d6dfaf477b1932844006a80f5c8` / `326bd02259206854508b7791422f57c1efc19414` / `11ab9fa2b6e552c515bc3c9a52bdbd6f1e142898`。
+- **日時根拠**：実行ホスト `TZ=Asia/Tokyo date` = 2026-10-28 09:12 JST。観測時刻08:36–08:37はユーザースクリーンショットの端末表示であり、記録実行時刻とは区別。
