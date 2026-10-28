@@ -1882,6 +1882,47 @@
 - note: One grouped observation covering 00:35–00:36 JST; Instagram displays feed/reels/explore distribution of views, not the identity or source of individual visitors. The 0.0% share rate is not evidence that hidden count `--` equals 0; no precise published minute inferred.
 
 
+### Snapshot — 2026-10-28 08:36–08:37 JST
+- content_id: IG-BAS-003
+- observed_at_jst: 2026-10-28 08:36–08:37 (device clock on user screenshot; independent capture timestamp unknown)
+- published_at_jst: unknown exact minute (post UI says `9時間前`; previous 2026-10-27 23:59 screenshot says `26分前`)
+- elapsed_since_publish: approximately 9h based on rounded Instagram UI; exact unknown
+- reel_duration: approximately 20s (retention graph axis 0:00–0:20)
+- views: 3412
+- viewers: 2797
+- average_watch_time: 10s
+- likes: 54
+- comments: 1
+- reposts: 1
+- shares: unknown (Insights `--`)
+- separate_post_surface_sends_display: 6 (paper-plane icon on post; not equated to Insights shares)
+- saves: 9
+- follows: 4
+- profile_accesses: 12
+- bio_link_clicks: 1
+- skip_rate: 34.3% (platform `低`)
+- share_rate: 0.2% (platform `低`; underlying Insights count unknown)
+- like_rate: 2.0% (platform `低`)
+- save_rate: 0.3% (platform `低`)
+- repost_rate: 0.0% (platform `低`)
+- comment_rate: 0.0% (platform `低`)
+- followers: 2.1%
+- non_followers: 97.9%
+- top_source_reels_tab_pct: 74.0
+- top_source_explore_pct: 20.3
+- top_source_feed_pct: 4.2
+- top_source_stories_pct: 1.0
+- top_source_profile_pct: 0.1
+- age: 13–17 2.4% / 18–24 29.6% / 25–34 41.6% / 35–44 14.5% / 45–54 5.8% / 55–64 4.0% / 65+ 2.1%
+- age_18_34_combined: 71.2% (sum of 18–24 and 25–34, not an independent platform field)
+- countries: India 30.9% / Turkey 7.2% / United States 5.8% / Germany 5.3% / France 5.3% (top five shown)
+- retention_curve_observation: visually about 50% around 5s and roughly 15% near 20s; graphical estimates, not sampled exact values.
+- views_trend_observation: early rapid rise, later clear flattening within the 9h displayed trend; above gray dashed `あなたの通常のリール動画` at latest point. No exact intermediate counts inferred.
+- source_status: CANONICAL_LOG_SCREENSHOT
+- screenshot_evidence: IMG_3290.jpeg; IMG_3291.png; IMG_3292.png; IMG_3293.png; IMG_3294.png; IMG_3295.png; IMG_3296.png; IMG_3297.png
+- note: One grouped user-supplied observation. Views vs unique viewers, own-post sends vs Insights hidden shares, and displayed percentage metrics remain distinct. Publication minute unconfirmed.
+
+
 ---
 
 ## 2. Cross-source reconciliation / rejected values
