@@ -17,12 +17,12 @@
 
 ### 2026-10-29 14:58 JST — 研究判断画像の保全と出典・保存検証を標準化
 
-- **変更**：`AGENTS.md` の既存Research Evidence Ingressに接続する単一のResearch Image Evidence Custody契約を追加。判断に使用した画像の出典、個体／主張との対応、原画像と加工物、実ファイルのSHA-256、永続保存の再読検証、公開権利、未保存状態を既存Research Ledgerに登録する。起動ルーター`PROJECT.md`から参照可能にする。
+- **変更**：既存Research Evidence Ingressに接続する単一の保全規則を `.codex/RESEARCH_IMAGE_EVIDENCE_CUSTODY.md` に設置。判断画像の出典、個体／主張との対応、原画像と加工物、実ファイルのSHA-256、永続保存の再読検証、公開権利、未保存状態を既存Research Ledgerに登録する。`PROJECT.md` と `AGENTS.md` から発見できるpointerを置く。
 - **理由**：Wittnauer 10WAで画像の再探索が発生し、ARSAではURL・SHA-256・作業用ファイル記録があっても永続保管が確認できないことが判明。証拠出典の管理と画像バイトの保全を同一視できない。
 - **旧状態・棄却**：従来は画像原本の永続検証を必須とせず、URL・ファイル名・ハッシュ・一時作業フォルダを保管済みと誤読し得た。新規の公開画像庫や重複研究DB、権利未確認の書籍スキャン公開、過去全画像の自動回収は採用しない。
-- **影響範囲**：研究運用規則と発見ルーター、変更履歴のみ。研究の既存事実・個別Ledger・WATCH本文・画像バイト・公開サイト・SNS・個人時計台帳は変更しない。
+- **影響範囲**：専用研究運用規則、`PROJECT.md` / `AGENTS.md` の発見pointer、変更履歴のみ。研究の既存事実・個別Ledger・WATCH本文・画像バイト・公開サイト・SNS・個人時計台帳は変更しない。詳細規則をAGENTSに全文置く案はReplayの起動文字数制限に抵触したため採用せず、pointer化した。
 - **検証状態**：作業branchの実ファイルを再取得し、規則とpointer、前後文脈、対象外変更0を確認する。実際の永続画像保存ワークフロー、著作物ごとの保存許諾、別チャットの実運用は今回未実証であり保証しない。
-- **関連**：U提案 → U採用（2026-10-29の会話で正式に組み込むことを指示）。branch `docs/research-image-evidence-custody-20261029`。実装commit `50a745a6f951b30ebf3a7c5b8d04e16f28e9b5f8`（AGENTS）/ `f0866d3bea21ba1e0bd6924cbf80647bdf40df16`（PROJECT）。
+- **関連**：U提案 → U採用（2026-10-29の会話で正式に組み込むことを指示）。branch `docs/research-image-evidence-custody-20261029`。作業commit：初版 `50a745a6f951b30ebf3a7c5b8d04e16f28e9b5f8`（AGENTS）/ `f0866d3bea21ba1e0bd6924cbf80647bdf40df16`（PROJECT）、規則分離 `c96a786e30b6cf179f0f2bf3a5fe67c591872d20`、pointer修正 `f9a5a65bc6f8440878b862262ac8fc845193a23b` / `e731e5f76e2dfb91a0e3056c31057a14659e7773`。
 - **日時根拠**：実行ホストの `2026-10-29 14:58 JST`（`2026-10-29T14:58:13+09:00`）を確認。GitHub PR #273の作成日時 `2026-10-29T06:00:44Z → 2026-10-29 15:00 JST` は別の証拠として記録。
 
 ### 2026-10-19 14:01 JST — ARSA通常WATCHをJA / EN / DEで正式公開
