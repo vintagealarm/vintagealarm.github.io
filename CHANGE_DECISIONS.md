@@ -15,6 +15,46 @@
 
 ---
 
+### 2026-10-29 17:28 JST — 研究画像証拠契約PR #272統合に向けたCI環境整合
+
+- **変更**：PR #272の `.github/workflows/astro-check.yml` で既存 `runs-on: ubuntu-latest` を `ubuntu-24.04` へ固定する。Playwright 1.55.0 と既存のChromiumインストール／描画検証／その他品質ゲートは変更せず実行する。
+- **理由**：2026-10-29のユーザー明示「一回統合しような」。統合前のPR #272 GitHub ActionsでUbuntu 26.04に対するPlaywright 1.55.0の非対応が原因でChromiumインストールに失敗。合格していないCIのまま品質確認を完了とせず、実行環境のみ最小修正して再検証する。
+- **旧状態・棄却**：サポート未確認の `ubuntu-latest` への依存を終了する。ブラウザ検査のスキップや品質ゲート緩和、無関係なPlaywright更新を採用しない。
+- **影響範囲**：PR #272の `.github/workflows/astro-check.yml` と本判断履歴のみ追加。画像証拠契約・PC保存条件、既存WATCH、研究台帳の個別データ、公開ページ本文、第三者画像・PC実ファイルは変更しない。
+- **検証状態**：CI環境差分をbranchへ保存。PR上のbuild・quality・replay・browser / rendered layoutを再実行し、全PASSであれば既存PRをmainへmerge、main正本の存在・PR状態を再取得して統合確認する。未取得の状態は成功と扱わない。
+- **関連**：PR #272、閉鎖済み重複PR #273、CI実行失敗 40833816544、workflow更新commit `ad1fd82fa9c5a507ae8298cddb8823cb93b3ad06`。
+- **日時根拠**：操作時実行ホストUTC `2026-10-29T08:28:21.459Z` → `2026-10-29 17:28 JST`。
+
+### 2026-10-29 16:11 JST — 重複PR #273を#272へ整理し画像保全契約を一本化
+
+- **変更**：研究根拠画像の契約正本は `research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md`（PR #272）1つに固定する。#273にあった「比較用画像を対象個体の証拠へ自動昇格しない」および調査終了時の登録・取得・保全検証・HOLD件数報告を#272へ移す。PC保存許可・6段階の保管状態を維持。#273は履歴保存のうえsupersededとして閉じ、二重mergeを防止する。
+- **理由**：2本のPRに同じ名前の規則が別ファイル・異なる保存状態分類で存在し、同時採用すると単一正本ルールと矛盾する。ユーザーの「整理して次移送したい」の指示に基づき実行中。
+- **旧状態・棄却**：#272の6状態と#273の4状態を並行で正式運用する方式、`.codex/RESEARCH_IMAGE_EVIDENCE_CUSTODY.md` のmainへの重複投入を棄却。#273の文書・PR・コミットは削除せず履歴として保持。
+- **影響範囲**：`research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md` と本ログ、PR #272/#273の状態のみ。WATCH、既存研究データ、画像ファイル、サイト公開物、PC実ファイル、CI workflow、mainは変更しない。
+- **検証状態**：作業branchのルールに有用な差分を実装。PR・diff・再取得・CIの実結果を別途確認。CIの既知Playwright導入失敗は本変更と分けて扱う。mainへのmerge・PC保存は未実施。
+- **関連**：既存PR #272（残す）／PR #273（superseded）、契約更新commit `fabac93c75eb55f71e12d796a620eff7dfc488d7`。
+- **日時根拠**：作業実行時JST時計 `2026-10-29 16:11:06 +09:00`。
+
+### 2026-10-29 15:45 JST — 画像証拠のPCローカル保存を許可された保存方法へ追加
+
+- **変更**：Research Image Evidence Custody正本へ、ユーザー本人のPCに根拠画像をダウンロードして保存してよい旨を追加。実際のローカル保存・所在・hash同一性を確認するまで永続保管済みへ昇格しない。
+- **理由**：ユーザーの明示発言「PCにDLしていいよ」（2026-10-29）。保存先の指定として採用。
+- **旧状態・棄却**：非公開Library等だけを想定する保存先例にPCローカル保存を加える。これをPCへの直接操作権限、第三者画像の転載許諾、現物保存の完了証明へ拡張しない。
+- **影響範囲**：`research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md` と本判断履歴のみ。画像ファイルの取得・PCへの転送・公開GitHubへの画像追加・本番mergeは未実施。
+- **検証状態**：作業branchへの文書追加。差分・再取得・CIで検証し、main未統合を維持。
+- **関連**：ユーザー2026-10-29「PCにDLしていいよ」、PR #272、commit `79d2d54d75cbb48b061a967a05bc33898dea7414`。
+- **日時根拠**：実行環境のJST時計 2026-10-29 15:45:57（分単位で表示）。
+
+### 2026-10-29 14:58 JST — 研究判断に使った画像の保存状態・原典・権利を必須記録化
+
+- **変更**：`research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md` に画像原本の取得・非公開保存・hash照合・権利・判断との対応を記録する単一契約を追加。AGENTSのResearch Evidence IngressとPROJECTのEVIDENCE INGRESSは必要時参照pointerのみとし、既存の各時計Research Ledgerを記録先とする。起動文字数予算は拡張しない。
+- **理由**：ユーザーが2026-10-29に、Wittnauerなどで根拠画像を繰り返し探す負担をなくすため、今後判断に使った画像の保存運用を採用し、GitHub規則への組み込みを明示指示した。
+- **旧状態・棄却**：URL・ハッシュ・一時outputの記載だけで画像本体の永続保管が完了したと扱う運用を禁止。新たな横断DB／画像台帳、第三者の無許諾画像を公開repoに格納する方式、過去の画像を保存済みに遡及認定する方式は採用しない。
+- **影響範囲**：`research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md`、`AGENTS.md`、`PROJECT.md`、`CHANGE_DECISIONS.md` の研究運用文書のみ。既存Ledgerの個別レコード、WATCH本文・画像、公開site、他言語、過去画像の回収は変更しない。
+- **検証状態**：作業branchに文書変更。GitHub差分・再取得・PRと必要CIを確認する。main反映・公開デプロイは未許可で実施しない。
+- **関連**：ユーザー2026-10-29「まずはそこをくみこもうか」、branch `docs/evidence-image-custody-20261029`、実装commits `0b465a6d5fd34058162b0a9977edc67de03a17df`（初版AGENTS）、`7b5eb6ee78a04284d1b65f8515bfb0a60da0902e`（初版PROJECT）、`75ab26b357eef7f93e06efe35acf3ff56d470b1f`（契約分離）、`ae2c6b6eeea140d7a70d9e788f64071c6139f0d5`（AGENTS起動軽量化）、`5ed1ccc03dc25bd82f9a6b72bc0fd75767c10479`（PROJECT起動軽量化）。既存Research Evidence Ingress、ARSA / Wittnauer Ledger。
+- **日時根拠**：作業ホスト実測 `TZ=Asia/Tokyo date` → `2026-10-29 14:58:17 +0900`（JST、分単位で記録）。
+
 ### 2026-10-19 14:01 JST — ARSA通常WATCHをJA / EN / DEで正式公開
 
 - **変更**：ARSA Blind Alarmの共通release flagを `published: true` へ変更し、通常WATCHをJA `/arsa-blind-alarm/`、EN `/en/arsa-blind-alarm/`、DE `/de/arsa-blind-alarm/` で公開する。3言語をOWNER'S NOTES一覧・HISTORY所有個体レール・sitemap・llmsへ接続する。一覧用の旧draft placeholderは掲載個体の正面写真 `IMG_3117-1.jpeg` へ置換し、`IMG_3118.jpeg` をfallbackにする。既存の3言語プレビューは `noindex` の確認用URLとして維持する。通常WATCHと同一正本を読む日本語RESEARCHは本文を維持し、検索説明だけを調査ページ用へ分ける。

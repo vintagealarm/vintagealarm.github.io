@@ -41,6 +41,7 @@ VINTAGE ALARMに関する**各ユーザーメッセージ**を処理するとき
 - write contractがある → その正本へ更新し、domain validator / diff / 再取得で確認してから分析・回答する。
 - write contractがない → AI都合で新しい保存先・sidecar・CURRENT台帳を作らない。既存ownerを確認し、必要ならHOLD / 提案に留める。
 - **normative ownerは原則1箇所、discovery pointerは複数可。** 別チャットでもPROJECTから更新経路を発見できる状態を維持する。
+- **研究判断の証拠画像** → `AGENTS.md` の案内から `research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md` を必要時に読む。
 - SNS / Instagram Insightsでは `measurement/.internal/.virtual/social/ROUTER.md` の **CANONICAL WRITE CONTRACT** を正とする。
 
 ## 1. 「焼いて」/ Council は絶対に独自解釈しない

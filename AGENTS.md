@@ -60,6 +60,8 @@ WATCH / OWNER'S NOTE用の個体研究は、特別な理由がない限り **Pie
 - 既存研究にこの順序から外れた枝がある場合、証拠は捨てずにCONTEXT / APPENDIX / HOLDへ降格して保持する。
 - **Research Evidence Ingress**: 別チャットを含む新しい画像・資料・一次資料・seller回答・ユーザー訂正を受け取った場合、対象WATCHに既存Research Ledgerがあれば**詳細証拠・出典・逐次履歴をLedgerへ追記**する。既存Research Map / Current Task Boardがある場合は、その証拠がCURRENT / OPEN / HOLD / next actionを変える時だけMapも更新する。公開WATCH本文は新証拠の受領だけで自動変更しない。既存Ledger / Mapが無いWATCHへ、AI都合で新しい台帳を作らない。
 
+**画像証拠の原本保存**：`research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md` を正本として必要時に読む。記録先は既存Research Ledger。新DBは作らない。
+
 ## 海外価格・費用の日本円併記（共通出力契約）
 
 - ユーザー向けに海外の時計・部品・ドナームーブメント・修理代・送料・返金／交渉額を提示するときは、**外貨の原額と日本円（JPY）換算を同じ行または近接した位置で必ず併記**する。ユーザーが外貨のみを明示指定した場合だけ例外。
