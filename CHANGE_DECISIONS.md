@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-29 17:28 JST — 研究画像証拠契約PR #272統合に向けたCI環境整合
+
+- **変更**：PR #272の `.github/workflows/astro-check.yml` で既存 `runs-on: ubuntu-latest` を `ubuntu-24.04` へ固定する。Playwright 1.55.0 と既存のChromiumインストール／描画検証／その他品質ゲートは変更せず実行する。
+- **理由**：2026-10-29のユーザー明示「一回統合しような」。統合前のPR #272 GitHub ActionsでUbuntu 26.04に対するPlaywright 1.55.0の非対応が原因でChromiumインストールに失敗。合格していないCIのまま品質確認を完了とせず、実行環境のみ最小修正して再検証する。
+- **旧状態・棄却**：サポート未確認の `ubuntu-latest` への依存を終了する。ブラウザ検査のスキップや品質ゲート緩和、無関係なPlaywright更新を採用しない。
+- **影響範囲**：PR #272の `.github/workflows/astro-check.yml` と本判断履歴のみ追加。画像証拠契約・PC保存条件、既存WATCH、研究台帳の個別データ、公開ページ本文、第三者画像・PC実ファイルは変更しない。
+- **検証状態**：CI環境差分をbranchへ保存。PR上のbuild・quality・replay・browser / rendered layoutを再実行し、全PASSであれば既存PRをmainへmerge、main正本の存在・PR状態を再取得して統合確認する。未取得の状態は成功と扱わない。
+- **関連**：PR #272、閉鎖済み重複PR #273、CI実行失敗 40833816544、workflow更新commit `ad1fd82fa9c5a507ae8298cddb8823cb93b3ad06`。
+- **日時根拠**：操作時実行ホストUTC `2026-10-29T08:28:21.459Z` → `2026-10-29 17:28 JST`。
+
 ### 2026-10-29 16:11 JST — 重複PR #273を#272へ整理し画像保全契約を一本化
 
 - **変更**：研究根拠画像の契約正本は `research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md`（PR #272）1つに固定する。#273にあった「比較用画像を対象個体の証拠へ自動昇格しない」および調査終了時の登録・取得・保全検証・HOLD件数報告を#272へ移す。PC保存許可・6段階の保管状態を維持。#273は履歴保存のうえsupersededとして閉じ、二重mergeを防止する。
