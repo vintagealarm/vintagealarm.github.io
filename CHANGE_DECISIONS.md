@@ -17,12 +17,12 @@
 
 ### 2026-10-29 14:58 JST — 研究判断に使った画像の保存状態・原典・権利を必須記録化
 
-- **変更**：AGENTSのResearch Evidence Ingressに、画像原本の取得・非公開保存・hash照合・権利・判断との対応を記録する単一のResearch Image Evidence Custody契約を追加。PROJECTのEVIDENCE INGRESSに発見用pointerを追加し、既存の各時計Research Ledgerを記録先とする。
+- **変更**：`research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md` に画像原本の取得・非公開保存・hash照合・権利・判断との対応を記録する単一契約を追加。AGENTSのResearch Evidence IngressとPROJECTのEVIDENCE INGRESSは必要時参照pointerのみとし、既存の各時計Research Ledgerを記録先とする。起動文字数予算は拡張しない。
 - **理由**：ユーザーが2026-10-29に、Wittnauerなどで根拠画像を繰り返し探す負担をなくすため、今後判断に使った画像の保存運用を採用し、GitHub規則への組み込みを明示指示した。
 - **旧状態・棄却**：URL・ハッシュ・一時outputの記載だけで画像本体の永続保管が完了したと扱う運用を禁止。新たな横断DB／画像台帳、第三者の無許諾画像を公開repoに格納する方式、過去の画像を保存済みに遡及認定する方式は採用しない。
-- **影響範囲**：`AGENTS.md`、`PROJECT.md`、`CHANGE_DECISIONS.md` の研究運用文書のみ。既存Ledgerの個別レコード、WATCH本文・画像、公開site、他言語、過去画像の回収は変更しない。
+- **影響範囲**：`research/IMAGE_EVIDENCE_CUSTODY_CONTRACT.md`、`AGENTS.md`、`PROJECT.md`、`CHANGE_DECISIONS.md` の研究運用文書のみ。既存Ledgerの個別レコード、WATCH本文・画像、公開site、他言語、過去画像の回収は変更しない。
 - **検証状態**：作業branchに文書変更。GitHub差分・再取得・PRと必要CIを確認する。main反映・公開デプロイは未許可で実施しない。
-- **関連**：ユーザー2026-10-29「まずはそこをくみこもうか」、branch `docs/evidence-image-custody-20261029`、実装commits `0b465a6d5fd34058162b0a9977edc67de03a17df`（AGENTS）／`7b5eb6ee78a04284d1b65f8515bfb0a60da0902e`（PROJECT）、既存Research Evidence Ingress、ARSA / Wittnauer Ledger。
+- **関連**：ユーザー2026-10-29「まずはそこをくみこもうか」、branch `docs/evidence-image-custody-20261029`、実装commits `0b465a6d5fd34058162b0a9977edc67de03a17df`（初版AGENTS）、`7b5eb6ee78a04284d1b65f8515bfb0a60da0902e`（初版PROJECT）、`75ab26b357eef7f93e06efe35acf3ff56d470b1f`（契約分離）、`ae2c6b6eeea140d7a70d9e788f64071c6139f0d5`（AGENTS起動軽量化）、`5ed1ccc03dc25bd82f9a6b72bc0fd75767c10479`（PROJECT起動軽量化）。既存Research Evidence Ingress、ARSA / Wittnauer Ledger。
 - **日時根拠**：作業ホスト実測 `TZ=Asia/Tokyo date` → `2026-10-29 14:58:17 +0900`（JST、分単位で記録）。
 
 ### 2026-10-19 14:01 JST — ARSA通常WATCHをJA / EN / DEで正式公開
