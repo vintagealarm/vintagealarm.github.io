@@ -22,7 +22,7 @@
 - **旧状態・棄却**：URL・ハッシュ・一時outputの記載だけで画像本体の永続保管が完了したと扱う運用を禁止。新たな横断DB／画像台帳、第三者の無許諾画像を公開repoに格納する方式、過去の画像を保存済みに遡及認定する方式は採用しない。
 - **影響範囲**：`AGENTS.md`、`PROJECT.md`、`CHANGE_DECISIONS.md` の研究運用文書のみ。既存Ledgerの個別レコード、WATCH本文・画像、公開site、他言語、過去画像の回収は変更しない。
 - **検証状態**：作業branchに文書変更。GitHub差分・再取得・PRと必要CIを確認する。main反映・公開デプロイは未許可で実施しない。
-- **関連**：ユーザー2026-10-29「まずはそこをくみこもうか」、branch `docs/evidence-image-custody-20261029`、既存Research Evidence Ingress、ARSA / Wittnauer Ledger。
+- **関連**：ユーザー2026-10-29「まずはそこをくみこもうか」、branch `docs/evidence-image-custody-20261029`、実装commits `0b465a6d5fd34058162b0a9977edc67de03a17df`（AGENTS）／`7b5eb6ee78a04284d1b65f8515bfb0a60da0902e`（PROJECT）、既存Research Evidence Ingress、ARSA / Wittnauer Ledger。
 - **日時根拠**：作業ホスト実測 `TZ=Asia/Tokyo date` → `2026-10-29 14:58:17 +0900`（JST、分単位で記録）。
 
 ### 2026-10-19 14:01 JST — ARSA通常WATCHをJA / EN / DEで正式公開
