@@ -15,6 +15,16 @@
 
 ---
 
+### 2026-10-29 14:58 JST — 研究判断画像の保全と出典・保存検証を標準化
+
+- **変更**：`AGENTS.md` の既存Research Evidence Ingressに接続する単一のResearch Image Evidence Custody契約を追加。判断に使用した画像の出典、個体／主張との対応、原画像と加工物、実ファイルのSHA-256、永続保存の再読検証、公開権利、未保存状態を既存Research Ledgerに登録する。起動ルーター`PROJECT.md`から参照可能にする。
+- **理由**：Wittnauer 10WAで画像の再探索が発生し、ARSAではURL・SHA-256・作業用ファイル記録があっても永続保管が確認できないことが判明。証拠出典の管理と画像バイトの保全を同一視できない。
+- **旧状態・棄却**：従来は画像原本の永続検証を必須とせず、URL・ファイル名・ハッシュ・一時作業フォルダを保管済みと誤読し得た。新規の公開画像庫や重複研究DB、権利未確認の書籍スキャン公開、過去全画像の自動回収は採用しない。
+- **影響範囲**：研究運用規則と発見ルーター、変更履歴のみ。研究の既存事実・個別Ledger・WATCH本文・画像バイト・公開サイト・SNS・個人時計台帳は変更しない。
+- **検証状態**：作業branchの実ファイルを再取得し、規則とpointer、前後文脈、対象外変更0を確認する。実際の永続画像保存ワークフロー、著作物ごとの保存許諾、別チャットの実運用は今回未実証であり保証しない。
+- **関連**：U提案 → U採用（2026-10-29の会話で正式に組み込むことを指示）。branch `docs/research-image-evidence-custody-20261029`。
+- **日時根拠**：実行ホストで確認した `2026-10-29T14:58:13+09:00`。GitHub commit日時とは分離する。
+
 ### 2026-10-19 14:01 JST — ARSA通常WATCHをJA / EN / DEで正式公開
 
 - **変更**：ARSA Blind Alarmの共通release flagを `published: true` へ変更し、通常WATCHをJA `/arsa-blind-alarm/`、EN `/en/arsa-blind-alarm/`、DE `/de/arsa-blind-alarm/` で公開する。3言語をOWNER'S NOTES一覧・HISTORY所有個体レール・sitemap・llmsへ接続する。一覧用の旧draft placeholderは掲載個体の正面写真 `IMG_3117-1.jpeg` へ置換し、`IMG_3118.jpeg` をfallbackにする。既存の3言語プレビューは `noindex` の確認用URLとして維持する。通常WATCHと同一正本を読む日本語RESEARCHは本文を維持し、検索説明だけを調査ページ用へ分ける。
