@@ -42,7 +42,7 @@ VINTAGE ALARMに関する**各ユーザーメッセージ**を処理するとき
 - write contractがない → AI都合で新しい保存先・sidecar・CURRENT台帳を作らない。既存ownerを確認し、必要ならHOLD / 提案に留める。
 - **normative ownerは原則1箇所、discovery pointerは複数可。** 別チャットでもPROJECTから更新経路を発見できる状態を維持する。
 - SNS / Instagram Insightsでは `measurement/.internal/.virtual/social/ROUTER.md` の **CANONICAL WRITE CONTRACT** を正とする。
-- **研究判断に使った画像の保全・登録**：`AGENTS.md` の **Research Image Evidence Custody** を単一の手順正本として参照し、対象Research Ledgerへ記録する。画像ファイル自体の永続保存可否・権利・保存検証状態を混同しない。
+- **研究判断に使った画像の保全・登録**：詳細正本は `.codex/RESEARCH_IMAGE_EVIDENCE_CUSTODY.md`。`AGENTS.md` のResearch Evidence Ingressを経て対象Research Ledgerへ記録する。
 
 ## 1. 「焼いて」/ Council は絶対に独自解釈しない
 
