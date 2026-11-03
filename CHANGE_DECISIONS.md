@@ -2492,3 +2492,14 @@
 - **検証状態**：GitHub mainへの書込と正本再取得は確認済み。集計スクリプトと同じ節・field/時刻・割合のロジックを入力全件に当てた手元再検証はerrors 0、Basis最新4観測がparser対象になることを確認。実際の `npm run check:instagram-insights` / `npm run instagram:report` のプロセス実行は未実施でありPASSと呼ばない。
 - **関連**：`IG-BAS-003`、`IMG_3290.jpeg`〜`IMG_3297.png`、commit `464e9051a9578d6dfaf477b1932844006a80f5c8` / `326bd02259206854508b7791422f57c1efc19414` / `11ab9fa2b6e552c515bc3c9a52bdbd6f1e142898`。
 - **日時根拠**：実行ホスト `TZ=Asia/Tokyo date` = 2026-10-28 09:12 JST。観測時刻08:36–08:37はユーザースクリーンショットの端末表示であり、記録実行時刻とは区別。
+
+
+### 2026-11-03 11:16 JST — ARSA記事の実寸レイアウト比較ページを独立追加
+
+- **変更**：既存ARSA WATCH正本の本文・出典・個体写真を読み込む `/lab/arsa-reading/` を追加。A（本文中心）／B（写真併走）／C（章ごと）をブラウザで切替でき、写真は原画像へ拡大リンク。検索除外 `noindex,nofollow,noarchive`、sitemap非掲載。build/live/layoutの検査対象に同routeを追加。
+- **理由**：Uが「テストページを出そうね」と実寸ページの提示を再指示。前回の小さなチャット内プレビューでは本文と写真を判読できなかったため、閲覧できる独立URLへ移す。A/B/Cの具体的な見せ方はAが実装候補として構成し、ユーザー採用は未確定。
+- **旧状態・棄却**：チャット内の縮小プレビューを実寸確認と扱う方法は不採用。既存WATCH本文・OWNER'S NOTE・写真の内容・資料判断は変更しない。比較案を本番の正式デザインとして確定しない。
+- **影響範囲**：`src/pages/lab/arsa-reading/index.astro`、`scripts/check-build-output.mjs`、`scripts/check-live-site.mjs`、`scripts/check-layout.mjs`、本履歴。通常ARSA WATCH・他ページ・公開ナビゲーション・sitemapは変更しない。
+- **検証状態**：GitHub作業branchへの書込みを確認。PR CIのAstro build・quality・Playwright 320/390/768/1280pxとmain deploy後のlive確認は本記録時点で未実行。結果を実行後に別途確認する。
+- **関連**：branch `feat/arsa-reading-lab-20261103`、実装・検査commit `25f1dad1` / `7ee048dd` / `31bad35b` / `73fc6dc7`、対象 `/lab/arsa-reading/`、ARSA WATCH正本 `src/content/watches/arsa-blind-alarm.md`。
+- **日時根拠**：実行環境のUTC `2026-11-03T02:16:30.044Z` → `2026-11-03 11:16 JST`（Asia/Tokyoでフォーマット）。

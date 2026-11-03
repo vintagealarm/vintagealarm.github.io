@@ -344,6 +344,17 @@ for (let attempt = 1; attempt <= 12; attempt += 1) {
     }
   }
 
+  // Keep the layout test reachable without exposing it in search.
+  const arsaLab = await get('lab/arsa-reading/');
+  if (!arsaLab.ok) {
+    failures.push('lab/arsa-reading/: HTTP ' + arsaLab.status);
+  } else {
+    for (const marker of ['data-arsa-lab', 'data-layout-option="a"', 'data-layout-option="b"', 'data-layout-option="c"', 'chapter-05', 'noindex,nofollow,noarchive']) {
+      if (!arsaLab.text.includes(marker)) failures.push('lab/arsa-reading/: missing ' + marker);
+    }
+  }
+  if (sitemap.ok && sitemap.text.includes('/lab/arsa-reading/')) failures.push('lab/arsa-reading/: route leaked into sitemap');
+
   if (!failures.length) {
     console.log('Live publication check: PASS — all localized public sections, EN/DE FULL RESEARCH WATCH pages, Chronomètre research and Japanese publication state verified.');
     process.exit(0);
