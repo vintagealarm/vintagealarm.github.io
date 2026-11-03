@@ -568,6 +568,18 @@ for (const file of fs.readdirSync(dist, { recursive: true }).filter((file) => St
   if (/\.ja-phrase\b/.test(css)) failures.push(`${file}: legacy ja-phrase nowrap CSS remains`);
 }
 
+// ARSA article layout comparison: full-size public test surface, excluded from search.
+const arsaLabPath = path.join(dist, 'lab/arsa-reading/index.html');
+if (!fs.existsSync(arsaLabPath)) {
+  failures.push('ARSA reading lab: generated page missing');
+} else {
+  const labHtml = fs.readFileSync(arsaLabPath, 'utf8');
+  for (const marker of ['data-arsa-lab', 'data-layout-option="a"', 'data-layout-option="b"', 'data-layout-option="c"', 'chapter-01', 'chapter-05', 'noindex,nofollow,noarchive', '/images/IMG_3117-1.jpeg']) {
+    if (!labHtml.includes(marker)) failures.push('ARSA reading lab: marker missing: ' + marker);
+  }
+  if (sitemap.includes('/lab/arsa-reading/')) failures.push('ARSA reading lab: test route leaked into sitemap');
+}
+
 if (failures.length) {
   console.error('Build output validation failed:');
   for (const failure of failures) console.error(`- ${failure}`);
