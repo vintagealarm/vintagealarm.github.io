@@ -2497,7 +2497,7 @@
 ### 2026-11-03 11:16 JST — ARSA記事の実寸レイアウト比較ページを独立追加
 
 - **変更**：既存ARSA WATCH正本の本文・出典・個体写真を読み込む `/lab/arsa-reading/` を追加。A（本文中心）／B（写真併走）／C（章ごと）をブラウザで切替でき、写真は原画像へ拡大リンク。検索除外 `noindex,nofollow,noarchive`、sitemap非掲載。build/live/layoutの検査対象に同routeを追加。
-- **理由／起点**：Uが「テストページを出そうね」と実寸ページの提示を再指示。前回の小さなチャット内プレビューでは本文と写真を判読できなかったため、閲覧できる独立URLへ移す。A/B/Cの具体的な見せ方はAが実装候補として構成し、ユーザー採用は未確定。
+- **理由**：Uが「テストページを出そうね」と実寸ページの提示を再指示。前回の小さなチャット内プレビューでは本文と写真を判読できなかったため、閲覧できる独立URLへ移す。A/B/Cの具体的な見せ方はAが実装候補として構成し、ユーザー採用は未確定。
 - **旧状態・棄却**：チャット内の縮小プレビューを実寸確認と扱う方法は不採用。既存WATCH本文・OWNER'S NOTE・写真の内容・資料判断は変更しない。比較案を本番の正式デザインとして確定しない。
 - **影響範囲**：`src/pages/lab/arsa-reading/index.astro`、`scripts/check-build-output.mjs`、`scripts/check-live-site.mjs`、`scripts/check-layout.mjs`、本履歴。通常ARSA WATCH・他ページ・公開ナビゲーション・sitemapは変更しない。
 - **検証状態**：GitHub作業branchへの書込みを確認。PR CIのAstro build・quality・Playwright 320/390/768/1280pxとmain deploy後のlive確認は本記録時点で未実行。結果を実行後に別途確認する。
