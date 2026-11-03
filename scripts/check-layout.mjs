@@ -48,7 +48,8 @@ const routes = [
   'de/cyma-time-o-vox/chronometre/',
   ...germanWatchRoutes,
   ...arsaPreviewRoutes,
-  'history/smartwatch/'
+  'history/smartwatch/',
+  'lab/arsa-reading/'
 ];
 const widths = [320, 390, 768];
 
@@ -93,6 +94,28 @@ try {
       }
       if (result.brokenImages.length) {
         failures.push(`${width}px ${route || '/'}: broken images: ${result.brokenImages.join(', ')}`);
+      }
+
+      if (route === 'lab/arsa-reading/') {
+        const meta = await page.evaluate(() => ({
+          robots: document.querySelector('meta[name="robots"]')?.getAttribute('content') || '',
+          paragraphs: document.querySelectorAll('.lab-paragraph').length,
+          chapters: document.querySelectorAll('.lab-chapter').length,
+          fontSize: parseFloat(getComputedStyle(document.querySelector('.lab-paragraph')).fontSize)
+        }));
+        if (!meta.robots.includes('noindex')) failures.push(width + 'px ARSA reading lab: noindex missing');
+        if (meta.chapters !== 5 || meta.paragraphs < 10) failures.push(width + 'px ARSA reading lab: article content incomplete');
+        if (meta.fontSize < 16) failures.push(width + 'px ARSA reading lab: body text below 16px');
+        for (const variant of ['a', 'b', 'c']) {
+          await page.locator('[data-layout-option="' + variant + '"]').click();
+          const state = await page.evaluate(() => ({
+            mode: document.querySelector('[data-arsa-lab]')?.getAttribute('data-mode'),
+            active: [...document.querySelectorAll('[data-layout-option][aria-pressed="true"]')].map((node) => node.getAttribute('data-layout-option')),
+            overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+          }));
+          if (state.mode !== variant || state.active.join('') !== variant) failures.push(width + 'px ARSA reading lab: switch failed for ' + variant);
+          if (state.overflow > 1) failures.push(width + 'px ARSA reading lab: ' + variant + ' overflow ' + state.overflow);
+        }
       }
 
       if (arsaPreviewRoutes.includes(route) && width <= 390) {
@@ -457,6 +480,28 @@ try {
     }
 
     await context.close();
+  }
+
+  const desktopContext = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  try {
+    const desktopPage = await desktopContext.newPage();
+    const response = await desktopPage.goto(new URL('lab/arsa-reading/', root).href, { waitUntil: 'networkidle' });
+    if (!response?.ok()) {
+      failures.push('1280px ARSA reading lab: HTTP ' + (response?.status() ?? 0));
+    } else {
+      for (const variant of ['a', 'b', 'c']) {
+        await desktopPage.locator('[data-layout-option="' + variant + '"]').click();
+        const state = await desktopPage.evaluate(() => ({
+          columns: getComputedStyle(document.querySelector('.lab-chapter')).gridTemplateColumns.trim().split(/\s+/).length,
+          overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          broken: [...document.images].filter((img) => img.complete && img.naturalWidth === 0).length
+        }));
+        if (state.columns !== (variant === 'a' ? 1 : 2)) failures.push('1280px ARSA reading lab: unexpected grid for ' + variant);
+        if (state.overflow > 1 || state.broken) failures.push('1280px ARSA reading lab: overflow or broken images in ' + variant);
+      }
+    }
+  } finally {
+    await desktopContext.close();
   }
 } finally {
   await browser.close();
