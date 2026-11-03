@@ -2501,5 +2501,5 @@
 - **旧状態・棄却**：チャット内の縮小プレビューを実寸確認と扱う方法は不採用。既存WATCH本文・OWNER'S NOTE・写真の内容・資料判断は変更しない。比較案を本番の正式デザインとして確定しない。
 - **影響範囲**：`src/pages/lab/arsa-reading/index.astro`、`scripts/check-build-output.mjs`、`scripts/check-live-site.mjs`、`scripts/check-layout.mjs`、本履歴。通常ARSA WATCH・他ページ・公開ナビゲーション・sitemapは変更しない。
 - **検証状態**：GitHub作業branchへの書込みを確認。PR CIのAstro build・quality・Playwright 320/390/768/1280pxとmain deploy後のlive確認は本記録時点で未実行。結果を実行後に別途確認する。
-- **関連**：branch `feat/arsa-reading-lab-20261103`、対象 `/lab/arsa-reading/`、ARSA WATCH正本 `src/content/watches/arsa-blind-alarm.md`。
+- **関連**：branch `feat/arsa-reading-lab-20261103`、実装・検査commit `25f1dad1` / `7ee048dd` / `31bad35b` / `73fc6dc7`、対象 `/lab/arsa-reading/`、ARSA WATCH正本 `src/content/watches/arsa-blind-alarm.md`。
 - **日時根拠**：実行環境のUTC `2026-11-03T02:16:30.044Z` → `2026-11-03 11:16 JST`（Asia/Tokyoでフォーマット）。
