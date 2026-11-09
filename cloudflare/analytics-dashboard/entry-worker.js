@@ -109,7 +109,7 @@ export class ArrivalProbeStore {
       try { snapshot = await request.json(); } catch { return Response.json({ error: "Invalid JSON" }, { status: 400 }); }
       const host = String(snapshot?.host || "");
       const date = String(snapshot?.dayUtc || "");
-      if (!host || host.length > 200 || !/^\\d{4}-\\d{2}-\\d{2}$/.test(date) ||
+      if (!host || host.length > 200 || !/^\d{4}-\d{2}-\d{2}$/.test(date) ||
           !isUnsampledArchiveSnapshot(snapshot)) {
         return Response.json({ error: "Sampled, incomplete, or invalid archive snapshot" }, { status: 422 });
       }
