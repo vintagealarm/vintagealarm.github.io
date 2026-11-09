@@ -344,8 +344,10 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
   const button=document.getElementById("aiReadable");
   const original=button.textContent;
   button.disabled=true;
-  button.textContent="ISSUING…";
-  try{
+  button.textContent="COPYING…";
+  // This call must occur before any await: Safari loses transient activation
+  // if we fetch the signed URL first, then call clipboard.writeText().
+  const copying=writeGeneratedClipboard(async()=>{
     const params=typeof analyticsQuery==="function"?analyticsQuery():new URLSearchParams({range:windowKey});
     const response=await fetch('/api/ai-readable-link?'+params.toString(),{cache:"no-store"});
     const data=await response.json();
@@ -353,16 +355,14 @@ document.getElementById("aiReadable")?.addEventListener("click",async()=>{
     const sharedUrl=new URL(data.url);
     const discovery=buildDiscoveryShare(localStorage,true);
     sharedUrl.hash+=(sharedUrl.hash?";":"")+"discovery="+encodeURIComponent(JSON.stringify(discovery));
-    try{
-      await navigator.clipboard.writeText(sharedUrl.toString());
-      button.textContent="COPIED";
-    }catch{
-      window.prompt("Copy AI readable URL",sharedUrl.toString());
-      button.textContent="READY";
-    }
+    return sharedUrl.toString();
+  });
+  try{
+    await copying;
+    button.textContent="COPIED";
   }catch(error){
     button.textContent="ERROR";
-    alert("AI URL: "+error.message);
+    alert("AI URL: 自動コピーに失敗しました。"+error.message);
   }finally{
     setTimeout(()=>{button.textContent=original;button.disabled=false;},1800);
   }
