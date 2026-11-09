@@ -21,6 +21,13 @@ export function isUnsampledArchiveSnapshot(snapshot) {
   // Both queries must cover the same completed day, not just return a 200 response.
   const totalViews = Number(account.total[0]?.count || 0);
   const totalVisits = Number(account.total[0]?.sum?.visits || 0);
+  const sum = (field, metric) => account[field].reduce((n, row) =>
+    n + Number(metric === "count" ? row?.count || 0 : row?.sum?.visits || 0), 0);
+  // A missing grouped row must not be silently classified as an exact archive.
+  if (["pages", "flowSummary", "countries", "devices"].some((field) =>
+    sum(field, "count") !== totalViews) ||
+    ["pages", "channels", "flowSummary"].some((field) =>
+      sum(field, "visits") !== totalVisits)) return false;
   if (snapshot.trend.reduce((n, point) => n + Number(point?.pageviews || 0), 0) !== totalViews ||
       snapshot.trend.reduce((n, point) => n + Number(point?.visits || 0), 0) !== totalVisits) return false;
   return Number.isFinite(totalViews) && Number.isFinite(totalVisits) &&
