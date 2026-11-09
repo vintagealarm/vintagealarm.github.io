@@ -455,3 +455,12 @@ CSV Import履歴は現在browser localStorageへ保存する。
 - Daily archive trend points are used only with `date`-based trend queries; 30m / 1h source buckets keep their original Cloudflare querying path, which can be sampled for older history.
 - `archiveCoverage.archivedHostDays / eligibleHostDays` and the portable URL's `archive=A/B` state how much of the combined long-range observation has a stored unsampled daily basis. These are **host-days**, not visits or unique people. If even one fallback slice is sampled, the combined quality remains `SAMPLED / ESTIMATE`.
 - The initial archive cannot recover the site's already-downsampled earlier dates. Coverage increases only after the scheduled capture executes; GitHub merge, deploy, durable storage health, and actual historic quality must be verified separately.
+
+### AI COPY / AI URL — Safari one-tap clipboard contract (2026-11-09)
+
+- Both existing share controls must **copy into the clipboard on a single tap**; they must not show a manual select-and-copy prompt as the normal path.
+- On iOS Safari, clipboard writes require user activation. Calling `navigator.clipboard.writeText()` after awaiting a network request can lose that activation. The handler must call `navigator.clipboard.write()` synchronously inside the click, with a `ClipboardItem` whose `text/plain` Blob is resolved from the asynchronous signed export / relay request.
+- `AI URL` continues to copy the verified short relay URL with the user browser's discovery fragment. `AI COPY` continues to copy the JSON export with the browser-local SEO/GEO import. Range and bucket must be preserved.
+- Show `COPIED` only when the clipboard write promise succeeds. On network or permission error, show `ERROR` and the actual failure; do not quietly downgrade to a manual prompt or claim success.
+- A website cannot silently write to an iOS Safari clipboard at page-load time, nor paste into a separate ChatGPT conversation. A **single user tap to copy** remains the supported contract; pasting into ChatGPT still requires user action. This limitation is browser security, not a promise of completely automatic cross-app delivery.
+- Include the browser-gesture regression fixture in both the PR check and deployment checks.
