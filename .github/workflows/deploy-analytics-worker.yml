@@ -44,6 +44,8 @@ jobs:
       - name: Check X profile attribution wrapper
         run: node check-profile-wrapper.mjs
 
+      - name: Verify Safari-compatible AI COPY and AI URL clipboard gesture
+        run: node check-clipboard-gesture.mjs
       - name: Check production AI URL entry path
         run: node check-entry-worker.mjs
 
