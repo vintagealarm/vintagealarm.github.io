@@ -2534,34 +2534,49 @@ document.getElementById("bucketSelect").addEventListener("change",(event)=>{
   bucketKey=event.target.value||"auto";
   load();
 });
+// Safari/iOS require the Clipboard API call inside the original click handler.
+// The ClipboardItem's promised Blob allows the analytics request to finish later
+// without losing the gesture. Do not display "COPIED" until the write resolves.
+function writeGeneratedClipboard(makeText){
+  if(!navigator.clipboard)return Promise.reject(new Error("Clipboard API unavailable"));
+  const textPromise=Promise.resolve().then(makeText).then(value=>String(value));
+  if(typeof ClipboardItem!=="undefined"&&typeof navigator.clipboard.write==="function"){
+    try{
+      const item=new ClipboardItem({"text/plain":textPromise.then(value=>new Blob([value],{type:"text/plain"}))});
+      return navigator.clipboard.write([item]);
+    }catch(error){
+      textPromise.catch(()=>{});
+      return Promise.reject(error);
+    }
+  }
+  // Compatibility fallback. Some browsers allow writeText after the request;
+  // WebKit is covered by the ClipboardItem branch above.
+  return textPromise.then(value=>navigator.clipboard.writeText(value));
+}
 document.getElementById("aiShare").addEventListener("click",async()=>{
   const button=document.getElementById("aiShare");
   const original=button.textContent;
   button.disabled=true;
-  button.textContent="WAIT";
-  try{
+  button.textContent="COPYING…";
+  // Invoke the clipboard write synchronously inside the user gesture.
+  const copying=writeGeneratedClipboard(async()=>{
     const shareParams=analyticsQuery();shareParams.set("ttl","604800");
     const linkResponse=await fetch("/api/ai-share-link?"+shareParams.toString(),{cache:"no-store"});
     const linkData=await linkResponse.json();
     if(!linkResponse.ok||linkData.error)throw new Error(linkData.error||("HTTP "+linkResponse.status));
-
     const exportResponse=await fetch(linkData.url,{cache:"no-store"});
     const exportData=await exportResponse.json();
     if(!exportResponse.ok||exportData.error)throw new Error(exportData.error||("HTTP "+exportResponse.status));
-
-    const payload=JSON.stringify({...exportData,discovery:buildDiscoveryShare(localStorage),
+    return JSON.stringify({...exportData,discovery:buildDiscoveryShare(localStorage),
       discoveryScope:"Browser-imported SEO/GEO and manual index records attached by AI COPY; server analytics limitations apply only to the server export."});
-    try{
-      await navigator.clipboard.writeText(payload);
-      button.textContent="COPIED";
-    }catch{
-      window.prompt("Copy analytics JSON",payload);
-      button.textContent="READY";
-    }
-    setTimeout(()=>{button.textContent=original;button.disabled=false;},1800);
+  });
+  try{
+    await copying;
+    button.textContent="COPIED";
   }catch(error){
     button.textContent="ERROR";
-    alert("AI COPY: "+error.message);
+    alert("AI COPY: 自動コピーに失敗しました。"+error.message);
+  }finally{
     setTimeout(()=>{button.textContent=original;button.disabled=false;},1800);
   }
 });
