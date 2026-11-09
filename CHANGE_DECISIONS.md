@@ -2511,5 +2511,5 @@
 - **旧状態・棄却**：PR #275は保存・集計精度のみ扱い、既存のワンタップ動作を検証せず「未実装の別機能」と説明した状態を棄却。WebKitでgestureを失う設計、無言の手動コピープロンプト、コピー未成功の`READY`表示を採用しない。ブラウザ無操作でのクリップボード書き換え／ChatGPTへの自動貼り付けが実現可能だとは主張しない。
 - **影響範囲**：`cloudflare/analytics-dashboard/worker.js`（AI COPY＋共通helper）、`profile-worker.js`（AI URL）、`check-clipboard-gesture.mjs`、2つのAnalytics workflow、`measurement/metrics.md`、Analytics README、本履歴。WA本文・SNS・他PRは無変更。
 - **検証状態**：PR #275の作業branchに修正済み。回帰テストはクリップボードAPI呼出しが通信完了前か、2ボタンが正しい文字列をコピーするか、手動プロンプトを呼ばないかを検証する。GitHub CI実走とiOS Safari実機、Cloudflare deployは別の検証段階。main未merge・本番未反映。
-- **関連**：PR #275、既存スクリーンショット`IMG_3432.png`、WebKit Clipboard API https://webkit.org/blog/10855/async-clipboard-api/ 、WebKit issue https://bugs.webkit.org/show_bug.cgi?id=222262 、コミット`67ebcf72`, `830b4d5b`, `97506ff8`, `116409dc`, `e63cae1b`。
+- **関連**：PR #275、既存スクリーンショット`IMG_3432.png`、WebKit Clipboard API https://webkit.org/blog/10855/async-clipboard-api/ 、WebKit issue https://bugs.webkit.org/show_bug.cgi?id=222262 、コミット`67ebcf72`, `830b4d5b`, `97506ff8`, `116409dc`, `e63cae1b`, `3f0e0b65`, `499e7975`。
 - **日時根拠**：実行ホスト`2026-11-09T03:13:20Z → 2026-11-09 12:13:20 JST`。ユーザーの指摘時刻・画面撮影時刻とは区別。
