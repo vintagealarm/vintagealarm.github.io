@@ -222,3 +222,20 @@ Dashboard range and grouping are independent.
 - Signed AI export links preserve RANGE / CUSTOM dates / GROUP BY so dashboard and AI analysis use the same slice.
 
 - AI URL v2 preserves RANGE / GROUP BY / CUSTOM dates in the short relay path. Existing /s/v1/ preset links remain readable for compatibility.
+
+
+## Rolling 30D sampling mitigation (2026-11-09 implementation scope)
+
+Cloudflare Web Analytics retains 100% (unsampled) beacons for about 7 days, then downsamples older data. A 30D range that displays all query groups at ×10 is not precise for sparse VA traffic. Shorter GraphQL requests alone cannot reverse that loss.
+
+To improve **future** 30D / ALL / long CUSTOM measurements, this Worker saves completed UTC day aggregates while they are unsampled. The existing SQLite Durable Object stores the daily period groups and a matching daily trend. A cron at 02:20 UTC captures the last six completed days, skipping already-stored days; a sampled, truncated, or mismatched day is rejected. Long-range queries preferentially use archived *full* UTC days, and fill missing/partial intervals from GraphQL. The response, dashboard, and AI URL report archived host-day coverage, while sampled fallback portions retain their `SAMPLED / ESTIMATE` status.
+
+This preserves the existing Cloudflare measurement definitions, does not substitute Arrival Probe counts for Visits, does not require a new subscription, and does not claim to recover the past. Hourly / half-hourly historical source trends are still queried from Cloudflare rather than being reconstructed from daily archives. The archive is not a source for 7D live measurements.
+
+Validation: `node check-analytics-archive.mjs`, `node check-entry-worker.mjs`, `node check-generated-html.mjs`, `node check-profile-wrapper.mjs`; check both PR CI and actual Worker deployment separately.
+
+## AI COPY / AI URL — iOS Safari clipboard fix
+
+A single tap of either button copies its contents. Safari requires a clipboard write to start inside the click gesture. The production handlers now synchronously call `navigator.clipboard.write([new ClipboardItem({ "text/plain": Promise<Blob> })])`, allowing the signed export or short relay API request to finish afterward. This fixes the prior `await fetch(...); clipboard.writeText(...)` ordering that routinely fell back to the iOS manual text-selection prompt. `COPIED` is shown only after successful write; failures show `ERROR`, not `READY` or a manual copy dialog. Existing payload format, auth, expiry and discovery integration are unchanged. Test with `node check-clipboard-gesture.mjs`.
+
+This is **one tap to copy**, not silent clipboard modification on page load or automatic pasting into ChatGPT; browser security requires a user gesture and blocks cross-app paste automation.

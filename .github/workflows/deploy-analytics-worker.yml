@@ -32,15 +32,20 @@ jobs:
       - name: Check worker JavaScript
         run: |
           node --check worker.js
+          node --check analytics-archive.js
           node --check profile-worker.js
           node --check entry-worker.js
 
+      - name: Verify unsampled archive and range planning
+        run: node check-analytics-archive.mjs
       - name: Check generated dashboard JavaScript
         run: node check-generated-html.mjs
 
       - name: Check X profile attribution wrapper
         run: node check-profile-wrapper.mjs
 
+      - name: Verify Safari-compatible AI COPY and AI URL clipboard gesture
+        run: node check-clipboard-gesture.mjs
       - name: Check production AI URL entry path
         run: node check-entry-worker.mjs
 

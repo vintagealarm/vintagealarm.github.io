@@ -1,5 +1,6 @@
 import profileWorker from "./profile-worker.js";
-import baseWorker from "./worker.js";
+import baseWorker, { captureDailyArchiveSnapshot } from "./worker.js";
+import { isUnsampledArchiveSnapshot, ARCHIVE_DAY_MS } from "./analytics-archive.js";
 
 const AI_READABLE_RELAY = "https://vintage-alarm-ai-relay.pages.dev/";
 const AI_READABLE_TTL_SECONDS = 15 * 60;
@@ -62,6 +63,13 @@ export class ArrivalProbeStore {
         source TEXT NOT NULL
       );
       CREATE INDEX IF NOT EXISTS arrivals_ts_idx ON arrivals(ts);
+      CREATE TABLE IF NOT EXISTS analytics_daily_archive (
+        host TEXT NOT NULL,
+        day_utc TEXT NOT NULL,
+        snapshot_json TEXT NOT NULL,
+        captured_at INTEGER NOT NULL,
+        PRIMARY KEY (host, day_utc)
+      );
     `);
   }
 
@@ -69,6 +77,47 @@ export class ArrivalProbeStore {
     const url = new URL(request.url);
 
     if (url.pathname === "/health" && request.method === "HEAD") {
+      return new Response(null, { status: 204 });
+    }
+
+    // Private Durable Object stub routes: never exposed as public Worker routes.
+    if (url.pathname === "/archive/query" && request.method === "POST") {
+      let payload;
+      try { payload = await request.json(); } catch { return Response.json({ error: "Invalid JSON" }, { status: 400 }); }
+      const host = String(payload?.host || "");
+      const from = Date.parse(String(payload?.start || ""));
+      const to = Date.parse(String(payload?.end || ""));
+      if (!host || host.length > 200 || !Number.isFinite(from) || !Number.isFinite(to) || to <= from) {
+        return Response.json({ error: "Invalid archive query" }, { status: 400 });
+      }
+      const rows = this.sql.exec(
+        "SELECT day_utc, snapshot_json FROM analytics_daily_archive WHERE host = ? AND day_utc >= ? AND day_utc <= ? ORDER BY day_utc LIMIT 730",
+        host, new Date(from).toISOString().slice(0, 10), new Date(to).toISOString().slice(0, 10),
+      ).toArray();
+      const records = [];
+      for (const row of rows) {
+        try {
+          const record = JSON.parse(String(row.snapshot_json || ""));
+          if (isUnsampledArchiveSnapshot(record) && record.dayUtc === row.day_utc) records.push(record);
+        } catch { /* Corrupt rows are not used as exact analytics. */ }
+      }
+      return Response.json({ records });
+    }
+
+    if (url.pathname === "/archive/write" && request.method === "POST") {
+      let snapshot;
+      try { snapshot = await request.json(); } catch { return Response.json({ error: "Invalid JSON" }, { status: 400 }); }
+      const host = String(snapshot?.host || "");
+      const date = String(snapshot?.dayUtc || "");
+      if (!host || host.length > 200 || !/^\d{4}-\d{2}-\d{2}$/.test(date) ||
+          !isUnsampledArchiveSnapshot(snapshot)) {
+        return Response.json({ error: "Sampled, incomplete, or invalid archive snapshot" }, { status: 422 });
+      }
+      // Immutable daily records: a late sampled re-fetch must never overwrite an exact day.
+      this.sql.exec(
+        "INSERT OR IGNORE INTO analytics_daily_archive (host, day_utc, snapshot_json, captured_at) VALUES (?, ?, ?, ?)",
+        host, date, JSON.stringify(snapshot), Date.now(),
+      );
       return new Response(null, { status: 204 });
     }
 
@@ -252,6 +301,49 @@ async function attachArrivalProbe(payload, env) {
     ...payload,
     arrivalProbe: await queryArrivalProbe(env, payload.windowStart, payload.windowEnd),
   };
+}
+
+// One UTC day closes at midnight. Re-query up to six completed days to heal
+// missed cron runs while source data is still inside Cloudflare's 7-day raw window.
+export async function archiveRecentCompletedDays(env, now = new Date()) {
+  const store = arrivalProbeStore(env);
+  if (!store) return { stored: 0, reason: "archive-storage-unavailable" };
+  const clock = new Date(now).getTime();
+  const today = Math.floor(clock / ARCHIVE_DAY_MS) * ARCHIVE_DAY_MS;
+  const hosts = [...new Set([
+    env.REQUEST_HOST || "vintagealarm.github.io",
+    env.LEGACY_REQUEST_HOST || "orima1995-create.github.io",
+  ])];
+  let stored = 0;
+  let skipped = 0;
+  for (const host of hosts) {
+    const query = await store.fetch("https://arrival-probe.internal/archive/query", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        host, start: new Date(today - 6 * ARCHIVE_DAY_MS).toISOString(),
+        end: new Date(today).toISOString(),
+      }),
+    });
+    if (!query.ok) throw new Error("Analytics archive query failed.");
+    const existing = new Set(((await query.json()).records || []).map((row) => row.dayUtc));
+    for (let daysAgo = 6; daysAgo >= 1; daysAgo -= 1) {
+      const dayUtc = new Date(today - daysAgo * ARCHIVE_DAY_MS).toISOString().slice(0, 10);
+      if (existing.has(dayUtc)) { skipped += 1; continue; }
+      try {
+        const snapshot = await captureDailyArchiveSnapshot(env, host, dayUtc);
+        if (!snapshot) { skipped += 1; continue; }
+        const written = await store.fetch("https://arrival-probe.internal/archive/write", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...snapshot, host }),
+        });
+        if (!written.ok) throw new Error("Analytics archive write failed: " + written.status);
+        stored += 1;
+      } catch (error) {
+        console.error("Analytics daily archive failed for", host, dayUtc, String(error));
+      }
+    }
+  }
+  return { stored, skipped };
 }
 
 function cloneJsonResponse(response, payload) {
@@ -553,6 +645,9 @@ export function buildAiFallbackFragment(payload) {
   if (latestBucket) fields.push(`latestBucket=${latestBucket}`);
   const gapLowerBound = payload?.freshness?.eventGapLowerBoundSeconds ?? payload?.freshness?.eventGapSeconds;
   if (gapLowerBound !== undefined && gapLowerBound !== null) fields.push(`gapLower=${finiteNumber(gapLowerBound)}`);
+  if (Number(combined?.archiveCoverage?.eligibleHostDays || 0) > 0) {
+    fields.push(`archive=${finiteNumber(combined.archiveCoverage.archivedHostDays)}/${finiteNumber(combined.archiveCoverage.eligibleHostDays)}`);
+  }
 
   const pages = pageRows(combined);
   const entries = entryRows(combined);
@@ -684,6 +779,9 @@ async function issueAiReadableLink(request, url, env, ctx) {
 }
 
 export default {
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(archiveRecentCompletedDays(env, new Date(controller.scheduledTime || Date.now())));
+  },
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname === ARRIVAL_PROBE_PATH) {

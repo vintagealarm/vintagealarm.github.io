@@ -22,3 +22,8 @@ class_name = "ArrivalProbeStore"
 [[migrations]]
 tag = "arrival_probe_do_v1"
 new_sqlite_classes = ["ArrivalProbeStore"]
+
+# Archive completed UTC days before the seven-day unsampled window closes.
+# Cron triggers are part of the existing Worker; no new paid provider is added.
+[triggers]
+crons = ["20 2 * * *"]

@@ -2492,3 +2492,24 @@
 - **検証状態**：GitHub mainへの書込と正本再取得は確認済み。集計スクリプトと同じ節・field/時刻・割合のロジックを入力全件に当てた手元再検証はerrors 0、Basis最新4観測がparser対象になることを確認。実際の `npm run check:instagram-insights` / `npm run instagram:report` のプロセス実行は未実施でありPASSと呼ばない。
 - **関連**：`IG-BAS-003`、`IMG_3290.jpeg`〜`IMG_3297.png`、commit `464e9051a9578d6dfaf477b1932844006a80f5c8` / `326bd02259206854508b7791422f57c1efc19414` / `11ab9fa2b6e552c515bc3c9a52bdbd6f1e142898`。
 - **日時根拠**：実行ホスト `TZ=Asia/Tokyo date` = 2026-10-28 09:12 JST。観測時刻08:36–08:37はユーザースクリーンショットの端末表示であり、記録実行時刻とは区別。
+
+
+### 2026-11-09 11:10 JST — 30D Analytics sampling: future exact daily archive over existing Durable Object
+
+- **変更**：既存Cloudflare Analytics Workerの30D / ALL / 長期CUSTOM集計へ、非サンプリングUTC日別GraphQL集計の永続保存と混合集計を追加。既存SQLite Durable Objectに`analytics_daily_archive`テーブルを追加し、02:20 UTCのcronで完了後6日以内の日付を再確認、欠損を補う。画面・AI共有値へ保存済みhost-day数を表示し、同一期間の二重計上を防ぐ。
+- **理由**：Uが2026-11-09 10:54画面の「30D・97 Visits・全項目×10」を示して改修を明示指示。Cloudflare公式FAQでは7日後にraw Web Analyticsが縮約され、30D分割問合せだけで過去の精度を回復できないと確認。Aによる保存方式の選定。
+- **旧状態・棄却**：7日分割GraphQLのみで長期間の精度が保てるという解釈を棄却。ProbeイベントをCloudflare Visitsと混合しない。保存前の×10データを実数扱い・逆算補正しない。サンプリング・row limit・trend不一致を正確な日付として保存しない。
+- **影響範囲**：`cloudflare/analytics-dashboard/{analytics-archive.js,worker.js,entry-worker.js,wrangler.toml,check-analytics-archive.mjs,README.md}`、Analytics check/deploy workflows、`measurement/metrics.md`、本判断履歴。公開WATCH、SNS、SEO輸入CSV、既存Arrival Probeの計測定義、他PRは変更しない。
+- **検証状態**：専用作業branchに実装。純粋ロジック・Durable Object永続化のfixtureテストを追加し、PRのNode検査とWorkerデプロイ時に必須化。CI実走、Cloudflare deploy、live UI、cron発火・保存件数は別途検証。今回の明示指示は実装であり、本番公開は未許可のためmain mergeせずPRで提示する。
+- **関連**：ユーザー提供`IMG_3432.png`、https://developers.cloudflare.com/web-analytics/faq/ 、`measurement/metrics.md`、今回の作業branch `fix/analytics-30d-daily-archive-20261109`。 作業コミット: 799eae25, a8ee1936, 8e966449, abb1b9a7, 09010421, d8d20393, 38d15f8f, 211bf6b9, 5069cb94, 043fbcea, b79737ad, 36570073, 857641f2, 99887b1b, 1f8f85f9, c2bb4233, 727401a7。
+- **日時根拠**：実行ホスト `2026-11-09T02:10:04Z → 2026-11-09 11:10:04 JST`。スクショの計測取得時刻2026-11-09 10:53 JSTとは別。
+
+### 2026-11-09 12:13 JST — Restore one-tap AI COPY / AI URL on iOS Safari (correction to PR #275 scope)
+
+- **変更**：AI COPYとAI URLの双方で、クリック直後に`ClipboardItem`のPromise<Blob>を渡して`navigator.clipboard.write()`を呼ぶ実装へ修正。非同期の取得・署名確認・discovery付与は後続Promiseで実行。コピー成功後だけ`COPIED`、失敗は`ERROR`として明示。コピーできない場合の手動選択プロンプトを通常フローから削除。WebKit型のクリック直後検証を既存Analytics CI・deploy gateに追加。
+- **理由**：Uが以前から要求していたコピー操作が前提なのに未確認のままPR #275を完了扱いにしたと訂正。ユーザーのiOS Safariスクリーンショットに`Copy AI readable URL`手動プロンプトが表示され、GitHub現行JSで両ボタンの`await fetch()`後の`clipboard.writeText()`が確認できた。WebKitのgesture boundary仕様と一致する実装不具合。Aの見落としを訂正。
+- **旧状態・棄却**：PR #275は保存・集計精度のみ扱い、既存のワンタップ動作を検証せず「未実装の別機能」と説明した状態を棄却。WebKitでgestureを失う設計、無言の手動コピープロンプト、コピー未成功の`READY`表示を採用しない。ブラウザ無操作でのクリップボード書き換え／ChatGPTへの自動貼り付けが実現可能だとは主張しない。
+- **影響範囲**：`cloudflare/analytics-dashboard/worker.js`（AI COPY＋共通helper）、`profile-worker.js`（AI URL）、`check-clipboard-gesture.mjs`、2つのAnalytics workflow、`measurement/metrics.md`、Analytics README、本履歴。WA本文・SNS・他PRは無変更。
+- **検証状態**：PR #275の作業branchに修正済み。回帰テストはクリップボードAPI呼出しが通信完了前か、2ボタンが正しい文字列をコピーするか、手動プロンプトを呼ばないかを検証する。GitHub CI実走とiOS Safari実機、Cloudflare deployは別の検証段階。main未merge・本番未反映。
+- **関連**：PR #275、既存スクリーンショット`IMG_3432.png`、WebKit Clipboard API https://webkit.org/blog/10855/async-clipboard-api/ 、WebKit issue https://bugs.webkit.org/show_bug.cgi?id=222262 、コミット`67ebcf72`, `830b4d5b`, `97506ff8`, `116409dc`, `e63cae1b`, `3f0e0b65`, `499e7975`。
+- **日時根拠**：実行ホスト`2026-11-09T03:13:20Z → 2026-11-09 12:13:20 JST`。ユーザーの指摘時刻・画面撮影時刻とは区別。
