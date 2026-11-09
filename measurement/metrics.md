@@ -444,3 +444,14 @@ Search Consoleの直接Exportは表示中のChartとTableを出力するが、�
 全体KPIはDate/Chart系を優先し、Page / Queryは原因調査用に使う。
 
 CSV Import履歴は現在browser localStorageへ保存する。
+
+
+## 30D / ALL historical sampling and daily archive (2026-11-09 implementation scope)
+
+- Cloudflare Web Analytics retains unsampled beacon data for about seven days. Data older than that is downsampled for long-term storage; splitting a sampled 30D query into smaller requests does **not** recreate deleted raw observations. Official source: https://developers.cloudflare.com/web-analytics/faq/
+- The existing Worker obtains a complete UTC calendar-day aggregate before raw retention expires and stores it immutably in the existing SQLite-backed `ARRIVAL_PROBE_STORE`, under a separate `analytics_daily_archive` table. The scheduled task runs at 02:20 UTC and retries the last six completed UTC days; no new third-party service or paid plan is introduced.
+- Each archive snapshot includes both raw grouped GraphQL results and daily trend points. Only data with `sampleInterval=1`, rows below their limits, a reconciled grouped pageview/visit total, and matching trend totals may be archived. A partial, truncated, failed, or sampled day is not elevated to exact data.
+- For 30D / ALL / long CUSTOM periods, the Worker combines archived **full UTC days** with live Cloudflare GraphQL results for unmatched or partial days. Archive and live ranges must not overlap. Short windows (7D or less) remain live queries. Historical records are never overwritten with later sampled GraphQL re-fetches.
+- Daily archive trend points are used only with `date`-based trend queries; 30m / 1h source buckets keep their original Cloudflare querying path, which can be sampled for older history.
+- `archiveCoverage.archivedHostDays / eligibleHostDays` and the portable URL's `archive=A/B` state how much of the combined long-range observation has a stored unsampled daily basis. These are **host-days**, not visits or unique people. If even one fallback slice is sampled, the combined quality remains `SAMPLED / ESTIMATE`.
+- The initial archive cannot recover the site's already-downsampled earlier dates. Coverage increases only after the scheduled capture executes; GitHub merge, deploy, durable storage health, and actual historic quality must be verified separately.
