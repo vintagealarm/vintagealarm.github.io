@@ -1,6 +1,6 @@
 import { cymaResearchPreviewResponse } from "./cyma-research-preview.js";
 import { buildDiscoveryShare } from "./discovery-share.js";
-import { isUnsampledArchiveSnapshot, planAnalyticsArchive, ARCHIVE_DAY_MS, ARCHIVE_MAX_SLICE_MS } from "./analytics-archive.js";
+import { isUnsampledArchiveSnapshot, planEffectiveArchive, ARCHIVE_DAY_MS, ARCHIVE_MAX_SLICE_MS } from "./analytics-archive.js";
 const GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql";
 const DEFAULT_HOST = "vintagealarm.github.io";
 export const HOST_MIGRATION = Object.freeze({
@@ -959,7 +959,7 @@ async function readArchivedDays(env, host, start, end) {
 }
 
 async function fetchPeriod(env, host, start, end) {
-  const plan = planAnalyticsArchive(start, end, await readArchivedDays(env, host, start, end));
+  const plan = planEffectiveArchive(start, end, await readArchivedDays(env, host, start, end));
   const parts = await mapWithConcurrency(
     plan.slices,
     2,
@@ -1132,7 +1132,7 @@ query VintageAlarmTrend(
 
     try {
       const slices = bucketField === "date"
-        ? planAnalyticsArchive(start, end, archiveRecords).slices
+        ? planEffectiveArchive(start, end, archiveRecords).slices
         : ranges.map((range) => ({ ...range, kind: "live" }));
       const pointSets = await mapWithConcurrency(slices, 2, async (range) => {
         if (range.kind === "archive") return range.record.trend;
