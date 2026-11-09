@@ -2497,9 +2497,9 @@
 ### 2026-11-09 11:10 JST — 30D Analytics sampling: future exact daily archive over existing Durable Object
 
 - **変更**：既存Cloudflare Analytics Workerの30D / ALL / 長期CUSTOM集計へ、非サンプリングUTC日別GraphQL集計の永続保存と混合集計を追加。既存SQLite Durable Objectに`analytics_daily_archive`テーブルを追加し、02:20 UTCのcronで完了後6日以内の日付を再確認、欠損を補う。画面・AI共有値へ保存済みhost-day数を表示し、同一期間の二重計上を防ぐ。
-- **理由・起点**：Uが2026-11-09 10:54画面の「30D・97 Visits・全項目×10」を示して改修を明示指示。Cloudflare公式FAQでは7日後にraw Web Analyticsが縮約され、30D分割問合せだけで過去の精度を回復できないと確認。Aによる保存方式の選定。
+- **理由**：Uが2026-11-09 10:54画面の「30D・97 Visits・全項目×10」を示して改修を明示指示。Cloudflare公式FAQでは7日後にraw Web Analyticsが縮約され、30D分割問合せだけで過去の精度を回復できないと確認。Aによる保存方式の選定。
 - **旧状態・棄却**：7日分割GraphQLのみで長期間の精度が保てるという解釈を棄却。ProbeイベントをCloudflare Visitsと混合しない。保存前の×10データを実数扱い・逆算補正しない。サンプリング・row limit・trend不一致を正確な日付として保存しない。
 - **影響範囲**：`cloudflare/analytics-dashboard/{analytics-archive.js,worker.js,entry-worker.js,wrangler.toml,check-analytics-archive.mjs,README.md}`、Analytics check/deploy workflows、`measurement/metrics.md`、本判断履歴。公開WATCH、SNS、SEO輸入CSV、既存Arrival Probeの計測定義、他PRは変更しない。
 - **検証状態**：専用作業branchに実装。純粋ロジック・Durable Object永続化のfixtureテストを追加し、PRのNode検査とWorkerデプロイ時に必須化。CI実走、Cloudflare deploy、live UI、cron発火・保存件数は別途検証。今回の明示指示は実装であり、本番公開は未許可のためmain mergeせずPRで提示する。
-- **関連**：ユーザー提供`IMG_3432.png`、https://developers.cloudflare.com/web-analytics/faq/ 、`measurement/metrics.md`、今回の作業branch `fix/analytics-30d-daily-archive-20261109`。
+- **関連**：ユーザー提供`IMG_3432.png`、https://developers.cloudflare.com/web-analytics/faq/ 、`measurement/metrics.md`、今回の作業branch `fix/analytics-30d-daily-archive-20261109`。 作業コミット: 799eae25, a8ee1936, 8e966449, abb1b9a7, 09010421, d8d20393, 38d15f8f, 211bf6b9, 5069cb94, 043fbcea, b79737ad, 36570073, 857641f2, 99887b1b, 1f8f85f9, c2bb4233, 727401a7。
 - **日時根拠**：実行ホスト `2026-11-09T02:10:04Z → 2026-11-09 11:10:04 JST`。スクショの計測取得時刻2026-11-09 10:53 JSTとは別。
