@@ -53,7 +53,7 @@ const beforeCapture = planEffectiveArchive(new Date("2026-10-01T10:00:00Z"), new
 assert.equal(beforeCapture.slices.length, 5, "archive-free 30D requests must retain existing seven-day chunks");
 const afterCapture = planEffectiveArchive(start, end, [snapshot("2026-10-31"), snapshot("2026-11-02")]);
 assert.equal(afterCapture.coverage.archivedHostDays, 2, "stored archive must be used when available");
-const daysCovered = plan.slices.reduce((total, part) => total + part.end - part.start, 0);
+const daysCovered = plan.slices.reduce((total, part) => total + (part.end - part.start), 0);
 assert.equal(daysCovered, end - start, "the full requested rolling window must be covered");
 assert(plan.slices.filter((part) => part.kind === "live").every((part) =>
   part.end - part.start <= 7 * ARCHIVE_DAY_MS), "historical fallbacks must stay within seven-day GraphQL chunks");
