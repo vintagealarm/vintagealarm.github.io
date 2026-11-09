@@ -2523,3 +2523,13 @@
 - **検証状態**：修復PRでCIを確認後、main merge、Pages deploy成功とlive parity・publication検査まで別途確認する。現時点ではPages本番成功を主張しない。
 - **関連**：Analytics PR #275、Worker deploy https://github.com/vintagealarm/vintagealarm.github.io/actions/runs/42566996403 、Pages failed run https://github.com/vintagealarm/vintagealarm.github.io/actions/runs/42566996498 、workflow commit `97b93b58`。
 - **日時根拠**：実行ホスト `2026-11-09T05:25:22Z → 2026-11-09 14:25 JST`。失敗ログ上の発生時刻と判断記録時刻を区別。
+
+### 2026-11-09 20:18 JST — Preserve 30D archive coverage through the signed AI export
+
+- **変更**：`aiExportPeriod()`で`archiveCoverage`を落とさず、`AI URL`・`AI COPY`双方に渡す。VA2 fallbackで`archive=0/N`および保存開始後`archive=A/N`が確認できる回帰テストを既存`check-entry-worker.mjs`に追加。
+- **理由**：Uから2026-11-09 20:13 JST生成の30D VA2 URLが共有され、`sample=10`で`archive=`が存在しなかった。mainの正本を追跡して`fetchPeriod()`と`combinePeriods()`では保存済みhost-day coverageを生成する一方、署名付きAI exportへの変換`aiExportPeriod()`がこれを省略し、`buildAiFallbackFragment()`へ伝播しない欠落を確認。U提供の集計値自体は30D sampled estimateで、未保存の歴史を復元しない。
+- **旧状態・棄却**：手動でURL fragmentへ数値を書き足す、`archive`欄なしを保存件数0の確証と見なす、過去の×10データを非サンプリング実数と主張する対応を棄却。既存の7D・30D集計アルゴリズムやcronを変更しない。
+- **影響範囲**：`cloudflare/analytics-dashboard/worker.js`のAI export period serializer、`check-entry-worker.mjs`、本判断履歴のみ。WATCH・SNS・Pages・Probeの計測原理・個別記事は無変更。
+- **検証状態**：PR上の回帰テスト・CI確認後に本番Worker deployと認証検査を別途実施。デプロイ前の時点では実機・本番で`archive`表示を確認したとは扱わない。scheduled captureの初回実施・保存件数は未確認。
+- **関連**：PR #275（初回30D archive）・PR #276（Pages CI修復）、実測`generated=20261109T111334617Z`、修正コミット`ad021d51`・`24842841`。共有された短期署名URLの秘密部分はGitHubへ保存しない。
+- **日時根拠**：実行ホスト`2026-11-09T11:18:00Z → 2026-11-09 20:18 JST`。共有されたexport生成時刻`2026-11-09T11:13:34.617Z → 2026-11-09 20:13:34 JST`とは別。
