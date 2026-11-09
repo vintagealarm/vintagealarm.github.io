@@ -365,7 +365,7 @@ async function aiExportResponse(request, url, env) {
   }
 }
 
-function aiExportPeriod(period) {
+export function aiExportPeriod(period) {
   const flows = Array.isArray(period?.flowSummary) ? period.flowSummary : (Array.isArray(period?.flows) ? period.flows : []);
   return {
     pageviews: period?.pageviews || 0,
@@ -373,6 +373,8 @@ function aiExportPeriod(period) {
     sampleInterval: period?.sampleInterval || 1,
     sampling: period?.sampling || null,
     quality: period?.quality || "UNSAMPLED",
+    // Keep 30D exact archive coverage in AI URL and AI COPY payloads.
+    archiveCoverage: period?.archiveCoverage || null,
     completeness: period?.completeness || null,
     integrity: period?.integrity || buildPeriodIntegrity(period || {}),
     pages: period?.pages || [],
