@@ -1,5 +1,5 @@
 import { strict as assert } from "node:assert";
-import { ARCHIVE_DAY_MS, isUnsampledArchiveSnapshot, planAnalyticsArchive } from "./analytics-archive.js";
+import { ARCHIVE_DAY_MS, isUnsampledArchiveSnapshot, planAnalyticsArchive, planEffectiveArchive } from "./analytics-archive.js";
 import { ArrivalProbeStore } from "./entry-worker.js";
 
 const dayUtc = "2026-11-02";
@@ -46,6 +46,13 @@ for (let i = 1; i < plan.slices.length; i++) {
   assert.equal(plan.slices[i - 1].end.toISOString(), plan.slices[i].start.toISOString(),
     "archive and live periods must not overlap or leave gaps");
 }
+const short = planEffectiveArchive(new Date("2026-11-01T10:00:00Z"), new Date("2026-11-08T10:00:00Z"));
+assert.equal(short.slices.length, 1, "seven-day requests must still use one API slice");
+assert.equal(short.slices[0].kind, "live");
+const beforeCapture = planEffectiveArchive(new Date("2026-10-01T10:00:00Z"), new Date("2026-10-31T10:00:00Z"));
+assert.equal(beforeCapture.slices.length, 5, "archive-free 30D requests must retain existing seven-day chunks");
+const afterCapture = planEffectiveArchive(start, end, [snapshot("2026-10-31"), snapshot("2026-11-02")]);
+assert.equal(afterCapture.coverage.archivedHostDays, 2, "stored archive must be used when available");
 const daysCovered = plan.slices.reduce((total, part) => total + part.end - part.start, 0);
 assert.equal(daysCovered, end - start, "the full requested rolling window must be covered");
 assert(plan.slices.filter((part) => part.kind === "live").every((part) =>
