@@ -1,4 +1,5 @@
 import { arrivalProbeResponse, buildAiFallbackFragment, buildShortRelayUrl, queryArrivalProbe } from './entry-worker.js';
+import { aiExportPeriod } from './worker.js';
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -118,6 +119,29 @@ assert(fallback.includes('flow=vintagealarm.github.io@/cyma-time-o-vox/~/pierce-
 assert(fallback.includes('handoff=orima1995-create.github.io@/>vintagealarm.github.io@/cyma-time-o-vox/:2/2'), 'portable snapshot host migration flow missing');
 assert(fallback.includes('sns=/pierce-duofon/:7/0/0/0/7'), 'SNS landing summary missing');
 assert(fallback.includes('trend=9-16/7/3/2/0/0/0/0/0/1/0/0/1/UNSAMPLED/1,9-17/9/6/4/0/0/0/0/0/2/0/0/2/SAMPLED-ESTIMATE/10'), 'trend summary with delimiter-safe quality metadata missing');
+
+
+// Regression: archive coverage must survive the signed AI export, and then
+// reach the VA2 self-contained fallback that the user pastes into ChatGPT.
+const archiveExpected = { archivedHostDays: 2, eligibleHostDays: 58 };
+const archivedExport = aiExportPeriod({
+  visits: 88, pageviews: 118, sampleInterval: 10,
+  quality: 'SAMPLED / ESTIMATE', archiveCoverage: archiveExpected,
+});
+assert(archivedExport.archiveCoverage.archivedHostDays === 2, 'AI export must retain archived host-days');
+assert(archivedExport.archiveCoverage.eligibleHostDays === 58, 'AI export must retain eligible host-days');
+const freshArchiveExport = aiExportPeriod({ visits: 88, pageviews: 118,
+  archiveCoverage: { archivedHostDays: 0, eligibleHostDays: 58 } });
+const archiveFallback = buildAiFallbackFragment({
+  ...sample, windowKey: '30d', rangeKey: '30d',
+  combined: { ...sample.combined, current: { ...sample.combined.current, ...freshArchiveExport } },
+});
+assert(archiveFallback.includes(';archive=0/58;'), 'AI URL must disclose zero archived host-days before cron begins');
+const partialArchiveFallback = buildAiFallbackFragment({
+  ...sample, windowKey: '30d', rangeKey: '30d',
+  combined: { ...sample.combined, current: { ...sample.combined.current, ...archivedExport } },
+});
+assert(partialArchiveFallback.includes(';archive=2/58;'), 'AI URL must disclose archived coverage after captures');
 
 const allRangeFallback = buildAiFallbackFragment({
   ...sample,
