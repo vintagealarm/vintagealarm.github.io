@@ -73,3 +73,22 @@ export function planAnalyticsArchive(start, end, records = [], maxMs = ARCHIVE_M
   flush(last);
   return { slices, coverage: { archivedHostDays: archivedDays, eligibleHostDays: eligibleDays } };
 }
+
+export function planEffectiveArchive(start, end, records = [], maxMs = ARCHIVE_MAX_SLICE_MS) {
+  const planned = planAnalyticsArchive(start, end, records, maxMs);
+  if (planned.coverage.archivedHostDays > 0) return planned;
+  // Preserve the existing end-anchored seven-day GraphQL partition when no
+  // validated archive is available. In particular, 1H/7D must not turn into
+  // one GraphQL request per UTC day.
+  const first = new Date(start).getTime();
+  const last = new Date(end).getTime();
+  const slices = [];
+  for (let cursor = last; cursor > first; cursor -= maxMs) {
+    slices.push({
+      kind: "live",
+      start: new Date(Math.max(cursor - maxMs, first)),
+      end: new Date(cursor),
+    });
+  }
+  return { slices: slices.reverse(), coverage: planned.coverage };
+}
