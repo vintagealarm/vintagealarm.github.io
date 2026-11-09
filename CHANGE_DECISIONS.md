@@ -2513,3 +2513,13 @@
 - **検証状態**：PR #275の作業branchに修正済み。回帰テストはクリップボードAPI呼出しが通信完了前か、2ボタンが正しい文字列をコピーするか、手動プロンプトを呼ばないかを検証する。GitHub CI実走とiOS Safari実機、Cloudflare deployは別の検証段階。main未merge・本番未反映。
 - **関連**：PR #275、既存スクリーンショット`IMG_3432.png`、WebKit Clipboard API https://webkit.org/blog/10855/async-clipboard-api/ 、WebKit issue https://bugs.webkit.org/show_bug.cgi?id=222262 、コミット`67ebcf72`, `830b4d5b`, `97506ff8`, `116409dc`, `e63cae1b`, `3f0e0b65`, `499e7975`。
 - **日時根拠**：実行ホスト`2026-11-09T03:13:20Z → 2026-11-09 12:13:20 JST`。ユーザーの指摘時刻・画面撮影時刻とは区別。
+
+### 2026-11-09 14:25 JST — Pages deploy recovery after Analytics PR #275 merge (Playwright runner support)
+
+- **変更**：`.github/workflows/deploy-pages.yml` の実行ランナーを `ubuntu-latest` から `ubuntu-24.04` に固定。Playwright 1.55.0 Chromiumを従来どおり実行するためのCI環境限定修正。
+- **理由**：UがPR #275の本番反映を明示許可したため、PR merge `b3612a46` の後にPages配信まで検証したところ、Pages workflow run `42566996498` の `Install browser for layout check` が `ERROR: Playwright does not support chromium on ubuntu26.04-x64` で失敗。別途Analytics Worker run `42566996403` は成功済み。今回のエラーはアプリコードやUIテスト失敗ではなくUbuntuランナーとの互換性。
+- **旧状態・棄却**：本番デプロイ前のゲート失敗を単なるキャッシュ遅延・GitHub Pages公開反映待ちと見なさない。テスト省略、Playwright検査の削除、site本文変更、Worker再変更はしない。
+- **影響範囲**：Pages workflowのrunner行と本判断履歴のみ。WATCH、レイアウト、SNS、Analytics Worker本体、既存の他PRには変更なし。
+- **検証状態**：修復PRでCIを確認後、main merge、Pages deploy成功とlive parity・publication検査まで別途確認する。現時点ではPages本番成功を主張しない。
+- **関連**：Analytics PR #275、Worker deploy https://github.com/vintagealarm/vintagealarm.github.io/actions/runs/42566996403 、Pages failed run https://github.com/vintagealarm/vintagealarm.github.io/actions/runs/42566996498 、workflow commit `97b93b58`。
+- **日時根拠**：実行ホスト `2026-11-09T05:25:22Z → 2026-11-09 14:25 JST`。失敗ログ上の発生時刻と判断記録時刻を区別。
