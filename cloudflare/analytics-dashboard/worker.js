@@ -1,5 +1,6 @@
 import { cymaResearchPreviewResponse } from "./cyma-research-preview.js";
 import { buildDiscoveryShare } from "./discovery-share.js";
+import { isUnsampledArchiveSnapshot, planAnalyticsArchive, ARCHIVE_DAY_MS, ARCHIVE_MAX_SLICE_MS } from "./analytics-archive.js";
 const GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql";
 const DEFAULT_HOST = "vintagealarm.github.io";
 export const HOST_MIGRATION = Object.freeze({
@@ -933,13 +934,40 @@ export function mergePeriodData(parts) {
   };
 }
 
+function archiveStore(env) {
+  const namespace = env?.ARRIVAL_PROBE_STORE;
+  return typeof namespace?.getByName === "function" ? namespace.getByName("global") : null;
+}
+
+async function readArchivedDays(env, host, start, end) {
+  // The 7D window remains entirely live: never replace fresh measurements with a cache.
+  if (new Date(end).getTime() - new Date(start).getTime() <= ARCHIVE_MAX_SLICE_MS) return [];
+  const store = archiveStore(env);
+  if (!store) return [];
+  try {
+    const response = await store.fetch("https://arrival-probe.internal/archive/query", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ host, start: new Date(start).toISOString(), end: new Date(end).toISOString() }),
+    });
+    if (!response.ok) return [];
+    const payload = await response.json();
+    return Array.isArray(payload?.records) ? payload.records : [];
+  } catch {
+    // Explicitly fall back to Cloudflare's sampled historical dataset.
+    return [];
+  }
+}
+
 async function fetchPeriod(env, host, start, end) {
+  const plan = planAnalyticsArchive(start, end, await readArchivedDays(env, host, start, end));
   const parts = await mapWithConcurrency(
-    splitPeriod(start, end),
+    plan.slices,
     2,
-    (range) => fetchPeriodSlice(env, host, range.start, range.end),
+    (range) => range.kind === "archive"
+      ? range.record.period
+      : fetchPeriodSlice(env, host, range.start, range.end),
   );
-  return mergePeriodData(parts);
+  return { ...mergePeriodData(parts), archiveCoverage: plan.coverage };
 }
 
 async function fetchPeriodSlice(env, host, start, end) {
@@ -1055,7 +1083,10 @@ query VintageAlarmAnalytics(
 async function fetchTrend(env, host, start, end, windowSpec) {
   let lastError = null;
   const ranges = splitPeriod(start, end);
-
+  // Daily archive points have date resolution; finer buckets keep their live query.
+  const archiveRecords = windowSpec.bucketCandidates.includes("date")
+    ? await readArchivedDays(env, host, start, end)
+    : [];
   for (const bucketField of windowSpec.bucketCandidates) {
     const orderBy = bucketField + "_ASC";
     const query = `
@@ -1100,23 +1131,30 @@ query VintageAlarmTrend(
 `;
 
     try {
-      const data = await mapWithConcurrency(ranges, 2, (range) => cloudflareGraphQL(env, query, {
-        accountTag: env.CF_ACCOUNT_ID,
-        filter: {
-          AND: [
-            {
-              datetime_geq: range.start.toISOString(),
-              datetime_lt: range.end.toISOString(),
-            },
-            { requestHost: host },
-            { bot: 0 },
-          ],
-        },
-      }));
+      const slices = bucketField === "date"
+        ? planAnalyticsArchive(start, end, archiveRecords).slices
+        : ranges.map((range) => ({ ...range, kind: "live" }));
+      const pointSets = await mapWithConcurrency(slices, 2, async (range) => {
+        if (range.kind === "archive") return range.record.trend;
+        const data = await cloudflareGraphQL(env, query, {
+          accountTag: env.CF_ACCOUNT_ID,
+          filter: {
+            AND: [
+              {
+                datetime_geq: range.start.toISOString(),
+                datetime_lt: range.end.toISOString(),
+              },
+              { requestHost: host },
+              { bot: 0 },
+            ],
+          },
+        });
+        return normalizeTrend(data, host);
+      });
 
       return {
         bucketField,
-        points: mergeTrendPoints(data.map((part) => normalizeTrend(part, host))),
+        points: mergeTrendPoints(pointSets),
         warning: null,
       };
     } catch (error) {
@@ -1129,6 +1167,24 @@ query VintageAlarmTrend(
     points: [],
     warning: lastError instanceof Error ? lastError.message : "Trend data unavailable.",
   };
+}
+
+// Capture a completed UTC day while Cloudflare still offers unsampled beacons.
+// Never archive a sampled or truncated day as if it were an exact observation.
+export async function captureDailyArchiveSnapshot(env, host, dayUtc) {
+  const start = new Date(dayUtc + "T00:00:00.000Z");
+  const end = new Date(start.getTime() + ARCHIVE_DAY_MS);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dayUtc) || !Number.isFinite(start.getTime()) ||
+      end > new Date(Date.now() - 60 * 60 * 1000)) return null;
+  const period = await fetchPeriodSlice(env, host, start, end);
+  const trendResult = await fetchTrend(env, host, start, end, { bucketCandidates: ["date"] });
+  if (trendResult.warning) return null;
+  const snapshot = { dayUtc, period, trend: trendResult.points };
+  if (!isUnsampledArchiveSnapshot(snapshot)) return null;
+  const normalized = normalizePeriod(period, host);
+  if (normalized.integrity?.status !== "PASS" ||
+      Object.values(normalized.completeness || {}).some((value) => value === false)) return null;
+  return snapshot;
 }
 
 export function mergeTrendPoints(pointSets) {
@@ -1354,6 +1410,7 @@ function normalizePeriod(data, targetHost = DEFAULT_HOST) {
     sampleInterval,
     sampling,
     quality: sampleInterval > 1 ? "SAMPLED / ESTIMATE" : "UNSAMPLED",
+    archiveCoverage: data?.archiveCoverage || null,
     completeness,
     pages,
     referrers: rawReferers,
@@ -1418,6 +1475,10 @@ function combinePeriods(periods) {
     sampleInterval,
     sampling,
     quality: sampleInterval > 1 ? "SAMPLED / ESTIMATE" : "UNSAMPLED",
+    archiveCoverage: {
+      archivedHostDays: periods.reduce((n, p) => n + Number(p?.archiveCoverage?.archivedHostDays || 0), 0),
+      eligibleHostDays: periods.reduce((n, p) => n + Number(p?.archiveCoverage?.eligibleHostDays || 0), 0),
+    },
     completeness,
     pages: mergeRowsBy(periods.flatMap((period) => period?.pages || []), ["path"], ["pageviews", "visits"]),
     referrers: mergeRowsBy(periods.flatMap((period) => period?.referrers || []), ["host", "path"], ["pageviews", "visits"]),
@@ -2136,6 +2197,12 @@ function render(data){
     '<td class="num">'+n(x.pageviews)+'</td><td class="num">'+n(x.visits)+'</td></tr>'
   ).join("");
   const lowSample=c.visits<30?'<section class="card low-sample"><strong>LOW SAMPLE</strong><span>'+n(c.visits)+' visits · まだ傾向断定は保留</span></section>':'';
+  const archiveCoverage=c.archiveCoverage||{};
+  const archiveQualityNote=Number(archiveCoverage.eligibleHostDays||0)>0
+    ? '<section class="card low-sample"><strong>HISTORICAL ARCHIVE</strong><span>非サンプリングで期限内保存した期間: '+
+      n(archiveCoverage.archivedHostDays||0)+' / '+n(archiveCoverage.eligibleHostDays)+
+      ' host-days · 保存前・欠落期間はCloudflareの推定値のまま。過去の実数は復元できません。</span></section>'
+    : '';
   const sampledSections=Object.entries(c.sampling||{}).filter(([,value])=>Number(value||1)>1).map(([key,value])=>key+' ×'+n(value));
   const incompleteSections=Object.entries(c.completeness||{}).filter(([,complete])=>complete===false).map(([key])=>key);
   const integrity=c.integrity||{};
@@ -2158,7 +2225,7 @@ function render(data){
     : '';
   document.getElementById("content").innerHTML=
   '<div class="path">'+esc(HOST_MIGRATION.note)+'</div>'+
-  '<div class="grid analytics-grid">'+audit+availabilityNote+dataQualityNote+lowSample+
+  '<div class="grid analytics-grid">'+audit+availabilityNote+archiveQualityNote+dataQualityNote+lowSample+
     '<section class="card host-scope"><div class="section-head"><div class="section-title">TOTAL + HOST BREAKDOWN</div><span>合計はhost別Visitsの足し算。ユニーク人数ではありません</span></div><div class="host-grid">'+
       '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · '+esc(c.quality||"UNSAMPLED")+(Number(c.sampleInterval||1)>1?' · sample ×'+n(c.sampleInterval):'')+'</div></div>'+
       '<div class="host-block"><span class="path">NEW · '+esc(data.host)+'</span><strong>'+n(nc.visits)+' visits</strong><div class="delta">'+n(nc.pageviews)+' page views · '+(c.visits?((nc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
