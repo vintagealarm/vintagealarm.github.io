@@ -645,6 +645,9 @@ export function buildAiFallbackFragment(payload) {
   if (latestBucket) fields.push(`latestBucket=${latestBucket}`);
   const gapLowerBound = payload?.freshness?.eventGapLowerBoundSeconds ?? payload?.freshness?.eventGapSeconds;
   if (gapLowerBound !== undefined && gapLowerBound !== null) fields.push(`gapLower=${finiteNumber(gapLowerBound)}`);
+  if (Number(combined?.archiveCoverage?.eligibleHostDays || 0) > 0) {
+    fields.push(`archive=${finiteNumber(combined.archiveCoverage.archivedHostDays)}/${finiteNumber(combined.archiveCoverage.eligibleHostDays)}`);
+  }
 
   const pages = pageRows(combined);
   const entries = entryRows(combined);
