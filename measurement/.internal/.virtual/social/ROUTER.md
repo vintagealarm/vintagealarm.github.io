@@ -141,8 +141,9 @@ Execution Briefは **棚→実制作の引継ぎ伝票**。最低限次を持つ
 
 以下は内部処理ルール。新しい矛盾・仕様変更・ユーザーからの明示的な再検討指示がない限り、Councilや通常回答の主要論点へ戻さない。
 
-- Analyticsの `facebook` / `instagram` の生データは保持する。
-- Meta系として同判定で観測する場合も、FB値をInstagram実ユーザー数へ勝手に加算しない。
+- Analyticsの `facebook` / `instagram` の生データは保持する。Cloudflareのraw referrerを改変・上書きしない。
+- **USER-CONFIRMED / 2026-11-10：FB＝Instagram（運用・施策分析上の集計）。** Facebook参照元をInstagram施策の流入として扱うよう、ユーザーが再度明示した。以後「Instagram運用集計」は **raw Instagram + raw Facebook** とし、FB分を別の独立した宣伝成果として説明しない。AI URL / AI COPY / Dashboard / GitHub自動レポートでも同じ分析上の合算を用いる。
+- **計測上の区別は維持**：生の `FB@facebook.com` を `IG@instagram.com` に書き換えない。Facebook参照元2 VisitsがInstagramアプリの利用者2人・プロフィールクリック2件だったと証明されたわけではない。運用集計とプラットフォーム実測を混同せず、raw IG / raw FB / 運用Instagramの3値を必要時に併記する。
 - fetch / preview / bot等が未確認なら人間流入と断定しない。
 - `IG@l.instagram.com → /en/how-they-ring/` はInstagramから英語HOW THEY RINGへの到達として扱えるが、Analyticsだけでプロフィール画面上のクリック操作自体を証明したとは扱わない。
 - Instagram開始とVA visits増加の因果は、同時期に増えただけでは確定しない。

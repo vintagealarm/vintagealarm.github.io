@@ -1,0 +1,59 @@
+name: Publish safe AI analytics snapshot (GitHub connector)
+
+on:
+  schedule:
+    # Four checks per day, UTC. User never has to issue a URL manually.
+    - cron: "13 */6 * * *"
+  workflow_dispatch:
+  issue_comment:
+    types: [created]
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/agent-analytics-snapshot.yml"
+      - "scripts/agent-analytics-report.mjs"
+      - "cloudflare/analytics-dashboard/agent-analytics-report.js"
+      - "cloudflare/analytics-dashboard/worker.js"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-agent-analytics-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    # Only the repo owner may request an on-demand fetch in the designated PR.
+    # No untrusted comment content is used as code, shell or GraphQL input.
+    if: >-
+      github.event_name != 'issue_comment' ||
+      (github.event.issue.number == 278 &&
+       github.event.comment.user.login == 'orima1995-create' &&
+       github.event.comment.body == '/va-analytics refresh')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate report and attribution fixture
+        run: node scripts/check-agent-analytics-report.mjs
+      - name: Check existing Cloudflare credentials without logging their values
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" && test -n "$CLOUDFLARE_ACCOUNT_ID" || {
+            echo "::error::Missing existing Cloudflare repository secrets."
+            exit 1
+          }
+      - name: Fetch and publish aggregate analytics for ChatGPT via GitHub logs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node scripts/agent-analytics-report.mjs

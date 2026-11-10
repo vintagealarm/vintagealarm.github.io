@@ -36,6 +36,8 @@ jobs:
           node --check profile-worker.js
           node --check entry-worker.js
 
+      - name: Check autonomous agent snapshot and Instagram reporting contract
+        run: node ../../scripts/check-agent-analytics-report.mjs
       - name: Verify unsampled archive and range planning
         run: node check-analytics-archive.mjs
       - name: Check generated dashboard JavaScript

@@ -1,5 +1,6 @@
 import { cymaResearchPreviewResponse } from "./cyma-research-preview.js";
 import { buildDiscoveryShare } from "./discovery-share.js";
+import { operationalInstagramBreakdown } from "./agent-analytics-report.js";
 import { isUnsampledArchiveSnapshot, planEffectiveArchive, ARCHIVE_DAY_MS, ARCHIVE_MAX_SLICE_MS } from "./analytics-archive.js";
 const GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql";
 const DEFAULT_HOST = "vintagealarm.github.io";
@@ -375,6 +376,7 @@ export function aiExportPeriod(period) {
     quality: period?.quality || "UNSAMPLED",
     // Keep 30D exact archive coverage in AI URL and AI COPY payloads.
     archiveCoverage: period?.archiveCoverage || null,
+    operationalInstagram: operationalInstagramBreakdown(period),
     completeness: period?.completeness || null,
     integrity: period?.integrity || buildPeriodIntegrity(period || {}),
     pages: period?.pages || [],
@@ -444,7 +446,7 @@ function timingSafeHexEqual(left, right) {
   return diff === 0;
 }
 
-async function analyticsResponse(url, env) {
+export async function analyticsResponse(url, env) {
   try {
     requireEnv(env, "CF_API_TOKEN");
     requireEnv(env, "CF_ACCOUNT_ID");
@@ -1928,7 +1930,7 @@ function flowVisual(items){
 }
 function snsEntryChart(data){
   if(!data)return '<div class="muted">SNS入口データを取得できませんでした。</div>';
-  const channels=["X","Instagram","Facebook","Other SNS"];
+  const channels=["X","Instagram","Other SNS"];
   const pages=[...data.pages].sort((a,b)=>Number(b.total||0)-Number(a.total||0));
   const max=Math.max(1,...pages.map(p=>p.total));
   const note=data.complete?'判別できたSNS入口 '+n(data.total)+'件':'取得上限に到達：表示分 '+n(data.total)+'件（全体比は算出保留）';
@@ -2200,11 +2202,24 @@ function render(data){
   ).join("");
   const lowSample=c.visits<30?'<section class="card low-sample"><strong>LOW SAMPLE</strong><span>'+n(c.visits)+' visits · まだ傾向断定は保留</span></section>':'';
   const archiveCoverage=c.archiveCoverage||{};
+  const instagramOperational=operationalInstagramBreakdown(c);
+  const rawFbChannel=c.channels.find(x=>x.name==="Facebook")||{visits:0,pageviews:0};
+  const reportingChannels=c.channels.filter(x=>x.name!=="Facebook").map(x=>x.name==="Instagram"
+    ?{...x,visits:Number(x.visits||0)+Number(rawFbChannel.visits||0),pageviews:Number(x.pageviews||0)+Number(rawFbChannel.pageviews||0)}
+    :x);
+  if(!reportingChannels.some(x=>x.name==="Instagram")) reportingChannels.push({
+    name:"Instagram",visits:Number(rawFbChannel.visits||0),pageviews:Number(rawFbChannel.pageviews||0)
+  });
+  const reportingTrend=trend.map(x=>({...x,instagramOperational:Number(x.instagram||0)+Number(x.facebook||0)}));
+  const reportingSnsEntries=c.snsEntries?{...c.snsEntries,pages:(c.snsEntries.pages||[]).map(p=>({
+    ...p,values:{...p.values,Instagram:Number(p.values?.Instagram||0)+Number(p.values?.Facebook||0),Facebook:0}
+  }))}:null;
   const archiveQualityNote=Number(archiveCoverage.eligibleHostDays||0)>0
     ? '<section class="card low-sample"><strong>HISTORICAL ARCHIVE</strong><span>非サンプリングで期限内保存した期間: '+
       n(archiveCoverage.archivedHostDays||0)+' / '+n(archiveCoverage.eligibleHostDays)+
       ' host-days · 保存前・欠落期間はCloudflareの推定値のまま。過去の実数は復元できません。</span></section>'
     : '';
+  const instagramOperationalNote='<section class="card low-sample"><strong>INSTAGRAM FUNNEL (OPERATIONAL)</strong><span>'+n(instagramOperational.instagramOperational)+' visits (IG raw '+n(instagramOperational.instagramRaw)+' + FB raw '+n(instagramOperational.facebookRaw)+'). FB→Instagramはユーザー指定の運用集計。生Refererは変更せず、Instagram利用者の証明ではありません。</span></section>';
   const sampledSections=Object.entries(c.sampling||{}).filter(([,value])=>Number(value||1)>1).map(([key,value])=>key+' ×'+n(value));
   const incompleteSections=Object.entries(c.completeness||{}).filter(([,complete])=>complete===false).map(([key])=>key);
   const integrity=c.integrity||{};
@@ -2220,14 +2235,14 @@ function render(data){
     : '';
   const trafficSeries=[{key:"pageviews",label:"Page views",color:COLORS.pageviews},{key:"visits",label:"Visits",color:COLORS.visits}];
   const hostSeries=[{key:"newVisits",label:"NEW · "+data.host,color:COLORS.newHost},{key:"legacyVisits",label:"OLD · "+(legacy.host||HOST_MIGRATION.oldHost),color:COLORS.legacyHost}];
-  const acquisitionSeries=[{key:"x",label:"X",color:COLORS.X},{key:"youtube",label:"YouTube",color:COLORS.YouTube},{key:"search",label:"Search",color:COLORS.Search},{key:"direct",label:"Direct",color:COLORS.Direct},{key:"instagram",label:"Instagram",color:channelColor("Instagram")},{key:"facebook",label:"Facebook",color:channelColor("Facebook")},{key:"otherSns",label:"Other SNS",color:channelColor("Other SNS")}];
+  const acquisitionSeries=[{key:"x",label:"X",color:COLORS.X},{key:"youtube",label:"YouTube",color:COLORS.YouTube},{key:"search",label:"Search",color:COLORS.Search},{key:"direct",label:"Direct",color:COLORS.Direct},{key:"instagramOperational",label:"Instagram (IG + FB)",color:channelColor("Instagram")},{key:"otherSns",label:"Other SNS",color:channelColor("Other SNS")}];
   const availability=data.availability||{};
   const availabilityNote=availability.rangeClipped
     ? '<section class="card low-sample"><strong>RANGE CLIPPED</strong><span>計測開始前は集計せず '+esc(new Date(availability.availableFrom).toLocaleString("ja-JP"))+' から表示</span></section>'
     : '';
   document.getElementById("content").innerHTML=
   '<div class="path">'+esc(HOST_MIGRATION.note)+'</div>'+
-  '<div class="grid analytics-grid">'+audit+availabilityNote+archiveQualityNote+dataQualityNote+lowSample+
+  '<div class="grid analytics-grid">'+audit+availabilityNote+instagramOperationalNote+archiveQualityNote+dataQualityNote+lowSample+
     '<section class="card host-scope"><div class="section-head"><div class="section-title">TOTAL + HOST BREAKDOWN</div><span>合計はhost別Visitsの足し算。ユニーク人数ではありません</span></div><div class="host-grid">'+
       '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · '+esc(c.quality||"UNSAMPLED")+(Number(c.sampleInterval||1)>1?' · sample ×'+n(c.sampleInterval):'')+'</div></div>'+
       '<div class="host-block"><span class="path">NEW · '+esc(data.host)+'</span><strong>'+n(nc.visits)+' visits</strong><div class="delta">'+n(nc.pageviews)+' page views · '+(c.visits?((nc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
@@ -2243,10 +2258,10 @@ function render(data){
     '<section class="card kpi"><div class="label">WATCH ENTRY SHARE</div><div class="value">'+watchShare.toFixed(0)+'%</div><div class="delta">全流入 '+n(c.visits)+'件中 '+n(watchEntry)+'件</div></section>'+
     '<section class="card chart-card"><div class="section-head"><div class="section-title">HOST TRANSITION · VISITS</div><span>旧・新を別系列で表示</span></div>'+lineChart(transitionTrend,hostSeries,campaigns,true)+((data.trendWarning||legacy.trendWarning)?'<div class="path">'+esc([data.trendWarning,legacy.trendWarning].filter(Boolean).join(" / "))+'</div>':'')+'</section>'+
     '<section class="card primary-chart"><div class="section-head"><div class="section-title">TOTAL TRAFFIC TREND</div><span>'+esc(data.combined?.trendBucket||data.trendBucket||"no bucket")+'</span></div>'+lineChart(trend,trafficSeries,campaigns,true)+(data.combined?.trendWarning?'<div class="path">'+esc(data.combined.trendWarning)+'</div>':'')+'</section>'+
-    '<section class="card summary-chart"><div class="section-head"><div class="section-title">TRAFFIC MIX</div><span>Visits構成</span></div>'+trafficMix(c.channels)+'</section>'+
-    '<section class="card primary-chart"><div class="section-head"><div class="section-title">TOTAL ACQUISITION TREND</div><span>新旧合算・流入元別</span></div>'+lineChart(trend,acquisitionSeries,campaigns,true)+'</section>'+
+    '<section class="card summary-chart"><div class="section-head"><div class="section-title">TRAFFIC MIX</div><span>Visits構成</span></div>'+trafficMix(reportingChannels)+'</section>'+
+    '<section class="card primary-chart"><div class="section-head"><div class="section-title">TOTAL ACQUISITION TREND</div><span>新旧合算・流入元別</span></div>'+lineChart(reportingTrend,acquisitionSeries,campaigns,true)+'</section>'+
     '<section class="card summary-chart"><div class="section-head"><div class="section-title">ENTRY PAGES</div><span>入口回数</span></div>'+entryBars(c.pages)+'</section>'+
-    '<section class="card flow"><div class="section-head"><div class="section-title">SNS → SITE ENTRY</div><span>判別できたSNS流入の着地先</span></div>'+snsEntryChart(c.snsEntries)+'</section>'+
+    '<section class="card flow"><div class="section-head"><div class="section-title">SNS → SITE ENTRY</div><span>判別できたSNS流入の着地先</span></div>'+snsEntryChart(reportingSnsEntries)+'</section>'+
     '<section class="card flow"><div class="section-head"><div class="section-title">SITE FLOW</div><span>同一ホスト内の内部遷移</span></div>'+flowVisual(internalFlows)+'</section>'+
     (migrationFlows.length?'<section class="card flow"><div class="section-head"><div class="section-title">HOST MIGRATION FLOW</div><span>旧ホスト ↔ 新ホスト。SITE FLOWから分離</span></div>'+flowVisual(migrationFlows)+'</section>':'')+
     '<details class="card drawer campaign"><summary><span>CAMPAIGN FUNNEL</span><span class="drawer-meta">投稿ログはこのブラウザだけに保存</span></summary><div class="drawer-content">'+campaignPanel(entryFlows,internalFlows)+'</div></details>'+

@@ -2533,3 +2533,16 @@
 - **検証状態**：PR上の回帰テスト・CI確認後に本番Worker deployと認証検査を別途実施。デプロイ前の時点では実機・本番で`archive`表示を確認したとは扱わない。scheduled captureの初回実施・保存件数は未確認。
 - **関連**：PR #275（初回30D archive）・PR #276（Pages CI修復）、実測`generated=20261109T111334617Z`、修正コミット`ad021d51`・`24842841`。共有された短期署名URLの秘密部分はGitHubへ保存しない。
 - **日時根拠**：実行ホスト`2026-11-09T11:18:00Z → 2026-11-09 20:18 JST`。共有されたexport生成時刻`2026-11-09T11:13:34.617Z → 2026-11-09 20:13:34 JST`とは別。
+
+
+### 2026-11-10 12:39 JST — FB→Instagram operational attribution and automatic GitHub agent analytics retrieval
+
+- **変更**：既存Facebook生Referrerを維持しつつ、運用施策の分析・AI export・VA2 fallback・Dashboard・GitHub agent reportに`Instagram運用集計 = raw Instagram + raw Facebook`を明示。GitHub Actionsに6時間おきのCloudflare GraphQL取得を追加し、接続済みGitHubから最新成功runの安全な集計ログをAIが直接取得できるようにする。Basic Auth、HMAC署名AI URL、元のGraphQL分類、既存日次archiveを撤去しない。
+- **理由**：Uが「Facebook＝instaにするって前いいましたよね」「いちいちこっちに発行させないで君でデータ取って来れるように改修」と明示再指示。従来回答がFacebook 2をInstagram施策0として独立評価したのは、運用上の合算意思と生データ区分を混同したため。ChatGPTの一般Web取得経路はBasic AuthのCloudflare Workerを直接読めないが、接続済みGitHubならGitHub Actions成功ログを取得できる。
+- **旧状態・棄却**：FB生データの分類自体をIGに改変すること、FB 2件を実際のInstagram利用者2人と断定すること、ユーザーによる毎回のAI URL発行、Cloudflare Basic Auth解除、Cloudflare tokenのpublic commit、raw referrer / country / device / IP等を公開ログへ出すことを棄却。現行Cloudflare Worker/Durable Objectの30D exact archiveとGitHub Actions standalone GraphQL取得を同じ精度とは扱わない。
+- **影響範囲**：`measurement/.internal/.virtual/social/ROUTER.md`、`measurement/metrics.md`、`cloudflare/analytics-dashboard/{agent-analytics-report.js,worker.js,entry-worker.js}`、`scripts/{agent-analytics-report.mjs,check-agent-analytics-report.mjs}`、Analytics CI/deploy gates、`.github/workflows/agent-analytics-snapshot.yml`、本判断履歴。WATCH本文・研究・SNS raw metrics・既存他PRは変更しない。
+- **追加の即時取得**：workflowを6時間ごとのscheduleだけでなくPR #278のIssue Commentイベントにも接続。`orima1995-create`本人が該当PRへ正確に`/va-analytics refresh`をコメントした場合だけGraphQL取得jobを実行し、コメント本文はコード・GraphQL queryへ挿入しない。ChatGPTのGitHub連携がコメント→Workflow run→Logを実行するためユーザーの発行操作を省く。通年のCron可否とは別途検証する。
+- **公開範囲**：public repoのGitHub Actions logsはrepo readアクセス可能な第三者にも閲覧され得る。公開するのは訪問数・閲覧数・channel別カテゴリ・ページPath上位・期間bucket・品質フラグだけ。cookie・IP・生referrer URL・デバイス・地域・個別到達event・Secretは対象外。GitHub workflow権限は`contents: read`限定。保護済み管理ダッシュボード本体はprivateのまま。
+- **検証状態**：専用PR上でsource / fixtures / CI、merge後に初回workflow実走、GitHub connectorによる最新ログの実取得とJSON解析、必要ならWorker deploy / security gate / Pages liveを段階別に確認する。成功runがない場合は`AUTO_REPORT_UNAVAILABLE`として未達を明示。追加のGitHub Actions reportの30D/ALLはDurable Object archiveを使えないためsampling推定であることを必ず明示。
+- **関連**：元ユーザー提供AI URL（本チャット2026-11-10共有の各24h/7d/30d/ALL）、Cloudflare doc https://developers.cloudflare.com/analytics/graphql-api/limits/ 、GitHub docs https://docs.github.com/en/actions/how-tos/monitor-workflows/use-workflow-run-logs 、実装コミット`496ad735`、`6182d78c`、`380d173e`、`28748699`、`85c1bc45`、`ae52025e`、`3efeac5b`、`03ac6318`、`0362b5e3`、`cdc95b99`、`ee54205c`、`0d7c2d19`、`bee29691`、`11d32d64`。
+- **日時根拠**：実行ホスト`2026-11-10T03:39:25.585Z → 2026-11-10 12:39:25 JST`。ユーザー提供のAI URL生成日時とは別。
