@@ -629,6 +629,7 @@ export function buildAiFallbackFragment(payload) {
     `youtube=${channelVisits(combined, "YouTube")}`,
     `instagram=${channelVisits(combined, "Instagram")}`,
     `facebook=${channelVisits(combined, "Facebook")}`,
+    `instagramOperational=${channelVisits(combined, "Instagram") + channelVisits(combined, "Facebook")}`,
     `othersns=${channelVisits(combined, "Other SNS")}`,
     `search=${channelVisits(combined, "Organic Search")}`,
     `direct=${channelVisits(combined, "Direct / Unknown")}`,
