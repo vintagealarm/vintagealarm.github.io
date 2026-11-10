@@ -1,5 +1,6 @@
 import { cymaResearchPreviewResponse } from "./cyma-research-preview.js";
 import { buildDiscoveryShare } from "./discovery-share.js";
+import { operationalInstagramBreakdown } from "./agent-analytics-report.js";
 import { isUnsampledArchiveSnapshot, planEffectiveArchive, ARCHIVE_DAY_MS, ARCHIVE_MAX_SLICE_MS } from "./analytics-archive.js";
 const GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql";
 const DEFAULT_HOST = "vintagealarm.github.io";
@@ -375,6 +376,7 @@ export function aiExportPeriod(period) {
     quality: period?.quality || "UNSAMPLED",
     // Keep 30D exact archive coverage in AI URL and AI COPY payloads.
     archiveCoverage: period?.archiveCoverage || null,
+    operationalInstagram: operationalInstagramBreakdown(period),
     completeness: period?.completeness || null,
     integrity: period?.integrity || buildPeriodIntegrity(period || {}),
     pages: period?.pages || [],
@@ -444,7 +446,7 @@ function timingSafeHexEqual(left, right) {
   return diff === 0;
 }
 
-async function analyticsResponse(url, env) {
+export async function analyticsResponse(url, env) {
   try {
     requireEnv(env, "CF_API_TOKEN");
     requireEnv(env, "CF_ACCOUNT_ID");
@@ -2200,11 +2202,13 @@ function render(data){
   ).join("");
   const lowSample=c.visits<30?'<section class="card low-sample"><strong>LOW SAMPLE</strong><span>'+n(c.visits)+' visits · まだ傾向断定は保留</span></section>':'';
   const archiveCoverage=c.archiveCoverage||{};
+  const instagramOperational=operationalInstagramBreakdown(c);
   const archiveQualityNote=Number(archiveCoverage.eligibleHostDays||0)>0
     ? '<section class="card low-sample"><strong>HISTORICAL ARCHIVE</strong><span>非サンプリングで期限内保存した期間: '+
       n(archiveCoverage.archivedHostDays||0)+' / '+n(archiveCoverage.eligibleHostDays)+
       ' host-days · 保存前・欠落期間はCloudflareの推定値のまま。過去の実数は復元できません。</span></section>'
     : '';
+  const instagramOperationalNote='<section class="card low-sample"><strong>INSTAGRAM FUNNEL (OPERATIONAL)</strong><span>'+n(instagramOperational.instagramOperational)+' visits (IG raw '+n(instagramOperational.instagramRaw)+' + FB raw '+n(instagramOperational.facebookRaw)+'). FB→Instagramはユーザー指定の運用集計。生Refererは変更せず、Instagram利用者の証明ではありません。</span></section>';
   const sampledSections=Object.entries(c.sampling||{}).filter(([,value])=>Number(value||1)>1).map(([key,value])=>key+' ×'+n(value));
   const incompleteSections=Object.entries(c.completeness||{}).filter(([,complete])=>complete===false).map(([key])=>key);
   const integrity=c.integrity||{};
@@ -2227,7 +2231,7 @@ function render(data){
     : '';
   document.getElementById("content").innerHTML=
   '<div class="path">'+esc(HOST_MIGRATION.note)+'</div>'+
-  '<div class="grid analytics-grid">'+audit+availabilityNote+archiveQualityNote+dataQualityNote+lowSample+
+  '<div class="grid analytics-grid">'+audit+availabilityNote+instagramOperationalNote+archiveQualityNote+dataQualityNote+lowSample+
     '<section class="card host-scope"><div class="section-head"><div class="section-title">TOTAL + HOST BREAKDOWN</div><span>合計はhost別Visitsの足し算。ユニーク人数ではありません</span></div><div class="host-grid">'+
       '<div class="host-block"><span class="path">TOTAL · NEW + OLD</span><strong>'+n(c.visits)+' visits</strong><div class="delta">'+n(c.pageviews)+' page views · '+esc(c.quality||"UNSAMPLED")+(Number(c.sampleInterval||1)>1?' · sample ×'+n(c.sampleInterval):'')+'</div></div>'+
       '<div class="host-block"><span class="path">NEW · '+esc(data.host)+'</span><strong>'+n(nc.visits)+' visits</strong><div class="delta">'+n(nc.pageviews)+' page views · '+(c.visits?((nc.visits/c.visits)*100).toFixed(0):0)+'%</div></div>'+
