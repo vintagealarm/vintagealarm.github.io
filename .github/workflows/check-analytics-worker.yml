@@ -5,6 +5,8 @@ on:
     paths:
       - "cloudflare/analytics-dashboard/**"
       - "cloudflare/ai-relay/**"
+      - "scripts/agent-analytics-report.mjs"
+      - "scripts/check-agent-analytics-report.mjs"
       - ".github/workflows/check-analytics-worker.yml"
   pull_request:
     paths:
@@ -28,6 +30,8 @@ jobs:
           node --check cloudflare/analytics-dashboard/profile-worker.js
           node --check cloudflare/analytics-dashboard/entry-worker.js
           node --check cloudflare/ai-relay/functions/index.js
+      - name: Check autonomous agent snapshot and Instagram reporting contract
+        run: node scripts/check-agent-analytics-report.mjs
       - name: Check exact-only 30-day archive and SQLite behavior
         run: node cloudflare/analytics-dashboard/check-analytics-archive.mjs
       - name: Check generated dashboard JavaScript
