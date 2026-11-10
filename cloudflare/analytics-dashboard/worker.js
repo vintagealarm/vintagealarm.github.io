@@ -1930,7 +1930,7 @@ function flowVisual(items){
 }
 function snsEntryChart(data){
   if(!data)return '<div class="muted">SNS入口データを取得できませんでした。</div>';
-  const channels=["X","Instagram","Facebook","Other SNS"];
+  const channels=["X","Instagram","Other SNS"];
   const pages=[...data.pages].sort((a,b)=>Number(b.total||0)-Number(a.total||0));
   const max=Math.max(1,...pages.map(p=>p.total));
   const note=data.complete?'判別できたSNS入口 '+n(data.total)+'件':'取得上限に到達：表示分 '+n(data.total)+'件（全体比は算出保留）';
