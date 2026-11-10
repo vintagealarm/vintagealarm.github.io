@@ -5,6 +5,8 @@ on:
     # Four checks per day, UTC. User never has to issue a URL manually.
     - cron: "13 */6 * * *"
   workflow_dispatch:
+  issue_comment:
+    types: [created]
   push:
     branches: ["main"]
     paths:
@@ -22,6 +24,13 @@ concurrency:
 
 jobs:
   snapshot:
+    # Only the repo owner may request an on-demand fetch in the designated PR.
+    # No untrusted comment content is used as code, shell or GraphQL input.
+    if: >-
+      github.event_name != 'issue_comment' ||
+      (github.event.issue.number == 278 &&
+       github.event.comment.user.login == 'orima1995-create' &&
+       github.event.comment.body == '/va-analytics refresh')
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
