@@ -465,4 +465,79 @@ for (const fragment of requiredLayoutFragments) {
   }
 }
 
+
+// Browser-runtime regression: the generated inline script does NOT inherit
+// Worker module imports. Reproduce Safari's former ReferenceError by running
+// the actual render(data) function with only browser globals and UI helpers.
+assert.ok(!dashboardScript.includes('operationalInstagramBreakdown('),
+  'browser-inline script must not call the Worker-only operationalInstagramBreakdown import');
+const renderBegin=dashboardScript.indexOf('function render(data){');
+const renderEnd=dashboardScript.indexOf('const DISCOVERY_KEY=',renderBegin);
+assert.ok(renderBegin>=0&&renderEnd>renderBegin,'unable to locate generated browser render()');
+const domNodes=new Map();
+const uiState={mix:null,sns:null,acquisition:null};
+const renderSandbox=vm.createContext({
+  window:{}, windowKey:'7d',
+  document:{getElementById(id){
+    if(!domNodes.has(id))domNodes.set(id,{textContent:'',innerHTML:''});
+    return domNodes.get(id);
+  }},
+  HOST_MIGRATION:{note:'HOST MIGRATION (test)',oldHost:'old.test'},
+  COLORS:{pageviews:'#111',visits:'#222',newHost:'#333',legacyHost:'#444',X:'#555',YouTube:'#666',Search:'#777',Direct:'#888'},
+  n:v=>String(Number(v||0)),
+  esc:v=>String(v??''),
+  delta:()=>'<span>delta</span>',
+  getCampaigns:()=>[],hostTrendPoints:(current,legacy)=>[...current,...legacy],
+  eventIndex:()=>'',bucketComparison:()=>'',lineChart:(trend,series)=>{
+    if(series.some(x=>x.key==='instagramOperational'))uiState.acquisition={trend,series};
+    return '<svg></svg>';
+  },
+  trafficMix:channels=>{uiState.mix=channels;return '<div>mix</div>';},
+  entryBars:()=>'',snsEntryChart:data=>{uiState.sns=data;return '<div>sns</div>';},
+  flowVisual:()=>'',campaignPanel:()=>'',rows:()=>'',bindCampaignUi:()=>{},
+  channelColor:()=>"#555"
+});
+vm.runInContext(dashboardScript.slice(renderBegin,renderEnd),renderSandbox,{filename:'generated-dashboard-render.js'});
+for(const range of ['24h','7d','30d','all']){
+  const current={
+    visits:6,pageviews:6,quality:range==='30d'||range==='all'?'SAMPLED / ESTIMATE':'UNSAMPLED',
+    sampleInterval:range==='30d'||range==='all'?10:1,
+    pages:[{name:'Sound',path:'/en/how-they-ring/',mapped:true,visits:3,pageviews:3}],
+    channels:[
+      {name:'Instagram',visits:1,pageviews:1},
+      {name:'Facebook',visits:2,pageviews:2},
+      {name:'Direct / Unknown',visits:3,pageviews:3}
+    ],
+    flowSummary:[],flows:[],referrers:[],countries:[],devices:[],sampling:{},completeness:{},
+    integrity:{status:'PASS'},
+    snsEntries:{total:3,complete:true,pages:[{
+      name:'Sound',path:'/en/how-they-ring/',total:3,
+      values:{X:0,Instagram:1,Facebook:2,'Other SNS':0}
+    }]}
+  };
+  renderSandbox.__payload={
+    host:'vintagealarm.github.io',windowLabel:range,generatedAt:'2026-11-11T11:33:00Z',
+    current,previous:current,legacy:{host:'old.test',current:{...current,pages:[],channels:[]},previous:current},
+    combined:{current,previous:current,trend:[{
+      bucket:'2026-11-11T11:00:00Z',visits:6,pageviews:6,instagram:1,facebook:2
+    }]},
+    compareMode:range==='all'?'none':'previous-period'
+  };
+  assert.doesNotThrow(()=>vm.runInContext('render(__payload)',renderSandbox),
+    'actual generated browser render() must work for '+range+' without imported module globals');
+  const htmlOut=domNodes.get('content').innerHTML;
+  assert.ok(htmlOut.includes('TOTAL + HOST BREAKDOWN')&&htmlOut.includes('TRAFFIC MIX'),
+    range+' must display dashboard KPI and traffic panels');
+  assert.ok(htmlOut.includes('3 visits (IG raw 1 + FB raw 2)'),
+    range+' must display user-confirmed Instagram operational total');
+  assert.equal(uiState.mix.find(x=>x.name==='Instagram')?.visits,3,
+    range+' traffic mix must combine Instagram and Facebook');
+  assert.ok(!uiState.mix.some(x=>x.name==='Facebook'),
+    range+' traffic mix must not double-count Facebook');
+  assert.equal(uiState.acquisition.trend[0].instagramOperational,3,
+    range+' acquisition trend must combine IG and FB');
+  assert.equal(uiState.sns.pages[0].values.Instagram,3,
+    range+' SNS landing visual must combine IG and FB');
+}
+
 console.log(`Generated dashboard JavaScript OK (${scripts.length} inline script(s)).`);
