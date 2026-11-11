@@ -2546,3 +2546,13 @@
 - **検証状態**：専用PR上でsource / fixtures / CI、merge後に初回workflow実走、GitHub connectorによる最新ログの実取得とJSON解析、必要ならWorker deploy / security gate / Pages liveを段階別に確認する。成功runがない場合は`AUTO_REPORT_UNAVAILABLE`として未達を明示。追加のGitHub Actions reportの30D/ALLはDurable Object archiveを使えないためsampling推定であることを必ず明示。
 - **関連**：元ユーザー提供AI URL（本チャット2026-11-10共有の各24h/7d/30d/ALL）、Cloudflare doc https://developers.cloudflare.com/analytics/graphql-api/limits/ 、GitHub docs https://docs.github.com/en/actions/how-tos/monitor-workflows/use-workflow-run-logs 、実装コミット`496ad735`、`6182d78c`、`380d173e`、`28748699`、`85c1bc45`、`ae52025e`、`3efeac5b`、`03ac6318`、`0362b5e3`、`cdc95b99`、`ee54205c`、`0d7c2d19`、`bee29691`、`11d32d64`。
 - **日時根拠**：実行ホスト`2026-11-10T03:39:25.585Z → 2026-11-10 12:39:25 JST`。ユーザー提供のAI URL生成日時とは別。
+
+### 2026-11-11 20:45 JST — Repair Safari dashboard ReferenceError after Instagram operational attribution
+
+- **変更**：`cloudflare/analytics-dashboard/worker.js` 内のブラウザinline `render(data)`で、Worker module専用import `operationalInstagramBreakdown(c)` を直接呼んでいた箇所を、ブラウザで定義済みの`c.channels`だけからIG raw / FB raw / 運用合算を生成する局所演算に置換。生成HTMLをvmで取り出し、実際の`render(data)`関数をモックDOMで24h / 7d / 30d / ALL実行する回帰テストを既存`check-generated-html.mjs`へ追加。サーバ側`aiExportPeriod`のimportとFBのraw分類は維持。
+- **理由**：UがiPhone Safariの認証済みダッシュボードで`Can't find variable: operationalInstagramBreakdown`が表示され、管理画面全体の集計が描画できないスクリーンショットを提示（2026-11-11 15:33 JST時点）。`main`を再取得し、サーバmoduleへimportが存在する一方、ブラウザHTMLのscriptには関数定義がなく、`render()`が参照するscope外であると確認。前回PR #278で追加した表示実装に起因。既存の構文検査は未定義変数の実行時失敗を検出しないため、実render実行テストを追加。
+- **旧状態・棄却**：Safari設定やキャッシュ削除で回避させる、ページ表示を諦めてAI URLのみ利用する、Basic認証を解除する、FB→Instagram運用集計そのものを撤回する、正常なGraphQL計測値や時計記事を変更する対応を棄却。
+- **影響範囲**：`cloudflare/analytics-dashboard/worker.js`のブラウザ描画側IG演算、`cloudflare/analytics-dashboard/check-generated-html.mjs`、本履歴だけ。SNS raw、GraphQL/API、AI COPY/AI URL、Pages、時計本文は意図的変更なし。
+- **検証状態**：修復branchで実描画回帰テストをCIでPASS後、PRをmainへmerge、Cloudflare Worker本番deploy、APIの認証境界と到達性を検証。Safari実機の認証済み描画は機密パスワードを持たないため未確認と明記し、デプロイ成功を実機検証済みと混同しない。
+- **関連**：直近のInstagram表示改修PR #278、`main` SHA `b4a79fbdc5115430038386fa1dd425b6a9549de8`、修正commit `7e2a918b`、回帰テストcommit `3e00ca20`、ユーザー提供Safariスクリーンショットのエラー全文。
+- **日時根拠**：実行ホスト `2026-11-11T11:45:51.187Z → 2026-11-11 20:45 JST`。ユーザー提示画面の時刻 `15:32` と本作業時刻を区別する。
