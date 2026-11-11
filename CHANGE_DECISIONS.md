@@ -2554,5 +2554,5 @@
 - **旧状態・棄却**：Safari設定やキャッシュ削除で回避させる、ページ表示を諦めてAI URLのみ利用する、Basic認証を解除する、FB→Instagram運用集計そのものを撤回する、正常なGraphQL計測値や時計記事を変更する対応を棄却。
 - **影響範囲**：`cloudflare/analytics-dashboard/worker.js`のブラウザ描画側IG演算、`cloudflare/analytics-dashboard/check-generated-html.mjs`、本履歴だけ。SNS raw、GraphQL/API、AI COPY/AI URL、Pages、時計本文は意図的変更なし。
 - **検証状態**：修復branchで実描画回帰テストをCIでPASS後、PRをmainへmerge、Cloudflare Worker本番deploy、APIの認証境界と到達性を検証。Safari実機の認証済み描画は機密パスワードを持たないため未確認と明記し、デプロイ成功を実機検証済みと混同しない。
-- **関連**：直近のInstagram表示改修PR #278、`main` SHA `b4a79fbdc5115430038386fa1dd425b6a9549de8`、修正commit `7e2a918b`、回帰テストcommit `3e00ca20`、ユーザー提供Safariスクリーンショットのエラー全文。
+- **関連**：直近のInstagram表示改修PR #278、`main` SHA `b4a79fbdc5115430038386fa1dd425b6a9549de8`、修正commit `7e2a918b`、回帰テストcommit `3e00ca20`、ブラウザテスト補完commit `1f20333a`、ユーザー提供Safariスクリーンショットのエラー全文。
 - **日時根拠**：実行ホスト `2026-11-11T11:45:51.187Z → 2026-11-11 20:45 JST`。ユーザー提示画面の時刻 `15:32` と本作業時刻を区別する。
