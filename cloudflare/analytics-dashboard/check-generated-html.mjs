@@ -487,7 +487,7 @@ const renderSandbox=vm.createContext({
   n:v=>String(Number(v||0)),
   esc:v=>String(v??''),
   delta:()=>'<span>delta</span>',
-  getCampaigns:()=>[],
+  getCampaigns:()=>[],hostTrendPoints:(current,legacy)=>[...current,...legacy],
   eventIndex:()=>'',bucketComparison:()=>'',lineChart:(trend,series)=>{
     if(series.some(x=>x.key==='instagramOperational'))uiState.acquisition={trend,series};
     return '<svg></svg>';
