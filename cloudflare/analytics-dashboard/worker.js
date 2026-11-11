@@ -2202,7 +2202,15 @@ function render(data){
   ).join("");
   const lowSample=c.visits<30?'<section class="card low-sample"><strong>LOW SAMPLE</strong><span>'+n(c.visits)+' visits · まだ傾向断定は保留</span></section>':'';
   const archiveCoverage=c.archiveCoverage||{};
-  const instagramOperational=operationalInstagramBreakdown(c);
+  // This script runs inside the browser, not the Worker module scope.
+  // Keep its operational IG + FB calculation self-contained.
+  const instagramRawVisits=c.channels.filter(x=>x.name==="Instagram").reduce((sum,x)=>sum+Number(x.visits||0),0);
+  const facebookRawVisits=c.channels.filter(x=>x.name==="Facebook").reduce((sum,x)=>sum+Number(x.visits||0),0);
+  const instagramOperational={
+    instagramRaw:instagramRawVisits,
+    facebookRaw:facebookRawVisits,
+    instagramOperational:instagramRawVisits+facebookRawVisits
+  };
   const rawFbChannel=c.channels.find(x=>x.name==="Facebook")||{visits:0,pageviews:0};
   const reportingChannels=c.channels.filter(x=>x.name!=="Facebook").map(x=>x.name==="Instagram"
     ?{...x,visits:Number(x.visits||0)+Number(rawFbChannel.visits||0),pageviews:Number(x.pageviews||0)+Number(rawFbChannel.pageviews||0)}
