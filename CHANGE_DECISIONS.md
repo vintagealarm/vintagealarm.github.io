@@ -2556,3 +2556,13 @@
 - **検証状態**：修復branchで実描画回帰テストをCIでPASS後、PRをmainへmerge、Cloudflare Worker本番deploy、APIの認証境界と到達性を検証。Safari実機の認証済み描画は機密パスワードを持たないため未確認と明記し、デプロイ成功を実機検証済みと混同しない。
 - **関連**：直近のInstagram表示改修PR #278、`main` SHA `b4a79fbdc5115430038386fa1dd425b6a9549de8`、修正commit `7e2a918b`、回帰テストcommit `3e00ca20`、ブラウザテスト補完commit `1f20333a`、ユーザー提供Safariスクリーンショットのエラー全文。
 - **日時根拠**：実行ホスト `2026-11-11T11:45:51.187Z → 2026-11-11 20:45 JST`。ユーザー提示画面の時刻 `15:32` と本作業時刻を区別する。
+
+### 2026-11-18 21:37 JST — Pilot nihongo comparison through Draft PR review
+
+- **変更**：日本語執筆ガイドにnihongo比較のDraft PR試験手順を追加。A=VA現行、B=VA+nihongo Full、C=VA+少数抽出原則。公開本文は変更しない。
+- **理由**：nihongoの効果を未検証のまま採用せず、事実・著者の声・読解性・不要修正を分けて実記事で評価するため。
+- **旧状態・棄却**：nihongo Liteの常時自動適用、全面置換、検証前の本採用、OWNER'S NOTE原文の自動書換えを採用しない。
+- **影響範囲**：`strategy/japanese-writing.md` と本履歴のみ。WATCH/HISTORY/OWNER'S NOTE、公開UI、lint、CI、デプロイは変更なし。
+- **検証状態**：試験制度のDraft PR提出のみ。A/B/C実記事比較はNOT_TESTED。採用・merge・公開は未実施。
+- **関連**：https://github.com/AnIT012/nihongo 、`SITE_RULES.md`、`scripts/check-japanese-style.mjs`。
+- **日時根拠**：実行ホスト `2026-11-18T12:37:25.541Z` → `2026-11-18 21:37:25 JST`。
